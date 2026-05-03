@@ -63,6 +63,7 @@ export type LocaleMessages = {
 		blog: string;
 		about: string;
 		rss: string;
+		githubLabel: string;
 		languageSwitcherLabel: string;
 	};
 	footer: {
@@ -111,6 +112,7 @@ const messages: Record<Locale, LocaleMessages> = {
 			blog: '文章',
 			about: '关于',
 			rss: 'RSS',
+			githubLabel: '在 GitHub 上查看 learn-agent',
 			languageSwitcherLabel: '切换语言',
 		},
 		footer: {
@@ -222,6 +224,7 @@ const messages: Record<Locale, LocaleMessages> = {
 			blog: 'Chinese Notes',
 			about: 'About',
 			rss: 'RSS',
+			githubLabel: 'View learn-agent on GitHub',
 			languageSwitcherLabel: 'Switch language',
 		},
 		footer: {
@@ -333,6 +336,7 @@ const messages: Record<Locale, LocaleMessages> = {
 			blog: '中国語アーカイブ',
 			about: '紹介',
 			rss: 'RSS',
+			githubLabel: 'GitHub で learn-agent を見る',
 			languageSwitcherLabel: '言語切替',
 		},
 		footer: {

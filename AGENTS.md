@@ -4,17 +4,18 @@
 This repository is an Astro-based content site. Application code lives in `src/`: pages in `src/pages/`, shared layouts in `src/layouts/`, UI components in `src/components/`, styles in `src/styles/`, and site constants in `src/consts.ts`. Blog content is stored in `src/content/blog/` and validated through `src/content.config.ts`. Static assets that should be served directly belong in `public/`; bundled images and fonts belong in `src/assets/`. Planning and design notes live in `docs/`.
 
 ## Build, Test, and Development Commands
-- `npm install` — install dependencies; use Node.js `>=22.12.0` as defined in `package.json`.
-- `npm run dev` — start the local Astro dev server at `http://localhost:4321`.
-- `npm run build` — generate the production site into `dist/`.
-- `npm run preview` — serve the built output locally for a final check.
-- `npm run astro -- check` — run Astro’s project checks when validating routes, content, and types.
+- This project uses `pnpm` as the default package manager. Prefer `pnpm` commands and keep `pnpm-lock.yaml` authoritative; do not update `package-lock.json` for normal dependency changes.
+- `pnpm install` — install dependencies; use Node.js `>=22.12.0` as defined in `package.json`.
+- `pnpm dev` — start the local Astro dev server at `http://localhost:4321`.
+- `pnpm build` — generate the production site into `dist/`.
+- `pnpm preview` — serve the built output locally for a final check.
+- `pnpm astro check` — run Astro’s project checks when validating routes, content, and types.
 
 ## Coding Style & Naming Conventions
 Follow the existing style: TypeScript, Astro, and CSS use tabs for indentation. Name Astro components in PascalCase, for example `BaseHead.astro`; React components also use PascalCase and live in focused folders such as `src/components/home/HomePage.tsx`. Keep constants in uppercase snake case when exported globally, such as `SITE_TITLE`. Use kebab-case for content filenames like `welcome.md`. Prefer small, composable components and keep copy or content-specific data close to the page or component that uses it.
 
 ## Testing Guidelines
-There is no dedicated test suite yet. Before opening a PR, run `npm run build` and `npm run astro -- check` to catch content schema, routing, and type issues. When adding tests in the future, place them near the feature they cover or under a clear `tests/` directory, and use names that mirror the target module.
+There is no dedicated test suite yet. Before opening a PR, run `pnpm build` and `pnpm astro check` to catch content schema, routing, and type issues. When adding tests in the future, place them near the feature they cover or under a clear `tests/` directory, and use names that mirror the target module.
 
 ## Commit & Pull Request Guidelines
 The current history starts with a simple `Initial commit`, so keep commit messages short, imperative, and descriptive, such as `Add blog index pagination` or `Refine home page hero copy`. PRs should include: a brief summary, the reason for the change, impacted paths, and screenshots for visible UI updates. Link related issues or planning docs in `docs/` when relevant.

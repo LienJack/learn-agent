@@ -5,10 +5,13 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 import rehypeMermaid from 'rehype-mermaid';
+import rehypeArticleMedia, {
+	createMermaidErrorFallback,
+} from './src/content/blog/plugins/rehype-article-media.ts';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://blog.lienjack.com',
 	i18n: {
 		defaultLocale: 'zh',
 		locales: ['zh', 'en', 'ja'],
@@ -22,7 +25,16 @@ export default defineConfig({
 			type: 'shiki',
 			excludeLangs: ['mermaid', 'math'],
 		},
-		rehypePlugins: [[rehypeMermaid, { strategy: 'pre-mermaid' }]],
+		rehypePlugins: [
+			[
+				rehypeMermaid,
+				{
+					strategy: 'inline-svg',
+					errorFallback: createMermaidErrorFallback,
+				},
+			],
+			rehypeArticleMedia,
+		],
 	},
 	fonts: [
 		{

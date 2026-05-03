@@ -23,6 +23,9 @@ importers:
       astro:
         specifier: ^6.2.1
         version: 6.2.1(@types/node@24.12.2)(rollup@4.60.2)(typescript@5.9.3)(yaml@2.8.4)
+      mermaid:
+        specifier: ^11.14.0
+        version: 11.14.0
       playwright:
         specifier: ^1.59.1
         version: 1.59.1

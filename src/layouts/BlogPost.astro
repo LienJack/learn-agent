@@ -45,6 +45,14 @@ const {
 	backHref = '/blog',
 } = Astro.props;
 const messages = getMessages(locale);
+const mediaViewer = {
+	openLabel:
+		locale === 'zh' ? '查看大图' : locale === 'ja' ? '画像を拡大' : 'Open full image',
+	closeLabel:
+		locale === 'zh' ? '关闭大图查看' : locale === 'ja' ? '拡大表示を閉じる' : 'Close full image',
+	title:
+		locale === 'zh' ? '正文图片查看层' : locale === 'ja' ? '本文画像ビューアー' : 'Article media viewer',
+};
 
 const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 	if (heading.depth === 2) {
@@ -250,14 +258,32 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 				</script>
 			)
 		}
-		<script type="module">
-			import mermaid from 'mermaid';
-
-			mermaid.initialize({
-				startOnLoad: true,
-				securityLevel: 'loose',
-				theme: 'default',
-			});
+		<div
+			class="article-media-viewer"
+			data-article-media-viewer
+			data-open-label={mediaViewer.openLabel}
+			aria-hidden="true"
+		>
+			<div
+				class="article-media-viewer-panel"
+				data-article-media-panel
+				role="dialog"
+				aria-modal="true"
+				aria-label={mediaViewer.title}
+			>
+				<button
+					class="article-media-viewer-close"
+					type="button"
+					data-article-media-close
+					aria-label={mediaViewer.closeLabel}
+				>
+					<span aria-hidden="true">×</span>
+				</button>
+				<div class="article-media-viewer-viewport" data-article-media-viewport></div>
+			</div>
+		</div>
+		<script>
+			import '../scripts/blog-image-viewer.ts';
 		</script>
 	</body>
 </html>
