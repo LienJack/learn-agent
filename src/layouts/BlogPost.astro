@@ -250,5 +250,14 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 				</script>
 			)
 		}
+		<script type="module">
+			import mermaid from 'mermaid';
+
+			mermaid.initialize({
+				startOnLoad: true,
+				securityLevel: 'loose',
+				theme: 'default',
+			});
+		</script>
 	</body>
 </html>

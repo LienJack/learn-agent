@@ -1725,6 +1725,18 @@ input {
 	box-shadow: var(--shadow-sm);
 }
 
+.article-prose pre.mermaid {
+	display: block;
+	width: 100%;
+	margin: var(--space-6) 0;
+	padding: var(--space-4);
+	border: 1px solid var(--color-panel-border);
+	border-radius: var(--radius-md);
+	background: rgba(255, 253, 250, 0.86);
+	box-shadow: var(--shadow-sm);
+	overflow-x: auto;
+}
+
 @media (max-width: 900px) {
 	.home-hero {
 		grid-template-columns: 1fr;
