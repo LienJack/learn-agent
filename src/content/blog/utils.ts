@@ -14,6 +14,12 @@ export function getPostLocale(post: BlogEntry): Locale {
 }
 
 export function getPostSlug(post: BlogEntry): string {
+	const filePathSegments = getPostFilePathSegments(post);
+	const [, ...filePathSlugSegments] = filePathSegments;
+	if (filePathSlugSegments.length > 0) {
+		return filePathSlugSegments.join('/');
+	}
+
 	const segments = post.id.split('/');
 	const [, ...slugSegments] = segments;
 
