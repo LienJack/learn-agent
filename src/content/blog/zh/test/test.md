@@ -7,10 +7,4 @@ locale: 'zh'
 
 下面是一段 Mermaid 流程图测试：
 
-```mermaid
-flowchart TD
-	Start[开始阅读] --> Parse[解析 Markdown]
-	Parse --> Mermaid[识别 mermaid 代码块]
-	Mermaid --> Render[渲染为 SVG]
-	Render --> Page[输出到页面]
-```
+![test 图 1](./assets/test-mermaid-01.svg)

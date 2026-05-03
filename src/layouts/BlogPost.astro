@@ -50,6 +50,8 @@ const mediaViewer = {
 		locale === 'zh' ? '查看大图' : locale === 'ja' ? '画像を拡大' : 'Open full image',
 	closeLabel:
 		locale === 'zh' ? '关闭大图查看' : locale === 'ja' ? '拡大表示を閉じる' : 'Close full image',
+	zoomInLabel: locale === 'zh' ? '放大图片' : locale === 'ja' ? '拡大する' : 'Zoom in',
+	zoomOutLabel: locale === 'zh' ? '缩小图片' : locale === 'ja' ? '縮小する' : 'Zoom out',
 	title:
 		locale === 'zh' ? '正文图片查看层' : locale === 'ja' ? '本文画像ビューアー' : 'Article media viewer',
 };
@@ -262,6 +264,8 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 			class="article-media-viewer"
 			data-article-media-viewer
 			data-open-label={mediaViewer.openLabel}
+			data-zoom-in-label={mediaViewer.zoomInLabel}
+			data-zoom-out-label={mediaViewer.zoomOutLabel}
 			aria-hidden="true"
 		>
 			<div
@@ -279,6 +283,24 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 				>
 					<span aria-hidden="true">×</span>
 				</button>
+				<div class="article-media-viewer-toolbar" aria-label={mediaViewer.title}>
+					<button
+						class="article-media-viewer-zoom article-media-viewer-control"
+						type="button"
+						data-article-media-zoom-out
+						aria-label={mediaViewer.zoomOutLabel}
+					>
+						<span aria-hidden="true">−</span>
+					</button>
+					<button
+						class="article-media-viewer-zoom article-media-viewer-control"
+						type="button"
+						data-article-media-zoom-in
+						aria-label={mediaViewer.zoomInLabel}
+					>
+						<span aria-hidden="true">+</span>
+					</button>
+				</div>
 				<div class="article-media-viewer-viewport" data-article-media-viewport></div>
 			</div>
 		</div>
