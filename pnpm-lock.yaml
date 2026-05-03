@@ -41,6 +41,9 @@ importers:
       sharp:
         specifier: ^0.34.3
         version: 0.34.5
+      unist-util-visit-parents:
+        specifier: ^6.0.2
+        version: 6.0.2
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.9
