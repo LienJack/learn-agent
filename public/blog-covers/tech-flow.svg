@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">技术链路图</title>
+	<desc id="desc">前端、后端和数据库以虚线连接，虚线循环移动表示数据流动。</desc>
+	<style>
+		.flow-line {
+			animation: dash-flow 1.25s linear infinite;
+			stroke-dasharray: 13 15;
+		}
+
+		.backend-pulse {
+			animation: server-pulse 2s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		.database-lines {
+			animation: database-rise 2.2s ease-in-out infinite;
+		}
+
+		@keyframes dash-flow {
+			to {
+				stroke-dashoffset: -56;
+			}
+		}
+
+		@keyframes server-pulse {
+			0%,
+			100% {
+				opacity: 0.82;
+			}
+
+			50% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes database-rise {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-4px);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.flow-line,
+			.backend-pulse,
+			.database-lines {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-14%" y="-14%" width="128%" height="128%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.023" numOctaves="2" seed="63" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.75" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#26313a" flood-opacity="0.12" />
+		</filter>
+		<linearGradient id="coverBg" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f3f0eb" />
+		</linearGradient>
+		<linearGradient id="windowTop" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#46a4f0" />
+			<stop offset="100%" stop-color="#2878c8" />
+		</linearGradient>
+		<pattern id="paperLines" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+			<path d="M0 0h34" fill="none" stroke="#e8dac2" stroke-width="3" opacity="0.2" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#coverBg)" />
+	<rect width="900" height="520" fill="url(#paperLines)" opacity="0.48" />
+	<ellipse cx="450" cy="365" rx="340" ry="26" fill="#221915" opacity="0.07" />
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)">
+			<path class="flow-line" d="M279 228h110" fill="none" stroke="#4d5f6c" stroke-width="7" stroke-linecap="round" />
+			<path d="M382 207l28 21-28 21" fill="none" stroke="#4d5f6c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+			<path class="flow-line" d="M513 228h110" fill="none" stroke="#4d5f6c" stroke-width="7" stroke-linecap="round" />
+			<path d="M616 207l28 21-28 21" fill="none" stroke="#4d5f6c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+
+			<g>
+				<rect x="72" y="120" width="190" height="156" rx="15" fill="#fffdf8" stroke="#30445f" stroke-width="7" />
+				<path d="M72 156h190v-21c0-9-7-15-15-15H87c-8 0-15 6-15 15z" fill="url(#windowTop)" stroke="#30445f" stroke-width="7" />
+				<circle cx="101" cy="138" r="7" fill="#fffdf8" />
+				<circle cx="121" cy="138" r="7" fill="#fffdf8" />
+				<circle cx="141" cy="138" r="7" fill="#fffdf8" />
+				<rect x="104" y="185" width="128" height="39" rx="4" fill="#30445f" />
+				<path d="M104 246h128M104 264h78" fill="none" stroke="#bac8d3" stroke-width="7" stroke-linecap="round" />
+			</g>
+
+			<g class="backend-pulse">
+				<rect x="395" y="104" width="120" height="190" rx="14" fill="#5c6e7c" />
+				<rect x="420" y="132" width="70" height="34" rx="5" fill="#dfe6eb" />
+				<circle cx="490" cy="149" r="7" fill="#4e6070" />
+				<rect x="420" y="181" width="70" height="34" rx="5" fill="#dfe6eb" />
+				<circle cx="490" cy="198" r="7" fill="#4e6070" />
+				<rect x="420" y="230" width="70" height="34" rx="5" fill="#dfe6eb" />
+				<circle cx="490" cy="247" r="7" fill="#4e6070" />
+				<path d="M455 285v25" fill="none" stroke="#dfe6eb" stroke-width="7" stroke-linecap="round" />
+				<circle cx="455" cy="282" r="9" fill="#dfe6eb" />
+			</g>
+
+			<g>
+				<ellipse cx="724" cy="127" rx="76" ry="28" fill="#dfe6eb" stroke="#4d5f6c" stroke-width="6" />
+				<path d="M648 127v128c0 16 34 29 76 29s76-13 76-29V127" fill="#dfe6eb" stroke="#4d5f6c" stroke-width="6" stroke-linejoin="round" />
+				<g class="database-lines">
+					<path d="M648 169c0 16 34 29 76 29s76-13 76-29M648 211c0 16 34 29 76 29s76-13 76-29" fill="none" stroke="#4d5f6c" stroke-width="6" />
+				</g>
+				<circle cx="785" cy="247" r="40" fill="#ff8a25" />
+				<path d="M766 229h38M766 247h38M766 265h38" fill="none" stroke="#fffdf8" stroke-width="9" stroke-linecap="round" />
+			</g>
+		</g>
+
+		<text x="166" y="360" text-anchor="middle" font-family="Inter, Avenir, Helvetica, Arial, sans-serif" font-size="42" font-weight="850" fill="#223241">FRONTEND</text>
+		<text x="456" y="360" text-anchor="middle" font-family="Inter, Avenir, Helvetica, Arial, sans-serif" font-size="42" font-weight="850" fill="#223241">BACKEND</text>
+		<text x="724" y="360" text-anchor="middle" font-family="Inter, Avenir, Helvetica, Arial, sans-serif" font-size="42" font-weight="850" fill="#223241">DATABASE</text>
+	</g>
+</svg>

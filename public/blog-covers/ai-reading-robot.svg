@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">读书机器人</title>
+	<desc id="desc">一只橙色手绘机器人从打开的书后探出头，眼睛左右巡视。</desc>
+	<style>
+		.robot-eye {
+			animation: robot-look 3.6s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		.robot-eye-right {
+			animation-delay: 0.08s;
+		}
+
+		@keyframes robot-look {
+			0%,
+			18% {
+				transform: translateX(-8px);
+			}
+
+			46%,
+			62% {
+				transform: translateX(8px);
+			}
+
+			88%,
+			100% {
+				transform: translateX(-8px);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.robot-eye {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-12%" y="-12%" width="124%" height="124%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="8" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" />
+		</filter>
+		<filter id="paperShadow" x="-18%" y="-18%" width="136%" height="136%">
+			<feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#1a1510" flood-opacity="0.12" />
+		</filter>
+		<linearGradient id="orangeBody" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ff7c18" />
+			<stop offset="60%" stop-color="#ff5a00" />
+			<stop offset="100%" stop-color="#ef4300" />
+		</linearGradient>
+	</defs>
+
+	<g transform="translate(450 260) scale(0.84) translate(-450 -260)">
+	<g filter="url(#roughInk)">
+		<path d="M200 345c-20-42 12-88 64-94 45-6 85 20 94 57" fill="#ff6407" stroke="#181818" stroke-width="8" stroke-linecap="round" />
+		<path d="M214 340c17-30 57-53 101-50" fill="none" stroke="#fff3df" stroke-width="7" stroke-linecap="round" opacity="0.75" />
+		<path d="M699 340c15-45 59-75 111-67 48 7 76 47 63 90" fill="#ff6407" stroke="#181818" stroke-width="8" stroke-linecap="round" />
+		<path d="M720 332c38-31 83-37 122-14" fill="none" stroke="#fff3df" stroke-width="7" stroke-linecap="round" opacity="0.75" />
+
+		<path d="M414 201h69v99h-69z" fill="#151515" />
+		<path d="M432 172c0-28 38-31 40-1v58h-40z" fill="#111" />
+		<path d="M451 68c12 0 25 12 22 27-2 15-20 24-23 41-3-18-22-24-24-40-2-17 11-28 25-28z" fill="#111" />
+		<path d="M450 96v76" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" />
+
+		<path d="M347 75l128-1c20 0 31 13 31 34l-6 123c-1 21-13 35-34 37l-112 10c-24 2-38-10-40-33l-9-126c-2-28 14-44 42-44z" fill="url(#orangeBody)" stroke="#171717" stroke-width="8" stroke-linejoin="round" />
+		<path d="M331 92c31-9 93-11 147-2" fill="none" stroke="#fff0da" stroke-width="7" stroke-linecap="round" />
+		<path d="M324 116c-4 15-4 42 1 76" fill="none" stroke="#fff7ec" stroke-width="5" stroke-linecap="round" opacity="0.9" />
+		<path d="M489 102c4 27 4 80-2 122" fill="none" stroke="#cf3200" stroke-width="5" stroke-linecap="round" opacity="0.55" />
+
+		<circle cx="361" cy="176" r="38" fill="#fffdf3" stroke="#171717" stroke-width="7" />
+		<circle cx="455" cy="174" r="39" fill="#fffdf3" stroke="#171717" stroke-width="7" />
+		<circle class="robot-eye robot-eye-left" cx="371" cy="184" r="5.5" fill="#111" />
+		<circle class="robot-eye robot-eye-right" cx="465" cy="182" r="5.5" fill="#111" />
+		<path d="M386 224c28 16 63 10 84-12" fill="none" stroke="#171717" stroke-width="7" stroke-linecap="round" />
+		<path d="M405 206v-12m20 12v-13" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round" />
+	</g>
+
+	<g filter="url(#paperShadow)">
+		<path d="M136 332c103 6 201 27 292 68l-4 66c-98-46-207-71-322-79z" fill="#fffaf0" stroke="#171717" stroke-width="8" stroke-linejoin="round" />
+		<path d="M430 401c93-47 205-75 343-74l45 58c-132 7-263 31-391 82z" fill="#fffaf0" stroke="#171717" stroke-width="8" stroke-linejoin="round" />
+		<path d="M104 386c108 13 217 36 320 80l-67 42c-85-35-167-58-246-69z" fill="#151515" stroke="#151515" stroke-width="5" />
+		<path d="M428 466c118-52 248-78 390-81l-55 55c-118 5-229 25-334 68z" fill="#151515" stroke="#151515" stroke-width="5" />
+		<path d="M424 400l4 106" fill="none" stroke="#ff6505" stroke-width="5" stroke-linecap="round" />
+		<path d="M152 339c64 6 151 26 255 59" fill="none" stroke="#ded6c9" stroke-width="5" stroke-linecap="round" />
+		<path d="M475 401c83-35 170-54 260-57" fill="none" stroke="#ded6c9" stroke-width="5" stroke-linecap="round" />
+		<path d="M199 424c18 9 37 26 52 48m-6-52c17 16 28 33 34 51m-1-40c16 13 28 28 35 46" fill="none" stroke="#ff6505" stroke-width="5" stroke-linecap="round" />
+	</g>
+
+	<g filter="url(#roughInk)" fill="none" stroke="#171717" stroke-linecap="round">
+		<path d="M256 247c-11-20-24-35-40-46" stroke-width="6" />
+		<path d="M299 239c-7-24-10-47-7-69" stroke-width="6" />
+		<path d="M340 237c8-17 18-29 31-38" stroke-width="5" />
+		<path d="M557 229c29-30 63-30 103 0" stroke-width="6" />
+		<path d="M602 211c43-3 76 11 99 42" stroke-width="6" />
+		<path d="M658 232c31-10 60-9 88 3" stroke-width="6" />
+		<path d="M532 291h7m21 0h7m21 0h7m21 0h7" stroke-width="6" />
+		<circle cx="368" cy="304" r="24" fill="#fffdf3" stroke-width="7" />
+	</g>
+	</g>
+</svg>

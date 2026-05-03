@@ -1,0 +1,6 @@
+{
+	"alias": "检索增强",
+	"description": "聚焦检索增强生成的结构、边界和在真实工作流里的用法。",
+	"cover": "/blog-covers/rag-search.svg",
+	"order": 2
+}

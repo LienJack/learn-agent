@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">PostgreSQL 大象</title>
+	<desc id="desc">PostgreSQL 字样上方有一只蓝色大象，鼻子轻轻摆动。</desc>
+	<style>
+		.elephant-trunk {
+			animation: trunk-swing 1.8s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 450px 213px;
+		}
+
+		.ear-left {
+			animation: ear-left 2.4s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 340px 162px;
+		}
+
+		.ear-right {
+			animation: ear-right 2.4s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 558px 162px;
+		}
+
+		@keyframes trunk-swing {
+			0%,
+			100% {
+				transform: rotate(-5deg);
+			}
+
+			50% {
+				transform: rotate(8deg);
+			}
+		}
+
+		@keyframes ear-left {
+			0%,
+			100% {
+				transform: rotate(0);
+			}
+
+			50% {
+				transform: rotate(-2.5deg);
+			}
+		}
+
+		@keyframes ear-right {
+			0%,
+			100% {
+				transform: rotate(0);
+			}
+
+			50% {
+				transform: rotate(2.5deg);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.elephant-trunk,
+			.ear-left,
+			.ear-right {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-14%" y="-14%" width="128%" height="128%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.023" numOctaves="2" seed="43" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#26313a" flood-opacity="0.12" />
+		</filter>
+		<linearGradient id="coverBg" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f3f0eb" />
+		</linearGradient>
+		<linearGradient id="elephantBlue" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#3f7fae" />
+			<stop offset="100%" stop-color="#2d5f8c" />
+		</linearGradient>
+		<pattern id="paperLines" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+			<path d="M0 0h34" fill="none" stroke="#e8dac2" stroke-width="3" opacity="0.2" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#coverBg)" />
+	<rect width="900" height="520" fill="url(#paperLines)" opacity="0.5" />
+	<ellipse cx="450" cy="398" rx="206" ry="24" fill="#221915" opacity="0.08" />
+
+	<g filter="url(#softShadow)">
+		<g transform="translate(450 202) scale(0.74) translate(-450 -213)">
+			<g filter="url(#roughInk)">
+			<path class="ear-left" d="M357 91c-64-6-107 25-124 93-12 48-6 94 18 139 14 26 37 32 67 18 30-14 52-46 66-96 14-53 18-104-27-154z" fill="url(#elephantBlue)" stroke="#101820" stroke-width="10" stroke-linejoin="round" />
+			<path class="ear-right" d="M543 91c64-6 107 25 124 93 12 48 6 94-18 139-14 26-37 32-67 18-30-14-52-46-66-96-14-53-18-104 27-154z" fill="url(#elephantBlue)" stroke="#101820" stroke-width="10" stroke-linejoin="round" />
+			<path d="M363 92c16-30 52-43 87-43s71 13 87 43c29 53 20 129-4 185-17 40-41 58-83 58s-66-18-83-58c-24-56-33-132-4-185z" fill="url(#elephantBlue)" stroke="#101820" stroke-width="10" stroke-linejoin="round" />
+			<path d="M370 110c27-42 133-43 161 0" fill="none" stroke="#fffdf8" stroke-width="9" stroke-linecap="round" opacity="0.88" />
+			<path d="M372 154c-26 42-23 87 8 135" fill="none" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+			<path d="M528 154c26 42 23 87-8 135" fill="none" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+			<circle cx="407" cy="150" r="8" fill="#fffdf8" />
+			<circle cx="493" cy="150" r="8" fill="#fffdf8" />
+			<path d="M390 301c-20 29-47 45-82 46 3 23 25 34 57 29 35-5 62-22 82-52" fill="#fffdf8" stroke="#101820" stroke-width="9" stroke-linejoin="round" />
+			<path d="M510 301c20 29 47 45 82 46-3 23-25 34-57 29-35-5-62-22-82-52" fill="#fffdf8" stroke="#101820" stroke-width="9" stroke-linejoin="round" />
+			<g class="elephant-trunk">
+				<path d="M421 178c19-16 39-16 58 0 15 65 14 125-4 181-11 34-41 42-59 18-12-16-9-39 8-52 13-10 28-12 46-7" fill="url(#elephantBlue)" stroke="#101820" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+				<path d="M448 205c13 42 12 87-2 136" fill="none" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" opacity="0.8" />
+			</g>
+			</g>
+		</g>
+
+		<text x="450" y="424" text-anchor="middle" font-family="Inter, Avenir, Helvetica, Arial, sans-serif" font-size="78" font-weight="300" letter-spacing="-5" fill="#111111">
+			<tspan>Postgre</tspan><tspan fill="#2d5f8c">SQL</tspan>
+		</text>
+	</g>
+</svg>

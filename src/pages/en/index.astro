@@ -23,11 +23,11 @@ const messages = getMessages(locale);
 		<Header />
 		<main class="page-shell-wide">
 			<HomePage
-				client:load
 				siteTitle={messages.site.title}
 				copy={messages.home}
 				blogHref="/blog"
 				aboutHref={localizePath(locale, '/about')}
+				recommendedHref="/blog/AI/3.ClaudeCode%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90"
 			/>
 		</main>
 		<Footer />

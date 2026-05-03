@@ -1,0 +1,6 @@
+{
+	"alias": "MySQL",
+	"description": "围绕 MySQL 的原理、调优和使用经验做专题沉淀。",
+	"cover": "/blog-covers/mysql-dolphin.svg",
+	"order": 1
+}

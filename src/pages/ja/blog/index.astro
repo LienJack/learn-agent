@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import BlogIndexPage from '../../../components/blog/BlogIndexPage.astro';
+import { getLocalizedPosts, sortPostsReverseChronologically } from '../../../content/blog/utils';
+
+const locale = 'ja';
+const posts = sortPostsReverseChronologically(await getCollection('blog'));
+---
+
+<BlogIndexPage locale={locale} posts={getLocalizedPosts(posts, locale)} />

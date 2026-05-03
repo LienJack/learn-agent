@@ -20,6 +20,10 @@ export type HomeCopy = {
 	panelEyebrow: string;
 	panelTitle: string;
 	panelBody: string;
+	featuredEyebrow: string;
+	featuredTitle: string;
+	featuredBody: string;
+	featuredCta: string;
 	cards: [HomeCardCopy, HomeCardCopy];
 	threadsEyebrow: string;
 	threadsTitle: string;
@@ -72,9 +76,15 @@ export type LocaleMessages = {
 		eyebrow: string;
 		title: string;
 		lead: string;
+		browseByLanguage: string;
 	};
 	article: {
 		updatedAt: string;
+		backToBlog: string;
+		prevPost: string;
+		nextPost: string;
+		onThisPage: string;
+		readingProgress: string;
 	};
 	home: HomeCopy;
 	about: AboutCopy;
@@ -114,9 +124,15 @@ const messages: Record<Locale, LocaleMessages> = {
 			eyebrow: 'Archive',
 			title: '文章',
 			lead: '这里收纳关于 AI 学习、Agent 实践与工作流方法论的中文记录。内容以可回看、可复用为先，不急着把每件事都写成结论。',
+			browseByLanguage: '按语言查看文章',
 		},
 		article: {
 			updatedAt: '更新于',
+			backToBlog: '返回文章列表',
+			prevPost: '上一篇文章',
+			nextPost: '下一篇文章',
+			onThisPage: '本页目录',
+			readingProgress: '阅读进度',
 		},
 		home: {
 			eyebrow: 'Notes in Progress',
@@ -124,20 +140,25 @@ const messages: Record<Locale, LocaleMessages> = {
 			note: '这里不追求“快报式结论”，更关心把学习过程、判断依据和实践细节慢慢写清楚。',
 			primaryCta: '查看文章',
 			secondaryCta: '了解写作方向',
-			panelEyebrow: 'What lives here',
-			panelTitle: '把 AI 学习变成可以回看的长期记录',
+			panelEyebrow: '阅读入口',
+			panelTitle: '先从 Claude Code 源码解析读起',
 			panelBody:
-				'站点围绕 AI 学习、Agent 实践、工作流观察和方法论笔记展开。比起追热点，这里更适合放那些需要反复推敲、值得以后重新翻出来看的内容。',
+				'这组文章最能代表这个站的写法：不只讲工具体验，而是把一个编程 Agent 如何组织上下文、调用工具、管理权限和拆分任务讲清楚。',
+			featuredEyebrow: '推荐阅读',
+			featuredTitle: 'Claude Code 源码解析',
+			featuredBody:
+				'从工程架构、上下文、工具系统、MCP、Skill 到多 Agent 协作，顺着一个编程 Agent 的运行时主线读下去。',
+			featuredCta: '进入系列',
 			cards: [
 				{
-					eyebrow: 'Writing Focus',
-					title: '内容方向',
-					body: '记录从工具试用到流程落地之间的真实细节：哪里有效，哪里卡住，哪些判断值得保留。',
+					eyebrow: '第一段',
+					title: '主循环与上下文',
+					body: '从 ReAct、Prompt 编写和 Context 管理开始，先理解模型每一轮到底看见了什么、为什么能连续推进任务。',
 				},
 				{
-					eyebrow: 'Working Method',
-					title: '写法偏好',
-					body: '尽量用清晰的中文把实验背景、操作路径和结论拆开写，让文章既能快速扫读，也能长期回看。',
+					eyebrow: '第二段',
+					title: '工具、扩展与协作',
+					body: '再看文件工具、终端工具、MCP、Skill 和多 Agent 协作，理解 Claude Code 怎么从聊天变成运行时。',
 				},
 			],
 			threadsEyebrow: 'Next Threads',
@@ -212,11 +233,17 @@ const messages: Record<Locale, LocaleMessages> = {
 		},
 		blog: {
 			eyebrow: 'Archive',
-			title: 'Chinese Notes',
-			lead: 'The archive is currently published in Chinese. It focuses on AI learning, agent practice, and workflow thinking with reusable notes rather than polished hot takes.',
+			title: 'English Notes',
+			lead: 'This archive contains the English-language notes published for learn-agent. It focuses on AI learning, agent practice, and workflow thinking in a reusable long-form format.',
+			browseByLanguage: 'Browse the archive by language',
 		},
 		article: {
 			updatedAt: 'Updated',
+			backToBlog: 'Back to archive',
+			prevPost: 'Previous article',
+			nextPost: 'Next article',
+			onThisPage: 'On this page',
+			readingProgress: 'Reading progress',
 		},
 		home: {
 			eyebrow: 'Chinese-First Notes',
@@ -224,20 +251,25 @@ const messages: Record<Locale, LocaleMessages> = {
 			note: 'The site shell is localized, but the post archive still grows in Chinese first. The goal here is clarity, method, and real implementation detail over quick conclusions.',
 			primaryCta: 'Read the Chinese archive',
 			secondaryCta: 'See what this site is for',
-			panelEyebrow: 'What lives here',
-			panelTitle: 'Long-form notes for work that needs to be revisited',
+			panelEyebrow: 'Reading entry',
+			panelTitle: 'Start with the Claude Code source series',
 			panelBody:
-				'This project collects experiments, workflow decisions, agent case studies, and writing patterns that are worth returning to later. It is meant to stay usable after the hype cycle has moved on.',
+				'This series best represents the site: it looks past tool impressions and follows how a coding agent organizes context, invokes tools, handles permissions, and breaks down work.',
+			featuredEyebrow: 'Recommended',
+			featuredTitle: 'Claude Code source reading',
+			featuredBody:
+				'Start with the Chinese series that follows Claude Code through architecture, context, tools, MCP, skills, and multi-agent collaboration.',
+			featuredCta: 'Open the series',
 			cards: [
 				{
-					eyebrow: 'Writing Focus',
-					title: 'What gets documented',
-					body: 'Tool evaluations, agent workflows, implementation tradeoffs, and the pieces of judgment that are worth preserving after the experiment ends.',
+					eyebrow: 'Part one',
+					title: 'Loop and context',
+					body: 'Begin with ReAct, prompt assembly, and context management to see what the model receives each turn and how long tasks keep moving.',
 				},
 				{
-					eyebrow: 'Reading Experience',
-					title: 'How it is written',
-					body: 'The writing aims to separate context, procedure, and conclusion so the notes stay skimmable at first glance and reusable on a second read.',
+					eyebrow: 'Part two',
+					title: 'Tools and collaboration',
+					body: 'Then read through file tools, terminal tools, MCP, skills, and multi-agent coordination to see how the runtime does real engineering work.',
 				},
 			],
 			threadsEyebrow: 'Next Threads',
@@ -312,11 +344,17 @@ const messages: Record<Locale, LocaleMessages> = {
 		},
 		blog: {
 			eyebrow: 'Archive',
-			title: '中国語アーカイブ',
-			lead: '記事アーカイブは現在中国語を中心に更新しています。AI 学習、Agent 実践、ワークフロー設計を長く参照できる形で残すための記録です。',
+			title: '日本語アーカイブ',
+			lead: 'このアーカイブには learn-agent の日本語記事をまとめています。AI 学習、Agent 実践、ワークフロー設計をあとから再利用できる形で残すための記録です。',
+			browseByLanguage: '言語別に記事を見る',
 		},
 		article: {
 			updatedAt: '更新',
+			backToBlog: 'アーカイブへ戻る',
+			prevPost: '前の記事',
+			nextPost: '次の記事',
+			onThisPage: 'このページ',
+			readingProgress: '読書進捗',
 		},
 		home: {
 			eyebrow: 'Japanese Entry',
@@ -324,20 +362,25 @@ const messages: Record<Locale, LocaleMessages> = {
 			note: '現時点で記事本体は中国語中心です。日本語ページでは、このサイトが何を目指しているかと、どんな読み方を想定しているかを先に伝えます。',
 			primaryCta: '中国語アーカイブを見る',
 			secondaryCta: 'このサイトの考え方を見る',
-			panelEyebrow: 'Reading Stance',
-			panelTitle: '速い結論より、あとから効いてくる判断を残す',
+			panelEyebrow: 'Reading entry',
+			panelTitle: 'Claude Code ソース解析から読む',
 			panelBody:
-				'ここでは AI 学習メモ、Agent の実装事例、ワークフロー設計の選択理由を、派手な要約ではなく再利用できる記録として整えていきます。',
+				'このシリーズは、ツールの印象ではなく、Coding Agent がコンテキスト、ツール、権限、タスク分解をどう扱うかを追う入口です。',
+			featuredEyebrow: 'おすすめ',
+			featuredTitle: 'Claude Code ソース解析',
+			featuredBody:
+				'中国語シリーズとして、Claude Code のアーキテクチャ、コンテキスト、ツール、MCP、Skill、Agent 協作を順に追います。',
+			featuredCta: 'シリーズを開く',
 			cards: [
 				{
-					eyebrow: 'Scope',
-					title: '扱うテーマ',
-					body: 'モデルやツールの学習、Agent の導入実験、ワークフローの組み替え、そしてその途中で固まってきた方法論。',
+					eyebrow: 'Part one',
+					title: 'ループとコンテキスト',
+					body: 'ReAct、Prompt 編成、Context 管理から読み、モデルが各ターンで何を見て長い作業を進めるのかを掴みます。',
 				},
 				{
-					eyebrow: 'Current State',
-					title: 'いまの公開状態',
-					body: '日本語ページはブランド入口として先に整え、記事アーカイブは中国語中心のまま運用しています。内容層の多言語化は段階的に広げていく想定です。',
+					eyebrow: 'Part two',
+					title: 'ツールと協作',
+					body: 'ファイル操作、ターミナル、MCP、Skill、multi-agent 協作へ進み、実行環境としての設計を見ます。',
 				},
 			],
 			threadsEyebrow: 'Ongoing Threads',

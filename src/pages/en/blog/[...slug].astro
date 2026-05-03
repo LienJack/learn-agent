@@ -1,24 +1,24 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BlogGroupListingPage from '../../components/blog/BlogGroupListingPage.astro';
+import BlogGroupListingPage from '../../../components/blog/BlogGroupListingPage.astro';
 import {
 	getBlogGroupPageData,
 	getBlogSeriesPageData,
 	getStructuredBlogStaticPaths,
-} from '../../components/blog/blog-index';
-import BlogPost from '../../layouts/BlogPost.astro';
-import { DEFAULT_LOCALE } from '../../i18n/config';
+	hasStructuredBlogGroups,
+} from '../../../components/blog/blog-index';
+import BlogPost from '../../../layouts/BlogPost.astro';
 import {
 	getLocalizedPosts,
 	getPostFilePathSegments,
 	getPostSlug,
 	sortPostsChronologically,
-} from '../../content/blog/utils';
+} from '../../../content/blog/utils';
 
-const locale = DEFAULT_LOCALE;
+const locale = 'en';
 
 export async function getStaticPaths() {
-	const locale = DEFAULT_LOCALE;
+	const locale = 'en';
 	const posts = await getCollection('blog');
 	const localizedPosts = getLocalizedPosts(posts, locale);
 
@@ -26,6 +26,10 @@ export async function getStaticPaths() {
 		params: { slug: getPostSlug(post) },
 		props: { kind: 'post' as const, post },
 	}));
+
+	if (!(await hasStructuredBlogGroups(posts, locale))) {
+		return articlePaths;
+	}
 
 	const structuredPaths = (await getStructuredBlogStaticPaths(posts, locale)).map((segments) => ({
 		params: { slug: segments.join('/') },
@@ -65,7 +69,6 @@ let group = null;
 let series = null;
 
 if (props.kind === 'post') {
-	template = 'post';
 	renderedPost = props.post;
 	const postSegments = getPostFilePathSegments(renderedPost);
 	const groupSlug = postSegments[1];

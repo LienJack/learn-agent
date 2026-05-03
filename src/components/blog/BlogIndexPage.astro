@@ -1,0 +1,137 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import {
+	buildBlogGroupCards,
+	hasStructuredBlogGroups,
+} from '../../components/blog/blog-index';
+import type { Locale } from '../../i18n/config';
+import { getHtmlLang, getMessages } from '../../i18n/messages';
+import { localizePath } from '../../i18n/utils';
+import { getPostSlug } from '../../content/blog/utils';
+
+interface Props {
+	locale: Locale;
+	posts: CollectionEntry<'blog'>[];
+}
+
+const { locale, posts } = Astro.props;
+const messages = getMessages(locale);
+const groupedCards = await buildBlogGroupCards(posts, locale);
+const useStructuredGroups = await hasStructuredBlogGroups(posts, locale);
+---
+
+<!doctype html>
+<html lang={getHtmlLang(locale)}>
+	<head>
+		<BaseHead
+			title={messages.meta.blogTitle}
+			description={messages.meta.blogDescription}
+			locale={locale}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="page-shell-wide">
+			{
+				useStructuredGroups ? (
+					<section class="blog-groups">
+						{
+							groupedCards.map((group) => (
+								<article class="blog-group-card">
+									<div class="blog-group-hero">
+										<div class="blog-group-copy">
+											<p class="blog-group-kicker">Group</p>
+											<h2>
+												<a class="blog-group-title-link" href={localizePath(locale, `/blog/${group.path}`)}>
+													{group.title}
+												</a>
+											</h2>
+											<p class="blog-group-description">{group.description}</p>
+											<p class="blog-group-count">{group.postCount} 篇内容</p>
+										</div>
+										<div class="blog-group-cover">
+											{
+												typeof group.cover === 'string' ? (
+													<img src={group.cover} alt="" loading="lazy" decoding="async" width="900" height="520" />
+												) : (
+													<Image width={900} height={520} src={group.cover} alt="" />
+												)
+											}
+										</div>
+									</div>
+
+									<ul class="blog-series-grid">
+										{
+											group.series.map((series) => (
+												<li class="blog-series-card">
+													<a
+														class="blog-series-link"
+														href={localizePath(locale, `/blog/${series.path}`)}
+													>
+														<div class="blog-series-cover">
+															{
+																typeof series.cover === 'string' ? (
+																	<img src={series.cover} alt="" loading="lazy" decoding="async" width="640" height="420" />
+																) : (
+																	<Image width={640} height={420} src={series.cover} alt="" />
+																)
+															}
+														</div>
+														<div class="blog-series-body">
+															<p class="blog-series-index">{series.postCount} 篇</p>
+															<h3 class="blog-series-title">{series.title}</h3>
+															<p class="blog-series-description">{series.description}</p>
+															{series.featuredPost && (
+																<p class="blog-series-featured">
+																	首篇：{series.featuredPost.data.title}
+																</p>
+															)}
+														</div>
+													</a>
+												</li>
+											))
+										}
+									</ul>
+								</article>
+							))
+						}
+					</section>
+				) : (
+					<section>
+						<ul class="post-grid">
+							{
+								posts.map((post) => (
+									<li class="post-card">
+										<a
+											class="post-card-link"
+											href={localizePath(locale, `/blog/${getPostSlug(post)}`)}
+										>
+											<div class="post-card-media">
+												{post.data.heroImage && (
+													<Image width={720} height={360} src={post.data.heroImage} alt="" />
+												)}
+											</div>
+											<div class="post-card-body">
+												<p class="post-card-meta">
+													<FormattedDate date={post.data.pubDate} locale={locale} />
+												</p>
+												<h2 class="post-card-title">{post.data.title}</h2>
+												<p class="post-card-description">{post.data.description}</p>
+											</div>
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</section>
+				)
+			}
+		</main>
+		<Footer />
+	</body>
+</html>

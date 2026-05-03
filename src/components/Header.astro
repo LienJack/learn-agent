@@ -17,9 +17,8 @@ const currentPath = Astro.url.pathname;
 		</a>
 		<div class="site-nav">
 			<HeaderLink href={localizePath(locale, '/')}>{messages.header.home}</HeaderLink>
-			<HeaderLink href="/blog">{messages.header.blog}</HeaderLink>
+			<HeaderLink href={localizePath(locale, '/blog')}>{messages.header.blog}</HeaderLink>
 			<HeaderLink href={localizePath(locale, '/about')}>{messages.header.about}</HeaderLink>
-			<a class="site-nav-link-quiet" href="/rss.xml">{messages.header.rss}</a>
 		</div>
 		<details class="site-locale-switcher">
 			<summary

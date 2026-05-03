@@ -6,19 +6,14 @@ type HomePageProps = {
 		note: string;
 		primaryCta: string;
 		secondaryCta: string;
-		panelEyebrow: string;
-		panelTitle: string;
-		panelBody: string;
-		cards: [
-			{ eyebrow: string; title: string; body: string },
-			{ eyebrow: string; title: string; body: string },
-		];
-		threadsEyebrow: string;
-		threadsTitle: string;
-		threads: string[];
+		featuredEyebrow: string;
+		featuredTitle: string;
+		featuredBody: string;
+		featuredCta: string;
 	};
 	blogHref: string;
 	aboutHref: string;
+	recommendedHref: string;
 };
 
 function HomeSketchIllustration() {
@@ -264,7 +259,7 @@ function HomeSketchIllustration() {
 	);
 }
 
-export default function HomePage({ siteTitle, copy, blogHref, aboutHref }: HomePageProps) {
+export default function HomePage({ siteTitle, copy, blogHref, aboutHref, recommendedHref }: HomePageProps) {
 	return (
 		<div className="home-shell">
 			<section className="home-hero">
@@ -285,34 +280,17 @@ export default function HomePage({ siteTitle, copy, blogHref, aboutHref }: HomeP
 				<HomeSketchIllustration />
 			</section>
 
-			<section className="home-panel">
-				<p className="page-eyebrow">{copy.panelEyebrow}</p>
-				<h2>{copy.panelTitle}</h2>
-				<p>{copy.panelBody}</p>
+			<section className="home-featured" aria-labelledby="home-featured-title">
+				<div className="home-featured-copy">
+					<p className="page-eyebrow">{copy.featuredEyebrow}</p>
+					<h2 id="home-featured-title">{copy.featuredTitle}</h2>
+					<p>{copy.featuredBody}</p>
+				</div>
+				<a className="home-featured-link" href={recommendedHref}>
+					<span>{copy.featuredCta}</span>
+				</a>
 			</section>
 
-			<section className="home-grid" aria-label="站点主题">
-				<article className="home-card">
-					<p className="page-eyebrow">{copy.cards[0].eyebrow}</p>
-					<h2>{copy.cards[0].title}</h2>
-					<p>{copy.cards[0].body}</p>
-				</article>
-				<article className="home-card">
-					<p className="page-eyebrow">{copy.cards[1].eyebrow}</p>
-					<h2>{copy.cards[1].title}</h2>
-					<p>{copy.cards[1].body}</p>
-				</article>
-			</section>
-
-			<section className="home-panel">
-				<p className="page-eyebrow">{copy.threadsEyebrow}</p>
-				<h2>{copy.threadsTitle}</h2>
-				<ul className="home-list">
-					{copy.threads.map((item) => (
-						<li key={item}>{item}</li>
-					))}
-				</ul>
-			</section>
 		</div>
 	);
 }

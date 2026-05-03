@@ -1,0 +1,6 @@
+{
+	"alias": "AI Agent",
+	"description": "从基础概念、RAG 到 Agent 源码解析，把能力地图和工程细节拆开来学。",
+	"cover": "/blog-covers/ai-reading-robot.svg",
+	"order": 1
+}

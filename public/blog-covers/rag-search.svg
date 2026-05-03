@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">RAG 检索放大镜</title>
+	<desc id="desc">橘色 RAG 字样位于画面中央，放大镜循环移动，像正在查找内容。</desc>
+	<style>
+		.search-lens {
+			animation: search-sweep 2.65s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 450px 260px;
+		}
+
+		@keyframes search-sweep {
+			0%,
+			100% {
+				transform: translate(-72px, -18px) rotate(-7deg);
+			}
+
+			34% {
+				transform: translate(44px, 16px) rotate(5deg);
+			}
+
+			66% {
+				transform: translate(92px, -30px) rotate(11deg);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.search-lens {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-14%" y="-14%" width="128%" height="128%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.026" numOctaves="2" seed="23" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.9" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#24180f" flood-opacity="0.12" />
+		</filter>
+		<linearGradient id="coverBg" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f8f0e4" />
+		</linearGradient>
+		<linearGradient id="orangeText" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ff8a25" />
+			<stop offset="58%" stop-color="#f26b2d" />
+			<stop offset="100%" stop-color="#d95425" />
+		</linearGradient>
+		<pattern id="paperLines" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+			<path d="M0 0h34" fill="none" stroke="#ead8ba" stroke-width="3" opacity="0.22" />
+		</pattern>
+		<pattern id="gridMarks" width="58" height="58" patternUnits="userSpaceOnUse">
+			<path d="M58 0H0v58" fill="none" stroke="#f1dec0" stroke-width="2" opacity="0.38" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#coverBg)" />
+	<rect width="900" height="520" fill="url(#paperLines)" opacity="0.5" />
+	<rect x="96" y="70" width="708" height="380" rx="34" fill="url(#gridMarks)" opacity="0.65" />
+	<ellipse cx="450" cy="412" rx="208" ry="26" fill="#221915" opacity="0.09" />
+
+	<g filter="url(#softShadow)">
+		<ellipse cx="450" cy="248" rx="188" ry="104" fill="#f26b2d" opacity="0.24" />
+		<text x="450" y="291" text-anchor="middle" font-family="Inter, Avenir, Helvetica, Arial, sans-serif" font-size="134" font-weight="900" letter-spacing="4" fill="url(#orangeText)">RAG</text>
+	</g>
+
+	<g class="search-lens" filter="url(#roughInk)">
+		<circle cx="420" cy="232" r="146" fill="rgba(255, 255, 255, 0.36)" stroke="#171717" stroke-width="20" />
+		<path d="M524 338l54 54" fill="none" stroke="#171717" stroke-width="25" stroke-linecap="round" />
+		<rect x="559" y="368" width="176" height="70" rx="34" transform="rotate(45 559 368)" fill="#fffdf8" stroke="#171717" stroke-width="20" />
+		<path d="M318 175c48-48 116-64 184-43" fill="none" stroke="#fff3df" stroke-width="12" stroke-linecap="round" opacity="0.8" />
+		<path d="M366 340c-37-12-66-34-87-67" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round" opacity="0.58" />
+	</g>
+</svg>

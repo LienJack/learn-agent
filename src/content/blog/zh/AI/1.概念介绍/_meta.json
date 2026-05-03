@@ -1,0 +1,6 @@
+{
+	"alias": "LLM 基本概念",
+	"description": "先把 LLM、Prompt、RAG、Agent、Harness 这些核心概念串成一条主线。",
+	"cover": "/blog-covers/ai-waving-robot.svg",
+	"order": 1
+}

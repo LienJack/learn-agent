@@ -2,17 +2,69 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import { DEFAULT_LOCALE } from '../i18n/config';
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { getHtmlLang, getMessages } from '../i18n/messages';
+import { getPostSlug } from '../content/blog/utils';
+import { localizePath } from '../i18n/utils';
 
-type Props = CollectionEntry<'blog'>['data'];
+type HeadingLink = {
+	depth: number;
+	slug: string;
+	text: string;
+};
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
-const locale = DEFAULT_LOCALE;
+type TocSection = {
+	slug: string;
+	text: string;
+	children: Array<{
+		slug: string;
+		text: string;
+	}>;
+};
+
+type Props = CollectionEntry<'blog'>['data'] & {
+	locale?: Locale;
+	prevPost?: CollectionEntry<'blog'> | null;
+	nextPost?: CollectionEntry<'blog'> | null;
+	headings?: HeadingLink[];
+	backHref?: string;
+};
+
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	locale = DEFAULT_LOCALE,
+	prevPost = null,
+	nextPost = null,
+	headings = [],
+	backHref = '/blog',
+} = Astro.props;
 const messages = getMessages(locale);
+
+const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
+	if (heading.depth === 2) {
+		sections.push({
+			slug: heading.slug,
+			text: heading.text,
+			children: [],
+		});
+		return sections;
+	}
+
+	if (heading.depth === 3 && sections.length > 0) {
+		sections[sections.length - 1].children.push({
+			slug: heading.slug,
+			text: heading.text,
+		});
+	}
+
+	return sections;
+}, []);
 ---
 
 <html lang={getHtmlLang(locale)}>
@@ -20,30 +72,183 @@ const messages = getMessages(locale);
 		<BaseHead title={title} description={description} locale={locale} />
 	</head>
 
-	<body>
+	<body class="article-page">
 		<Header />
 		<main class="page-shell-wide">
 			<article class="article-shell">
 				<div class="article-hero">
 					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
 				</div>
-				<div class="article-prose">
-					<header class="article-header">
-						<div class="article-meta">
-							<span><FormattedDate date={pubDate} locale={locale} /></span>
-							{
-								updatedDate && (
-									<span>{messages.article.updatedAt} <FormattedDate date={updatedDate} locale={locale} /></span>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						{description && <p class="article-description">{description}</p>}
-					</header>
-					<slot />
+				<div class="article-body">
+					{
+						tocSections.length > 0 && (
+							<aside class="article-toc" aria-label="Table of contents">
+								<div class="article-toc-inner">
+									<p class="article-toc-eyebrow">{messages.article.onThisPage}</p>
+									<nav class="article-toc-nav">
+										<ol class="article-toc-list">
+											{tocSections.map((section) => (
+												<li>
+													<a class="article-toc-link" href={`#${section.slug}`}>
+														{section.text}
+													</a>
+													{
+														section.children.length > 0 && (
+															<ol class="article-toc-sublist">
+																{section.children.map((child) => (
+																	<li>
+																		<a class="article-toc-sublink" href={`#${child.slug}`}>
+																			{child.text}
+																		</a>
+																	</li>
+																))}
+															</ol>
+														)
+													}
+												</li>
+											))}
+										</ol>
+									</nav>
+								</div>
+							</aside>
+						)
+					}
+					<div class="article-prose">
+						<a class="article-back-link" href={localizePath(locale, backHref)}>
+							<span aria-hidden="true">←</span>
+							<span>{messages.article.backToBlog}</span>
+						</a>
+						<header class="article-header">
+							<div class="article-meta">
+								<span><FormattedDate date={pubDate} locale={locale} /></span>
+								{
+									updatedDate && (
+										<span>{messages.article.updatedAt} <FormattedDate date={updatedDate} locale={locale} /></span>
+									)
+								}
+							</div>
+							<h1>{title}</h1>
+							{description && <p class="article-description">{description}</p>}
+						</header>
+						<slot />
+						{
+							(prevPost || nextPost) && (
+								<nav class="article-pagination" aria-label="Article pagination">
+									{prevPost ? (
+										<a class="article-pagination-card article-pagination-card-prev" href={localizePath(locale, `/blog/${getPostSlug(prevPost)}`)}>
+											<span class="article-pagination-kicker">
+												<span aria-hidden="true">←</span>
+												<span>{messages.article.prevPost}</span>
+											</span>
+											<span class="article-pagination-title">{prevPost.data.title}</span>
+											{prevPost.data.description && (
+												<span class="article-pagination-description">{prevPost.data.description}</span>
+											)}
+										</a>
+									) : (
+										<div class="article-pagination-spacer" aria-hidden="true"></div>
+									)}
+									{nextPost ? (
+										<a class="article-pagination-card article-pagination-card-next" href={localizePath(locale, `/blog/${getPostSlug(nextPost)}`)}>
+											<span class="article-pagination-kicker">
+												<span>{messages.article.nextPost}</span>
+												<span aria-hidden="true">→</span>
+											</span>
+											<span class="article-pagination-title">{nextPost.data.title}</span>
+											{nextPost.data.description && (
+												<span class="article-pagination-description">{nextPost.data.description}</span>
+											)}
+										</a>
+									) : (
+										<div class="article-pagination-spacer" aria-hidden="true"></div>
+									)}
+								</nav>
+							)
+						}
+					</div>
 				</div>
 			</article>
 		</main>
-		<Footer />
+		{
+			tocSections.length > 0 && (
+				<nav class="article-mobile-progress" aria-label={messages.article.readingProgress}>
+					<div class="article-mobile-progress-inner">
+						<p class="article-mobile-progress-label">{messages.article.readingProgress}</p>
+						<ol class="article-mobile-progress-list">
+							{tocSections.map((section) => (
+								<li class="article-mobile-progress-item">
+									<a
+										class="article-mobile-progress-link"
+										href={`#${section.slug}`}
+										data-progress-target={section.slug}
+										aria-label={section.text}
+										title={section.text}
+									>
+										<span class="sr-only">{section.text}</span>
+									</a>
+								</li>
+							))}
+						</ol>
+					</div>
+				</nav>
+			)
+		}
+		{
+			tocSections.length > 0 && (
+				<script is:inline>
+					document.addEventListener('DOMContentLoaded', () => {
+						const tocLinks = Array.from(document.querySelectorAll('.article-toc a'));
+						const mobileProgressLinks = Array.from(
+							document.querySelectorAll('.article-mobile-progress-link'),
+						);
+						const sections = tocLinks
+							.map((link) => {
+								const id = link.getAttribute('href')?.slice(1);
+								if (!id) return null;
+								const target = document.getElementById(id);
+								if (!target) return null;
+								return { link, target };
+							})
+							.filter(Boolean);
+
+						if (sections.length === 0) return;
+
+						const setActiveLink = (id) => {
+							tocLinks.forEach((link) => {
+								link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+							});
+							mobileProgressLinks.forEach((link) => {
+								const isActive = link.dataset.progressTarget === id;
+								link.classList.toggle('is-active', isActive);
+								if (isActive) {
+									link.setAttribute('aria-current', 'location');
+								} else {
+									link.removeAttribute('aria-current');
+								}
+							});
+						};
+
+						const observer = new IntersectionObserver(
+							(entries) => {
+								const visibleEntry = entries
+									.filter((entry) => entry.isIntersecting)
+									.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+
+								if (visibleEntry?.target?.id) {
+									setActiveLink(visibleEntry.target.id);
+								}
+							},
+							{
+								rootMargin: '-20% 0% -65% 0%',
+								threshold: [0, 1],
+							},
+						);
+
+						sections.forEach((section) => observer.observe(section.target));
+						setActiveLink(sections[0].target.id);
+					});
+				</script>
+			)
+		}
 	</body>
 </html>

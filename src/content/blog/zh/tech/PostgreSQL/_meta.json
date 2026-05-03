@@ -1,0 +1,6 @@
+{
+	"alias": "Postgres",
+	"description": "面向 PostgreSQL 的结构理解、实践经验和问题排查记录。",
+	"cover": "/blog-covers/postgres-elephant.svg",
+	"order": 2
+}

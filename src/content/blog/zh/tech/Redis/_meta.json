@@ -1,0 +1,6 @@
+{
+	"alias": "Redis",
+	"description": "缓存、数据结构和高频工程场景都会逐步收进这个系列。",
+	"cover": "/blog-covers/redis-stack.svg",
+	"order": 3
+}

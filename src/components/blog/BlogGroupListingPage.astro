@@ -1,0 +1,228 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import {
+	buildBlogGroupCards,
+	type BlogGroupPageData,
+	type BlogSeriesPageData,
+} from './blog-index';
+import { LOCALES, LOCALE_LABELS, type Locale } from '../../i18n/config';
+import { getHtmlLang } from '../../i18n/messages';
+import { localizePath } from '../../i18n/utils';
+import { getMessages } from '../../i18n/messages';
+import { getPostSlug } from '../../content/blog/utils';
+
+type Props = {
+	locale: Locale;
+	posts: CollectionEntry<'blog'>[];
+	title: string;
+	description: string;
+	group?: BlogGroupPageData;
+	series?: BlogSeriesPageData;
+};
+
+const { locale, posts, title, description, group, series } = Astro.props;
+const messages = getMessages(locale);
+const groupedCards = await buildBlogGroupCards(posts, locale);
+const currentGroup = series?.group ?? group ?? null;
+const currentSeries = series ?? null;
+const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.posts[0] ?? null;
+---
+
+<!doctype html>
+<html lang={getHtmlLang(locale)}>
+	<head>
+		<BaseHead title={title} description={description} locale={locale} />
+	</head>
+	<body class:list={['blog-listing-page', { 'blog-series-route-page': currentSeries }]}>
+		<Header />
+		<main class="page-shell-wide">
+			<section class="page-intro">
+				<p class="page-eyebrow">{currentSeries ? currentGroup?.title : 'Group'}</p>
+				<h1>{title}</h1>
+				<p class="page-lead">{description}</p>
+				<div class="archive-language-links" aria-label={messages.blog.browseByLanguage}>
+					{
+						LOCALES.map((targetLocale) => (
+							<a
+								href={localizePath(
+									targetLocale,
+									currentSeries
+										? `/blog/${currentGroup?.slug}/${currentSeries.slug}`
+										: currentGroup
+											? `/blog/${currentGroup.slug}`
+											: '/blog',
+								)}
+								class:list={['archive-language-link', { active: targetLocale === locale }]}
+								aria-current={targetLocale === locale ? 'page' : undefined}
+							>
+								{LOCALE_LABELS[targetLocale]}
+							</a>
+						))
+					}
+				</div>
+			</section>
+
+			{
+				currentGroup && !currentSeries && (
+					<section class="blog-groups">
+						<article class="blog-group-card">
+							<div class="blog-group-hero">
+								<div class="blog-group-copy">
+									<p class="blog-group-kicker">Group Overview</p>
+									<h2>{currentGroup.title}</h2>
+									{currentGroup.alias && <p class="blog-group-alias">{currentGroup.alias}</p>}
+									<p class="blog-group-description">{currentGroup.description}</p>
+								</div>
+								<div class="blog-group-cover">
+									{
+										typeof currentGroup.cover === 'string' ? (
+											<img src={currentGroup.cover} alt="" loading="lazy" decoding="async" width="900" height="520" />
+										) : (
+											<Image width={900} height={520} src={currentGroup.cover} alt="" />
+										)
+									}
+								</div>
+							</div>
+							<ul class="blog-series-grid">
+								{
+									currentGroup.series.map((item) => (
+										<li class="blog-series-card">
+											<a class="blog-series-link" href={localizePath(locale, `/blog/${item.path}`)}>
+												<div class="blog-series-cover">
+													{
+														typeof item.cover === 'string' ? (
+															<img src={item.cover} alt="" loading="lazy" decoding="async" width="640" height="420" />
+														) : (
+															<Image width={640} height={420} src={item.cover} alt="" />
+														)
+													}
+												</div>
+												<div class="blog-series-body">
+													<p class="blog-series-index">{item.postCount} 篇</p>
+													<h3 class="blog-series-title">{item.title}</h3>
+													<p class="blog-series-description">{item.description}</p>
+												</div>
+											</a>
+										</li>
+									))
+								}
+							</ul>
+						</article>
+					</section>
+				)
+			}
+
+			{
+				currentSeries && (
+					<section class="series-posts-shell series-posts-shell-editorial">
+						<div class="series-context-strip">
+							<a class="series-context-link" href={localizePath(locale, `/blog/${currentGroup?.slug}`)}>
+								返回 {currentGroup?.title}
+							</a>
+							<span class="series-context-divider">/</span>
+							<span class="series-context-current">{currentSeries.title}</span>
+						</div>
+
+						<div class="series-overview-card">
+							<div class="series-overview-cover">
+								{
+									typeof currentSeries.cover === 'string' ? (
+										<img src={currentSeries.cover} alt="" loading="eager" decoding="async" width="900" height="520" />
+									) : (
+										<Image width={900} height={520} src={currentSeries.cover} alt="" />
+									)
+								}
+							</div>
+							<div class="series-overview-copy">
+								<p class="series-overview-kicker">阅读路径</p>
+								<div class="series-overview-heading">
+									<p class="blog-series-index">{currentSeries.postCount} 篇文章</p>
+									<h2>{currentSeries.title}</h2>
+								</div>
+								{currentSeries.alias && <p class="blog-group-alias">{currentSeries.alias}</p>}
+								<p class="blog-group-description">{currentSeries.description}</p>
+								{
+									currentSeriesGuidePost && (
+										<a
+											class="series-guide-link"
+											href={localizePath(locale, `/blog/${getPostSlug(currentSeriesGuidePost)}`)}
+										>
+											<span class="series-guide-title">开始阅读</span>
+										</a>
+									)
+								}
+							</div>
+						</div>
+
+						<div class="series-posts-intro">
+							<p class="series-posts-label">目录</p>
+							<p class="series-posts-summary">按顺序读下去，会从模型原理一路走到 Agent 与 Harness 的工程视角。</p>
+						</div>
+
+						<ol class="series-post-list">
+							{
+								currentSeries.posts.map((post, index) => (
+									<li class:list={['series-post-item', { 'is-guide': index === 0 }]}>
+										<a class="series-post-link" href={localizePath(locale, `/blog/${getPostSlug(post)}`)}>
+											<span class="series-post-step">{String(index).padStart(2, '0')}</span>
+											<span class="series-post-main">
+												<span class="series-post-title-row">
+													<span class="series-post-title">{post.data.title}</span>
+													{
+														index === 0 && (
+															<span class="series-post-badge">导读</span>
+														)
+													}
+												</span>
+												<span class="series-post-description">{post.data.description}</span>
+											</span>
+										</a>
+									</li>
+								))
+							}
+							{
+								currentSeries.posts.length === 0 && (
+									<li class="series-post-empty">
+										这个系列的目录已经预留出来了，后续内容会继续补进来。
+									</li>
+								)
+							}
+						</ol>
+					</section>
+				)
+			}
+
+			{
+				!currentGroup && (
+					<section class="blog-groups">
+						{
+							groupedCards.map((item) => (
+								<article class="blog-group-card">
+									<div class="blog-group-hero">
+										<div class="blog-group-copy">
+											<p class="blog-group-kicker">Group</p>
+											<h2>{item.title}</h2>
+											<p class="blog-group-description">{item.description}</p>
+										</div>
+										<div class="blog-group-cover">
+											{
+												typeof item.cover === 'string' ? (
+													<img src={item.cover} alt="" loading="lazy" decoding="async" width="900" height="520" />
+												) : (
+													<Image width={900} height={520} src={item.cover} alt="" />
+												)
+											}
+										</div>
+									</div>
+								</article>
+							))
+						}
+					</section>
+				)
+			}
+		</main>
+	</body>
+</html>

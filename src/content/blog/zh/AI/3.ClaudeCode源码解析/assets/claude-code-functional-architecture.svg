@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="650" viewBox="0 0 960 650" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Code 功能架构</title>
+  <desc id="desc">Claude Code 以 Model API 为中心，外层依次是 QueryEngine、Tools 系统、Agent 协作，并由安全治理约束。</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="43%" r="70%">
+      <stop offset="0%" stop-color="#2b2b2f"/>
+      <stop offset="58%" stop-color="#24262a"/>
+      <stop offset="100%" stop-color="#191b20"/>
+    </radialGradient>
+
+    <radialGradient id="modelFill" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#382717"/>
+      <stop offset="58%" stop-color="#211a15"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </radialGradient>
+
+    <filter id="glowPurple" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowBlue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowAmber" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+
+    <style>
+      .label {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-weight: 650;
+        fill: #f7f3ff;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+      .small {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 19px;
+        font-weight: 520;
+        fill: #e8edf7;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+      .micro {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 17px;
+        font-weight: 520;
+        fill: #d8e6ef;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+      .pillText {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 24px;
+        font-weight: 760;
+        fill: #f7ecff;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+      .safetyText {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 20px;
+        font-weight: 680;
+        fill: #ffd6c9;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+    </style>
+  </defs>
+
+  <rect width="960" height="650" rx="22" fill="url(#bg)"/>
+
+  <g opacity="0.38">
+    <circle cx="480" cy="315" r="260" fill="#6f3aa0" opacity="0.22"/>
+    <circle cx="480" cy="315" r="188" fill="#1d7c61" opacity="0.28"/>
+    <circle cx="480" cy="315" r="126" fill="#245b99" opacity="0.34"/>
+  </g>
+
+  <circle cx="480" cy="315" r="260" fill="none" stroke="#b66bff" stroke-width="4" opacity="0.9" filter="url(#glowPurple)"/>
+  <circle cx="480" cy="315" r="188" fill="none" stroke="#39c98d" stroke-width="4" opacity="0.86" filter="url(#glowGreen)"/>
+  <circle cx="480" cy="315" r="126" fill="none" stroke="#4c9fff" stroke-width="4" opacity="0.86" filter="url(#glowBlue)"/>
+
+  <circle cx="480" cy="315" r="71" fill="url(#modelFill)" stroke="#ffbd42" stroke-width="4" filter="url(#glowAmber)"/>
+  <text x="480" y="315" class="label" font-size="27" fill="#ffce5a">Model API</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="424" y="183" width="112" height="42" rx="21" fill="#347fd6" stroke="#78b8ff" stroke-width="2"/>
+    <text x="480" y="204" class="pillText" font-size="20">QueryEngine</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="414" y="104" width="132" height="45" rx="22.5" fill="#38a77c" stroke="#83e0bd" stroke-width="2"/>
+    <text x="480" y="127" class="pillText">Tools 系统</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="412" y="37" width="136" height="45" rx="22.5" fill="#a85bd1" stroke="#dda4ff" stroke-width="2"/>
+    <text x="480" y="60" class="pillText">Agent 协作</text>
+  </g>
+
+  <text x="292" y="268" class="small">
+    <tspan x="292" dy="0">Base</tspan>
+    <tspan x="292" dy="24">Tools</tspan>
+  </text>
+  <text x="678" y="278" class="small">MCP</text>
+  <text x="325" y="436" class="small">Skills</text>
+  <text x="635" y="432" class="small">
+    <tspan x="635" dy="0">Agent</tspan>
+    <tspan x="635" dy="24">Tools</tspan>
+  </text>
+
+  <text x="355" y="330" class="micro">
+    <tspan x="355" dy="0">ReAct</tspan>
+    <tspan x="355" dy="22">Loop</tspan>
+  </text>
+  <text x="604" y="309" class="micro">
+    <tspan x="604" dy="0">Context</tspan>
+    <tspan x="604" dy="22">Engineering</tspan>
+  </text>
+  <text x="398" y="405" class="micro">
+    <tspan x="398" dy="0">Token</tspan>
+    <tspan x="398" dy="22">管理</tspan>
+  </text>
+  <text x="559" y="411" class="micro">记忆管理</text>
+
+  <text x="480" y="530" class="small" font-size="18" fill="#ddd7ee">多智能体编排 · 并行执行 · 跨实例通信</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="175" y="565" width="610" height="49" rx="9" fill="#7a281d" opacity="0.9" stroke="#e85d42" stroke-width="3"/>
+    <text x="235" y="590" class="safetyText" font-size="26">安全</text>
+    <text x="512" y="590" class="safetyText">权限 &amp; 策略　|　沙盒机制　|　防提示注入　|　审计日志</text>
+  </g>
+</svg>

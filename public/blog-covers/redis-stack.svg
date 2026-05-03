@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">Redis 方块堆叠</title>
+	<desc id="desc">Redis 三层红色方块堆叠在浅色背景中上下移动，redis 字样位于方块下方。</desc>
+	<style>
+		.redis-stack {
+			animation: stack-float 1.9s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 450px 246px;
+		}
+
+		.stack-layer-2 {
+			animation: layer-float 1.9s ease-in-out infinite;
+			animation-delay: -0.12s;
+			transform-box: view-box;
+			transform-origin: 450px 272px;
+		}
+
+		.stack-layer-3 {
+			animation: layer-float 1.9s ease-in-out infinite;
+			animation-delay: -0.24s;
+			transform-box: view-box;
+			transform-origin: 450px 304px;
+		}
+
+		@keyframes stack-float {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-16px);
+			}
+		}
+
+		@keyframes layer-float {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(3px);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.redis-stack,
+			.stack-layer-2,
+			.stack-layer-3 {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-14%" y="-14%" width="128%" height="128%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="2" seed="51" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="16" stdDeviation="15" flood-color="#3a1714" flood-opacity="0.14" />
+		</filter>
+		<linearGradient id="coverBg" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f3f0eb" />
+		</linearGradient>
+		<linearGradient id="redisRed" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ef2c24" />
+			<stop offset="100%" stop-color="#c91f18" />
+		</linearGradient>
+		<linearGradient id="redisDark" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#b91f18" />
+			<stop offset="100%" stop-color="#8f1612" />
+		</linearGradient>
+		<pattern id="paperLines" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+			<path d="M0 0h34" fill="none" stroke="#e8dac2" stroke-width="3" opacity="0.2" />
+		</pattern>
+		<pattern id="circuitMarks" width="96" height="96" patternUnits="userSpaceOnUse">
+			<path d="M10 18h28v28h34M62 72h24M20 70h18" fill="none" stroke="#d9dfde" stroke-width="2" opacity="0.5" />
+			<circle cx="38" cy="46" r="4" fill="none" stroke="#d9dfde" stroke-width="2" opacity="0.5" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#coverBg)" />
+	<rect width="900" height="520" fill="url(#paperLines)" opacity="0.5" />
+	<rect width="900" height="520" fill="url(#circuitMarks)" opacity="0.5" />
+	<ellipse cx="450" cy="340" rx="118" ry="17" fill="#221915" opacity="0.09" />
+
+	<g class="redis-stack" filter="url(#softShadow)" transform="translate(450 220) scale(0.56) translate(-450 -248)">
+		<g filter="url(#roughInk)">
+			<g class="stack-layer-3">
+				<path d="M271 270l178 69 180-69-178-68z" fill="url(#redisRed)" />
+				<path d="M271 270v42l178 73v-46z" fill="#b51f18" />
+				<path d="M629 270v42l-180 73v-46z" fill="#951713" />
+			</g>
+			<g class="stack-layer-2">
+				<path d="M271 226l178 69 180-69-178-68z" fill="url(#redisRed)" />
+				<path d="M271 226v42l178 73v-46z" fill="#c3231b" />
+				<path d="M629 226v42l-180 73v-46z" fill="#a01814" />
+			</g>
+			<g>
+				<path d="M270 177l179 68 181-68-179-69z" fill="url(#redisRed)" />
+				<path d="M270 177v44l179 73v-49z" fill="#c6231b" />
+				<path d="M630 177v44l-181 73v-49z" fill="#9e1814" />
+				<ellipse cx="360" cy="177" rx="51" ry="22" fill="#fffdf8" />
+				<path d="M452 137l18 34 39 6-29 27 7 39-35-19-35 19 7-39-29-27 39-6z" fill="#fffdf8" />
+				<path d="M512 184l72-27v52z" fill="#fffdf8" />
+				<path d="M553 142l73 28-73 28z" fill="#9a1c16" opacity="0.6" />
+			</g>
+		</g>
+	</g>
+
+	<text x="450" y="416" text-anchor="middle" font-family="Inter, Avenir, Helvetica, Arial, sans-serif" font-size="50" font-weight="800" letter-spacing="-3" fill="#686d72">redis</text>
+</svg>

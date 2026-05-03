@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">Claude Code 吉祥物</title>
+	<desc id="desc">橙色 Claude Code 吉祥物在浅色背景中左右移动，下面写着 Welcome, Claw'd。</desc>
+	<style>
+		.mascot-drift {
+			animation: mascot-drift 2.8s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 450px 238px;
+		}
+
+		.mascot-shadow {
+			animation: mascot-shadow 2.8s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		@keyframes mascot-drift {
+			0%,
+			100% {
+				transform: translateX(-72px);
+			}
+
+			50% {
+				transform: translateX(72px);
+			}
+		}
+
+		@keyframes mascot-shadow {
+			0%,
+			100% {
+				opacity: 0.16;
+				transform: translateX(-40px) scaleX(0.86);
+			}
+
+			50% {
+				opacity: 0.24;
+				transform: translateX(40px) scaleX(1.04);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.mascot-drift,
+			.mascot-shadow {
+				animation: none;
+				transform: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+			<feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2c241d" flood-opacity="0.13" />
+		</filter>
+		<linearGradient id="coverBg" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f7f3eb" />
+		</linearGradient>
+		<linearGradient id="bodyFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#df7b56" />
+			<stop offset="100%" stop-color="#d96946" />
+		</linearGradient>
+		<pattern id="paperLines" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+			<path d="M0 0h36" fill="none" stroke="#eadbc3" stroke-width="3" opacity="0.2" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#coverBg)" />
+	<rect width="900" height="520" fill="url(#paperLines)" opacity="0.55" />
+
+	<ellipse class="mascot-shadow" cx="450" cy="358" rx="138" ry="23" fill="#202020" />
+
+	<g class="mascot-drift" filter="url(#softShadow)">
+		<path d="M327 164h73v-53h152v53h73v71h-64v126h-45v-73h-42v73h-46v-73h-42v73h-45V235h-64z" fill="url(#bodyFill)" />
+		<rect x="407" y="139" width="38" height="37" fill="#0b0b0b" />
+		<rect x="510" y="139" width="38" height="37" fill="#0b0b0b" />
+		<path d="M400 111h152v25H400z" fill="#e18460" opacity="0.55" />
+		<path d="M341 237h45v124h-45z" fill="#d86e49" opacity="0.45" />
+		<path d="M516 289h45v72h-45z" fill="#c85f3d" opacity="0.28" />
+	</g>
+
+	<text x="450" y="440" text-anchor="middle" font-family="Inter, Avenir, Helvetica, Arial, sans-serif" font-size="50" font-weight="800" fill="#111111">Welcome, Claw&apos;d</text>
+</svg>

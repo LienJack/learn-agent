@@ -14,9 +14,8 @@ const messages = getMessages(locale);
 			<p class="site-footer-description">{messages.footer.description}</p>
 		</div>
 		<div class="site-footer-meta">
-			<a href="/blog">{messages.footer.blog}</a>
+			<a href={localizePath(locale, '/blog')}>{messages.footer.blog}</a>
 			<a href={localizePath(locale, '/about')}>{messages.footer.about}</a>
-			<a href="/rss.xml">{messages.footer.rss}</a>
 		</div>
 		<p class="site-footer-copyright">
 			&copy; {today.getFullYear()} {messages.site.title} · {messages.footer.copyrightLabel}
