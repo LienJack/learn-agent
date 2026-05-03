@@ -22,7 +22,7 @@ export default defineConfig({
 			type: 'shiki',
 			excludeLangs: ['mermaid', 'math'],
 		},
-		rehypePlugins: [[rehypeMermaid, { strategy: 'inline-svg' }]],
+		rehypePlugins: [[rehypeMermaid, { strategy: 'img-png' }]],
 	},
 	fonts: [
 		{
