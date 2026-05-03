@@ -1,0 +1,25 @@
+---
+import { getMessages } from '../i18n/messages';
+import { getLocaleFromPathname, localizePath } from '../i18n/utils';
+
+const today = new Date();
+const locale = getLocaleFromPathname(Astro.url.pathname);
+const messages = getMessages(locale);
+---
+
+<footer class="site-footer">
+	<div class="site-footer-inner">
+		<div>
+			<p class="site-footer-title">{messages.site.title}</p>
+			<p class="site-footer-description">{messages.footer.description}</p>
+		</div>
+		<div class="site-footer-meta">
+			<a href="/blog">{messages.footer.blog}</a>
+			<a href={localizePath(locale, '/about')}>{messages.footer.about}</a>
+			<a href="/rss.xml">{messages.footer.rss}</a>
+		</div>
+		<p class="site-footer-copyright">
+			&copy; {today.getFullYear()} {messages.site.title} · {messages.footer.copyrightLabel}
+		</p>
+	</div>
+</footer>

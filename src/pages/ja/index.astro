@@ -1,0 +1,34 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import HomePageJa from '../../components/home/HomePageJa.astro';
+import { getHtmlLang, getMessages } from '../../i18n/messages';
+import { localizePath } from '../../i18n/utils';
+
+const locale = 'ja';
+const messages = getMessages(locale);
+---
+
+<!doctype html>
+<html lang={getHtmlLang(locale)}>
+	<head>
+		<BaseHead
+			title={messages.meta.homeTitle}
+			description={messages.site.description}
+			locale={locale}
+		/>
+	</head>
+	<body class="locale-ja">
+		<Header />
+		<main class="page-shell-wide">
+			<HomePageJa
+				siteTitle={messages.site.title}
+				copy={messages.home}
+				blogHref="/blog"
+				aboutHref={localizePath(locale, '/about')}
+			/>
+		</main>
+		<Footer />
+	</body>
+</html>

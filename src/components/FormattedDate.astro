@@ -1,0 +1,21 @@
+---
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { getHtmlLang } from '../i18n/messages';
+
+interface Props {
+	date: Date;
+	locale?: Locale;
+}
+
+const { date, locale = DEFAULT_LOCALE } = Astro.props;
+---
+
+<time datetime={date.toISOString()}>
+	{
+		date.toLocaleDateString(getHtmlLang(locale), {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+		})
+	}
+</time>

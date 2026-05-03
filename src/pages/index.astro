@@ -1,0 +1,36 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HomePage from '../components/home/HomePage';
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { getHtmlLang, getMessages } from '../i18n/messages';
+import { localizePath } from '../i18n/utils';
+
+const locale = DEFAULT_LOCALE;
+const messages = getMessages(locale);
+---
+
+<!doctype html>
+<html lang={getHtmlLang(locale)}>
+	<head>
+		<BaseHead
+			title={messages.meta.homeTitle}
+			description={messages.site.description}
+			locale={locale}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="page-shell-wide">
+			<HomePage
+				client:load
+				siteTitle={messages.site.title}
+				copy={messages.home}
+				blogHref="/blog"
+				aboutHref={localizePath(locale, '/about')}
+			/>
+		</main>
+		<Footer />
+	</body>
+</html>

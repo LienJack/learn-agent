@@ -1,0 +1,86 @@
+---
+import { LOCALES, LOCALE_LABELS } from '../i18n/config';
+import { getMessages } from '../i18n/messages';
+import { getLocaleFromPathname, getSwitchLocalePath, localizePath } from '../i18n/utils';
+import HeaderLink from './HeaderLink.astro';
+
+const locale = getLocaleFromPathname(Astro.url.pathname);
+const messages = getMessages(locale);
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+	<nav class="site-header-inner" aria-label={messages.header.ariaLabel}>
+		<a class="site-brand" href={localizePath(locale, '/')}>
+			<span class="site-brand-title">{messages.site.title}</span>
+			<span class="site-brand-tagline">{messages.site.tagline}</span>
+		</a>
+		<div class="site-nav">
+			<HeaderLink href={localizePath(locale, '/')}>{messages.header.home}</HeaderLink>
+			<HeaderLink href="/blog">{messages.header.blog}</HeaderLink>
+			<HeaderLink href={localizePath(locale, '/about')}>{messages.header.about}</HeaderLink>
+			<a class="site-nav-link-quiet" href="/rss.xml">{messages.header.rss}</a>
+		</div>
+		<details class="site-locale-switcher">
+			<summary
+				class="site-locale-trigger"
+				aria-label={messages.header.languageSwitcherLabel}
+			>
+				<svg
+					class="site-locale-icon"
+					viewBox="0 0 24 24"
+					aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<circle cx="12" cy="12" r="8.5" />
+					<path d="M3.5 12h17" />
+					<path d="M12 3.5c2.7 2.3 4.3 5.2 4.3 8.5S14.7 18.2 12 20.5c-2.7-2.3-4.3-5.2-4.3-8.5S9.3 5.8 12 3.5Z" />
+				</svg>
+				<span class="sr-only">{messages.header.languageSwitcherLabel}</span>
+			</summary>
+			<div class="site-locale-menu">
+				{
+					LOCALES.map((targetLocale) => (
+						<a
+							href={getSwitchLocalePath(targetLocale, currentPath)}
+							class:list={['site-locale-link', { active: targetLocale === locale }]}
+							aria-current={targetLocale === locale ? 'true' : undefined}
+						>
+							<span class="site-locale-code">{targetLocale.toUpperCase()}</span>
+							<span>{LOCALE_LABELS[targetLocale]}</span>
+						</a>
+					))
+				}
+			</div>
+		</details>
+	</nav>
+</header>
+
+<script>
+	const localeSwitchers = document.querySelectorAll('.site-locale-switcher');
+
+	localeSwitchers.forEach((switcher) => {
+		if (!(switcher instanceof HTMLDetailsElement) || switcher.dataset.bound === 'true') {
+			return;
+		}
+
+		switcher.dataset.bound = 'true';
+
+		document.addEventListener('click', (event) => {
+			if (!switcher.open) {
+				return;
+			}
+
+			const target = event.target;
+			if (target instanceof Node && !switcher.contains(target)) {
+				switcher.open = false;
+			}
+		});
+
+		switcher.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape') {
+				switcher.open = false;
+			}
+		});
+	});
+</script>

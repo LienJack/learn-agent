@@ -1,0 +1,59 @@
+---
+import type { HomeCopy } from '../../i18n/messages';
+
+interface Props {
+	siteTitle: string;
+	copy: HomeCopy;
+	blogHref: string;
+	aboutHref: string;
+}
+
+const { siteTitle, copy, blogHref, aboutHref } = Astro.props;
+---
+
+<div class="home-ja-shell">
+	<section class="home-ja-hero">
+		<div class="home-ja-heading">
+			<p class="page-eyebrow">{copy.eyebrow}</p>
+			<h1>{siteTitle}</h1>
+			<p class="home-lead">{copy.lead}</p>
+		</div>
+		<div class="home-ja-note">
+			<p>{copy.note}</p>
+		</div>
+		<div class="home-ja-actions">
+			<a class="home-action home-action-primary" href={blogHref}>
+				{copy.primaryCta}
+			</a>
+			<a class="home-action home-action-secondary" href={aboutHref}>
+				{copy.secondaryCta}
+			</a>
+		</div>
+	</section>
+
+	<section class="home-ja-band">
+		<p class="page-eyebrow">{copy.panelEyebrow}</p>
+		<h2>{copy.panelTitle}</h2>
+		<p>{copy.panelBody}</p>
+	</section>
+
+	<div class="home-ja-grid" aria-label="Japanese site overview">
+		{
+			copy.cards.map((card) => (
+				<section class="home-card">
+					<p class="page-eyebrow">{card.eyebrow}</p>
+					<h2>{card.title}</h2>
+					<p>{card.body}</p>
+				</section>
+			))
+		}
+	</div>
+
+	<section class="home-ja-list">
+		<p class="page-eyebrow">{copy.threadsEyebrow}</p>
+		<h2>{copy.threadsTitle}</h2>
+		<ul class="home-list">
+			{copy.threads.map((item) => <li>{item}</li>)}
+		</ul>
+	</section>
+</div>

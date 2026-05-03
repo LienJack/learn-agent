@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { stripLocaleFromPathname } from '../i18n/utils';
+
+type Props = HTMLAttributes<'a'>;
+
+const { href, class: className, ...props } = Astro.props;
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '') || '/';
+const currentPath = stripLocaleFromPathname(pathname);
+const currentSection = currentPath.match(/[^\/]+/g)?.[0];
+const hrefPath = typeof href === 'string' ? stripLocaleFromPathname(href) : '';
+const isActive =
+	hrefPath === currentPath || (hrefPath !== '/' && hrefPath === `/${currentSection || ''}`);
+---
+
+<a href={href} class:list={[className, { active: isActive }]} {...props}>
+	<slot />
+</a>

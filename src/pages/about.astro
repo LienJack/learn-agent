@@ -1,0 +1,29 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import AboutPage from '../components/about/AboutPage.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { DEFAULT_LOCALE } from '../i18n/config';
+import { getHtmlLang, getMessages } from '../i18n/messages';
+
+const locale = DEFAULT_LOCALE;
+const messages = getMessages(locale);
+---
+
+<!doctype html>
+<html lang={getHtmlLang(locale)}>
+	<head>
+		<BaseHead
+			title={messages.meta.aboutTitle}
+			description={messages.meta.aboutDescription}
+			locale={locale}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="page-shell-wide">
+			<AboutPage copy={messages.about} />
+		</main>
+		<Footer />
+	</body>
+</html>
