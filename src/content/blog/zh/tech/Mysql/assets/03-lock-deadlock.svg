@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-labelledby="title desc">
+<title id="title">死锁场景</title>
+<desc id="desc">两个事务互相拿着对方需要的锁，形成等待闭环</desc>
+<defs>
+  <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="strokeWidth"><path d="M2 2 L16 9 L2 16 Z" fill="#222"/></marker>
+  <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="7"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.08"/></feComponentTransfer></filter>
+  <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="2" seed="3" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6"/></filter>
+</defs>
+<style>
+  svg { background: #f7f1df; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+  .rough { filter: url(#wobble); }
+  .faint { opacity: .13; }
+  text { paint-order: stroke; stroke: #f7f1df; stroke-width: 7px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="#f7f1df"/>
+<rect width="100%" height="100%" filter="url(#paper)" opacity="0.7"/>
+<g class="faint" fill="none" stroke="#222" stroke-width="3">
+  <path d="M180 1180 C520 1040 760 1260 1120 1110 S1840 1010 2240 1160"/>
+  <path d="M210 250 H430 V310 H640 M1840 230 H2050 V300 H2320"/>
+  <circle cx="430" cy="310" r="9"/><circle cx="640" cy="310" r="9"/><circle cx="2050" cy="300" r="9"/>
+  <path d="M230 980 h170 v70 h180 M1970 980 h180 v-70 h210"/>
+</g>
+<text x="1280" y="100" text-anchor="middle" dominant-baseline="middle" font-size="58" font-weight="800" fill="#232323" data-key="title"><tspan x="1280" dy="0">死锁场景</tspan></text>
+<text x="1280" y="168" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="500" fill="#555" data-key="subtitle"><tspan x="1280" dy="0">两个事务互相拿着对方需要的锁，形成等待闭环</tspan></text>
+
+<g><rect x="300" y="420" width="420" height="170" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="510" y="480.5" text-anchor="middle" dominant-baseline="middle" font-size="38" font-weight="600" fill="#232323" data-key="tx_a"><tspan x="510" dy="0">事务 A</tspan><tspan x="510" dy="49">已锁行 1</tspan></text></g>
+<g><rect x="1840" y="420" width="420" height="170" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="2050" y="480.5" text-anchor="middle" dominant-baseline="middle" font-size="38" font-weight="600" fill="#232323" data-key="tx_b"><tspan x="2050" dy="0">事务 B</tspan><tspan x="2050" dy="49">已锁行 2</tspan></text></g>
+<rect x="930" y="360" width="700" height="250" rx="34" ry="34" fill="#fdeaa6" stroke="#e1bc45" stroke-width="3" class="rough" /><g><rect x="980" y="405" width="260" height="130" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1110" y="470" text-anchor="middle" dominant-baseline="middle" font-size="42" font-weight="600" fill="#232323" data-key="row_1"><tspan x="1110" dy="0">行 1</tspan></text></g><g><rect x="1320" y="405" width="260" height="130" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1450" y="470" text-anchor="middle" dominant-baseline="middle" font-size="42" font-weight="600" fill="#232323" data-key="row_2"><tspan x="1450" dy="0">行 2</tspan></text></g>
+<path d="M720 505 C860 470 900 470 980 470" fill="none" stroke="#222" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" class="rough"/>
+<path d="M1840 505 C1700 470 1660 470 1580 470" fill="none" stroke="#222" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" class="rough"/>
+<path d="M520 590 C720 940 1110 1040 1320 560" fill="none" stroke="#b24b38" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" class="rough"/>
+<text x="900" y="970" text-anchor="middle" dominant-baseline="middle" font-size="40" font-weight="800" fill="#8b2f23" data-key="a_waits_row2"><tspan x="900" dy="0">A 等行 2</tspan></text>
+<path d="M2040 590 C1840 940 1450 1040 1240 560" fill="none" stroke="#b24b38" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" class="rough"/>
+<text x="1660" y="970" text-anchor="middle" dominant-baseline="middle" font-size="40" font-weight="800" fill="#8b2f23" data-key="b_waits_row1"><tspan x="1660" dy="0">B 等行 1</tspan></text>
+<g><rect x="1040" y="1040" width="480" height="140" rx="26" ry="26" fill="#fff0ec" stroke="#b24b38" stroke-width="5" class="rough" /><text x="1280" y="1088" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="deadlock_detect"><tspan x="1280" dy="0">死锁检测</tspan><tspan x="1280" dy="44">回滚其中一个事务</tspan></text></g>
+<g transform="translate(440 500) scale(0.65)" fill="none" stroke="#222" stroke-width="5" stroke-linecap="round" class="rough"><rect x="-50" y="-4" width="100" height="78" rx="12"/><path d="M-28 -4 v-24 a28 28 0 0 1 56 0 v24"/><line x1="0" y1="28" x2="0" y2="48"/></g><g transform="translate(1980 500) scale(0.65)" fill="none" stroke="#222" stroke-width="5" stroke-linecap="round" class="rough"><rect x="-50" y="-4" width="100" height="78" rx="12"/><path d="M-28 -4 v-24 a28 28 0 0 1 56 0 v24"/><line x1="0" y1="28" x2="0" y2="48"/></g>
+<text x="1280" y="1220" text-anchor="middle" dominant-baseline="middle" font-size="38" font-weight="800" fill="#232323" data-key="caption"><tspan x="1280" dy="0">死锁的根源常常是多个事务拿锁顺序不一致</tspan></text>
+</svg>

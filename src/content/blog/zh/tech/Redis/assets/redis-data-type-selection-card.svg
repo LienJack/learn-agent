@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">Redis 数据类型选型卡</title>
+  <desc id="desc">一张按业务语义选择 Redis 数据类型的中文速查卡片。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7ed"/>
+      <stop offset="0.52" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#ecfeff"/>
+    </linearGradient>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.13"/>
+    </filter>
+    <style>
+      .title { font: 800 48px "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #111827; }
+      .subtitle { font: 500 22px "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #475569; }
+      .card-title { font: 800 25px "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #111827; }
+      .card-body { font: 500 18px "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #475569; }
+      .tag { font: 700 15px "SFMono-Regular", Consolas, monospace; fill: #ffffff; letter-spacing: .5px; }
+      .footer { font: 500 18px "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #f8fafc; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="860" rx="36" fill="url(#bg)"/>
+  <circle cx="1098" cy="96" r="130" fill="#fee2e2" opacity="0.65"/>
+  <circle cx="146" cy="744" r="170" fill="#cffafe" opacity="0.58"/>
+  <path d="M72 158 C260 80, 396 250, 560 150 S920 104, 1190 226" fill="none" stroke="#fed7aa" stroke-width="22" stroke-linecap="round" opacity="0.42"/>
+
+  <g transform="translate(70 58)">
+    <rect x="0" y="0" width="1140" height="130" rx="30" fill="#ffffff" opacity="0.86" filter="url(#shadow)"/>
+    <rect x="30" y="32" width="86" height="66" rx="20" fill="url(#hot)"/>
+    <text x="73" y="75" text-anchor="middle" class="tag">Redis</text>
+    <text x="142" y="56" class="title">数据类型选型卡</text>
+    <text x="146" y="96" class="subtitle">不要先背命令，先看业务在表达什么：值、对象、队列、集合、排序、位置，还是事件流。</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <g transform="translate(70 230)">
+      <rect width="340" height="116" rx="24" fill="#ffffff"/>
+      <rect x="24" y="24" width="78" height="30" rx="15" fill="#ef4444"/>
+      <text x="63" y="45" text-anchor="middle" class="tag">String</text>
+      <text x="124" y="48" class="card-title">一个 key 对一个值</text>
+      <text x="24" y="84" class="card-body">缓存快照、计数器、状态开关、锁标记</text>
+    </g>
+    <g transform="translate(470 230)">
+      <rect width="340" height="116" rx="24" fill="#ffffff"/>
+      <rect x="24" y="24" width="66" height="30" rx="15" fill="#f97316"/>
+      <text x="57" y="45" text-anchor="middle" class="tag">Hash</text>
+      <text x="112" y="48" class="card-title">一个对象多个字段</text>
+      <text x="24" y="84" class="card-body">用户资料、购物车、配置项、字段计数</text>
+    </g>
+    <g transform="translate(870 230)">
+      <rect width="340" height="116" rx="24" fill="#ffffff"/>
+      <rect x="24" y="24" width="62" height="30" rx="15" fill="#eab308"/>
+      <text x="55" y="45" text-anchor="middle" class="tag">List</text>
+      <text x="108" y="48" class="card-title">有插入顺序</text>
+      <text x="24" y="84" class="card-body">最近浏览、简单队列、头尾操作</text>
+    </g>
+
+    <g transform="translate(70 390)">
+      <rect width="340" height="116" rx="24" fill="#ffffff"/>
+      <rect x="24" y="24" width="56" height="30" rx="15" fill="#22c55e"/>
+      <text x="52" y="45" text-anchor="middle" class="tag">Set</text>
+      <text x="102" y="48" class="card-title">成员不重复</text>
+      <text x="24" y="84" class="card-body">点赞、收藏、去重、共同关注</text>
+    </g>
+    <g transform="translate(470 390)">
+      <rect width="340" height="116" rx="24" fill="#ffffff"/>
+      <rect x="24" y="24" width="62" height="30" rx="15" fill="#06b6d4"/>
+      <text x="55" y="45" text-anchor="middle" class="tag">ZSet</text>
+      <text x="108" y="48" class="card-title">去重 + 分数排序</text>
+      <text x="24" y="84" class="card-body">排行榜、优先级队列、延迟任务</text>
+    </g>
+    <g transform="translate(870 390)">
+      <rect width="340" height="116" rx="24" fill="#ffffff"/>
+      <rect x="24" y="24" width="86" height="30" rx="15" fill="#3b82f6"/>
+      <text x="67" y="45" text-anchor="middle" class="tag">Bitmap</text>
+      <text x="132" y="48" class="card-title">海量是/否状态</text>
+      <text x="24" y="84" class="card-body">签到、活跃标记、权限位、实验命中</text>
+    </g>
+
+    <g transform="translate(70 550)">
+      <rect width="340" height="116" rx="24" fill="#ffffff"/>
+      <rect x="24" y="24" width="122" height="30" rx="15" fill="#8b5cf6"/>
+      <text x="85" y="45" text-anchor="middle" class="tag">HyperLogLog</text>
+      <text x="166" y="48" class="card-title">近似去重计数</text>
+      <text x="24" y="84" class="card-body">UV、独立访客、海量基数估算</text>
+    </g>
+    <g transform="translate(470 550)">
+      <rect width="340" height="116" rx="24" fill="#ffffff"/>
+      <rect x="24" y="24" width="58" height="30" rx="15" fill="#14b8a6"/>
+      <text x="53" y="45" text-anchor="middle" class="tag">GEO</text>
+      <text x="104" y="48" class="card-title">经纬度附近检索</text>
+      <text x="24" y="84" class="card-body">附近门店、附近骑手、同城匹配</text>
+    </g>
+    <g transform="translate(870 550)">
+      <rect width="340" height="116" rx="24" fill="#ffffff"/>
+      <rect x="24" y="24" width="78" height="30" rx="15" fill="#0f172a"/>
+      <text x="63" y="45" text-anchor="middle" class="tag">Stream</text>
+      <text x="124" y="48" class="card-title">可确认事件流</text>
+      <text x="24" y="84" class="card-body">订单事件、消费组、消息确认、重投</text>
+    </g>
+  </g>
+
+  <g transform="translate(104 735)">
+    <rect width="1072" height="70" rx="22" fill="#0f172a" opacity="0.92"/>
+    <text x="34" y="44" class="footer" fill="#f8fafc">落地前再问四句：会不会无限增长？是否需要强一致？会不会形成热 key？失败后怎么恢复？</text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-labelledby="title desc">
+<title id="title">MVCC 版本链与 Read View</title>
+<desc id="desc">快照读沿 undo 版本链寻找可见版本</desc>
+<defs>
+  <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="strokeWidth"><path d="M2 2 L16 9 L2 16 Z" fill="#222"/></marker>
+  <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="7"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.08"/></feComponentTransfer></filter>
+  <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="2" seed="3" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6"/></filter>
+</defs>
+<style>
+  svg { background: #f7f1df; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+  .rough { filter: url(#wobble); }
+  .faint { opacity: .13; }
+  text { paint-order: stroke; stroke: #f7f1df; stroke-width: 7px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="#f7f1df"/>
+<rect width="100%" height="100%" filter="url(#paper)" opacity="0.7"/>
+<g class="faint" fill="none" stroke="#222" stroke-width="3">
+  <path d="M180 1180 C520 1040 760 1260 1120 1110 S1840 1010 2240 1160"/>
+  <path d="M210 250 H430 V310 H640 M1840 230 H2050 V300 H2320"/>
+  <circle cx="430" cy="310" r="9"/><circle cx="640" cy="310" r="9"/><circle cx="2050" cy="300" r="9"/>
+  <path d="M230 980 h170 v70 h180 M1970 980 h180 v-70 h210"/>
+</g>
+<text x="1280" y="100" text-anchor="middle" dominant-baseline="middle" font-size="58" font-weight="800" fill="#232323" data-key="title"><tspan x="1280" dy="0">MVCC 版本链与 Read View</tspan></text>
+<text x="1280" y="168" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="500" fill="#555" data-key="subtitle"><tspan x="1280" dy="0">快照读沿 undo 版本链寻找可见版本</tspan></text>
+
+<g><rect x="230" y="520" width="360" height="180" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="410" y="588" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="current_record"><tspan x="410" dy="0">当前记录</tspan><tspan x="410" dy="44">trx_id=80</tspan></text></g>
+<line x1="590" y1="610" x2="760" y2="610" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<g><rect x="760" y="520" width="330" height="180" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="925" y="588" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="undo_v1"><tspan x="925" dy="0">undo 版本</tspan><tspan x="925" dy="44">trx_id=72</tspan></text></g>
+<line x1="1090" y1="610" x2="1240" y2="610" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<rect x="1240" y="500" width="330" height="220" rx="26" ry="26" fill="#fdeaa6" stroke="#e1bc45" stroke-width="3" class="rough" /><g><rect x="1240" y="520" width="330" height="180" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1405" y="588" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="undo_v2"><tspan x="1405" dy="0">undo 版本</tspan><tspan x="1405" dy="44">trx_id=55</tspan></text></g>
+<line x1="1570" y1="610" x2="1720" y2="610" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<g><rect x="1720" y="520" width="330" height="180" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1885" y="588" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="undo_v3"><tspan x="1885" dy="0">更早版本</tspan><tspan x="1885" dy="44">trx_id=31</tspan></text></g>
+<g><rect x="780" y="880" width="1000" height="180" rx="26" ry="26" fill="#fff8df" stroke="#d7ac33" stroke-width="5" class="rough" /><text x="1280" y="970" text-anchor="middle" dominant-baseline="middle" font-size="40" font-weight="600" fill="#232323" data-key="read_view"><tspan x="1280" dy="0">Read View：活跃事务名单 + 可见性规则</tspan></text></g>
+<path d="M1280 880 C1250 790 1320 720 1405 700" fill="none" stroke="#d7ac33" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" class="rough"/>
+<g transform="translate(515 450) scale(0.9)" fill="none" stroke="#222" stroke-width="5" stroke-linecap="round" class="rough"><circle cx="0" cy="0" r="34"/><line x1="25" y1="25" x2="62" y2="62"/></g><text x="520" y="400" text-anchor="middle" dominant-baseline="middle" font-size="32" font-weight="700" fill="#232323" data-key="check_current"><tspan x="520" dy="0">先看当前版本</tspan></text>
+<text x="1405" y="470" text-anchor="middle" dominant-baseline="middle" font-size="32" font-weight="700" fill="#232323" data-key="walk_back"><tspan x="1405" dy="0">不可见就往回找</tspan></text>
+<text x="1280" y="1160" text-anchor="middle" dominant-baseline="middle" font-size="40" font-weight="800" fill="#232323" data-key="caption"><tspan x="1280" dy="0">普通 SELECT 不堵 UPDATE，因为它读的是一份可见快照</tspan></text>
+</svg>

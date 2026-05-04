@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-labelledby="title desc">
+<title id="title">MySQL 架构全景</title>
+<desc id="desc">客户端、Server 层、InnoDB 层与磁盘文件的责任边界</desc>
+<defs>
+  <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="strokeWidth"><path d="M2 2 L16 9 L2 16 Z" fill="#222"/></marker>
+  <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="7"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.08"/></feComponentTransfer></filter>
+  <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="2" seed="3" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6"/></filter>
+</defs>
+<style>
+  svg { background: #f7f1df; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+  .rough { filter: url(#wobble); }
+  .faint { opacity: .13; }
+  text { paint-order: stroke; stroke: #f7f1df; stroke-width: 7px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="#f7f1df"/>
+<rect width="100%" height="100%" filter="url(#paper)" opacity="0.7"/>
+<g class="faint" fill="none" stroke="#222" stroke-width="3">
+  <path d="M180 1180 C520 1040 760 1260 1120 1110 S1840 1010 2240 1160"/>
+  <path d="M210 250 H430 V310 H640 M1840 230 H2050 V300 H2320"/>
+  <circle cx="430" cy="310" r="9"/><circle cx="640" cy="310" r="9"/><circle cx="2050" cy="300" r="9"/>
+  <path d="M230 980 h170 v70 h180 M1970 980 h180 v-70 h210"/>
+</g>
+<text x="1280" y="100" text-anchor="middle" dominant-baseline="middle" font-size="58" font-weight="800" fill="#232323" data-key="title"><tspan x="1280" dy="0">MySQL 架构全景</tspan></text>
+<text x="1280" y="168" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="500" fill="#555" data-key="subtitle"><tspan x="1280" dy="0">客户端、Server 层、InnoDB 层与磁盘文件的责任边界</tspan></text>
+
+<g><rect x="980" y="220" width="600" height="120" rx="26" ry="26" fill="#eef7ff" stroke="#222" stroke-width="5" class="rough" /><text x="1280" y="280" text-anchor="middle" dominant-baseline="middle" font-size="44" font-weight="600" fill="#232323" data-key="client_sql"><tspan x="1280" dy="0">客户端 SQL</tspan></text></g>
+<line x1="1280" y1="340" x2="1280" y2="440" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<rect x="260" y="440" width="2040" height="360" rx="44" ry="44" fill="#eef8e8" stroke="#222" stroke-width="5" class="rough" /><text x="1280" y="500" text-anchor="middle" dominant-baseline="middle" font-size="48" font-weight="800" fill="#232323" data-key="server_layer"><tspan x="1280" dy="0">MySQL Server 层</tspan></text>
+<g><rect x="390" y="590" width="260" height="100" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="520" y="640" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="connector"><tspan x="520" dy="0">连接器</tspan></text></g><g><rect x="720" y="590" width="260" height="100" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="850" y="640" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="analyzer"><tspan x="850" dy="0">分析器</tspan></text></g><rect x="1040" y="570" width="280" height="140" rx="22" ry="22" fill="#fdeaa6" stroke="#e1bc45" stroke-width="3" class="rough" /><g><rect x="1050" y="590" width="260" height="100" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1180" y="640" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="optimizer"><tspan x="1180" dy="0">优化器</tspan></text></g><rect x="1370" y="570" width="280" height="140" rx="22" ry="22" fill="#fdeaa6" stroke="#e1bc45" stroke-width="3" class="rough" /><g><rect x="1380" y="590" width="260" height="100" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1510" y="640" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="executor"><tspan x="1510" dy="0">执行器</tspan></text></g><g><rect x="1710" y="590" width="260" height="100" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1840" y="640" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="binlog"><tspan x="1840" dy="0">binlog</tspan></text></g>
+<line x1="1280" y1="800" x2="1280" y2="900" stroke="#d7ac33" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<rect x="330" y="900" width="1900" height="300" rx="44" ry="44" fill="#fff8df" stroke="#222" stroke-width="5" class="rough" /><text x="1280" y="955" text-anchor="middle" dominant-baseline="middle" font-size="46" font-weight="800" fill="#232323" data-key="innodb_layer"><tspan x="1280" dy="0">InnoDB 存储引擎层</tspan></text>
+<g><rect x="470" y="1040" width="260" height="95" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="600" y="1087.5" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="600" fill="#232323" data-key="buffer_pool"><tspan x="600" dy="0">Buffer Pool</tspan></text></g><g><rect x="810" y="1040" width="260" height="95" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="940" y="1087.5" text-anchor="middle" dominant-baseline="middle" font-size="32" font-weight="600" fill="#232323" data-key="bplus_tree"><tspan x="940" dy="0">B+ 树</tspan></text></g><g><rect x="1150" y="1040" width="260" height="95" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1280" y="1087.5" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="600" fill="#232323" data-key="tx_lock"><tspan x="1280" dy="0">事务 / 锁</tspan></text></g><g><rect x="1490" y="1040" width="260" height="95" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1620" y="1087.5" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="600" fill="#232323" data-key="logs"><tspan x="1620" dy="0">redo / undo</tspan></text></g><g><rect x="1830" y="1040" width="260" height="95" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1960" y="1087.5" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="600" fill="#232323" data-key="disk_files"><tspan x="1960" dy="0">磁盘文件</tspan></text></g>
+<text x="1280" y="1290" text-anchor="middle" dominant-baseline="middle" font-size="38" font-weight="800" fill="#232323" data-key="caption"><tspan x="1280" dy="0">Server 层负责理解和安排 SQL；InnoDB 负责高效、安全地存取数据</tspan></text>
+</svg>

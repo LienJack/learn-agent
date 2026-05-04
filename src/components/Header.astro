@@ -21,7 +21,7 @@ const currentPath = Astro.url.pathname;
 			<HeaderLink href={localizePath(locale, '/about')}>{messages.header.about}</HeaderLink>
 		</div>
 		<div class="site-header-actions">
-			<details class="site-locale-switcher">
+			<details class="site-locale-switcher" hidden>
 				<summary
 					class="site-locale-trigger"
 					aria-label={messages.header.languageSwitcherLabel}

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520" role="img" aria-labelledby="title desc">
+  <title id="title">PostgreSQL MVCC vs InnoDB MVCC</title>
+  <desc id="desc">A comparison of PostgreSQL heap tuple version chains and InnoDB undo log version chains.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .pg { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+      .my { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .label { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .text { font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .small { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .code { font: 15px "SFMono-Regular", Consolas, monospace; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1120" height="520"/>
+  <text class="label" x="44" y="54">PostgreSQL 和 InnoDB 的 MVCC 心智模型差异</text>
+  <text class="text" x="44" y="84">二者都做多版本一致性读，但历史版本放在哪里、怎么回收，是完全不同的排障入口。</text>
+
+  <rect class="pg" x="54" y="126" width="480" height="318" rx="16"/>
+  <text class="label" x="82" y="166">PostgreSQL</text>
+  <text class="small" x="82" y="194">历史版本主要在 heap tuple 链里</text>
+
+  <rect class="box" x="94" y="236" width="142" height="74" rx="10"/>
+  <text class="code" x="116" y="268">V1</text>
+  <text class="small" x="116" y="292">xmin/xmax</text>
+  <rect class="box" x="306" y="236" width="142" height="74" rx="10"/>
+  <text class="code" x="328" y="268">V2</text>
+  <text class="small" x="328" y="292">new tuple</text>
+  <path class="arrow" d="M236 274 C262 274 276 274 302 274"/>
+
+  <text class="text" x="94" y="354">清理主角：VACUUM / AUTOVACUUM</text>
+  <text class="text" x="94" y="386">长事务风险：dead tuple 堆积、表/索引膨胀</text>
+
+  <rect class="my" x="586" y="126" width="480" height="318" rx="16"/>
+  <text class="label" x="614" y="166">MySQL InnoDB</text>
+  <text class="small" x="614" y="194">当前版本在数据页，历史版本主要通过 undo 回溯</text>
+
+  <rect class="box" x="626" y="236" width="158" height="74" rx="10"/>
+  <text class="code" x="648" y="268">current row</text>
+  <text class="small" x="648" y="292">DB_TRX_ID</text>
+  <rect class="box" x="858" y="236" width="158" height="74" rx="10"/>
+  <text class="code" x="880" y="268">undo chain</text>
+  <text class="small" x="880" y="292">old versions</text>
+  <path class="arrow" d="M784 274 C812 274 826 274 854 274"/>
+
+  <text class="text" x="626" y="354">清理主角：purge</text>
+  <text class="text" x="626" y="386">长事务风险：undo history 变长、回溯成本上升</text>
+</svg>

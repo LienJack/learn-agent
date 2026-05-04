@@ -94,7 +94,7 @@ export type LocaleMessages = {
 const messages: Record<Locale, LocaleMessages> = {
 	zh: {
 		site: {
-			title: 'learn-agent',
+			title: 'Learn- Agent',
 			description: '记录 AI 学习、Agent 实践与工作流方法论的中文笔记站。',
 			tagline: 'AI 学习 / Agent 实践 / 工作流笔记',
 		},
@@ -139,7 +139,7 @@ const messages: Record<Locale, LocaleMessages> = {
 		home: {
 			eyebrow: 'Notes in Progress',
 			lead: '记录 AI 学习、Agent 实践与工作流方法论的中文笔记站。',
-			note: '这里不追求“快报式结论”，更关心把学习过程、判断依据和实践细节慢慢写清楚。',
+			note: '从 Claude Code 源码读起，拆开一个编程 Agent 的上下文、工具调用、权限与协作机制，带你理解怎样真正构建一个能干活的 Agent。',
 			primaryCta: '查看文章',
 			secondaryCta: '了解写作方向',
 			panelEyebrow: '阅读入口',

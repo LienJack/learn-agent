@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="560" viewBox="0 0 1120 560" role="img" aria-labelledby="title desc">
+  <title id="title">PostgreSQL MVCC heap tuple version chain</title>
+  <desc id="desc">A heap page with line pointers, tuple versions, transaction metadata, and a HOT update chain.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .page { fill: #eef6ff; stroke: #2563eb; stroke-width: 2; }
+      .slot { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 1.5; }
+      .tuple-old { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; }
+      .tuple-new { fill: #ecfdf5; stroke: #059669; stroke-width: 2; }
+      .tuple-dead { fill: #f1f5f9; stroke: #64748b; stroke-width: 2; }
+      .label { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .text { font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .small { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .code { font: 15px "SFMono-Regular", Consolas, monospace; fill: #0f172a; }
+      .muted { fill: #64748b; }
+      .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #64748b; stroke-width: 2; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1120" height="560"/>
+  <text class="label" x="44" y="54">Heap page 里的 MVCC 版本链</text>
+  <text class="text" x="44" y="84">UPDATE 通常不是原地覆盖，而是让旧 tuple 指向新 tuple；读者按快照挑一个可见版本。</text>
+
+  <rect class="page" x="44" y="120" width="600" height="368" rx="14"/>
+  <text class="label" x="68" y="158">Heap Page</text>
+  <text class="small" x="68" y="182">page header + line pointers + tuple data</text>
+
+  <rect class="slot" x="76" y="222" width="120" height="54" rx="8"/>
+  <text class="code" x="99" y="255">LP 1</text>
+  <rect class="slot" x="76" y="314" width="120" height="54" rx="8"/>
+  <text class="code" x="99" y="347">LP 2</text>
+
+  <rect class="tuple-old" x="260" y="204" width="300" height="92" rx="10"/>
+  <text class="code" x="284" y="235">tuple V1: stock=1</text>
+  <text class="code" x="284" y="260">xmin=10, xmax=20</text>
+  <text class="code" x="284" y="282">ctid=(0,2)</text>
+
+  <rect class="tuple-new" x="260" y="318" width="300" height="92" rx="10"/>
+  <text class="code" x="284" y="349">tuple V2: stock=0</text>
+  <text class="code" x="284" y="374">xmin=20, xmax=0</text>
+  <text class="code" x="284" y="396">ctid=(0,2)</text>
+
+  <path class="arrow" d="M196 249 C218 249 229 249 256 249"/>
+  <path class="arrow" d="M196 341 C218 341 229 364 256 364"/>
+  <path class="dash" d="M410 296 C410 308 410 308 410 316"/>
+  <text class="small" x="436" y="308">UPDATE by xid=20</text>
+
+  <rect class="panel" x="692" y="120" width="384" height="160" rx="14"/>
+  <text class="label" x="716" y="156">字段怎么读</text>
+  <text class="code" x="716" y="190">xmin</text>
+  <text class="text" x="782" y="190">谁创建了这个版本</text>
+  <text class="code" x="716" y="222">xmax</text>
+  <text class="text" x="782" y="222">谁删除或替换了它</text>
+  <text class="code" x="716" y="254">ctid</text>
+  <text class="text" x="782" y="254">自己位置，或后继版本位置</text>
+
+  <rect class="panel" x="692" y="314" width="384" height="174" rx="14"/>
+  <text class="label" x="716" y="350">HOT 更新的直觉</text>
+  <text class="text" x="716" y="384">如果没有改索引列，且同页有空间，</text>
+  <text class="text" x="716" y="412">新版本可以留在同一个 heap page。</text>
+  <text class="text" x="716" y="440">索引项通常仍指向链头，减少索引写放大。</text>
+  <text class="small" x="716" y="470">非 HOT 更新则可能新增索引项，甚至跨页写新版本。</text>
+</svg>
