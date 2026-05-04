@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="660" viewBox="0 0 1120 660" role="img" aria-labelledby="title desc">
+  <title id="title">PostgreSQL GiST index implementation</title>
+  <desc id="desc">A GiST index stores summaries in internal nodes, prunes impossible branches, and rechecks candidate heap tuples.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2f4a5a"/></marker>
+    <style>
+      .bg { fill: #f8faf9; }
+      .box { fill: #ffffff; stroke: #b8c6c9; stroke-width: 2; rx: 10; }
+      .node { fill: #eef6f2; stroke: #78908d; stroke-width: 2; rx: 8; }
+      .hit { fill: #fff7e6; stroke: #b88a38; stroke-width: 2; rx: 8; }
+      .skip { fill: #f3f3f3; stroke: #a9a9a9; stroke-width: 2; rx: 8; }
+      .heap { fill: #eef2ff; stroke: #6875b4; stroke-width: 2; rx: 8; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 18px; fill: #1d2b34; font-weight: 700; }
+      .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; fill: #26363d; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; fill: #3b4c54; }
+      .arrow { stroke: #2f4a5a; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #6d7f86; stroke-width: 2; fill: none; stroke-dasharray: 6 5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="660"/>
+  <text class="label" x="40" y="48">GiST：摘要树 + 剪枝搜索</text>
+  <text class="text" x="40" y="78">适合空间、范围、相似度等复杂谓词；内部节点保存子树摘要，查询时跳过不可能命中的分支。</text>
+  <rect class="box" x="40" y="112" width="1040" height="470"/>
+  <rect class="node" x="448" y="150" width="224" height="82"/>
+  <text class="label" x="500" y="184">Root Summary</text>
+  <text class="small" x="482" y="210">union of child ranges/boxes</text>
+
+  <rect class="hit" x="166" y="316" width="230" height="86"/>
+  <text class="label" x="210" y="350">Child Summary</text>
+  <text class="small" x="198" y="376">may overlap query</text>
+  <rect class="skip" x="448" y="316" width="230" height="86"/>
+  <text class="label" x="494" y="350">Child Summary</text>
+  <text class="small" x="500" y="376">cannot match, prune</text>
+  <rect class="hit" x="730" y="316" width="230" height="86"/>
+  <text class="label" x="774" y="350">Child Summary</text>
+  <text class="small" x="760" y="376">may overlap query</text>
+  <path class="arrow" d="M514 232 L326 316"/>
+  <path class="arrow" d="M560 232 L562 316"/>
+  <path class="arrow" d="M608 232 L790 316"/>
+
+  <rect class="heap" x="254" y="474" width="610" height="64"/>
+  <text class="label" x="304" y="512">Candidate TIDs -> Heap Recheck</text>
+  <text class="small" x="604" y="512">summary hit does not always mean exact match</text>
+  <path class="dash" d="M280 402 L420 474"/>
+  <path class="dash" d="M844 402 L704 474"/>
+  <text class="text" x="86" y="622">实现重点：GiST 是框架，具体行为由 operator class 决定；收益来自 consistent/union/penalty/picksplit 等策略带来的剪枝。</text>
+</svg>

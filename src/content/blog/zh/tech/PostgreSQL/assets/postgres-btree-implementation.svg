@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="700" viewBox="0 0 1120 700" role="img" aria-labelledby="title desc">
+  <title id="title">PostgreSQL B-Tree index implementation</title>
+  <desc id="desc">A B-Tree index stores keys in balanced pages. Root and internal pages route searches to ordered leaf pages, and leaf tuples point to heap tuples by TID.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f4a5a"/>
+    </marker>
+    <style>
+      .bg { fill: #f8faf9; }
+      .panel { fill: #ffffff; stroke: #b8c6c9; stroke-width: 2; rx: 10; }
+      .page { fill: #eef6f2; stroke: #78908d; stroke-width: 2; rx: 8; }
+      .leaf { fill: #fff7e6; stroke: #b88a38; stroke-width: 2; rx: 8; }
+      .heap { fill: #eef2ff; stroke: #6875b4; stroke-width: 2; rx: 8; }
+      .slot { fill: #ffffff; stroke: #9aa8aa; stroke-width: 1.5; rx: 4; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 18px; fill: #1d2b34; font-weight: 700; }
+      .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; fill: #26363d; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; fill: #3b4c54; }
+      .arrow { stroke: #2f4a5a; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .link { stroke: #6d7f86; stroke-width: 2; fill: none; stroke-dasharray: 6 5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1120" height="700"/>
+  <text class="label" x="40" y="48">B-Tree：平衡页树 + 有序叶子页 + TID 指向 heap</text>
+  <text class="text" x="40" y="78">适合等值、范围、排序和 TopN；查询从根页下钻到叶子页，再通过 TID 读取 heap tuple。</text>
+
+  <rect class="panel" x="36" y="108" width="1048" height="520"/>
+
+  <rect class="page" x="452" y="142" width="216" height="84"/>
+  <text class="label" x="492" y="174">Root Page</text>
+  <text class="small" x="479" y="201">分隔键：user_id</text>
+
+  <rect class="page" x="180" y="292" width="240" height="104"/>
+  <text class="label" x="232" y="324">Internal Page</text>
+  <rect class="slot" x="202" y="344" width="76" height="30"/>
+  <rect class="slot" x="286" y="344" width="76" height="30"/>
+  <text class="small" x="217" y="365">&lt; 5000</text>
+  <text class="small" x="299" y="365">&lt; 9000</text>
+
+  <rect class="page" x="700" y="292" width="240" height="104"/>
+  <text class="label" x="752" y="324">Internal Page</text>
+  <rect class="slot" x="722" y="344" width="76" height="30"/>
+  <rect class="slot" x="806" y="344" width="76" height="30"/>
+  <text class="small" x="737" y="365">&lt; 15000</text>
+  <text class="small" x="821" y="365">&lt; 22000</text>
+
+  <path class="arrow" d="M 524 226 L 342 292"/>
+  <path class="arrow" d="M 596 226 L 778 292"/>
+
+  <rect class="leaf" x="88" y="468" width="284" height="96"/>
+  <text class="label" x="172" y="499">Leaf Page</text>
+  <rect class="slot" x="110" y="520" width="74" height="28"/>
+  <rect class="slot" x="190" y="520" width="74" height="28"/>
+  <rect class="slot" x="270" y="520" width="74" height="28"/>
+  <text class="small" x="121" y="539">9001,TID</text>
+  <text class="small" x="201" y="539">10086,TID</text>
+  <text class="small" x="281" y="539">11020,TID</text>
+
+  <rect class="leaf" x="420" y="468" width="284" height="96"/>
+  <text class="label" x="504" y="499">Leaf Page</text>
+  <rect class="slot" x="442" y="520" width="74" height="28"/>
+  <rect class="slot" x="522" y="520" width="74" height="28"/>
+  <rect class="slot" x="602" y="520" width="74" height="28"/>
+  <text class="small" x="453" y="539">15001,TID</text>
+  <text class="small" x="533" y="539">16008,TID</text>
+  <text class="small" x="613" y="539">17012,TID</text>
+
+  <rect class="leaf" x="752" y="468" width="284" height="96"/>
+  <text class="label" x="836" y="499">Leaf Page</text>
+  <rect class="slot" x="774" y="520" width="74" height="28"/>
+  <rect class="slot" x="854" y="520" width="74" height="28"/>
+  <rect class="slot" x="934" y="520" width="74" height="28"/>
+  <text class="small" x="785" y="539">22001,TID</text>
+  <text class="small" x="865" y="539">24012,TID</text>
+  <text class="small" x="945" y="539">26000,TID</text>
+
+  <path class="arrow" d="M 264 396 L 212 468"/>
+  <path class="arrow" d="M 336 396 L 536 468"/>
+  <path class="arrow" d="M 814 396 L 870 468"/>
+  <path class="arrow" d="M 372 516 L 420 516"/>
+  <path class="arrow" d="M 704 516 L 752 516"/>
+
+  <rect class="heap" x="170" y="604" width="780" height="58"/>
+  <text class="label" x="190" y="638">Heap pages</text>
+  <text class="text" x="330" y="638">TID = block number + item offset；读到 tuple 后再做 MVCC 可见性判断</text>
+  <path class="link" d="M 226 564 C 260 592, 300 604, 380 604"/>
+  <path class="link" d="M 552 564 C 562 590, 574 600, 592 604"/>
+  <path class="link" d="M 894 564 C 850 592, 790 604, 710 604"/>
+</svg>

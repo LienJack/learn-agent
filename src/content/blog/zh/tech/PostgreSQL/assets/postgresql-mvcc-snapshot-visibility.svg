@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="600" viewBox="0 0 1120 600" role="img" aria-labelledby="title desc">
+  <title id="title">PostgreSQL MVCC snapshot visibility decision</title>
+  <desc id="desc">A snapshot with xmin, xmax, and active transaction ids decides which tuple version is visible.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .snap { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+      .visible { fill: #ecfdf5; stroke: #059669; stroke-width: 2; }
+      .hidden { fill: #fef2f2; stroke: #dc2626; stroke-width: 2; }
+      .maybe { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; }
+      .label { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .text { font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .small { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .code { font: 15px "SFMono-Regular", Consolas, monospace; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .line { stroke: #94a3b8; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1120" height="600"/>
+  <text class="label" x="44" y="54">Snapshot 怎么判断一个 tuple 能不能看见</text>
+  <text class="text" x="44" y="84">快照不是复制数据，而是记录“拍照那一刻哪些事务已提交、哪些还活着”。</text>
+
+  <rect class="snap" x="44" y="126" width="310" height="180" rx="14"/>
+  <text class="label" x="68" y="164">Snapshot S</text>
+  <text class="code" x="68" y="202">xmin = 20</text>
+  <text class="small" x="174" y="202">活跃事务下界</text>
+  <text class="code" x="68" y="236">xmax = 30</text>
+  <text class="small" x="174" y="236">下一个事务 ID</text>
+  <text class="code" x="68" y="270">xip = {23, 27}</text>
+  <text class="small" x="214" y="270">拍照时仍活跃</text>
+
+  <rect class="panel" x="410" y="126" width="290" height="82" rx="12"/>
+  <text class="code" x="434" y="160">tuple A: xmin=18</text>
+  <text class="code" x="434" y="186">xmax=0</text>
+  <rect class="visible" x="746" y="126" width="290" height="82" rx="12"/>
+  <text class="label" x="770" y="160">可见</text>
+  <text class="small" x="770" y="186">创建事务早于快照，且未被删除</text>
+
+  <rect class="panel" x="410" y="246" width="290" height="82" rx="12"/>
+  <text class="code" x="434" y="280">tuple B: xmin=23</text>
+  <text class="code" x="434" y="306">xmax=0</text>
+  <rect class="hidden" x="746" y="246" width="290" height="82" rx="12"/>
+  <text class="label" x="770" y="280">不可见</text>
+  <text class="small" x="770" y="306">xmin 在 xip 中，拍照时还没提交</text>
+
+  <rect class="panel" x="410" y="366" width="290" height="82" rx="12"/>
+  <text class="code" x="434" y="400">tuple C: xmin=31</text>
+  <text class="code" x="434" y="426">xmax=0</text>
+  <rect class="hidden" x="746" y="366" width="290" height="82" rx="12"/>
+  <text class="label" x="770" y="400">不可见</text>
+  <text class="small" x="770" y="426">xmin >= xmax，是快照之后的未来版本</text>
+
+  <rect class="panel" x="410" y="486" width="290" height="82" rx="12"/>
+  <text class="code" x="434" y="520">tuple D: xmin=18</text>
+  <text class="code" x="434" y="546">xmax=21</text>
+  <rect class="maybe" x="746" y="486" width="290" height="82" rx="12"/>
+  <text class="label" x="770" y="520">继续看 xmax</text>
+  <text class="small" x="770" y="546">若删除事务对快照可见，则旧版本失效</text>
+
+  <path class="arrow" d="M354 216 C382 216 382 166 406 166"/>
+  <path class="arrow" d="M700 166 C722 166 722 166 742 166"/>
+  <path class="arrow" d="M354 216 C382 216 382 286 406 286"/>
+  <path class="arrow" d="M700 286 C722 286 722 286 742 286"/>
+  <path class="arrow" d="M354 216 C382 216 382 406 406 406"/>
+  <path class="arrow" d="M700 406 C722 406 722 406 742 406"/>
+  <path class="arrow" d="M354 216 C382 216 382 526 406 526"/>
+  <path class="arrow" d="M700 526 C722 526 722 526 742 526"/>
+</svg>

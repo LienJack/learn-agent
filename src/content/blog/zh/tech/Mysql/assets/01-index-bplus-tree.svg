@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-labelledby="title desc">
+<title id="title">InnoDB B+ 树索引结构</title>
+<desc id="desc">矮胖多路树：少访问页，叶子页顺序相连</desc>
+<defs>
+  <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="strokeWidth"><path d="M2 2 L16 9 L2 16 Z" fill="#222"/></marker>
+  <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="7"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.08"/></feComponentTransfer></filter>
+  <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="2" seed="3" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6"/></filter>
+</defs>
+<style>
+  svg { background: #f7f1df; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+  .rough { filter: url(#wobble); }
+  .faint { opacity: .13; }
+  text { paint-order: stroke; stroke: #f7f1df; stroke-width: 7px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="#f7f1df"/>
+<rect width="100%" height="100%" filter="url(#paper)" opacity="0.7"/>
+<g class="faint" fill="none" stroke="#222" stroke-width="3">
+  <path d="M180 1180 C520 1040 760 1260 1120 1110 S1840 1010 2240 1160"/>
+  <path d="M210 250 H430 V310 H640 M1840 230 H2050 V300 H2320"/>
+  <circle cx="430" cy="310" r="9"/><circle cx="640" cy="310" r="9"/><circle cx="2050" cy="300" r="9"/>
+  <path d="M230 980 h170 v70 h180 M1970 980 h180 v-70 h210"/>
+</g>
+<text x="1280" y="100" text-anchor="middle" dominant-baseline="middle" font-size="58" font-weight="800" fill="#232323" data-key="title"><tspan x="1280" dy="0">InnoDB B+ 树索引结构</tspan></text>
+<text x="1280" y="168" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="500" fill="#555" data-key="subtitle"><tspan x="1280" dy="0">矮胖多路树：少访问页，叶子页顺序相连</tspan></text>
+
+<rect x="1120" y="220" width="320" height="120" rx="28" ry="28" fill="#fdeaa6" stroke="#e1bc45" stroke-width="3" class="rough" /><g><rect x="1120" y="220" width="320" height="120" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1280" y="280" text-anchor="middle" dominant-baseline="middle" font-size="44" font-weight="600" fill="#232323" data-key="root_page"><tspan x="1280" dy="0">根页</tspan></text></g>
+<line x1="1280" y1="340" x2="720" y2="520" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1280" y1="340" x2="1280" y2="520" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1280" y1="340" x2="1840" y2="520" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<g><rect x="500" y="520" width="440" height="120" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="720" y="580" text-anchor="middle" dominant-baseline="middle" font-size="42" font-weight="600" fill="#232323" data-key="index_page_1"><tspan x="720" dy="0">索引页</tspan></text></g>
+<g><rect x="1060" y="520" width="440" height="120" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1280" y="580" text-anchor="middle" dominant-baseline="middle" font-size="42" font-weight="600" fill="#232323" data-key="index_page_2"><tspan x="1280" dy="0">索引页</tspan></text></g>
+<g><rect x="1620" y="520" width="440" height="120" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1840" y="580" text-anchor="middle" dominant-baseline="middle" font-size="42" font-weight="600" fill="#232323" data-key="index_page_3"><tspan x="1840" dy="0">索引页</tspan></text></g>
+<line x1="720" y1="640" x2="480" y2="820" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="720" y1="640" x2="820" y2="820" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1280" y1="640" x2="1100" y2="820" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1280" y1="640" x2="1460" y2="820" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1840" y1="640" x2="1740" y2="820" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1840" y1="640" x2="2080" y2="820" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<rect x="300" y="820" width="360" height="150" rx="24" ry="24" fill="#fdeaa6" stroke="#e1bc45" stroke-width="3" class="rough" /><g><rect x="300" y="820" width="360" height="150" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="480" y="873" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="leaf_data_1"><tspan x="480" dy="0">叶子页</tspan><tspan x="480" dy="44">整行数据</tspan></text></g>
+<g><rect x="700" y="820" width="360" height="150" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="880" y="873" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="leaf_data_2"><tspan x="880" dy="0">叶子页</tspan><tspan x="880" dy="44">整行数据</tspan></text></g>
+<g><rect x="1100" y="820" width="360" height="150" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1280" y="873" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="leaf_data_3"><tspan x="1280" dy="0">叶子页</tspan><tspan x="1280" dy="44">整行数据</tspan></text></g>
+<g><rect x="1500" y="820" width="360" height="150" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1680" y="873" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="leaf_data_4"><tspan x="1680" dy="0">叶子页</tspan><tspan x="1680" dy="44">整行数据</tspan></text></g>
+<g><rect x="1900" y="820" width="360" height="150" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="2080" y="873" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="leaf_data_5"><tspan x="2080" dy="0">叶子页</tspan><tspan x="2080" dy="44">整行数据</tspan></text></g>
+<line x1="660" y1="895" x2="700" y2="895" stroke="#222" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1060" y1="895" x2="1100" y2="895" stroke="#222" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1460" y1="895" x2="1500" y2="895" stroke="#222" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1860" y1="895" x2="1900" y2="895" stroke="#222" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<text x="1280" y="1110" text-anchor="middle" dominant-baseline="middle" font-size="36" font-weight="700" fill="#232323" data-key="caption"><tspan x="1280" dy="0">非叶子页负责导航，真实数据在叶子页，叶子页之间按顺序串起来</tspan></text>
+<g transform="translate(2180 1120) scale(1.1)" fill="none" stroke="#222" stroke-width="5" class="rough"><ellipse cx="0" cy="0" rx="70" ry="24"/><path d="M-70 0 v90 q70 32 140 0 v-90"/><ellipse cx="0" cy="90" rx="70" ry="24"/></g><text x="2180" y="1260" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="700" fill="#232323" data-key="page_unit"><tspan x="2180" dy="0">页是读写单位</tspan></text>
+</svg>

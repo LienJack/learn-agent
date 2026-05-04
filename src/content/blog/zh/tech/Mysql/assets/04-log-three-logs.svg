@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-labelledby="title desc">
+<title id="title">三条日志的分工</title>
+<desc id="desc">一次 UPDATE 同时面对回滚、崩溃恢复、复制恢复三类风险</desc>
+<defs>
+  <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="strokeWidth"><path d="M2 2 L16 9 L2 16 Z" fill="#222"/></marker>
+  <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="7"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.08"/></feComponentTransfer></filter>
+  <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="2" seed="3" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6"/></filter>
+</defs>
+<style>
+  svg { background: #f7f1df; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+  .rough { filter: url(#wobble); }
+  .faint { opacity: .13; }
+  text { paint-order: stroke; stroke: #f7f1df; stroke-width: 7px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="#f7f1df"/>
+<rect width="100%" height="100%" filter="url(#paper)" opacity="0.7"/>
+<g class="faint" fill="none" stroke="#222" stroke-width="3">
+  <path d="M180 1180 C520 1040 760 1260 1120 1110 S1840 1010 2240 1160"/>
+  <path d="M210 250 H430 V310 H640 M1840 230 H2050 V300 H2320"/>
+  <circle cx="430" cy="310" r="9"/><circle cx="640" cy="310" r="9"/><circle cx="2050" cy="300" r="9"/>
+  <path d="M230 980 h170 v70 h180 M1970 980 h180 v-70 h210"/>
+</g>
+<text x="1280" y="100" text-anchor="middle" dominant-baseline="middle" font-size="58" font-weight="800" fill="#232323" data-key="title"><tspan x="1280" dy="0">三条日志的分工</tspan></text>
+<text x="1280" y="168" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="500" fill="#555" data-key="subtitle"><tspan x="1280" dy="0">一次 UPDATE 同时面对回滚、崩溃恢复、复制恢复三类风险</tspan></text>
+
+<g><rect x="120" y="590" width="360" height="150" rx="26" ry="26" fill="#fff8df" stroke="#d7ac33" stroke-width="5" class="rough" /><text x="300" y="665" text-anchor="middle" dominant-baseline="middle" font-size="48" font-weight="600" fill="#232323" data-key="update"><tspan x="300" dy="0">UPDATE</tspan></text></g>
+<line x1="480" y1="665" x2="690" y2="370" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="480" y1="665" x2="690" y2="665" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="480" y1="665" x2="690" y2="960" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<g><rect x="690" y="280" width="510" height="180" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="945" y="345.5" text-anchor="middle" dominant-baseline="middle" font-size="38" font-weight="600" fill="#232323" data-key="undo_log"><tspan x="945" dy="0">undo log</tspan><tspan x="945" dy="49">回滚 / MVCC</tspan></text></g>
+<rect x="1280" y="555" width="510" height="220" rx="30" ry="30" fill="#fdeaa6" stroke="#e1bc45" stroke-width="3" class="rough" /><g><rect x="1280" y="575" width="510" height="180" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1535" y="640.5" text-anchor="middle" dominant-baseline="middle" font-size="38" font-weight="600" fill="#232323" data-key="redo_log"><tspan x="1535" dy="0">redo log</tspan><tspan x="1535" dy="49">崩溃恢复</tspan></text></g>
+<g><rect x="1870" y="870" width="510" height="180" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="2125" y="935.5" text-anchor="middle" dominant-baseline="middle" font-size="38" font-weight="600" fill="#232323" data-key="binlog"><tspan x="2125" dy="0">binlog</tspan><tspan x="2125" dy="49">复制 / 时间点恢复</tspan></text></g>
+<line x1="1200" y1="370" x2="1420" y2="575" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1790" y1="665" x2="2020" y2="870" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<g transform="translate(790 330) scale(0.55)" fill="none" stroke="#222" stroke-width="5" class="rough"><path d="M0 0 h86 l38 40 v126 h-124 z"/><path d="M86 0 v42 h38"/><line x1="22" y1="76" x2="102" y2="76"/><line x1="22" y1="106" x2="92" y2="106"/></g><g transform="translate(1390 625) scale(0.62)" fill="none" stroke="#222" stroke-width="5" stroke-linecap="round" class="rough"><circle cx="0" cy="0" r="34"/><circle cx="0" cy="0" r="12"/><path d="M0 -58 v18 M0 40 v18 M-58 0 h18 M40 0 h18 M-41 -41 l13 13 M28 28 l13 13 M41 -41 l-13 13 M-28 28 l-13 13"/></g><g transform="translate(1995 925) scale(0.55)" fill="none" stroke="#222" stroke-width="5" class="rough"><path d="M-70 28 q-18 -32 20 -44 q16 -52 70 -28 q44 -12 62 30 q40 6 38 46 q-4 42 -52 42 h-118 q-44 0 -48 -46z"/></g>
+<text x="1280" y="1135" text-anchor="middle" dominant-baseline="middle" font-size="42" font-weight="800" fill="#232323" data-key="caption"><tspan x="1280" dy="0">undo 记旧值，redo 记页修改，binlog 记变更事件</tspan></text>
+</svg>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-labelledby="title desc">
+<title id="title">redo log 循环写入结构</title>
+<desc id="desc">write pos 写新日志，checkpoint 释放已刷盘空间</desc>
+<defs>
+  <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="strokeWidth"><path d="M2 2 L16 9 L2 16 Z" fill="#222"/></marker>
+  <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="7"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.08"/></feComponentTransfer></filter>
+  <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="2" seed="3" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6"/></filter>
+</defs>
+<style>
+  svg { background: #f7f1df; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+  .rough { filter: url(#wobble); }
+  .faint { opacity: .13; }
+  text { paint-order: stroke; stroke: #f7f1df; stroke-width: 7px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="#f7f1df"/>
+<rect width="100%" height="100%" filter="url(#paper)" opacity="0.7"/>
+<g class="faint" fill="none" stroke="#222" stroke-width="3">
+  <path d="M180 1180 C520 1040 760 1260 1120 1110 S1840 1010 2240 1160"/>
+  <path d="M210 250 H430 V310 H640 M1840 230 H2050 V300 H2320"/>
+  <circle cx="430" cy="310" r="9"/><circle cx="640" cy="310" r="9"/><circle cx="2050" cy="300" r="9"/>
+  <path d="M230 980 h170 v70 h180 M1970 980 h180 v-70 h210"/>
+</g>
+<text x="1280" y="100" text-anchor="middle" dominant-baseline="middle" font-size="58" font-weight="800" fill="#232323" data-key="title"><tspan x="1280" dy="0">redo log 循环写入结构</tspan></text>
+<text x="1280" y="168" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="500" fill="#555" data-key="subtitle"><tspan x="1280" dy="0">write pos 写新日志，checkpoint 释放已刷盘空间</tspan></text>
+
+<g transform="translate(1280 660)">
+  <circle r="360" fill="none" stroke="#222" stroke-width="28" class="rough"/>
+  <path d="M0 -360 A360 360 0 0 1 342 112" fill="none" stroke="#fdeaa6" stroke-width="54" stroke-linecap="round" class="rough"/>
+  <path d="M0 -360 A360 360 0 0 1 342 112" fill="none" stroke="#d7ac33" stroke-width="5" stroke-linecap="round" class="rough"/>
+</g>
+<text x="1280" y="637" text-anchor="middle" dominant-baseline="middle" font-size="44" font-weight="800" fill="#232323" data-key="active_redo"><tspan x="1280" dy="0">活跃 redo</tspan><tspan x="1280" dy="56">未刷盘脏页</tspan></text>
+<g><rect x="990" y="190" width="360" height="120" rx="26" ry="26" fill="#fff8df" stroke="#d7ac33" stroke-width="5" class="rough" /><text x="1170" y="250" text-anchor="middle" dominant-baseline="middle" font-size="42" font-weight="600" fill="#232323" data-key="write_pos"><tspan x="1170" dy="0">write pos</tspan></text></g>
+<path d="M1160 315 C1120 390 1110 430 1132 498" fill="none" stroke="#d7ac33" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" class="rough"/>
+<g><rect x="1660" y="890" width="390" height="120" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1855" y="950" text-anchor="middle" dominant-baseline="middle" font-size="42" font-weight="600" fill="#232323" data-key="checkpoint"><tspan x="1855" dy="0">checkpoint</tspan></text></g>
+<path d="M1660 950 C1560 900 1540 860 1532 760" fill="none" stroke="#222" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" class="rough"/>
+<g><rect x="260" y="585" width="440" height="150" rx="26" ry="26" fill="#fff0ec" stroke="#b24b38" stroke-width="5" class="rough" /><text x="480" y="637" text-anchor="middle" dominant-baseline="middle" font-size="36" font-weight="600" fill="#232323" data-key="space_tight"><tspan x="480" dy="0">写入太快</tspan><tspan x="480" dy="46">空间变紧</tspan></text></g>
+<line x1="700" y1="660" x2="920" y2="660" stroke="#b24b38" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<g><rect x="1860" y="360" width="440" height="150" rx="26" ry="26" fill="#eef8e8" stroke="#222" stroke-width="5" class="rough" /><text x="2080" y="412" text-anchor="middle" dominant-baseline="middle" font-size="36" font-weight="600" fill="#232323" data-key="flush_dirty"><tspan x="2080" dy="0">刷脏页</tspan><tspan x="2080" dy="46">推进 checkpoint</tspan></text></g>
+<line x1="1860" y1="435" x2="1645" y2="505" stroke="#5c8a3c" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<g transform="translate(2050 610) scale(0.8)" fill="none" stroke="#222" stroke-width="5" class="rough"><ellipse cx="0" cy="0" rx="70" ry="24"/><path d="M-70 0 v90 q70 32 140 0 v-90"/><ellipse cx="0" cy="90" rx="70" ry="24"/></g>
+<text x="1280" y="1210" text-anchor="middle" dominant-baseline="middle" font-size="40" font-weight="800" fill="#232323" data-key="caption"><tspan x="1280" dy="0">redo 是崩溃恢复区，不是长期备份</tspan></text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="620" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title">PostgreSQL Hash index implementation</title>
+  <desc id="desc">A Hash index computes a hash value, maps it to a bucket page, scans bucket and overflow pages, then follows TIDs to heap tuples.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2f4a5a"/></marker>
+    <style>
+      .bg { fill: #f8faf9; }
+      .box { fill: #ffffff; stroke: #b8c6c9; stroke-width: 2; rx: 10; }
+      .hash { fill: #ecf7ff; stroke: #5790b5; stroke-width: 2; rx: 8; }
+      .bucket { fill: #fff7e6; stroke: #b88a38; stroke-width: 2; rx: 8; }
+      .heap { fill: #eef2ff; stroke: #6875b4; stroke-width: 2; rx: 8; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 18px; fill: #1d2b34; font-weight: 700; }
+      .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; fill: #26363d; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; fill: #3b4c54; }
+      .arrow { stroke: #2f4a5a; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #6d7f86; stroke-width: 2; fill: none; stroke-dasharray: 6 5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="620"/>
+  <text class="label" x="40" y="48">Hash：hash(key) 定位 bucket，适合纯等值查询</text>
+  <text class="text" x="40" y="78">不保存原始键的有序关系，所以不能支持范围扫描或按索引顺序排序。</text>
+  <rect class="box" x="40" y="114" width="1040" height="430"/>
+  <rect class="hash" x="80" y="176" width="190" height="86"/>
+  <text class="label" x="112" y="210">Search Key</text>
+  <text class="small" x="116" y="237">email = alice@...</text>
+  <rect class="hash" x="330" y="176" width="190" height="86"/>
+  <text class="label" x="372" y="210">Hash</text>
+  <text class="small" x="365" y="237">hash(email) = 0x7a</text>
+  <rect class="hash" x="580" y="176" width="190" height="86"/>
+  <text class="label" x="626" y="210">Bucket Map</text>
+  <text class="small" x="620" y="237">0x7a -> bucket 12</text>
+  <path class="arrow" d="M270 219 L330 219"/>
+  <path class="arrow" d="M520 219 L580 219"/>
+
+  <rect class="bucket" x="230" y="350" width="210" height="92"/>
+  <text class="label" x="276" y="382">Bucket Page</text>
+  <text class="small" x="258" y="410">hash code + TID entries</text>
+  <rect class="bucket" x="510" y="350" width="210" height="92"/>
+  <text class="label" x="556" y="382">Overflow Page</text>
+  <text class="small" x="540" y="410">collision chain if bucket full</text>
+  <rect class="heap" x="790" y="350" width="210" height="92"/>
+  <text class="label" x="848" y="382">Heap</text>
+  <text class="small" x="828" y="410">fetch tuple by TID</text>
+  <path class="arrow" d="M675 262 C650 318, 518 338, 440 380"/>
+  <path class="arrow" d="M440 396 L510 396"/>
+  <path class="dash" d="M720 396 L790 396"/>
+  <text class="text" x="86" y="506">实现重点：速度来自桶定位；代价来自冲突、溢出链和扩容。查询只适合 =，不适合 ORDER BY / BETWEEN。</text>
+</svg>

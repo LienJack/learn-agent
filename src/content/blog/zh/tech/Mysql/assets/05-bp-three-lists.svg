@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-labelledby="title desc">
+<title id="title">Buffer Pool 的三条链表</title>
+<desc id="desc">Free 管空位，LRU 管冷热，Flush 管脏页</desc>
+<defs>
+  <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="strokeWidth"><path d="M2 2 L16 9 L2 16 Z" fill="#222"/></marker>
+  <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="7"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.08"/></feComponentTransfer></filter>
+  <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="2" seed="3" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6"/></filter>
+</defs>
+<style>
+  svg { background: #f7f1df; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+  .rough { filter: url(#wobble); }
+  .faint { opacity: .13; }
+  text { paint-order: stroke; stroke: #f7f1df; stroke-width: 7px; stroke-linejoin: round; }
+</style>
+<rect width="100%" height="100%" fill="#f7f1df"/>
+<rect width="100%" height="100%" filter="url(#paper)" opacity="0.7"/>
+<g class="faint" fill="none" stroke="#222" stroke-width="3">
+  <path d="M180 1180 C520 1040 760 1260 1120 1110 S1840 1010 2240 1160"/>
+  <path d="M210 250 H430 V310 H640 M1840 230 H2050 V300 H2320"/>
+  <circle cx="430" cy="310" r="9"/><circle cx="640" cy="310" r="9"/><circle cx="2050" cy="300" r="9"/>
+  <path d="M230 980 h170 v70 h180 M1970 980 h180 v-70 h210"/>
+</g>
+<text x="1280" y="100" text-anchor="middle" dominant-baseline="middle" font-size="58" font-weight="800" fill="#232323" data-key="title"><tspan x="1280" dy="0">Buffer Pool 的三条链表</tspan></text>
+<text x="1280" y="168" text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="500" fill="#555" data-key="subtitle"><tspan x="1280" dy="0">Free 管空位，LRU 管冷热，Flush 管脏页</tspan></text>
+
+<g><rect x="180" y="270" width="420" height="150" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="390" y="322" text-anchor="middle" dominant-baseline="middle" font-size="36" font-weight="600" fill="#232323" data-key="control_block"><tspan x="390" dy="0">控制块</tspan><tspan x="390" dy="46">页的身份证</tspan></text></g>
+<line x1="600" y1="345" x2="760" y2="345" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<rect x="760" y="250" width="1500" height="850" rx="44" ry="44" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" />
+<text x="1510" y="320" text-anchor="middle" dominant-baseline="middle" font-size="44" font-weight="800" fill="#232323" data-key="buffer_pool"><tspan x="1510" dy="0">Buffer Pool 缓存页</tspan></text>
+<g transform="translate(1320 390) scale(1.8)" fill="none" stroke="#222" stroke-width="4" class="rough"><rect x="0" y="0" width="38" height="28" rx="6"/><rect x="48" y="0" width="38" height="28" rx="6"/><rect x="96" y="0" width="38" height="28" rx="6"/><rect x="0" y="38" width="38" height="28" rx="6"/><rect x="48" y="38" width="38" height="28" rx="6"/><rect x="96" y="38" width="38" height="28" rx="6"/><rect x="0" y="76" width="38" height="28" rx="6"/><rect x="48" y="76" width="38" height="28" rx="6"/><rect x="96" y="76" width="38" height="28" rx="6"/></g>
+<g><rect x="920" y="760" width="420" height="130" rx="26" ry="26" fill="#eef8e8" stroke="#222" stroke-width="5" class="rough" /><text x="1130" y="803" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="free_list"><tspan x="1130" dy="0">Free List</tspan><tspan x="1130" dy="44">哪里有空位</tspan></text></g>
+<rect x="1390" y="740" width="420" height="170" rx="26" ry="26" fill="#fdeaa6" stroke="#e1bc45" stroke-width="3" class="rough" /><g><rect x="1390" y="760" width="420" height="130" rx="26" ry="26" fill="#fffdf6" stroke="#222" stroke-width="5" class="rough" /><text x="1600" y="803" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="lru_list"><tspan x="1600" dy="0">LRU List</tspan><tspan x="1600" dy="44">哪些该淘汰</tspan></text></g>
+<g><rect x="1630" y="960" width="420" height="130" rx="26" ry="26" fill="#fff0ec" stroke="#b24b38" stroke-width="5" class="rough" /><text x="1840" y="1003" text-anchor="middle" dominant-baseline="middle" font-size="34" font-weight="600" fill="#232323" data-key="flush_list"><tspan x="1840" dy="0">Flush List</tspan><tspan x="1840" dy="44">哪些是脏页</tspan></text></g>
+<line x1="1130" y1="720" x2="1260" y2="600" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1600" y1="740" x2="1600" y2="620" stroke="#222" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/><line x1="1840" y1="960" x2="1740" y2="620" stroke="#b24b38" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<g transform="translate(2120 1120) scale(0.8)" fill="none" stroke="#222" stroke-width="5" class="rough"><ellipse cx="0" cy="0" rx="70" ry="24"/><path d="M-70 0 v90 q70 32 140 0 v-90"/><ellipse cx="0" cy="90" rx="70" ry="24"/></g><line x1="2050" y1="1040" x2="2050" y2="980" stroke="#b24b38" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)" class="rough"/>
+<text x="1280" y="1210" text-anchor="middle" dominant-baseline="middle" font-size="38" font-weight="800" fill="#232323" data-key="caption"><tspan x="1280" dy="0">Buffer Pool 不是行缓存，而是 InnoDB 的内存页管理系统</tspan></text>
+</svg>

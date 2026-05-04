@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Redis types, encodings, and underlying structures</title>
+  <desc id="desc">A layered map from business commands to Redis object type, encoding, and real data structures.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#eef6f0"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .layer { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1e293b; }
+      .label { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .text { font: 400 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .tiny { font: 400 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64748b; }
+      .box { rx: 12; ry: 12; filter: url(#shadow); stroke-width: 1.2; }
+      .small { rx: 10; ry: 10; stroke-width: 1; }
+      .arrow { stroke: #475569; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .soft { stroke: #cbd5e1; stroke-width: 1.4; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="760" fill="url(#bg)"/>
+  <text class="title" x="62" y="66">Redis 底层结构不是一张静态表，而是一套分层选择器</text>
+  <text class="subtitle" x="62" y="98">客户端看到业务类型，redisObject 记录 type 与 encoding，底层结构负责在内存、复杂度和延迟之间取舍。</text>
+
+  <text class="layer" x="68" y="164">业务命令</text>
+  <text class="layer" x="300" y="164">对象层</text>
+  <text class="layer" x="548" y="164">编码选择</text>
+  <text class="layer" x="850" y="164">底层结构</text>
+  <text class="layer" x="1090" y="164">主要收益</text>
+
+  <rect class="box" x="52" y="188" width="190" height="92" fill="#fff7ed" stroke="#fed7aa"/>
+  <text class="label" x="82" y="224">String</text>
+  <text class="text" x="82" y="250">GET / SET / APPEND</text>
+  <text class="tiny" x="82" y="270">商品详情、token、缓存值</text>
+
+  <rect class="box" x="52" y="302" width="190" height="92" fill="#ecfdf5" stroke="#bbf7d0"/>
+  <text class="label" x="82" y="338">Hash / Set</text>
+  <text class="text" x="82" y="364">HGET / SADD / SMEMBERS</text>
+  <text class="tiny" x="82" y="384">购物车、标签、收藏</text>
+
+  <rect class="box" x="52" y="416" width="190" height="92" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text class="label" x="82" y="452">List</text>
+  <text class="text" x="82" y="478">LPUSH / RPOP / LRANGE</text>
+  <text class="tiny" x="82" y="498">浏览记录、轻量队列</text>
+
+  <rect class="box" x="52" y="530" width="190" height="92" fill="#fdf2f8" stroke="#fbcfe8"/>
+  <text class="label" x="82" y="566">ZSet / Stream</text>
+  <text class="text" x="82" y="592">ZRANGE / XADD</text>
+  <text class="tiny" x="82" y="612">排行榜、消息流</text>
+
+  <rect class="box" x="292" y="252" width="188" height="212" fill="#ffffff" stroke="#cbd5e1"/>
+  <text class="label" x="326" y="296">redisObject</text>
+  <text class="text" x="326" y="332">type: 对外语义</text>
+  <text class="text" x="326" y="362">encoding: 当前编码</text>
+  <text class="text" x="326" y="392">ptr: 指向真实结构</text>
+  <text class="tiny" x="326" y="430">命令稳定，内部可切换</text>
+
+  <rect class="small" x="535" y="190" width="226" height="64" fill="#fff7ed" stroke="#fed7aa"/>
+  <text class="label" x="565" y="228">int / embstr / raw</text>
+
+  <rect class="small" x="535" y="272" width="226" height="64" fill="#ecfdf5" stroke="#bbf7d0"/>
+  <text class="label" x="565" y="310">listpack / intset</text>
+
+  <rect class="small" x="535" y="354" width="226" height="64" fill="#ecfdf5" stroke="#bbf7d0"/>
+  <text class="label" x="565" y="392">hashtable</text>
+
+  <rect class="small" x="535" y="436" width="226" height="64" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text class="label" x="565" y="474">quicklist</text>
+
+  <rect class="small" x="535" y="518" width="226" height="64" fill="#fdf2f8" stroke="#fbcfe8"/>
+  <text class="label" x="565" y="556">listpack / skiplist</text>
+
+  <rect class="small" x="535" y="600" width="226" height="64" fill="#f0fdfa" stroke="#99f6e4"/>
+  <text class="label" x="565" y="638">rax + listpack</text>
+
+  <rect class="box" x="836" y="190" width="200" height="64" fill="#ffffff" stroke="#cbd5e1"/>
+  <text class="label" x="870" y="228">SDS</text>
+
+  <rect class="box" x="836" y="286" width="200" height="90" fill="#ffffff" stroke="#cbd5e1"/>
+  <text class="label" x="870" y="322">dict</text>
+  <text class="tiny" x="870" y="348">双表 + 渐进式 rehash</text>
+
+  <rect class="box" x="836" y="410" width="200" height="90" fill="#ffffff" stroke="#cbd5e1"/>
+  <text class="label" x="870" y="446">quicklist</text>
+  <text class="tiny" x="870" y="472">链表节点里装 listpack</text>
+
+  <rect class="box" x="836" y="534" width="200" height="90" fill="#ffffff" stroke="#cbd5e1"/>
+  <text class="label" x="870" y="570">skiplist + dict</text>
+  <text class="tiny" x="870" y="596">点查与范围排序并存</text>
+
+  <rect class="box" x="1076" y="190" width="154" height="64" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="text" x="1100" y="218">O(1) 长度</text>
+  <text class="tiny" x="1100" y="240">二进制安全</text>
+
+  <rect class="box" x="1076" y="286" width="154" height="90" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="text" x="1100" y="320">查找快</text>
+  <text class="tiny" x="1100" y="344">扩容成本被摊平</text>
+
+  <rect class="box" x="1076" y="410" width="154" height="90" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="text" x="1100" y="444">头尾操作顺手</text>
+  <text class="tiny" x="1100" y="468">小元素更省内存</text>
+
+  <rect class="box" x="1076" y="534" width="154" height="90" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="text" x="1100" y="568">范围查询自然</text>
+  <text class="tiny" x="1100" y="592">实现比树更轻</text>
+
+  <path class="arrow" d="M242 234 C270 234 266 306 292 306"/>
+  <path class="arrow" d="M242 348 C268 348 267 348 292 348"/>
+  <path class="arrow" d="M242 462 C270 462 266 390 292 390"/>
+  <path class="arrow" d="M480 306 C506 306 508 222 535 222"/>
+  <path class="arrow" d="M480 340 C506 340 508 304 535 304"/>
+  <path class="arrow" d="M480 362 C506 362 508 386 535 386"/>
+  <path class="arrow" d="M480 388 C506 388 508 468 535 468"/>
+  <path class="arrow" d="M480 414 C506 414 508 550 535 550"/>
+  <path class="arrow" d="M761 222 L836 222"/>
+  <path class="arrow" d="M761 386 C802 386 800 331 836 331"/>
+  <path class="arrow" d="M761 468 L836 455"/>
+  <path class="arrow" d="M761 550 L836 579"/>
+  <path class="arrow" d="M1036 222 L1076 222"/>
+  <path class="arrow" d="M1036 331 L1076 331"/>
+  <path class="arrow" d="M1036 455 L1076 455"/>
+  <path class="arrow" d="M1036 579 L1076 579"/>
+
+  <path class="soft" d="M648 336 C648 344 648 346 648 354"/>
+  <path class="soft" d="M648 500 C648 510 648 508 648 518"/>
+  <text class="tiny" x="540" y="708">记忆方式：不是“类型固定对应结构”，而是“小对象先紧凑，大对象再通用；命令语义稳定，编码按规模切换”。</text>
+</svg>

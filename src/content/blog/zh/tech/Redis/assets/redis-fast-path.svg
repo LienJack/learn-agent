@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Redis fast path</title>
+  <desc id="desc">A compact diagram showing how Redis turns hot simple requests into a short in-memory execution path.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111827"/>
+    </marker>
+    <style>
+      .box { fill: #f8fafc; stroke: #111827; stroke-width: 2.4; rx: 14; }
+      .accent { fill: #ecfeff; stroke: #0891b2; stroke-width: 2.4; rx: 14; }
+      .warn { fill: #fff7ed; stroke: #ea580c; stroke-width: 2.4; rx: 14; }
+      .text { font: 600 22px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 500 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .line { fill: none; stroke: #111827; stroke-width: 2.4; marker-end: url(#arrow); }
+      .thin { fill: none; stroke: #64748b; stroke-width: 1.8; stroke-dasharray: 7 7; }
+    </style>
+  </defs>
+
+  <rect x="24" y="24" width="912" height="372" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="54" y="70" class="text">Redis 的快：把请求压进一条短路径</text>
+  <text x="54" y="98" class="small">热数据、短命令、事件循环、紧凑编码一起减少等待和绕路</text>
+
+  <rect class="box" x="54" y="145" width="150" height="92"/>
+  <text x="82" y="184" class="text">热请求</text>
+  <text x="76" y="212" class="small">GET / INCR / ZADD</text>
+
+  <path class="line" d="M 204 191 C 230 191, 238 191, 264 191"/>
+
+  <rect class="accent" x="264" y="132" width="166" height="118"/>
+  <text x="296" y="173" class="text">事件循环</text>
+  <text x="292" y="201" class="small">多连接就绪事件</text>
+  <text x="303" y="226" class="small">统一调度</text>
+
+  <path class="line" d="M 430 191 C 456 191, 464 191, 490 191"/>
+
+  <rect class="accent" x="490" y="132" width="170" height="118"/>
+  <text x="523" y="173" class="text">主线程</text>
+  <text x="520" y="201" class="small">串行执行命令</text>
+  <text x="520" y="226" class="small">少锁、少切换</text>
+
+  <path class="line" d="M 660 191 C 686 191, 694 191, 720 191"/>
+
+  <rect class="box" x="720" y="132" width="166" height="118"/>
+  <text x="754" y="173" class="text">内存结构</text>
+  <text x="747" y="201" class="small">SDS / dict</text>
+  <text x="747" y="226" class="small">listpack / skiplist</text>
+
+  <path class="thin" d="M 124 249 C 124 301, 790 301, 790 249"/>
+  <text x="312" y="328" class="small">慢路径提醒：大 key、全量扫描、复杂集合运算、swap、fsync 抖动</text>
+
+  <rect class="warn" x="54" y="280" width="170" height="64"/>
+  <text x="86" y="320" class="small">问题形状不合适</text>
+
+  <rect class="warn" x="736" y="280" width="150" height="64"/>
+  <text x="774" y="320" class="small">排队等待</text>
+</svg>

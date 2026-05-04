@@ -68,7 +68,7 @@ function getNaturalDimensions(media: Element): { width: number; height: number }
 
 		const width = parsePositiveNumber(media.getAttribute('width'));
 		const height = parsePositiveNumber(media.getAttribute('height'));
-		if (Number.isFinite(width) && Number.isFinite(height) && width > 0 && height > 0) {
+		if (width !== null && height !== null) {
 			return { width, height };
 		}
 	}

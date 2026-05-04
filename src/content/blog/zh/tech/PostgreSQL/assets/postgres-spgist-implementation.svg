@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="660" viewBox="0 0 1120 660" role="img" aria-labelledby="title desc">
+  <title id="title">PostgreSQL SP-GiST index implementation</title>
+  <desc id="desc">An SP-GiST index partitions a search space into non-overlapping branches, such as trie prefixes, quadtrees, or radix trees.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2f4a5a"/></marker>
+    <style>
+      .bg { fill: #f8faf9; }
+      .box { fill: #ffffff; stroke: #b8c6c9; stroke-width: 2; rx: 10; }
+      .node { fill: #ecf7ff; stroke: #5790b5; stroke-width: 2; rx: 8; }
+      .leaf { fill: #fff7e6; stroke: #b88a38; stroke-width: 2; rx: 8; }
+      .heap { fill: #eef2ff; stroke: #6875b4; stroke-width: 2; rx: 8; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 18px; fill: #1d2b34; font-weight: 700; }
+      .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; fill: #26363d; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; fill: #3b4c54; }
+      .arrow { stroke: #2f4a5a; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #6d7f86; stroke-width: 2; fill: none; stroke-dasharray: 6 5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="1120" height="660"/>
+  <text class="label" x="40" y="48">SP-GiST：空间分区树，适合天然可拆分的数据</text>
+  <text class="text" x="40" y="78">和 GiST 的“重叠摘要”不同，SP-GiST 更强调把搜索空间切成不重叠分支，例如 trie、quad-tree、radix-tree。</text>
+  <rect class="box" x="40" y="112" width="1040" height="470"/>
+  <rect class="node" x="444" y="146" width="232" height="82"/>
+  <text class="label" x="502" y="180">Root Partition</text>
+  <text class="small" x="490" y="206">split by prefix / quadrant</text>
+
+  <rect class="node" x="100" y="304" width="190" height="78"/>
+  <text class="label" x="150" y="336">Branch A</text>
+  <text class="small" x="138" y="360">prefix: ca*</text>
+  <rect class="node" x="340" y="304" width="190" height="78"/>
+  <text class="label" x="390" y="336">Branch B</text>
+  <text class="small" x="378" y="360">prefix: po*</text>
+  <rect class="node" x="590" y="304" width="190" height="78"/>
+  <text class="label" x="640" y="336">Branch C</text>
+  <text class="small" x="628" y="360">prefix: pr*</text>
+  <rect class="node" x="830" y="304" width="190" height="78"/>
+  <text class="label" x="880" y="336">Branch D</text>
+  <text class="small" x="868" y="360">prefix: zk*</text>
+  <path class="arrow" d="M500 228 L220 304"/>
+  <path class="arrow" d="M540 228 L450 304"/>
+  <path class="arrow" d="M582 228 L670 304"/>
+  <path class="arrow" d="M622 228 L900 304"/>
+
+  <rect class="leaf" x="350" y="460" width="220" height="70"/>
+  <text class="label" x="402" y="492">Leaf Tuples</text>
+  <text class="small" x="388" y="514">matching TIDs only in one branch</text>
+  <rect class="heap" x="642" y="460" width="220" height="70"/>
+  <text class="label" x="704" y="492">Heap</text>
+  <text class="small" x="686" y="514">fetch and verify tuple</text>
+  <path class="arrow" d="M436 382 L456 460"/>
+  <path class="dash" d="M570 496 L642 496"/>
+  <text class="text" x="86" y="622">实现重点：SP-GiST 适合非平衡、可分区数据；分支之间尽量不重叠，因此点查、前缀、空间分区类查询可以少走很多无关分支。</text>
+</svg>
