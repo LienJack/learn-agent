@@ -3,10 +3,6 @@ import type { PanzoomObject, PanzoomOptions } from '@panzoom/panzoom';
 
 type MediaMode = 'auto' | 'inline' | 'preview';
 
-const PREVIEW_RATIO_THRESHOLD = 1.2;
-const WIDE_RATIO_THRESHOLD = 2.4;
-const LARGE_HEIGHT_THRESHOLD = 820;
-const LARGE_WIDTH_THRESHOLD = 1400;
 const PANZOOM_EXCLUDE_CLASS = 'article-media-viewer-control';
 const PANZOOM_MAX_SCALE = 5;
 const PANZOOM_STEP = 0.4;
@@ -22,21 +18,6 @@ type ViewerState = {
 function parsePositiveNumber(value: string | null): number | null {
 	const parsed = Number.parseFloat(value ?? '');
 	return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
-}
-
-function isPreviewCandidate(width: number, height: number): boolean {
-	const safeWidth = Math.max(width, 1);
-	const safeHeight = Math.max(height, 1);
-
-	if (safeHeight / safeWidth >= PREVIEW_RATIO_THRESHOLD) {
-		return true;
-	}
-
-	if (safeWidth / safeHeight >= WIDE_RATIO_THRESHOLD && safeWidth >= 960) {
-		return true;
-	}
-
-	return safeHeight >= LARGE_HEIGHT_THRESHOLD || safeWidth >= LARGE_WIDTH_THRESHOLD;
 }
 
 function getNaturalDimensions(media: Element): { width: number; height: number } | null {
@@ -96,23 +77,8 @@ function syncPreviewMode(root: HTMLElement): void {
 		return;
 	}
 
-	const media = root.querySelector('img, svg');
-	if (!media) {
-		root.dataset.mediaResolvedMode = 'inline';
-		root.classList.remove('is-preview');
-		return;
-	}
-
-	const dimensions = getNaturalDimensions(media);
-	if (!dimensions) {
-		root.dataset.mediaResolvedMode = 'inline';
-		root.classList.remove('is-preview');
-		return;
-	}
-
-	const preview = isPreviewCandidate(dimensions.width, dimensions.height);
-	root.dataset.mediaResolvedMode = preview ? 'preview' : 'inline';
-	root.classList.toggle('is-preview', preview);
+	root.dataset.mediaResolvedMode = 'inline';
+	root.classList.remove('is-preview');
 }
 
 function cloneMediaContent(root: HTMLElement): HTMLElement | null {
