@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+	<title id="title">Redis 部署运维检查闭环</title>
+	<desc id="desc">手绘风格分层图，展示 Redis 生产部署从实例规格、配置、监控、备份到降级的检查闭环。</desc>
+	<defs>
+		<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+			<path d="M 0 0 L 10 5 L 0 10 z" fill="#191713" />
+		</marker>
+		<filter id="rough">
+			<feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="31" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="1.35" />
+		</filter>
+		<style>
+			.bg { fill: #fbf6e8; }
+			.band { fill: #fffdf5; stroke: #191713; stroke-width: 3; filter: url(#rough); }
+			.hot { fill: #ffe8a8; stroke: #191713; stroke-width: 3; filter: url(#rough); }
+			.line { fill: none; stroke: #191713; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); filter: url(#rough); }
+			.thin { fill: none; stroke: #191713; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
+			.faint { fill: none; stroke: #cdbf9b; stroke-width: 1.3; opacity: .35; stroke-linecap: round; }
+			.text { font-family: "Kaiti SC", "STKaiti", "Songti SC", serif; fill: #191713; font-size: 27px; font-weight: 700; }
+			.small { font-family: "Kaiti SC", "STKaiti", "Songti SC", serif; fill: #191713; font-size: 19px; }
+			.caption { font-family: "Kaiti SC", "STKaiti", "Songti SC", serif; fill: #4b4031; font-size: 24px; }
+		</style>
+	</defs>
+	<rect class="bg" width="1200" height="675" />
+	<path class="faint" d="M118 140 h90 v38 h60 M960 132 h96 v42 h72 M118 540 h132 v-44 h60 M850 548 h140 v-50 h82" />
+	<circle cx="208" cy="178" r="5" fill="#d9c99f" opacity=".55" />
+	<circle cx="1056" cy="174" r="5" fill="#d9c99f" opacity=".55" />
+	<circle cx="990" cy="498" r="5" fill="#d9c99f" opacity=".55" />
+
+	<text x="86" y="82" class="text">部署规范是一组防线</text>
+	<text x="86" y="116" class="small">容量、配置、监控、备份和降级要一起设计</text>
+
+	<g transform="translate(160 160)">
+		<rect class="band" x="0" y="0" width="880" height="82" rx="18" />
+		<path class="thin" d="M54 50 h60 M84 28 v44" />
+		<text class="text" x="180" y="52">实例规格</text>
+		<text class="small" x="390" y="52">内存留余量，fork 时间可控，连接数有上限</text>
+	</g>
+	<g transform="translate(160 260)">
+		<rect class="hot" x="0" y="0" width="880" height="82" rx="18" />
+		<path class="thin" d="M58 30 h52 v28 H58z M70 58 v16 M98 58 v16" />
+		<text class="text" x="180" y="52">配置基线</text>
+		<text class="small" x="390" y="52">maxmemory、淘汰策略、慢查询、安全命令</text>
+	</g>
+	<g transform="translate(160 360)">
+		<rect class="hot" x="0" y="0" width="880" height="82" rx="18" />
+		<path class="thin" d="M54 60 V32 h84" />
+		<path class="thin" d="M70 60 V48 M96 60 V36 M122 60 V42" />
+		<text class="text" x="180" y="52">监控告警</text>
+		<text class="small" x="390" y="52">延迟、内存、连接、复制、持久化失败</text>
+	</g>
+	<g transform="translate(160 460)">
+		<rect class="band" x="0" y="0" width="410" height="82" rx="18" />
+		<path class="thin" d="M58 30 h72 v40 H58z M72 30 v-12 h44 v12" />
+		<text class="text" x="190" y="52">备份恢复</text>
+	</g>
+	<g transform="translate(630 460)">
+		<rect class="band" x="0" y="0" width="410" height="82" rx="18" />
+		<path class="thin" d="M70 30 l-22 24 22 24 M94 30 l22 24 -22 24" />
+		<text class="text" x="196" y="52">降级兜底</text>
+	</g>
+
+	<path class="line" d="M600 242 v12" />
+	<path class="line" d="M600 342 v12" />
+	<path class="line" d="M600 442 C548 458 522 462 498 462" />
+	<path class="line" d="M600 442 C652 458 678 462 702 462" />
+	<path class="line" d="M570 500 C514 574 408 600 292 545" />
+	<path class="line" d="M630 500 C736 590 878 588 968 545" />
+
+	<text x="305" y="625" class="caption">Redis 上线前最该确认的事：出问题时，系统知道怎么退一步。</text>
+</svg>

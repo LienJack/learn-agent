@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+	<title id="title">Redis 监控指标闭环</title>
+	<desc id="desc">手绘风格环形图，展示 Redis 生产监控从采集、诊断、告警到调优复盘的闭环。</desc>
+	<defs>
+		<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+			<path d="M 0 0 L 10 5 L 0 10 z" fill="#191713" />
+		</marker>
+		<filter id="rough">
+			<feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="14" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="1.3" />
+		</filter>
+		<style>
+			.bg { fill: #fbf6e8; }
+			.node { fill: #fffdf5; stroke: #191713; stroke-width: 3; filter: url(#rough); }
+			.hot { fill: #ffe8a8; stroke: #191713; stroke-width: 3; filter: url(#rough); }
+			.line { fill: none; stroke: #191713; stroke-width: 3.1; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); filter: url(#rough); }
+			.thin { fill: none; stroke: #191713; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
+			.faint { fill: none; stroke: #cdbf9b; stroke-width: 1.3; opacity: .35; stroke-linecap: round; }
+			.text { font-family: "Kaiti SC", "STKaiti", "Songti SC", serif; fill: #191713; font-size: 27px; font-weight: 700; }
+			.small { font-family: "Kaiti SC", "STKaiti", "Songti SC", serif; fill: #191713; font-size: 19px; }
+			.caption { font-family: "Kaiti SC", "STKaiti", "Songti SC", serif; fill: #4b4031; font-size: 24px; }
+		</style>
+	</defs>
+	<rect class="bg" width="1200" height="675" />
+	<path class="faint" d="M110 120 h120 v44 h55 M910 98 h80 v58 h94 M160 560 h150 v-44 h60 M820 545 h120 v-50 h96" />
+	<circle cx="230" cy="164" r="5" fill="#d9c99f" opacity=".55" />
+	<circle cx="990" cy="156" r="5" fill="#d9c99f" opacity=".55" />
+	<circle cx="940" cy="495" r="5" fill="#d9c99f" opacity=".55" />
+
+	<text x="84" y="82" class="text">监控不是看板，是反馈闭环</text>
+	<text x="84" y="116" class="small">指标要能推动下一次配置和数据结构调整</text>
+
+	<circle class="thin" cx="600" cy="338" r="116" opacity=".55" />
+	<text x="600" y="322" class="text" text-anchor="middle">Redis</text>
+	<text x="600" y="356" class="text" text-anchor="middle">生产实例</text>
+	<path class="thin" d="M552 388 h96 M565 410 h70" />
+
+	<g transform="translate(500 120)">
+		<rect class="node" x="0" y="0" width="200" height="100" rx="18" />
+		<path class="thin" d="M54 62 V35 h92 v27" />
+		<path class="thin" d="M70 62 V45 M100 62 V42 M130 62 V50" />
+		<text class="text" x="100" y="88" text-anchor="middle">采集 INFO</text>
+	</g>
+	<g transform="translate(800 230)">
+		<rect class="node" x="0" y="0" width="205" height="105" rx="18" />
+		<path class="thin" d="M55 62 c20 -42 46 -42 66 0" />
+		<path class="thin" d="M55 62 h82" />
+		<path class="thin" d="M148 32 v48" />
+		<text class="text" x="102" y="90" text-anchor="middle">延迟慢查</text>
+	</g>
+	<g transform="translate(744 440)">
+		<rect class="node" x="0" y="0" width="210" height="105" rx="18" />
+		<path class="thin" d="M50 34 h35 v35 H50z M94 34 h35 v35 H94z M138 34 h22 v35 h-22z" />
+		<path class="thin" d="M50 82 h112" />
+		<text class="text" x="105" y="91" text-anchor="middle">内存碎片</text>
+	</g>
+	<g transform="translate(246 440)">
+		<rect class="node" x="0" y="0" width="220" height="105" rx="18" />
+		<path class="thin" d="M52 54 h45 l20 -18 h52" />
+		<path class="thin" d="M52 72 h45 l20 18 h52" />
+		<circle class="thin" cx="52" cy="54" r="9" />
+		<circle class="thin" cx="169" cy="36" r="9" />
+		<circle class="thin" cx="169" cy="90" r="9" />
+		<text class="text" x="110" y="91" text-anchor="middle">复制持久化</text>
+	</g>
+	<g transform="translate(190 230)">
+		<rect class="hot" x="0" y="0" width="205" height="105" rx="18" />
+		<path class="thin" d="M102 30 l45 60 H57z" />
+		<path class="thin" d="M102 48 v22 M102 80 v4" />
+		<text class="text" x="102" y="95" text-anchor="middle">告警阈值</text>
+	</g>
+	<g transform="translate(500 505)">
+		<rect class="hot" x="0" y="0" width="200" height="100" rx="18" />
+		<path class="thin" d="M62 70 c-16 -28 -4 -58 28 -58 26 0 42 24 31 48" />
+		<path class="thin" d="M122 58 l12 4 -8 12" />
+		<path class="thin" d="M64 76 h80" />
+		<text class="text" x="100" y="90" text-anchor="middle">调优回看</text>
+	</g>
+
+	<path class="line" d="M710 168 C775 172 842 194 882 226" />
+	<path class="line" d="M998 346 C1004 404 975 442 955 458" />
+	<path class="line" d="M737 533 C704 564 678 573 644 596" />
+	<path class="line" d="M492 596 C424 588 358 562 324 548" />
+	<path class="line" d="M242 438 C200 390 190 348 192 306" />
+	<path class="line" d="M356 226 C396 190 437 174 488 168" />
+
+	<text x="316" y="640" class="caption">只有能触发行动的指标，才算真正进入了监控体系。</text>
+</svg>
