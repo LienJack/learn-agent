@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogGroupListingPage from '../../../components/blog/BlogGroupListingPage.astro';
+import VercelAnalytics from '../../../components/VercelAnalytics.astro';
 import {
 	getBlogGroupPageData,
 	getBlogSeriesPageData,
@@ -130,3 +131,4 @@ if (props.kind === 'post') {
 		/>
 	) : null
 }
+<VercelAnalytics />
