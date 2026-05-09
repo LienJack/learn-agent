@@ -1,6 +1,7 @@
 ---
 title: '欢迎来到 learn-agent'
 description: '这是站点的第一篇正式记录，也是一切后续写作的起点。'
+author: LienJack
 pubDate: 'May 02 2026'
 heroImage: '../../../assets/blog-placeholder-about.jpg'
 locale: 'zh'

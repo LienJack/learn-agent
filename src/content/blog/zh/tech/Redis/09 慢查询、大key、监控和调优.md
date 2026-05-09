@@ -11,6 +11,7 @@ aliases:
   - Redis 排障
   - Redis 性能优化
 description: "Redis 很快，但前面讲的那些“快路径”一旦被大 key、慢命令、热点倾斜、内存碎片和持久化抖动打断，线上体感会立刻变差。这一篇就按排障顺序来讲：先判断是哪里慢，再确认是哪类 key 在拖累系统，最后把监控指标补齐。"
+author: LienJack
 pubDate: 2026-05-04
 locale: zh
 ---
@@ -220,6 +221,10 @@ UNLINK big_key   # 异步删除，不阻塞主线程
 - 网络带宽被打满；
 - 主从复制延迟增大。
 
+![Redis 热 key 发现与处理](./assets/hot-key-treatment.svg)
+
+热 key 的治理重点不是把一次读取做得更快，而是把集中在一个点上的压力拆开，让本地缓存、副本、读写分离和集群分片一起承担访问洪峰。
+
 ### 发现热 key
 
 **方法 1：redis-cli --hotkeys**
@@ -322,6 +327,10 @@ INFO memory
 ## 五、监控指标体系
 
 生产环境 Redis 需要监控以下指标：
+
+![Redis 监控指标闭环](./assets/redis-monitoring-loop.svg)
+
+监控指标不要只停留在看板上。真正有用的监控应该能形成闭环：采集现象、触发告警、定位根因，然后反过来推动配置、数据结构和容量规划的调整。
 
 ### 性能指标
 
@@ -444,4 +453,3 @@ client-output-buffer-limit pubsub 32mb 8mb 60
    - dmesg -> 系统日志
    - 网络延迟 -> ping、traceroute
 ```
-

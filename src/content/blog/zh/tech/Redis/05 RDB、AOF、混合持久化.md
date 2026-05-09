@@ -11,6 +11,7 @@ aliases:
   - RDB AOF 对比
   - Redis 混合持久化
 description: "一旦 Redis 不只被当作\"丢了可以重建\"的缓存，持久化就成了绕不开的话题。"
+author: LienJack
 pubDate: 2026-05-04
 locale: zh
 ---

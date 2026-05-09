@@ -3,6 +3,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import HomePageJa from '../../components/home/HomePageJa.astro';
+import VercelAnalytics from '../../components/VercelAnalytics.astro';
 import { getHtmlLang, getMessages } from '../../i18n/messages';
 import { localizePath } from '../../i18n/utils';
 
@@ -30,5 +31,6 @@ const messages = getMessages(locale);
 			/>
 		</main>
 		<Footer />
+		<VercelAnalytics />
 	</body>
 </html>

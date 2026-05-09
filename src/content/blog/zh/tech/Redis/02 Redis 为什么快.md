@@ -9,6 +9,7 @@ aliases:
   - Redis 单线程
   - Redis 性能原理
 description: "\"Redis 为什么快？\"这是学习 Redis 时最常见的问题。"
+author: LienJack
 pubDate: 2026-05-04
 locale: zh
 ---

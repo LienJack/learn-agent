@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogIndexPage from '../../../components/blog/BlogIndexPage.astro';
+import VercelAnalytics from '../../../components/VercelAnalytics.astro';
 import { getLocalizedPosts, sortPostsReverseChronologically } from '../../../content/blog/utils';
 
 const locale = 'en';
@@ -8,3 +9,4 @@ const posts = sortPostsReverseChronologically(await getCollection('blog'));
 ---
 
 <BlogIndexPage locale={locale} posts={getLocalizedPosts(posts, locale)} />
+<VercelAnalytics />
