@@ -25,3 +25,4 @@ pnpm-debug.log*
 docs/*
 .vercel
 test-results/
+tmp/

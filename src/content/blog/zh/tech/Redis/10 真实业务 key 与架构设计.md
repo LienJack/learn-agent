@@ -10,6 +10,7 @@ aliases:
   - Redis 架构
   - Redis 实战
 description: "前面的文章把类型、性能、持久化、高可用和排障方法都讲清楚了。最后这一篇只做落地收束：如果把这些知识放回真实业务，key 应该怎么命名，数据该怎么拆，实例该怎么隔离，哪些坑应该在设计阶段就绕开。"
+author: LienJack
 pubDate: 2026-05-04
 locale: zh
 ---

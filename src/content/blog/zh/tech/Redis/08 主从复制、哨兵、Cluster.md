@@ -12,6 +12,7 @@ aliases:
   - Redis Sentinel
   - Redis Cluster
 description: "单机 Redis 只要一挂，前面讲过的缓存、计数器、排行榜、会话状态都会一起受影响。所以这一篇只回答架构演进问题：先用复制保住副本，再用哨兵接管故障转移，最后在单机容量和写入能力不够时走向 Cluster。"
+author: LienJack
 pubDate: 2026-05-04
 locale: zh
 ---

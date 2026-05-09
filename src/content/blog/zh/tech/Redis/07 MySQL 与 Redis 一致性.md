@@ -10,6 +10,7 @@ aliases:
   - 双写一致性
   - Cache Aside
 description: "一旦系统同时依赖 MySQL 和 Redis，一致性问题就不可避免。"
+author: LienJack
 pubDate: 2026-05-04
 locale: zh
 ---

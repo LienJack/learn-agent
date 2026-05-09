@@ -11,6 +11,7 @@ aliases:
   - Redis 排障
   - Redis 性能优化
 description: "Redis 很快，但前面讲的那些“快路径”一旦被大 key、慢命令、热点倾斜、内存碎片和持久化抖动打断，线上体感会立刻变差。这一篇就按排障顺序来讲：先判断是哪里慢，再确认是哪类 key 在拖累系统，最后把监控指标补齐。"
+author: LienJack
 pubDate: 2026-05-04
 locale: zh
 ---
