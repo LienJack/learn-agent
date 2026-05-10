@@ -33,16 +33,53 @@ Environment:
   CRIER_HASHNODE_API_KEY     Hashnode token, or token:publication_id
   CRIER_MEDIUM_API_KEY       Existing Medium integration token, if you have one
   CRIER_VERSION              Optional crier version, default 2.0.2
+  DEVTO_IMAGE_UPLOAD_COOKIE  Optional DEV browser cookie for uploading local images
+  PUBLISH_IMAGE_UPLOAD_COMMAND
+                             Optional command that prints a public URL for $PUBLISH_IMAGE_FILE
+  PUBLISH_IMAGE_BASE_URL     Optional public base URL for already-hosted local assets
 
 Notes:
   - draft publishes with frontmatter `published: false` semantics when supported by the platform.
   - publish performs a real public publish.
+  - publish/draft rewrite local Markdown image paths to public URLs in a temporary copy.
   - crier keeps its registry at ~/.config/crier/crier.db.
 USAGE
 }
 
 run_crier() {
 	uvx --from "crier==${CRIER_VERSION}" crier "$@"
+}
+
+prepare_publish_file() {
+	local file="$1"
+	local prepared_file="$2"
+
+	PUBLISH_IMAGE_MODE="${PUBLISH_IMAGE_MODE:-}" node "${SCRIPT_DIR}/prepare-crosspost-assets.mjs" "${file}" "${prepared_file}"
+}
+
+check_local_images() {
+	local file="$1"
+
+	node "${SCRIPT_DIR}/prepare-crosspost-assets.mjs" --check-only "${file}"
+}
+
+publish_prepared_file() {
+	local file="$1"
+	shift
+
+	local original
+	original="$(mktemp)"
+	cp "${file}" "${original}"
+	local prepared
+	prepared="$(mktemp)"
+	prepare_publish_file "${file}" "${prepared}"
+	cp "${prepared}" "${file}"
+
+	local status=0
+	"$@" || status=$?
+	cp "${original}" "${file}"
+	rm -f "${original}" "${prepared}"
+	return "${status}"
 }
 
 require_files() {
@@ -68,13 +105,14 @@ for_each_file() {
 		echo "==> ${action}: ${file}"
 		case "${action}" in
 			check)
+				check_local_images "${file}"
 				run_crier check "${file}" --to devto --to hashnode
 				;;
 			draft)
-				run_crier publish "${file}" --to devto --to hashnode --draft --no-check
+				publish_prepared_file "${file}" run_crier publish "${file}" --to devto --to hashnode --draft --no-check
 				;;
 			publish)
-				run_crier publish "${file}" --to devto --to hashnode --no-check --yes
+				publish_prepared_file "${file}" run_crier publish "${file}" --to devto --to hashnode --no-check --yes
 				;;
 			medium-manual)
 				run_crier publish "${file}" --to medium --manual

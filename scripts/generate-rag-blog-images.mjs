@@ -1,12 +1,13 @@
 import { existsSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 
 const repoRoot = process.cwd();
 const promptFile = path.join(repoRoot, 'src/content/blog/zh/AI/2.Rag/assets/rag-blog-to-photo-prompts.txt');
 const articleDir = path.join(repoRoot, 'src/content/blog/zh/AI/2.Rag');
 const assetDir = path.join(articleDir, 'assets');
-const apiUrl = 'https://api.openai.com/v1/images/generations';
+const defaultOpenAIBaseUrl = 'https://api.openai.com';
 
 const args = new Map(
 	process.argv.slice(2).map((arg) => {
@@ -23,6 +24,124 @@ const limit = args.has('limit') ? Number(args.get('limit')) : Number.POSITIVE_IN
 const shouldGenerate = args.get('generate') !== 'false';
 const shouldInsert = args.get('insert') !== 'false';
 const force = args.get('force') === 'true';
+
+function stripTomlComment(line) {
+	let inQuote = false;
+	let escaped = false;
+	let result = '';
+
+	for (const char of line) {
+		if (escaped) {
+			result += char;
+			escaped = false;
+			continue;
+		}
+
+		if (char === '\\' && inQuote) {
+			result += char;
+			escaped = true;
+			continue;
+		}
+
+		if (char === '"') {
+			inQuote = !inQuote;
+		}
+
+		if (char === '#' && !inQuote) {
+			break;
+		}
+
+		result += char;
+	}
+
+	return result.trim();
+}
+
+function unquoteTomlString(value) {
+	const match = value.trim().match(/^"((?:\\"|[^"])*)"$/);
+	return match ? match[1].replace(/\\"/g, '"') : '';
+}
+
+function parseCodexProviderConfig(contents) {
+	let selectedProvider = null;
+	let currentProvider = null;
+	const providers = new Map();
+
+	for (const rawLine of contents.split(/\r?\n/)) {
+		const line = stripTomlComment(rawLine);
+		if (!line) continue;
+
+		const sectionMatch = line.match(/^\[model_providers\.([^\]]+)\]$/);
+		if (sectionMatch) {
+			currentProvider = sectionMatch[1].replace(/^"|"$/g, '');
+			if (!providers.has(currentProvider)) providers.set(currentProvider, {});
+			continue;
+		}
+
+		const anySectionMatch = line.match(/^\[/);
+		if (anySectionMatch) {
+			currentProvider = null;
+			continue;
+		}
+
+		const assignmentMatch = line.match(/^([A-Za-z0-9_-]+)\s*=\s*(.+)$/);
+		if (!assignmentMatch) continue;
+
+		const [, key, value] = assignmentMatch;
+		if (!currentProvider && key === 'model_provider') {
+			selectedProvider = unquoteTomlString(value);
+			continue;
+		}
+
+		if (currentProvider && key === 'base_url') {
+			providers.get(currentProvider).baseUrl = unquoteTomlString(value);
+		}
+	}
+
+	return selectedProvider ? providers.get(selectedProvider) ?? {} : {};
+}
+
+async function loadCodexProviderConfig() {
+	const codexHome = process.env.CODEX_HOME ?? path.join(os.homedir(), '.codex');
+	const configPath = args.get('codex-config') ?? process.env.CODEX_CONFIG ?? path.join(codexHome, 'config.toml');
+	if (!existsSync(configPath)) return {};
+
+	const contents = await readFile(configPath, 'utf8');
+	return parseCodexProviderConfig(contents);
+}
+
+async function loadCodexAuth() {
+	const codexHome = process.env.CODEX_HOME ?? path.join(os.homedir(), '.codex');
+	const authPath = args.get('codex-auth') ?? process.env.CODEX_AUTH ?? path.join(codexHome, 'auth.json');
+	if (!existsSync(authPath)) return {};
+
+	return JSON.parse(await readFile(authPath, 'utf8'));
+}
+
+function normalizeBaseUrl(baseUrl) {
+	return baseUrl.replace(/\/+$/, '');
+}
+
+function imageGenerationUrl(baseUrl) {
+	const normalized = normalizeBaseUrl(baseUrl);
+	if (normalized.endsWith('/images/generations')) return normalized;
+	if (normalized.endsWith('/v1')) return `${normalized}/images/generations`;
+	return `${normalized}/v1/images/generations`;
+}
+
+function resolveApiUrl(providerConfig) {
+	const explicitApiUrl = args.get('api-url') ?? process.env.OPENAI_IMAGE_API_URL;
+	if (explicitApiUrl) return explicitApiUrl;
+
+	const baseUrl =
+		args.get('base-url') ??
+		process.env.OPENAI_IMAGE_BASE_URL ??
+		process.env.OPENAI_BASE_URL ??
+		providerConfig.baseUrl ??
+		defaultOpenAIBaseUrl;
+
+	return imageGenerationUrl(baseUrl);
+}
 
 function loadEnvFile() {
 	const envPath = path.join(repoRoot, '.env');
@@ -91,15 +210,17 @@ function parsePromptFile(contents) {
 	return entries.filter((entry) => entry.article && entry.filename && entry.prompt);
 }
 
-function getApiKey() {
-	return process.env.OPENAI_API_KEY;
+async function getApiKey() {
+	if (process.env.OPENAI_API_KEY) return process.env.OPENAI_API_KEY;
+	const codexAuth = await loadCodexAuth();
+	return codexAuth.OPENAI_API_KEY;
 }
 
 function wait(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function generateImage(entry, apiKey) {
+async function generateImage(entry, apiKey, apiUrl) {
 	const outputPath = path.join(assetDir, entry.filename);
 	if (!force && existsSync(outputPath)) {
 		console.log(`skip existing ${entry.filename}`);
@@ -208,22 +329,25 @@ async function insertImages(entries) {
 }
 
 await loadEnvFile();
+const providerConfig = await loadCodexProviderConfig();
+const apiUrl = resolveApiUrl(providerConfig);
 
 const promptContents = await readFile(promptFile, 'utf8');
 const entries = parsePromptFile(promptContents);
 const selectedEntries = entries.slice(0, limit);
 
 console.log(`loaded ${entries.length} prompts; selected ${selectedEntries.length}`);
+console.log(`image generation endpoint: ${apiUrl}`);
 
 if (shouldGenerate) {
-	const apiKey = getApiKey();
+	const apiKey = await getApiKey();
 	if (!apiKey) {
-		throw new Error('OPENAI_API_KEY is missing. Set it in the shell or in .env before generating images.');
+		throw new Error('OPENAI_API_KEY is missing. Set it in the shell, .env, or ~/.codex/auth.json before generating images.');
 	}
 
 	let generated = 0;
 	for (const [index, entry] of selectedEntries.entries()) {
-		const didGenerate = await generateImage(entry, apiKey);
+		const didGenerate = await generateImage(entry, apiKey, apiUrl);
 		if (didGenerate) generated += 1;
 		if (index < selectedEntries.length - 1 && delayMs > 0) {
 			await wait(delayMs);

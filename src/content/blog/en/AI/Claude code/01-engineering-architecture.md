@@ -1,8 +1,9 @@
 ---
 title: 'Claude Code Source Analysis Series, Chapter 1: Architecture'
-description: 'A high-level tour of Claude Code's runtime architecture, capability layers, and core modules.'
+description: "A high-level tour of Claude Code's runtime architecture, capability layers, and core modules."
 author: LienJack
 pubDate: 2026-05-03
+date: 2026-05-03
 heroImage: './assets/01-cover-engineering-architecture.jpg'
 locale: 'en'
 tags:
@@ -10,6 +11,8 @@ tags:
   - Agent
   - Source Analysis
   - Architecture
+canonical_url: 'https://blog.lienjack.com/en/blog/AI/Claude%20code/01-engineering-architecture/'
+published: true
 aliases:
   - Claude Code architecture
   - Claude Code runtime architecture

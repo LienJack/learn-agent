@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import sys
 import time
+import tomllib
 from pathlib import Path
 
 try:
@@ -25,6 +26,7 @@ SOURCE_DIR = REPO / "src/content/blog/zh/AI/3.ClaudeCode源码解析/assets"
 TARGET_DIR = REPO / "src/content/blog/en/AI/Claude code/assets"
 PROMPT_FILE = REPO / "tmp/claude-code-image-regeneration-prompts.jsonl"
 TMP_DIR = REPO / "tmp/claude-code-image-regeneration"
+DEFAULT_OPENAI_BASE_URL = "https://api.openai.com/v1"
 
 EXISTING_PROMPTS = {
     "02-photo-05.png": REPO / "tmp/imagegen/claude-code-functional-architecture-photo.prompt",
@@ -110,6 +112,55 @@ def load_env() -> None:
         key = key.strip()
         value = value.strip().strip('"').strip("'")
         os.environ.setdefault(key, value)
+
+
+def normalize_base_url(base_url: str) -> str:
+    base_url = base_url.rstrip("/")
+    if base_url.endswith("/v1"):
+        return base_url
+    return f"{base_url}/v1"
+
+
+def load_codex_provider_config(config_path: Path | None = None) -> dict:
+    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex"))
+    path = config_path or Path(os.environ.get("CODEX_CONFIG", codex_home / "config.toml"))
+    if not path.exists():
+        return {}
+
+    with path.open("rb") as f:
+        config = tomllib.load(f)
+
+    provider_name = config.get("model_provider")
+    providers = config.get("model_providers", {})
+    if not provider_name or provider_name not in providers:
+        return {}
+    return providers[provider_name]
+
+
+def resolve_base_url(config_path: Path | None = None) -> str:
+    explicit = os.environ.get("OPENAI_IMAGE_BASE_URL") or os.environ.get("OPENAI_BASE_URL")
+    if explicit:
+        return normalize_base_url(explicit)
+
+    provider = load_codex_provider_config(config_path)
+    if provider.get("base_url"):
+        return normalize_base_url(provider["base_url"])
+
+    return DEFAULT_OPENAI_BASE_URL
+
+
+def load_codex_auth() -> dict:
+    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex"))
+    path = Path(os.environ.get("CODEX_AUTH", codex_home / "auth.json"))
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def get_api_key() -> str | None:
+    if os.environ.get("OPENAI_API_KEY"):
+        return os.environ["OPENAI_API_KEY"]
+    return load_codex_auth().get("OPENAI_API_KEY")
 
 
 def make_prompt(
@@ -210,22 +261,31 @@ def resize_to_target(path: Path, width: int, height: int, fmt: str) -> None:
             canvas.save(path, "PNG", optimize=True)
 
 
-def generate(entries: list[dict], *, model: str, quality: str, delay: float, dry_run: bool) -> None:
+def generate(
+    entries: list[dict],
+    *,
+    model: str,
+    quality: str,
+    delay: float,
+    dry_run: bool,
+    base_url: str,
+) -> None:
+    print(f"image generation base_url: {base_url}")
     if dry_run:
         print(f"Prompt file written: {PROMPT_FILE}")
         for entry in entries:
             print(f"DRY {entry['file']} <- {entry['source']}")
         return
 
-    api_key = os.environ.get("OPENAI_API_KEY")
+    api_key = get_api_key()
     if not api_key:
         raise SystemExit(
-            "OPENAI_API_KEY is missing. Set it in your shell or .env, then rerun. "
+            "OPENAI_API_KEY is missing. Set it in your shell, .env, or ~/.codex/auth.json, then rerun. "
             "Do not paste the key into chat."
         )
 
     TARGET_DIR.mkdir(parents=True, exist_ok=True)
-    client = OpenAI(api_key=api_key)
+    client = OpenAI(api_key=api_key, base_url=base_url)
     for i, entry in enumerate(entries, 1):
         source = Path(entry["source"])
         target = Path(entry["target"])
@@ -236,11 +296,13 @@ def generate(entries: list[dict], *, model: str, quality: str, delay: float, dry
                 model=model,
                 image=image_file,
                 prompt=entry["prompt"],
-                quality=quality,
                 size="auto",
-                input_fidelity="high",
-                output_format=fmt,
                 response_format="b64_json",
+                extra_body={
+                    "quality": quality,
+                    "input_fidelity": "high",
+                    "output_format": fmt,
+                },
             )
         b64 = result.data[0].b64_json
         if not b64:
@@ -261,16 +323,35 @@ def main() -> None:
     parser.add_argument("--model", default="gpt-image-2")
     parser.add_argument("--quality", default="high", choices=["low", "medium", "high", "auto"])
     parser.add_argument("--delay", type=float, default=2.0)
+    parser.add_argument(
+        "--base-url",
+        default=None,
+        help="Override image API base URL. Defaults to OPENAI_IMAGE_BASE_URL, OPENAI_BASE_URL, or the selected provider in ~/.codex/config.toml.",
+    )
+    parser.add_argument(
+        "--codex-config",
+        type=Path,
+        default=None,
+        help="Path to a Codex config.toml to read model_provider/model_providers from.",
+    )
     args = parser.parse_args()
 
     load_env()
+    base_url = normalize_base_url(args.base_url) if args.base_url else resolve_base_url(args.codex_config)
     entries = read_entries()
     if args.only:
         needles = [needle.lower() for needle in args.only]
         entries = [entry for entry in entries if any(needle in entry["file"].lower() for needle in needles)]
     if args.limit:
         entries = entries[: args.limit]
-    generate(entries, model=args.model, quality=args.quality, delay=args.delay, dry_run=args.dry_run)
+    generate(
+        entries,
+        model=args.model,
+        quality=args.quality,
+        delay=args.delay,
+        dry_run=args.dry_run,
+        base_url=base_url,
+    )
 
 
 if __name__ == "__main__":

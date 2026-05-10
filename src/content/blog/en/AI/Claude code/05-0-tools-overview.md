@@ -1,6 +1,6 @@
 ---
 title: 'Claude Code Source Analysis Series, Chapter 6: Tools Overview'
-description: 'A breakdown of Claude Code's tool system, including tool protocols, permissions, and execution flow.'
+description: "A breakdown of Claude Code's tool system, including tool protocols, permissions, and execution flow."
 author: LienJack
 pubDate: 2026-05-03
 heroImage: './assets/05-0-cover-tools-pipeline.jpg'
