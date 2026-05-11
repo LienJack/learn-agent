@@ -10,7 +10,7 @@
    - 日语：`translate/bin/translate-ja --dry-run --pipeline claude-code-series <article.md>`
 3. 展示 run record、artifact、目标路径、frontmatter 策略、链接重写、资产引用和 blocker。
 4. 用户确认后才进入真实翻译；V1 的真实 provider 仍保持显式门禁，避免误覆盖已有译文。
-5. Mermaid 和普通图片分别运行 `translate-assets`。
+5. Mermaid 和普通图片分别运行 `translate-assets`；资产 dry-run 会写入自动审查结果，真实阶段必须通过同一套门禁。
 6. 发布前运行 `translate-check`，再交给 `publish/`。
 
 ## 正文翻译检查清单
@@ -40,7 +40,9 @@
 
 - Mermaid 和普通 PNG/JPG 必须分流。
 - Mermaid 阶段只处理源 Mermaid block，输出可渲染 Mermaid 源和 PNG，不复用中文 PNG。
-- 普通图片阶段只生成 prompt 清单和真实生成计划，不覆盖 Mermaid 输出。
+- 普通图片阶段生成 prompt 清单、真实生成计划和执行记录，不覆盖 Mermaid 输出。
+- 缺少图片 provider 配置、源/目标路径冲突、目标路径越界、Mermaid/普通图片分流错误时，真实阶段必须阻断。
+- 真实阶段记录应包含资产类型、源资产、目标资产、prompt 来源、生成状态、失败原因和复核状态，且不得保存 API key、cookie、token 或私密响应。
 - 当前仓库的站内 Markdown 多数已引用 PNG 而不是内嵌 Mermaid；若 dry-run 报 block 不存在，先确认源 Mermaid 是否仍在外部 Obsidian 终稿或旧脚本映射中，不要盲目生成。
 
 ## 发布前验收
@@ -58,7 +60,8 @@ pnpm build
 
 - frontmatter 必填字段完整，locale 正确。
 - 正文图片和 heroImage 均存在。
+- pipeline 预期 Mermaid、普通图片和封面图资产均存在，格式和尺寸门禁通过或进入明确复核状态。
 - 本地相对链接能指向目标 slug。
 - 正文无 tool call、过程话、脚本碎片和明显输出污染。
-- 英文正文无非预期 CJK 残留；日语正文无非预期中文残留。
-- Mermaid、普通图片和封面图资产分类清楚。
+- 英文正文无非预期 CJK 残留；日语正文无高置信中文残留，低置信长汉字片段进入复核。
+- Mermaid、普通图片和封面图资产分类清楚，低置信视觉问题进入人工复核，高置信失败阻断完成。

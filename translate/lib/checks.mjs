@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { toRepoRelative } from './common.mjs';
+import { detectTextResidue, inspectPipelineAssets } from './assets.mjs';
 import {
 	findMarkdownImageRefs,
 	findMarkdownLinks,
@@ -68,17 +69,22 @@ export function inspectTranslatedArticle(articlePath, { pipeline, language }) {
 	if (/Here(?:'s| is) the translation|I(?:'ll| will) translate|Let me translate/i.test(bodyWithoutCode)) {
 		blockers.push(`${article.sourceRelPath}: translation process chatter detected.`);
 	}
-	if (language === 'en' && hasCjk(bodyWithoutCode)) {
+	const residue = detectTextResidue(bodyWithoutCode, language);
+	if (residue.status === 'blocked') {
+		blockers.push(`${article.sourceRelPath}: ${residue.reason}`);
+	} else if (residue.status === 'review_required') {
+		warnings.push(`${article.sourceRelPath}: ${residue.reason}`);
+	} else if (language === 'en' && hasCjk(bodyWithoutCode)) {
 		warnings.push(`${article.sourceRelPath}: CJK characters remain outside code fences; review manually.`);
 	}
-	if (language === 'ja' && /[\u3400-\u9fff]/.test(bodyWithoutCode)) {
-		warnings.push(`${article.sourceRelPath}: Chinese Han characters may remain outside code fences; review manually.`);
-	}
-	checks.push({ name: 'pollution-and-residue', status: blockers.some((item) => item.includes('pollution') || item.includes('chatter')) ? 'blocked' : 'passed' });
+	checks.push({
+		name: 'pollution-and-residue',
+		status: blockers.some((item) => item.includes('pollution') || item.includes('chatter') || item.includes('residue')) ? 'blocked' : residue.status,
+	});
 
 	return {
 		source: article.sourceRelPath,
-		status: blockers.length ? 'blocked' : 'passed',
+		status: blockers.length ? 'blocked' : warnings.length ? 'review_required' : 'passed',
 		title: article.data.title || '',
 		blockers,
 		warnings,
@@ -88,14 +94,19 @@ export function inspectTranslatedArticle(articlePath, { pipeline, language }) {
 	};
 }
 
-export function inspectTranslatedSet({ pipeline, language, requestedFiles = [] }) {
+export async function inspectTranslatedSet({ pipeline, language, requestedFiles = [] }) {
 	const files = requestedFiles.length ? requestedFiles : targetFiles(pipeline, language);
 	const articles = files.map((file) => inspectTranslatedArticle(file, { pipeline, language }));
+	const assets = await inspectPipelineAssets({ pipeline, language });
+	const warnings = [...articles.flatMap((article) => article.warnings), ...assets.warnings];
+	const blockers = [...articles.flatMap((article) => article.blockers), ...assets.blockers];
 	return {
 		language,
 		pipeline: pipeline.id,
 		articles,
-		blockers: articles.flatMap((article) => article.blockers),
-		warnings: articles.flatMap((article) => article.warnings),
+		assets,
+		status: blockers.length ? 'blocked' : warnings.length ? 'review_required' : 'passed',
+		blockers,
+		warnings,
 	};
 }

@@ -50,10 +50,11 @@ test('translate-assets dry-run writes an asset plan', () => {
 	const record = JSON.parse(readFileSync(path.join(repoRoot, recordPath), 'utf8'));
 
 	assert.equal(record.status, 'blocked');
-	assert.equal(record.artifacts.length, 1);
+	assert.equal(record.artifacts.length, 2);
+	assert.ok(record.artifacts.some((artifact) => artifact.endsWith('-assets-review.json')));
 });
 
-test('translated article check passes target locale and local assets', () => {
+test('translated article check passes target locale and local assets', async () => {
 	const pipeline = loadPipeline('claude-code-series');
 	const report = inspectTranslatedArticle(
 		path.join(repoRoot, 'src/content/blog/en/AI/Claude code/00-series-guide.md'),

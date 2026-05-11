@@ -16,7 +16,7 @@ try {
 	if (!options.language) throw new Error('--language <en|ja> is required.');
 	const pipeline = loadPipeline(options.pipeline);
 	const requested = requireExistingFiles(files, { allowEmpty: true });
-	const report = inspectTranslatedSet({ pipeline, language: options.language, requestedFiles: requested });
+	const report = await inspectTranslatedSet({ pipeline, language: options.language, requestedFiles: requested });
 	const run = createRun({
 		command: 'translate-check',
 		language: options.language,
@@ -39,6 +39,8 @@ try {
 		`Pipeline: ${pipeline.id}`,
 		`Language: ${options.language}`,
 		`Articles: ${report.articles.length}`,
+		`Assets: ${report.assets.items.length}`,
+		`Asset status: ${report.assets.status}`,
 		`Warnings: ${report.warnings.length ? report.warnings.length : 'none'}`,
 		`Blockers: ${report.blockers.length ? report.blockers.join('; ') : 'none'}`,
 	]);

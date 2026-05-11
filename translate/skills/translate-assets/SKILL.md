@@ -1,6 +1,6 @@
 ---
 name: translate-assets
-description: 通过项目内翻译中控台处理 Mermaid 图和普通图片本地化计划
+description: 通过项目内翻译中控台处理 Mermaid 图和普通图片本地化闭环
 argument-hint: "--pipeline claude-code-series --language <en|ja> [--stage mermaid|images] [--only target-file]"
 ---
 
@@ -11,18 +11,21 @@ argument-hint: "--pipeline claude-code-series --language <en|ja> [--stage mermai
 ## 输入要求
 
 - 用户必须提供目标语言：`--language en` 或 `--language ja`。
-- 用户可以指定 `--stage mermaid` 或 `--stage images`；未指定时先 dry-run 两个阶段并展示分流摘要。
-- 如果用户要求图片资产库、prompt 版本管理或完整视觉验收系统，说明这超出 V1 范围。
+- 用户可以指定 `--stage mermaid` 或 `--stage images`；未指定时 dry-run 两个阶段并展示分流摘要。
+- 默认执行方式是 dry-run 后读取自动审查结果；审查通过才运行真实命令，正常路径不再要求人工二次确认。
+- 如果用户要求图片资产库、prompt 版本管理或完整人工审核平台，说明这超出 V1 范围。
 
 ## 执行流程
 
 1. 阅读 `translate/README.md`、`translate/workflows/claude-code-series.md`、`translate/workflows/image-localization.md` 和目标语言 prompt。
 2. 先运行 `translate/bin/translate-assets --dry-run --pipeline claude-code-series --language <en|ja> [--stage ...] [--only ...]`。
-3. 展示 Mermaid 图数量、普通图片数量、目标 assets 目录、缺失依赖、缺失源文件、prompt 清单路径、debug mmd 路径和运行记录。
+3. 展示 Mermaid 图数量、普通图片数量、目标 assets 目录、自动审查状态、缺失依赖、缺失源文件、prompt 清单路径、debug mmd 路径和运行记录。
 4. 如果 stage 是 Mermaid，确认只处理 Mermaid block，不复用中文 PNG，不覆盖普通图片。
 5. 如果 stage 是 images，确认排除 Mermaid 命名模式，检查 provider/API key、源图、尺寸和目标格式。
-6. 只有用户确认后，才运行真实资产命令；真实 Mermaid 可能调用模型和 mermaid-cli，真实图片可能调用图片 API。
-7. 完成后运行 `translate/bin/translate-check --language <en|ja> --pipeline claude-code-series`。
+6. 如果自动审查有 blocker、缺少真实图片 provider 配置、源文件缺失、目标路径冲突或语言/分流错误，停止真实生成并输出阻断原因。
+7. 自动审查通过后运行真实资产命令；真实 Mermaid 可能调用模型和 mermaid-cli，真实图片可能调用图片 API。
+8. 真实阶段必须写入 prompt manifest、执行结果、失败原因、复核状态和 post-assets check。
+9. 完成后运行 `translate/bin/translate-check --language <en|ja> --pipeline claude-code-series`。
 
 ## Mermaid 规则
 
@@ -35,4 +38,5 @@ argument-hint: "--pipeline claude-code-series --language <en|ja> [--stage mermai
 - 普通 PNG/JPG 只走图片本地化阶段，Mermaid 命名模式的 PNG 必须排除。
 - 尽量保持原图构图、纹理、线稿、尺寸、格式和视觉密度。
 - prompt 清单记录 source、target、width、height、output_format、目标语言标签和 prompt_origin。
+- 真实阶段缺少 provider 配置时必须阻断，不允许把普通图片伪标为已生成。
 - 运行记录只保留可重跑线索，不保存 API key、cookie、token 或私密响应。

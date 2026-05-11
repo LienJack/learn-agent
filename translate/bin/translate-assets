@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import path from 'node:path';
 import { loadDotEnv, parseArgs, printSummary, toRepoRelative, writeJson } from '../lib/common.mjs';
+import { collectAssetExecution, reviewAssetPlan } from '../lib/assets.mjs';
+import { inspectTranslatedSet } from '../lib/checks.mjs';
 import { planOrdinaryImages } from '../lib/images.mjs';
 import { planMermaidAssets } from '../lib/mermaid.mjs';
 import { loadPipeline } from '../lib/pipelines.mjs';
@@ -50,17 +52,28 @@ async function runAssetsCli(options) {
 
 	const blockers = Object.values(summary.stages).flatMap((stage) => stage.blockers || []);
 	const warnings = Object.values(summary.stages).flatMap((stage) => stage.warnings || []);
+	const review = reviewAssetPlan({
+		pipeline,
+		language: options.language,
+		stages,
+		summary,
+		execution: !options.dryRun,
+	});
 	const artifactPath = path.join(run.artifactDir, `${options.language}-assets-plan.json`);
+	const reviewPath = path.join(run.artifactDir, `${options.language}-assets-review.json`);
 	writeJson(artifactPath, summary);
+	writeJson(reviewPath, review);
 
-	run.record.status = blockers.length ? 'blocked' : 'planned';
-	run.record.blockers = blockers;
-	run.record.warnings = warnings;
-	run.record.artifacts.push(toRepoRelative(artifactPath));
+	run.record.status = blockers.length || review.blockers.length ? 'blocked' : 'planned';
+	run.record.blockers = unique([...blockers, ...review.blockers]);
+	run.record.warnings = unique([...warnings, ...review.warnings]);
+	run.record.checks.push({ name: 'asset-plan-review', status: review.status, checks: review.checks });
+	run.record.artifacts.push(toRepoRelative(artifactPath), toRepoRelative(reviewPath));
 	run.record.confirmation = {
-		required: blockers.length === 0,
+		required: false,
 		action: `Run real ${options.language} asset localization for ${stages.join(', ')}`,
-		confirmed: false,
+		confirmed: !options.dryRun,
+		method: 'automatic-plan-review',
 	};
 	writeRunRecord(run.recordPath, run.record);
 
@@ -72,16 +85,50 @@ async function runAssetsCli(options) {
 		`Stages: ${stages.join(', ')}`,
 		`Mermaid items: ${summary.stages.mermaid?.items.length ?? 0}`,
 		`Ordinary image items: ${summary.stages.images?.items.length ?? 0}`,
+		`Auto review: ${review.status}`,
 		`Warnings: ${warnings.length ? warnings.join('; ') : 'none'}`,
-		`Blockers: ${blockers.length ? blockers.join('; ') : 'none'}`,
+		`Blockers: ${run.record.blockers.length ? run.record.blockers.join('; ') : 'none'}`,
 	]);
 
-	if (blockers.length || options.dryRun) {
-		finishRun(run, blockers.length ? 'blocked' : 'planned');
-		process.exit(blockers.length ? 1 : 0);
+	if (run.record.blockers.length || options.dryRun) {
+		finishRun(run, run.record.blockers.length ? 'blocked' : 'planned');
+		process.exit(run.record.blockers.length ? 1 : 0);
 	}
 
-	throw new Error('真实资产生成尚未接入。请先审阅 dry-run 计划，并按 workflow 确认 Mermaid 或图片 provider 后再执行真实阶段。');
+	const execution = await collectAssetExecution({
+		language: options.language,
+		stages,
+		summary,
+		artifactDir: run.artifactDir,
+	});
+	const check = await inspectTranslatedSet({ pipeline, language: options.language });
+	const checkPath = path.join(run.artifactDir, `${options.language}-post-assets-check.json`);
+	writeJson(checkPath, check);
+
+	run.record.status = execution.blockers.length || check.blockers.length ? 'blocked' : execution.status;
+	run.record.blockers = unique([...run.record.blockers, ...execution.blockers, ...check.blockers]);
+	run.record.warnings = unique([...run.record.warnings, ...execution.warnings, ...check.warnings]);
+	run.record.checks.push(
+		{ name: 'asset-execution', status: execution.status, results: execution.results },
+		{ name: 'post-assets-translation-check', status: check.blockers.length ? 'blocked' : 'passed' },
+	);
+	run.record.artifacts.push(toRepoRelative(checkPath), ...execution.results.map((result) => result.artifact).filter(Boolean));
+	writeRunRecord(run.recordPath, run.record);
+
+	printSummary('Translation asset execution summary', [
+		`Run: ${toRepoRelative(run.recordPath)}`,
+		`Status: ${run.record.status}`,
+		`Generated or accepted assets: ${execution.results.filter((result) => result.status === 'completed').length}`,
+		`Review required: ${execution.results.filter((result) => result.status === 'review_required').length}`,
+		`Warnings: ${run.record.warnings.length ? run.record.warnings.length : 'none'}`,
+		`Blockers: ${run.record.blockers.length ? run.record.blockers.join('; ') : 'none'}`,
+	]);
+	finishRun(run, run.record.status);
+	process.exit(run.record.blockers.length ? 1 : 0);
+}
+
+function unique(items) {
+	return [...new Set(items.filter(Boolean))];
 }
 
 function usage() {
@@ -91,5 +138,6 @@ function usage() {
 Behavior:
   - Mermaid stage extracts and plans Mermaid block rendering only.
   - Images stage plans ordinary PNG/JPG localization only.
-  - Writes records under translate/runs/ and plans under translate/artifacts/.`);
+  - Dry-run plans are automatically reviewed before any real execution.
+  - Real execution writes prompt manifests, run records, and post-asset checks.`);
 }
