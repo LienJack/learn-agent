@@ -1,0 +1,35 @@
+{
+  "dryRun": true,
+  "stage": "covers",
+  "articles": [
+    {
+      "article": "src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm",
+      "manifest": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/manifest.json",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "prompt-planned",
+          "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/cover-prompt.md",
+          "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/cover-prompt.json",
+          "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/cover-llm.png",
+          "markdownRef": "./assets/01-llm/cover-llm.png",
+          "alt": "LLM 到底在做什么：从猜词到生成的完整链路 - 封面图",
+          "promptStatus": "planned",
+          "title": "LLM 到底在做什么：从猜词到生成的完整链路",
+          "description": "从 token、embedding、预训练到生成流程，建立对 LLM 工作方式的整体直觉。",
+          "tags": [
+            "AI",
+            "LLM",
+            "Transformer",
+            "Token",
+            "Embedding"
+          ]
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "dryRun": false,
+  "stage": "photos",
+  "articles": [
+    {
+      "article": "tmp/images-tests/cli/preserve.md",
+      "workspace": "tmp/images-tests/cli/assets/preserve",
+      "manifest": "tmp/images-tests/cli/assets/preserve/manifest.json",
+      "assets": [],
+      "blockers": [],
+      "warnings": [
+        "tmp/images-tests/cli/preserve.md: only 0 eligible photo sections found; minimum target is 3."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "2026-05-11T05-48-51-283Z-article-images-no-cover",
+  "command": "article-images",
+  "stage": "covers",
+  "status": "planned",
+  "startedAt": "2026-05-11T05:48:51.284Z",
+  "inputs": [
+    {
+      "source": "tmp/cover-flow-smoke/no-cover.md",
+      "status": "planned",
+      "workspace": "tmp/cover-flow-smoke/assets/no-cover",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "prompt-planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-05-11T05-48-51-283Z-article-images-no-cover",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-05-11T05-48-51-283Z-article-images-no-cover/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 1 article(s)",
+    "confirmed": false
+  },
+  "notes": [],
+  "finishedAt": "2026-05-11T05:48:51.286Z"
+}

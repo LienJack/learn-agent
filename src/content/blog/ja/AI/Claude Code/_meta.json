@@ -1,0 +1,7 @@
+{
+  "title": "Claude Code ソースコード解説",
+  "alias": "Claude Code ソースコード解説",
+  "description": "Claude Code のアーキテクチャ、コンテキスト、ツール、MCP、Agent 協調をたどる日語シリーズの入口です。",
+  "cover": "/blog-covers/claude-code-typing.svg",
+  "order": 3
+}

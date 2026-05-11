@@ -1,0 +1,29 @@
+{
+  "dryRun": true,
+  "stage": "covers",
+  "articles": [
+    {
+      "article": "tmp/cover-flow-smoke/no-cover.md",
+      "workspace": "tmp/cover-flow-smoke/assets/no-cover",
+      "manifest": "tmp/cover-flow-smoke/assets/no-cover/manifest.json",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "prompt-planned",
+          "promptPath": "tmp/cover-flow-smoke/assets/no-cover/cover-prompt.md",
+          "promptJsonPath": "tmp/cover-flow-smoke/assets/no-cover/cover-prompt.json",
+          "targetPath": "tmp/cover-flow-smoke/assets/no-cover/cover-no-cover-article.png",
+          "markdownRef": "./assets/no-cover/cover-no-cover-article.png",
+          "alt": "No Cover Article - 封面图",
+          "promptStatus": "planned",
+          "title": "No Cover Article",
+          "description": "Desc",
+          "tags": []
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

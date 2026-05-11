@@ -1,0 +1,19 @@
+sequenceDiagram
+participant U as 用户
+participant T as Tokenizer
+participant E as Embedding
+participant TF as Transformer
+participant S as 采样器
+participant Out as 输出
+U->>T: "解释什么是 RAG"
+T-->>E: [token_1, token_2, ..., token_n]
+E->>TF: 向量序列
+loop 多层 Transformer
+TF->>TF: Self-attention + 前馈网络
+end
+TF-->>S: 概率分布
+S->>S: 采样策略
+S-->>Out: 下一个 token
+Out->>E: 拼回上下文继续
+Note over E,TF: 循环直到<br/>结束或达到最大长度
+Out-->>U: "RAG 是检索增强生成..."

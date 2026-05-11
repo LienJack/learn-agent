@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+import { loadDotEnv, parseArgs, printSummary } from '../lib/common.mjs';
+import { hasImageProviderConfig } from '../lib/generation.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+	if (!hasImageProviderConfig()) {
+		printSummary('Article photo fallback', [
+			'Status: blocked',
+			'Reason: image provider config not found.',
+			'Expected: OPENAI_API_KEY, OPENAI_IMAGE_BASE_URL or OPENAI_BASE_URL.',
+			'Default path: use the article-photos skill with built-in imagegen first.',
+		]);
+		process.exit(1);
+	}
+	printSummary('Article photo fallback', [
+		'Status: blocked',
+		'Reason: fallback provider wiring is intentionally not automatic yet.',
+		`Inputs: ${files.length ? files.join(', ') : 'none'}`,
+		'Use imagegen first, then import selected outputs with images/bin/article-images --import.',
+	]);
+	process.exit(1);
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+function usage() {
+	console.log(`Usage:
+  images/bin/article-photo-fallback <prompt-manifest-or-article.md ...>
+
+This fallback entrypoint is reserved for imagegen failure/unavailability. It never runs before the
+article-photos skill attempts built-in imagegen, and it must write results back through the normal
+article-images import path.`);
+}

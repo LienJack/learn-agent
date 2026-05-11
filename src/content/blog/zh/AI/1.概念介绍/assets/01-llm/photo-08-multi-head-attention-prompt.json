@@ -1,0 +1,15 @@
+{
+  "id": "photo-08",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "Multi-head Attention",
+  "sectionScore": 3,
+  "anchor": "#### Multi-head Attention",
+  "sectionExcerpt": "把向量切成多份，各自独立做 attention，最后拼接。例如 8 个 head，每个 head 的维度是 `d_model / 8`。\n\nMulti-head attention（多头注意力机制，让模型从多个子空间并行学习不同关系模式）相当于让模型同时从多个角度审视关系。一个 head 学语法搭配，一个学长距离指代，一个学局部语义。多个 head 的结果拼接后再投影回原始维度，信息密度更高。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-08-multi-head-attention-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-08-multi-head-attention-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-08-multi-head-attention.png",
+  "markdownRef": "./assets/01-llm/photo-08-multi-head-attention.png",
+  "alt": "LLM 到底在做什么：从猜词到生成的完整链路 - Multi-head Attention",
+  "promptStatus": "planned"
+}

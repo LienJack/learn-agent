@@ -1,0 +1,205 @@
+{
+  "id": "claude-code-series",
+  "name": "Claude Code 源码解析系列",
+  "sourceDir": "src/content/blog/zh/AI/3.ClaudeCode源码解析",
+  "targets": {
+    "en": {
+      "locale": "en",
+      "targetDir": "src/content/blog/en/AI/Claude code",
+      "prompt": "translate/prompts/en-translation.md",
+      "mermaidPrompt": "translate/prompts/en-mermaid.md",
+      "imagePrompt": "translate/prompts/en-image-localization.md",
+      "tags": {
+        "源码解析": "Source Analysis",
+        "系列导读": "Series Guide",
+        "工程架构": "Architecture",
+        "多 Agent 机制": "Multi-Agent Systems",
+        "Agent 协作": "Agent Collaboration",
+        "终端工具": "Terminal Tools",
+        "文件工具": "File Tools",
+        "任务管理": "Task Management",
+        "核心机制": "Core Mechanisms",
+        "上下文管理": "Context Management",
+        "工具系统": "Tool System"
+      }
+    },
+    "ja": {
+      "locale": "ja",
+      "targetDir": "src/content/blog/ja/AI/Claude Code",
+      "prompt": "translate/prompts/ja-translation.md",
+      "mermaidPrompt": "translate/prompts/ja-mermaid.md",
+      "imagePrompt": "translate/prompts/ja-image-localization.md",
+      "tags": {
+        "源码解析": "ソースコード解説",
+        "系列导读": "シリーズ導入",
+        "工程架构": "アーキテクチャ",
+        "多 Agent 机制": "マルチ Agent",
+        "Agent 协作": "Agent 協調",
+        "终端工具": "ターミナルツール",
+        "文件工具": "ファイルツール",
+        "任务管理": "タスク管理",
+        "核心机制": "コアメカニズム",
+        "上下文管理": "コンテキスト管理",
+        "工具系统": "ツールシステム"
+      }
+    }
+  },
+  "files": [
+    {
+      "source": "00.系列导读.md",
+      "targets": {
+        "en": {
+          "file": "00-series-guide.md",
+          "title": "Guide to the Claude Code Source Analysis Series",
+          "description": "An index for the Claude Code source analysis series, organized around architecture, core mechanisms, tools, extensibility, and collaboration.",
+          "aliases": ["Claude Code source analysis guide", "Claude Code series index"]
+        },
+        "ja": {
+          "file": "00-series-guide.md",
+          "title": "Claude Code ソースコード解説シリーズ ガイド",
+          "description": "Claude Code のアーキテクチャ、コンテキスト、ツール、MCP、複数 Agent の協調をたどるシリーズの導入ページです。",
+          "aliases": ["Claude Code ソースコード解説ガイド", "Claude Code シリーズ目次"]
+        }
+      }
+    },
+    {
+      "source": "01.工程架构.md",
+      "targets": {
+        "en": { "file": "01-engineering-architecture.md", "title": "Claude Code Source Analysis Series, Chapter 1: Architecture", "description": "A high-level tour of Claude Code's runtime architecture, capability layers, and core modules." },
+        "ja": { "file": "01-engineering-architecture.md", "title": "Claude Code ソースコード解説 第1章: アーキテクチャ", "description": "Claude Code のランタイムアーキテクチャ、能力レイヤー、主要モジュールを俯瞰します。" }
+      }
+    },
+    {
+      "source": "02.核心机制-ReAct.md",
+      "targets": {
+        "en": { "file": "02-react-loop.md", "title": "Claude Code Source Analysis Series, Chapter 2: The ReAct Main Loop", "description": "How Claude Code implements its ReAct loop and keeps the model moving through multi-step work." },
+        "ja": { "file": "02-react-loop.md", "title": "Claude Code ソースコード解説 第2章: ReAct メインループ", "description": "Claude Code が ReAct ループを実装し、複数ステップの作業をどう進めるかを解説します。" }
+      }
+    },
+    {
+      "source": "03.核心机制-Prompt编写.md",
+      "targets": {
+        "en": { "file": "03-prompt-construction.md", "title": "Claude Code Source Analysis Series, Chapter 3: Prompt Construction", "description": "How Claude Code assembles its system prompt, memory, and runtime context on each turn." },
+        "ja": { "file": "03-prompt-construction.md", "title": "Claude Code ソースコード解説 第3章: プロンプト構築", "description": "Claude Code が各ターンでシステムプロンプト、メモリ、ランタイムコンテキストをどう組み立てるかを解説します。" }
+      }
+    },
+    {
+      "source": "04.1核心机制-Context管理.md",
+      "targets": {
+        "en": { "file": "04-1-context-management.md", "title": "Claude Code Source Analysis Series, Chapter 4: Context Management", "description": "How Claude Code manages context, compresses history, and stays coherent during long-running tasks." },
+        "ja": { "file": "04-1-context-management.md", "title": "Claude Code ソースコード解説 第4章: コンテキスト管理", "description": "Claude Code がコンテキスト、履歴圧縮、長時間タスクの一貫性をどう扱うかを解説します。" }
+      }
+    },
+    {
+      "source": "04.2ContextManage（选修）.md",
+      "targets": {
+        "en": { "file": "04-2-context-governance-elective.md", "title": "Claude Code Source Analysis Series, Chapter 5: Context Governance (Optional)", "description": "A broader industry view of context management and how Claude Code compares with other agent systems." },
+        "ja": { "file": "04-2-context-governance-elective.md", "title": "Claude Code ソースコード解説 第5章: コンテキストガバナンス（選択）", "description": "コンテキスト管理の業界視点と Claude Code との比較を扱います。" }
+      }
+    },
+    {
+      "source": "05.0核心机制-Tools.md",
+      "targets": {
+        "en": { "file": "05-0-tools-overview.md", "title": "Claude Code Source Analysis Series, Chapter 6: Tools Overview", "description": "A breakdown of Claude Code's tool system, including tool protocols, permissions, and execution flow." },
+        "ja": { "file": "05-0-tools-overview.md", "title": "Claude Code ソースコード解説 第6章: ツール全体像", "description": "Claude Code のツールシステム、プロトコル、権限、実行フローを分解します。" }
+      }
+    },
+    {
+      "source": "05.1文件工具-文件管理.md",
+      "targets": {
+        "en": { "file": "05-1-file-tools.md", "title": "Claude Code Source Analysis Series, Chapter 7: File Tools", "description": "How Claude Code reads, edits, and writes files safely inside a real codebase." },
+        "ja": { "file": "05-1-file-tools.md", "title": "Claude Code ソースコード解説 第7章: ファイルツール", "description": "Claude Code が実際のコードベースで安全にファイルを読み、編集し、書き込む方法を解説します。" }
+      }
+    },
+    {
+      "source": "05.2终端工具-命令执行.md",
+      "targets": {
+        "en": { "file": "05-2-terminal-tools.md", "title": "Claude Code Source Analysis Series, Chapter 8: Terminal Tools", "description": "How Claude Code runs terminal commands, enforces permissions, and feeds results back into the loop." },
+        "ja": { "file": "05-2-terminal-tools.md", "title": "Claude Code ソースコード解説 第8章: ターミナルツール", "description": "Claude Code がコマンドを実行し、権限を制御し、結果をループへ戻す方法を解説します。" }
+      }
+    },
+    {
+      "source": "05.3工作流工具-任务管理.md",
+      "targets": {
+        "en": { "file": "05-3-task-management.md", "title": "Claude Code Source Analysis Series, Chapter 9: Task Management", "description": "How Claude Code tracks todos, plans, and long-running task state through workflow tools." },
+        "ja": { "file": "05-3-task-management.md", "title": "Claude Code ソースコード解説 第9章: タスク管理", "description": "Claude Code がワークフローツールで todo、計画、長時間タスク状態を追跡する方法を解説します。" }
+      }
+    },
+    {
+      "source": "06.MCP.md",
+      "targets": {
+        "en": { "file": "06-mcp.md", "title": "Claude Code Source Analysis Series, Chapter 10: MCP", "description": "How Claude Code integrates MCP servers and turns external tools and resources into first-class runtime capabilities." },
+        "ja": { "file": "06-mcp-integration.md", "title": "Claude Code ソースコード解説 第10章: MCP", "description": "Claude Code が MCP サーバーを統合し、外部ツールやリソースをランタイム能力へ変える方法を解説します。" }
+      }
+    },
+    {
+      "source": "07.Skill.md",
+      "targets": {
+        "en": { "file": "07-skill.md", "title": "Claude Code Source Analysis Series, Chapter 11: Skills", "description": "How Claude Code packages task experience into reusable skills and loads them at runtime." },
+        "ja": { "file": "07-skill-system.md", "title": "Claude Code ソースコード解説 第11章: Skill", "description": "Claude Code がタスク経験を再利用可能な Skill としてパッケージし、実行時に読み込む仕組みを解説します。" }
+      }
+    },
+    {
+      "source": "08.1Agent协作.md",
+      "targets": {
+        "en": { "file": "08-1-agent-collaboration.md", "title": "Claude Code Source Analysis Series, Chapter 12: Agent Collaboration", "description": "How Claude Code coordinates multiple agents, including sub-agents, tasks, and permission boundaries." },
+        "ja": { "file": "08-1-agent-collaboration.md", "title": "Claude Code ソースコード解説 第12章: Agent 協調", "description": "Claude Code がサブ Agent、タスク、権限境界を含む複数 Agent 協調をどう扱うかを解説します。" }
+      }
+    },
+    {
+      "source": "08.2业界的Agent协作（选修）.md",
+      "targets": {
+        "en": { "file": "08-2-industry-agent-collaboration-elective.md", "title": "Claude Code Source Analysis Series, Chapter 13: Industry Approaches to Agent Collaboration (Optional)", "description": "A comparison of how other agent systems split, coordinate, and converge multi-agent work." },
+        "ja": { "file": "08-2-industry-agent-collaboration-elective.md", "title": "Claude Code ソースコード解説 第13章: 業界の Agent 協調（選択）", "description": "他の Agent システムが複数 Agent 作業をどう分割、調整、収束させるかを比較します。" }
+      }
+    },
+    {
+      "source": "09.1Plan.md",
+      "targets": {
+        "en": { "file": "09-1-plan.md", "title": "Claude Code Source Analysis Series, Chapter 14: Planning", "description": "How Claude Code turns planning mode into a runtime mechanism with explicit permission boundaries." },
+        "ja": { "file": "09-1-plan-mode.md", "title": "Claude Code ソースコード解説 第14章: Plan", "description": "Claude Code が Plan Mode を明示的な権限境界を持つランタイム機構にする方法を解説します。" }
+      }
+    },
+    {
+      "source": "09.2业界Plan（选修）.md",
+      "targets": {
+        "en": { "file": "09-2-industry-plan-elective.md", "title": "Claude Code Source Analysis Series, Chapter 15: Industry Approaches to Planning (Optional)", "description": "A comparison of planning designs across agent systems, and how planning evolved into an execution control plane." },
+        "ja": { "file": "09-2-industry-plan-elective.md", "title": "Claude Code ソースコード解説 第15章: 業界の Plan（選択）", "description": "Agent システムにおける計画設計と、計画が実行制御面へ進化する流れを比較します。" }
+      }
+    }
+  ],
+  "mermaid": [
+    { "source": "01.工程架构.md", "prefix": "01-engineering-architecture-mermaid", "blocks": [1, 2, 3] },
+    { "source": "02.核心机制-ReAct.md", "prefix": "02-react-loop-mermaid", "blocks": [1, 2, 3] },
+    { "source": "03.核心机制-Prompt编写.md", "prefix": "03-prompt-construction-mermaid", "blocks": [1, 3, 4, 5] },
+    { "source": "04.1核心机制-Context管理.md", "prefix": "04-1-context-management-mermaid", "blocks": [1, 2] },
+    { "source": "05.0核心机制-Tools.md", "prefix": "05-0-tools-overview-mermaid", "blocks": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] },
+    { "source": "05.1文件工具-文件管理.md", "prefix": "05-1-file-tools-mermaid", "blocks": [1, 2, 3, 4] },
+    { "source": "05.2终端工具-命令执行.md", "prefix": "05-2-terminal-tools-mermaid", "blocks": [1, 2] },
+    { "source": "05.3工作流工具-任务管理.md", "prefix": "05-3-task-management-mermaid", "blocks": [1] },
+    { "source": "06.MCP.md", "prefix": "06-mcp-mermaid", "blocks": [1, 2, 3, 4, 6, 8, 9] },
+    { "source": "07.Skill.md", "prefix": "07-skill-mermaid", "blocks": [1, 2, 3, 4] },
+    { "source": "08.1Agent协作.md", "prefix": "08-1-agent-collaboration-mermaid", "blocks": [1, 2, 3] },
+    { "source": "08.2业界的Agent协作（选修）.md", "prefix": "08-2-industry-agent-collaboration-elective-mermaid", "blocks": [1, 2] }
+  ],
+  "ordinaryImages": [
+    "00-cover-claude-code-runtime.jpg",
+    "01-cover-engineering-architecture.jpg",
+    "02-cover-react-loop.jpg",
+    "03-cover-prompt-runtime.jpg",
+    "04-1-cover-context-management.jpg",
+    "04-2-cover-context-governance.jpg",
+    "05-0-cover-tools-pipeline.jpg",
+    "05-1-cover-file-tools.jpg",
+    "05-2-cover-terminal-tool.jpg",
+    "05-3-cover-workflow-task.jpg",
+    "06-cover-mcp-bridge.jpg",
+    "07-cover-skill-package.jpg",
+    "08-1-cover-agent-collaboration.jpg",
+    "08-2-cover-agent-orchestration.jpg",
+    "09-1-cover-plan-mode.jpg",
+    "09-2-cover-plan-control-plane.jpg",
+    "01-photo-01-engineering-shell.png",
+    "02-photo-05.png"
+  ]
+}

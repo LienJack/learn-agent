@@ -1,0 +1,37 @@
+{
+  "id": "2026-05-11T05-49-33-968Z-article-images-preserve",
+  "command": "article-images",
+  "stage": "covers",
+  "status": "completed",
+  "startedAt": "2026-05-11T05:49:33.968Z",
+  "inputs": [
+    {
+      "source": "tmp/images-tests/cli/preserve.md",
+      "status": "completed",
+      "workspace": "tmp/images-tests/cli/assets/preserve",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "prompt-planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-05-11T05-49-33-968Z-article-images-preserve",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-05-11T05-49-33-968Z-article-images-preserve/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 1 article(s)",
+    "confirmed": true
+  },
+  "notes": [],
+  "finishedAt": "2026-05-11T05:49:33.971Z"
+}

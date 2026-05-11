@@ -91,7 +91,34 @@ src/layouts/            文章和页面布局
 src/styles/             全局样式
 public/                 静态资源
 docs/                   设计、计划和需求文档
+translate/              项目内翻译中控台、skill、产物和运行记录
+publish/                项目内发布中控台、skill、产物和运行记录
+images/                 项目内文章图片中控台、skill、产物和运行记录
 ```
+
+## 图片
+
+图片入口集中在 [`images/README.md`](./images/README.md)。Codex 处理文章流程图和正文插图时请显式引用项目内 skill：
+
+- 批量文章图片：`images/skills/article-images/SKILL.md`
+- Mermaid 转 PNG：`images/skills/article-mermaid/SKILL.md`
+- 正文插图 prompt 与生成导入：`images/skills/article-photos/SKILL.md`
+
+## 翻译
+
+翻译入口集中在 [`translate/README.md`](./translate/README.md)。Codex 翻译时请显式引用项目内 skill：
+
+- 英文翻译：`translate/skills/translate-en/SKILL.md`
+- 日语翻译：`translate/skills/translate-ja/SKILL.md`
+- Mermaid 和普通图片本地化：`translate/skills/translate-assets/SKILL.md`
+
+## 发布
+
+发布入口集中在 [`publish/README.md`](./publish/README.md)。Codex 发布时请显式引用项目内 skill：
+
+- 中文草稿：`publish/skills/publish-cn/SKILL.md`
+- 英文 DEV：`publish/skills/publish-en/SKILL.md`
+- 日语 Zenn：`publish/skills/publish-ja/SKILL.md`
 
 ## Star History
 

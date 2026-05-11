@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="650" viewBox="0 0 960 650" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Code 功能架构</title>
+  <desc id="desc">黑色手绘线稿风格的 Claude Code 功能架构图，保留 Model API、QueryEngine、Tools 系统、Agent 协作、安全治理等信息层级。</desc>
+  <defs>
+    <style>
+      .bg {
+        fill: #fbf6ec;
+      }
+      .frame {
+        fill: none;
+        stroke: #161616;
+        stroke-width: 3.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .ringOuter {
+        fill: none;
+        stroke: #171717;
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-dasharray: 1 0;
+      }
+      .ringMid {
+        fill: none;
+        stroke: #171717;
+        stroke-width: 3.4;
+        stroke-linecap: round;
+      }
+      .ringInner {
+        fill: none;
+        stroke: #171717;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+      .core {
+        fill: none;
+        stroke: #171717;
+        stroke-width: 3.2;
+      }
+      .pill {
+        fill: #fbf6ec;
+        stroke: #171717;
+        stroke-width: 2.8;
+      }
+      .rule {
+        fill: none;
+        stroke: #171717;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+      }
+      .label {
+        font-family: "Bradley Hand", "Segoe Print", "Comic Sans MS", "PingFang SC", "Noto Sans SC", sans-serif;
+        fill: #161616;
+        text-anchor: middle;
+      }
+      .title {
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .body {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .small {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .micro {
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .safety {
+        font-size: 19px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" width="960" height="650" rx="22"/>
+
+  <path class="frame" d="M47 64 C39 59, 26 68, 25 82 L23 566 C24 581, 34 594, 51 594 L909 592 C927 592, 938 578, 938 560 L936 86 C937 71, 923 58, 905 59 L47 64"/>
+
+  <path class="ringOuter" d="M481 98
+    C604 96, 707 168, 752 278
+    C790 375, 767 474, 697 537
+    C629 599, 523 621, 420 595
+    C308 568, 224 489, 206 384
+    C186 270, 227 181, 309 130
+    C362 96, 418 89, 481 98"/>
+
+  <path class="ringMid" d="M480 158
+    C568 157, 648 208, 683 290
+    C712 359, 696 432, 642 484
+    C588 536, 502 556, 422 536
+    C335 515, 272 454, 257 373
+    C241 285, 275 219, 338 181
+    C379 158, 428 154, 480 158"/>
+
+  <path class="ringInner" d="M479 213
+    C542 212, 598 249, 622 305
+    C641 353, 631 406, 591 443
+    C553 479, 494 493, 438 480
+    C375 465, 329 421, 319 364
+    C309 304, 333 260, 378 232
+    C408 214, 441 211, 479 213"/>
+
+  <ellipse class="core" cx="482" cy="357" rx="74" ry="70"/>
+
+  <rect class="pill" x="399" y="92" rx="24" ry="24" width="166" height="44"/>
+  <rect class="pill" x="404" y="149" rx="24" ry="24" width="157" height="42"/>
+  <rect class="pill" x="421" y="205" rx="24" ry="24" width="122" height="39"/>
+
+  <text class="label title" x="482" y="120">Agent 协作</text>
+  <text class="label title" x="482" y="177">Tools 系统</text>
+  <text class="label title" x="482" y="231">QueryEngine</text>
+  <text class="label title" x="482" y="365">Model API</text>
+
+  <text class="label body" x="300" y="327">
+    <tspan x="300" dy="0">Base</tspan>
+    <tspan x="300" dy="22">Tools</tspan>
+  </text>
+  <text class="label body" x="681" y="337">MCP</text>
+  <text class="label body" x="320" y="466">Skills</text>
+  <text class="label body" x="639" y="457">
+    <tspan x="639" dy="0">Agent</tspan>
+    <tspan x="639" dy="22">Tools</tspan>
+  </text>
+
+  <text class="label small" x="363" y="384">
+    <tspan x="363" dy="0">ReAct</tspan>
+    <tspan x="363" dy="20">Loop</tspan>
+  </text>
+  <text class="label small" x="610" y="372">
+    <tspan x="610" dy="0">Context</tspan>
+    <tspan x="610" dy="20">Engineering</tspan>
+  </text>
+  <text class="label small" x="405" y="451">
+    <tspan x="405" dy="0">Token</tspan>
+    <tspan x="405" dy="20">管理</tspan>
+  </text>
+  <text class="label small" x="555" y="448">记忆管理</text>
+
+  <path class="rule" d="M225 538 C324 515, 640 515, 737 536"/>
+  <text class="label body" x="481" y="563">多智能体编排 · 并行执行 · 跨实例通信</text>
+
+  <rect class="pill" x="160" y="574" rx="10" ry="10" width="644" height="44"/>
+  <text class="label safety" x="482" y="603">安全 权限 &amp; 策略 ｜ 沙盒机制 ｜ 防提示注入 ｜ 审计日志</text>
+
+  <path class="rule" d="M372 273 C382 286, 389 294, 399 306"/>
+  <path class="rule" d="M567 273 C579 285, 586 294, 595 306"/>
+  <path class="rule" d="M422 146 C437 151, 451 156, 463 162"/>
+  <path class="rule" d="M542 146 C529 151, 515 156, 502 162"/>
+
+  <circle cx="343" cy="253" r="3.2" fill="#171717"/>
+  <circle cx="617" cy="243" r="3.2" fill="#171717"/>
+  <circle cx="329" cy="488" r="3.2" fill="#171717"/>
+  <circle cx="653" cy="483" r="3.2" fill="#171717"/>
+</svg>

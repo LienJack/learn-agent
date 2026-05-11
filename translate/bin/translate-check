@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+import path from 'node:path';
+import { loadDotEnv, parseArgs, printSummary, requireExistingFiles, toRepoRelative, writeJson } from '../lib/common.mjs';
+import { inspectTranslatedSet } from '../lib/checks.mjs';
+import { loadPipeline } from '../lib/pipelines.mjs';
+import { createRun, finishRun, writeRunRecord } from '../lib/records.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+	if (!options.language) throw new Error('--language <en|ja> is required.');
+	const pipeline = loadPipeline(options.pipeline);
+	const requested = requireExistingFiles(files, { allowEmpty: true });
+	const report = await inspectTranslatedSet({ pipeline, language: options.language, requestedFiles: requested });
+	const run = createRun({
+		command: 'translate-check',
+		language: options.language,
+		pipeline: pipeline.id,
+		stage: 'check',
+		inputs: report.articles.map((article) => article.source),
+	});
+	const reportPath = path.join(run.artifactDir, `${options.language}-check-report.json`);
+	writeJson(reportPath, report);
+	run.record.status = report.blockers.length ? 'blocked' : 'completed';
+	run.record.blockers = report.blockers;
+	run.record.warnings = report.warnings;
+	run.record.checks = report.articles;
+	run.record.artifacts.push(toRepoRelative(reportPath));
+	writeRunRecord(run.recordPath, run.record);
+
+	printSummary('Translation check summary', [
+		`Run: ${toRepoRelative(run.recordPath)}`,
+		`Artifacts: ${toRepoRelative(run.artifactDir)}`,
+		`Pipeline: ${pipeline.id}`,
+		`Language: ${options.language}`,
+		`Articles: ${report.articles.length}`,
+		`Assets: ${report.assets.items.length}`,
+		`Asset status: ${report.assets.status}`,
+		`Warnings: ${report.warnings.length ? report.warnings.length : 'none'}`,
+		`Blockers: ${report.blockers.length ? report.blockers.join('; ') : 'none'}`,
+	]);
+	finishRun(run, report.blockers.length ? 'blocked' : 'completed');
+	process.exit(report.blockers.length ? 1 : 0);
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+function usage() {
+	console.log(`Usage:
+  translate/bin/translate-check --language <en|ja> [--pipeline claude-code-series] [article.md ...]
+
+Behavior:
+  - Checks target Markdown frontmatter, local images, local links, residue, and model-output pollution.
+  - Writes records under translate/runs/ and reports under translate/artifacts/.`);
+}

@@ -1,0 +1,47 @@
+{
+  "dryRun": true,
+  "stage": "svg-mermaid",
+  "articles": [
+    {
+      "article": "src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm",
+      "manifest": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/manifest.json",
+      "assets": [
+        {
+          "id": "svg-mermaid-01",
+          "kind": "svg-mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/01-llm--mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/01-llm--mermaid-01.png",
+          "markdownRef": "./assets/01-llm/01-llm--mermaid-01.png",
+          "alt": "01.LLM的原理 图 1",
+          "renderer": "@mermaid-js/mermaid-cli",
+          "start": 1837,
+          "end": 1888,
+          "originalRef": "./assets/01.LLM的原理-mermaid-01.svg",
+          "obsidianSource": "2 概念介绍/kimi  润色/1.LLM的原理.md"
+        },
+        {
+          "id": "svg-mermaid-02",
+          "kind": "svg-mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/01-llm--mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/01-llm--mermaid-02.png",
+          "markdownRef": "./assets/01-llm/01-llm--mermaid-02.png",
+          "alt": "01.LLM的原理 图 2",
+          "renderer": "@mermaid-js/mermaid-cli",
+          "start": 8295,
+          "end": 8346,
+          "originalRef": "./assets/01.LLM的原理-mermaid-02.svg",
+          "obsidianSource": "2 概念介绍/kimi  润色/1.LLM的原理.md"
+        }
+      ],
+      "blockers": [],
+      "warnings": [
+        "src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md: multiple Obsidian source candidates; using 2 概念介绍/kimi  润色/1.LLM的原理.md."
+      ]
+    }
+  ]
+}

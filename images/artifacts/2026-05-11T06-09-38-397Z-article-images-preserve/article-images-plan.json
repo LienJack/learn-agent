@@ -1,0 +1,60 @@
+{
+  "dryRun": false,
+  "stage": "photos",
+  "articles": [
+    {
+      "article": "tmp/images-tests/cli/preserve.md",
+      "workspace": "tmp/images-tests/cli/assets/preserve",
+      "manifest": "tmp/images-tests/cli/assets/preserve/manifest.json",
+      "assets": [
+        {
+          "id": "photo-01",
+          "kind": "photo",
+          "status": "prompt-planned",
+          "sectionHeading": "机制 1",
+          "sectionScore": 4,
+          "anchor": "## 机制 1",
+          "sectionExcerpt": "这个章节解释 agent workflow 的机制、流程、状态变化、API 调用和 context 管理。这个说明足够长，适合生成图解。这个段落继续补充模型、prompt、context、tool 和状态生命周期之间的关系。\n\n- 输入\n- 处理\n- 输出",
+          "promptPath": "tmp/images-tests/cli/assets/preserve/photo-01-1-prompt.md",
+          "promptJsonPath": "tmp/images-tests/cli/assets/preserve/photo-01-1-prompt.json",
+          "targetPath": "tmp/images-tests/cli/assets/preserve/photo-01-1.png",
+          "markdownRef": "./assets/preserve/photo-01-1.png",
+          "alt": "Preserve - 机制 1",
+          "promptStatus": "planned"
+        },
+        {
+          "id": "photo-02",
+          "kind": "photo",
+          "status": "prompt-planned",
+          "sectionHeading": "机制 2",
+          "sectionScore": 4,
+          "anchor": "## 机制 2",
+          "sectionExcerpt": "这个章节解释 agent workflow 的机制、流程、状态变化、API 调用和 context 管理。这个说明足够长，适合生成图解。这个段落继续补充模型、prompt、context、tool 和状态生命周期之间的关系。\n\n- 输入\n- 处理\n- 输出",
+          "promptPath": "tmp/images-tests/cli/assets/preserve/photo-02-2-prompt.md",
+          "promptJsonPath": "tmp/images-tests/cli/assets/preserve/photo-02-2-prompt.json",
+          "targetPath": "tmp/images-tests/cli/assets/preserve/photo-02-2.png",
+          "markdownRef": "./assets/preserve/photo-02-2.png",
+          "alt": "Preserve - 机制 2",
+          "promptStatus": "planned"
+        },
+        {
+          "id": "photo-03",
+          "kind": "photo",
+          "status": "prompt-planned",
+          "sectionHeading": "机制 3",
+          "sectionScore": 4,
+          "anchor": "## 机制 3",
+          "sectionExcerpt": "这个章节解释 agent workflow 的机制、流程、状态变化、API 调用和 context 管理。这个说明足够长，适合生成图解。这个段落继续补充模型、prompt、context、tool 和状态生命周期之间的关系。\n\n- 输入\n- 处理\n- 输出",
+          "promptPath": "tmp/images-tests/cli/assets/preserve/photo-03-3-prompt.md",
+          "promptJsonPath": "tmp/images-tests/cli/assets/preserve/photo-03-3-prompt.json",
+          "targetPath": "tmp/images-tests/cli/assets/preserve/photo-03-3.png",
+          "markdownRef": "./assets/preserve/photo-03-3.png",
+          "alt": "Preserve - 机制 3",
+          "promptStatus": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

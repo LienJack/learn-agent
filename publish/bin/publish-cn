@@ -1,0 +1,95 @@
+#!/usr/bin/env node
+import path from 'node:path';
+import {
+	createRun,
+	loadDotEnv,
+	parseArgs,
+	printSummary,
+	readArticle,
+	requireArticleFiles,
+	writeJson,
+	writeRunRecord,
+} from '../lib/common.mjs';
+import { inspectChineseArticle } from '../lib/cn.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+
+	const articles = requireArticleFiles(files).map(readArticle);
+	const run = createRun({ language: 'cn', platforms: ['wechat', 'juejin', 'zhihu'], articles });
+	let hasBlockers = false;
+
+	for (const article of articles) {
+		const articleRecord = run.record.articles.find((item) => item.source === article.sourceRelPath);
+		const inspection = inspectChineseArticle(article);
+		articleRecord.blockers = inspection.blockers;
+		articleRecord.warnings = inspection.warnings;
+		articleRecord.results = inspection.platforms.map((platform) => ({
+			...platform,
+			status: inspection.blockers.length ? 'blocked' : 'ready_for_draft',
+		}));
+
+		const summaryPath = path.join(run.artifactDir, `${path.basename(article.sourcePath, path.extname(article.sourcePath))}.cn-summary.json`);
+		writeJson(summaryPath, {
+			source: article.sourceRelPath,
+			title: article.data.title || '',
+			titles: inspection.titles,
+			cover: inspection.cover,
+			platforms: articleRecord.results,
+			commands: inspection.commands,
+			acceptance: inspection.acceptance,
+			codeBlocks: inspection.codeBlocks,
+			codeHandling: inspection.codeHandling,
+			warnings: inspection.warnings,
+			blockers: inspection.blockers,
+			localImageCount: inspection.localImages.length,
+			totalMarkdownImageCount: inspection.imageRefs.length,
+		});
+		articleRecord.artifacts.push(path.relative(process.cwd(), summaryPath));
+		if (inspection.blockers.length) {
+			hasBlockers = true;
+			articleRecord.status = 'blocked';
+		} else {
+			articleRecord.status = 'ready_for_draft';
+		}
+	}
+
+	run.record.status = hasBlockers ? 'blocked' : 'ready_for_draft';
+	run.record.notes.push('Chinese V1 defaults to draft creation only. WeChat must use md2wechat; Juejin and Zhihu may require browser/Wechatsync manual completion.');
+	run.record.finishedAt = new Date().toISOString();
+	writeRunRecord(run.recordPath, run.record);
+
+	printSummary('Chinese draft summary', [
+		`Run: ${path.relative(process.cwd(), run.recordPath)}`,
+		`Artifacts: ${path.relative(process.cwd(), run.artifactDir)}`,
+		...run.record.articles.flatMap((article) => [
+			`Article: ${article.source}`,
+			`Status: ${article.status}`,
+			`Platforms: weixin, juejin, zhihu`,
+			`Warnings: ${article.warnings?.length ? article.warnings.join('; ') : 'none'}`,
+			`Blockers: ${article.blockers.length ? article.blockers.join('; ') : 'none'}`,
+		]),
+		'Next: run WeChat through md2wechat autumn-warm HTML draft chain; run Juejin and Zhihu as separate Wechatsync single-platform drafts.',
+	]);
+
+	process.exit(hasBlockers ? 1 : 0);
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+function usage() {
+	console.log(`Usage:
+  publish/bin/publish-cn [--dry-run] <article.md> [article-2.md ...]
+
+Behavior:
+  - Checks Chinese draft readiness for WeChat, Juejin, and Zhihu.
+  - Writes draft run records and per-article summaries under publish/.
+  - Does not perform final public publish or review submission.`);
+}

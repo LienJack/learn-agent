@@ -1,0 +1,91 @@
+#!/usr/bin/env node
+import path from 'node:path';
+import { loadDotEnv, parseArgs, printSummary, requireExistingFiles, toRepoRelative, writeJson } from '../lib/common.mjs';
+import { createRun, finishRun, writeRunRecord } from '../lib/records.mjs';
+import { assertCanRunRealTranslation, planTranslations } from '../lib/translation.mjs';
+import { loadPipeline, resolvePipelineFiles } from '../lib/pipelines.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+	await runTranslationCli({ language: 'ja', options, files });
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+async function runTranslationCli({ language, options, files }) {
+	const pipeline = loadPipeline(options.pipeline);
+	const requested = requireExistingFiles(files, { allowEmpty: true });
+	const plans = resolvePipelineFiles(pipeline, language, requested);
+	if (plans.length === 0) {
+		throw new Error(`No matching ${language} articles found in pipeline ${pipeline.id}.`);
+	}
+
+	const run = createRun({
+		command: `translate-${language}`,
+		language,
+		pipeline: pipeline.id,
+		inputs: plans.map((plan) => plan.sourceRelPath),
+	});
+	const translationPlans = planTranslations({ pipeline, language, plans });
+	const hasBlockers = translationPlans.some((plan) => plan.blockers.length > 0);
+	const planPath = path.join(run.artifactDir, `${language}-translation-plan.json`);
+	writeJson(planPath, { pipeline: pipeline.id, language, dryRun: options.dryRun, articles: translationPlans });
+
+	run.record.status = hasBlockers ? 'blocked' : 'planned';
+	run.record.artifacts.push(toRepoRelative(planPath));
+	run.record.confirmation = {
+		required: !hasBlockers,
+		action: `Run real ${language} Markdown translation`,
+		confirmed: false,
+	};
+	for (const item of run.record.inputs) {
+		const plan = translationPlans.find((candidate) => candidate.sourceRelPath === item.source);
+		item.status = plan?.status || 'unknown';
+		item.blockers = plan?.blockers || [];
+		item.warnings = plan?.warnings || [];
+		item.artifacts = [toRepoRelative(planPath)];
+		item.target = plan?.targetRelPath || '';
+	}
+	writeRunRecord(run.recordPath, run.record);
+
+	printSummary(`${language.toUpperCase()} translation summary`, [
+		`Run: ${toRepoRelative(run.recordPath)}`,
+		`Artifacts: ${toRepoRelative(run.artifactDir)}`,
+		`Pipeline: ${pipeline.id}`,
+		`Articles: ${translationPlans.length}`,
+		`Blockers: ${translationPlans.flatMap((plan) => plan.blockers).length || 'none'}`,
+		...translationPlans.flatMap((plan) => [
+			`Article: ${plan.sourceRelPath}`,
+			`Target: ${plan.targetRelPath}`,
+			`Status: ${plan.status}`,
+			`Link rewrites: ${plan.linkRewrites.length}`,
+			`Asset refs: ${plan.assetRewrites.length}`,
+		]),
+	]);
+
+	if (hasBlockers || options.dryRun) {
+		finishRun(run, hasBlockers ? 'blocked' : 'planned');
+		process.exit(hasBlockers ? 1 : 0);
+	}
+
+	assertCanRunRealTranslation(options);
+}
+
+function usage() {
+	console.log(`Usage:
+  translate/bin/translate-ja [--dry-run] [--pipeline claude-code-series] <article.md> [article-2.md ...]
+  translate/bin/translate-ja [--dry-run] --pipeline claude-code-series
+
+Behavior:
+  - Reads translate/pipelines/<pipeline>.json.
+  - Writes run records under translate/runs/.
+  - Writes translation plans under translate/artifacts/.
+  - Real model translation requires --yes and is intentionally gated.`);
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-05-11T01-54-25-089Z-en-record",
+  "language": "en",
+  "platforms": [
+    "dev"
+  ],
+  "status": "started",
+  "startedAt": "2026-05-11T01:54:25.090Z",
+  "articles": [
+    {
+      "source": "tmp/publish-tests/record.md",
+      "title": "Test Article",
+      "status": "pending",
+      "artifacts": [],
+      "blockers": [],
+      "results": []
+    }
+  ],
+  "artifactDir": "publish/artifacts/2026-05-11T01-54-25-089Z-en-record",
+  "confirmation": null,
+  "notes": [],
+  "apiKey": "[redacted]",
+  "cookie": "[redacted]"
+}

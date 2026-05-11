@@ -1,0 +1,234 @@
+#!/usr/bin/env node
+import { spawnSync } from 'node:child_process';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import path from 'node:path';
+import {
+	loadDotEnv,
+	parseArgs,
+	printSummary,
+	readJson,
+	resolveRepoPath,
+	toRepoRelative,
+} from '../lib/common.mjs';
+import { readArticle } from '../lib/articles.mjs';
+import { planArticleWorkspaces } from '../lib/workspace.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	const articlePath = files[0];
+	if (options.help || !articlePath) {
+		usage();
+		process.exit(articlePath ? 0 : 1);
+	}
+	await run({ options, articlePath });
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+async function run({ options, articlePath }) {
+	const article = readArticle(articlePath);
+	const [workspace] = planArticleWorkspaces([article]);
+	const manifest = readJson(resolveRepoPath(workspace.manifestRelPath), null);
+	if (!manifest) throw new Error(`Missing manifest: ${workspace.manifestRelPath}`);
+
+	const promptIds = selectedPromptIds(options);
+	if (!options.dryRun && promptIds.length !== 1) {
+		throw new Error('Image generation must run one prompt at a time. Pass exactly one --prompt-id, for example --prompt-id photo-03.');
+	}
+	const assets = (manifest.assets || [])
+		.filter((asset) => ['cover', 'photo'].includes(asset.kind))
+		.filter((asset) => promptIds.length === 0 || promptIds.includes(asset.id));
+	if (assets.length === 0) throw new Error('No matching photo assets found.');
+
+	const config = imageConfig(options);
+	const outDir = resolveRepoPath(options.outDir || `output/imagegen/${path.basename(workspace.workspaceRelPath)}`);
+	mkdirSync(outDir, { recursive: true });
+
+	const results = [];
+	for (const asset of assets) {
+		const promptPath = finalPromptPath(asset);
+		if (!existsSync(resolveRepoPath(promptPath))) {
+			throw new Error(`${asset.id}: missing final prompt file: ${promptPath}`);
+		}
+		const prompt = readFileSync(resolveRepoPath(promptPath), 'utf8');
+		const outputPath = path.join(outDir, path.basename(asset.targetPath || `${asset.id}.png`));
+		const generated = await generateImage({ prompt, outputPath, config, options });
+		results.push({ asset, generated });
+		if (options.importGenerated) {
+			importGeneratedImage({
+				article: article.sourceRelPath,
+				promptId: asset.id,
+				imagePath: generated,
+			});
+		}
+	}
+
+	printSummary('Article Node imagegen summary', [
+		`Article: ${article.sourceRelPath}`,
+		`Model: ${config.model}`,
+		`Size: ${config.size}`,
+		`Quality: ${config.quality || 'default'}`,
+		`Generated: ${results.length}`,
+		`Output dir: ${toRepoRelative(outDir)}`,
+		`Imported: ${options.importGenerated ? 'yes' : 'no'}`,
+	]);
+}
+
+function selectedPromptIds(options) {
+	const raw = options.promptId || options.prompts || '';
+	return raw
+		.split(',')
+		.map((value) => value.trim())
+		.filter(Boolean);
+}
+
+function imageConfig(options) {
+	const apiKey = firstEnv('THIRD_PARTY_API_KEY', 'OPENAI_API_KEY');
+	if (!apiKey) throw new Error('Missing API key. Set THIRD_PARTY_API_KEY or OPENAI_API_KEY in .env.');
+	return {
+		apiKey,
+		baseURL: trimTrailingSlash(
+			options.baseUrl ||
+				firstEnv('THIRD_PARTY_BASE_URL', 'OPENAI_IMAGE_BASE_URL', 'OPENAI_BASE_URL') ||
+				'https://api.openai.com/v1',
+		),
+		model: options.model || process.env.IMAGE_MODEL || 'gpt-image-2',
+		size: options.size || process.env.IMAGE_SIZE || '1536x1024',
+		quality: options.quality || process.env.IMAGE_QUALITY || 'medium',
+		outputFormat: options.outputFormat || process.env.IMAGE_OUTPUT_FORMAT || 'png',
+		outputCompression: optionalInteger(process.env.IMAGE_OUTPUT_COMPRESSION),
+		background: options.background || process.env.IMAGE_BACKGROUND || '',
+		moderation: process.env.IMAGE_MODERATION || '',
+		headers: parseHeaders(process.env.THIRD_PARTY_HEADERS),
+	};
+}
+
+async function generateImage({ prompt, outputPath, config, options }) {
+	const payload = removeEmpty({
+		model: config.model,
+		prompt,
+		n: 1,
+		size: config.size,
+		quality: config.quality,
+		output_format: config.outputFormat,
+		output_compression: config.outputCompression,
+		background: config.background,
+		moderation: config.moderation,
+	});
+
+	if (options.dryRun) {
+		console.log(JSON.stringify({ endpoint: `${config.baseURL}/images/generations`, outputPath, payload }, null, 2));
+		return outputPath;
+	}
+
+	const response = await fetch(`${config.baseURL}/images/generations`, {
+		method: 'POST',
+		headers: {
+			authorization: `Bearer ${config.apiKey}`,
+			'content-type': 'application/json',
+			...config.headers,
+		},
+		body: JSON.stringify(payload),
+	});
+	const body = await response.json().catch(async () => ({ raw: await response.text() }));
+	if (!response.ok) {
+		throw new Error(`Image API failed (${response.status}): ${JSON.stringify(redact(body))}`);
+	}
+
+	const item = body.data?.[0];
+	if (!item) throw new Error(`Image API returned no image data: ${JSON.stringify(redact(body))}`);
+	const buffer = item.b64_json
+		? Buffer.from(item.b64_json, 'base64')
+		: await downloadImage(item.url, config.headers);
+	mkdirSync(path.dirname(outputPath), { recursive: true });
+	writeFileSync(outputPath, buffer);
+	return outputPath;
+}
+
+async function downloadImage(url, headers) {
+	if (!url) throw new Error('Image API response had neither b64_json nor url.');
+	const response = await fetch(url, { headers });
+	if (!response.ok) throw new Error(`Image download failed (${response.status}).`);
+	return Buffer.from(await response.arrayBuffer());
+}
+
+function importGeneratedImage({ article, promptId, imagePath }) {
+	const result = spawnSync(
+		'images/bin/article-images',
+		['--import', toRepoRelative(imagePath), '--prompt-id', promptId, article],
+		{ encoding: 'utf8' },
+	);
+	process.stdout.write(result.stdout);
+	process.stderr.write(result.stderr);
+	if (result.status !== 0) {
+		throw new Error(`${promptId}: import failed.`);
+	}
+}
+
+function finalPromptPath(asset) {
+	return asset.promptPath.replace(/-prompt\.md$/, '-final-prompt.md');
+}
+
+function firstEnv(...names) {
+	for (const name of names) {
+		const value = process.env[name]?.trim();
+		if (value) return value;
+	}
+	return '';
+}
+
+function trimTrailingSlash(value) {
+	return value.replace(/\/+$/, '');
+}
+
+function optionalInteger(value) {
+	const normalized = value?.trim();
+	if (!normalized) return undefined;
+	const parsed = Number.parseInt(normalized, 10);
+	if (!Number.isInteger(parsed)) throw new Error(`Expected integer, got: ${value}`);
+	return parsed;
+}
+
+function parseHeaders(value) {
+	const normalized = value?.trim();
+	if (!normalized) return {};
+	const parsed = JSON.parse(normalized);
+	if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+		throw new Error('THIRD_PARTY_HEADERS must be a JSON object.');
+	}
+	return parsed;
+}
+
+function removeEmpty(value) {
+	return Object.fromEntries(
+		Object.entries(value).filter(([, entry]) => entry !== undefined && entry !== ''),
+	);
+}
+
+function redact(value) {
+	return JSON.parse(
+		JSON.stringify(value).replace(/sk-[A-Za-z0-9_-]{8,}/g, (key) => `${key.slice(0, 7)}...redacted`),
+	);
+}
+
+function usage() {
+	console.log(`Usage:
+  images/bin/article-imagegen-node [--dry-run] --prompt-id photo-01 [--import-generated] <article.md>
+
+Options:
+  --model <name>            Defaults to IMAGE_MODEL or gpt-image-2
+  --base-url <url>          Defaults to THIRD_PARTY_BASE_URL, OPENAI_IMAGE_BASE_URL, OPENAI_BASE_URL, or OpenAI
+  --size <WIDTHxHEIGHT>     Defaults to IMAGE_SIZE or 1536x1024
+  --quality <value>         low|medium|high|auto
+  --output-format <value>   png|jpeg|webp
+  --background <value>      auto|opaque, or provider-supported value
+  --out-dir <dir>           Defaults to output/imagegen/<article-workspace>
+  --import-generated        Import generated image through images/bin/article-images
+
+Environment:
+  Uses THIRD_PARTY_API_KEY or OPENAI_API_KEY.
+  Uses THIRD_PARTY_BASE_URL or OpenAI-compatible base URLs when set.`);
+}

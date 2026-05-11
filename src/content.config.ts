@@ -5,7 +5,10 @@ import { LOCALES } from './i18n/config';
 
 const blog = defineCollection({
 	// Load Markdown and MDX files in locale-specific directories under `src/content/blog/`.
-	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
+	loader: glob({
+		base: './src/content/blog',
+		pattern: ['**/*.{md,mdx}', '!**/assets/**/*.{md,mdx}'],
+	}),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
