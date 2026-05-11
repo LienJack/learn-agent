@@ -4,6 +4,12 @@
 
 ## 快速入口
 
+自动识别英文或日语正文翻译：
+
+```text
+[$translate](/Users/lienli/Documents/GitHub/learn-agent/translate/skills/translate/SKILL.md) 翻译成日语 --pipeline claude-code-series src/content/blog/zh/...
+```
+
 英文正文翻译：
 
 ```text
