@@ -26,3 +26,4 @@ docs/*
 .vercel
 test-results/
 tmp/
+zenn/node_modules/
