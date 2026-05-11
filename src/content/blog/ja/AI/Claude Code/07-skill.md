@@ -5,6 +5,7 @@ author: LienJack
 pubDate: 2026-05-03
 heroImage: './assets/07-cover-skill-package.jpg'
 locale: 'ja'
+zenn_slug: 07-skill-system
 tags:
   - Claude-Code
   - Agent

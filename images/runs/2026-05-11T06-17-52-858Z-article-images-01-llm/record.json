@@ -1,0 +1,97 @@
+{
+  "id": "2026-05-11T06-17-52-858Z-article-images-01-llm",
+  "command": "article-images",
+  "stage": "svg-mermaid",
+  "status": "completed",
+  "startedAt": "2026-05-11T06:17:52.858Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "imported"
+        },
+        {
+          "id": "photo-01",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-02",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-03",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-04",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-05",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-06",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-07",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-08",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-09",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-10",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "svg-mermaid-01",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "svg-mermaid-02",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-05-11T06-17-52-858Z-article-images-01-llm",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-05-11T06-17-52-858Z-article-images-01-llm/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 1 article(s)",
+    "confirmed": true
+  },
+  "notes": [],
+  "finishedAt": "2026-05-11T06:17:57.455Z"
+}

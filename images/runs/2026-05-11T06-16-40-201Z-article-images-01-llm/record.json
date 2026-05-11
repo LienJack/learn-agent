@@ -1,0 +1,46 @@
+{
+  "id": "2026-05-11T06-16-40-201Z-article-images-01-llm",
+  "command": "article-images",
+  "stage": "svg-mermaid",
+  "status": "planned",
+  "startedAt": "2026-05-11T06:16:40.201Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm",
+      "assets": [
+        {
+          "id": "svg-mermaid-01",
+          "kind": "svg-mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "svg-mermaid-02",
+          "kind": "svg-mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": [
+        "src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md: multiple Obsidian source candidates; using 2 概念介绍/kimi  润色/1.LLM的原理.md."
+      ]
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-05-11T06-16-40-201Z-article-images-01-llm",
+  "blockers": [],
+  "warnings": [
+    "src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md: multiple Obsidian source candidates; using 2 概念介绍/kimi  润色/1.LLM的原理.md."
+  ],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-05-11T06-16-40-201Z-article-images-01-llm/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 1 article(s)",
+    "confirmed": false
+  },
+  "notes": [],
+  "finishedAt": "2026-05-11T06:16:40.341Z"
+}

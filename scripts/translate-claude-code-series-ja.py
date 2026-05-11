@@ -1,5 +1,11 @@
 from __future__ import annotations
 
+# Deprecated compatibility script.
+# Current translation entrypoints live under translate/:
+# - translate/skills/translate-ja/SKILL.md
+# - translate/bin/translate-ja
+# - translate/pipelines/claude-code-series.json
+
 import importlib.util
 from pathlib import Path
 

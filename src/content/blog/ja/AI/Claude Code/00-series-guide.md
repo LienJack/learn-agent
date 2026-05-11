@@ -56,8 +56,8 @@ aliases:
 
 ## 4. 拡張機能を理解する
 
-1. [『Claude Code ソースコード解説シリーズ』第10章｜MCP](./06-mcp)
-2. [『Claude Code ソースコード解説シリーズ』第11章｜Skill](./07-skill)
+1. [『Claude Code ソースコード解説シリーズ』第10章｜MCP](./06-mcp-integration)
+2. [『Claude Code ソースコード解説シリーズ』第11章｜Skill](./07-skill-system)
 
 このパートでは、Claude Code がどのように「より多くの外部機能」や「より成熟したタスク経験」をメインランタイムに統合しているのかを解説します。
 
@@ -65,7 +65,7 @@ aliases:
 
 1. [『Claude Code ソースコード解析シリーズ』第12章｜エージェントコラボレーション](./08-1-agent-collaboration)
 2. [『Claude Code ソースコード解析シリーズ』第13章｜業界のエージェントコラボレーション（選択）](./08-2-industry-agent-collaboration-elective)
-3. [『Claude Code ソースコード解析シリーズ』第14章｜プラン](./09-1-plan)
+3. [『Claude Code ソースコード解析シリーズ』第14章｜プラン](./09-1-plan-mode)
 4. [『Claude Code ソースコード解析シリーズ』第15章｜業界のプラン（選択）](./09-2-industry-plan-elective)
 
 このパートは、単一エージェントのメインループを理解した後に、タスク分割、サブエージェント、承認境界、プラン制御面へと視点を上げていくのに適しています。

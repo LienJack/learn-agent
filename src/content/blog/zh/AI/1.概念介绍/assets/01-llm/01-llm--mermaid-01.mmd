@@ -1,0 +1,13 @@
+graph TD
+classDef brain fill:#fce4ec,stroke:#c62828
+classDef tool fill:#e8f5e9,stroke:#2e7d32
+classDef user fill:#e1f5ff,stroke:#01579b
+classDef storage fill:#fff3e0,stroke:#ef6c00
+U[用户输入]:::user --> L[LLM 大脑]:::brain
+L -->|需要知识| R[RAG 检索]:::tool
+R -->|查| V[(向量数据库)]:::storage
+L -->|需要执行| A[Agent 调度]:::tool
+A -->|调用| S[搜索引擎]:::tool
+A -->|调用| C[代码执行]:::tool
+A -->|调用| D[数据库]:::storage
+L --> O[生成回复]:::user

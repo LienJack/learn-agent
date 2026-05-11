@@ -1,0 +1,15 @@
+{
+  "id": "photo-04",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "四、Pretrain：看海量菜谱练出来的模式",
+  "sectionScore": 6,
+  "anchor": "## 四、Pretrain：看海量菜谱练出来的模式",
+  "sectionExcerpt": "如果说 token 是\"切好的食材\"，embedding 是\"味道地图\"，那 pretrain（在海量通用语料上通过无监督目标训练模型通用语言能力的阶段）就是：\n\n**让学徒看海量菜谱和做菜过程，练到知道下一步该放什么。**\n\n如果换回文字世界，这件事又很像\"让一个人疯狂读书\"。\n\n想象有个学生：读了几亿页网页、很多书、很多代码、很多问答、很多论文和说明文档。老师不给他讲\"什么是翻译、什么是总结\"，而是一直让他做一个任务：\n\n**看前文，猜下一个 token 是什么。**\n\n比如训练样本可能长这样：\n\n\n模型要猜下一个 token 可能是：热、好、冷。\n\n又比如：\n\n\n它可能猜：编程语言、语言、动态语言。\n\n再比如代码：\n\n\n模型会慢慢学到：`for` 后面常跟变量，`range(` 后面常是数字，下一行常缩进，`print(i)` 这种结构很常见。\n\n关键点来了：训练目标虽然只是\"猜下一个 token\"，但为了猜对，模型不得不顺便学会很多东西：语法、常识、事实模式、写作风格、代码结构、问答套路、推理链条的一部分。\n\n这就是为什么 pretrain 之后，模型会显得\"什么都懂一点\"。\n\n再举个特别直观的例子。如果模型在预训练里看过很多这种句子：\n\n\n那当你问\"德国的首都是哪里？\"，它很可能能答出\"柏林\"。\n\n它不是像数据库那样\"查表\"，而是因为在海量文本中反复看到了\"国家 -> 首都\"这种模式，于是参数里形成了这种关联。\n\n所以你可以把 pretrain 理解成：**通过海量文本上的续写训练，把语言规律和知识模式压进模型参数里。**\n\n放回厨房比喻里，pretrain 不是老师直接告诉学徒\"什么是川菜、什么是粤菜、什么是总结、什么是翻译\"，而是让它看过足够多的做菜过程。它每次只练一个动作：根据前面的步骤，猜下一步最可能是什么。练得足够久以后，它就开始掌握食材搭配、步骤顺序和常见套路。\n\n---",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-04-pretrain-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-04-pretrain-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-04-pretrain.png",
+  "markdownRef": "./assets/01-llm/photo-04-pretrain.png",
+  "alt": "LLM 到底在做什么：从猜词到生成的完整链路 - 四、Pretrain：看海量菜谱练出来的模式",
+  "promptStatus": "planned"
+}

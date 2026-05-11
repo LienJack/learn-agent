@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+# Deprecated compatibility script.
+# Current ordinary image localization entrypoints live under:
+# - translate/skills/translate-assets/SKILL.md
+# - translate/bin/translate-assets
+# - translate/workflows/image-localization.md
+# New original-article photo generation entrypoints live under:
+# - images/skills/article-photos/SKILL.md
+# - images/bin/article-images --stage photos
+
 import argparse
 import base64
 import json

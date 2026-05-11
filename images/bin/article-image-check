@@ -1,0 +1,95 @@
+#!/usr/bin/env node
+import { existsSync, readFileSync } from 'node:fs';
+import { loadDotEnv, parseArgs, printSummary, requireExistingFiles, resolveRepoPath } from '../lib/common.mjs';
+import { findMarkdownImageRefs, isLocalRef, readArticle, resolveLocalRef } from '../lib/articles.mjs';
+import { planArticleWorkspaces } from '../lib/workspace.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+	const articlePaths = requireExistingFiles(files);
+	const reports = articlePaths.map((sourcePath) => inspectArticle(readArticle(sourcePath)));
+	if (options.json) {
+		console.log(JSON.stringify(reports, null, 2));
+	} else {
+		printSummary('Article image check', [
+			`Articles: ${reports.length}`,
+			`Warnings: ${reports.flatMap((report) => report.warnings).length || 'none'}`,
+			`Blockers: ${reports.flatMap((report) => report.blockers).length || 'none'}`,
+			...reports.flatMap((report) => report.blockers.map((blocker) => `- ${blocker}`)),
+		]);
+	}
+	process.exit(reports.some((report) => report.blockers.length) ? 1 : 0);
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+export function inspectArticle(article) {
+	const [workspace] = planArticleWorkspaces([article]);
+	const blockers = [];
+	const warnings = [];
+	const refs = findMarkdownImageRefs(article.raw);
+	for (const ref of refs) {
+		if (!isLocalRef(ref.url)) continue;
+		const localPath = resolveLocalRef(article, ref.url);
+		if (!existsSync(localPath)) blockers.push(`${article.sourceRelPath}: image not found: ${ref.url}`);
+	}
+	if (existsSync(workspace.manifestPath)) {
+		const manifest = JSON.parse(readText(workspace.manifestPath));
+		for (const asset of manifest.assets || []) {
+			if (asset.kind === 'mermaid' || asset.kind === 'svg-mermaid') {
+				if (!asset.sourcePath || !existsSync(resolveRepoPath(asset.sourcePath))) {
+					blockers.push(`${article.sourceRelPath}: ${asset.id} missing Mermaid .mmd source.`);
+				}
+				if (!asset.targetPath || !existsSync(resolveRepoPath(asset.targetPath))) {
+					blockers.push(`${article.sourceRelPath}: ${asset.id} missing Mermaid PNG.`);
+				}
+			}
+			if (asset.kind === 'photo') {
+				if (asset.promptPath && !existsSync(resolveRepoPath(asset.promptPath))) {
+					blockers.push(`${article.sourceRelPath}: ${asset.id} missing prompt file.`);
+				}
+				if ((asset.status === 'generated' || asset.status === 'imported') && !existsSync(resolveRepoPath(asset.targetPath))) {
+					blockers.push(`${article.sourceRelPath}: ${asset.id} missing generated photo.`);
+				}
+			}
+			if (asset.kind === 'cover') {
+				if (asset.promptPath && !existsSync(resolveRepoPath(asset.promptPath))) {
+					blockers.push(`${article.sourceRelPath}: ${asset.id} missing prompt file.`);
+				}
+				if (asset.status === 'imported' && !existsSync(resolveRepoPath(asset.targetPath))) {
+					blockers.push(`${article.sourceRelPath}: ${asset.id} missing generated cover.`);
+				}
+				if (asset.status === 'imported' && article.data.heroImage !== asset.markdownRef) {
+					blockers.push(`${article.sourceRelPath}: imported cover is not referenced by heroImage.`);
+				}
+			}
+		}
+	} else {
+		warnings.push(`${article.sourceRelPath}: image workspace manifest not found at ${workspace.manifestRelPath}.`);
+	}
+	return {
+		article: article.sourceRelPath,
+		workspace: workspace.workspaceRelPath,
+		status: blockers.length ? 'blocked' : 'passed',
+		blockers,
+		warnings,
+	};
+}
+
+function readText(filePath) {
+	return readFileSync(filePath, 'utf8');
+}
+
+function usage() {
+	console.log(`Usage:
+  images/bin/article-image-check [--json] <article.md ...>
+
+Checks local Markdown image references plus article-local image workspace manifests.`);
+}

@@ -3,6 +3,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 
+// Legacy one-off script. New article Mermaid work should start from:
+// - images/skills/article-mermaid/SKILL.md
+// - images/bin/article-images --stage mermaid
+
 const OBSIDIAN_DIR =
 	'/Users/lienli/Library/Mobile Documents/iCloud~md~obsidian/Documents/tech/techBlog/blog/4 Cluade Code源码解析/终稿';
 const TARGET_ASSETS_DIR =

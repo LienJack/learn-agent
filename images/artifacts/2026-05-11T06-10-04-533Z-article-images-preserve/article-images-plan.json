@@ -1,0 +1,29 @@
+{
+  "dryRun": false,
+  "stage": "covers",
+  "articles": [
+    {
+      "article": "tmp/images-tests/cli/preserve.md",
+      "workspace": "tmp/images-tests/cli/assets/preserve",
+      "manifest": "tmp/images-tests/cli/assets/preserve/manifest.json",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "prompt-planned",
+          "promptPath": "tmp/images-tests/cli/assets/preserve/cover-prompt.md",
+          "promptJsonPath": "tmp/images-tests/cli/assets/preserve/cover-prompt.json",
+          "targetPath": "tmp/images-tests/cli/assets/preserve/cover-preserve.png",
+          "markdownRef": "./assets/preserve/cover-preserve.png",
+          "alt": "Preserve - 封面图",
+          "promptStatus": "planned",
+          "title": "Preserve",
+          "description": "Desc",
+          "tags": []
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

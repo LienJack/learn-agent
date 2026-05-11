@@ -5,6 +5,7 @@ author: LienJack
 pubDate: 2026-05-03
 heroImage: './assets/09-1-cover-plan-mode.jpg'
 locale: 'ja'
+zenn_slug: 09-1-plan-mode
 tags:
   - Claude-Code
   - Agent

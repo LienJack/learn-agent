@@ -1,0 +1,17 @@
+# photo-09: 5.2 对齐：从"会续写"到"会当助手"
+
+Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
+Section: 5.2 对齐：从"会续写"到"会当助手"
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-09-5-2.png
+
+Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
+
+## Section text
+
+单靠预训练，模型往往会"很会续写，但不一定会当助手"。它可能答非所问、风格混乱、输出不稳定。所以后面会做对齐（alignment，让模型输出符合人类意图和价值观的训练过程）：
+
+**SFT（Supervised Fine-Tuning，监督微调，用人工标注的指令-回答对做有监督训练）**：收集大量高质量的 `<指令, 回答>` 样本，继续训练模型。这一步让模型学会理解任务格式、跟随指令、输出结构化内容。
+
+**RLHF（Reinforcement Learning from Human Feedback，基于人类偏好的强化学习对齐）**：先让模型对同一个 prompt 生成多个回答，人类标注员对这些回答做偏好排序。然后训练一个奖励模型来评估回答质量，再让语言模型朝着"人更喜欢"的方向优化。
+
+RLHF 不是让模型"学会真理"，而是让模型"更像一个好用的助手"。所以你感受到的礼貌语气、跟随指令、拒绝危险请求、结构化输出，很大一部分来自对齐阶段。对齐过度的副作用是模型可能变得过于保守，拒绝一些合理请求，俗称"对齐税"（alignment tax，对齐过程中模型在部分任务上性能下降的现象）。

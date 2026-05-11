@@ -1,0 +1,15 @@
+{
+  "id": "photo-06",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "Self-attention 的直觉",
+  "sectionScore": 3,
+  "anchor": "#### Self-attention 的直觉",
+  "sectionExcerpt": "句子里的每个 token，在理解自己时，都可以去\"看一眼\"上下文里的所有其他 token，并给它们分配不同权重。\n\n处理\"苹果\"这个词时，如果前文是\"吃\"、\"甜\"、\"水果\"，attention 权重就会偏向水果义。如果前文是\"市值\"、\"股价\"、\"蒂姆库克\"，权重就会偏向公司义。这个\"看谁更重要\"的机制，就是 self-attention（自注意力机制，序列中每个位置通过计算与其他位置的关联权重来聚合上下文信息）。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-06-self-attention-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-06-self-attention-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-06-self-attention.png",
+  "markdownRef": "./assets/01-llm/photo-06-self-attention.png",
+  "alt": "LLM 到底在做什么：从猜词到生成的完整链路 - Self-attention 的直觉",
+  "promptStatus": "planned"
+}

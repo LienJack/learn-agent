@@ -3,6 +3,10 @@ import { readFile, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 
+// Legacy one-off script. New article photo work should start from:
+// - images/skills/article-photos/SKILL.md
+// - images/bin/article-images --stage photos
+
 const repoRoot = process.cwd();
 const promptFile = path.join(repoRoot, 'src/content/blog/zh/AI/2.Rag/assets/rag-blog-to-photo-prompts.txt');
 const articleDir = path.join(repoRoot, 'src/content/blog/zh/AI/2.Rag');

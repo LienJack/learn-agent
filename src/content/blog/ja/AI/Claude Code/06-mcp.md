@@ -5,6 +5,7 @@ author: LienJack
 pubDate: 2026-05-03
 heroImage: './assets/06-cover-mcp-bridge.jpg'
 locale: 'ja'
+zenn_slug: 06-mcp-integration
 tags:
   - Claude-Code
   - Agent

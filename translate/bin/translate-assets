@@ -1,0 +1,95 @@
+#!/usr/bin/env node
+import path from 'node:path';
+import { loadDotEnv, parseArgs, printSummary, toRepoRelative, writeJson } from '../lib/common.mjs';
+import { planOrdinaryImages } from '../lib/images.mjs';
+import { planMermaidAssets } from '../lib/mermaid.mjs';
+import { loadPipeline } from '../lib/pipelines.mjs';
+import { createRun, finishRun, writeRunRecord } from '../lib/records.mjs';
+
+loadDotEnv();
+
+try {
+	const { options } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+	if (!options.language) throw new Error('--language <en|ja> is required.');
+	if (options.stage && !['mermaid', 'images'].includes(options.stage)) {
+		throw new Error('--stage must be mermaid or images.');
+	}
+	await runAssetsCli(options);
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+async function runAssetsCli(options) {
+	const pipeline = loadPipeline(options.pipeline);
+	const stages = options.stage ? [options.stage] : ['mermaid', 'images'];
+	const run = createRun({
+		command: 'translate-assets',
+		language: options.language,
+		pipeline: pipeline.id,
+		stage: stages.join('+'),
+		inputs: stages,
+	});
+	const summary = { pipeline: pipeline.id, language: options.language, dryRun: options.dryRun, stages: {} };
+
+	if (stages.includes('mermaid')) {
+		summary.stages.mermaid = planMermaidAssets({
+			pipeline,
+			language: options.language,
+			only: options.only,
+			artifactDir: run.artifactDir,
+		});
+	}
+	if (stages.includes('images')) {
+		summary.stages.images = await planOrdinaryImages({ pipeline, language: options.language, only: options.only });
+	}
+
+	const blockers = Object.values(summary.stages).flatMap((stage) => stage.blockers || []);
+	const warnings = Object.values(summary.stages).flatMap((stage) => stage.warnings || []);
+	const artifactPath = path.join(run.artifactDir, `${options.language}-assets-plan.json`);
+	writeJson(artifactPath, summary);
+
+	run.record.status = blockers.length ? 'blocked' : 'planned';
+	run.record.blockers = blockers;
+	run.record.warnings = warnings;
+	run.record.artifacts.push(toRepoRelative(artifactPath));
+	run.record.confirmation = {
+		required: blockers.length === 0,
+		action: `Run real ${options.language} asset localization for ${stages.join(', ')}`,
+		confirmed: false,
+	};
+	writeRunRecord(run.recordPath, run.record);
+
+	printSummary('Translation assets summary', [
+		`Run: ${toRepoRelative(run.recordPath)}`,
+		`Artifacts: ${toRepoRelative(run.artifactDir)}`,
+		`Pipeline: ${pipeline.id}`,
+		`Language: ${options.language}`,
+		`Stages: ${stages.join(', ')}`,
+		`Mermaid items: ${summary.stages.mermaid?.items.length ?? 0}`,
+		`Ordinary image items: ${summary.stages.images?.items.length ?? 0}`,
+		`Warnings: ${warnings.length ? warnings.join('; ') : 'none'}`,
+		`Blockers: ${blockers.length ? blockers.join('; ') : 'none'}`,
+	]);
+
+	if (blockers.length || options.dryRun) {
+		finishRun(run, blockers.length ? 'blocked' : 'planned');
+		process.exit(blockers.length ? 1 : 0);
+	}
+
+	throw new Error('真实资产生成尚未接入。请先审阅 dry-run 计划，并按 workflow 确认 Mermaid 或图片 provider 后再执行真实阶段。');
+}
+
+function usage() {
+	console.log(`Usage:
+  translate/bin/translate-assets --dry-run --language <en|ja> [--pipeline claude-code-series] [--stage mermaid|images] [--only target-file]
+
+Behavior:
+  - Mermaid stage extracts and plans Mermaid block rendering only.
+  - Images stage plans ordinary PNG/JPG localization only.
+  - Writes records under translate/runs/ and plans under translate/artifacts/.`);
+}

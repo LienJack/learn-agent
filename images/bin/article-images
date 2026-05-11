@@ -1,0 +1,278 @@
+#!/usr/bin/env node
+import path from 'node:path';
+import {
+	atomicWriteFile,
+	ensureImageDirs,
+	loadDotEnv,
+	parseArgs,
+	printSummary,
+	readText,
+	requireConfirmation,
+	requireExistingFiles,
+	resolveRepoPath,
+	toRepoRelative,
+	writeJson,
+} from '../lib/common.mjs';
+import { readArticle } from '../lib/articles.mjs';
+import { compressAssets } from '../lib/compression.mjs';
+import { planCoverPrompt } from '../lib/covers.mjs';
+import { importGeneratedImage } from '../lib/generation.mjs';
+import { planMermaidAssets, planSvgMermaidAssets, renderMermaidAsset, writeMermaidSources } from '../lib/mermaid.mjs';
+import { updateArticleMarkdown, writePromptRequests } from '../lib/markdown-updates.mjs';
+import { planPhotoPrompts } from '../lib/photos.mjs';
+import { createRun, finishRun, writeRunRecord } from '../lib/records.mjs';
+import {
+	emptyWorkspaceManifest,
+	ensureWorkspace,
+	mergeManifestAssets,
+	planArticleWorkspaces,
+	readWorkspaceManifest,
+	writeWorkspaceManifest,
+} from '../lib/workspace.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+	const articlePaths = requireExistingFiles(files);
+	await runArticleImages(options, articlePaths);
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+async function runArticleImages(options, articlePaths) {
+	ensureImageDirs();
+	const articles = articlePaths.map((sourcePath) => readArticle(sourcePath));
+	const workspaces = planArticleWorkspaces(articles);
+	const run = createRun({
+		command: 'article-images',
+		stage: options.importFile ? 'import' : options.stage,
+		inputs: articles.map((article) => article.sourceRelPath),
+	});
+
+	if (options.importFile) {
+		await runImport(options, articles, workspaces, run);
+		return;
+	}
+
+	const articlePlans = articles.map((article, index) => buildArticlePlan(article, workspaces[index], options));
+	const blockers = articlePlans.flatMap((plan) => plan.blockers);
+	const warnings = articlePlans.flatMap((plan) => plan.warnings);
+	const artifactPath = path.join(run.artifactDir, 'article-images-plan.json');
+	writeJson(artifactPath, { dryRun: options.dryRun, stage: options.stage, articles: articlePlans });
+
+	run.record.status = blockers.length ? 'blocked' : 'planned';
+	run.record.blockers = blockers;
+	run.record.warnings = warnings;
+	run.record.artifacts.push(toRepoRelative(artifactPath));
+	run.record.inputs = articlePlans.map((plan) => ({
+		source: plan.article,
+		status: plan.blockers.length ? 'blocked' : 'planned',
+		workspace: plan.workspace,
+		assets: plan.assets.map((asset) => ({ id: asset.id, kind: asset.kind, status: asset.status })),
+		blockers: plan.blockers,
+		warnings: plan.warnings,
+	}));
+	run.record.confirmation = {
+		required: blockers.length === 0,
+		action: `Generate article image workspace assets for ${articlePlans.length} article(s)`,
+		confirmed: false,
+	};
+	writeRunRecord(run.recordPath, run.record);
+
+	printSummary('Article images summary', [
+		`Run: ${toRepoRelative(run.recordPath)}`,
+		`Artifacts: ${toRepoRelative(run.artifactDir)}`,
+		`Stage: ${options.stage}`,
+		`Articles: ${articlePlans.length}`,
+		`Cover prompts: ${articlePlans.reduce((sum, plan) => sum + plan.assets.filter((asset) => asset.kind === 'cover').length, 0)}`,
+		`Mermaid items: ${articlePlans.reduce((sum, plan) => sum + plan.assets.filter((asset) => asset.kind === 'mermaid').length, 0)}`,
+		`SVG Mermaid items: ${articlePlans.reduce((sum, plan) => sum + plan.assets.filter((asset) => asset.kind === 'svg-mermaid').length, 0)}`,
+		`Photo prompts: ${articlePlans.reduce((sum, plan) => sum + plan.assets.filter((asset) => asset.kind === 'photo').length, 0)}`,
+		`Warnings: ${warnings.length ? warnings.join('; ') : 'none'}`,
+		`Blockers: ${blockers.length ? blockers.join('; ') : 'none'}`,
+	]);
+
+	if (blockers.length || options.dryRun) {
+		finishRun(run, blockers.length ? 'blocked' : 'planned');
+		process.exit(blockers.length ? 1 : 0);
+	}
+	if (!requireConfirmation(options, '将写入文章旁 assets 工作区，并可能替换 Markdown 中的 Mermaid block。')) {
+		finishRun(run, 'planned');
+		return;
+	}
+
+	const executed = await executePlans(articles, workspaces, articlePlans, options);
+	run.record.inputs = executed.map((plan) => ({
+		source: plan.article,
+		status: plan.blockers.length ? 'blocked' : 'completed',
+		workspace: plan.workspace,
+		assets: plan.assets.map((asset) => ({ id: asset.id, kind: asset.kind, status: asset.status })),
+		blockers: plan.blockers,
+		warnings: plan.warnings,
+	}));
+	run.record.blockers = executed.flatMap((plan) => plan.blockers);
+	run.record.warnings = executed.flatMap((plan) => plan.warnings);
+	run.record.confirmation.confirmed = true;
+	finishRun(run, run.record.blockers.length ? 'blocked' : 'completed');
+}
+
+function buildArticlePlan(article, workspace, options) {
+	const assets = [];
+	const warnings = [];
+	const blockers = [];
+	if (options.stage === 'all' || options.stage === 'covers') {
+		const coverPlan = planCoverPrompt(article, workspace);
+		assets.push(...coverPlan.items);
+		warnings.push(...coverPlan.warnings);
+	}
+	if (options.stage === 'all' || options.stage === 'mermaid') {
+		assets.push(...planMermaidAssets(article, workspace));
+	}
+	if (options.stage === 'all' || options.stage === 'svg-mermaid') {
+		const svgPlan = planSvgMermaidAssets(article, workspace, options);
+		assets.push(...svgPlan.items);
+		warnings.push(...svgPlan.warnings);
+		blockers.push(...svgPlan.blockers);
+	}
+	if (options.stage === 'all' || options.stage === 'photos') {
+		const photoPlan = planPhotoPrompts(article, workspace);
+		assets.push(...photoPlan.items);
+		warnings.push(...photoPlan.warnings);
+	}
+	return {
+		article: article.sourceRelPath,
+		workspace: workspace.workspaceRelPath,
+		manifest: workspace.manifestRelPath,
+		assets: assets.map(stripPrivateAssetFields),
+		blockers,
+		warnings,
+	};
+}
+
+async function executePlans(articles, workspaces, articlePlans, options) {
+	const executed = [];
+	for (const [index, plan] of articlePlans.entries()) {
+		const article = articles[index];
+		const workspace = workspaces[index];
+		ensureWorkspace(workspace);
+		let manifest = readWorkspaceManifest(article, workspace);
+		const rawAssets = rebuildAssets(article, workspace, plan.assets, options);
+		const coverAssets = rawAssets.filter((asset) => asset.kind === 'cover');
+		const mermaidAssets = rawAssets.filter((asset) => ['mermaid', 'svg-mermaid'].includes(asset.kind));
+		const photoAssets = rawAssets.filter((asset) => asset.kind === 'photo');
+		writeMermaidSources(mermaidAssets);
+		writePromptRequests(article, [...coverAssets, ...photoAssets]);
+
+		const renderedMermaidAssets = mermaidAssets.map((asset) => renderMermaidAsset(asset));
+		const compressibleAssets = options.stage === 'compress'
+			? (manifest.assets || [])
+			: [...renderedMermaidAssets.filter((asset) => asset.status === 'generated'), ...coverAssets, ...photoAssets];
+		const compressedAssets = options.noCompress ? compressibleAssets : await compressAssets(compressibleAssets);
+		const compressedAssetIds = new Set(compressedAssets.map((asset) => asset.id));
+		const stagedAssets = [...coverAssets, ...renderedMermaidAssets, ...photoAssets]
+			.map((asset) => compressedAssetIds.has(asset.id) ? compressedAssets.find((compressed) => compressed.id === asset.id) : asset);
+		if (options.stage === 'compress') stagedAssets.push(...compressedAssets);
+		const generatedBlockers = renderedMermaidAssets
+			.filter((asset) => asset.status === 'failed')
+			.map((asset) => `${asset.id}: ${asset.error || 'Mermaid render failed.'}`);
+		const articleMarkdown = updateArticleMarkdown(article, {
+			mermaidAssets: renderedMermaidAssets.filter((asset) => asset.status === 'generated'),
+			photoAssets,
+			coverAssets,
+		});
+		if (articleMarkdown !== readText(article.sourcePath)) {
+			atomicWriteFile(article.sourcePath, articleMarkdown);
+		}
+		manifest = mergeManifestAssets(manifest, stagedAssets.map(stripPrivateAssetFields));
+		manifest.blockers = generatedBlockers;
+		manifest.warnings = plan.warnings;
+		writeWorkspaceManifest(workspace, manifest);
+
+		executed.push({
+			...plan,
+			assets: manifest.assets,
+			blockers: [...plan.blockers, ...generatedBlockers],
+		});
+	}
+	return executed;
+}
+
+function rebuildAssets(article, workspace, assets, options = {}) {
+	const planned = [
+		...planCoverPrompt(article, workspace).items,
+		...planMermaidAssets(article, workspace),
+		...planSvgMermaidAssets(article, workspace, options).items,
+		...planPhotoPrompts(article, workspace).items,
+	];
+	const byId = new Map(planned.map((asset) => [asset.id, asset]));
+	return assets.map((asset) => ({ ...(byId.get(asset.id) || {}), ...asset }));
+}
+
+function stripPrivateAssetFields(asset) {
+	const { source, raw, ...safeAsset } = asset;
+	return safeAsset;
+}
+
+async function runImport(options, articles, workspaces, run) {
+	if (articles.length !== 1) {
+		throw new Error('--import currently requires exactly one article path.');
+	}
+	const article = articles[0];
+	const workspace = workspaces[0];
+	const sourceFile = resolveRepoPath(options.importFile);
+	const result = importGeneratedImage({ article, workspace, promptId: options.promptId, sourceFile });
+	if (result.blocker) run.record.blockers.push(result.blocker);
+	run.record.inputs[0] = {
+		source: article.sourceRelPath,
+		status: result.status === 'imported' ? 'completed' : 'blocked',
+		workspace: workspace.workspaceRelPath,
+		artifacts: result.asset ? [result.asset.targetPath] : [],
+		blockers: result.blocker ? [result.blocker] : [],
+		warnings: [],
+	};
+
+	if (result.status === 'imported') {
+		const manifest = readWorkspaceManifest(article, workspace);
+		if (!options.noCompress && result.asset) {
+			const [compressed] = await compressAssets([result.asset]);
+			writeWorkspaceManifest(workspace, mergeManifestAssets(manifest, [compressed]));
+		}
+		const nextManifest = readWorkspaceManifest(article, workspace);
+		const markdown = updateArticleMarkdown(article, {
+			photoAssets: nextManifest.assets.filter((asset) => asset.kind === 'photo'),
+			coverAssets: nextManifest.assets.filter((asset) => asset.kind === 'cover'),
+		});
+		if (markdown !== article.raw) atomicWriteFile(article.sourcePath, markdown);
+	}
+
+	writeRunRecord(run.recordPath, run.record);
+	printSummary('Article image import summary', [
+		`Run: ${toRepoRelative(run.recordPath)}`,
+		`Article: ${article.sourceRelPath}`,
+		`Prompt: ${options.promptId}`,
+		`Status: ${result.status}`,
+		`Blockers: ${run.record.blockers.length ? run.record.blockers.join('; ') : 'none'}`,
+	]);
+	finishRun(run, result.status === 'imported' ? 'completed' : 'blocked');
+	process.exit(result.status === 'imported' ? 0 : 1);
+}
+
+function usage() {
+	console.log(`Usage:
+  images/bin/article-images --dry-run [--stage all|covers|mermaid|svg-mermaid|photos|compress] <article.md ...>
+  images/bin/article-images --yes [--stage all|covers|mermaid|svg-mermaid|photos|compress] <article.md ...>
+  images/bin/article-images --import generated.png --prompt-id cover|photo-01 <article.md>
+
+Behavior:
+  - Dry-run writes a batch plan under images/artifacts/ and a run record under images/runs/.
+  - Real runs create article-local assets/<article-slug>/ workspaces, .mmd files, prompt requests and manifests.
+  - Mermaid SVG refs can be regenerated from the matching Obsidian source via --stage svg-mermaid.
+  - Generated/imported images are compressed by default; pass --no-compress to skip.
+  - Built-in imagegen remains a skill-layer action; this CLI imports selected generated files into the workspace.`);
+}

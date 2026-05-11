@@ -2,6 +2,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 
+// Deprecated compatibility script. Current Mermaid asset entrypoints live under
+// translate/skills/translate-assets/SKILL.md and translate/bin/translate-assets.
+
 const SOURCE_MARKDOWN_DIR =
 	'/Users/lienli/Library/Mobile Documents/iCloud~md~obsidian/Documents/tech/techBlog/blog/4 Cluade Code源码解析/终稿';
 const TARGET_ASSETS_DIR =
