@@ -11,7 +11,11 @@
     "preview": "astro preview",
     "astro": "astro",
     "astro:check": "astro check",
-    "test:content": "node --experimental-strip-types --test tests/content/*.test.mjs"
+    "test:content": "node --experimental-strip-types --test tests/content/*.test.mjs",
+    "test:publish": "node --test tests/publish/*.test.mjs",
+    "publish:cn": "publish/bin/publish-cn",
+    "publish:en": "publish/bin/publish-en",
+    "publish:ja": "publish/bin/publish-ja"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.4",

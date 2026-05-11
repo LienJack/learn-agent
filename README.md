@@ -91,7 +91,16 @@ src/layouts/            文章和页面布局
 src/styles/             全局样式
 public/                 静态资源
 docs/                   设计、计划和需求文档
+publish/                项目内发布中控台、skill、产物和运行记录
 ```
+
+## 发布
+
+发布入口集中在 [`publish/README.md`](./publish/README.md)。Codex 发布时请显式引用项目内 skill：
+
+- 中文草稿：`publish/skills/publish-cn/SKILL.md`
+- 英文 DEV：`publish/skills/publish-en/SKILL.md`
+- 日语 Zenn：`publish/skills/publish-ja/SKILL.md`
 
 ## Star History
 

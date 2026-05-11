@@ -1,0 +1,70 @@
+{
+  "id": "2026-05-11T02-25-07-972Z-cn-01",
+  "language": "cn",
+  "platforms": [
+    "wechat",
+    "juejin",
+    "zhihu"
+  ],
+  "status": "blocked",
+  "startedAt": "2026-05-11T02:25:07.973Z",
+  "articles": [
+    {
+      "source": "src/content/blog/zh/AI/2.Rag/01.整体步骤.md",
+      "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+      "status": "blocked",
+      "artifacts": [
+        "publish/artifacts/2026-05-11T02-25-07-972Z-cn-01/01.整体步骤.cn-summary.json"
+      ],
+      "blockers": [
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: heroImage is required before Chinese platform draft creation."
+      ],
+      "results": [
+        {
+          "platform": "wechat",
+          "mode": "draft",
+          "automation": "requires md2wechat discovery/inspect before draft creation",
+          "imageUploadCount": 6,
+          "noOfficialPublish": true,
+          "status": "blocked"
+        },
+        {
+          "platform": "juejin",
+          "mode": "draft",
+          "automation": "requires WECHATSYNC_TOKEN and Chrome extension login state",
+          "imageUploadCount": 6,
+          "noOfficialPublish": true,
+          "status": "blocked"
+        },
+        {
+          "platform": "zhihu",
+          "mode": "draft",
+          "automation": "requires WECHATSYNC_TOKEN and Chrome extension login state",
+          "imageUploadCount": 6,
+          "noOfficialPublish": true,
+          "status": "blocked"
+        }
+      ],
+      "warnings": [
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #1 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #2 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #3 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #4 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #5 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #8 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #11 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #12 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #13 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #14 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #15 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #16 should render as a WeChat note block, not a horizontal code scroller."
+      ]
+    }
+  ],
+  "artifactDir": "publish/artifacts/2026-05-11T02-25-07-972Z-cn-01",
+  "confirmation": null,
+  "notes": [
+    "Chinese V1 defaults to draft creation only. WeChat must use md2wechat; Juejin and Zhihu may require browser/Wechatsync manual completion."
+  ],
+  "finishedAt": "2026-05-11T02:25:07.975Z"
+}

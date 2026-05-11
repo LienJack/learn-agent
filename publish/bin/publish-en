@@ -1,0 +1,139 @@
+#!/usr/bin/env node
+import path from 'node:path';
+import {
+	createRun,
+	loadDotEnv,
+	parseArgs,
+	printSummary,
+	readArticle,
+	requireArticleFiles,
+	requireConfirmation,
+	writeJson,
+	writeRunRecord,
+} from '../lib/common.mjs';
+import { inspectDevArticle, prepareDevArticle, publishDev } from '../lib/dev.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+
+	const articles = requireArticleFiles(files).map(readArticle);
+	const run = createRun({ language: 'en', platforms: ['dev'], articles });
+	const prepared = [];
+	let hasBlockers = false;
+
+	for (const article of articles) {
+		const articleRecord = run.record.articles.find((item) => item.source === article.sourceRelPath);
+		const inspection = inspectDevArticle(article);
+		articleRecord.blockers = inspection.blockers;
+		articleRecord.warnings = inspection.warnings;
+		articleRecord.imageMode = inspection.imageMode;
+		articleRecord.tags = inspection.tags;
+		articleRecord.canonicalUrl = inspection.canonicalUrl;
+		articleRecord.commands = inspection.commands;
+		articleRecord.acceptance = inspection.acceptance;
+
+		if (inspection.blockers.length > 0) {
+			hasBlockers = true;
+			articleRecord.status = 'blocked';
+			continue;
+		}
+
+		const outputPath = path.join(run.artifactDir, `${path.basename(article.sourcePath, path.extname(article.sourcePath))}.dev.md`);
+		if (canPrepareBeforeConfirmation(inspection, options)) {
+			const result = await prepareDevArticle(article, outputPath);
+			articleRecord.status = 'prepared';
+			articleRecord.artifacts.push(path.relative(process.cwd(), result.path));
+			articleRecord.imageRewrites = result.replacements.length;
+			prepared.push({ article, outputPath });
+		} else {
+			const summaryPath = path.join(run.artifactDir, `${path.basename(article.sourcePath, path.extname(article.sourcePath))}.dev-summary.json`);
+			writeJson(summaryPath, {
+				source: article.sourceRelPath,
+				title: article.data.title || '',
+				imageMode: inspection.imageMode,
+				needsRemoteImageWork: inspection.needsRemoteImageWork,
+				warnings: inspection.warnings,
+				tags: inspection.tags,
+				canonicalUrl: inspection.canonicalUrl,
+				commands: inspection.commands,
+				acceptance: inspection.acceptance,
+				plannedArtifact: outputPath,
+			});
+			articleRecord.status = options.dryRun ? 'planned' : 'waiting_confirmation';
+			articleRecord.artifacts.push(path.relative(process.cwd(), summaryPath));
+			articleRecord.imageRewrites = 'pending';
+			prepared.push({ article, outputPath, needsPrepare: true });
+		}
+	}
+
+	run.record.status = hasBlockers ? 'blocked' : 'waiting_confirmation';
+	run.record.confirmation = {
+		required: !hasBlockers,
+		action: 'Publish publicly to DEV',
+		confirmed: false,
+	};
+	writeRunRecord(run.recordPath, run.record);
+
+	printSummary('DEV publish summary', [
+		`Run: ${path.relative(process.cwd(), run.recordPath)}`,
+		`Artifacts: ${path.relative(process.cwd(), run.artifactDir)}`,
+		...run.record.articles.flatMap((article) => [
+			`Article: ${article.source}`,
+			`Status: ${article.status}`,
+			`Warnings: ${article.warnings?.length ? article.warnings.join('; ') : 'none'}`,
+			`Blockers: ${article.blockers.length ? article.blockers.join('; ') : 'none'}`,
+		]),
+	]);
+
+	if (hasBlockers || options.dryRun) {
+		process.exit(hasBlockers ? 1 : 0);
+	}
+
+	if (!requireConfirmation(options, 'This will publicly publish to DEV.')) {
+		run.record.status = 'cancelled';
+		run.record.confirmation.confirmed = false;
+		run.record.finishedAt = new Date().toISOString();
+		writeRunRecord(run.recordPath, run.record);
+		process.exit(0);
+	}
+
+	run.record.confirmation.confirmed = true;
+	for (const item of prepared) {
+		if (item.needsPrepare) {
+			await prepareDevArticle(item.article, item.outputPath);
+		}
+		publishDev(item.outputPath);
+		const articleRecord = run.record.articles.find((article) => article.source === item.article.sourceRelPath);
+		articleRecord.status = 'published';
+		articleRecord.results.push({ platform: 'dev', status: 'published' });
+	}
+	run.record.status = 'completed';
+	run.record.finishedAt = new Date().toISOString();
+	writeRunRecord(run.recordPath, run.record);
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+function canPrepareBeforeConfirmation(inspection, options) {
+	if (inspection.needsRemoteImageWork && !['base-url'].includes(inspection.imageMode)) {
+		return false;
+	}
+	return !options.dryRun || !inspection.needsRemoteImageWork || inspection.imageMode === 'base-url';
+}
+
+function usage() {
+	console.log(`Usage:
+  publish/bin/publish-en [--dry-run] [--yes] <article.md> [article-2.md ...]
+
+Behavior:
+  - Prepares DEV-only publish copies under publish/artifacts/.
+  - Writes run records under publish/runs/.
+  - Public DEV publishing requires --yes after reviewing the summary.`);
+}

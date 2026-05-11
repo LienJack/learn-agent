@@ -27,3 +27,9 @@ docs/*
 test-results/
 tmp/
 zenn/node_modules/
+scripts/__pycache__/
+output/
+publish/artifacts/*
+!publish/artifacts/.gitkeep
+publish/runs/*
+!publish/runs/.gitkeep

@@ -1,0 +1,293 @@
+{
+  "source": "src/content/blog/zh/AI/2.Rag/01.整体步骤.md",
+  "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+  "titles": {
+    "original": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+    "wechat": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+    "juejin": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+    "zhihu": "RAG 的整体流程：从资料到答案，一条链路讲清楚"
+  },
+  "cover": {
+    "raw": "./assets/01-photo-01-rag-chain.png",
+    "absolute": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+    "exists": true
+  },
+  "platforms": [
+    {
+      "platform": "wechat",
+      "mode": "draft",
+      "automation": "requires md2wechat discovery/inspect before draft creation",
+      "imageUploadCount": 6,
+      "noOfficialPublish": true,
+      "status": "ready_for_draft"
+    },
+    {
+      "platform": "juejin",
+      "mode": "draft",
+      "automation": "requires WECHATSYNC_TOKEN and Chrome extension login state",
+      "imageUploadCount": 6,
+      "noOfficialPublish": true,
+      "status": "ready_for_draft"
+    },
+    {
+      "platform": "zhihu",
+      "mode": "draft",
+      "automation": "requires WECHATSYNC_TOKEN and Chrome extension login state",
+      "imageUploadCount": 6,
+      "noOfficialPublish": true,
+      "status": "ready_for_draft"
+    }
+  ],
+  "commands": {
+    "wechat": {
+      "discovery": [
+        "md2wechat version --json",
+        "md2wechat capabilities --json",
+        "md2wechat themes list --json",
+        "md2wechat themes show autumn-warm --json",
+        "md2wechat config validate"
+      ],
+      "inspect": [
+        "md2wechat inspect \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\""
+      ],
+      "convert": [
+        "md2wechat convert \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" --mode ai --theme autumn-warm --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" -o \"publish/artifacts/<run-id>/src-content-blog-zh-AI-2-Rag-01-wechat.html\""
+      ],
+      "staticChecks": [
+        "rg -n \"(\\.\\./assets|\\./assets|file://|/Users/|%2Fassets)\" \"publish/artifacts/<run-id>/src-content-blog-zh-AI-2-Rag-01-wechat.html\"",
+        "rg -n \"mdnice编辑器|pre class=\\\"custom\\\"|code class=\\\"hljs\\\"|&nbsp;|overflow-x:auto|note-block\" \"publish/artifacts/<run-id>/src-content-blog-zh-AI-2-Rag-01-wechat.html\""
+      ],
+      "codeHandling": {
+        "summary": {
+          "total": 0,
+          "code": 0,
+          "textNote": 0,
+          "longLine": 0
+        },
+        "templates": {
+          "textNote": "wechat-note-block",
+          "codeShell": "mdnice-hljs-code-shell",
+          "linePreservedFallback": "mdnice-hljs-nbsp-code"
+        },
+        "rules": [
+          "text fences that describe flows, ledgers, or key points become note blocks with preserved line breaks.",
+          "real code blocks keep language labels, indentation, and readable long-line behavior.",
+          "if WeChat compresses pre/code whitespace, use line-preserved HTML with nbsp indentation."
+        ]
+      },
+      "uploadImages": [
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-two-phase-chain.png\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01.整体步骤-mermaid-01.svg\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-rag-overview.png\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-02-offline-index-workbench.png\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-03-online-answer-loop.png\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-04-rag-misconception-map.png\" --json"
+      ],
+      "draft": [
+        "md2wechat test-draft \"publish/artifacts/<run-id>/src-content-blog-zh-AI-2-Rag-01-wechat.html\" \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\" --json"
+      ],
+      "never": [
+        "Do not use wechatsync -p weixin for the final WeChat draft."
+      ]
+    },
+    "juejin": {
+      "dryRun": [
+        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p juejin --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\" --dry-run"
+      ],
+      "draft": [
+        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p juejin --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\""
+      ],
+      "note": "Run Juejin and Zhihu as separate single-platform syncs when local images are present."
+    },
+    "zhihu": {
+      "dryRun": [
+        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p zhihu --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\" --dry-run"
+      ],
+      "draft": [
+        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p zhihu --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\""
+      ],
+      "note": "Run Juejin and Zhihu as separate single-platform syncs when local images are present."
+    }
+  },
+  "acceptance": [
+    {
+      "platform": "weixin",
+      "draftSuccess": false,
+      "draftLink": "",
+      "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+      "cover": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+      "imageUploadCount": 6,
+      "imageUploadFailures": [],
+      "confirmedNoOfficialPublish": true
+    },
+    {
+      "platform": "juejin",
+      "draftSuccess": false,
+      "draftLink": "",
+      "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+      "cover": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+      "imageUploadCount": 6,
+      "imageUploadFailures": [],
+      "confirmedNoOfficialPublish": true
+    },
+    {
+      "platform": "zhihu",
+      "draftSuccess": false,
+      "draftLink": "",
+      "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+      "cover": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+      "imageUploadCount": 6,
+      "imageUploadFailures": [],
+      "confirmedNoOfficialPublish": true
+    }
+  ],
+  "codeBlocks": [
+    {
+      "index": 1,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 5,
+      "longestLineLength": 41
+    },
+    {
+      "index": 2,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 6,
+      "longestLineLength": 15
+    },
+    {
+      "index": 3,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 7,
+      "longestLineLength": 15
+    },
+    {
+      "index": 4,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 8,
+      "longestLineLength": 12
+    },
+    {
+      "index": 5,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 6,
+      "longestLineLength": 16
+    },
+    {
+      "index": 6,
+      "language": "text",
+      "kind": "plain-text",
+      "lineCount": 1,
+      "longestLineLength": 17
+    },
+    {
+      "index": 7,
+      "language": "text",
+      "kind": "plain-text",
+      "lineCount": 1,
+      "longestLineLength": 35
+    },
+    {
+      "index": 8,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 5,
+      "longestLineLength": 7
+    },
+    {
+      "index": 9,
+      "language": "text",
+      "kind": "plain-text",
+      "lineCount": 1,
+      "longestLineLength": 22
+    },
+    {
+      "index": 10,
+      "language": "text",
+      "kind": "plain-text",
+      "lineCount": 1,
+      "longestLineLength": 18
+    },
+    {
+      "index": 11,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 5,
+      "longestLineLength": 17
+    },
+    {
+      "index": 12,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 14,
+      "longestLineLength": 26
+    },
+    {
+      "index": 13,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 4,
+      "longestLineLength": 14
+    },
+    {
+      "index": 14,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 9,
+      "longestLineLength": 41
+    },
+    {
+      "index": 15,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 18,
+      "longestLineLength": 10
+    },
+    {
+      "index": 16,
+      "language": "text",
+      "kind": "text-note",
+      "lineCount": 4,
+      "longestLineLength": 9
+    }
+  ],
+  "codeHandling": {
+    "summary": {
+      "total": 16,
+      "code": 0,
+      "textNote": 12,
+      "longLine": 0
+    },
+    "templates": {
+      "textNote": "wechat-note-block",
+      "codeShell": "mdnice-hljs-code-shell",
+      "linePreservedFallback": "mdnice-hljs-nbsp-code"
+    },
+    "rules": [
+      "text fences that describe flows, ledgers, or key points become note blocks with preserved line breaks.",
+      "real code blocks keep language labels, indentation, and readable long-line behavior.",
+      "if WeChat compresses pre/code whitespace, use line-preserved HTML with nbsp indentation."
+    ]
+  },
+  "warnings": [
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #1 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #2 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #3 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #4 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #5 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #8 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #11 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #12 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #13 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #14 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #15 should render as a WeChat note block, not a horizontal code scroller.",
+    "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #16 should render as a WeChat note block, not a horizontal code scroller."
+  ],
+  "blockers": [],
+  "localImageCount": 6,
+  "totalMarkdownImageCount": 6
+}

@@ -1,0 +1,120 @@
+#!/usr/bin/env node
+import path from 'node:path';
+import {
+	createRun,
+	gitCommitAndPush,
+	gitSummary,
+	loadDotEnv,
+	parseArgs,
+	printSummary,
+	readArticle,
+	requireArticleFiles,
+	requireConfirmation,
+	writeJson,
+	writeRunRecord,
+} from '../lib/common.mjs';
+import { inspectZennArticle, prepareZennArticle, zennRepoDir } from '../lib/zenn.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+
+	const articles = requireArticleFiles(files).map(readArticle);
+	const run = createRun({ language: 'ja', platforms: ['zenn'], articles });
+	const prepared = [];
+	let hasBlockers = false;
+
+	for (const article of articles) {
+		const articleRecord = run.record.articles.find((item) => item.source === article.sourceRelPath);
+		const inspection = inspectZennArticle(article);
+		articleRecord.blockers = inspection.blockers;
+		articleRecord.slug = inspection.slug;
+		articleRecord.topics = inspection.topics;
+
+		if (inspection.blockers.length > 0) {
+			hasBlockers = true;
+			articleRecord.status = 'blocked';
+			continue;
+		}
+
+		const plannedArticlePath = path.join(inspection.zennRepo, process.env.ZENN_ARTICLES_DIR || 'articles', `${inspection.slug}.md`);
+		const indexPath = path.join(run.artifactDir, `${inspection.slug}.zenn.json`);
+		writeJson(indexPath, {
+			source: article.sourceRelPath,
+			zennArticle: plannedArticlePath,
+			copiedImages: inspection.imageRefs.length,
+			published: options.published,
+		});
+		articleRecord.status = 'prepared';
+		articleRecord.artifacts.push(path.relative(process.cwd(), indexPath));
+		articleRecord.results.push({
+			platform: 'zenn',
+			status: options.dryRun ? 'planned' : 'ready_to_generate',
+			articlePath: plannedArticlePath,
+			imageCount: inspection.imageRefs.length,
+		});
+		prepared.push({ article, slug: inspection.slug });
+	}
+
+	run.record.zennRepo = zennRepoDir();
+	run.record.zennStatus = hasBlockers ? 'not checked because preflight is blocked' : gitSummary(zennRepoDir());
+	run.record.status = hasBlockers ? 'blocked' : 'waiting_confirmation';
+	run.record.confirmation = {
+		required: !hasBlockers,
+		action: 'Commit and push generated Zenn files',
+		confirmed: false,
+	};
+	writeRunRecord(run.recordPath, run.record);
+
+	printSummary('Zenn publish summary', [
+		`Run: ${path.relative(process.cwd(), run.recordPath)}`,
+		`Zenn repo: ${zennRepoDir()}`,
+		`Zenn git status:\n${run.record.zennStatus || 'clean'}`,
+		...run.record.articles.flatMap((article) => [
+			`Article: ${article.source}`,
+			`Status: ${article.status}`,
+			`Blockers: ${article.blockers.length ? article.blockers.join('; ') : 'none'}`,
+		]),
+	]);
+
+	if (hasBlockers || options.dryRun) {
+		process.exit(hasBlockers ? 1 : 0);
+	}
+
+	if (!requireConfirmation(options, 'This will commit and push generated Zenn files.')) {
+		run.record.status = 'cancelled';
+		run.record.confirmation.confirmed = false;
+		run.record.finishedAt = new Date().toISOString();
+		writeRunRecord(run.recordPath, run.record);
+		process.exit(0);
+	}
+
+	const generated = prepared.map((item) => prepareZennArticle(item.article, { published: options.published }));
+	const filesToCommit = generated.flatMap((item) => [
+		path.relative(zennRepoDir(), item.articlePath),
+		...item.copiedImages.map((image) => image.to.replace(/^\//, '')),
+	]);
+	gitCommitAndPush(zennRepoDir(), filesToCommit, `publish: ${articles.map((article) => article.data.title).join(', ')}`);
+	run.record.status = 'completed';
+	run.record.confirmation.confirmed = true;
+	run.record.finishedAt = new Date().toISOString();
+	writeRunRecord(run.recordPath, run.record);
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+function usage() {
+	console.log(`Usage:
+  publish/bin/publish-ja [--dry-run] [--yes] [--published] <article.md> [article-2.md ...]
+
+Behavior:
+  - Generates Zenn Markdown and images in ZENN_REPO_DIR.
+  - Writes run summaries under publish/runs/ and publish/artifacts/.
+  - Commit and push require --yes after reviewing the summary.`);
+}

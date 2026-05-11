@@ -1,0 +1,101 @@
+{
+  "id": "2026-05-11T02-27-06-043Z-cn-01",
+  "language": "cn",
+  "platforms": [
+    "wechat",
+    "juejin",
+    "zhihu"
+  ],
+  "status": "draft_created",
+  "startedAt": "2026-05-11T02:27:06.047Z",
+  "articles": [
+    {
+      "source": "src/content/blog/zh/AI/2.Rag/01.整体步骤.md",
+      "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+      "status": "draft_created",
+      "artifacts": [
+        "publish/artifacts/2026-05-11T02-27-06-043Z-cn-01/01.整体步骤.cn-summary.json",
+        "publish/artifacts/2026-05-11T02-27-06-043Z-cn-01/01.整体步骤-wechat.prompt.txt",
+        "publish/artifacts/2026-05-11T02-27-06-043Z-cn-01/01.整体步骤-wechat.html",
+        "publish/artifacts/2026-05-11T02-27-06-043Z-cn-01/01.整体步骤-mermaid-01.png"
+      ],
+      "blockers": [],
+      "results": [
+        {
+          "platform": "wechat",
+          "mode": "draft",
+          "status": "draft_created",
+          "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+          "cover": "src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+          "draftId": "GNpZWmxJ-j7KHTftb0WHaVsXptb_EdO2vTFQvBLihjdPbbEtoBoRDGbOpCMLDD0L",
+          "draftUrl": null,
+          "automation": "md2wechat autumn-warm HTML + upload_image + test-draft",
+          "imageUploadCount": 6,
+          "coverUploadCount": 1,
+          "imageUploadFailures": 0,
+          "noOfficialPublish": true,
+          "notes": [
+            "Initial SVG upload failed; converted SVG to PNG and uploaded successfully."
+          ]
+        },
+        {
+          "platform": "juejin",
+          "mode": "draft",
+          "status": "draft_created",
+          "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+          "cover": "src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+          "draftUrl": "https://juejin.cn/editor/drafts/7638111512897044514",
+          "automation": "wechatsync single-platform dry-run + formal draft sync",
+          "imageUploadCount": 6,
+          "imageUploadFailures": 0,
+          "error": null,
+          "noOfficialPublish": true,
+          "retryAttemptedAt": "2026-05-11T03:08:15.892Z"
+        },
+        {
+          "platform": "zhihu",
+          "mode": "draft",
+          "status": "draft_created",
+          "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
+          "cover": "src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+          "draftUrl": "https://zhuanlan.zhihu.com/p/2037126637880353035/edit",
+          "automation": "wechatsync single-platform dry-run + formal draft sync",
+          "imageUploadCount": 6,
+          "imageUploadFailures": 0,
+          "error": null,
+          "noOfficialPublish": true,
+          "retryAttemptedAt": "2026-05-11T03:08:15.896Z"
+        }
+      ],
+      "warnings": [
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #1 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #2 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #3 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #4 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #5 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #8 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #11 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #12 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #13 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #14 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #15 should render as a WeChat note block, not a horizontal code scroller.",
+        "src/content/blog/zh/AI/2.Rag/01.整体步骤.md: text fence #16 should render as a WeChat note block, not a horizontal code scroller."
+      ]
+    }
+  ],
+  "artifactDir": "publish/artifacts/2026-05-11T02-27-06-043Z-cn-01",
+  "confirmation": {
+    "noOfficialPublish": true,
+    "note": "WeChat, Juejin, and Zhihu drafts were created. No official publish action was taken."
+  },
+  "notes": [
+    "Chinese V1 defaults to draft creation only. WeChat must use md2wechat; Juejin and Zhihu may require browser/Wechatsync manual completion.",
+    "heroImage added to source frontmatter before publishing: ./assets/01-photo-01-rag-chain.png",
+    "md2wechat convert --mode ai returned CONVERT_AI_REQUEST_READY; final autumn-warm-compatible HTML was generated locally from the prepared prompt requirements.",
+    "SVG body image was converted to PNG for WeChat upload because upload_image rejected SVG as unsupported.",
+    "WeChat HTML static check passed: 16 text fences rendered as note-block, 6 body images replaced with mmbiz.qpic.cn URLs, no local image paths remained.",
+    "Retry after .env update: WECHATSYNC_TOKEN was present in shell, but Wechatsync Chrome Extension still returned Invalid or missing token for Juejin and Zhihu.",
+    "Wechatsync reconnect succeeded: platforms -a showed zhihu and juejin authenticated, then both single-platform drafts were created."
+  ],
+  "finishedAt": "2026-05-11T03:08:15.896Z"
+}
