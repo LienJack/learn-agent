@@ -1,0 +1,13 @@
+flowchart LR
+    classDef model fill:#fce4ec,stroke:#c62828
+    classDef prompt fill:#e1f5ff,stroke:#01579b
+    classDef context fill:#e8f5e9,stroke:#2e7d32
+    classDef tool fill:#fff3e0,stroke:#ef6c00
+    classDef agent fill:#f3e5f5,stroke:#6a1b9a
+    classDef harness fill:#ffecb3,stroke:#ff6f00
+
+    A[LLM<br/>会说]:::model --> B[Prompt<br/>更容易听懂]:::prompt
+    B --> C[Context<br/>拿到正确信息]:::context
+    C --> D[Tool<br/>能做一步]:::tool
+    D --> E[Agent<br/>连续做事]:::agent
+    E --> F[Harness<br/>稳定做对]:::harness

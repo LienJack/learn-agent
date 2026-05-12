@@ -1,0 +1,21 @@
+{
+  "id": "cover",
+  "kind": "cover",
+  "status": "prompt-planned",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/cover-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/cover-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/cover-openclaw-hermes-harness.png",
+  "markdownRef": "./assets/05-openclaw-hermes-harness/cover-openclaw-hermes-harness.png",
+  "alt": "OpenClaw、Hermes 和 Harness：它们到底是什么关系 - 封面图",
+  "promptStatus": "planned",
+  "title": "OpenClaw、Hermes 和 Harness：它们到底是什么关系",
+  "description": "梳理 OpenClaw、Hermes Agent 与 Harness 在 Agent 体系中的分层、定位与关系。",
+  "tags": [
+    "AI",
+    "Agent",
+    "OpenClaw",
+    "Hermes",
+    "Harness",
+    "HarnessEngineering"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "photo-07",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "1. 上下文边界：让 Agent 知道自己在哪里",
+  "sectionScore": 5,
+  "anchor": "### 1. 上下文边界：让 Agent 知道自己在哪里",
+  "sectionExcerpt": "Agent 要干活，首先要知道现场。\n\n修登录 bug 时，它至少需要知道：\n\n- 项目结构\n- 登录相关文件\n- 路由配置\n- 项目规范\n- 当前 Git 状态\n- 测试命令\n- 用户给过的限制\n\n好的 Harness 不会一股脑把所有信息都塞给模型，而是做分层组织：\n\n- 固定规则放固定位置\n- 当前任务单独呈现\n- 证据和工具结果分开\n- 长结果裁剪或摘要\n- 关键结论沉淀成状态\n- 需要某个能力时再渐进加载细节\n\n这也是为什么“一份超长 AGENTS.md”往往不是好方案。上下文是稀缺资源，给太多会挤掉真正相关的信息；所有规则都重要，最后等于没有重点。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-07-1-agent-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-07-1-agent-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-07-1-agent.png",
+  "markdownRef": "./assets/04-agent--harness/photo-07-1-agent.png",
+  "alt": "如何让 Agent 更好干活：从聊天模型到 Agent Harness - 1. 上下文边界：让 Agent 知道自己在哪里",
+  "promptStatus": "planned"
+}

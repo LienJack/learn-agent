@@ -1,0 +1,15 @@
+{
+  "id": "photo-03",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "工具不是魔法，而是宿主程序开放的能力",
+  "sectionScore": 3,
+  "anchor": "### 工具不是魔法，而是宿主程序开放的能力",
+  "sectionExcerpt": "这里要特别注意一件事：\n\n**工具不是模型自己变出来的能力，而是宿主程序提前提供给模型的能力。**\n\n所谓宿主程序，可以理解成包住模型的那个应用，比如：\n\n- ChatGPT\n\n- Claude Code\n\n- Cursor\n\n- Codex\n\n- 一个你自己写的 Agent 框架\n\n宿主程序告诉模型：\n\n\n模型要做的是判断\"现在要不要用工具、用哪个工具、传什么参数\"。\n\n真正执行动作的，是外层程序。\n\n所以工具系统解决的是：\n\n**让模型有机会把语言判断转化成外部动作。**\n\n但这马上带来了第二个问题：\n\n**模型怎么稳定地告诉程序：我要调用哪个工具、参数是什么？**\n\n如果模型只是输出一句自然语言：\n\n\n程序很难稳定解析。它要猜：\n\n- 这是普通回答，还是工具请求？\n\n- 工具名是什么？\n\n- 文件路径是哪一段？\n\n- 参数有没有缺失？\n\n于是，单纯有工具还不够。我们还需要一种结构化的调用格式。\n\n这就引出了 `Function Calling`。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-03-item-02e9c305-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-03-item-02e9c305-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-03-item-02e9c305.png",
+  "markdownRef": "./assets/03--agent/photo-03-item-02e9c305.png",
+  "alt": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么 - 工具不是魔法，而是宿主程序开放的能力",
+  "promptStatus": "planned"
+}

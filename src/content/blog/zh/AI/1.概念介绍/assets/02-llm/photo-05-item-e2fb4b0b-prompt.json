@@ -1,0 +1,15 @@
+{
+  "id": "photo-05",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "一个最好记的比喻：开卷考试的资料桌",
+  "sectionScore": 3,
+  "anchor": "### 一个最好记的比喻：开卷考试的资料桌",
+  "sectionExcerpt": "如果 Prompt 是老师给你的题目要求，那 Context 更像是你参加开卷考试时，桌上摊开的全部材料。\n\n桌上可能有：\n\n- 题目本身\n\n- 你刚刚记的笔记\n\n- 上一题的草稿\n\n- 参考书里的几页内容\n\n- 老师额外发的一张提示纸条\n\n模型能输出什么，很大程度上取决于它桌上摊了什么。\n\n这个比喻特别有用，因为它能一下子解释很多常见现象：\n\n- 为什么同一个模型，在不同产品里表现差很多\n\n因为它们给的上下文不一样。\n\n- 为什么有时\"你明明已经说过了，它还是忘了\"\n\n因为那段内容可能没有被带回当前上下文。\n\n- 为什么有时信息给得越多，结果反而越差\n\n因为桌上摊太乱了，重点被淹没了。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-05-item-e2fb4b0b-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-05-item-e2fb4b0b-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-05-item-e2fb4b0b.png",
+  "markdownRef": "./assets/02-llm/photo-05-item-e2fb4b0b.png",
+  "alt": "Prompt、Context、RAG 到底是什么 - 一个最好记的比喻：开卷考试的资料桌",
+  "promptStatus": "planned"
+}

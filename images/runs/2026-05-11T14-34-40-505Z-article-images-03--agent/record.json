@@ -1,0 +1,27 @@
+{
+  "id": "2026-05-11T14-34-40-505Z-article-images-03--agent",
+  "command": "article-images",
+  "stage": "import",
+  "status": "completed",
+  "startedAt": "2026-05-11T14:34:40.505Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent",
+      "artifacts": [
+        "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-09-mcp-agent.png"
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-05-11T14-34-40-505Z-article-images-03--agent",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [],
+  "confirmation": null,
+  "notes": [],
+  "finishedAt": "2026-05-11T14:34:41.290Z"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "photo-05",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "三、Hermes Agent 为什么会出现：因为 Agent 需要\"记住\"和\"成长\"",
+  "sectionScore": 9,
+  "anchor": "## 三、Hermes Agent 为什么会出现：因为 Agent 需要\"记住\"和\"成长\"",
+  "sectionExcerpt": "OpenClaw 解决的是\"入口\"和\"控制面\"的问题。  \nHermes Agent 更想解决的是另一个问题：\n\n**Agent 能不能把经验沉淀下来，而不是每次从零开始？**\n\n这件事对我们的例子很关键。\n\n你不只是想要一个每天会抓新闻的工具，而是想要它慢慢知道：\n\n- 你更关心 Agent、LLM、Claude Code、Harness Engineering\n- 你不喜欢标题党摘要\n- 你希望摘要有\"结论、证据、风险、延伸阅读\"\n- 你常用 Obsidian 存知识\n- 你处理 CI 失败时，习惯先看最近提交和失败日志\n- 有些任务应该生成 PR，有些任务只需要评论建议\n\n如果这些东西每次都靠你在 Prompt 里重说一遍，Agent 就只是一个\"能调用工具的临时工\"。  \n如果这些东西能被整理成记忆、技能和项目上下文，它才开始像一个会积累经验的助手。\n\nHermes Agent 的重点就在这里。\n\n它强调的不是单个入口有多炫，而是长期运行时里的几类能力：\n\n- 持久记忆：跨会话记住用户、项目、偏好和环境事实\n- 技能系统：把做过的复杂任务沉淀成可复用操作文档\n- 会话检索：需要时能回查过去会话，而不是全靠当前聊天历史\n- 上下文文件：读取项目里的规则文件来塑造当前行为\n- 任务委派和自动化：把任务拆给子 Agent 或定时任务执行\n- 多后端执行：本地、Docker、SSH、云沙箱等不同终端环境\n\n用一句话说：\n\n**Hermes Agent 更像一个把\"经验\"放进运行时里的 Agent 系统。**\n\nOpenClaw 让 Agent 更容易被你叫起来，Hermes Agent 则试图让 Agent 更容易变得\"熟练\"。\n\n还是早报例子。\n\nOpenClaw 关心的是：\n\n\nHermes Agent 更关心的是：\n\n\n这就是 Hermes Agent 经常被描述成 `Self-improving Agent Runtime`（自我改进的 Agent 运行时，指能在使用过程中持续积累经验并优化自身行为的运行系统）的原因。\n\n但这里要冷静一点。\n\n\"会记住\"不等于\"真的越来越聪明\"。记忆如果缺少治理，会变成污染源；技能如果缺少审核，会变成错误套路；历史会话如果不加筛选，会让 Agent 把旧误判当成新事实。\n\n所以 Hermes Agent 解决了 OpenClaw 留下的\"经验沉淀\"问题，同时也引出了下一层问题：\n\n**如果 Agent 要进入团队和企业工程流程，谁来管权限、密钥、审批、审计和标准化交付？**\n\n这就到了 Harness.io 更擅长的层面。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/photo-05-hermes-agent-agent-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/photo-05-hermes-agent-agent-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/photo-05-hermes-agent-agent.png",
+  "markdownRef": "./assets/05-openclaw-hermes-harness/photo-05-hermes-agent-agent.png",
+  "alt": "OpenClaw、Hermes 和 Harness：它们到底是什么关系 - 三、Hermes Agent 为什么会出现：因为 Agent 需要\"记住\"和\"成长\"",
+  "promptStatus": "planned"
+}

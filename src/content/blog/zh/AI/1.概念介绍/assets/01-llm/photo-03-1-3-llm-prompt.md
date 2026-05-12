@@ -1,0 +1,23 @@
+# photo-03: 1.3 LLM 是大脑，工具是手脚
+
+Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
+Section: 1.3 LLM 是大脑，工具是手脚
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-03-1-3-llm.png
+
+Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
+
+## Section text
+
+今天的 AI 产品可以分两层看：
+
+- LLM 是"大脑"，负责理解你的话、组织语言、生成答案。
+
+- 工具、RAG（检索增强生成，让 LLM 先查外部知识库再回答，解决幻觉和知识滞后问题）、Agent（能自主决策并调用工具完成多步骤任务的 AI 系统）是"手和脚"，负责查资料、调用搜索、访问数据库、执行代码、操作软件。
+
+单独的 LLM 更像"会说、会写、会分析"。接上工具之后，才更像"能做事"。
+
+![01.LLM的原理 图 1](./assets/01-llm/01-llm--mermaid-01.png)
+
+上图是现代 AI 系统的分层结构。用户输入先到 LLM，LLM 判断是否需要外部知识或执行能力，通过 RAG 或 Agent 调用工具，最后汇总生成回复。单独 LLM 只能"说"，接入工具后才能"做"。
+
+---

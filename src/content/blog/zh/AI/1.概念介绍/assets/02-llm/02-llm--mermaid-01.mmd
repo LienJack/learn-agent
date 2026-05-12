@@ -1,0 +1,15 @@
+flowchart TD
+classDef user fill:#e1f5ff,stroke:#01579b
+classDef process fill:#e8f5e9,stroke:#2e7d32
+classDef storage fill:#fff3e0,stroke:#ef6c00
+classDef model fill:#fce4ec,stroke:#c62828
+A[用户提问]:::user --> B[Query 改写]:::process
+B --> C[向量检索]:::process
+C --> D[(向量数据库)]:::storage
+D -->|Top-K 召回| E[重排序 Re-rank]:::process
+F[知识库文档]:::storage --> G[分块 Chunking]:::process
+G --> H[Embedding 向量化]:::process
+H --> D
+E --> I[构建 Prompt / 回填 Context]:::process
+I --> J[LLM 生成答案]:::model
+J --> K[带引用回答]:::user

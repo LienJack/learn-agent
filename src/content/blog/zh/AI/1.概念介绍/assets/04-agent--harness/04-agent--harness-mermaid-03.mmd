@@ -1,0 +1,12 @@
+graph LR
+    classDef core fill:#fce4ec,stroke:#c62828
+    classDef layer fill:#e8f5e9,stroke:#2e7d32
+
+    A[Agent Loop<br/>推理与行动]:::core
+
+    A --> B[上下文边界]:::layer
+    A --> C[工具系统]:::layer
+    A --> D[权限与安全]:::layer
+    A --> E[执行编排]:::layer
+    A --> F[状态与记忆]:::layer
+    A --> G[验收与恢复]:::layer

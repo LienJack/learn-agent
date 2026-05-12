@@ -1,0 +1,15 @@
+{
+  "id": "photo-06",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "三、Harness 到底是什么",
+  "sectionScore": 5,
+  "anchor": "## 三、Harness 到底是什么",
+  "sectionExcerpt": "`Harness` 原本有“马具、缰绳、约束装置”的意思。\n\n放到 AI Agent 里，可以先理解成：\n\n**套在模型外面，让 Agent 能稳定干活的运行系统。**\n\n有一个很有用的记法：\n\n\n也就是说，一个 Agent 系统里，除了模型本身以外，那些让它能稳定交付的东西，大多都可以算进 Harness：\n\n- 上下文怎么组织\n- 工具怎么暴露\n- 权限怎么控制\n- 任务怎么编排\n- 状态怎么记录\n- 失败怎么恢复\n- 成果怎么验收\n- 日志怎么观测\n- 反馈怎么进入下一轮改进\n\n它不是替模型思考，而是给模型搭一个能工作的环境。\n\n你可以用一个新人拜访客户的例子理解。\n\nPrompt 是你把任务讲清楚：\n\n\nContext 是你把资料准备齐：\n\n\nHarness 是你把整个过程托住：\n\n\n所以 Harness 不是一个单独插件，也不是一个神秘框架。\n\n它更像一套围绕 Agent Loop 的工程底盘。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-06-harness-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-06-harness-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-06-harness.png",
+  "markdownRef": "./assets/04-agent--harness/photo-06-harness.png",
+  "alt": "如何让 Agent 更好干活：从聊天模型到 Agent Harness - 三、Harness 到底是什么",
+  "promptStatus": "planned"
+}

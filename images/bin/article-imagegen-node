@@ -13,7 +13,7 @@ import {
 import { readArticle } from '../lib/articles.mjs';
 import { planArticleWorkspaces } from '../lib/workspace.mjs';
 
-loadDotEnv();
+loadDotEnv(undefined, { override: true });
 
 try {
 	const { options, files } = parseArgs(process.argv.slice(2));

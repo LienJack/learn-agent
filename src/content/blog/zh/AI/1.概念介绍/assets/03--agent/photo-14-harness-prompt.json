@@ -1,0 +1,15 @@
+{
+  "id": "photo-14",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "十一、今天为什么会继续走向 Harness",
+  "sectionScore": 7,
+  "anchor": "## 十一、今天为什么会继续走向 Harness",
+  "sectionExcerpt": "如果只看到 Agent Loop，我们会以为问题已经解决了：\n\n模型会想，工具会做，循环会推进。\n\n但真正做过复杂任务后，会发现新的问题马上出现：\n\n- 工具越来越多，怎么选才不乱？\n\n- 上下文越来越长，怎么压缩才不丢任务？\n\n- 权限越来越复杂，怎么既安全又不频繁打断？\n\n- 多个 Agent 并行时，怎么分工和合并结果？\n\n- 执行失败后，怎么恢复、重试、回滚？\n\n- 用户怎么知道 Agent 现在卡在哪里？\n\n这些问题已经不只是\"有没有 Agent\"了，而是：\n\n**怎样给 Agent 提供一个可靠、可控、可观察的执行环境。**\n\n这就会引出下一层概念：`Harness（Agent 运行底座，把模型、工具、权限、上下文、任务状态、日志、执行环境组织在一起的完整运行时框架）`。\n\n你可以先把 Harness 粗略理解成：\n\n**把模型、工具、权限、上下文、任务状态、日志、执行环境组织在一起的 Agent 运行底座。**\n\n如果说 Agent 是\"会干活的循环\"，那 Harness 更像\"让这个循环在真实工程里稳定工作的车间\"。\n\n这也是为什么今天很多讨论会从 Agent 继续走向：\n\n- Tool Harness\n\n- Agent Runtime\n\n- Context Engineering\n\n- Permission System\n\n- Observability\n\n- Multi-agent Orchestration\n\n因为真正难的不是让模型偶尔调一次工具，而是让它在复杂任务里持续、稳定、有边界地做事。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-14-harness-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-14-harness-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-14-harness.png",
+  "markdownRef": "./assets/03--agent/photo-14-harness.png",
+  "alt": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么 - 十一、今天为什么会继续走向 Harness",
+  "promptStatus": "planned"
+}

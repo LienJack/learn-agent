@@ -1,0 +1,9 @@
+flowchart LR
+classDef step fill:#e8f5e9,stroke:#2e7d32
+classDef finish fill:#fce4ec,stroke:#c62828
+A[LLM<br/>只会生成文字] --> B[+ Tools<br/>接触外部世界]:::step
+B --> C[+ Function Calling<br/>结构化请求]:::step
+C --> D[+ Agent Loop<br/>多步任务循环]:::step
+D --> E[+ MCP<br/>标准化接入外部能力]:::step
+E --> F[+ Skill<br/>复用任务方法]:::step
+F --> G[+ CLI/IDE<br/>工程现场执行]:::finish

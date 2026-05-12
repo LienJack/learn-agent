@@ -1,0 +1,27 @@
+{
+  "id": "2026-05-11T14-14-53-692Z-article-images-02-llm",
+  "command": "article-images",
+  "stage": "import",
+  "status": "completed",
+  "startedAt": "2026-05-11T14:14:53.693Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm",
+      "artifacts": [
+        "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-06-context.png"
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-05-11T14-14-53-692Z-article-images-02-llm",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [],
+  "confirmation": null,
+  "notes": [],
+  "finishedAt": "2026-05-11T14:14:54.897Z"
+}

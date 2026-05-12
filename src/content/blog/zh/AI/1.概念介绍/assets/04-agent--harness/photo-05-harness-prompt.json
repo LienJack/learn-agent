@@ -1,0 +1,15 @@
+{
+  "id": "photo-05",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "Harness 解决的是执行问题",
+  "sectionScore": 5,
+  "anchor": "### Harness 解决的是执行问题",
+  "sectionExcerpt": "修登录 bug 不是一次回答，而是一条执行链：\n\n\n这里的难点不只是“给模型什么信息”，而是：\n\n- 它下一步该做什么\n- 它能不能用这个工具\n- 工具结果怎么写回状态\n- 它跑偏时谁发现\n- 它失败后怎么恢复\n- 它做完后怎么验收\n\n这就进入 Harness Engineering。\n\n如果说 Prompt 关注“怎么把话说清楚”，Context 关注“怎么把信息给对”，那么 Harness 关注的是：\n\n**当模型开始连续行动时，怎么监督它、约束它、纠偏它、验收它。**\n\n所以这三者不是替代关系，而是包含关系：",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-05-harness-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-05-harness-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-05-harness.png",
+  "markdownRef": "./assets/04-agent--harness/photo-05-harness.png",
+  "alt": "如何让 Agent 更好干活：从聊天模型到 Agent Harness - Harness 解决的是执行问题",
+  "promptStatus": "planned"
+}

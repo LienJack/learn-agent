@@ -1,0 +1,439 @@
+{
+  "id": "2026-05-11T13-43-18-166Z-article-images-all-5-articles",
+  "command": "article-images",
+  "stage": "all",
+  "status": "blocked",
+  "startedAt": "2026-05-11T13:43:18.167Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "imported"
+        },
+        {
+          "id": "photo-01",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-02",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-03",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-04",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-05",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-06",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-07",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-08",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-09",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-10",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "svg-mermaid-01",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "svg-mermaid-02",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-01",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-02",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-03",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-04",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-05",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-06",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-07",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-08",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-09",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "svg-mermaid-01",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "svg-mermaid-02",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": [
+        "src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md: multiple Obsidian source candidates; using 2 概念介绍/最终稿/2.如何让LLM更聪明.md."
+      ]
+    },
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md",
+      "status": "blocked",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-01",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-02",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-03",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-04",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-05",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-06",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-07",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-08",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-09",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-10",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-11",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-12",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-13",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-14",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-15",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "svg-mermaid-01",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "svg-mermaid-02",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "svg-mermaid-03",
+          "kind": "svg-mermaid",
+          "status": "failed"
+        },
+        {
+          "id": "svg-mermaid-04",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "svg-mermaid-05",
+          "kind": "svg-mermaid",
+          "status": "failed"
+        }
+      ],
+      "blockers": [
+        "svg-mermaid-03: Command failed: npx -y @mermaid-js/mermaid-cli -i /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/1.概念介绍/assets/03--agent/03--agent-mermaid-03.mmd -o /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/1.概念介绍/assets/03--agent/03--agent-mermaid-03.png -b transparent\n\nError: Parse error on line 6:\n...nction Calling<br/>\"我要调用工具\"| B[Agent 宿主程\n-----------------------^\nExpecting 'SQE', 'DOUBLECIRCLEEND', 'PE', '-)', 'STADIUMEND', 'SUBROUTINEEND', 'PIPE', 'CYLINDEREND', 'DIAMOND_STOP', 'TAGEND', 'TRAPEND', 'INVTRAPEND', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'STR'\nParser.parseError (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/chunks/mermaid.esm/flowDiagram-ZXTF6DY4.mjs:1453:21)\n    at #evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:388:19)\n    at async ExecutionContext.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:274:16)\n    at async IsolatedWorld.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/IsolatedWorld.js:102:16)\n    at async CdpJSHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/JSHandle.js:146:20)\n    at async CdpElementHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:343:20)\n    at async CdpElementHandle.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:497:24)\n    at async CdpFrame.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:464:20)\n    at async CdpPage.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:456:20)\n    at async renderMermaid (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/@mermaid-js/mermaid-cli/src/index.js:272:22)\n    at fromText (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/mermaid.esm.mjs:1190:17)\n\n",
+        "svg-mermaid-05: Command failed: npx -y @mermaid-js/mermaid-cli -i /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/1.概念介绍/assets/03--agent/03--agent-mermaid-05.mmd -o /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/1.概念介绍/assets/03--agent/03--agent-mermaid-05.png -b transparent\n\nError: Parse error on line 3:\n...ke:#2e7d32classDef end fill:#fce4ec,str\n----------------------^\nExpecting 'AMP', 'COLON', 'DOWN', 'DEFAULT', 'NUM', 'COMMA', 'NODE_STRING', 'BRKT', 'MINUS', 'MULT', 'UNICODE_TEXT', got 'end'\nParser.parseError (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/chunks/mermaid.esm/flowDiagram-ZXTF6DY4.mjs:1453:21)\n    at #evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:388:19)\n    at async ExecutionContext.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:274:16)\n    at async IsolatedWorld.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/IsolatedWorld.js:102:16)\n    at async CdpJSHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/JSHandle.js:146:20)\n    at async CdpElementHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:343:20)\n    at async CdpElementHandle.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:497:24)\n    at async CdpFrame.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:464:20)\n    at async CdpPage.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:456:20)\n    at async renderMermaid (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/@mermaid-js/mermaid-cli/src/index.js:272:22)\n    at fromText (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/mermaid.esm.mjs:1190:17)\n\n"
+      ],
+      "warnings": [
+        "src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md: multiple Obsidian source candidates; using 2 概念介绍/最终稿/3.从对话到干活-Agent.md."
+      ]
+    },
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/04.如何让Agent更好干活-Harness.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-01",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-02",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-03",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-04",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-05",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-06",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-07",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-08",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-09",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "svg-mermaid-01",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "svg-mermaid-02",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "svg-mermaid-03",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "svg-mermaid-04",
+          "kind": "svg-mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": [
+        "src/content/blog/zh/AI/1.概念介绍/04.如何让Agent更好干活-Harness.md: multiple Obsidian source candidates; using 2 概念介绍/最终稿/4.如何让agent更好干活- Harness.md."
+      ]
+    },
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/05.OpenClaw、Hermes和Harness关系.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness",
+      "assets": [
+        {
+          "id": "cover",
+          "kind": "cover",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-01",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-02",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-03",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-04",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-05",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-06",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-07",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-08",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-09",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-10",
+          "kind": "photo",
+          "status": "prompt-planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-05-11T13-43-18-166Z-article-images-all-5-articles",
+  "blockers": [
+    "svg-mermaid-03: Command failed: npx -y @mermaid-js/mermaid-cli -i /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/1.概念介绍/assets/03--agent/03--agent-mermaid-03.mmd -o /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/1.概念介绍/assets/03--agent/03--agent-mermaid-03.png -b transparent\n\nError: Parse error on line 6:\n...nction Calling<br/>\"我要调用工具\"| B[Agent 宿主程\n-----------------------^\nExpecting 'SQE', 'DOUBLECIRCLEEND', 'PE', '-)', 'STADIUMEND', 'SUBROUTINEEND', 'PIPE', 'CYLINDEREND', 'DIAMOND_STOP', 'TAGEND', 'TRAPEND', 'INVTRAPEND', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'STR'\nParser.parseError (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/chunks/mermaid.esm/flowDiagram-ZXTF6DY4.mjs:1453:21)\n    at #evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:388:19)\n    at async ExecutionContext.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:274:16)\n    at async IsolatedWorld.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/IsolatedWorld.js:102:16)\n    at async CdpJSHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/JSHandle.js:146:20)\n    at async CdpElementHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:343:20)\n    at async CdpElementHandle.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:497:24)\n    at async CdpFrame.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:464:20)\n    at async CdpPage.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:456:20)\n    at async renderMermaid (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/@mermaid-js/mermaid-cli/src/index.js:272:22)\n    at fromText (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/mermaid.esm.mjs:1190:17)\n\n",
+    "svg-mermaid-05: Command failed: npx -y @mermaid-js/mermaid-cli -i /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/1.概念介绍/assets/03--agent/03--agent-mermaid-05.mmd -o /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/1.概念介绍/assets/03--agent/03--agent-mermaid-05.png -b transparent\n\nError: Parse error on line 3:\n...ke:#2e7d32classDef end fill:#fce4ec,str\n----------------------^\nExpecting 'AMP', 'COLON', 'DOWN', 'DEFAULT', 'NUM', 'COMMA', 'NODE_STRING', 'BRKT', 'MINUS', 'MULT', 'UNICODE_TEXT', got 'end'\nParser.parseError (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/chunks/mermaid.esm/flowDiagram-ZXTF6DY4.mjs:1453:21)\n    at #evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:388:19)\n    at async ExecutionContext.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:274:16)\n    at async IsolatedWorld.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/IsolatedWorld.js:102:16)\n    at async CdpJSHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/JSHandle.js:146:20)\n    at async CdpElementHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:343:20)\n    at async CdpElementHandle.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:497:24)\n    at async CdpFrame.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:464:20)\n    at async CdpPage.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:456:20)\n    at async renderMermaid (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/@mermaid-js/mermaid-cli/src/index.js:272:22)\n    at fromText (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/mermaid.esm.mjs:1190:17)\n\n"
+  ],
+  "warnings": [
+    "src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md: multiple Obsidian source candidates; using 2 概念介绍/最终稿/2.如何让LLM更聪明.md.",
+    "src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md: multiple Obsidian source candidates; using 2 概念介绍/最终稿/3.从对话到干活-Agent.md.",
+    "src/content/blog/zh/AI/1.概念介绍/04.如何让Agent更好干活-Harness.md: multiple Obsidian source candidates; using 2 概念介绍/最终稿/4.如何让agent更好干活- Harness.md."
+  ],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-05-11T13-43-18-166Z-article-images-all-5-articles/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 5 article(s)",
+    "confirmed": true
+  },
+  "notes": [],
+  "finishedAt": "2026-05-11T13:43:35.321Z"
+}

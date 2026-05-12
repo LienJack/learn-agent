@@ -1,0 +1,22 @@
+flowchart TD
+classDef think fill:#e8f5e9,stroke:#2e7d32
+classDef act fill:#fff3e0,stroke:#ef6c00
+classDef observe fill:#e1f5ff,stroke:#01579b
+classDef endstate fill:#fce4ec,stroke:#c62828
+A[用户目标：修登录跳转失败] --> B{任务完成?}
+B -->|否| C[思考：先找登录代码]:::think
+C --> D[行动：搜索 login/auth]:::act
+D --> E[观察：找到 auth.ts、router.ts]:::observe
+E --> F[思考：跳转可能在路由守卫]:::think
+F --> G[行动：读取 router.ts]:::act
+G --> H[观察：发现没保留 redirect]:::observe
+H --> I[思考：修改 LoginPage.tsx]:::think
+I --> J[行动：编辑文件]:::act
+J --> K[观察：修改完成]:::observe
+K --> L[行动：跑测试]:::act
+L --> M[观察：测试失败]:::observe
+M --> N[思考：补测试覆盖 redirect]:::think
+N --> O[行动：调整实现]:::act
+O --> P[观察：测试通过]:::observe
+P --> B
+B -->|是| Q[总结改动]:::endstate
