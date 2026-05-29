@@ -1,5 +1,6 @@
 ---
 title: "M0 Core Kernel：把真实大模型接进系统，而不是接管系统"
+shortTitle: "M0 Core Kernel：真实模型接入系统"
 description: "前面几篇已经把 Agent 和 Harness 的心智铺开了。"
 author: LienJack
 pubDate: 2026-05-29

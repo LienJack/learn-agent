@@ -1,5 +1,6 @@
 ---
 title: "Agent 组成模型：Model、Loop、Tools、State"
+shortTitle: "Agent 组成模型：四个最小部件"
 description: "上一篇我们先把一个误解拆掉：Agent 不是一句更长的 prompt。"
 author: LienJack
 pubDate: 2026-05-29

@@ -1,5 +1,6 @@
 ---
 title: "系统边界：ChatBot、Workflow、Agent、Harness 的区别"
+shortTitle: "系统边界：四类 LLM 应用区别"
 description: "很多人第一次做 Agent 系统时，会自然地把它理解成一条升级路线："
 author: LienJack
 pubDate: 2026-05-29
