@@ -1,0 +1,21 @@
+flowchart TB
+  U["User Goal\n用户目标"] --> R["Runtime / Loop\n控制流程"]
+  R --> P["Model Provider\n只产出模型事件"]
+  P --> E["Model Event\ntext / tool_intent / final"]
+  E --> R
+  R --> TR["Tool Runtime\n校验、权限、执行、观察"]
+  TR --> O["Observation\n结构化结果"]
+  O --> S["Session Log\n事件事实源"]
+  S --> ST["State\n当前任务现场"]
+  ST --> C["Context Builder\n本轮投影"]
+  C --> R
+
+  P -. "不执行工具" .- TR
+  TR -. "不直接伪造模型输入" .- C
+
+  P:::cold
+  TR:::hot
+  S:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;
+  classDef cold fill:#e8f3ff,stroke:#111,stroke-width:1.5px,color:#111;

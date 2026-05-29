@@ -1,0 +1,50 @@
+{
+  "article": "docs/zh/00-05-agent-evolution-path.md",
+  "slug": "00-05-agent-evolution-path",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-four-stage-evolution",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "总览 Chat Agent 到 Managed Agent 再到 Harness 的自然演化路径。",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "docs/zh/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.prompt.en.md",
+        "ja": "docs/ja/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-risk-pressure-axes",
+      "kind": "body-photo",
+      "insert_after_heading": "## 一、Chat Agent：先让系统能回答",
+      "purpose": "把 Agent 演化看成风险压力增长，而不是能力等级排行。",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.prompt.en.md",
+        "ja": "docs/ja/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-eval-and-handoff-flywheel",
+      "kind": "body-photo",
+      "insert_after_heading": "## 八、再看一层：可恢复、可评估、可委派",
+      "purpose": "解释可恢复、可评估、可委派如何形成 Managed Agent 的改进飞轮。",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "docs/zh/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.prompt.en.md",
+        "ja": "docs/ja/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.png",
+      "status": "generated"
+    }
+  ]
+}

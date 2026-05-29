@@ -1,0 +1,12 @@
+flowchart TB
+  L["Session Log\n完整事件事实源"] --> S["Runtime State\n当前任务现场"]
+  S --> C["Context Projection\n本轮给模型看的投影"]
+  C --> M["Model\n判断下一步"]
+  M --> I["Intent / Final\n工具意图或最终回答"]
+  I --> L
+  I --> S
+
+  S:::hot
+  C:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

@@ -1,0 +1,63 @@
+{
+  "article": "docs/zh/00-19-trace-analysis-agent-failures.md",
+  "language": "zh",
+  "images": [
+    {
+      "id": "00-19-photo-01-log-to-trace-diagnosis",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、Session log 是事实源，但它还不是诊断视图",
+      "purpose": "解释 event log 是事实源，trace 是面向失败诊断的投影视图",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.prompt.en.md",
+        "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-19-photo-02-failure-taxonomy-map",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 五、Failure Taxonomy：失败分类不是标签游戏，而是修复路线",
+      "purpose": "展示 Agent 失败归因的七类责任边界及对应修复方向",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.prompt.en.md",
+        "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-19-photo-03-trace-analyzer-pipeline",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十三、Trace Analyzer 的管线：先结构化，再判断，再生成修复建议",
+      "purpose": "说明 Trace Analyzer 从事实日志到诊断报告和 eval 候选的处理管线",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.prompt.en.md",
+        "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-19-photo-04-delegation-join-failure",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十二、Delegation Join 错：子 Agent 查到了，不代表父 Agent 用对了",
+      "purpose": "解释子 Agent 发现事实以后，父 Agent join 错误如何导致最终失败",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.prompt.en.md",
+        "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.png",
+      "status": "generated"
+    }
+  ],
+  "status": "generated"
+}

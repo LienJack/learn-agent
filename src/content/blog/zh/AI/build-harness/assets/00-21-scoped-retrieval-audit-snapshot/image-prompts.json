@@ -1,0 +1,63 @@
+{
+  "article": "docs/zh/00-21-scoped-retrieval-audit-snapshot.md",
+  "language": "zh",
+  "images": [
+    {
+      "id": "00-21-photo-01-scope-to-snapshot",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释 Scoped Retrieval 从任务边界开始，经过召回、过滤、重排、预算裁剪和引用绑定，最终形成 audit snapshot",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.prompt.en.md",
+        "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-21-photo-02-similarity-vs-relevance",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 一、为什么“相似”不等于“相关”",
+      "purpose": "对比 semantic similarity 和 retrieval relevance，说明相似只是候选，任务相关还要看边界、来源、时间和行动价值",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.prompt.en.md",
+        "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-21-photo-03-permission-time-gates",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 五、权限边界：检索结果不是天然可以给模型看",
+      "purpose": "展示检索结果进入模型前必须经过 source access、model visibility 和 time boundary 三类门控",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.prompt.en.md",
+        "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-21-photo-04-audit-snapshot-evidence-pack",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 七、Audit Snapshot：不是缓存，而是证据包",
+      "purpose": "说明 audit snapshot 不是缓存，而是保存 scope、query plan、选中证据、拒绝原因、投影文本和引用映射的证据包",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.prompt.en.md",
+        "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.png",
+      "status": "generated"
+    }
+  ],
+  "status": "generated"
+}

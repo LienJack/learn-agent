@@ -1,0 +1,49 @@
+{
+  "article": "docs/zh/00-20-memory-governance-candidate-ledger.md",
+  "language": "zh",
+  "images": [
+    {
+      "id": "00-20-photo-01-candidate-ledger-to-governance-store",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 三、candidate ledger：把“可能有用”先放进候选账本",
+      "purpose": "解释候选记忆先进入 candidate ledger，再经过治理进入 governance store 的核心链路",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-20-memory-governance-candidate-ledger/photo-01-candidate-ledger-to-governance-store.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-20-memory-governance-candidate-ledger/photo-01-candidate-ledger-to-governance-store.prompt.en.md",
+        "ja": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-01-candidate-ledger-to-governance-store.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-20-memory-governance-candidate-ledger/photo-01-candidate-ledger-to-governance-store.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-20-photo-02-memory-governance-checks",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 六、治理检查：来源、置信度、范围、TTL、冲突",
+      "purpose": "展示 Memory Governance 如何对候选记忆做来源、范围、TTL、冲突和 review gate 判断",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-20-memory-governance-candidate-ledger/photo-02-memory-governance-checks.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-20-memory-governance-candidate-ledger/photo-02-memory-governance-checks.prompt.en.md",
+        "ja": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-02-memory-governance-checks.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-20-memory-governance-candidate-ledger/photo-02-memory-governance-checks.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-20-photo-03-memory-health-loop",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十二、记忆清理：不要只会新增",
+      "purpose": "说明 governance store 需要持续健康检查、过期、撤销、合并和复核，而不是只新增",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "docs/zh/assets/00-20-memory-governance-candidate-ledger/photo-03-memory-health-loop.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-20-memory-governance-candidate-ledger/photo-03-memory-health-loop.prompt.en.md",
+        "ja": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-03-memory-health-loop.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-20-memory-governance-candidate-ledger/photo-03-memory-health-loop.png",
+      "status": "generated"
+    }
+  ],
+  "status": "generated"
+}

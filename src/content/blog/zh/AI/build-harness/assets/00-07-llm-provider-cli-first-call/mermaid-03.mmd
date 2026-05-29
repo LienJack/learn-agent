@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant CLI as CLI
+  participant Runtime as Runtime
+  participant Provider as Provider Adapter
+  participant API as Model API
+
+  CLI->>Runtime: user input
+  Runtime->>Runtime: build ChatRequest
+  Runtime->>Provider: stream(ChatRequest)
+  Provider->>API: provider-specific streaming request
+  API-->>Provider: raw stream events
+  Provider-->>Runtime: message_start
+  Provider-->>Runtime: text_delta
+  Runtime-->>CLI: print delta
+  Provider-->>Runtime: usage / message_stop
+  Runtime-->>Runtime: record turn result
+  Runtime-->>CLI: finish prompt

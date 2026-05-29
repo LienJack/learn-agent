@@ -32,15 +32,16 @@ argument-hint: "[--language en|ja] [--pipeline claude-code-series] <中文 Markd
 
 ## 执行流程
 
-1. 阅读 `translate/README.md` 和 `translate/workflows/claude-code-series.md`。
+1. 阅读 `translate/README.md`、`translate/workflows/claude-code-series.md` 和 `translate/workflows/gpt-codex-cli.md`。
 2. 根据语言识别规则确定目标语言。
 3. 如果目标语言是英文，阅读并执行 `translate/skills/translate-en/SKILL.md`。
 4. 如果目标语言是日语，阅读并执行 `translate/skills/translate-ja/SKILL.md`。
 5. 保留用户传入的 `--pipeline`、文章路径和其他非语言参数；转交给对应语言 skill。
-6. 不在本入口中直接调用模型翻译、不发布到外部平台、不处理图片资产；图片资产继续使用 `translate/skills/translate-assets/SKILL.md`。
+6. 不在本入口中直接调用模型翻译、不发布到外部平台、不处理图片资产；正文真实翻译由对应语言 skill 通过 GPT Codex (`codex exec`) 执行，图片资产继续使用 `translate/skills/translate-assets/SKILL.md`。
 
 ## 安全边界
 
 - 本入口只做语言识别和 skill 路由，不复制英文/日语翻译规则。
 - 真实翻译前仍必须遵守对应语言 skill 的 dry-run、摘要展示和用户确认流程。
+- 正文真实翻译只使用 GPT Codex，不调用 Claude Code 或 `claude` CLI。
 - 运行记录不得保存 API key、cookie、token 或完整私密响应。

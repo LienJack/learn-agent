@@ -1,0 +1,21 @@
+flowchart LR
+  CFG["MCP Config\nscope/policy"] --> CONN["Connection\nstdio/http/内置"]
+  CONN --> DISC["Discover\nresources/prompts/tools"]
+  DISC --> MAP["Map\n内部 Capability"]
+  MAP --> STATE["App State\n连接与能力事实表"]
+
+  STATE --> RT["Resource Handles"]
+  STATE --> CMD["Commands/Prompts"]
+  STATE --> TOOL["MCP Tools\nmcp__server__tool"]
+
+  TOOL --> PIPE["统一 Tool Pipeline"]
+  RT --> CTX["Context Projection"]
+  CMD --> SK["Skill/Command Runtime"]
+
+  PIPE --> RPC["真正 MCP RPC"]
+  RPC --> OBS["Observation"]
+
+  MAP:::hot
+  PIPE:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

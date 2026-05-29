@@ -1,0 +1,18 @@
+sequenceDiagram
+  participant U as User
+  participant L as Agent Loop
+  participant T as Tool Runtime
+  participant R as Scoped Retrieval
+  participant C as Context Policy
+  participant M as Model
+  participant E as Event Log
+
+  U->>L: 修复测试失败
+  L->>T: run_test intent
+  T-->>L: observation: role undefined
+  L->>R: retrieval intent + scope
+  R->>R: recall/filter/rerank/snapshot
+  R-->>C: evidence block + snapshotId
+  C->>M: model input with citations
+  M-->>L: read/edit intent
+  L->>E: model request references snapshotId

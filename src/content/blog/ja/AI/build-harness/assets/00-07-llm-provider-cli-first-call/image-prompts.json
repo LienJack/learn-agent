@@ -1,0 +1,53 @@
+{
+  "article": "docs/ja/00-07-llm-provider-cli-first-call.md",
+  "slug": "00-07-llm-provider-cli-first-call",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-provider-contract-boundary",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "CLI の最初のモデル呼び出しでも provider contract を先に通す理由を説明し、provider 詳細が Agent core を汚染しないようにする。",
+      "diagram_type": "階層アーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-stream-event-normalization",
+      "kind": "body-photo",
+      "insert_after_heading": "## 五、Streaming：端末が欲しいのは流れる体験、Runtime が欲しいのはイベント流",
+      "purpose": "provider raw stream が adapter で ModelEvent に正規化され、Runtime 記録と CLI 表示へ分かれて入る流れを示す。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.en.md",
+        "ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-error-mapping-decision",
+      "kind": "body-photo",
+      "insert_after_heading": "## 六、Error Mapping：エラーは文字列ではなく Runtime の意思決定入力",
+      "purpose": "raw provider error が ProviderError にマッピングされ、停止、リトライ、圧縮、設定案内などの runtime 判断を駆動することを説明する。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.en.md",
+        "ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

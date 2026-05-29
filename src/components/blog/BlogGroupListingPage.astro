@@ -39,31 +39,28 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 	<body class:list={['blog-listing-page', { 'blog-series-route-page': currentSeries }]}>
 		<Header />
 		<main class="page-shell-wide">
-			<section class="page-intro">
-				<p class="page-eyebrow">{currentSeries ? currentGroup?.title : 'Group'}</p>
-				<h1>{title}</h1>
-				<p class="page-lead">{description}</p>
-				<div class="archive-language-links" aria-label={messages.blog.browseByLanguage}>
-					{
-						LOCALES.map((targetLocale) => (
-							<a
-								href={localizePath(
-									targetLocale,
-									currentSeries
-										? `/blog/${currentGroup?.slug}/${currentSeries.slug}`
-										: currentGroup
-											? `/blog/${currentGroup.slug}`
-											: '/blog',
-								)}
-								class:list={['archive-language-link', { active: targetLocale === locale }]}
-								aria-current={targetLocale === locale ? 'page' : undefined}
-							>
-								{LOCALE_LABELS[targetLocale]}
-							</a>
-						))
-					}
-				</div>
-			</section>
+			{
+				!currentSeries && (
+					<section class="page-intro">
+						<p class="page-eyebrow">Group</p>
+						<h1>{title}</h1>
+						<p class="page-lead">{description}</p>
+						<div class="archive-language-links" aria-label={messages.blog.browseByLanguage}>
+							{
+								LOCALES.map((targetLocale) => (
+									<a
+										href={localizePath(targetLocale, currentGroup ? `/blog/${currentGroup.slug}` : '/blog')}
+										class:list={['archive-language-link', { active: targetLocale === locale }]}
+										aria-current={targetLocale === locale ? 'page' : undefined}
+									>
+										{LOCALE_LABELS[targetLocale]}
+									</a>
+								))
+							}
+						</div>
+					</section>
+				)
+			}
 
 			{
 				currentGroup && !currentSeries && (
@@ -140,7 +137,9 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 								<p class="series-overview-kicker">阅读路径</p>
 								<div class="series-overview-heading">
 									<p class="blog-series-index">{currentSeries.postCount} 篇文章</p>
-									<h2>{currentSeries.title}</h2>
+									<h1 class:list={['series-overview-title', { 'is-short-series-title': currentSeries.title.length <= 18 }]}>
+										{currentSeries.title}
+									</h1>
 								</div>
 								{currentSeries.alias && <p class="blog-group-alias">{currentSeries.alias}</p>}
 								<p class="blog-group-description">{currentSeries.description}</p>

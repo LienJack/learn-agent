@@ -15,14 +15,14 @@ export const imagesRoot = path.join(repoRoot, 'images');
 export const artifactsRoot = path.join(imagesRoot, 'artifacts');
 export const runsRoot = path.join(imagesRoot, 'runs');
 
-export function loadDotEnv(filePath = path.join(repoRoot, '.env')) {
+export function loadDotEnv(filePath = path.join(repoRoot, '.env'), { override = false } = {}) {
 	if (!existsSync(filePath)) return;
 	const source = readFileSync(filePath, 'utf8');
 	for (const line of source.split(/\r?\n/)) {
 		const trimmed = line.trim();
 		if (!trimmed || trimmed.startsWith('#')) continue;
 		const match = trimmed.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
-		if (!match || process.env[match[1]] !== undefined) continue;
+		if (!match || (!override && process.env[match[1]] !== undefined)) continue;
 		process.env[match[1]] = unquoteEnv(match[2].trim());
 	}
 }

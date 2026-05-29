@@ -1,0 +1,7 @@
+{
+	"title": "Build Harness",
+	"alias": "0 から 1 へ Agent と Harness を構築する",
+	"description": "会話できる CLI アシスタントから、制御可能で観測可能な Agent Harness へ育てる工程ガイド。",
+	"cover": "/blog-covers/build-harness.svg",
+	"order": 4
+}

@@ -1,0 +1,15 @@
+{
+  "id": "photo-04",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "三、Function Calling 为什么会出现：因为\"想用工具\"必须说成机器听得懂的话",
+  "sectionScore": 3,
+  "anchor": "## 三、Function Calling 为什么会出现：因为\"想用工具\"必须说成机器听得懂的话",
+  "sectionExcerpt": "`Function Calling（函数调用，LLM 生成结构化参数请求外部工具的标准格式）` 解决的是第二个问题：\n\n**模型不能只用自然语言表达\"我想干什么\"，它需要按约定输出一个可解析的工具调用请求。**\n\n直白地说就是：\n\n模型不能只说：\n\n\n它最好能说成：\n\n\n这样外层程序就不用猜了。它可以很明确地知道：\n\n- 模型想调用 `read_file`\n\n- 参数是 `path`\n\n- 路径是 `src/auth.ts`\n\n这就是 Function Calling 的核心价值。\n\n它不是让模型\"真的在内部执行函数\"，而是让模型生成一个结构化请求。真正的函数执行，仍然发生在应用程序这一侧。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-04-function-calling-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-04-function-calling-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-04-function-calling.png",
+  "markdownRef": "./assets/03--agent/photo-04-function-calling.png",
+  "alt": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么 - 三、Function Calling 为什么会出现：因为\"想用工具\"必须说成机器听得懂的话",
+  "promptStatus": "planned"
+}

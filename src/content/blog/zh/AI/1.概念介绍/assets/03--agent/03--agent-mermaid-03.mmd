@@ -1,0 +1,16 @@
+graph LR
+classDef model fill:#fce4ec,stroke:#c62828
+classDef fc fill:#e8f5e9,stroke:#2e7d32
+classDef mcp fill:#fff3e0,stroke:#ef6c00
+classDef external fill:#e1f5ff,stroke:#01579b
+A[LLM]:::model -->|Function Calling<br/>我要调用工具| B[Agent 宿主程序]:::fc
+B -->|本地工具| C[本地文件系统<br/>命令执行]:::external
+B -->|MCP 协议| D[MCP Server]:::mcp
+D -->|标准格式| E[GitHub]:::external
+D -->|标准格式| F[Postgres]:::external
+D -->|标准格式| G[Slack]:::external
+E -->|返回结果| D
+F -->|返回结果| D
+G -->|返回结果| D
+D -->|返回结果| B
+B -->|塞回上下文| A

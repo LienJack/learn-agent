@@ -1,0 +1,15 @@
+flowchart LR
+  U["用户输入\n修复失败测试"] --> CLI["CLI\n读取输入"]
+  CLI --> R["Runtime\n组装请求"]
+  R --> C["Provider Contract\n统一模型契约"]
+  C --> A["Provider Adapter\n翻译 API 差异"]
+  A --> M["真实模型\nOpenAI / Anthropic / ..."]
+  M --> A
+  A --> E["Model Events\ntext / usage / error"]
+  E --> R
+  R --> CLI
+
+  C:::hot
+  E:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

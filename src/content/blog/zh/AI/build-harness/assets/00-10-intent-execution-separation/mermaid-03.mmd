@@ -1,0 +1,13 @@
+flowchart LR
+  R["Runtime State\n权限模式/项目规则"] --> F["Tool Visibility\n本轮工具菜单"]
+  F --> M["Model\n只能从菜单中提议"]
+  M --> I["Tool Intent"]
+  I --> A{"Approval\n单次调用审批"}
+  A -->|allow| E["Execution"]
+  A -->|ask| H["Human"]
+  A -->|deny| O["Observation\n拒绝原因"]
+
+  F:::hot
+  A:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

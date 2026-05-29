@@ -18,6 +18,7 @@
     "publish:cn": "publish/bin/publish-cn",
     "publish:en": "publish/bin/publish-en",
     "publish:ja": "publish/bin/publish-ja",
+    "publish:qiita": "publish/bin/publish-qiita",
     "translate:en": "translate/bin/translate-en",
     "translate:ja": "translate/bin/translate-ja",
     "translate:assets": "translate/bin/translate-assets",

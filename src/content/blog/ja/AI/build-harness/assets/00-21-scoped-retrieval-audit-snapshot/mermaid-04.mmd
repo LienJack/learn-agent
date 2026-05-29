@@ -1,0 +1,18 @@
+flowchart TB
+  I["检索 Intent"] --> A["Source Access Gate"]
+  A -->|允许读取| R["召回候选"]
+  A -->|拒绝| D["拒绝事件"]
+  R --> V["Model Visibility Gate"]
+  V -->|原文可见| O["原文证据"]
+  V -->|需脱敏| Z["脱敏摘要"]
+  V -->|不可见| X["runtime-only 引用"]
+  O --> S["Snapshot"]
+  Z --> S
+  X --> S
+  D --> S
+
+  A:::hot
+  V:::hot
+  S:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

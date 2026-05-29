@@ -1,0 +1,50 @@
+{
+  "article": "docs/zh/00-09-m0-core-kernel.md",
+  "slug": "00-09-m0-core-kernel",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-core-provider-boundary",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释真实 provider 只返回模型事件和 tool intent，执行权仍在 core/runtime。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-event-state-projection",
+      "kind": "body-photo",
+      "insert_after_heading": "## 七、Conversation State：状态是事实的投影，不是事实本身",
+      "purpose": "解释 Event Log、State、Context Projection、ModelRequest 的责任关系。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-09-m0-core-kernel/photo-02-event-state-projection.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-09-m0-core-kernel/photo-02-event-state-projection.prompt.en.md",
+        "ja": "docs/ja/assets/00-09-m0-core-kernel/photo-02-event-state-projection.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-09-m0-core-kernel/photo-02-event-state-projection.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-runtime-facade-registry",
+      "kind": "body-photo",
+      "insert_after_heading": "## 八、Runtime Facade：CLI 只启动 run，不接管内部细节",
+      "purpose": "解释 CLI、runtime facade、registry、provider adapter 之间的调用边界。",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.prompt.en.md",
+        "ja": "docs/ja/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.png",
+      "status": "generated"
+    }
+  ]
+}

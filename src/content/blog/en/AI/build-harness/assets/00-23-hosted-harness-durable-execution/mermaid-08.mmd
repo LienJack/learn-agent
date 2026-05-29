@@ -1,0 +1,10 @@
+flowchart LR
+  L["Local CLI\n单用户本地进程"] --> S["Server Agent\n远程 API + worker"]
+  S --> H["Hosted Harness\n托管控制系统"]
+
+  L --> L1["本地 cwd\n终端交互\n进程内状态"]
+  S --> S1["队列\n远程 worker\n集中日志"]
+  H --> H1["session 事实源\nsandbox pool\nvault\nartifact\nresume\nnotification"]
+
+  classDef hot fill:#fff2b8,stroke:#b78900,color:#111;
+  class H,H1 hot;

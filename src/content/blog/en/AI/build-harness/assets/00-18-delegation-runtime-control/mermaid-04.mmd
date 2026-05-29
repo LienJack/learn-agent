@@ -1,0 +1,16 @@
+stateDiagram-v2
+  [*] --> Proposed: 父 Agent 提出 DelegateIntent
+  Proposed --> Validated: 结构与范围通过
+  Validated --> Rejected: 越界/缺少能力
+  Validated --> Running: 权限允许
+  Running --> NeedsApproval: 子 Agent 请求高风险动作
+  NeedsApproval --> Running: 父 Agent/用户批准
+  NeedsApproval --> Constrained: 拒绝并收窄范围
+  Constrained --> Running: 继续只做安全子集
+  Running --> Completed: 返回结构化结果
+  Running --> Failed: 超时/取消/工具失败
+  Failed --> Recovered: 父 Agent 回收或重派
+  Completed --> Joined: 父 Agent review & join
+  Recovered --> Joined
+  Rejected --> Joined
+  Joined --> [*]

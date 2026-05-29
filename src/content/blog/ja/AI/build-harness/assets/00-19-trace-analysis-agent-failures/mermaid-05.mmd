@@ -1,0 +1,10 @@
+flowchart LR
+  A["Artifact\n原始测试日志"] --> B{"事实抽取"}
+  B --> C["关键事实\nlegacy user_id"]
+  C --> D{"Context Policy"}
+  D -->|保留| E["Messages\n模型可见"]
+  D -->|遗漏| X["上下文缺失"]
+  E --> F["模型决策"]
+
+  classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
+  class C,D,X hot;

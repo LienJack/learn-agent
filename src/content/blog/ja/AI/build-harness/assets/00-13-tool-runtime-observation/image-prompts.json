@@ -1,0 +1,68 @@
+{
+  "article": "docs/ja/00-13-tool-runtime-observation.md",
+  "slug": "00-13-tool-runtime-observation",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-tool-runtime-pipeline",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "tool intent から observation までの完全な制御実行パイプラインを説明する。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.prompt.en.md",
+        "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-observation-projection",
+      "kind": "body-photo",
+      "insert_after_heading": "## 七、Result Normalization：生の結果は observation ではない",
+      "purpose": "raw result は model view、user view、session fact、artifact ref へ投影される必要があることを強調する。",
+      "diagram_type": "入力-処理-出力",
+      "prompt_file_zh": "docs/zh/assets/00-13-tool-runtime-observation/photo-02-observation-projection.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-02-observation-projection.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-13-tool-runtime-observation/photo-02-observation-projection.prompt.en.md",
+        "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-02-observation-projection.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-13-tool-runtime-observation/photo-02-observation-projection.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-scheduler-sandbox-boundary",
+      "kind": "body-photo",
+      "insert_after_heading": "## 五、Scheduler：ツール実行は即 await ではない",
+      "purpose": "permission allow の後にも、調度、並行戦略、長時間タスク処理、sandbox が必要なことを示す。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-04-audit-replay-chain",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十、Audit Event：「何が起きたか」を記録し、「モデルが何を言ったか」だけではない",
+      "purpose": "intent、permission、invocation、observation が監査可能・replay 可能な事実チェーンを作ることを説明する。",
+      "diagram_type": "状態シーケンス",
+      "prompt_file_zh": "docs/zh/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.prompt.en.md",
+        "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

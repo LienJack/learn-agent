@@ -1,0 +1,15 @@
+flowchart LR
+  M["Model\n工具意图"] --> S["Schema\n参数校验"]
+  S --> P{"Permission\n允许吗"}
+  P -- "拒绝" --> D["Observation\n说明原因"]
+  P -- "需要确认" --> Q["User Approval\n暂停等待"]
+  P -- "允许" --> R["Tool Runtime\n调用工具"]
+  R --> E["Execution\n真实执行"]
+  E --> O["Observation\n结构化结果"]
+  O --> ST["Session\n事件日志"]
+  ST --> C["Context\n下一轮输入"]
+
+  P:::hot
+  O:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

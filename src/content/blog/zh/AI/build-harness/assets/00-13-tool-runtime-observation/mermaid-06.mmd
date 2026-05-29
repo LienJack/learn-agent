@@ -1,0 +1,15 @@
+flowchart LR
+  U["User Goal\n修复测试"] --> C["Context\n本轮输入"]
+  C --> M["Model\n提出 intent"]
+  M --> T["Tool Runtime\n受控执行"]
+  T --> O["Observation\n事实投影"]
+  O --> S["Session State\n折叠现场"]
+  S --> C
+  O --> A["Audit / Replay\n事实日志"]
+  O --> V["Verification\n验证依据"]
+
+  T:::hot
+  O:::hot
+  A:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

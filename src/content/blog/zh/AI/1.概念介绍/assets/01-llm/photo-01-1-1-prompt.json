@@ -1,0 +1,15 @@
+{
+  "id": "photo-01",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "1.1 本质就是一个语言预测器",
+  "sectionScore": 2,
+  "anchor": "### 1.1 本质就是一个语言预测器",
+  "sectionExcerpt": "LLM（大语言模型，通过海量文本训练、能理解和生成自然语言的神经网络）最底层做的事很朴素：看到前面的内容后，猜下一个最可能出现的词片段。注意，不一定是完整词，有时只是一个字、半个词、一个标点。技术上这叫 token。\n\n它不是先想完一整段再吐出来，而是\"一个字一个字地往后接\"。只是接得太准、太快、太像懂你，所以你觉得它在\"思考\"。\n\n训练时它看过海量文本、代码、网页、书、问答、论坛、论文。看的东西足够多，它就学会了语言规律、知识关联和任务套路。于是它表现得像是会很多技能：写邮件、总结文章、解释代码、列方案、陪你对话。\n\n换句话说，它不是\"学会了这些职业\"，而是在参数里压缩了这些场景的语言模式。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-01-1-1-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-01-1-1-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-01-1-1.png",
+  "markdownRef": "./assets/01-llm/photo-01-1-1.png",
+  "alt": "LLM 到底在做什么：从猜词到生成的完整链路 - 1.1 本质就是一个语言预测器",
+  "promptStatus": "planned"
+}

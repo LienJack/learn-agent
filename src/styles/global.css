@@ -2402,7 +2402,7 @@ input {
 	color: var(--series-muted);
 }
 
-.blog-series-route-page h1 {
+.blog-series-route-page .page-intro h1 {
 	max-width: 12ch;
 	margin-bottom: var(--space-4);
 	font-family: var(--font-title);
@@ -2529,14 +2529,18 @@ input {
 	color: var(--series-muted);
 }
 
-.blog-series-route-page .series-overview-heading h2 {
-	max-width: 28rem;
+.blog-series-route-page .series-overview-heading .series-overview-title {
+	max-width: none;
 	margin: 0;
 	font-family: var(--font-title);
-	font-size: clamp(2.2rem, 4.6vw, 4.3rem);
+	font-size: clamp(2rem, 3.6vw, 2.85rem);
 	line-height: 1.04;
 	letter-spacing: 0;
 	color: var(--series-text);
+}
+
+.blog-series-route-page .series-overview-heading .is-short-series-title {
+	white-space: nowrap;
 }
 
 .blog-series-route-page .blog-group-alias,
@@ -2751,8 +2755,12 @@ input {
 		display: none;
 	}
 
-	.blog-series-route-page h1 {
+	.blog-series-route-page .page-intro h1 {
 		font-size: clamp(2.65rem, 14vw, 4.2rem);
+	}
+
+	.blog-series-route-page .series-overview-heading .series-overview-title {
+		font-size: clamp(2rem, 8vw, 2.45rem);
 	}
 
 	.blog-series-route-page .series-posts-intro,

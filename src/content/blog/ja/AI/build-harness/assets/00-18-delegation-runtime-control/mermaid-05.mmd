@@ -1,0 +1,22 @@
+flowchart TD
+  F["子任务失败或异常"] --> K{"失败类型"}
+  K --> V["Validation\n任务包不合法"]
+  K --> C["Capability\n能力/权限不足"]
+  K --> R["Runtime\n超时/崩溃"]
+  K --> O["Contract\n输出不合格"]
+  K --> S["Semantic\n结论冲突"]
+
+  V --> A1["修正任务包\n重新提出 delegation"]
+  C --> A2["申请权限\n或改派只读角色"]
+  R --> A3["重试/降级/取消"]
+  O --> A4["要求结构化重写\n或保守接管"]
+  S --> A5["父 Agent 审证据\n必要时仲裁"]
+
+  A1 --> J["父 Agent Join"]
+  A2 --> J
+  A3 --> J
+  A4 --> J
+  A5 --> J
+
+  J:::hot
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

@@ -1,0 +1,19 @@
+flowchart LR
+  Goal["用户目标"] --> Policy["Policy\n能否启动"]
+  Policy --> Sandbox["Sandbox\n在哪里跑"]
+  Sandbox --> Runtime["Runtime\n如何跑"]
+  Runtime --> Context["Context\n这一轮看什么"]
+  Context --> Model["Model\n判断下一步"]
+  Model --> Intent["Intent\n行动意图"]
+  Intent --> ToolRT["Tool Runtime\n校验执行"]
+  ToolRT --> Obs["Observation\n事实结果"]
+  Obs --> Log["Session Log\n持久轨迹"]
+  Log --> Runtime
+  Log --> Trace["Trace / Eval\n质量信号"]
+
+  Runtime:::hot
+  ToolRT:::hot
+  Log:::hot
+  Trace:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

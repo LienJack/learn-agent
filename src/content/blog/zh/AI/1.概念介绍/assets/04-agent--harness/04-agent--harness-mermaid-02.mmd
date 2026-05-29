@@ -1,0 +1,17 @@
+flowchart TD
+    classDef state fill:#e1f5ff,stroke:#01579b
+    classDef model fill:#fce4ec,stroke:#c62828
+    classDef tool fill:#fff3e0,stroke:#ef6c00
+    classDef judge fill:#e8f5e9,stroke:#2e7d32
+
+    A[用户目标<br/>与当前状态]:::state --> B[构建查询]:::state
+    B --> C[模型推理<br/>判断下一步]:::model
+    C --> D{需要工具?}:::judge
+    D -->|否| E[输出最终答案]:::model
+    D -->|是| F[校验权限<br/>执行工具]:::tool
+    F --> G[结果回写状态]:::state
+    G --> H{需要压缩?}:::judge
+    H -->|是| I[压缩上下文]:::state
+    H -->|否| B
+    I --> B
+    E --> J[任务完成]:::state

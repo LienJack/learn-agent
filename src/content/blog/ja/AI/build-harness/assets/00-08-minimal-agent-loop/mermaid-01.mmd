@@ -1,0 +1,15 @@
+flowchart LR
+  U["用户目标\n修复失败测试"] --> S["State\n当前现场"]
+  S --> T["Think\n判断缺什么"]
+  T --> A{"Act?\n需要工具吗"}
+  A -- "需要" --> X["Tool\n读取/搜索/测试"]
+  X --> O["Observe\n结果回填"]
+  O --> S
+  A -- "不需要" --> F["Final\n给出结论"]
+
+  T:::hot
+  O:::hot
+  F:::done
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;
+  classDef done fill:#e8f5e9,stroke:#111,stroke-width:1.5px,color:#111;

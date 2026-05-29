@@ -1,0 +1,19 @@
+flowchart TB
+  EL["Event Log\n事实源"] --> P1["Projection: 主上下文\n目标/状态/下一步"]
+  EL --> P2["Projection: 子任务摘要\n证据/范围/假设"]
+  EL --> P3["Projection: 审查上下文\ndiff/计划/风险"]
+
+  P1 --> PA["父 Agent"]
+  P2 --> SA["Sub-Agent\n隔离执行"]
+  P3 --> RA["Reviewer\n独立检查"]
+
+  SA --> SR["结构化结果"]
+  RA --> RR["审查意见"]
+
+  SR --> EL
+  RR --> EL
+  EL --> J["父 Agent Join\n合并事实而非转录"]
+
+  EL:::hot
+  J:::hot
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

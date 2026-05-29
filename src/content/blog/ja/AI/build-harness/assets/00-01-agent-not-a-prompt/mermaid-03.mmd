@@ -1,0 +1,17 @@
+stateDiagram-v2
+  [*] --> BuildInput
+  BuildInput --> ModelEvent: call model
+  ModelEvent --> Final: no tool intent
+  ModelEvent --> ParseIntent: tool_use
+  ParseIntent --> PolicyCheck: valid schema
+  ParseIntent --> Recover: invalid schema
+  PolicyCheck --> ToolExecution: allowed
+  PolicyCheck --> UserApproval: needs approval
+  PolicyCheck --> Recover: denied
+  UserApproval --> ToolExecution: approved
+  UserApproval --> Recover: rejected
+  ToolExecution --> Observation: result / error
+  Observation --> StateUpdate
+  StateUpdate --> BuildInput: next turn
+  Final --> [*]
+  Recover --> StateUpdate

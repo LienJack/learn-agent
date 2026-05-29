@@ -1,0 +1,10 @@
+flowchart TB
+  P["父 Agent\n修复测试"] --> B["任务包\n检查旧 API"]
+  B --> S["子 Agent\nlegacy reviewer"]
+  S --> R["结构化结果\n风险 + 证据 + unknowns"]
+  R --> J{"Join / Review"}
+  J -->|采纳证据| D1["保守修复\n兼容新旧 user_id"]
+  J -->|忽略 unknowns| D2["错误决策\n全部转 string"]
+
+  classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
+  class R,J,D2 hot;

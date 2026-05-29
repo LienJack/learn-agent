@@ -33,3 +33,7 @@ publish/artifacts/*
 !publish/artifacts/.gitkeep
 publish/runs/*
 !publish/runs/.gitkeep
+translate/artifacts/*
+!translate/artifacts/.gitkeep
+translate/runs/*
+!translate/runs/.gitkeep

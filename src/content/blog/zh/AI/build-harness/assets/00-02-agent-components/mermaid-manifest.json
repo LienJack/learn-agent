@@ -1,0 +1,71 @@
+{
+  "article": "docs/zh/00-02-agent-components.md",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "docs/zh/assets/00-02-agent-components/mermaid-01.mmd",
+      "targetPath": "docs/zh/assets/00-02-agent-components/mermaid-01.png",
+      "markdownRef": "assets/00-02-agent-components/mermaid-01.png",
+      "alt": "Agent 组成模型：Model、Loop、Tools、State Mermaid 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "sourcePath": "docs/zh/assets/00-02-agent-components/mermaid-02.mmd",
+      "targetPath": "docs/zh/assets/00-02-agent-components/mermaid-02.png",
+      "markdownRef": "assets/00-02-agent-components/mermaid-02.png",
+      "alt": "Agent 组成模型：Model、Loop、Tools、State Mermaid 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "sourcePath": "docs/zh/assets/00-02-agent-components/mermaid-03.mmd",
+      "targetPath": "docs/zh/assets/00-02-agent-components/mermaid-03.png",
+      "markdownRef": "assets/00-02-agent-components/mermaid-03.png",
+      "alt": "Agent 组成模型：Model、Loop、Tools、State Mermaid 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "sourcePath": "docs/zh/assets/00-02-agent-components/mermaid-04.mmd",
+      "targetPath": "docs/zh/assets/00-02-agent-components/mermaid-04.png",
+      "markdownRef": "assets/00-02-agent-components/mermaid-04.png",
+      "alt": "Agent 组成模型：Model、Loop、Tools、State Mermaid 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "sourcePath": "docs/zh/assets/00-02-agent-components/mermaid-05.mmd",
+      "targetPath": "docs/zh/assets/00-02-agent-components/mermaid-05.png",
+      "markdownRef": "assets/00-02-agent-components/mermaid-05.png",
+      "alt": "Agent 组成模型：Model、Loop、Tools、State Mermaid 5",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "sourcePath": "docs/zh/assets/00-02-agent-components/mermaid-06.mmd",
+      "targetPath": "docs/zh/assets/00-02-agent-components/mermaid-06.png",
+      "markdownRef": "assets/00-02-agent-components/mermaid-06.png",
+      "alt": "Agent 组成模型：Model、Loop、Tools、State Mermaid 6",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    }
+  ]
+}

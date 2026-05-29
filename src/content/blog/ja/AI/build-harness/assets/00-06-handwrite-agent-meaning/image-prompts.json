@@ -1,0 +1,53 @@
+{
+  "article": "docs/ja/00-06-handwrite-agent-meaning.md",
+  "slug": "00-06-handwrite-agent-meaning",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-framework-mechanism-judgement",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "フレームワーク抽象、底層メカニズム、エンジニアリング判断の関係を説明する。フレームワークは素早い開始を助け、手書きの最小メカニズムは境界を見抜く助けになる。",
+      "diagram_type": "入力-処理-出力",
+      "prompt_file_zh": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.en.md",
+        "ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-minimal-cli-agent-loop",
+      "kind": "body-photo",
+      "insert_after_heading": "## 三、最小 Agent を手書きするのであって、完全なフレームワークを手書きするのではない",
+      "purpose": "手書き最小 CLI Agent の閉ループを描き、モデル意図、権限ポリシー、ツール実行、観察回填、状態更新を強調する。",
+      "diagram_type": "円形ループ",
+      "prompt_file_zh": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.en.md",
+        "ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-framework-boundary-decision",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十、いつフレームワークを使い、迂回し、拡張するか",
+      "purpose": "いつフレームワークをそのまま使い、いつ拡張し、いつ局所抽象を迂回して自前 Harness 境界を作るかを決定経路で示す。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.en.md",
+        "ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+flowchart TB
+  LOG["Session Log\n事实事件"] --> ST["State\n当前现场"]
+  ST --> CTX["Context\n本轮视野"]
+  LOG --> CAND["Candidate Ledger\n候选记忆"]
+  CAND --> GOV{"Governance\n治理检查"}
+  GOV -- "通过" --> STORE["Governance Store\n长期记忆"]
+  GOV -- "需要确认" --> REVIEW["Review Gate\n人工或策略复核"]
+  GOV -- "拒绝" --> ARCHIVE["Rejected / Expired\n留痕但不注入"]
+  STORE --> RET["Scoped Retrieval\n带边界检索"]
+  RET --> CTX
+
+  CAND:::hot
+  GOV:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

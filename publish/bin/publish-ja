@@ -13,6 +13,7 @@ import {
 	writeJson,
 	writeRunRecord,
 } from '../lib/common.mjs';
+import { inspectQiitaArticle, prepareQiitaArticle, publishQiita, updateQiitaIndex } from '../lib/qiita.mjs';
 import { inspectZennArticle, prepareZennArticle, zennRepoDir } from '../lib/zenn.mjs';
 
 loadDotEnv();
@@ -25,29 +26,52 @@ try {
 	}
 
 	const articles = requireArticleFiles(files).map(readArticle);
-	const run = createRun({ language: 'ja', platforms: ['zenn'], articles });
-	const prepared = [];
+	const run = createRun({ language: 'ja', platforms: ['zenn', 'qiita'], articles });
+	const preparedZenn = [];
+	const preparedQiita = [];
 	let hasBlockers = false;
+	const qiitaOptions = qiitaOptionsForJapanesePublish(options);
 
 	for (const article of articles) {
 		const articleRecord = run.record.articles.find((item) => item.source === article.sourceRelPath);
-		const inspection = inspectZennArticle(article);
-		articleRecord.blockers = inspection.blockers;
-		articleRecord.slug = inspection.slug;
-		articleRecord.topics = inspection.topics;
+		const zennInspection = inspectZennArticle(article);
+		const qiitaInspection = inspectQiitaArticle(article, qiitaOptions);
+		articleRecord.platforms = {
+			zenn: {
+				blockers: zennInspection.blockers,
+				slug: zennInspection.slug,
+				topics: zennInspection.topics,
+				published: options.published,
+			},
+			qiita: {
+				blockers: qiitaInspection.blockers,
+				warnings: qiitaInspection.warnings,
+				itemId: qiitaInspection.itemId,
+				tags: qiitaInspection.tags,
+				visibility: qiitaInspection.visibility,
+				imageMode: qiitaInspection.imageMode,
+			},
+		};
+		articleRecord.blockers = [...zennInspection.blockers, ...qiitaInspection.blockers];
+		articleRecord.warnings = qiitaInspection.warnings;
+		articleRecord.slug = zennInspection.slug;
+		articleRecord.topics = zennInspection.topics;
+		articleRecord.qiitaItemId = qiitaInspection.itemId;
+		articleRecord.qiitaTags = qiitaInspection.tags;
+		articleRecord.qiitaVisibility = qiitaInspection.visibility;
 
-		if (inspection.blockers.length > 0) {
+		if (articleRecord.blockers.length > 0) {
 			hasBlockers = true;
 			articleRecord.status = 'blocked';
 			continue;
 		}
 
-		const plannedArticlePath = path.join(inspection.zennRepo, process.env.ZENN_ARTICLES_DIR || 'articles', `${inspection.slug}.md`);
-		const indexPath = path.join(run.artifactDir, `${inspection.slug}.zenn.json`);
+		const plannedArticlePath = path.join(zennInspection.zennRepo, process.env.ZENN_ARTICLES_DIR || 'articles', `${zennInspection.slug}.md`);
+		const indexPath = path.join(run.artifactDir, `${zennInspection.slug}.zenn.json`);
 		writeJson(indexPath, {
 			source: article.sourceRelPath,
 			zennArticle: plannedArticlePath,
-			copiedImages: inspection.imageRefs.length,
+			copiedImages: zennInspection.imageRefs.length,
 			published: options.published,
 		});
 		articleRecord.status = 'prepared';
@@ -56,28 +80,69 @@ try {
 			platform: 'zenn',
 			status: options.dryRun ? 'planned' : 'ready_to_generate',
 			articlePath: plannedArticlePath,
-			imageCount: inspection.imageRefs.length,
+			imageCount: zennInspection.imageRefs.length,
 		});
-		prepared.push({ article, slug: inspection.slug });
+		preparedZenn.push({ article, slug: zennInspection.slug });
+
+		if (canPrepareQiitaBeforeConfirmation(qiitaInspection)) {
+			const qiitaResult = await prepareQiitaArticle(article, run.artifactDir, qiitaOptions);
+			articleRecord.artifacts.push(path.relative(process.cwd(), qiitaResult.bodyPath));
+			articleRecord.artifacts.push(path.relative(process.cwd(), qiitaResult.payloadPath));
+			articleRecord.results.push({
+				platform: 'qiita',
+				status: options.dryRun ? 'planned' : 'ready_to_publish',
+				itemId: qiitaInspection.itemId || '',
+				visibility: qiitaInspection.visibility,
+				imageRewrites: qiitaResult.replacements.length,
+			});
+			preparedQiita.push({ article, result: qiitaResult, itemId: qiitaInspection.itemId });
+		} else {
+			const summaryPath = path.join(run.artifactDir, `${path.basename(article.sourcePath, path.extname(article.sourcePath))}.qiita-summary.json`);
+			writeJson(summaryPath, {
+				source: article.sourceRelPath,
+				title: article.data.title || '',
+				itemId: qiitaInspection.itemId,
+				imageMode: qiitaInspection.imageMode,
+				needsRemoteImageWork: qiitaInspection.needsRemoteImageWork,
+				visibility: qiitaInspection.visibility,
+				warnings: qiitaInspection.warnings,
+				tags: qiitaInspection.tags,
+				commands: qiitaInspection.commands,
+				acceptance: qiitaInspection.acceptance,
+			});
+			articleRecord.artifacts.push(path.relative(process.cwd(), summaryPath));
+			articleRecord.results.push({
+				platform: 'qiita',
+				status: options.dryRun ? 'planned' : 'waiting_confirmation',
+				itemId: qiitaInspection.itemId || '',
+				visibility: qiitaInspection.visibility,
+				imageRewrites: 'pending',
+			});
+			preparedQiita.push({ article, needsPrepare: true, itemId: qiitaInspection.itemId });
+		}
 	}
 
 	run.record.zennRepo = zennRepoDir();
 	run.record.zennStatus = hasBlockers ? 'not checked because preflight is blocked' : gitSummary(zennRepoDir());
+	run.record.qiitaVisibility = qiitaOptions.private === false ? 'public' : 'private';
 	run.record.status = hasBlockers ? 'blocked' : 'waiting_confirmation';
 	run.record.confirmation = {
 		required: !hasBlockers,
-		action: 'Commit and push generated Zenn files',
+		action: `Publish Japanese platforms: Zenn ${options.published ? 'published' : 'draft'} and Qiita ${qiitaOptions.private === false ? 'public' : 'private'}`,
 		confirmed: false,
 	};
 	writeRunRecord(run.recordPath, run.record);
 
-	printSummary('Zenn publish summary', [
+	printSummary('Japanese publish summary', [
 		`Run: ${path.relative(process.cwd(), run.recordPath)}`,
 		`Zenn repo: ${zennRepoDir()}`,
 		`Zenn git status:\n${run.record.zennStatus || 'clean'}`,
+		`Qiita visibility: ${run.record.qiitaVisibility}`,
 		...run.record.articles.flatMap((article) => [
 			`Article: ${article.source}`,
 			`Status: ${article.status}`,
+			`Qiita item: ${article.qiitaItemId || 'new item'}`,
+			`Qiita warnings: ${article.warnings?.length ? article.warnings.join('; ') : 'none'}`,
 			`Blockers: ${article.blockers.length ? article.blockers.join('; ') : 'none'}`,
 		]),
 	]);
@@ -86,7 +151,7 @@ try {
 		process.exit(hasBlockers ? 1 : 0);
 	}
 
-	if (!requireConfirmation(options, 'This will commit and push generated Zenn files.')) {
+	if (!requireConfirmation(options, 'This will publish to Japanese platforms: commit/push Zenn files and write Qiita items.')) {
 		run.record.status = 'cancelled';
 		run.record.confirmation.confirmed = false;
 		run.record.finishedAt = new Date().toISOString();
@@ -94,14 +159,51 @@ try {
 		process.exit(0);
 	}
 
-	const generated = prepared.map((item) => prepareZennArticle(item.article, { published: options.published }));
+	const generatedQiita = [];
+	for (const item of preparedQiita) {
+		const result = item.needsPrepare ? await prepareQiitaArticle(item.article, run.artifactDir, qiitaOptions) : item.result;
+		const response = await publishQiita(result.payload, item.itemId);
+		updateQiitaIndex(item.article, response);
+		generatedQiita.push({ article: item.article, response });
+		const articleRecord = run.record.articles.find((article) => article.source === item.article.sourceRelPath);
+		articleRecord.qiitaItemId = response.id || item.itemId || '';
+		articleRecord.qiitaUrl = response.url || '';
+		articleRecord.results.push({
+			platform: 'qiita',
+			status: 'published',
+			itemId: response.id || item.itemId || '',
+			url: response.url || '',
+			private: response.private ?? qiitaOptions.private !== false,
+		});
+	}
+
+	const generated = preparedZenn.map((item) => ({
+		article: item.article,
+		...prepareZennArticle(item.article, { published: options.published }),
+	}));
 	const filesToCommit = generated.flatMap((item) => [
 		path.relative(zennRepoDir(), item.articlePath),
 		...item.copiedImages.map((image) => image.to.replace(/^\//, '')),
 	]);
 	gitCommitAndPush(zennRepoDir(), filesToCommit, `publish: ${articles.map((article) => article.data.title).join(', ')}`);
+	for (const item of generated) {
+		const articleRecord = run.record.articles.find((article) => article.source === item.article.sourceRelPath);
+		if (articleRecord) {
+			articleRecord.results.push({
+				platform: 'zenn',
+				status: 'published',
+				articlePath: item.articlePath,
+				published: item.published,
+			});
+		}
+	}
 	run.record.status = 'completed';
 	run.record.confirmation.confirmed = true;
+	run.record.qiitaPublished = generatedQiita.map((item) => ({
+		source: item.article.sourceRelPath,
+		id: item.response.id || '',
+		url: item.response.url || '',
+	}));
 	run.record.finishedAt = new Date().toISOString();
 	writeRunRecord(run.recordPath, run.record);
 } catch (error) {
@@ -114,7 +216,20 @@ function usage() {
   publish/bin/publish-ja [--dry-run] [--yes] [--published] <article.md> [article-2.md ...]
 
 Behavior:
-  - Generates Zenn Markdown and images in ZENN_REPO_DIR.
+  - Generates Zenn Markdown/images in ZENN_REPO_DIR and Qiita Markdown/API payloads under publish/artifacts/.
   - Writes run summaries under publish/runs/ and publish/artifacts/.
-  - Commit and push require --yes after reviewing the summary.`);
+  - Defaults to Zenn draft and Qiita private.
+  - --published makes Zenn published and Qiita public.
+  - Commit/push and Qiita writes require --yes after reviewing the summary.`);
+}
+
+function qiitaOptionsForJapanesePublish(options) {
+	return {
+		...options,
+		private: options.published ? false : options.private,
+	};
+}
+
+function canPrepareQiitaBeforeConfirmation(inspection) {
+	return !inspection.needsRemoteImageWork || inspection.imageMode === 'base-url';
 }

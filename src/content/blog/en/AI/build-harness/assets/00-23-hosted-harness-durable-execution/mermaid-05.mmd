@@ -1,0 +1,15 @@
+stateDiagram-v2
+  [*] --> Queued
+  Queued --> Claimed: worker lease
+  Claimed --> Preparing: workspace setup
+  Preparing --> Running: session restored
+  Running --> WaitingApproval: policy requires user
+  WaitingApproval --> Running: approval granted
+  Running --> Retrying: retryable failure
+  Retrying --> Running: backoff elapsed
+  Running --> Paused: budget / external wait
+  Paused --> Running: resume signal
+  Running --> Completed: verified done
+  Running --> Failed: terminal failure
+  Completed --> [*]
+  Failed --> [*]

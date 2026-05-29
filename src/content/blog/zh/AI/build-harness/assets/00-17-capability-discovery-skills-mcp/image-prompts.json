@@ -1,0 +1,63 @@
+{
+  "article": "docs/zh/00-17-capability-discovery-skills-mcp.md",
+  "language": "zh",
+  "images": [
+    {
+      "id": "00-17-photo-01-capability-catalog-visible-set",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释候选能力如何经过发现策略过滤成本轮可见集合，再进入统一工具管线",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.prompt.en.md",
+        "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-17-photo-02-skills-mcp-toolsearch-layers",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、Capability 不是 Tool，先把概念拆开",
+      "purpose": "解释 Skills、MCP、ToolSearch 和 Deferred Loading 在能力发现中的分层职责",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.prompt.en.md",
+        "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-17-photo-03-visibility-permission-gates",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 八、可见性和权限是两道门",
+      "purpose": "解释可见性门控制计划空间，权限门控制执行空间，两者不能互相替代",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.prompt.en.md",
+        "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-17-photo-04-dynamic-capability-diff",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十、能力变化要能 diff",
+      "purpose": "解释动态能力变化如何被记录为 capability diff，并支持后续归因与 replay",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.prompt.en.md",
+        "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.png",
+      "status": "generated"
+    }
+  ],
+  "status": "generated"
+}

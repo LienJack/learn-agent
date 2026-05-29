@@ -1,0 +1,60 @@
+{
+  "article": "docs/zh/00-11-plugin-host-core-extension.md",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-01.mmd",
+      "targetPath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-01.png",
+      "markdownRef": "assets/00-11-plugin-host-core-extension/mermaid-01.png",
+      "alt": "Plugin Host：core 为什么要学会被扩展？ Mermaid 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "sourcePath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-02.mmd",
+      "targetPath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-02.png",
+      "markdownRef": "assets/00-11-plugin-host-core-extension/mermaid-02.png",
+      "alt": "Plugin Host：core 为什么要学会被扩展？ Mermaid 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "sourcePath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-03.mmd",
+      "targetPath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-03.png",
+      "markdownRef": "assets/00-11-plugin-host-core-extension/mermaid-03.png",
+      "alt": "Plugin Host：core 为什么要学会被扩展？ Mermaid 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "sourcePath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-04.mmd",
+      "targetPath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-04.png",
+      "markdownRef": "assets/00-11-plugin-host-core-extension/mermaid-04.png",
+      "alt": "Plugin Host：core 为什么要学会被扩展？ Mermaid 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "sourcePath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-05.mmd",
+      "targetPath": "docs/zh/assets/00-11-plugin-host-core-extension/mermaid-05.png",
+      "markdownRef": "assets/00-11-plugin-host-core-extension/mermaid-05.png",
+      "alt": "Plugin Host：core 为什么要学会被扩展？ Mermaid 5",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "status": "generated"
+    }
+  ]
+}

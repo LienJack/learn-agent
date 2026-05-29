@@ -1,0 +1,15 @@
+{
+  "id": "photo-01",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "1. 它可能不知道现场",
+  "sectionScore": 5,
+  "anchor": "### 1. 它可能不知道现场",
+  "sectionExcerpt": "修登录跳转 bug，不是看到一个 `navigate(\"/\")` 就能直接改。\n\n一个靠谱的人类工程师会先看：\n\n- 登录成功后 token 存在哪里\n- 路由守卫在哪里判断登录态\n- redirect 参数是谁生成的\n- 第三方登录是否走同一条链路\n- 项目里有没有现成测试\n- 最近有没有相关改动\n\nAgent 如果没有拿到这些现场信息，就只能猜。\n\n这不是模型不会推理，而是它看见的世界太窄。它也许能给出一个看似合理的修复，但那个修复可能只覆盖了当前文件，没有覆盖真实链路。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-01-1-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-01-1-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-01-1.png",
+  "markdownRef": "./assets/04-agent--harness/photo-01-1.png",
+  "alt": "如何让 Agent 更好干活：从聊天模型到 Agent Harness - 1. 它可能不知道现场",
+  "promptStatus": "planned"
+}

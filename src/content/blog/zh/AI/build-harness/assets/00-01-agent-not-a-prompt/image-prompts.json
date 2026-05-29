@@ -1,0 +1,64 @@
+{
+  "article": "docs/zh/00-01-agent-not-a-prompt.md",
+  "slug": "00-01-agent-not-a-prompt",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-00-agent-runtime-composition",
+      "kind": "body-photo",
+      "insert_after_text": "Agent 不是一句更长的 Prompt，而是“模型 + 循环 + 工具 + 状态 + 控制系统”组合起来的运行过程。",
+      "purpose": "展示 Agent 由模型、循环、工具、状态和控制系统组合成运行过程。",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.prompt.en.md",
+        "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-01-prompt-to-agent-evolution",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释 Prompt、ChatBot、Agent、Harness 的责任如何逐层增加。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.prompt.en.md",
+        "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-agent-loop-reality-bridge",
+      "kind": "body-photo",
+      "insert_after_heading": "## 三、循环让模型从“回答”变成“推进”",
+      "purpose": "把一次回答和多轮推进的差异画成闭环，突出状态和观察结果的回流。",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "docs/zh/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.prompt.en.md",
+        "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-control-system-catches-action",
+      "kind": "body-photo",
+      "insert_after_heading": "## 六、控制系统让 Agent 不跑飞",
+      "purpose": "说明模型提议必须经过权限、沙箱、日志和验证后才进入真实世界。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.prompt.en.md",
+        "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.png",
+      "status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "cover",
+  "kind": "cover",
+  "status": "prompt-planned",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/cover-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/cover-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/cover-prompt-context-rag.png",
+  "markdownRef": "./assets/02-llm/cover-prompt-context-rag.png",
+  "alt": "Prompt、Context、RAG 到底是什么 - 封面图",
+  "promptStatus": "planned",
+  "title": "Prompt、Context、RAG 到底是什么",
+  "description": "从输入链路出发，解释 Prompt、Context 和 RAG 为什么会出现以及它们如何配合。",
+  "tags": [
+    "AI",
+    "LLM",
+    "Prompt",
+    "Context",
+    "RAG"
+  ]
+}

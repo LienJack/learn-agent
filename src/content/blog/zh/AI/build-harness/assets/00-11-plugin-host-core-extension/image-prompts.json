@@ -1,0 +1,64 @@
+{
+  "article": "docs/zh/00-11-plugin-host-core-extension.md",
+  "slug": "00-11-plugin-host-core-extension",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-core-extension-boundary",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释 core 从内置能力走向 Plugin Host 时，边界不是放开，而是收束到 contract、registry、lifecycle、hook gate。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-plugin-host-layers",
+      "kind": "body-photo",
+      "insert_after_heading": "## 四、Plugin Host 的五个核心部件",
+      "purpose": "用分层结构画清外部插件、Plugin Host、Core Kernel 的责任边界。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.prompt.en.md",
+        "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-hook-gate-decision",
+      "kind": "body-photo",
+      "insert_after_heading": "## 九、Hook Kernel：hook 不是普通事件监听",
+      "purpose": "说明 preToolUse hook 站在 intent 和 execution 之间，返回 allow、ask、deny 或 amend。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.prompt.en.md",
+        "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-04-plugin-runtime-test-fix",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十、Plugin Host 如何接住“小型 CLI Agent 修测试”的场景",
+      "purpose": "把 provider 插件、test-runner 插件、policy hook、tool runtime、event log 串成修复测试失败的实际路径。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.prompt.en.md",
+        "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.png",
+      "status": "generated"
+    }
+  ]
+}

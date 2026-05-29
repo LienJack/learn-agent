@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import {
@@ -11,6 +12,7 @@ import {
 } from '../../publish/lib/common.mjs';
 import { inspectChineseArticle } from '../../publish/lib/cn.mjs';
 import { inspectDevArticle } from '../../publish/lib/dev.mjs';
+import { inspectQiitaArticle, prepareQiitaArticle, qiitaTags } from '../../publish/lib/qiita.mjs';
 import { inspectZennArticle, prepareZennArticle, zennTopics } from '../../publish/lib/zenn.mjs';
 
 const fixtureDir = path.join(repoRoot, 'tmp', 'publish-tests');
@@ -100,6 +102,82 @@ test('Zenn preparation writes markdown and copies local images', () => {
 	assert.match(readFile(result.articlePath), /published: false/);
 
 	restoreEnv('ZENN_REPO_DIR', previousRepo);
+});
+
+test('Qiita inspection requires token and tags', () => {
+	const previous = process.env.QIITA_ACCESS_TOKEN;
+	delete process.env.QIITA_ACCESS_TOKEN;
+	delete process.env.QIITA_TOKEN;
+	const articlePath = writeFixture('qiita-missing.md', validArticle({
+		extraFrontmatter: 'tags: []\n',
+	}));
+	const article = readArticle(articlePath);
+
+	const inspection = inspectQiitaArticle(article);
+	assert.match(inspection.blockers.join('\n'), /Missing QIITA_ACCESS_TOKEN/);
+	assert.match(inspection.blockers.join('\n'), /missing frontmatter tags or qiita_tags/);
+
+	restoreEnv('QIITA_ACCESS_TOKEN', previous);
+});
+
+test('Qiita tags prefer qiita_tags and cap at five', () => {
+	const articlePath = writeFixture('qiita-tags.md', validArticle({
+		extraFrontmatter: 'qiita_tags: [Astro, Qiita, Agent]\n',
+	}));
+	const article = readArticle(articlePath);
+
+	assert.deepEqual(qiitaTags(article), ['Astro', 'Qiita', 'Agent']);
+});
+
+test('Qiita preparation writes body and API payload with public image URLs', async () => {
+	const previousToken = process.env.QIITA_ACCESS_TOKEN;
+	const previousBase = process.env.QIITA_IMAGE_BASE_URL;
+	process.env.QIITA_ACCESS_TOKEN = 'test-token';
+	process.env.QIITA_IMAGE_BASE_URL = 'https://example.com/blog-assets/';
+	const articlePath = writeFixture('qiita-image.md', validArticle({ image: true }));
+	const article = readArticle(articlePath);
+
+	const inspection = inspectQiitaArticle(article, { private: false, tweet: true });
+	assert.deepEqual(inspection.blockers, []);
+	assert.equal(inspection.imageMode, 'base-url');
+	const result = await prepareQiitaArticle(article, fixtureDir, { private: false, tweet: true });
+	const payload = readJson(result.payloadPath);
+
+	assert.equal(payload.private, false);
+	assert.equal(payload.tweet, true);
+	assert.equal(payload.title, 'Test Article');
+	assert.deepEqual(payload.tags, [
+		{ name: 'Agent', versions: [] },
+		{ name: 'Publish', versions: [] },
+	]);
+	assert.match(payload.body, /https:\/\/example\.com\/blog-assets\/assets\/diagram\.png/);
+
+	restoreEnv('QIITA_ACCESS_TOKEN', previousToken);
+	restoreEnv('QIITA_IMAGE_BASE_URL', previousBase);
+});
+
+test('Japanese platform dry run plans Zenn and public Qiita when published', () => {
+	const zennRepo = path.join(fixtureDir, 'ja-zenn-repo');
+	mkdirSync(path.join(zennRepo, 'articles'), { recursive: true });
+	const articlePath = writeFixture('ja-platform.md', validArticle());
+
+	const output = execFileSync(
+		'node',
+		['publish/bin/publish-ja', '--dry-run', '--published', articlePath],
+		{
+			cwd: repoRoot,
+			encoding: 'utf8',
+			env: {
+				...process.env,
+				ZENN_REPO_DIR: path.relative(repoRoot, zennRepo),
+				QIITA_ACCESS_TOKEN: 'test-token',
+			},
+		},
+	);
+
+	assert.match(output, /Japanese publish summary/);
+	assert.match(output, /Qiita visibility: public/);
+	assert.match(output, /Qiita item: new item/);
 });
 
 test('Chinese inspection requires heroImage for draft readiness', () => {

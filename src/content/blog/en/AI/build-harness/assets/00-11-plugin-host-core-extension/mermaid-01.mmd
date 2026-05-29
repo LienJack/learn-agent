@@ -1,0 +1,24 @@
+flowchart LR
+  C0["M0 Core\nprovider/tool/hook 内置"] --> P1{"能力增多"}
+  P1 --> M["模型分支\nprovider if/else"]
+  P1 --> T["工具分支\ntool bundle 细节"]
+  P1 --> H["策略分支\nhook 与权限"]
+
+  M --> X["Core 污染\n难测试/难替换"]
+  T --> X
+  H --> X
+
+  X --> PH["Plugin Host\n加载与约束"]
+  PH --> CT["Contracts\n统一能力形状"]
+  PH --> RG["Registry\n统一注册表"]
+  PH --> HK["Hook Kernel\n受控阻断点"]
+
+  CT --> HC["Harness 纪律\n扩展仍受控"]
+  RG --> HC
+  HK --> HC
+
+  PH:::hot
+  HK:::hot
+  HC:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

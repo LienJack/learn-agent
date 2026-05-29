@@ -1,0 +1,22 @@
+sequenceDiagram
+  participant L as Agent Loop
+  participant C as Catalog
+  participant D as Discovery Policy
+  participant M as Model
+  participant TS as ToolSearch
+  participant P as Tool Pipeline
+  participant E as Event Log
+
+  L->>C: 读取候选能力
+  L->>D: 输入任务/路径/权限/预算/连接状态
+  D-->>L: visible set
+  L->>E: capability.diff
+  L->>M: messages + visible tools + skill index
+  M-->>L: intent: search capability
+  L->>TS: 查询候选能力
+  TS-->>D: 候选结果
+  D-->>L: 更新 visible set
+  L->>M: 暴露新增能力
+  M-->>L: intent: call tool
+  L->>P: validate / permission / execute / observe
+  P-->>E: tool event + observation

@@ -1,0 +1,63 @@
+{
+  "article": "docs/zh/00-22-productized-cli-profile-extension.md",
+  "language": "zh",
+  "images": [
+    {
+      "id": "00-22-photo-01-profile-runtime-identity",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、profile 不是主题皮肤，而是运行身份",
+      "purpose": "解释 profile 不是主题皮肤，而是 policy、tool bundle、context source、provider preference、output contract 的组合",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-22-productized-cli-profile-extension/photo-01-profile-runtime-identity.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-22-productized-cli-profile-extension/photo-01-profile-runtime-identity.prompt.en.md",
+        "ja": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-01-profile-runtime-identity.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-22-productized-cli-profile-extension/photo-01-profile-runtime-identity.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-22-photo-02-provider-resolver-stable-ux",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 四、multi-provider：不能让 provider 细节穿透用户体验",
+      "purpose": "解释 multi-provider 如何通过 resolver、capability 和统一 ModelEvent 保持用户体验稳定",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-22-productized-cli-profile-extension/photo-02-provider-resolver-stable-ux.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-22-productized-cli-profile-extension/photo-02-provider-resolver-stable-ux.prompt.en.md",
+        "ja": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-02-provider-resolver-stable-ux.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-22-productized-cli-profile-extension/photo-02-provider-resolver-stable-ux.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-22-photo-03-extension-lifecycle-gates",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 五、extension：安装不是启用，启用不是可见，可见不是可执行",
+      "purpose": "解释 extension 从安装到执行之间的 verify、trust、discovery、permission 多道门",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-22-productized-cli-profile-extension/photo-03-extension-lifecycle-gates.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-22-productized-cli-profile-extension/photo-03-extension-lifecycle-gates.prompt.en.md",
+        "ja": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-03-extension-lifecycle-gates.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-22-productized-cli-profile-extension/photo-03-extension-lifecycle-gates.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-22-photo-04-cli-event-output-contract",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 八、稳定输出协议：终端渲染只是输出的一种投影",
+      "purpose": "解释 Runtime Event Stream 如何投影到 TTY、JSONL、Workbench、CI 和 Trace",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-22-productized-cli-profile-extension/photo-04-cli-event-output-contract.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-22-productized-cli-profile-extension/photo-04-cli-event-output-contract.prompt.en.md",
+        "ja": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-04-cli-event-output-contract.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-22-productized-cli-profile-extension/photo-04-cli-event-output-contract.png",
+      "status": "generated"
+    }
+  ],
+  "status": "generated"
+}

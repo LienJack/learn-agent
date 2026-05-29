@@ -1,0 +1,53 @@
+{
+  "article": "docs/ja/00-09-m0-core-kernel.md",
+  "slug": "00-09-m0-core-kernel",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-core-provider-boundary",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "実 provider はモデルイベントと tool intent だけを返し、実行権は core/runtime に残ることを説明する。",
+      "diagram_type": "レイヤードアーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-event-state-projection",
+      "kind": "body-photo",
+      "insert_after_heading": "## 七、Conversation State：状態は事実の投影であり、事実そのものではない",
+      "purpose": "Event Log、State、Context Projection、ModelRequest の責任関係を説明する。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-09-m0-core-kernel/photo-02-event-state-projection.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-09-m0-core-kernel/photo-02-event-state-projection.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-09-m0-core-kernel/photo-02-event-state-projection.prompt.en.md",
+        "ja": "docs/ja/assets/00-09-m0-core-kernel/photo-02-event-state-projection.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-09-m0-core-kernel/photo-02-event-state-projection.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-runtime-facade-registry",
+      "kind": "body-photo",
+      "insert_after_heading": "## 八、Runtime Facade：CLI は run だけを開始し、内部詳細を握らない",
+      "purpose": "CLI、runtime facade、registry、provider adapter の呼び出し境界を説明する。",
+      "diagram_type": "入力-処理-出力",
+      "prompt_file_zh": "docs/zh/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.prompt.en.md",
+        "ja": "docs/ja/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

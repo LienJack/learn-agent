@@ -1,0 +1,15 @@
+{
+  "id": "photo-15",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "十二、最后给一个最低成本记忆法",
+  "sectionScore": 5,
+  "anchor": "## 十二、最后给一个最低成本记忆法",
+  "sectionExcerpt": "如果你只想带走最短版本，就记这几句话：\n\n- `LLM` 是会读写和推理的语言大脑\n\n- `Tools` 是给它接上的外部手脚\n\n- `Function Calling` 是它请求使用手脚的结构化格式\n\n- `Agent` 是让它反复\"判断 -> 行动 -> 观察\"的执行循环\n\n- `MCP` 是把更多外部能力标准化接进来的协议\n\n- `Skill` 是把一类任务的做法沉淀成可复用工作说明\n\n- `CLI` 是很多工程任务最自然的执行现场\n\n再压成一句话：\n\n**Agent 不是一个更神秘的模型，而是\"LLM + 工具 + 循环 + 状态 + 权限 + Skill + 执行环境\"的组合。**\n\n当你理解这条链，再去看各种 Agent 产品，就不会只问：\n\n\n你会开始问更关键的问题：\n\n\n这些问题，才真正决定一个 Agent 能不能从\"会聊天\"，走到\"能干活\"。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-15-item-09d09038-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-15-item-09d09038-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-15-item-09d09038.png",
+  "markdownRef": "./assets/03--agent/photo-15-item-09d09038.png",
+  "alt": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么 - 十二、最后给一个最低成本记忆法",
+  "promptStatus": "planned"
+}

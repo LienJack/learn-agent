@@ -1,0 +1,64 @@
+{
+  "article": "docs/zh/00-15-context-policy-model-input.md",
+  "slug": "00-15-context-policy-model-input",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-context-policy-projection",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释 Context Policy 如何把 session log、state、memory、retrieval 投影成本轮 model input。",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.prompt.en.md",
+        "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-context-selection-gates",
+      "kind": "body-photo",
+      "insert_after_heading": "## 四、选择：不是相关就能进上下文",
+      "purpose": "展示候选内容进入模型上下文前必须经过相关性、事实新鲜度、权限、信任和预算检查。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.prompt.en.md",
+        "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-decision-ledger-trace",
+      "kind": "body-photo",
+      "insert_after_heading": "## 九、Decision Ledger：每一次投影都要可解释",
+      "purpose": "说明 context decision ledger 如何记录 include/exclude/summarize 决策，并帮助 trace 定位失败责任层。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.prompt.en.md",
+        "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-04-model-input-workbench",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十八、完整链路：修测试时的一轮投影",
+      "purpose": "把一轮修测试任务中模型真正看到的工作台结构画出来，突出规则、当前状态、最新观察、证据和工具集合。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.prompt.en.md",
+        "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.png",
+      "status": "generated"
+    }
+  ]
+}

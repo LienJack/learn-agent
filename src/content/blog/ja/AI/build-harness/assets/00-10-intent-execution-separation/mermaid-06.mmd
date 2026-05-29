@@ -1,0 +1,18 @@
+flowchart TB
+  M["Model Output"] --> P["Parse Tool Intent"]
+  P --> V["Validate"]
+  V -->|ok| A["Approve"]
+  V -->|fail| O1["Observation\n校验失败"]
+  A -->|allow| X["Execute"]
+  A -->|ask/deny| O2["Observation\n权限结果"]
+  X --> R["Result Policy\n截断/存 artifact"]
+  R --> O3["Observation\n事实投影"]
+  O1 --> N["Next Model Turn"]
+  O2 --> N
+  O3 --> N
+
+  P:::hot
+  A:::hot
+  R:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

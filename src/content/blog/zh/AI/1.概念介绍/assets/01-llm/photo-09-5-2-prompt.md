@@ -8,6 +8,8 @@ Use the blog-to-photo skill to turn the following section into an article-body t
 
 ## Section text
 
+![LLM 到底在做什么：从猜词到生成的完整链路 - 5.2 对齐：从"会续写"到"会当助手"](./assets/01-llm/photo-09-5-2.png)
+
 单靠预训练，模型往往会"很会续写，但不一定会当助手"。它可能答非所问、风格混乱、输出不稳定。所以后面会做对齐（alignment，让模型输出符合人类意图和价值观的训练过程）：
 
 **SFT（Supervised Fine-Tuning，监督微调，用人工标注的指令-回答对做有监督训练）**：收集大量高质量的 `<指令, 回答>` 样本，继续训练模型。这一步让模型学会理解任务格式、跟随指令、输出结构化内容。

@@ -1,0 +1,50 @@
+{
+  "article": "docs/zh/00-02-agent-components.md",
+  "slug": "00-02-agent-components",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-four-part-agent-loop",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "展示 Model、Loop、Tools、State 不是并列名词，而是闭环里的四条责任边界。",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "docs/zh/assets/00-02-agent-components/photo-01-four-part-agent-loop.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-02-agent-components/photo-01-four-part-agent-loop.prompt.en.md",
+        "ja": "docs/ja/assets/00-02-agent-components/photo-01-four-part-agent-loop.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-02-agent-components/photo-01-four-part-agent-loop.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-tool-call-vs-tool-execution",
+      "kind": "body-photo",
+      "insert_after_heading": "## 三、Tools：它把“想做”变成“能做”",
+      "purpose": "区分模型生成 tool call 与系统执行 tool implementation 的边界。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.prompt.en.md",
+        "ja": "docs/ja/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-state-context-memory-session",
+      "kind": "body-photo",
+      "insert_after_heading": "### 4. State、Context、Memory、Session log 的区别",
+      "purpose": "把 State、Context、Memory、Session log 的关系画成可理解的分层和投影。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-02-agent-components/photo-03-state-context-memory-session.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-02-agent-components/photo-03-state-context-memory-session.prompt.en.md",
+        "ja": "docs/ja/assets/00-02-agent-components/photo-03-state-context-memory-session.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-02-agent-components/photo-03-state-context-memory-session.png",
+      "status": "generated"
+    }
+  ]
+}

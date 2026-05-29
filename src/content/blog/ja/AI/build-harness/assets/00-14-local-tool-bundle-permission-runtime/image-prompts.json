@@ -1,0 +1,68 @@
+{
+  "article": "docs/ja/00-14-local-tool-bundle-permission-runtime.md",
+  "slug": "00-14-local-tool-bundle-permission-runtime",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-local-tool-bundle-as-runtime",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "Local Tool Bundle は便利関数集合ではなく、モデル意図がローカル環境へ入る前の制御 runtime 層であることを説明する。",
+      "diagram_type": "レイヤードアーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.prompt.en.md",
+        "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-tool-risk-classification",
+      "kind": "body-photo",
+      "insert_after_heading": "## 三、リスクは一つのスイッチではなく、行動意味で階層化される",
+      "purpose": "読み取り、検索、書き込み、実行、高リスク実行、禁止動作の制御差をリスク分類図で説明する。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.prompt.en.md",
+        "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-file-search-bash-boundaries",
+      "kind": "body-photo",
+      "insert_after_heading": "## 七、ファイル、検索、端末という三種ツールのリスク差",
+      "purpose": "ファイル読み取り、ファイル変更、検索、端末実行の異なるリスク入口と核心制御点を並べて比較する。",
+      "diagram_type": "入力-処理-出力",
+      "prompt_file_zh": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.prompt.en.md",
+        "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-04-permission-audit-observation",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十一、監査イベント：「提案、決定、実際に起きたこと」の差を記録する",
+      "purpose": "tool intent、permission decision、execution result、observation、audit event が追跡可能な事実チェーンを構成することを示す。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.prompt.en.md",
+        "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

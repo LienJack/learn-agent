@@ -1,0 +1,15 @@
+{
+  "id": "photo-09",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "七、今天为什么会进一步走向 Harness Engineering",
+  "sectionScore": 6,
+  "anchor": "## 七、今天为什么会进一步走向 Harness Engineering",
+  "sectionExcerpt": "过去我们最关注的是模型能力。\n\n后来大家发现，只调 [[02.如何让LLM更聪明#二、Prompt 为什么会出现：因为“只会接话”不等于“会按要求干活”|Prompt]] 不够，还要给模型正确上下文，于是有了 [[02.如何让LLM更聪明#三、Context 为什么会出现：因为只有任务，没有材料，模型还是干不好活|Context Engineering]]。\n\n再后来 Agent 能调用工具、能执行任务，问题继续外扩：\n\n\nOpenClaw、Hermes Agent、Harness.io 之所以值得放在一起看，不是因为它们名字像，而是因为它们刚好站在 Agent Harness 的三条不同分支上：\n\n- OpenClaw 暴露了个人 Agent 的入口、成本和安全问题\n- Hermes Agent 暴露了长期记忆、技能沉淀和自我改进问题\n- Harness.io 暴露了企业流程、权限治理和审计问题\n\n这也是学习它们最有价值的地方。\n\n你不一定要选择其中一个。  \n更重要的是，从它们身上拆出 Agent Harness 的工程清单：\n\n\n只要你准备做一个真实可用的 Agent，这些问题迟早都会回来找你。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/photo-09-harness-engineering-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/photo-09-harness-engineering-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/photo-09-harness-engineering.png",
+  "markdownRef": "./assets/05-openclaw-hermes-harness/photo-09-harness-engineering.png",
+  "alt": "OpenClaw、Hermes 和 Harness：它们到底是什么关系 - 七、今天为什么会进一步走向 Harness Engineering",
+  "promptStatus": "planned"
+}

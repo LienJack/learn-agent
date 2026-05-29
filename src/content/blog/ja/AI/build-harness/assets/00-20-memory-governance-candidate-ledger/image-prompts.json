@@ -1,0 +1,52 @@
+{
+  "article": "docs/ja/00-20-memory-governance-candidate-ledger.md",
+  "language": "ja",
+  "images": [
+    {
+      "id": "00-20-photo-01-candidate-ledger-to-governance-store",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 三、candidate ledger：「使えるかもしれない」をまず候補台帳へ置く",
+      "purpose": "候補記憶がまず candidate ledger に入り、その後ガバナンスを経て governance store へ入る中心的な流れを説明する",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-20-memory-governance-candidate-ledger/photo-01-candidate-ledger-to-governance-store.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-01-candidate-ledger-to-governance-store.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-20-memory-governance-candidate-ledger/photo-01-candidate-ledger-to-governance-store.prompt.en.md",
+        "ja": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-01-candidate-ledger-to-governance-store.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-01-candidate-ledger-to-governance-store.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-20-photo-02-memory-governance-checks",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 六、ガバナンスチェック：出典、信頼度、範囲、TTL、衝突",
+      "purpose": "Memory Governance が候補記憶に対して出典、範囲、TTL、衝突、review gate の判断を行う様子を示す",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-20-memory-governance-candidate-ledger/photo-02-memory-governance-checks.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-02-memory-governance-checks.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-20-memory-governance-candidate-ledger/photo-02-memory-governance-checks.prompt.en.md",
+        "ja": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-02-memory-governance-checks.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-02-memory-governance-checks.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-20-photo-03-memory-health-loop",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十二、記憶の清掃：追加だけで終わらせない",
+      "purpose": "governance store には継続的な健康チェック、期限切れ、撤回、統合、レビューが必要であり、追加だけでは足りないことを説明する",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "docs/zh/assets/00-20-memory-governance-candidate-ledger/photo-03-memory-health-loop.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-03-memory-health-loop.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-20-memory-governance-candidate-ledger/photo-03-memory-health-loop.prompt.en.md",
+        "ja": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-03-memory-health-loop.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-20-memory-governance-candidate-ledger/photo-03-memory-health-loop.png",
+      "status": "prompt-translated"
+    }
+  ],
+  "status": "prompt-translated"
+}

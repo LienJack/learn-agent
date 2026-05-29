@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">Build Harness 控制系统</title>
+	<desc id="desc">一个橘色 Agent Harness 控制盒包住模型内核，虚线循环流动，表示意图、执行、观测和恢复。</desc>
+	<style>
+		.loop-flow {
+			animation: loop-flow 1.35s linear infinite;
+			stroke-dasharray: 15 16;
+		}
+
+		.kernel-pulse {
+			animation: kernel-pulse 2.35s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		.switch-arm {
+			animation: switch-arm 2.8s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 575px 194px;
+		}
+
+		.event-card {
+			animation: event-card 2.6s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		.trace-dot-a {
+			animation: trace-dot 1.9s ease-in-out infinite;
+		}
+
+		.trace-dot-b {
+			animation: trace-dot 1.9s ease-in-out infinite 0.18s;
+		}
+
+		.trace-dot-c {
+			animation: trace-dot 1.9s ease-in-out infinite 0.36s;
+		}
+
+		@keyframes loop-flow {
+			to {
+				stroke-dashoffset: -62;
+			}
+		}
+
+		@keyframes kernel-pulse {
+			0%,
+			100% {
+				opacity: 0.88;
+				transform: scale(0.96);
+			}
+
+			50% {
+				opacity: 1;
+				transform: scale(1.04);
+			}
+		}
+
+		@keyframes switch-arm {
+			0%,
+			100% {
+				transform: rotate(-12deg);
+			}
+
+			50% {
+				transform: rotate(12deg);
+			}
+		}
+
+		@keyframes event-card {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-8px);
+			}
+		}
+
+		@keyframes trace-dot {
+			0%,
+			100% {
+				opacity: 0.32;
+				transform: translateY(0);
+			}
+
+			48% {
+				opacity: 1;
+				transform: translateY(-7px);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.loop-flow,
+			.kernel-pulse,
+			.switch-arm,
+			.event-card,
+			.trace-dot-a,
+			.trace-dot-b,
+			.trace-dot-c {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-14%" y="-14%" width="128%" height="128%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="2" seed="41" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.9" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#24180f" flood-opacity="0.12" />
+		</filter>
+		<linearGradient id="coverBg" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f8f0e4" />
+		</linearGradient>
+		<linearGradient id="orangeBody" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ff8a25" />
+			<stop offset="60%" stop-color="#f26b2d" />
+			<stop offset="100%" stop-color="#d95425" />
+		</linearGradient>
+		<linearGradient id="orangeDark" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#d96538" />
+			<stop offset="100%" stop-color="#a83d2b" />
+		</linearGradient>
+		<pattern id="paperLines" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+			<path d="M0 0h34" fill="none" stroke="#ead8ba" stroke-width="3" opacity="0.22" />
+		</pattern>
+		<pattern id="gridMarks" width="58" height="58" patternUnits="userSpaceOnUse">
+			<path d="M58 0H0v58" fill="none" stroke="#f1dec0" stroke-width="2" opacity="0.32" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#coverBg)" />
+	<rect width="900" height="520" fill="url(#paperLines)" opacity="0.52" />
+	<rect x="105" y="70" width="690" height="365" rx="32" fill="url(#gridMarks)" opacity="0.5" />
+	<ellipse cx="450" cy="405" rx="258" ry="24" fill="#221915" opacity="0.09" />
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)">
+			<path class="loop-flow" d="M268 257c0-103 73-174 181-174 109 0 184 72 184 174 0 103-75 175-184 175-108 0-181-72-181-175z" fill="none" stroke="#2b1a20" stroke-width="10" stroke-linecap="round" opacity="0.82" />
+			<path d="M624 210l34 47-52 17" fill="none" stroke="#2b1a20" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.82" />
+
+			<g>
+				<rect x="337" y="151" width="244" height="201" rx="26" fill="url(#orangeBody)" />
+				<path d="M365 151h188c15 0 28 12 28 27v36H337v-36c0-15 12-27 28-27z" fill="url(#orangeDark)" opacity="0.82" />
+				<circle cx="371" cy="184" r="10" fill="#fff4e2" opacity="0.9" />
+				<circle cx="405" cy="184" r="10" fill="#fff4e2" opacity="0.72" />
+				<path d="M365 229c43 10 132 9 184-5" fill="none" stroke="#fff1dc" stroke-width="9" stroke-linecap="round" opacity="0.55" />
+				<rect x="364" y="263" width="75" height="52" rx="11" fill="#fff3df" opacity="0.35" />
+				<rect x="480" y="263" width="75" height="52" rx="11" fill="#fff3df" opacity="0.35" />
+				<path d="M386 289h32M501 289h32" fill="none" stroke="#2b1a20" stroke-width="8" stroke-linecap="round" opacity="0.8" />
+			</g>
+
+			<g class="kernel-pulse">
+				<circle cx="459" cy="230" r="64" fill="#fffaf0" stroke="#2b1a20" stroke-width="10" />
+				<circle cx="459" cy="230" r="31" fill="#f26b2d" opacity="0.55" />
+				<path d="M427 230h64M459 198v64" fill="none" stroke="#2b1a20" stroke-width="8" stroke-linecap="round" opacity="0.76" />
+			</g>
+
+			<g>
+				<rect x="154" y="185" width="128" height="72" rx="16" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+				<path d="M181 212h54M181 234h74" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round" />
+				<path class="loop-flow" d="M282 222h70" fill="none" stroke="#f26b2d" stroke-width="9" stroke-linecap="round" />
+				<path d="M338 201l30 21-30 22" fill="none" stroke="#f26b2d" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+			</g>
+
+			<g class="event-card">
+				<rect x="635" y="240" width="128" height="90" rx="18" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+				<path d="M667 277l24 24 45-50" fill="none" stroke="#f26b2d" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+				<path d="M635 260h128" fill="none" stroke="#2b1a20" stroke-width="6" opacity="0.32" />
+			</g>
+
+			<g>
+				<circle cx="574" cy="194" r="26" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+				<path class="switch-arm" d="M574 194l54-32" fill="none" stroke="#2b1a20" stroke-width="11" stroke-linecap="round" />
+				<circle cx="631" cy="160" r="13" fill="#f26b2d" />
+				<path d="M548 144h61" fill="none" stroke="#fff1dc" stroke-width="7" stroke-linecap="round" opacity="0.7" />
+			</g>
+
+			<g fill="#2b1a20">
+				<circle class="trace-dot-a" cx="392" cy="373" r="9" />
+				<circle class="trace-dot-b" cx="459" cy="382" r="9" />
+				<circle class="trace-dot-c" cx="526" cy="373" r="9" />
+			</g>
+
+			<path d="M194 300c26 32 57 50 94 54M714 191c-24-34-58-56-102-66" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round" opacity="0.45" />
+		</g>
+	</g>
+</svg>

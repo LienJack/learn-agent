@@ -1,0 +1,17 @@
+flowchart LR
+  REQ["请求"] --> SCOPE["Scope"]
+  SCOPE --> PLAN["Query Plan"]
+  PLAN --> RECALL["候选召回"]
+  RECALL --> FILTER["边界过滤"]
+  FILTER --> RERANK["任务重排"]
+  RERANK --> PACK["证据打包"]
+  PACK --> TRIM["预算裁剪"]
+  TRIM --> CITE["引用绑定"]
+  CITE --> SNAP["Audit Snapshot"]
+  SNAP --> CTX["Context Item"]
+
+  SCOPE:::hot
+  RERANK:::hot
+  SNAP:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

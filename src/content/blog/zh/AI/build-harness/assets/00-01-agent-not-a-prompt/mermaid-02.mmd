@@ -1,0 +1,16 @@
+sequenceDiagram
+  participant U as 用户
+  participant R as Agent Runtime
+  participant M as Model
+  participant T as Tool System
+  participant S as State
+
+  U->>R: 提交任务：修复测试失败
+  R->>S: 读取当前任务现场
+  R->>M: 构建本轮输入
+  M-->>R: 返回行动意图：读取 package.json
+  R->>T: 校验并执行 read_file
+  T-->>R: 返回文件内容
+  R->>S: 记录工具结果
+  R->>M: 携带观察结果进入下一轮
+  M-->>R: 返回下一步：运行测试

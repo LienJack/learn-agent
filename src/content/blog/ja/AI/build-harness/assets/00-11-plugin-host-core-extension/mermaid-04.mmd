@@ -1,0 +1,22 @@
+sequenceDiagram
+  participant M as "Model"
+  participant R as "Runtime"
+  participant H as "Hook Kernel"
+  participant P as "Permission"
+  participant T as "Tool Runtime"
+  participant E as "Event Log"
+
+  M->>R: "Tool Intent"
+  R->>E: "record intent"
+  R->>H: "preToolUse(intent)"
+  H->>P: "policy checks"
+  P-->>H: "allow / ask / deny"
+  H-->>R: "HookDecision"
+  alt allow
+    R->>T: "execute"
+    T-->>R: "observation"
+    R->>E: "record observation"
+  else ask or deny
+    R->>E: "record blocked decision"
+    R-->>M: "observation: blocked"
+  end

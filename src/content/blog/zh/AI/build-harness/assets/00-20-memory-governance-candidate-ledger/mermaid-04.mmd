@@ -1,0 +1,18 @@
+flowchart TB
+  C["Candidate\n候选记忆"] --> SRC{"来源可靠吗"}
+  SRC -- "否" --> LOW["降置信度\n或拒绝"]
+  SRC -- "是" --> SCP{"范围明确吗"}
+  SCP -- "否" --> ASK["补范围\nneeds_review"]
+  SCP -- "是" --> TTL{"需要 TTL 吗"}
+  TTL -- "是" --> ADDTTL["写入过期/复核时间"]
+  TTL -- "否" --> CONFLICT{"有冲突吗"}
+  ADDTTL --> CONFLICT
+  CONFLICT -- "有" --> REVIEW["Review Gate\n合并/替换/拒绝"]
+  CONFLICT -- "无" --> APPROVE{"置信度足够吗"}
+  APPROVE -- "否" --> PEND["保留 pending\n等待更多证据"]
+  APPROVE -- "是" --> STORE["写入 Governance Store"]
+
+  REVIEW:::hot
+  STORE:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

@@ -1,0 +1,15 @@
+flowchart TB
+  EL["Event Log\n事实源"] --> RD["State Reducer\n折叠事件"]
+  RD --> ST["Conversation State\n当前现场"]
+  ST --> CP["Context Projection\n本轮给模型看的输入"]
+  CP --> MR["ModelRequest\nmessages + tools"]
+  MR --> PR["Provider Adapter"]
+
+  EL --> TR["Trace / Replay\n回放与排错"]
+  ST --> UI["CLI UI\n状态显示"]
+
+  EL:::hot
+  ST:::hot
+  CP:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

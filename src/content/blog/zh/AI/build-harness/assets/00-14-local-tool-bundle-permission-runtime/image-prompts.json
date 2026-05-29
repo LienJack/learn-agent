@@ -1,0 +1,64 @@
+{
+  "article": "docs/zh/00-14-local-tool-bundle-permission-runtime.md",
+  "slug": "00-14-local-tool-bundle-permission-runtime",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-local-tool-bundle-as-runtime",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释 Local Tool Bundle 不是便利函数集合，而是模型意图进入本机环境前的受控运行时层。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.prompt.en.md",
+        "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-tool-risk-classification",
+      "kind": "body-photo",
+      "insert_after_heading": "## 三、风险不是一个开关，而是按动作语义分层",
+      "purpose": "用风险分级图说明读、搜、写、执行、高风险执行、禁止动作之间的治理差异。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.prompt.en.md",
+        "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-file-search-bash-boundaries",
+      "kind": "body-photo",
+      "insert_after_heading": "## 七、文件、搜索、终端三类工具的风险差异",
+      "purpose": "并排比较文件读取、文件修改、搜索、终端执行的不同风险入口和核心控制点。",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.prompt.en.md",
+        "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-04-permission-audit-observation",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十一、审计事件：记录“提议、决策、实际发生”的差异",
+      "purpose": "展示 tool intent、permission decision、execution result、observation 和 audit event 如何构成可追踪事实链。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.prompt.en.md",
+        "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.png",
+      "status": "generated"
+    }
+  ]
+}

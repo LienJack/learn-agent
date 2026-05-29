@@ -1,0 +1,23 @@
+sequenceDiagram
+  participant M as Model
+  participant T as Tool Runtime
+  participant P as Permission
+  participant FS as File System
+  participant S as State
+
+  M->>T: Read(package.json)
+  T->>P: check read path
+  P-->>T: allow
+  T->>FS: read file with limit
+  FS-->>T: content + mtime
+  T->>S: update readFileState
+  T-->>M: observation with lines
+
+  M->>T: Edit(src/sum.ts, old, new)
+  T->>S: verify prior read baseline
+  T->>P: check write permission
+  P-->>T: ask or allow
+  T->>FS: apply unique replacement
+  FS-->>T: new content + diff
+  T->>S: update readFileState and audit
+  T-->>M: observation with diff summary

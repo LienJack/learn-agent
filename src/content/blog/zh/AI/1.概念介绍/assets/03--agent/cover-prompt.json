@@ -1,0 +1,21 @@
+{
+  "id": "cover",
+  "kind": "cover",
+  "status": "prompt-planned",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/cover-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/cover-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/cover-agent-tools-function-calling-mcp-skill.png",
+  "markdownRef": "./assets/03--agent/cover-agent-tools-function-calling-mcp-skill.png",
+  "alt": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么 - 封面图",
+  "promptStatus": "planned",
+  "title": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么",
+  "description": "解释 LLM 如何从只会对话，逐步演进成能调用工具、执行任务的 Agent 系统。",
+  "tags": [
+    "AI",
+    "Agent",
+    "Tools",
+    "FunctionCalling",
+    "MCP",
+    "Skill"
+  ]
+}

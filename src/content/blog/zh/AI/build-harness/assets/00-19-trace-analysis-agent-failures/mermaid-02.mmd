@@ -1,0 +1,32 @@
+flowchart TB
+  subgraph "Event Log：事实存储"
+    E1["model.responded"]
+    E2["tool.intent.created"]
+    E3["permission.decided"]
+    E4["tool.finished"]
+    E5["observation.projected"]
+    E6["verification.finished"]
+  end
+
+  subgraph "Trace View：诊断组织"
+    G["目标"]
+    C["上下文"]
+    J["模型判断"]
+    I["工具意图"]
+    P["权限决策"]
+    X["执行结果"]
+    O["观察投影"]
+    V["验证结论"]
+  end
+
+  E1 --> J
+  E2 --> I
+  E3 --> P
+  E4 --> X
+  E5 --> O
+  E6 --> V
+
+  G --> C --> J --> I --> P --> X --> O --> V
+
+  classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
+  class G,J,O,V hot;

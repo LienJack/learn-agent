@@ -8,6 +8,8 @@ Use the blog-to-photo skill to turn the following section into an article-body t
 
 ## Section text
 
+![LLM 到底在做什么：从猜词到生成的完整链路 - 六、发展脉络：从猜词器到认知中枢](./assets/01-llm/photo-10-item-1dd511ac.png)
+
 如果按"为什么技术会一步步走到今天"来理解，而不是只背公司名字，路线会更清楚。
 
 **第一阶段：统计语言模型。** N-gram（基于前 N-1 个词估计下一个词概率的统计语言模型）把语言建模成条件概率问题。思路直接，但上下文窗口太短，数据稀疏严重，几乎没有语义泛化能力。
@@ -26,8 +28,4 @@ Use the blog-to-photo skill to turn the following section into an article-body t
 
 - GPT（生成式预训练 Transformer，decoder-only 架构，更偏生成）是 decoder-only，更偏生成。
 
-- T5/BART（文本到文本迁移 Transformer / 双向自回归 Transformer，encoder-decoder 架构）是 encoder-decoder，适合输入输出映射任务。
-
-其中对今天影响最大的，是 GPT 这条自回归生成路线。因为它天然适合把"自然语言输入"变成"自然语言输出"，非常符合通用助手的形态。
-
-**第七阶段：规模主义被坐实。**
+- T5/BART（文本到文本迁移 Transformer / 双向自回归 Transformer，encoder-decoder 架构）是 encoder-decoder，适合输入输出映射

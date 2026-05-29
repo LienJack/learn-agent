@@ -1,0 +1,17 @@
+flowchart LR
+  U["用户需求"] --> Q{"不确定性在哪？"}
+
+  Q -->|只是表达和理解| C["ChatBot\n对话管理"]
+  Q -->|步骤已经确定| W["Workflow\n固定流程"]
+  Q -->|步骤运行中决定| A["Agent\n动态决策"]
+  A -->|进入真实环境/长期运行| H["Harness\n外部控制"]
+
+  C --> CR["回答、解释、改写"]
+  W --> WR["执行、重试、通知"]
+  A --> AR["观察、判断、行动意图"]
+  H --> HR["权限、状态、观测、恢复、验证"]
+
+  A:::hot
+  H:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

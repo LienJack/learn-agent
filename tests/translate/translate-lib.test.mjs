@@ -1,12 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { loadDotEnv, repoRoot } from '../../translate/lib/common.mjs';
 import { findMarkdownImageRefs, readArticle, cleanModelOutput } from '../../translate/lib/markdown.mjs';
 import { createRun, writeRunRecord } from '../../translate/lib/records.mjs';
 import { loadPipeline, resolvePipelineFiles } from '../../translate/lib/pipelines.mjs';
-import { planTranslations } from '../../translate/lib/translation.mjs';
+import {
+	assertCanRunRealTranslation,
+	buildCodexPrompt,
+	planTranslations,
+	runCodexTranslation,
+} from '../../translate/lib/translation.mjs';
 
 const fixtureDir = path.join(repoRoot, 'tmp', 'translate-tests');
 
@@ -82,6 +87,45 @@ Real body
 
 	assert.equal(cleaned.markdown, 'Real body\n');
 	assert.equal(cleaned.warnings.length, 3);
+});
+
+test('real translation gate allows confirmed Codex runs only', () => {
+	assert.throws(
+		() => assertCanRunRealTranslation({ dryRun: false, yes: false }),
+		/请先查看 dry-run 摘要/,
+	);
+	assert.doesNotThrow(() => assertCanRunRealTranslation({ dryRun: false, yes: true }));
+});
+
+test('Codex translation runner reads the last-message output file', () => {
+	const fakeCodex = path.join(fixtureDir, 'fake-codex.cjs');
+	writeFileSync(fakeCodex, `#!/usr/bin/env node
+const fs = require('node:fs');
+const outIndex = process.argv.indexOf('--output-last-message');
+if (outIndex === -1) process.exit(2);
+fs.writeFileSync(process.argv[outIndex + 1], 'Translated by GPT Codex\\n');
+`);
+	chmodSync(fakeCodex, 0o755);
+	const previousBin = process.env.TRANSLATE_CODEX_BIN;
+	const previousModel = process.env.TRANSLATE_CODEX_MODEL;
+	process.env.TRANSLATE_CODEX_BIN = fakeCodex;
+	process.env.TRANSLATE_CODEX_MODEL = 'gpt-5-codex-test';
+
+	try {
+		const translated = runCodexTranslation(buildCodexPrompt({
+			systemPrompt: 'You are a translation engine, not an agent.',
+			language: 'en',
+			sourceRelPath: 'src/example.md',
+			chunk: '你好',
+			chunkIndex: 1,
+			chunkCount: 1,
+		}));
+
+		assert.equal(translated, 'Translated by GPT Codex\n');
+	} finally {
+		restoreEnv('TRANSLATE_CODEX_BIN', previousBin);
+		restoreEnv('TRANSLATE_CODEX_MODEL', previousModel);
+	}
 });
 
 function writeFixture(name, contents) {

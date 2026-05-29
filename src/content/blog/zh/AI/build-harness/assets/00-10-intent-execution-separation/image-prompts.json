@@ -1,0 +1,64 @@
+{
+  "article": "docs/zh/00-10-intent-execution-separation.md",
+  "slug": "00-10-intent-execution-separation",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-intent-execution-pipeline",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "用一条横向管线解释模型意图如何经过校验、审批、执行和观察回填。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-10-intent-execution-separation/photo-01-intent-execution-pipeline.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-10-intent-execution-separation/photo-01-intent-execution-pipeline.prompt.en.md",
+        "ja": "docs/ja/assets/00-10-intent-execution-separation/photo-01-intent-execution-pipeline.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-10-intent-execution-separation/photo-01-intent-execution-pipeline.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-model-runtime-boundary",
+      "kind": "body-photo",
+      "insert_after_heading": "## 二、Intent 不是一句自然语言，而是系统可处理的请求对象",
+      "purpose": "强调模型提交的是申请单，真正接触文件系统和 shell 的是 Runtime。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-10-intent-execution-separation/photo-02-model-runtime-boundary.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-10-intent-execution-separation/photo-02-model-runtime-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-10-intent-execution-separation/photo-02-model-runtime-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-10-intent-execution-separation/photo-02-model-runtime-boundary.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-permission-gates",
+      "kind": "body-photo",
+      "insert_after_heading": "## 四、Approve：权限不是弹窗，而是 intent 与 execution 之间的闸门",
+      "purpose": "画出工具可见性和单次审批两道门，说明权限不是最后的弹窗。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-10-intent-execution-separation/photo-03-permission-gates.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-10-intent-execution-separation/photo-03-permission-gates.prompt.en.md",
+        "ja": "docs/ja/assets/00-10-intent-execution-separation/photo-03-permission-gates.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-10-intent-execution-separation/photo-03-permission-gates.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-04-observation-audit-replay",
+      "kind": "body-photo",
+      "insert_after_heading": "## 七、这条管线如何支撑 Tool Runtime、Permission、Audit、Replay",
+      "purpose": "展示完整事件事实链如何同时服务模型观察、审计和重放。",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-10-intent-execution-separation/photo-04-observation-audit-replay.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-10-intent-execution-separation/photo-04-observation-audit-replay.prompt.en.md",
+        "ja": "docs/ja/assets/00-10-intent-execution-separation/photo-04-observation-audit-replay.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-10-intent-execution-separation/photo-04-observation-audit-replay.png",
+      "status": "generated"
+    }
+  ]
+}

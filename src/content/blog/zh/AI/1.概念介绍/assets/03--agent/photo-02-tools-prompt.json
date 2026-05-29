@@ -1,0 +1,15 @@
+{
+  "id": "photo-02",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "二、Tools 为什么会出现：因为模型需要\"手\"",
+  "sectionScore": 5,
+  "anchor": "## 二、Tools 为什么会出现：因为模型需要\"手\"",
+  "sectionExcerpt": "`Tools（工具，模型执行外部动作的能力接口）` 解决的是第一个缺口：\n\n**模型会判断下一步该做什么，但它自己没有执行动作的能力。**\n\n你可以把模型想成一个很聪明但坐在玻璃房里的人。他能看懂任务，也能提出方案，但他碰不到外面的文件、浏览器、数据库和命令行。\n\n工具系统的作用，就是在玻璃房外面给他接几只手。\n\n比如在编程 Agent 里，常见工具可能包括：\n\n- `Read`：读取文件\n\n- `Search`：搜索代码\n\n- `Edit`：修改文件\n\n- `Bash`：执行命令\n\n- `Browser`：打开网页或操作浏览器\n\n- `Test`：运行测试或构建\n\n回到我们修登录 bug 的例子。模型如果只聊天，只能说：\n\n\n但有了工具以后，它就可以发起一个动作请求：\n\n\n外层程序执行这个读取动作，把文件内容拿回来，再塞回模型上下文。模型看到文件后，再决定下一步要不要继续搜索、修改或测试。\n\n这时，LLM 就不再只是\"回答问题\"，而是开始参与一个任务执行流程。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-02-tools-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-02-tools-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-02-tools.png",
+  "markdownRef": "./assets/03--agent/photo-02-tools.png",
+  "alt": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么 - 二、Tools 为什么会出现：因为模型需要\"手\"",
+  "promptStatus": "planned"
+}

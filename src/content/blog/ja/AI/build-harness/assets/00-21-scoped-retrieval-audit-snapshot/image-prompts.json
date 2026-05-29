@@ -1,0 +1,67 @@
+{
+  "article": "docs/ja/00-21-scoped-retrieval-audit-snapshot.md",
+  "language": "ja",
+  "images": [
+    {
+      "id": "00-21-photo-01-scope-to-snapshot",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "Scoped Retrieval がタスク境界から始まり、リコール、フィルタ、再ランキング、予算トリミング、引用バインディングを経て audit snapshot を形成する流れを説明する",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.prompt.en.md",
+        "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-21-photo-02-similarity-vs-relevance",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 一、なぜ「似ている」は「関連している」と同じではないのか",
+      "purpose": "semantic similarity と retrieval relevance を対比し、類似は候補にすぎず、タスク関連性には境界、出典、時間、行動価値が必要であることを説明する",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.prompt.en.md",
+        "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-21-photo-03-permission-time-gates",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 五、権限境界：検索結果は当然モデルに見せられるものではない",
+      "purpose": "検索結果がモデルへ入る前に source access、model visibility、time boundary という 3 種類のゲートを通る必要があることを示す",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.prompt.en.md",
+        "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-21-photo-04-audit-snapshot-evidence-pack",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 七、Audit Snapshot：キャッシュではなく証拠パッケージ",
+      "purpose": "audit snapshot がキャッシュではなく、scope、query plan、選択証拠、拒否理由、投影テキスト、引用マップを保存する証拠パッケージであることを説明する",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.prompt.en.md",
+        "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.png",
+      "status": "prompt-translated"
+    }
+  ],
+  "status": "prompt-translated"
+}

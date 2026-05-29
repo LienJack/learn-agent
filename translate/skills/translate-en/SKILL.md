@@ -16,17 +16,18 @@ argument-hint: "[--pipeline claude-code-series] <中文 Markdown 文章路径> [
 
 ## 执行流程
 
-1. 阅读 `translate/README.md`、`translate/workflows/claude-code-series.md` 和 `translate/prompts/en-translation.md`。
+1. 阅读 `translate/README.md`、`translate/workflows/claude-code-series.md`、`translate/workflows/gpt-codex-cli.md` 和 `translate/prompts/en-translation.md`。
 2. 先运行 `translate/bin/translate-en --dry-run --pipeline claude-code-series <article.md> [...]`，生成翻译计划、检查摘要和运行记录。
 3. 向用户展示源文章、目标路径、frontmatter 策略、链接重写策略、资产引用策略、运行记录、artifacts 路径、warnings 和 blockers。
 4. 如果存在 blocker，停止真实翻译，并说明需要先修复的文章或配置。
-5. 只有用户确认后，才运行不带 `--dry-run` 的真实翻译命令；真实翻译可能消耗模型 API 并改写目标文件。
+5. 只有用户确认后，才运行不带 `--dry-run` 且带 `--yes` 的真实翻译命令；真实翻译通过 GPT Codex (`codex exec`) 执行，可能消耗模型 API 并改写目标文件。
 6. 翻译完成后运行 `translate/bin/translate-check --language en --pipeline claude-code-series <target.md> [...]`。
 7. 如果用户要公开发布，引导到 `publish/skills/publish-en/SKILL.md`，不要在本 skill 中发布。
 
 ## 翻译规则
 
 - frontmatter 由 pipeline 配置和本地规则控制，不交给模型自由生成。
+- 正文真实翻译只使用 GPT Codex，不调用 Claude Code 或 `claude` CLI。
 - 模型只翻译正文；保留 Markdown 结构、代码块、路径、命令、链接和技术标识。
 - 禁止输出过程话、tool call、XML、JSON 碎片、绝对本机路径噪声或“Here is the translation”这类包装文本。
 - 本地相对文章链接按 pipeline 映射改写到英文 slug。

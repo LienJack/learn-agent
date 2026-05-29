@@ -1,0 +1,15 @@
+{
+  "id": "photo-08",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "4. Harness 不是万能药",
+  "sectionScore": 4,
+  "anchor": "### 4. Harness 不是万能药",
+  "sectionExcerpt": "Harness 不是把模型套一层壳，Agent 就稳定了。\n\n一个糟糕的 Harness 仍然会：\n\n- 给模型太多不相关上下文\n- 暴露过多危险工具\n- 没有成本止损\n- 记忆越来越脏\n- 权限边界过宽\n- 失败后继续硬做\n- 做完后没有验收\n\n真正的问题不是\"有没有 Harness\"，而是：\n\n**你的 Harness 有没有把入口、上下文、工具、状态、权限、记忆、调度、审计和验收设计清楚。**",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/photo-08-4-harness-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/photo-08-4-harness-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/05-openclaw-hermes-harness/photo-08-4-harness.png",
+  "markdownRef": "./assets/05-openclaw-hermes-harness/photo-08-4-harness.png",
+  "alt": "OpenClaw、Hermes 和 Harness：它们到底是什么关系 - 4. Harness 不是万能药",
+  "promptStatus": "planned"
+}

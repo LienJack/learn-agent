@@ -1,0 +1,63 @@
+{
+  "article": "docs/zh/00-18-delegation-runtime-control.md",
+  "language": "zh",
+  "images": [
+    {
+      "id": "00-18-photo-01-delegation-as-tool-call",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、把 sub-agent 当成模型副本，是多 Agent 的第一个坑",
+      "purpose": "解释 delegation 不是 nested LLM call，而是进入 validate、permission、execute、observe 的受控工具调用",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.prompt.en.md",
+        "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-18-photo-02-context-isolation-join",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 四、上下文隔离：不要把父 Agent 的脑子整包复制出去",
+      "purpose": "展示 event log 如何投影给父 Agent、子 Agent 和 reviewer，最后由父 Agent 合并结构化结果",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.prompt.en.md",
+        "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-18-photo-03-permission-escalation-control",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 六、权限边界：高风险动作必须冒泡回父 Agent",
+      "purpose": "说明子 Agent 遇到高风险动作时不能自批，必须冒泡回父 Agent 或用户审批",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.prompt.en.md",
+        "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-18-photo-04-failure-recovery-join",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十、失败回收：子 Agent 失败不是主任务失败",
+      "purpose": "展示子任务失败分类如何回到父 Agent join，而不是直接让主任务失败",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.prompt.en.md",
+        "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.png",
+      "status": "generated"
+    }
+  ],
+  "status": "generated"
+}

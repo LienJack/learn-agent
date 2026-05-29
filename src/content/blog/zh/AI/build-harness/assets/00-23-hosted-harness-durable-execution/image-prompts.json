@@ -1,0 +1,63 @@
+{
+  "article": "docs/zh/00-23-hosted-harness-durable-execution.md",
+  "language": "zh",
+  "images": [
+    {
+      "id": "00-23-photo-01-hosted-harness-layers",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、Hosted Harness 的五层边界",
+      "purpose": "解释 Hosted Harness 不是远程 CLI 进程，而是 Automation、Harness、Session、Sandbox、Deployment 的分层控制系统",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.prompt.en.md",
+        "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-23-photo-02-cron-to-durable-job",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 三、Cron 不是定时执行命令，而是创建可恢复任务",
+      "purpose": "展示 Cron 如何先创建幂等 job，再由队列、worker、session 和通知系统推进可恢复任务",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.prompt.en.md",
+        "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-23-photo-03-sandbox-secret-boundary",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 六、Secret Boundary：密钥不属于 sandbox，也不属于模型上下文",
+      "purpose": "说明 vault、tool runtime、sandbox、logs、observation 之间的密钥边界，强调密钥不进入模型上下文",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-23-photo-04-worker-retry-resume",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十、Remote Worker：worker 是可替换执行者，不是任务事实源",
+      "purpose": "解释 worker 崩溃后如何通过队列重派、session replay、artifact 校验和 sandbox 重建继续长任务",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.prompt.en.md",
+        "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.png",
+      "status": "generated"
+    }
+  ],
+  "status": "generated"
+}

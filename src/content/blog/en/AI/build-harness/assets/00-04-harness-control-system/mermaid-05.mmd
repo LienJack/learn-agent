@@ -1,0 +1,19 @@
+flowchart LR
+  U["UserMessage"] --> I["ModelIntent"]
+  I --> V["ToolValidated"]
+  V --> P["PolicyDecision"]
+  P --> A{"需要审批？"}
+  A -- "是" --> AP["ApprovalEvent"]
+  A -- "否" --> X["ToolStarted"]
+  AP --> X
+  X --> R["ExecutionResult"]
+  R --> O["Observation"]
+  O --> C["ContextProjection"]
+  C --> E["VerificationEvidence"]
+  E --> F["TaskState"]
+
+  P:::hot
+  O:::hot
+  E:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

@@ -1,0 +1,17 @@
+flowchart TB
+  RAW["Raw Result\nstdout/stderr/diff/file bytes"] --> N["Normalizer\n分类、清洗、结构化"]
+  N --> M["Model View\n下一轮可消费事实"]
+  N --> U["User View\n可理解展示"]
+  N --> S["Session Fact\n可审计结构"]
+  N --> A["Artifact Ref\n完整输出引用"]
+
+  M --> C["Context Builder\n进入下一轮"]
+  S --> L["Event Log\n事实源"]
+  U --> UI["CLI/UI\n展示"]
+  A --> L
+
+  N:::hot
+  M:::hot
+  S:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

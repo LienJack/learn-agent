@@ -9,13 +9,14 @@
    - 英文：`translate/bin/translate-en --dry-run --pipeline claude-code-series <article.md>`
    - 日语：`translate/bin/translate-ja --dry-run --pipeline claude-code-series <article.md>`
 3. 展示 run record、artifact、目标路径、frontmatter 策略、链接重写、资产引用和 blocker。
-4. 用户确认后才进入真实翻译；V1 的真实 provider 仍保持显式门禁，避免误覆盖已有译文。
+4. 用户确认后才进入真实翻译；真实正文翻译通过 GPT Codex (`codex exec`) 执行，并保持显式门禁，避免误覆盖已有译文。
 5. Mermaid 和普通图片分别运行 `translate-assets`；资产 dry-run 会写入自动审查结果，真实阶段必须通过同一套门禁。
 6. 发布前运行 `translate-check`，再交给 `publish/`。
 
 ## 正文翻译检查清单
 
 - 模型角色必须是 translation engine，不是 agent。
+- 模型执行器必须是 GPT Codex；不要调用 Claude Code、`claude` CLI 或旧 `scripts/translate-*` 入口来生成正文译文。
 - 只把正文交给模型，frontmatter 由 pipeline 控制。
 - 保留 Markdown 结构、代码块、inline code、命令、路径、文件名、链接占位和技术标识。
 - 禁止 tool call、XML、JSON、过程话、绝对本机路径和“Here is the translation”包装文本。

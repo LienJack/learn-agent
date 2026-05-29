@@ -1,0 +1,68 @@
+{
+  "article": "docs/ja/00-01-agent-not-a-prompt.md",
+  "slug": "00-01-agent-not-a-prompt",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-00-agent-runtime-composition",
+      "kind": "body-photo",
+      "insert_after_text": "Agent はより長い Prompt ではなく、「モデル + ループ + ツール + 状態 + 制御システム」を組み合わせた実行プロセスである。",
+      "purpose": "Agent がモデル、ループ、ツール、状態、制御システムから構成される実行プロセスであることを示す。",
+      "diagram_type": "入力-処理-出力",
+      "prompt_file_zh": "docs/zh/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.prompt.en.md",
+        "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-01-prompt-to-agent-evolution",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "Prompt、ChatBot、Agent、Harness の責任がどのように段階的に増えるかを説明する。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.prompt.en.md",
+        "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-agent-loop-reality-bridge",
+      "kind": "body-photo",
+      "insert_after_heading": "## 三、ループはモデルを「回答」から「前進」へ変える",
+      "purpose": "単発の回答と複数ターンの前進の違いを閉ループとして描き、状態と観察結果の回流を強調する。",
+      "diagram_type": "円形ループ",
+      "prompt_file_zh": "docs/zh/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.prompt.en.md",
+        "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-control-system-catches-action",
+      "kind": "body-photo",
+      "insert_after_heading": "## 六、制御システムは Agent の暴走を防ぐ",
+      "purpose": "モデルの提案は、権限、サンドボックス、ログ、検証を通ってから現実世界へ入ることを示す。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.prompt.en.md",
+        "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

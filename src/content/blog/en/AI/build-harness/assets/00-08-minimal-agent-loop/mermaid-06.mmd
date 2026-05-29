@@ -1,0 +1,23 @@
+flowchart TD
+  L["Loop Tick\n准备下一轮"] --> A{"aborted?"}
+  A -- "是" --> S1["Stop\n用户中断"]
+  A -- "否" --> B{"turnCount >= maxTurns?"}
+  B -- "是" --> S2["Stop\n轮次耗尽"]
+  B -- "否" --> C{"budget exhausted?"}
+  C -- "是" --> S3["Stop\n预算耗尽"]
+  C -- "否" --> M["Call Model"]
+  M --> D{"final?"}
+  D -- "是" --> F["Finish\n输出结论"]
+  D -- "否" --> E{"tool intent valid?"}
+  E -- "否" --> S4["Stop or Repair\n无效意图"]
+  E -- "是" --> X["Execute Tool"]
+  X --> O["Observe\n写回状态"]
+  O --> L
+
+  S2:::warn
+  S3:::warn
+  S4:::warn
+  F:::done
+
+  classDef warn fill:#ffe0b2,stroke:#111,stroke-width:1.5px,color:#111;
+  classDef done fill:#e8f5e9,stroke:#111,stroke-width:1.5px,color:#111;

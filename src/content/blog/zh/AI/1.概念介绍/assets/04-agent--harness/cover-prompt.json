@@ -1,0 +1,20 @@
+{
+  "id": "cover",
+  "kind": "cover",
+  "status": "prompt-planned",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/cover-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/cover-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/cover-agent-agent-harness.png",
+  "markdownRef": "./assets/04-agent--harness/cover-agent-agent-harness.png",
+  "alt": "如何让 Agent 更好干活：从聊天模型到 Agent Harness - 封面图",
+  "promptStatus": "planned",
+  "title": "如何让 Agent 更好干活：从聊天模型到 Agent Harness",
+  "description": "从工程运行时视角解释 Harness 如何让 Agent 更稳定、更可控地完成真实任务。",
+  "tags": [
+    "AI",
+    "Agent",
+    "Harness",
+    "HarnessEngineering",
+    "ContextEngineering"
+  ]
+}

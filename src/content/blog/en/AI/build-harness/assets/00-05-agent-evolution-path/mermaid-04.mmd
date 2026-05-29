@@ -1,0 +1,21 @@
+stateDiagram-v2
+  [*] --> WaitingInput
+  WaitingInput --> ModelTurn: user goal
+  ModelTurn --> ToolTurn: tool intent
+  ModelTurn --> Final: final answer
+  ToolTurn --> Observe: success
+  ToolTurn --> Recover: error
+  Observe --> ModelTurn: append observation
+  Recover --> ModelTurn: retry or explain
+  Recover --> Failed: unrecoverable
+  ModelTurn --> Paused: budget or interrupt
+  ToolTurn --> Paused: timeout or interrupt
+  Paused --> ModelTurn: resume
+  Final --> [*]
+  Failed --> [*]
+
+  ModelTurn:::hot
+  Recover:::hot
+  Paused:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

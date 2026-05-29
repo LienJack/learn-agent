@@ -1,0 +1,50 @@
+{
+  "article": "docs/zh/00-06-handwrite-agent-meaning.md",
+  "slug": "00-06-handwrite-agent-meaning",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-framework-mechanism-judgement",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释框架抽象、底层机制和工程判断之间的关系：框架帮忙快速开始，手写最小机制帮忙看清边界。",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.en.md",
+        "ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-minimal-cli-agent-loop",
+      "kind": "body-photo",
+      "insert_after_heading": "## 三、手写最小 Agent，不是手写完整框架",
+      "purpose": "把手写最小 CLI Agent 的闭环画出来，突出模型意图、权限策略、工具执行、观察回填和状态更新。",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.en.md",
+        "ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-framework-boundary-decision",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十、什么时候用框架、绕开框架、扩展框架",
+      "purpose": "用决策路径说明什么时候直接用框架、什么时候扩展框架、什么时候绕开局部抽象自建 Harness 边界。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.en.md",
+        "ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.png",
+      "status": "generated"
+    }
+  ]
+}

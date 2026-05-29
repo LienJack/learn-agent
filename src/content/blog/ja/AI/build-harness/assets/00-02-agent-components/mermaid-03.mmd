@@ -1,0 +1,14 @@
+flowchart LR
+  I["Tool Intent\n模型请求"] --> V["Validate\n参数校验"]
+  V --> G["Visibility\n本轮可见性"]
+  G --> P["Permission\n权限判断"]
+  P --> X["Execute\n沙箱执行"]
+  X --> B["Budget\n截断/摘要"]
+  B --> O["Observation\n回填模型"]
+  O --> A["Audit\n记录事件"]
+
+  G:::hot
+  P:::hot
+  O:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

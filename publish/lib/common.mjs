@@ -44,6 +44,9 @@ export function parseArgs(argv) {
 		dryRun: false,
 		yes: false,
 		published: false,
+		private: true,
+		tweet: false,
+		itemId: '',
 		platforms: [],
 	};
 	const files = [];
@@ -58,6 +61,21 @@ export function parseArgs(argv) {
 			options.published = true;
 		} else if (arg === '--draft') {
 			options.published = false;
+		} else if (arg === '--public') {
+			options.private = false;
+		} else if (arg === '--private') {
+			options.private = true;
+		} else if (arg === '--tweet') {
+			options.tweet = true;
+		} else if (arg === '--no-tweet') {
+			options.tweet = false;
+		} else if (arg === '--item-id') {
+			const value = argv[index + 1];
+			if (!value) throw new Error('--item-id requires a value.');
+			options.itemId = value;
+			index += 1;
+		} else if (arg.startsWith('--item-id=')) {
+			options.itemId = arg.slice('--item-id='.length);
 		} else if (arg === '--platform') {
 			const value = argv[index + 1];
 			if (!value) throw new Error('--platform requires a value.');

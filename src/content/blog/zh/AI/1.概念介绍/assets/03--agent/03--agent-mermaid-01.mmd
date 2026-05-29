@@ -1,0 +1,12 @@
+sequenceDiagram
+participant U as 用户
+participant H as 宿主程序
+participant M as LLM
+participant T as 工具执行
+U->>H: 提出任务（修登录bug）
+H->>M: 发送可用工具说明
+M-->>H: 返回 tool call<br/>read_file({"path": "src/auth.ts"})
+H->>T: 解析并执行工具
+T-->>H: 返回文件内容
+H->>M: 将结果塞回上下文
+M-->>H: 继续回答或发起新 tool call

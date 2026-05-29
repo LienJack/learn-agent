@@ -1,0 +1,27 @@
+{
+  "id": "2026-05-11T13-52-13-144Z-article-images-04-agent--harness",
+  "command": "article-images",
+  "stage": "import",
+  "status": "completed",
+  "startedAt": "2026-05-11T13:52:13.145Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/1.概念介绍/04.如何让Agent更好干活-Harness.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness",
+      "artifacts": [
+        "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-01-1.png"
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-05-11T13-52-13-144Z-article-images-04-agent--harness",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [],
+  "confirmation": null,
+  "notes": [],
+  "finishedAt": "2026-05-11T13:52:13.246Z"
+}

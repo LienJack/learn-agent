@@ -1,0 +1,12 @@
+flowchart LR
+classDef user fill:#e1f5ff,stroke:#01579b
+classDef prompt fill:#e8f5e9,stroke:#2e7d32
+classDef context fill:#fff3e0,stroke:#ef6c00
+classDef rag fill:#f3e5f5,stroke:#6a1b9a
+classDef model fill:#fce4ec,stroke:#c62828
+A[用户原始输入]:::user --> B[Prompt 工程化<br/>明确任务要求]:::prompt
+B --> C[Context 组装<br/>当前可见信息总和]:::context
+C --> D{信息是否足够?}
+D -->|否| E[RAG 检索<br/>外部知识补录]:::rag
+E --> C
+D -->|是| F[LLM 生成输出]:::model

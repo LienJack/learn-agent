@@ -1,0 +1,64 @@
+{
+  "article": "docs/zh/00-13-tool-runtime-observation.md",
+  "slug": "00-13-tool-runtime-observation",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-tool-runtime-pipeline",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释从 tool intent 到 observation 的完整受控执行管线。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.prompt.en.md",
+        "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-observation-projection",
+      "kind": "body-photo",
+      "insert_after_heading": "## 七、Result Normalization：原始结果不是 observation",
+      "purpose": "强调 raw result 需要被投影成 model view、user view、session fact 和 artifact ref。",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-13-tool-runtime-observation/photo-02-observation-projection.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-13-tool-runtime-observation/photo-02-observation-projection.prompt.en.md",
+        "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-02-observation-projection.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-02-observation-projection.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-scheduler-sandbox-boundary",
+      "kind": "body-photo",
+      "insert_after_heading": "## 五、Scheduler：工具执行不是立刻 await",
+      "purpose": "展示 permission allow 之后仍要经过调度、并发策略、长任务处理和 sandbox。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-04-audit-replay-chain",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十、Audit Event：记录“发生过什么”，不是只记录“模型说过什么”",
+      "purpose": "解释 intent、permission、invocation、observation 如何形成可审计、可 replay 的事实链。",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "docs/zh/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.prompt.en.md",
+        "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.png",
+      "status": "generated"
+    }
+  ]
+}

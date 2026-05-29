@@ -1,0 +1,19 @@
+sequenceDiagram
+  participant User as 用户
+  participant AgentLoop as Agent Loop
+  participant Model as Model
+  participant Runtime as Runtime
+  participant Tool as Tool Executor
+  participant Log as Event Log
+
+  User->>AgentLoop: 修复失败测试
+  AgentLoop->>Model: 当前上下文
+  Model-->>AgentLoop: tool intent: bash npm test
+  AgentLoop->>Runtime: validate intent
+  Runtime->>Runtime: permission decision
+  Runtime->>Log: record intent + decision
+  Runtime->>Tool: execute command
+  Tool-->>Runtime: exitCode + output + artifacts
+  Runtime->>Log: record execution event
+  Runtime-->>AgentLoop: observation projection
+  AgentLoop->>Model: 下一轮上下文包含 observation

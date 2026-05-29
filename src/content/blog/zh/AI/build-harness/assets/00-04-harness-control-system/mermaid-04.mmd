@@ -1,0 +1,15 @@
+flowchart TB
+  S["Session State\n完整事件事实"] --> CP["Context Policy\n选择与压缩"]
+  PR["Project Rules\n项目规则"] --> CP
+  MEM["Memory\n长期偏好"] --> CP
+  OBS["Latest Observation\n最新工具结果"] --> CP
+
+  CP --> MI["Model Input\n本轮上下文"]
+  MI --> M["Model\n判断下一步"]
+  M --> INT["Intent\n工具或回答"]
+  INT --> S
+
+  CP:::hot
+  MI:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

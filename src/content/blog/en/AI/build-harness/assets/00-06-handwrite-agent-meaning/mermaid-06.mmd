@@ -1,0 +1,15 @@
+flowchart TB
+  S["新 Agent 需求"] --> Q1{"路径是否基本确定？"}
+  Q1 -->|是| W["优先 Workflow / Graph\n框架很合适"]
+  Q1 -->|否| Q2{"是否需要真实工具副作用？"}
+  Q2 -->|否| C["Chat / Research Agent\n薄封装即可"]
+  Q2 -->|是| Q3{"风险是否可用默认策略承接？"}
+  Q3 -->|是| F["使用框架默认 Agent\n保留 trace"]
+  Q3 -->|否| Q4{"框架是否暴露关键 hook？"}
+  Q4 -->|是| X["扩展框架\n自定义 policy/context/eval"]
+  Q4 -->|否| Y["绕开局部抽象\n自建 Harness 边界"]
+
+  X:::hot
+  Y:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant C as Cron
+  participant Q as Queue
+  participant H as Harness
+  participant S as Session
+  participant N as Notify
+
+  C->>Q: create job with idempotency key
+  Q->>S: append automation.triggered
+  Q->>H: worker claims job
+  H->>S: append job.started
+  H->>H: resume or create session
+  H-->>N: approval / progress / final notification
+  H->>S: append job.completed or job.paused

@@ -1,0 +1,14 @@
+flowchart LR
+  CAT["候选能力"] --> V{"可见性门\n任务/路径/预算/模式"}
+  V -- "不可见" --> X["不进入本轮 prompt"]
+  V -- "可见" --> M["模型可提出 intent"]
+  M --> P{"权限门\n参数/风险/用户审批"}
+  P -- "拒绝" --> R["拒绝 observation\n记录原因"]
+  P -- "通过" --> E["执行工具"]
+  E --> O["Observation + Audit"]
+
+  V:::hot
+  P:::hot
+  O:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

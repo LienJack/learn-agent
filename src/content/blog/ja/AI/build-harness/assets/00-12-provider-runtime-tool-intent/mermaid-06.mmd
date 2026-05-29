@@ -1,0 +1,29 @@
+flowchart TB
+  subgraph CoreSide["Core 侧"]
+    MR["ModelRequest"]
+    ME["ModelEvent"]
+    TI["ToolIntent"]
+  end
+
+  subgraph ProviderRuntime["Provider Runtime"]
+    RB["Request Builder"]
+    SN["Stream Normalizer"]
+    TA["Tool Call Assembler"]
+    EM["Error Mapper"]
+  end
+
+  subgraph ProviderSide["Provider / AI SDK 侧"]
+    PR["Provider Request"]
+    SP["Stream Parts"]
+    ER["SDK / HTTP Error"]
+  end
+
+  MR --> RB --> PR
+  PR --> SP --> SN --> ME
+  SP --> TA --> TI
+  ER --> EM --> ME
+
+  SN:::hot
+  TA:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

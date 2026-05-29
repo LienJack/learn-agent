@@ -1,0 +1,67 @@
+{
+  "article": "docs/ja/00-18-delegation-runtime-control.md",
+  "language": "ja",
+  "images": [
+    {
+      "id": "00-18-photo-01-delegation-as-tool-call",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、sub-agent をモデルの複製として扱うことが、多 Agent の最初の落とし穴",
+      "purpose": "delegation は nested LLM call ではなく、validate、permission、execute、observe を通る制御されたツール呼び出しであることを説明する",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.prompt.en.md",
+        "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-18-photo-02-context-isolation-join",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 四、コンテキスト隔離：親 Agent の頭脳を丸ごとコピーしない",
+      "purpose": "event log が親 Agent、子 Agent、reviewer に投影され、最後に親 Agent が構造化結果を統合する流れを示す",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.prompt.en.md",
+        "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-18-photo-03-permission-escalation-control",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 六、権限境界：高リスク動作は必ず親 Agent へエスカレーションする",
+      "purpose": "子 Agent が高リスク動作に遭遇したとき、自分で承認せず親 Agent またはユーザー承認へエスカレーションする必要があることを説明する",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.prompt.en.md",
+        "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-18-photo-04-failure-recovery-join",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十、失敗の回収：子 Agent の失敗はメインタスクの失敗ではない",
+      "purpose": "子タスクの失敗分類が直接メインタスクを失敗させるのではなく、親 Agent join に戻る仕組みを示す",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.prompt.en.md",
+        "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.png",
+      "status": "prompt-translated"
+    }
+  ],
+  "status": "prompt-translated"
+}

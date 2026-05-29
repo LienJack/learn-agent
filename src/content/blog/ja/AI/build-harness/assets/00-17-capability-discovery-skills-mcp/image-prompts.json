@@ -1,0 +1,67 @@
+{
+  "article": "docs/ja/00-17-capability-discovery-skills-mcp.md",
+  "language": "ja",
+  "images": [
+    {
+      "id": "00-17-photo-01-capability-catalog-visible-set",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "候補能力が発見ポリシーでこのターンの可視集合へ絞り込まれ、統一ツールパイプラインへ入る流れを説明する",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.prompt.en.md",
+        "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-17-photo-02-skills-mcp-toolsearch-layers",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、Capability は Tool ではない。まず概念を分ける",
+      "purpose": "Skills、MCP、ToolSearch、Deferred Loading が能力発見で担う階層ごとの役割を説明する",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.prompt.en.md",
+        "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-17-photo-03-visibility-permission-gates",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 八、可視性と権限は 2 つのゲート",
+      "purpose": "可視性ゲートは計画空間を制御し、権限ゲートは実行空間を制御するため、両者は互いに代替できないことを説明する",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.prompt.en.md",
+        "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-17-photo-04-dynamic-capability-diff",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十、能力の変化は diff できなければならない",
+      "purpose": "動的な能力変化が capability diff として記録され、後続の原因分析と replay を支える仕組みを説明する",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "docs/zh/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.prompt.en.md",
+        "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.png",
+      "status": "prompt-translated"
+    }
+  ],
+  "status": "prompt-translated"
+}

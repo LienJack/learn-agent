@@ -1,0 +1,15 @@
+{
+  "id": "photo-08",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "5. 状态与记忆：让 Agent 不要每轮都失忆",
+  "sectionScore": 5,
+  "anchor": "### 5. 状态与记忆：让 Agent 不要每轮都失忆",
+  "sectionExcerpt": "没有状态管理的 Agent，每一轮都像重新开始。\n\nHarness 至少要记录：\n\n- 当前目标\n- 已读文件\n- 已做动作\n- 当前假设\n- 被排除的方案\n- 测试结果\n- 用户限制\n- 待办事项\n\n这些东西不应该全靠自然语言聊天历史保存，而应该整理成结构化状态。\n\n可以粗略分成三类：\n\n- 当前任务状态：现在做到哪一步\n- 中间产物：读过的文件、测试结果、判断结论\n- 长期记忆：项目规范、用户偏好、常见约定\n\n状态管理做不好，Agent 就会越跑越乱。状态管理做好了，它才有连续工作的感觉。",
+  "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-08-5-agent-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-08-5-agent-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/04-agent--harness/photo-08-5-agent.png",
+  "markdownRef": "./assets/04-agent--harness/photo-08-5-agent.png",
+  "alt": "如何让 Agent 更好干活：从聊天模型到 Agent Harness - 5. 状态与记忆：让 Agent 不要每轮都失忆",
+  "promptStatus": "planned"
+}

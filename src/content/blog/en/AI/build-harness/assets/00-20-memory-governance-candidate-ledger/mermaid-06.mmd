@@ -1,0 +1,20 @@
+sequenceDiagram
+  participant U as 用户
+  participant A as CLI Agent
+  participant T as Tool Runtime
+  participant S as Session Log
+  participant L as Candidate Ledger
+  participant G as Governance
+  participant M as Governance Store
+
+  U->>A: 修复失败测试
+  A->>T: 读取 package.json
+  T-->>S: observation: scripts.test
+  A->>T: 运行相关测试
+  T-->>S: observation: 失败日志
+  A->>T: 修改代码并验证
+  T-->>S: observation: 测试通过
+  S->>L: 提取候选记忆
+  L->>G: 来源/范围/TTL/冲突检查
+  G-->>L: 状态更新
+  G->>M: 批准项写入长期记忆

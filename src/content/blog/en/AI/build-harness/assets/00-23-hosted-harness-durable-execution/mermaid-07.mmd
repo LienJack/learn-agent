@@ -1,0 +1,18 @@
+flowchart TB
+  Q["Job Queue\nlease / retry"] --> W1["Worker A"]
+  Q --> W2["Worker B"]
+  W1 --> H["Harness Runtime"]
+  W2 --> H
+  H --> S["Session Store"]
+  H --> A["Artifact Store"]
+  H --> X["Sandbox Pool"]
+  H --> V["Vault"]
+  H --> N["Notification"]
+
+  W1 -.崩溃.-> Q
+  Q -.重新派发.-> W2
+  S -.恢复事实.-> H
+  A -.恢复证据.-> H
+
+  classDef hot fill:#fff2b8,stroke:#b78900,color:#111;
+  class S,A,Q hot;

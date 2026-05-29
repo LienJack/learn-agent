@@ -1,0 +1,15 @@
+flowchart LR
+  G["Glob\n按路径缩小候选"] --> R["Grep\n按内容定位线索"]
+  R --> F["Read\n读取目标文件"]
+  F --> B["readFileState\n建立基线"]
+  B --> E["Edit\n局部修改"]
+  E --> D["Diff\n变更摘要"]
+
+  G -->|只返回路径| O1["低 token 输出"]
+  R -->|只返回匹配片段| O2["受控观察"]
+  F -->|分页读取| O3["完整上下文"]
+
+  B:::hot
+  E:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;
