@@ -1,16 +1,16 @@
 flowchart TD
-  E["发生错误"] --> K{"错误来自哪里？"}
-  K -->|HTTP / SDK / stream| PE["ProviderError\n模型调用层"]
-  K -->|tool intent parse| IE["IntentError\n意图解析层"]
-  K -->|schema / policy| VE["ValidationError\n校验层"]
-  K -->|用户拒绝 / 权限| AE["ApprovalEvent\n权限层"]
-  K -->|真实工具失败| TE["ToolError\n执行层"]
+  E["エラーが発生しました"] --> K{"エラーはどこから来たのでしょうか?"}
+  K -->|HTTP / SDK / stream| PE["ProviderError モデル呼び出し層"]
+  K -->|tool intent parse| IE["IntentError インテント解析レイヤー"]
+  K -->|schema / policy| VE["ValidationError 検証レイヤー"]
+  K -->|ユーザーの拒否/許可| AE["ApprovalEvent権限レイヤー"]
+  K -->|実際のツールは失敗します| TE["ToolError 実行層"]
 
-  PE --> R1["重试 / 降级 / 结束本轮"]
-  IE --> R2["要求模型重发 intent"]
-  VE --> R3["拒绝并回填原因"]
-  AE --> R4["等待用户或记录拒绝"]
-  TE --> R5["生成 observation"]
+  PE --> R1["再試行 / ダウングレード / このラウンドを終了"]
+  IE --> R2["モデルにインテントの再送信をリクエストする"]
+  VE --> R3["拒否およびバックフィルの理由"]
+  AE --> R4["ユーザーまたはレコードの拒否を待ちます"]
+  TE --> R5["観察を生成する"]
 
   PE:::hot
   TE:::hot

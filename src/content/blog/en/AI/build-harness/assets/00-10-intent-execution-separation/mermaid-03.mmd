@@ -1,11 +1,11 @@
 flowchart LR
-  R["Runtime State\n权限模式/项目规则"] --> F["Tool Visibility\n本轮工具菜单"]
-  F --> M["Model\n只能从菜单中提议"]
+  R["Runtime State Permission Mode/Project Rules"] --> F["Tool Visibility Current tool menu"]
+  F --> M["Model can only be proposed from the menu"]
   M --> I["Tool Intent"]
-  I --> A{"Approval\n单次调用审批"}
+  I --> A{"Approval single call approval"}
   A -->|allow| E["Execution"]
   A -->|ask| H["Human"]
-  A -->|deny| O["Observation\n拒绝原因"]
+  A -->|deny| O["Observation rejection reason"]
 
   F:::hot
   A:::hot

@@ -1,9 +1,9 @@
 flowchart TB
-  I["Tool Intent"] --> S["Schema Validate\n字段、类型、范围"]
-  S -->|失败| VF["Validation Failed\n回填给模型"]
-  S -->|通过| R["Runtime Validate\n状态、基线、上下文"]
-  R -->|失败| RF["Runtime Rejected\n说明缺少前置条件"]
-  R -->|通过| A["Permission Gate\n进入权限决策"]
+  I["Tool Intent"] --> S["スキーマのフィールド、型、範囲を検証する"]
+  S -->|失敗| VF["Validation Failed がモデルにバックフィルされます。"]
+  S -->|合格| R["ランタイム検証状態、ベースライン、コンテキスト"]
+  R -->|失敗| RF["ランタイム拒否は前提条件が欠落していることを示します"]
+  R -->|合格| A["許可ゲート入場許可決定"]
 
   S:::hot
   R:::hot

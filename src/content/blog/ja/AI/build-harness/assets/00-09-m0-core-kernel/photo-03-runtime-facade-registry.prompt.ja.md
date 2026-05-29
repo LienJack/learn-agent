@@ -4,7 +4,7 @@
 2. 画面要素リスト
 6 つの主ノード：User Input、Runtime Facade、Registry、Provider Adapter、Event Bus、Runtime Output。Runtime Facade と Registry を強調する。アイコンはキーボード入力、コンソールのファサード、ツール目録カード、クラウドインターフェース、ログ帳、端末出力。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Runtime Facade は CLI に run を開始させるが、provider やツールの詳細を直接握らせない」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

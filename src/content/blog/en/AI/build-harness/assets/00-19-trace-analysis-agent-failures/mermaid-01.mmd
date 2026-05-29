@@ -1,17 +1,17 @@
 flowchart LR
-  F["任务失败"] --> G{"没有 trace"}
-  G --> A["猜模型错"]
-  G --> B["猜 prompt 弱"]
-  G --> C["猜工具坏"]
-  G --> D["猜上下文丢"]
-  G --> E["猜权限错"]
+  F["Task failed"] --> G{"no trace"}
+  G --> A["Guess the model is wrong"]
+  G --> B["Guess prompt is weak"]
+  G --> C["Guess the tool is broken"]
+  G --> D["Guess the context is lost"]
+  G --> E["Wrong guess about permissions"]
 
-  F --> T{"有 trace"}
-  T --> M["定位模型判断"]
-  T --> X["定位上下文投影"]
-  T --> R["定位工具执行"]
-  T --> P["定位权限决策"]
-  T --> V["定位验证缺失"]
+  F --> T{"There is trace"}
+  T --> M["Positioning model judgment"]
+  T --> X["Positioning context projection"]
+  T --> R["Positioning tool execution"]
+  T --> P["Positioning permission decisions"]
+  T --> V["Location verification missing"]
 
   classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
   class T,M,X,R,P,V hot;

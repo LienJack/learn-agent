@@ -1,5 +1,5 @@
 flowchart TB
-  subgraph WRITE["写入侧"]
+  subgraph WRITE["write side"]
     C["Candidate Ledger"] --> G["Governance Checks"]
     G --> R["Review Decisions"]
   end
@@ -11,7 +11,7 @@ flowchart TB
     P["Policy Metadata"]
   end
 
-  subgraph READ["读取侧"]
+  subgraph READ["reading side"]
     Q["Scoped Query"] --> S["Search / Rerank"]
     S --> B["Boundary Filter"]
     B --> X["Context Injection"]

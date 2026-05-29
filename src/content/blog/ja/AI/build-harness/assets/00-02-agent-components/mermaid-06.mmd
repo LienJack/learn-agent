@@ -1,13 +1,13 @@
 flowchart TD
-  U["用户目标"] --> QE["Runtime / QueryEngine\n会话级编排"]
-  QE --> C["Context Builder\n构建本轮输入"]
-  C --> M["Model\n输出文本或工具意图"]
-  M --> D{"有工具意图？"}
-  D -- "否" --> F["Final\n返回结果"]
-  D -- "是" --> P["Permission Gate\n权限/审批"]
-  P --> T["Tool Runtime\n执行工具"]
-  T --> S["Session State\n记录观察"]
-  S --> G["Guardrails\n预算/压缩/中断"]
+  U["ユーザーの目標"] --> QE["ランタイム/QueryEngine セッションレベルのオーケストレーション"]
+  QE --> C["Context Builder はこのラウンドの入力を構築します"]
+  C --> M["モデル出力テキストまたはツールの意図"]
+  M --> D{"手段的な意図はありますか？"}
+  D -- "いいえ" --> F["最終的な返品結果"]
+  D -- "はい" --> P["パーミッションゲート許可・承認"]
+  P --> T["ツール ランタイム実行ツール"]
+  T --> S["セッション状態記録の観察"]
+  S --> G["ガードレールのバジェット/圧縮/中断"]
   G --> C
 
   P:::hot

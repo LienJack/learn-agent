@@ -1,16 +1,16 @@
 sequenceDiagram
-  participant U as 用户
+  participant U as user
   participant R as Agent Runtime
   participant M as Model
   participant T as Tool Runtime
   participant S as State
 
-  U->>R: 修复测试失败
-  R->>S: 读取当前状态
-  R->>M: 构建上下文 + 工具协议
-  M-->>R: 提出工具意图
-  R->>T: 校验、授权并执行工具
-  T-->>R: 返回 observation
-  R->>S: 追加事件
-  R->>M: 带新状态进入下一轮
-  M-->>R: 最终回答或继续行动
+  U->>R: Fix test failure
+  R->>S: Read current status
+  R->>M: Build context + tool protocol
+  M-->>R: Present tool intent
+  R->>T: Verify, authorize and execute tools
+  T-->>R: Return observation
+  R->>S: Append event
+  R->>M: Enter the next round with new status
+  M-->>R: Final answer or move on

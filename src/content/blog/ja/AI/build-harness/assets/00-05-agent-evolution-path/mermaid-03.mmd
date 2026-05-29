@@ -1,16 +1,16 @@
 sequenceDiagram
-  participant User as 用户
+  participant User as ユーザー
   participant AgentLoop as Agent Loop
   participant Model as Model
   participant Tools as Tool Runtime
-  participant FS as 项目环境
+  participant FS as プロジェクト環境
 
   User->>AgentLoop: 修好失败测试
-  AgentLoop->>Model: 目标 + 历史 + 可用工具
+  AgentLoop->>Model: 目標 + 履歴 + 利用可能な tools
   Model-->>AgentLoop: tool_intent: run_tests
-  AgentLoop->>Tools: 校验参数和权限
-  Tools->>FS: 执行测试命令
+  AgentLoop->>Tools: parameter と permission を検証する
+  Tools->>FS: テストコマンドを実行する
   FS-->>Tools: 失败日志
   Tools-->>AgentLoop: observation
-  AgentLoop->>Model: 回填失败日志
+  AgentLoop->>Model: 書き戻し失败日志
   Model-->>AgentLoop: tool_intent: read_file

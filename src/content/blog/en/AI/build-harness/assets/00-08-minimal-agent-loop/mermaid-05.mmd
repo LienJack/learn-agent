@@ -1,9 +1,9 @@
 flowchart LR
-  R["Raw Tool Result\nstdout / file / error"] --> N["Normalize\n结构化字段"]
-  N --> B["Budget\n截断大结果"]
-  B --> O["Observation\n摘要 + 证据"]
-  O --> P["Prompt Context\n下一轮可见"]
-  O --> E["Event Log\n事实记录"]
+  R["Raw Tool Result\nstdout / file / error"] --> N["Normalize structured fields"]
+  N --> B["Budget truncates large results"]
+  B --> O["Observation Summary + Evidence"]
+  O --> P["Prompt Context is visible in the next round"]
+  O --> E["Event Log fact record"]
 
   N:::hot
   O:::hot

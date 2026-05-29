@@ -2,15 +2,15 @@ flowchart TB
   subgraph "Retrieval Audit Snapshot"
     SC["Scope"]
     PL["Query Plan"]
-    CA["候选统计"]
-    SE["选中证据"]
-    RJ["拒绝原因"]
-    PR["投影文本"]
-    CM["引用映射"]
+    CA["candidate statistics"]
+    SE["Select evidence"]
+    RJ["Reason for rejection"]
+    PR["Projected text"]
+    CM["Reference mapping"]
   end
 
-  SE -.sourceRef.-> SRC["来源版本"]
-  PR -.artifactRef.-> ART["可见文本 artifact"]
+  SE -.sourceRef.-> SRC["Source version"]
+  PR -.artifactRef.-> ART["Visible text artifact"]
   CM -.citation.-> SRC
   SC --> PL --> CA --> SE --> PR
   RJ --> CA

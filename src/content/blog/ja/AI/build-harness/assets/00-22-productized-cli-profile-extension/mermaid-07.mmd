@@ -1,5 +1,5 @@
 sequenceDiagram
-  participant U as 用户
+  participant U as ユーザー
   participant CLI as Productized CLI
   participant CFG as Config/Profile
   participant EXT as Extension Runtime
@@ -16,7 +16,7 @@ sequenceDiagram
   CLI->>PR: 选择满足能力的 provider
   PR-->>RT: provider adapter + model event contract
   CLI->>CAP: 计算本轮 visible set
-  CAP-->>RT: 可见工具和 skill 索引
+  CAP-->>RT: visible tools と skill index
   RT->>RT: loop / tool intent / observation
   RT-->>OUT: 结构化事件
   OUT-->>U: TTY 渲染与最终结果

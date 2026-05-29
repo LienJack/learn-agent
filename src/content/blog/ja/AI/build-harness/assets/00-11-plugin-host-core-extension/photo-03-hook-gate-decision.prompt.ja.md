@@ -4,7 +4,7 @@
 2. 画面要素リスト
 左から右へ：Tool Intent、Hook Gate、Policy Check、4 つの決定分岐 allow/ask/deny/amend、Tool Runtime、Event Log。Hook Gate と Event Log を強調する。アイコンは申請書、ゲート、盾、分岐標識、レンチ、ログ紙。deny と ask 分岐は blocked observation へ戻る。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Hook Kernel は intent から execution への間にある制御された遮断点である」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描き決定図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

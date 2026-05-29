@@ -1,5 +1,5 @@
 flowchart TB
-  subgraph CoreSide["Core 侧"]
+  subgraph CoreSide["Core side"]
     MR["ModelRequest"]
     ME["ModelEvent"]
     TI["ToolIntent"]
@@ -12,7 +12,7 @@ flowchart TB
     EM["Error Mapper"]
   end
 
-  subgraph ProviderSide["Provider / AI SDK 侧"]
+  subgraph ProviderSide["Provider / AI SDK side"]
     PR["Provider Request"]
     SP["Stream Parts"]
     ER["SDK / HTTP Error"]

@@ -1,11 +1,11 @@
 flowchart TB
-  Start["开始"] --> Step1["运行测试"]
-  Step1 --> Check{"测试通过？"}
-  Check -->|是| Done["结束"]
-  Check -->|否| Log["收集日志"]
-  Log --> Search["搜索相关文件"]
-  Search --> Summarize["LLM 总结原因"]
-  Summarize --> Report["输出报告"]
+  Start["start"] --> Step1["Run tests"]
+  Step1 --> Check{"Test passed?"}
+  Check -->|yes| Done["Finish"]
+  Check -->|no| Log["Collect logs"]
+  Log --> Search["Search related documents"]
+  Search --> Summarize["LLM summary reasons"]
+  Summarize --> Report["Output report"]
 
   Check:::hot
   Summarize:::hot

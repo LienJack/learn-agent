@@ -1,12 +1,12 @@
 flowchart TB
-  S["Session State\n完整事件事实"] --> CP["Context Policy\n选择与压缩"]
-  PR["Project Rules\n项目规则"] --> CP
-  MEM["Memory\n长期偏好"] --> CP
-  OBS["Latest Observation\n最新工具结果"] --> CP
+  S["セッション状態の完全なイベントの事実"] --> CP["コンテキストポリシーの選択と圧縮"]
+  PR["プロジェクトルール プロジェクトルール"] --> CP
+  MEM["記憶の長期的な好み"] --> CP
+  OBS["最新の観測結果 最新のツールの結果"] --> CP
 
-  CP --> MI["Model Input\n本轮上下文"]
-  MI --> M["Model\n判断下一步"]
-  M --> INT["Intent\n工具或回答"]
+  CP --> MI["モデル入力現在のラウンドコンテキスト"]
+  MI --> M["モデルが次のステップを決定する"]
+  M --> INT["インテントツールまたは回答"]
   INT --> S
 
   CP:::hot

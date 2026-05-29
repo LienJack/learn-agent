@@ -4,7 +4,7 @@ decision path。provider error、intent error、validation error、permission ev
 2. 画面要素リスト
 中央に「エラー発生」の決定菱形。外側へ 5 経路：ProviderError、IntentError、ValidationError、PermissionEvent、ToolError。各経路に異なる小アイコンと処理結果。ProviderError と ToolError の分離を淡い黄色で強調する。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Provider Error は Tool Error ではなく、エラーは責任層ごとに分流する」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

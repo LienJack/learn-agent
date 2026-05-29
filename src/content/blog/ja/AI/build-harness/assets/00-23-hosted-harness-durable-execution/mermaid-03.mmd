@@ -1,11 +1,11 @@
 flowchart LR
-  I["Tool Intent\nrun tests"] --> P{"Policy\n允许吗"}
-  P -- 否 --> R["Observation\n权限拒绝"]
-  P -- 是 --> S["Sandbox Spec\n边界配置"]
-  S --> W["Workspace\n受控代码副本"]
-  W --> X["Execute\n测试命令"]
+  I["Tool Intent\nrun tests"] --> P{"ポリシーは許可されますか?"}
+  P -- いいえ--> R["観測許可が拒否されました"]
+  P -- はい--> S["サンドボックス仕様境界構成"]
+  S --> W["ワークスペースで制御されたコードのコピー"]
+  W --> X["テストコマンドを実行する"]
   X --> A["Artifact\nstdout / stderr / patch"]
-  A --> O["Observation\n摘要投影"]
+  A --> O["観測サマリー予測"]
 
   classDef hot fill:#fff2b8,stroke:#b78900,color:#111;
   class P,S hot;

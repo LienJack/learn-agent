@@ -1,13 +1,13 @@
 flowchart TB
-  X["Provider Raw Error\nSDK / HTTP / SSE"] --> A["Adapter\n错误识别"]
-  A --> E["ProviderError\n统一分类"]
-  E --> D{"Runtime 决策"}
+  X["Provider Raw Error\nSDK / HTTP / SSE"] --> A["Adapter error identification"]
+  A --> E["ProviderError unified classification"]
+  E --> D{"Runtime decisions"}
 
-  D -->|auth / permission| S["停止\n提示配置或权限"]
-  D -->|rate_limit / overloaded| R["退避重试\n或稍后再试"]
-  D -->|quota| Q["停止\n额度问题"]
-  D -->|context_length| C["压缩上下文\n再重试"]
-  D -->|network / timeout| N["重试\n保留事件记录"]
+  D -->|auth / permission| S["Stop Prompt for configuration or permissions"]
+  D -->|rate_limit / overloaded| R["Back off and try again or try again later"]
+  D -->|quota| Q["Stop quota issue"]
+  D -->|context_length| C["Compress context and try again"]
+  D -->|network / timeout| N["Try again Keep event record"]
 
   E:::hot
   D:::hot

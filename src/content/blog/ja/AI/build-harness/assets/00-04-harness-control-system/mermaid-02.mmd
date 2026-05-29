@@ -1,21 +1,21 @@
 sequenceDiagram
-  participant U as 用户
-  participant CLI as CLI 入口
+  participant U as ユーザー
+  participant CLI as CLIエントリ
   participant H as Harness
   participant M as Model
   participant TR as Tool Runtime
-  participant FS as 项目环境
+  participant FS as プロジェクト環境
   participant S as Session Store
 
-  U->>CLI: 修复失败测试
+  U->>CLI: 失敗テストを修正する
   CLI->>H: 创建或恢复 session
-  H->>S: 读取历史、规则、预算
-  H->>M: 发送本轮上下文
-  M-->>H: 返回工具意图
-  H->>H: 校验权限和参数
-  H->>TR: 执行受控工具
-  TR->>FS: 读文件或跑测试
-  FS-->>TR: 返回结果
+  H->>S: 履歴、ルール、予算を読む
+  H->>M: このターンの context を送る
+  M-->>H: tool intent を返す
+  H->>H: permission と parameter を検証する
+  H->>TR: 制御された tool を実行する
+  TR->>FS: ファイルを読む、またはテストを実行する
+  FS-->>TR: 結果を返す
   TR-->>H: observation
   H->>S: 追加事件日志
-  H->>M: 下一轮上下文
+  H->>M: 次ターンの context

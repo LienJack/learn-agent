@@ -1,13 +1,13 @@
 flowchart LR
-  M["Model\n工具意图"] --> S["Schema\n参数校验"]
-  S --> P{"Permission\n允许吗"}
-  P -- "拒绝" --> D["Observation\n说明原因"]
-  P -- "需要确认" --> Q["User Approval\n暂停等待"]
-  P -- "允许" --> R["Tool Runtime\n调用工具"]
-  R --> E["Execution\n真实执行"]
-  E --> O["Observation\n结构化结果"]
-  O --> ST["Session\n事件日志"]
-  ST --> C["Context\n下一轮输入"]
+  M["モデルツールの意図"] --> S["スキーマパラメータの検証"]
+  S --> P{"許可は許可されていますか?"}
+  P -- "deny"--> D["拒否理由を observation にする"]
+  P -- 「確認が必要です」--> Q["ユーザー承認は一時停止して待ちます"]
+  P -- "許可"--> R["ツール ランタイムがツールを呼び出す"]
+  R --> E["実行 実際の実行"]
+  E --> O["構造化された観測結果"]
+  O --> ST["セッションイベントログ"]
+  ST --> C["次の入力ラウンドのコンテキスト"]
 
   P:::hot
   O:::hot

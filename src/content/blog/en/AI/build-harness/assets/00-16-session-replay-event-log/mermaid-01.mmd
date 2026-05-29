@@ -1,15 +1,15 @@
 sequenceDiagram
-  participant U as 用户
+  participant U as user
   participant H as Harness
   participant M as Model
   participant T as ToolRuntime
-  participant W as 工作区
+  participant W as workspace
 
-  U->>H: 修复失败测试
-  H->>M: 构建 messages
-  M-->>H: 提出 edit intent
-  H->>T: 权限通过后执行
-  T->>W: 修改文件
-  Note over H,T: 进程崩溃或中断
-  H-->>H: 仅从 messages 恢复
-  H-->>W: 无法确认副作用边界
+  U->>H: Fix failed tests
+  H->>M: Build messages
+  M-->>H: propose edit intent
+  H->>T: Execute after permission is passed
+  T->>W: Modify files
+  Note over H,T: Process crashes or interrupts
+  H-->>H: Only restore from messages
+  H-->>W: Unable to confirm side effect boundaries

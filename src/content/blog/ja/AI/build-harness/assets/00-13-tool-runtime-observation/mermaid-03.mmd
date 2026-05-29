@@ -1,15 +1,15 @@
 flowchart TB
-  P["Permission Allow\n可执行"] --> C{"Concurrency\n并发安全吗"}
-  C -->|safe| Q["Parallel Queue\n并发队列"]
-  C -->|keyed| K{"Resource Key\n同资源冲突?"}
-  C -->|exclusive| E["Serial Queue\n串行队列"]
-  K -->|无冲突| Q
-  K -->|有冲突| E
-  Q --> B{"Long Running?\n长任务吗"}
+  P["権限 実行可能ファイルを許可する"] --> C{"同時実行性 同時実行性は安全ですか?"}
+  C -->|safe| Q["Parallel Queue 同時実行キュー"]
+  C -->|keyed| K{"リソースキーがリソースと競合しますか?"}
+  C -->|exclusive| E["シリアルキュー シリアルキュー"]
+  K -->|競合なし| Q
+  K -->|紛争が発生しています| E
+  Q --> B{"ロングラン?長い仕事ですか？"}
   E --> B
-  B -->|否| F["Foreground\n前台等待"]
-  B -->|是| G["Backgroundable\n后台任务/进度"]
-  F --> X["Execute\n执行"]
+  B -->|いいえ| F["フロントデスクで待っている前景"]
+  B -->|はい| G["バックグラウンド可能なバックグラウンド タスク/進行状況"]
+  F --> X["実行する"]
   G --> X
 
   C:::hot

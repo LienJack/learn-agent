@@ -4,7 +4,7 @@ decision path。replay と resume の分岐を説明する。replay は既定で
 2. 画面要素リスト
 7 つの主ノード：Event Log、Replay Reducer、Rebuilt State、Trace View、Pending Action、Resume Gate、New Agent Loop。Replay Reducer と Resume Gate を淡い黄色で強調する。右下に「旧ツールを再実行しない」禁止マークを置く。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Session Replay は現実世界を再実行せず、読み取り専用で説明可能な状態を再構築する」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

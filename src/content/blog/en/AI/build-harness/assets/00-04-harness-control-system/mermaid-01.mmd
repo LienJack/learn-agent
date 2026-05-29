@@ -1,16 +1,16 @@
 flowchart TB
-  U["用户目标\n修复失败测试"] --> A["Agent\n判断下一步"]
-  A --> H["Harness\n模型外部控制系统"]
+  U["User Goal Fix failed tests"] --> A["Agent determines next step"]
+  A --> H["Harness model external control system"]
 
-  H --> E["Execution\n执行环境"]
-  H --> T["Tools\n工具协议"]
-  H --> C["Context\n上下文装配"]
-  H --> L["Lifecycle\n会话生命周期"]
-  H --> O["Observability\n日志与追踪"]
-  H --> V["Verification\n验证与评估"]
-  H --> G["Governance\n权限与治理"]
+  H --> E["Execution execution environment"]
+  H --> T["Tools Tools Agreement"]
+  H --> C["Context context assembly"]
+  H --> L["Lifecycle session life cycle"]
+  H --> O["Observability logging and tracing"]
+  H --> V["Verification Verification and Evaluation"]
+  H --> G["Governance Permissions and Governance"]
 
-  E --> W["真实项目\n文件、命令、测试"]
+  E --> W["Real project files, commands, tests"]
   T --> W
   C --> A
   L --> A

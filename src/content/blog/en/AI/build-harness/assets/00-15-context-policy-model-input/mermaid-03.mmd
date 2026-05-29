@@ -1,12 +1,12 @@
 flowchart TB
-  OUT["Tool Output\n原始输出"] --> OBS["Observation Event\n规范化观察"]
-  OBS --> LOG["Session Log\n事实源"]
-  LOG --> REDUCE["State Reducer\n折叠当前现场"]
-  REDUCE --> STATE["State\n目标/预算/文件/错误"]
-  STATE --> PROJECT["Context Projector\n投影本轮视野"]
-  RULE["Rules\n系统和项目规则"] --> PROJECT
-  MEM["Memory\n可复用经验"] --> PROJECT
-  PROJECT --> INPUT["Model Input\n最终请求"]
+  OUT["Tool Output raw output"] --> OBS["Observation Event Normalized Observation"]
+  OBS --> LOG["Session Log Source of Truth"]
+  LOG --> REDUCE["State Reducer collapses the current scene"]
+  REDUCE --> STATE["State Goal/Budget/File/Error"]
+  STATE --> PROJECT["Context Projector projects the epicycle field of view"]
+  RULE["Rules system and project rules"] --> PROJECT
+  MEM["Memory reusable experience"] --> PROJECT
+  PROJECT --> INPUT["Model Input final request"]
 
   LOG:::hot
   PROJECT:::hot

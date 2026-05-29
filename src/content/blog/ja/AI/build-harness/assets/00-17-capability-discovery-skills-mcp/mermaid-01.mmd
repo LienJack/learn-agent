@@ -1,11 +1,11 @@
 flowchart LR
-  SRC["能力来源\n本地工具/Skills/MCP/插件"] --> CAT["Capability Catalog\n候选能力目录"]
-  CAT --> DSC["Discovery Policy\n任务/路径/权限/预算"]
-  DSC --> IDX["轻量索引\n名称/描述/风险/来源"]
-  IDX --> VIS["Visible Set\n本轮可见集合"]
-  VIS --> MODEL["Model\n提出 intent"]
-  MODEL --> PIPE["统一 Tool Pipeline\nvalidate/permission/execute/observe"]
-  PIPE --> OBS["Observation\n回填状态"]
+  SRC["機能ソースのローカル ツール/スキル/MCP/プラグイン"] --> CAT["機能カタログの候補機能カタログ"]
+  CAT --> DSC["ディスカバリーポリシーのタスク/パス/権限/予算"]
+  DSC --> IDX["軽量インデックスの名前/説明/リスク/ソース"]
+  IDX --> VIS["このラウンドの可視セット 可視セット"]
+  VIS --> MODEL["モデルが意図を提案する"]
+  MODEL --> PIPE["統合ツールパイプラインの検証/許可/実行/監視"]
+  PIPE --> OBS["観測埋め戻し状況"]
   OBS --> CAT
 
   DSC:::hot

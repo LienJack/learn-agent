@@ -1,17 +1,17 @@
 flowchart TB
-  U["User Goal\n用户目标"] --> R["Runtime / Loop\n控制流程"]
-  R --> P["Model Provider\n只产出模型事件"]
+  U["ユーザーの目標 ユーザーの目標"] --> R["ランタイム/ループ制御フロー"]
+  R --> P["モデルプロバイダーはモデルイベントのみを生成します"]
   P --> E["Model Event\ntext / tool_intent / final"]
   E --> R
-  R --> TR["Tool Runtime\n校验、权限、执行、观察"]
-  TR --> O["Observation\n结构化结果"]
-  O --> S["Session Log\n事件事实源"]
-  S --> ST["State\n当前任务现场"]
-  ST --> C["Context Builder\n本轮投影"]
+  R --> TR["ツールの実行時の検証、権限、実行、監視"]
+  TR --> O["構造化された観測結果"]
+  O --> S["事実のセッションログイベントソース"]
+  S --> ST["現在のタスクサイトを説明する"]
+  ST --> C["Context Builder の周転円投影法"]
   C --> R
 
-  P -. "不执行工具" .- TR
-  TR -. "不直接伪造模型输入" .- C
+  P -. 「ツールを実行しないでください」.- TR
+  TR -. 「ざんない」.- C
 
   P:::cold
   TR:::hot

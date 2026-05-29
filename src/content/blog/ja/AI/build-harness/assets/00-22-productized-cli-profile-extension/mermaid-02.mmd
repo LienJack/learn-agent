@@ -1,17 +1,17 @@
 flowchart LR
-  P["Profile\n运行身份"] --> A["Policy\n权限边界"]
-  P --> B["Tool Bundle\n工具组合"]
-  P --> C["Context Source\n指令/记忆/Skill"]
-  P --> D["Provider Preference\n模型偏好"]
-  P --> E["Output Contract\n输出协议"]
+  P["プロファイルの実行名"] --> A["ポリシーのアクセス許可の境界"]
+  P --> B["ツールバンドル ツールバンドル"]
+  P --> C["コンテキストソース コマンド/メモリ/スキル"]
+  P --> D["プロバイダー設定モデルの設定"]
+  P --> E["出力契約 出力契約"]
 
-  A --> H["Harness Runtime\n统一执行纪律"]
+  A --> H["ハーネス ランタイムは規律を均一に適用します"]
   B --> H
   C --> H
   D --> H
   E --> H
 
-  H --> R["同一条任务\n稳定运行"]
+  H --> R["同じタスクが安定して実行される"]
 
   P:::hot
   H:::hot

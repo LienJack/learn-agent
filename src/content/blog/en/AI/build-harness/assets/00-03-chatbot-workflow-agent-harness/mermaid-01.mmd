@@ -1,15 +1,15 @@
 flowchart LR
-  U["用户需求"] --> Q{"不确定性在哪？"}
+  U["User needs"] --> Q{"Where is the uncertainty?"}
 
-  Q -->|只是表达和理解| C["ChatBot\n对话管理"]
-  Q -->|步骤已经确定| W["Workflow\n固定流程"]
-  Q -->|步骤运行中决定| A["Agent\n动态决策"]
-  A -->|进入真实环境/长期运行| H["Harness\n外部控制"]
+  Q -->|Just express and understand| C["ChatBot conversation management"]
+  Q -->|The steps have been determined| W["Workflow fixed process"]
+  Q -->|Determined during step execution| A["Agent dynamic decision-making"]
+  A -->|Enter the real environment/long-term operation| H["Harness external control"]
 
-  C --> CR["回答、解释、改写"]
-  W --> WR["执行、重试、通知"]
-  A --> AR["观察、判断、行动意图"]
-  H --> HR["权限、状态、观测、恢复、验证"]
+  C --> CR["answer, explain, rephrase"]
+  W --> WR["Execute, retry, notify"]
+  A --> AR["Observation, judgment, action intention"]
+  H --> HR["Permissions, status, observation, recovery, verification"]
 
   A:::hot
   H:::hot

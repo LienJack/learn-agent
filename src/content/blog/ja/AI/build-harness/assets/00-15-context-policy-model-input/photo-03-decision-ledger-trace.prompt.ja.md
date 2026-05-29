@@ -4,7 +4,7 @@
 2. 画面要素リスト
 6 ノード：Context Sources、Policy Decision、Model Input、Model Action、Failure Trace、Fix Policy。下部に Decision Ledger 時間線。Decision Ledger と Failure Trace を強調する。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Context Decision Ledger によってモデル入力投影を trace して修正できる」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

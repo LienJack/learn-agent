@@ -1,11 +1,11 @@
 stateDiagram-v2
   [*] --> Ready
-  Ready --> Thinking: "构建本轮上下文"
-  Thinking --> Acting: "模型返回 tool intent"
-  Thinking --> Finished: "模型返回 final"
-  Acting --> Observing: "工具执行完成"
-  Observing --> Ready: "observation 写回 state"
-  Thinking --> Stopped: "超出轮次/预算"
-  Acting --> Stopped: "中断/权限拒绝/工具致命错误"
+  Ready --> Thinking: "このラウンドのコンテキストを構築する"
+  Thinking --> Acting: "モデルはツールの意図を返します"
+  Thinking --> Finished: "モデルは最終を返します"
+  Acting --> Observing: "ツールの実行が完了しました"
+  Observing --> Ready: "監視が状態に書き戻す"
+  Thinking --> Stopped: "超過/予算"
+  Acting --> Stopped: "割り込み/許可拒否/ツールの致命的なエラー"
   Stopped --> [*]
   Finished --> [*]

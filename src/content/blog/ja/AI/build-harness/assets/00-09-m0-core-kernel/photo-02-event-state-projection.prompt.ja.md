@@ -4,7 +4,7 @@
 2. 画面要素リスト
 5 つの主ノード：Event Log、State Reducer、Conversation State、Context Projection、ModelRequest。横に小さな Trace / Replay ノードを添える。Event Log と Context Projection を強調する。アイコンはログ巻物、漏斗、状態カード、投影ライト、リクエスト封筒、虫眼鏡。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Conversation State は事実ログの投影であり、事実そのものではない」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

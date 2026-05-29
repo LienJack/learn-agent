@@ -1,13 +1,13 @@
 flowchart TB
-  RAW["原始事件与 artifact"] --> C["Compaction Policy"]
-  C --> SUM["压缩摘要"]
-  C --> REF["引用保留"]
-  SUM --> MSG["下一轮 messages"]
+  RAW["Raw events and artifacts"] --> C["Compaction Policy"]
+  C --> SUM["Compressed summary"]
+  C --> REF["References reserved"]
+  SUM --> MSG["Next round of messages"]
   REF --> LOG["Session Event Log"]
   RAW --> LOG
 
   LOG --> R["Replay"]
-  R --> Q["可解释：模型当时看见什么"]
+  R --> Q["Interpretable: What the model saw at that time"]
 
   classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
   class C,LOG hot;

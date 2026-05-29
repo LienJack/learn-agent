@@ -1,10 +1,10 @@
 flowchart TB
-  I["Intent\n工具名+input"] --> L["Registry Lookup\n查工具定义"]
-  L -->|找不到| U["Unknown Tool\n生成拒绝观察"]
-  L -->|找到| D["Tool Definition\nschema/risk/policy"]
-  D --> W{"Visible?\n本轮可见吗"}
-  W -->|否| K["Invisible Tool\n拒绝或要求重试"]
-  W -->|是| V["Input Validate\n进入校验"]
+  I["インテントツール名+入力"] --> L["レジストリ ルックアップ クエリ ツールの定義"]
+  L -->|見つかりません| U["不明なツールが拒否された観測値を生成する"]
+  L -->|現れる| D["Tool Definition\nschema/risk/policy"]
+  D --> W{"見える？このサイクルは目に見えていますか？"}
+  W -->|いいえ| K["目に見えないツールが拒否されるか、再試行が必要です"]
+  W -->|はい| V["「Input Validate」で検証が開始されます"]
 
   D:::hot
   W:::hot

@@ -1,12 +1,12 @@
 flowchart LR
-  RG["Registry\n能力事实源"] --> VP["Visibility Policy\n本轮可见性"]
-  VP --> TS["Tool Schema Projection\n给模型看的工具说明"]
-  TS --> PA["Provider Adapter\n格式转换"]
-  PA --> M["Model\n产生 tool intent"]
-  M --> TI["ToolIntent\n系统申请单"]
-  TI --> RT["Runtime\n校验与后续执行"]
+  RG["レジストリ機能のファクトソース"] --> VP["可視性ポリシー このラウンドの可視性"]
+  VP --> TS["モデルのツール スキーマ投影ツールの説明"]
+  TS --> PA["プロバイダーアダプター形式の変換"]
+  PA --> M["モデルがツールの意図を生成する"]
+  M --> TI["ToolIntentシステム申請フォーム"]
+  TI --> RT["実行時の検証とその後の実行"]
 
-  RG --> RP["Runtime Policy\n风险、并发、权限"]
+  RG --> RP["ランタイムポリシーのリスク、同時実行性、権限"]
   RP --> RT
 
   RG:::hot

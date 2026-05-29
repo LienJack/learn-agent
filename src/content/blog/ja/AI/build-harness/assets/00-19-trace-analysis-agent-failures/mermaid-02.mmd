@@ -1,5 +1,5 @@
 flowchart TB
-  subgraph "Event Log：事实存储"
+  subgraph "イベントログ: ファクトストレージ"
     E1["model.responded"]
     E2["tool.intent.created"]
     E3["permission.decided"]
@@ -8,15 +8,15 @@ flowchart TB
     E6["verification.finished"]
   end
 
-  subgraph "Trace View：诊断组织"
-    G["目标"]
-    C["上下文"]
-    J["模型判断"]
-    I["工具意图"]
-    P["权限决策"]
-    X["执行结果"]
-    O["观察投影"]
-    V["验证结论"]
+  subgraph "トレース ビュー: 診断組織"
+    G["ターゲット"]
+    C["コンテクスト"]
+    J["機種判定"]
+    I["手段的な意図"]
+    P["許可の決定"]
+    X["実行結果"]
+    O["投影を観察する"]
+    V["結論を検証する"]
   end
 
   E1 --> J

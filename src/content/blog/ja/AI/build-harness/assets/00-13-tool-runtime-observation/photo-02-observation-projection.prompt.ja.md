@@ -4,7 +4,7 @@
 2. 画面要素リスト
 左側に Raw Result ノード、stdout、stderr、diff、file bytes の小ラベル。中央は淡い黄色の Normalizer 漏斗。右側に Model View、User View、Session Fact、Artifact Ref の 4 出力。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「生のツール結果が observation へ投影される仕組み」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

@@ -6,9 +6,9 @@ sequenceDiagram
   participant G as Governance
   participant M as Memory Store
 
-  S->>E: 选择可作为证据的事件
-  E->>X: 提供用户规则、工具观察、验证结果
+  S->>E: 証拠にできる event を選ぶ
+  E->>X: ユーザールール、tool observation、検証結果を提供する
   X-->>L: 写入 pending candidates
-  L->>G: 触发治理检查
+  L->>G: ガバナンスチェックを起動する
   G-->>L: 更新状态和原因
-  G->>M: 仅批准项进入长期存储
+  G->>M: 承認済み項目だけを長期 store に入れる

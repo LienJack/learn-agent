@@ -1,11 +1,11 @@
 flowchart TB
-  Start["开始"] --> Step1["运行测试"]
-  Step1 --> Check{"测试通过？"}
-  Check -->|是| Done["结束"]
-  Check -->|否| Log["收集日志"]
-  Log --> Search["搜索相关文件"]
-  Search --> Summarize["LLM 总结原因"]
-  Summarize --> Report["输出报告"]
+  Start["始める"] --> Step1["テストの実行"]
+  Step1 --> Check{"テストは合格しましたか?"}
+  Check -->|はい| Done["仕上げる"]
+  Check -->|いいえ| Log["ログを収集する"]
+  Log --> Search["関連文書の検索"]
+  Search --> Summarize["LLM の理由の概要"]
+  Summarize --> Report["レポート出力"]
 
   Check:::hot
   Summarize:::hot

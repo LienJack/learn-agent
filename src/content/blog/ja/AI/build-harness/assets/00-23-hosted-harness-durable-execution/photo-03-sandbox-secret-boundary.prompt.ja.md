@@ -6,7 +6,7 @@ Decision path。この図は、秘密鍵が model、sandbox、logs、observation
 
 左側は Model、右側は Sandbox、中央は Harness と Tool Runtime。上部に Vault を置き、ロックと金庫アイコンで淡い黄色に強調。フローノードは Model Intent、Harness Policy、Vault、Tool Runtime、Sandbox、Logs、Observation。赤いバツまたは禁止記号で Vault が Model と Sandbox へ直接入らないことを示す。淡い黄色で Tool Runtime を強調し、secret の制御された利用を表す。背景には軽いエンジニアリングスケッチ線。下部にフレーズ用スペース：「秘密鍵は能力であって、context ではない」。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 
 記事内の技術解説図を描く。テーマは Hosted Harness の secret boundary が秘密鍵をモデル context と sandbox ログへ入れないようにする仕組み。
 

@@ -1,18 +1,18 @@
 flowchart TD
-  F["子任务失败或异常"] --> K{"失败类型"}
-  K --> V["Validation\n任务包不合法"]
-  K --> C["Capability\n能力/权限不足"]
-  K --> R["Runtime\n超时/崩溃"]
-  K --> O["Contract\n输出不合格"]
-  K --> S["Semantic\n结论冲突"]
+  F["Subtask failure or exception"] --> K{"Failure type"}
+  K --> V["Validation task package is illegal"]
+  K --> C["Capability Insufficient ability/authority"]
+  K --> R["Runtime timeout/crash"]
+  K --> O["Contract output is unqualified"]
+  K --> S["Semantic conclusion conflict"]
 
-  V --> A1["修正任务包\n重新提出 delegation"]
-  C --> A2["申请权限\n或改派只读角色"]
-  R --> A3["重试/降级/取消"]
-  O --> A4["要求结构化重写\n或保守接管"]
-  S --> A5["父 Agent 审证据\n必要时仲裁"]
+  V --> A1["Correct task package Re-propose delegation"]
+  C --> A2["Apply for permission or assign read-only role"]
+  R --> A3["Retry/Downgrade/Cancel"]
+  O --> A4["Request structured rewrite or conservative takeover"]
+  S --> A5["Parent Agent examines evidence and arbitrates when necessary"]
 
-  A1 --> J["父 Agent Join"]
+  A1 --> J["Parent Agent Join"]
   A2 --> J
   A3 --> J
   A4 --> J

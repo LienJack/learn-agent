@@ -1,19 +1,19 @@
 flowchart TB
-  subgraph EXT["外部插件"]
-    PM["Plugin Manifest\n名称/版本/能力声明"]
+  subgraph EXT["external plug-in"]
+    PM["Plugin Manifest name/version/capability statement"]
     PI["Plugin Implementation\nsetup/start/stop"]
   end
 
   subgraph HOST["Plugin Host"]
-    LD["Loader\n发现与校验"]
-    LC["Lifecycle\n加载/启用/停止"]
-    RG["Registry\n能力注册"]
-    HK["Hook Kernel\n阻断与观察"]
+    LD["Loader discovery and verification"]
+    LC["Lifecycle load/enable/stop"]
+    RG["Registry Capability Registration"]
+    HK["Hook Kernel blocking and observation"]
   end
 
   subgraph CORE["Core Kernel"]
     CT["Contracts\nProvider/Tool/Hook"]
-    EV["Event Log\n事实源"]
+    EV["Event Log Source of Truth"]
     RT["Runtime\nLoop/Intent/Observe"]
   end
 

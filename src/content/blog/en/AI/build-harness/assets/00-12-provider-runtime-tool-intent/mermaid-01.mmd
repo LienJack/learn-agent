@@ -1,17 +1,17 @@
 flowchart LR
-  U["用户目标\n修复测试失败"] --> C["Core Runtime\n组织一轮请求"]
-  C --> P["Provider Runtime\n调用真实模型"]
-  P --> S["Streaming Adapter\n归一化事件"]
+  U["User Goal Fix test failure"] --> C["Core Runtime organizes a round of requests"]
+  C --> P["Provider Runtime calls the real model"]
+  P --> S["Streaming Adapter normalized events"]
   S --> E["ModelEvent\ntext / reasoning / finish / usage / error"]
-  S --> I["ToolIntent\n只描述动作"]
+  S --> I["ToolIntent only describes actions"]
   E --> C
   I --> C
-  C --> L["Event Log\n记录事实"]
-  C --> T["Tool Pipeline\n验证 / 权限 / 执行"]
-  T --> O["Observation\n结果回填"]
+  C --> L["Event Log records facts"]
+  C --> T["Tool Pipeline Verification/Permissions/Execution"]
+  T --> O["Observation result backfill"]
   O --> C
 
-  P -. "不能执行工具" .-> T
+  P -. "Unable to execute tool" .-> T
   I:::hot
   C:::hot
   T:::hot

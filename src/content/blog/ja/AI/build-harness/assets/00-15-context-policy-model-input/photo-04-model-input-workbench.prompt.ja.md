@@ -4,7 +4,7 @@
 2. 画面要素リスト
 中央に Model Input 作業台。5 層：Trusted Rules、Current State、Latest Observation、Evidence Pack、Visible Tools。左側に Session/State ソース、右側に Model 判断。Trusted Rules と Latest Observation を強調する。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「テスト修正タスクで、この回のモデルが実際に見るのは整理された作業台である」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

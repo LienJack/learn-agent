@@ -1,21 +1,21 @@
 flowchart TB
-  F["Agent 失败"] --> K{"断在哪一层？"}
+  F["Agent failed"] --> K{"At which level is it broken?"}
 
-  K --> M["模型判断错"]
-  K --> C["上下文缺失"]
-  K --> T["工具执行错"]
-  K --> P["权限误判"]
-  K --> O["Observation 投影错"]
-  K --> V["验证缺失"]
-  K --> D["Delegation Join 错"]
+  K --> M["Model judgment is wrong"]
+  K --> C["Missing context"]
+  K --> T["Tool execution error"]
+  K --> P["Permission misjudgment"]
+  K --> O["Observation projection wrong"]
+  K --> V["Missing validation"]
+  K --> D["Delegation Join Error"]
 
-  M --> MF["修 prompt / tool 描述 / 模型选择"]
-  C --> CF["修 context policy / retrieval / compaction"]
-  T --> TF["修 runtime / schema / sandbox"]
-  P --> PF["修 policy / risk gate / HITL"]
-  O --> OF["修 normalizer / truncation / summary"]
-  V --> VF["修 assertion / test command / success criteria"]
-  D --> DF["修 task brief / result contract / join review"]
+  M --> MF["Repair prompt / tool description / model selection"]
+  C --> CF["Repair context policy / retrieval / compaction"]
+  T --> TF["Fix runtime/schema/sandbox"]
+  P --> PF["Repair policy / risk gate / HITL"]
+  O --> OF["Repair normalizer / truncation / summary"]
+  V --> VF["Repair assertion / test command / success criteria"]
+  D --> DF["Repair task brief / result contract / join review"]
 
   classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
   class K,O,V,D hot;

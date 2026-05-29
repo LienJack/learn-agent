@@ -6,7 +6,7 @@
 
 中心ノード：Profile 実行アイデンティティ。周囲の 5 層：Policy、Tool Bundle、Context Source、Provider Preference、Output Contract。下部は Harness Runtime で、profile はアイデンティティを宣言するだけで、実際の実行は runtime に戻ることを表す。淡い黄色で Profile と Harness Runtime を強調。アイコン比喩：盾は policy、ツールボックスは tool bundle、フォルダは context source、クラウドインターフェースは provider preference、イベントストリームカードは output contract、土台は runtime。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 
 記事内の技術解説図を描く。テーマは Agent CLI の profile が実行アイデンティティを定義する仕組み。
 

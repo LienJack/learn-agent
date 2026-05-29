@@ -1,9 +1,9 @@
 flowchart TB
-  ST["State\n完整任务现场"] --> CP["Context Policy\n选择、压缩、隔离"]
-  MEM["Memory\n长期经验和事实"] --> CP
-  KB["Knowledge Base\n项目文档和索引"] --> CP
-  CP --> MI["Model Input\n本轮模型可见内容"]
-  MI --> ME["Model Event\n文本或工具意图"]
+  ST["州の完全なミッションサイト"] --> CP["コンテキスト ポリシーの選択、圧縮、分離"]
+  MEM["記憶に残る長い経験と事実"] --> CP
+  KB["ナレッジベースプロジェクトのドキュメントとインデックス"] --> CP
+  CP --> MI["モデル入力 このラウンドのモデルの表示コンテンツ"]
+  MI --> ME["モデルイベントのテキストまたはツールの意図"]
   ME --> ST
 
   CP:::hot

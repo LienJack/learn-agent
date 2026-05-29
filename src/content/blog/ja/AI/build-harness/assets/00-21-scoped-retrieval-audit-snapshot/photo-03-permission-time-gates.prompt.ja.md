@@ -4,7 +4,7 @@ Layered architecture。この図は、検索結果がモデルへ入る前の多
 2. 画面要素リスト
 4 層構造：Knowledge Sources、Source Access Gate、Model Visibility Gate、Time Snapshot Gate、Model Context。ノードには知識ソース庫、アクセス盾、可視性の目、時計スナップショット、モデル作業台を含める。淡い黄色で Model Visibility Gate と Time Snapshot Gate を強調。下部に小さな audit log トラックを置いてよい。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは検索結果がモデルに入る前に権限と時間境界を通らなければならないこと。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線の太さは少し不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向け手描きフロー図、明快で抑制され、エンジニアリングスケッチ感がある。

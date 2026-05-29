@@ -1,12 +1,12 @@
 flowchart TB
-  OUT["Tool Output\n原始输出"] --> OBS["Observation Event\n规范化观察"]
-  OBS --> LOG["Session Log\n事实源"]
-  LOG --> REDUCE["State Reducer\n折叠当前现场"]
-  REDUCE --> STATE["State\n目标/预算/文件/错误"]
-  STATE --> PROJECT["Context Projector\n投影本轮视野"]
-  RULE["Rules\n系统和项目规则"] --> PROJECT
-  MEM["Memory\n可复用经验"] --> PROJECT
-  PROJECT --> INPUT["Model Input\n最终请求"]
+  OUT["ツール出力生出力"] --> OBS["観測イベントの正規化された観測"]
+  OBS --> LOG["セッションログの信頼できる情報源"]
+  LOG --> REDUCE["State Reducer は現在のシーンを折りたたみます"]
+  REDUCE --> STATE["状態目標/予算/ファイル/エラー"]
+  STATE --> PROJECT["Context Projector は周転円の視野を投影します"]
+  RULE["ルール体系とプロジェクトルール"] --> PROJECT
+  MEM["メモリの再利用可能なエクスペリエンス"] --> PROJECT
+  PROJECT --> INPUT["モデル入力の最終リクエスト"]
 
   LOG:::hot
   PROJECT:::hot

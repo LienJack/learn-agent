@@ -6,7 +6,7 @@
 
 左から右への extension ライフサイクルパイプライン。ノード：Install、Verify、Trust、Manifest、Catalog、Visible Set、Permission Gate、Tool Runtime。淡い黄色で Trust と Permission Gate を強調。アイコン比喩：ダウンロード箱、検証印、ロックと盾、マニフェスト紙、カタログ引き出し、スポットライト、ゲート、レンチ。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 
 記事内の技術解説図を描く。テーマは Agent CLI の extension がインストールから制御された実行へ進むライフサイクル。
 

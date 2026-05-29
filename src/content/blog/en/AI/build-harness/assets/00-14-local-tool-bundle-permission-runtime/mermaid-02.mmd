@@ -1,11 +1,11 @@
 flowchart TB
-  M["Model\n只看到工具说明与 schema"] --> I["Tool Intent\n结构化请求"]
-  I --> C["Tool Contract\n工具契约"]
-  C --> V["Input Validation\n参数/路径/语义"]
+  M["Model only sees the tool description and schema"] --> I["Tool Intent Structured Request"]
+  I --> C["Tool Contract Tool Contract"]
+  C --> V["Input Validation parameters/paths/semantics"]
   V --> P["Permission Runtime\nallow/ask/deny"]
-  P --> X["Executor\n文件系统或 shell"]
-  X --> O["Observation\n结构化结果"]
-  O --> A["Audit Event\n可追踪事实"]
+  P --> X["Executor file system or shell"]
+  X --> O["Observation structured results"]
+  O --> A["Audit Event tracks facts"]
   O --> M
 
   subgraph Bundle["Local Tool Bundle"]

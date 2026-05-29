@@ -1,15 +1,15 @@
 flowchart LR
-  Goal["用户目标"] --> Policy["Policy\n能否启动"]
-  Policy --> Sandbox["Sandbox\n在哪里跑"]
-  Sandbox --> Runtime["Runtime\n如何跑"]
-  Runtime --> Context["Context\n这一轮看什么"]
-  Context --> Model["Model\n判断下一步"]
-  Model --> Intent["Intent\n行动意图"]
-  Intent --> ToolRT["Tool Runtime\n校验执行"]
-  ToolRT --> Obs["Observation\n事实结果"]
-  Obs --> Log["Session Log\n持久轨迹"]
+  Goal["ユーザーの目標"] --> Policy["ポリシーを有効にできますか?"]
+  Policy --> Sandbox["サンドボックスはどこで実行されますか?"]
+  Sandbox --> Runtime["ランタイム 実行方法"]
+  Runtime --> Context["コンテキスト このラウンドで注目すべき内容"]
+  Context --> Model["モデルが次のステップを決定する"]
+  Model --> Intent["意図 行動の意図"]
+  Intent --> ToolRT["ツール実行時検証の実行"]
+  ToolRT --> Obs["観測事実結果"]
+  Obs --> Log["セッションログの永続的なトラック"]
   Log --> Runtime
-  Log --> Trace["Trace / Eval\n质量信号"]
+  Log --> Trace["トレース/評価品質信号"]
 
   Runtime:::hot
   ToolRT:::hot

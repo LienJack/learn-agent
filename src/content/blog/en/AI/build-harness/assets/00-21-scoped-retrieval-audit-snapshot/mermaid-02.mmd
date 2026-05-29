@@ -1,14 +1,14 @@
 flowchart TB
-  Q["检索请求"] --> SC["Retrieval Scope"]
+  Q["Retrieval request"] --> SC["Retrieval Scope"]
 
-  SC --> P["项目边界"]
-  SC --> U["用户边界"]
-  SC --> T["时间边界"]
-  SC --> A["权限边界"]
-  SC --> E["证据要求"]
-  SC --> B["预算边界"]
+  SC --> P["project boundaries"]
+  SC --> U["user boundaries"]
+  SC --> T["time boundary"]
+  SC --> A["permission boundaries"]
+  SC --> E["Evidence requirements"]
+  SC --> B["budget boundary"]
 
-  P --> R["可召回来源"]
+  P --> R["Recallable sources"]
   U --> R
   T --> R
   A --> R

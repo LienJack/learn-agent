@@ -1,15 +1,15 @@
 flowchart LR
-  U["用户目标\n修复测试失败"] --> L["Agent Loop"]
-  L --> I["Tool Intent\n模型提议"]
-  I --> R["Local Tool Bundle\n本地工具包"]
-  R --> V["Validate\n结构与语义校验"]
-  V --> P{"Permission\n权限决策"}
-  P -->|allow| E["Execute\n受控执行"]
-  P -->|ask| H["Human\n人工确认"]
-  P -->|deny| D["Reject\n拒绝"]
-  H -->|同意| E
-  H -->|拒绝| D
-  E --> O["Observation\n事实回填"]
+  U["ユーザー目標修正テストの失敗"] --> L["Agent Loop"]
+  L --> I["ツール意図モデルの提案"]
+  I --> R["ローカル ツール バンドル ローカル ツール バンドル"]
+  R --> V["構造とセマンティックの検証を検証する"]
+  V --> P{"許可許可決定"}
+  P -->|allow| E["制御された実行を実行する"]
+  P -->|ask| H["人によるマニュアル確認"]
+  P -->|deny| D["拒否する"]
+  H -->|同意する| E
+  H -->|拒否する| D
+  E --> O["観測事実の埋め戻し"]
   D --> O
   O --> L
 

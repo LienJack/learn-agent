@@ -1,14 +1,14 @@
 flowchart TD
-  T["Tool Intent"] --> C{"动作类别"}
-  C -->|Glob/Grep| R1["R1 搜索\n默认可自动放行"]
-  C -->|Read| RR{"读取路径"}
-  RR -->|项目源码| R1
-  RR -->|secrets/越界| R5["R5 禁止"]
-  C -->|Edit/Write| R2["R2 写文件\n通常 ask 或策略 allow"]
-  C -->|Bash| BR{"命令分类"}
-  BR -->|测试/构建只读倾向| R3["R3 执行\n可能 allow/ask"]
-  BR -->|删除/重置/联网/安装| R4["R4 高风险\n默认 ask 或 deny"]
-  BR -->|解析失败/危险包装| R5
+  T["Tool Intent"] --> C{"action category"}
+  C -->|Glob/Grep| R1["R1 search can be automatically released by default"]
+  C -->|Read| RR{"read path"}
+  RR -->|Project source code| R1
+  RR -->|secrets/cross-border| R5["R5 prohibited"]
+  C -->|Edit/Write| R2["R2 writes files usually ask or policy allow"]
+  C -->|Bash| BR{"Command classification"}
+  BR -->|Test/build read-only tendency| R3["R3 execution may allow/ask"]
+  BR -->|Delete/Reset/Network/Install| R4["R4 high risk default ask or deny"]
+  BR -->|Parse failure/dangerous wrapper| R5
 
   R1 --> D1["allow"]
   R2 --> D2{"ask/allow"}

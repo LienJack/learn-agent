@@ -1,14 +1,14 @@
 flowchart LR
-  REQ["Model Request\n内部请求"] --> NEED["Capability Need\nstream/tool/context"]
-  NEED --> PREF["Profile Preference\n优先级与限制"]
-  PREF --> RES{"Provider Resolver\n可用性/成本/能力"}
-  RES -- "primary 可用" --> PA["Provider A\nadapter"]
-  RES -- "primary 不可用" --> FB["Fallback Chain\n解释切换原因"]
+  REQ["Model Request internal request"] --> NEED["Capability Need\nstream/tool/context"]
+  NEED --> PREF["Profile Preference priorities and restrictions"]
+  PREF --> RES{"Provider Resolver Availability/Cost/Capacity"}
+  RES -- "primary is available" --> PA["Provider A\nadapter"]
+  RES -- "primary is not available" --> FB["Fallback Chain explains the reason for switching"]
   FB --> PB["Provider B\nadapter"]
-  PA --> EV["ModelEvent\n统一事件"]
+  PA --> EV["ModelEvent unified event"]
   PB --> EV
-  EV --> CORE["Core Runtime\n同一条 loop"]
-  RES --> TRACE["Trace\n记录选择原因"]
+  EV --> CORE["Core Runtime same loop"]
+  RES --> TRACE["Trace record selection reason"]
 
   RES:::hot
   EV:::hot

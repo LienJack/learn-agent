@@ -1,12 +1,12 @@
 flowchart TB
-  EL["Event Log\n事实源"] --> RD["State Reducer\n折叠事件"]
-  RD --> ST["Conversation State\n当前现场"]
-  ST --> CP["Context Projection\n本轮给模型看的输入"]
+  EL["イベントログの信頼できる情報源"] --> RD["State Reducer 崩壊イベント"]
+  RD --> ST["会話の状態 現在のサイト"]
+  ST --> CP["コンテキスト投影 このラウンドでモデルに与えられる入力"]
   CP --> MR["ModelRequest\nmessages + tools"]
   MR --> PR["Provider Adapter"]
 
-  EL --> TR["Trace / Replay\n回放与排错"]
-  ST --> UI["CLI UI\n状态显示"]
+  EL --> TR["トレース/リプレイの再生とトラブルシューティング"]
+  ST --> UI["CLI UIのステータス表示"]
 
   EL:::hot
   ST:::hot

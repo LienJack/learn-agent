@@ -1,20 +1,20 @@
 flowchart LR
-  U["用户目标\n修复失败测试"] --> M["主 Agent\n保留目标与最终判断"]
-  M --> N{"任务变大"}
-  N --> C["上下文污染\n搜索/日志/失败路径"]
-  N --> P["天然并行\n测试/调用链/安全"]
-  N --> R["风险分散\n谁能执行危险动作"]
+  U["User Goal Fix failed tests"] --> M["The main agent retains the goal and final judgment"]
+  M --> N{"The task becomes bigger"}
+  N --> C["Context pollution search/log/failure path"]
+  N --> P["Natural Parallel Testing/Call Chaining/Safety"]
+  N --> R["Risk diversification Who can perform dangerous actions"]
 
   C --> D["Delegation Runtime"]
   P --> D
   R --> D
 
-  D --> T["任务包\nTask Package"]
-  D --> I["上下文隔离\nContext Isolation"]
-  D --> B["边界继承\nTool & Permission Boundary"]
-  D --> J["结果汇聚\nJoin & Review"]
+  D --> T["Task Package Task Package"]
+  D --> I["Context Isolation Context Isolation"]
+  D --> B["Boundary inheritance Tool & Permission Boundary"]
+  D --> J["Results Join & Review"]
 
-  J --> M2["父 Agent\n综合、决策、继续"]
+  J --> M2["Parent Agent synthesis, decision, continue"]
 
   D:::hot
   M2:::hot

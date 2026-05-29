@@ -4,7 +4,7 @@
 2. 画面要素リスト
 三層構造：下層 Core Kernel、中層 Plugin Host、上層 外部能力。主要ノードは組み込み汚染、Plugin Host、Contract、Registry、Lifecycle、Hook Gate、Harness 規律。Plugin Host と Harness 規律を淡い黄色で強調する。アイコンは核心チップ、パズル、台帳、時計、ゲート、盾。下部に短い caption 用の空白を残す。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Plugin Host は外部能力を同じ Harness 規律へ入れる」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きメカニズム図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

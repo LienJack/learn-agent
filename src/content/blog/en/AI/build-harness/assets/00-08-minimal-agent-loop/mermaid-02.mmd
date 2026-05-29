@@ -1,11 +1,11 @@
 stateDiagram-v2
   [*] --> Ready
-  Ready --> Thinking: "构建本轮上下文"
-  Thinking --> Acting: "模型返回 tool intent"
-  Thinking --> Finished: "模型返回 final"
-  Acting --> Observing: "工具执行完成"
-  Observing --> Ready: "observation 写回 state"
-  Thinking --> Stopped: "超出轮次/预算"
-  Acting --> Stopped: "中断/权限拒绝/工具致命错误"
+  Ready --> Thinking: "Build context for this round"
+  Thinking --> Acting: "Model returns tool intent"
+  Thinking --> Finished: "model returns final"
+  Acting --> Observing: "Tool execution completed"
+  Observing --> Ready: "observation writes back to state"
+  Thinking --> Stopped: "Overrun/Budget"
+  Acting --> Stopped: "Interrupt/Permission Denied/Tool Fatal Error"
   Stopped --> [*]
   Finished --> [*]

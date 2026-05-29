@@ -4,7 +4,7 @@
 2. 画面要素リスト
 左側は Runtime State、中央の第一の門は Tool Visibility、その後に Model と Tool Intent、第二の門は Approval Gate。右側は 3 つの経路：Allow to Execute、Ask to Human、Deny to Observation。2 つの門を淡い黄色で強調する。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「権限は最後のポップアップではなく、ツール可視性と単発承認という二つの門である」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

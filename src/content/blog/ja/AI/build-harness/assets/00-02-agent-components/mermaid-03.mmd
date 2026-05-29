@@ -1,11 +1,11 @@
 flowchart LR
-  I["Tool Intent\n模型请求"] --> V["Validate\n参数校验"]
-  V --> G["Visibility\n本轮可见性"]
-  G --> P["Permission\n权限判断"]
-  P --> X["Execute\n沙箱执行"]
-  X --> B["Budget\n截断/摘要"]
-  B --> O["Observation\n回填模型"]
-  O --> A["Audit\n记录事件"]
+  I["ツールインテントモデルリクエスト"] --> V["パラメータの検証を検証する"]
+  V --> G["可視性 このラウンドの可視性"]
+  G --> P["許可許可判定"]
+  P --> X["サンドボックス実行を実行する"]
+  X --> B["予算の切り捨て/要約"]
+  B --> O["観測埋め戻しモデル"]
+  O --> A["監査ログイベント"]
 
   G:::hot
   P:::hot

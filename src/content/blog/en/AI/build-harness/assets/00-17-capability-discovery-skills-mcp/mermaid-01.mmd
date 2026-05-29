@@ -1,11 +1,11 @@
 flowchart LR
-  SRC["能力来源\n本地工具/Skills/MCP/插件"] --> CAT["Capability Catalog\n候选能力目录"]
-  CAT --> DSC["Discovery Policy\n任务/路径/权限/预算"]
-  DSC --> IDX["轻量索引\n名称/描述/风险/来源"]
-  IDX --> VIS["Visible Set\n本轮可见集合"]
-  VIS --> MODEL["Model\n提出 intent"]
-  MODEL --> PIPE["统一 Tool Pipeline\nvalidate/permission/execute/observe"]
-  PIPE --> OBS["Observation\n回填状态"]
+  SRC["Capability source local tools/Skills/MCP/plug-in"] --> CAT["Capability Catalog candidate capability catalog"]
+  CAT --> DSC["Discovery Policy Task/Path/Permission/Budget"]
+  DSC --> IDX["Lightweight Index Name/Description/Risk/Source"]
+  IDX --> VIS["Visible Set Visible Set this round"]
+  VIS --> MODEL["Model proposes intent"]
+  MODEL --> PIPE["Unify Tool Pipeline validate/permission/execute/observe"]
+  PIPE --> OBS["Observation backfill status"]
   OBS --> CAT
 
   DSC:::hot

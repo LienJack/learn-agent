@@ -4,7 +4,7 @@
 2. 画面要素リスト
 左側入力は Intent、Decision、Execution、Observation のイベント列。中央は Event Log / Projection Layer。右側の出力は Model Context、Audit Trail、Replay Runner。Event Log と Projection Layer を淡い黄色で強調する。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「完全なイベント事実チェーンが観察、監査、リプレイを同時に支える」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。
