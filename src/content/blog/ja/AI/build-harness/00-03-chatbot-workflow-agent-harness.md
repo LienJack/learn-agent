@@ -3,7 +3,7 @@ title: "システム境界：ChatBot、Workflow、Agent、Harness の違い"
 description: "多くの人が初めて Agent システムを作るとき、自然にそれを一つのアップグレード経路として理解しがちです。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/00-03-chatbot-workflow-agent-harness/cover.png'
 locale: "ja"
 tags:
   - Agent

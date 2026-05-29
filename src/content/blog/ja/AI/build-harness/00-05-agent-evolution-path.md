@@ -3,7 +3,7 @@ title: "Agent の進化経路：Chat Agent -> Tool Agent -> Runtime Agent -> Man
 description: "Agent は Chat から Tool、Runtime、Managed へ進むにつれて、現実のリスクを受け止める制御層を増やしていく。重要なのは能力の序列ではなく、どの現実リスクに触れているかで Harness の厚みを決めることだ。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/00-05-agent-evolution-path/cover.png'
 locale: "ja"
 tags:
   - Agent

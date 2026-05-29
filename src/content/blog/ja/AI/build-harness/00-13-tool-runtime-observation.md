@@ -1,6 +1,6 @@
 ---
 title: "Tool Runtime：tool intent から observation へ"
-description: "この段落では、設計上の責任境界を明確にし、実装時に同じ判断を再現できるようにします。"
+description: "第 10 篇では、重要な境界を明確に描きました。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.png'

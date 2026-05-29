@@ -1650,13 +1650,13 @@ If the answer is no, it means it hasn't really entered Harness.
 
 ## XI. Put It in One Sentence
 
-Intent / Execution is not an abstract structure brevity.
+Intent / Execution separation is not architectural neatness for its own sake.
 
-It's the first engineering discipline that Agent has to establish before he gets to the real world.
+It is the first engineering discipline an Agent must establish before it touches the real world.
 
 Model outputs are probabilistic recommendations.
 
-It is the outside world that implements the change.
+Tool execution changes the outside world.
 
 There must be a system pipeline between the two:
 
@@ -1664,17 +1664,17 @@ There must be a system pipeline between the two:
 intent -> validate -> approve -> execute -> observe
 ```
 
-In this tube, the model is responsible for proposing the next step, and Harness is responsible for verifying, authorizing, executing, recording and backfilling the facts.
+In this pipeline, the model proposes the next step, while the Harness validates, authorizes, executes, records, and feeds facts back into context.
 
 Once this boundary is established, Tool Runtime, Permission, Audit, and Replay all have natural attachment points.
 
 If this boundary is not established, then the more tools you add, the more complex permissions become, and the longer tasks run, the more the system collapses into a fog of what the model said and what actually happened in the world.
 
-When you enter Tool Runtime next, we stop looking at the tools as a list of functions and look at each tool as a running time protocol: How it describes itself, how it validates input, how it states risk, how it works, how it works, how it translates the result into an operation.
+In the next article, when we move into Tool Runtime, we will stop treating tools as a list of functions. Each tool becomes a runtime protocol: how it describes itself, validates input, declares risk, executes, and turns its result into an observation.
 
 ## Diagram Planning
 
-This article does not include images in the text to generate hints. The main entrance to the water line is at:
+This article does not embed image-generation prompts directly in the body. The main prompt manifest is:
 
 ```text
 docs/en/assets/00-10-intent-execution-separation/image-prompts.json
@@ -1682,12 +1682,12 @@ docs/en/assets/00-10-intent-execution-separation/image-prompts.json
 
 Plan:
 
-1. `photo-01-intent-execution-pipeline`: After`## Problem Chain`, draw the`intent -> validate -> approve -> execute -> observe`pipeline.
-2. `photo-02-model-runtime-boundary`: After`## II. Intent Is Not a Natural-Language Sentence, but a System-Processable Request Object`, it was emphasized that Model only had access to the outside world by submitting an application.
-3. `photo-03-permission-gates`: After`## IV. Approve: Permission Is Not a Popup, but the Gate Between intent and execution`, draw two doors for tool visibility and single approval.
-4. `photo-04-observation-audit-replay`: After`## VII. How This Pipeline Supports Tool Runtime, Permission, Audit, and Replay`, draw how to share the same event's factual chain.
+1. `photo-01-intent-execution-pipeline`: after `## Problem Chain`, draw the `intent -> validate -> approve -> execute -> observe` pipeline.
+2. `photo-02-model-runtime-boundary`: after `## II. Intent Is Not a Natural-Language Sentence, but a System-Processable Request Object`, emphasize that the model can reach the outside world only by submitting a request.
+3. `photo-03-permission-gates`: after `## IV. Approve: Permission Is Not a Popup, but the Gate Between intent and execution`, draw the two gates of tool visibility and per-action approval.
+4. `photo-04-observation-audit-replay`: after `## VII. How This Pipeline Supports Tool Runtime, Permission, Audit, and Replay`, draw how observation, audit, and replay share the same factual event chain.
 
-These prompt files serve only as a factual source for subsequent photo generation and multilingual conversion; the current status is unified to`prompt-only`.
+These prompt files are only a factual source for later image generation and multilingual conversion; their current status is `prompt-only`.
 
 ---
 

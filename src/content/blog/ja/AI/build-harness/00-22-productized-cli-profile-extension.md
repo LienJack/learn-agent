@@ -229,7 +229,7 @@ extension をロードします。
 最初の CLI は、引数がこれだけかもしれません。
 
 ```bash
-agent "帮我看看这个项目为什么测试失败，并把它修好"
+agent "このプロジェクトのテストがなぜ失敗しているか確認して、修正してください"
 ```
 
 内部コードも直感的です。
@@ -283,7 +283,7 @@ agent \
   --skill test-fix \
   --mcp-config .agent/mcp.json \
   --json \
-  "帮我看看这个项目为什么测试失败，并把它修好"
+  "このプロジェクトのテストがなぜ失敗しているか確認して、修正してください"
 ```
 
 もちろんこれでも動きます。
@@ -447,7 +447,7 @@ Trace は身分がどう効いたかを証明する。
 ユーザーが次を実行したとします。
 
 ```bash
-harness --profile code "帮我看看这个项目为什么测试失败，并把它修好"
+harness --profile code "このプロジェクトのテストがなぜ失敗しているか確認して、修正してください"
 ```
 
 システムは `code` を文字列スイッチとして扱うべきではありません。
@@ -1325,7 +1325,7 @@ demo CLI は「動いているように見える」を追求します。
 ユーザー入力：
 
 ```bash
-harness --profile code "帮我看看这个项目为什么测试失败，并把它修好"
+harness --profile code "このプロジェクトのテストがなぜ失敗しているか確認して、修正してください"
 ```
 
 製品化 CLI の第一歩はモデル呼び出しではありません。
@@ -1510,7 +1510,7 @@ src/events/
 const builtinProfiles: AgentProfile[] = [
   {
     id: "chat",
-    description: "只读问答，不执行外部动作",
+    description: "読み取り専用のQ&A。外部アクションは実行しない",
     policy: "readonly",
     toolBundles: ["read-only"],
     contextSources: ["user", "project-summary"],

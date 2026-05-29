@@ -3,7 +3,7 @@ title: "LLM Provider 接続：CLI に最初のモデル呼び出しをさせる"
 description: "最初のモデル呼び出しは単なる API 実験ではない。Provider を core の外に置き、統一された ChatRequest、ModelEvent、ProviderError に翻訳することで、後続の Agent Loop と Tool Runtime が provider の細部に汚染..."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/00-07-llm-provider-cli-first-call/cover.png'
 locale: "ja"
 tags:
   - Agent
