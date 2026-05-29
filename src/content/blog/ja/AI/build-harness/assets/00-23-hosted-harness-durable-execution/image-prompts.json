@@ -1,0 +1,67 @@
+{
+  "article": "docs/ja/00-23-hosted-harness-durable-execution.md",
+  "language": "ja",
+  "images": [
+    {
+      "id": "00-23-photo-01-hosted-harness-layers",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、Hosted Harness の 5 層境界",
+      "purpose": "Hosted Harness がリモート CLI プロセスではなく、Automation、Harness、Session、Sandbox、Deployment の階層制御システムであることを説明する",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.prompt.en.md",
+        "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-23-photo-02-cron-to-durable-job",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 三、Cron は定時コマンド実行ではなく、復元可能なタスクを作成する",
+      "purpose": "Cron がまず冪等な job を作成し、キュー、worker、session、通知システムが復元可能なタスクを進める仕組みを示す",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.prompt.en.md",
+        "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-23-photo-03-sandbox-secret-boundary",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 六、Secret Boundary：秘密鍵は sandbox にもモデル context にも属さない",
+      "purpose": "vault、tool runtime、sandbox、logs、observation の間の秘密鍵境界を説明し、秘密鍵がモデル context に入らないことを強調する",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-23-photo-04-worker-retry-resume",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十、Remote Worker：worker は交換可能な実行者であり、タスクの事実ソースではない",
+      "purpose": "worker クラッシュ後にキュー再割り当て、session replay、artifact 検証、sandbox 再構築によって長時間タスクを続行する仕組みを説明する",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "docs/zh/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.prompt.en.md",
+        "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.png",
+      "status": "prompt-translated"
+    }
+  ],
+  "status": "prompt-translated"
+}

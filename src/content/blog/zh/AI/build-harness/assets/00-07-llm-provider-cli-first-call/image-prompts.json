@@ -1,0 +1,50 @@
+{
+  "article": "docs/zh/00-07-llm-provider-cli-first-call.md",
+  "slug": "00-07-llm-provider-cli-first-call",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-provider-contract-boundary",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "解释为什么 CLI 第一次模型调用也要先经过 provider contract，避免 provider 细节污染 Agent core。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-stream-event-normalization",
+      "kind": "body-photo",
+      "insert_after_heading": "## 五、Streaming：终端要的是流式体验，Runtime 要的是事件流",
+      "purpose": "展示 provider raw stream 经过 adapter 归一化为 ModelEvent，再分别进入 Runtime 记录和 CLI 展示。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.en.md",
+        "ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-error-mapping-decision",
+      "kind": "body-photo",
+      "insert_after_heading": "## 六、Error Mapping：错误不是字符串，是 Runtime 决策输入",
+      "purpose": "解释 raw provider error 如何映射为 ProviderError，并驱动停止、重试、压缩或提示配置等 runtime 决策。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.en.md",
+        "ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.png",
+      "status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+flowchart LR
+  R["Run\n执行任务"] --> T["Trace\n记录轨迹"]
+  T --> A["Attribution\n失败归因"]
+  A --> C["Change\n修改 Harness"]
+  C --> B["Benchmark\n重跑用例"]
+  B --> R
+
+  A --> M["Model?"]
+  A --> TO["Tool?"]
+  A --> CX["Context?"]
+  A --> P["Permission?"]
+  A --> V["Verification?"]
+
+  A:::hot
+  C:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

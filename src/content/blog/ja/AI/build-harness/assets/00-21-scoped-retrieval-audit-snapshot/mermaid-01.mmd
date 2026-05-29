@@ -1,0 +1,18 @@
+flowchart LR
+  Scope["Scope\nsource + permission + time + budget"]
+  Recall["Recall\ncandidate evidence"]
+  Rank["Filter / Rerank / Trim\nrelevance + trust + freshness"]
+  Snapshot["Audit Snapshot\nwhat was considered"]
+  Projection["Context Projection\nwhat model may see"]
+  Model["Model Input\nsnapshot reference"]
+
+  Scope --> Recall --> Rank --> Projection --> Model
+  Rank --> Snapshot
+  Snapshot -.-> Model
+
+  classDef gate fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;
+  classDef data fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#111;
+  classDef model fill:#fce4ec,stroke:#c62828,stroke-width:2px,color:#111;
+  class Scope,Rank gate;
+  class Recall,Snapshot,Projection data;
+  class Model model;

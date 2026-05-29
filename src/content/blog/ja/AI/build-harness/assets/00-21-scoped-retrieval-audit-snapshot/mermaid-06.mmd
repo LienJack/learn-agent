@@ -1,0 +1,21 @@
+flowchart TB
+  subgraph "Retrieval Audit Snapshot"
+    SC["Scope"]
+    PL["Query Plan"]
+    CA["候选统计"]
+    SE["选中证据"]
+    RJ["拒绝原因"]
+    PR["投影文本"]
+    CM["引用映射"]
+  end
+
+  SE -.sourceRef.-> SRC["来源版本"]
+  PR -.artifactRef.-> ART["可见文本 artifact"]
+  CM -.citation.-> SRC
+  SC --> PL --> CA --> SE --> PR
+  RJ --> CA
+
+  SC:::hot
+  PR:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

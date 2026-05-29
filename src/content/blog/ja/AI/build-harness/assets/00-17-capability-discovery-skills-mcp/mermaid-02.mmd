@@ -1,0 +1,43 @@
+flowchart TB
+  subgraph Sources["能力来源"]
+    LT["Local Tools"]
+    SK["Skills"]
+    MCP["MCP Servers"]
+    PL["Plugins"]
+    CH["Channels"]
+  end
+
+  subgraph Catalog["Capability Catalog"]
+    TC["Tool Capability"]
+    SC["Skill Capability"]
+    RC["Resource Capability"]
+    PC["Prompt Capability"]
+    CC["Channel Capability"]
+  end
+
+  subgraph Projection["模型投影"]
+    VT["Visible Tools"]
+    SI["Skill Index"]
+    RI["Resource Handles"]
+    CMD["Commands"]
+  end
+
+  LT --> TC
+  SK --> SC
+  MCP --> TC
+  MCP --> RC
+  MCP --> PC
+  PL --> TC
+  PL --> SC
+  CH --> CC
+
+  TC --> VT
+  SC --> SI
+  RC --> RI
+  PC --> CMD
+  CC --> VT
+
+  Catalog:::hot
+  Projection:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

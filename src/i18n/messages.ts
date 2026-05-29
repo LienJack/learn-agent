@@ -207,37 +207,37 @@ const messages: Record<Locale, LocaleMessages> = {
 	en: {
 		site: {
 			title: 'learn-agent',
-			description: 'A Chinese-first notebook on AI learning, agent practice, and workflow thinking.',
+			description: 'A notebook on AI learning, agent practice, and workflow thinking.',
 			tagline: 'AI learning / agent practice / workflow notes',
 		},
 		meta: {
 			homeTitle: 'learn-agent',
 			aboutTitle: 'About',
 			aboutDescription: 'What this site documents, how it is written, and why it exists.',
-			blogTitle: 'Chinese Notes',
+			blogTitle: 'Articles',
 			blogDescription:
-				'The archive is currently published in Chinese. It focuses on AI learning, agent practice, and workflow thinking with reusable notes rather than polished hot takes.',
+				'The archive focuses on AI learning, agent practice, and workflow thinking with reusable notes rather than polished hot takes.',
 		},
 		header: {
 			ariaLabel: 'Primary navigation',
 			home: 'Home',
-			blog: 'Chinese Notes',
+			blog: 'Articles',
 			about: 'About',
 			rss: 'RSS',
 			githubLabel: 'View learn-agent on GitHub',
 			languageSwitcherLabel: 'Switch language',
 		},
 		footer: {
-			description: 'A Chinese-first notebook on AI learning, agent practice, and workflow thinking.',
-			blog: 'Chinese Notes',
+			description: 'A notebook on AI learning, agent practice, and workflow thinking.',
+			blog: 'Articles',
 			about: 'About',
 			rss: 'RSS',
 			copyrightLabel: 'A long-form notebook, not a launch log.',
 		},
 		blog: {
 			eyebrow: 'Archive',
-			title: 'English Notes',
-			lead: 'This archive contains the English-language notes published for learn-agent. It focuses on AI learning, agent practice, and workflow thinking in a reusable long-form format.',
+			title: 'Articles',
+			lead: 'This archive collects the articles published for learn-agent. It focuses on AI learning, agent practice, and workflow thinking in a reusable long-form format.',
 			browseByLanguage: 'Browse the archive by language',
 		},
 		article: {
@@ -249,10 +249,10 @@ const messages: Record<Locale, LocaleMessages> = {
 			readingProgress: 'Reading progress',
 		},
 		home: {
-			eyebrow: 'Chinese-First Notes',
+			eyebrow: 'Notes in Progress',
 			lead: 'A running notebook on AI learning, agent practice, and workflow thinking.',
-			note: 'The site shell is localized, but the post archive still grows in Chinese first. The goal here is clarity, method, and real implementation detail over quick conclusions.',
-			primaryCta: 'Read the Chinese archive',
+			note: 'The archive grows around clarity, method, and real implementation detail over quick conclusions.',
+			primaryCta: 'Read articles',
 			secondaryCta: 'See what this site is for',
 			panelEyebrow: 'Reading entry',
 			panelTitle: 'Start with the Claude Code source series',
@@ -261,7 +261,7 @@ const messages: Record<Locale, LocaleMessages> = {
 			featuredEyebrow: 'Recommended',
 			featuredTitle: 'Claude Code source reading',
 			featuredBody:
-				'Start with the Chinese series that follows Claude Code through architecture, context, tools, MCP, skills, and multi-agent collaboration.',
+				'Start with the series that follows Claude Code through architecture, context, tools, MCP, skills, and multi-agent collaboration.',
 			featuredCta: 'Open the series',
 			cards: [
 				{
@@ -281,7 +281,7 @@ const messages: Record<Locale, LocaleMessages> = {
 				'Turn scattered prompts, experiments, and notes into reusable article series',
 				'Document concrete agent workflow cases instead of stopping at definitions',
 				'Keep refining the site language, typography, and components until the whole place feels intentional',
-				'Build a steady long-form writing rhythm around Chinese technical thinking',
+				'Build a steady long-form writing rhythm around technical thinking',
 			],
 		},
 		about: {
@@ -289,7 +289,7 @@ const messages: Record<Locale, LocaleMessages> = {
 			title: 'About',
 			lead: 'This site documents AI learning, agent practice, and workflow observations in a form that is meant to remain useful later.',
 			intro: [
-				'learn-agent is a Chinese-first notebook for work in progress. It exists to keep experiments, implementation details, and decisions from dissolving into chat logs or one-off scratch documents.',
+				'learn-agent is a notebook for work in progress. It exists to keep experiments, implementation details, and decisions from dissolving into chat logs or one-off scratch documents.',
 			],
 			sections: [
 				{
@@ -307,7 +307,7 @@ const messages: Record<Locale, LocaleMessages> = {
 				{
 					title: 'How the archive is staged',
 					paragraphs: [
-						'The current archive is still published mainly in Chinese. The English shell is here to make the site legible to overseas readers while the content layer remains honest about what is and is not localized yet.',
+						'The archive is staged as a growing set of articles, with the interface and content structure kept simple enough to expand across languages over time.',
 					],
 				},
 			],
@@ -326,14 +326,14 @@ const messages: Record<Locale, LocaleMessages> = {
 			homeTitle: 'learn-agent',
 			aboutTitle: 'このサイトについて',
 			aboutDescription: 'この場所が何を扱い、どのような姿勢で書かれているかをまとめた紹介ページです。',
-			blogTitle: '中国語アーカイブ',
+			blogTitle: '記事',
 			blogDescription:
-				'記事アーカイブは現在中国語を中心に更新しています。AI 学習、Agent 実践、ワークフロー設計を長く参照できる形で残すための記録です。',
+				'AI 学習、Agent 実践、ワークフロー設計を長く参照できる形で残すための記事アーカイブです。',
 		},
 		header: {
 			ariaLabel: 'サイトナビゲーション',
 			home: 'トップ',
-			blog: '中国語アーカイブ',
+			blog: '記事',
 			about: '紹介',
 			rss: 'RSS',
 			githubLabel: 'GitHub で learn-agent を見る',
@@ -341,15 +341,15 @@ const messages: Record<Locale, LocaleMessages> = {
 		},
 		footer: {
 			description: 'AI 学習、Agent 実践、ワークフロー設計を記録するための日本語入口です。',
-			blog: '中国語アーカイブ',
+			blog: '記事',
 			about: '紹介',
 			rss: 'RSS',
 			copyrightLabel: '途中の判断も残すためのノートサイトです。',
 		},
 		blog: {
 			eyebrow: 'Archive',
-			title: '日本語アーカイブ',
-			lead: 'このアーカイブには learn-agent の日本語記事をまとめています。AI 学習、Agent 実践、ワークフロー設計をあとから再利用できる形で残すための記録です。',
+			title: '記事',
+			lead: 'このアーカイブには learn-agent の記事をまとめています。AI 学習、Agent 実践、ワークフロー設計をあとから再利用できる形で残すための記録です。',
 			browseByLanguage: '言語別に記事を見る',
 		},
 		article: {
@@ -363,8 +363,8 @@ const messages: Record<Locale, LocaleMessages> = {
 		home: {
 			eyebrow: 'Japanese Entry',
 			lead: 'AI と Agent の実践を、あとで読み返せる判断のかたちで残していくための入口です。',
-			note: '現時点で記事本体は中国語中心です。日本語ページでは、このサイトが何を目指しているかと、どんな読み方を想定しているかを先に伝えます。',
-			primaryCta: '中国語アーカイブを見る',
+			note: '記事は、実装の細部と判断の流れをあとから参照できる形で残していきます。',
+			primaryCta: '記事を見る',
 			secondaryCta: 'このサイトの考え方を見る',
 			panelEyebrow: 'Reading entry',
 			panelTitle: 'Claude Code ソース解析から読む',
@@ -373,7 +373,7 @@ const messages: Record<Locale, LocaleMessages> = {
 			featuredEyebrow: 'おすすめ',
 			featuredTitle: 'Claude Code ソース解析',
 			featuredBody:
-				'中国語シリーズとして、Claude Code のアーキテクチャ、コンテキスト、ツール、MCP、Skill、Agent 協作を順に追います。',
+				'Claude Code のアーキテクチャ、コンテキスト、ツール、MCP、Skill、Agent 協作を順に追います。',
 			featuredCta: 'シリーズを開く',
 			cards: [
 				{
@@ -411,15 +411,15 @@ const messages: Record<Locale, LocaleMessages> = {
 					],
 				},
 				{
-					title: '日本語ページの役割',
+					title: '多言語ページの役割',
 					paragraphs: [
-						'日本語ページは、全文翻訳済みのアーカイブを約束するものではありません。まずはこのサイトの輪郭と温度感を伝える入口として設計しています。',
+						'多言語ページは、読みたい記事へ迷わず進める入口として設計しています。必要な情報を過度に説明せず、内容へ自然につなげます。',
 					],
 				},
 				{
 					title: 'いまの更新方針',
 					paragraphs: [
-						'記事本文は現在も中国語が中心です。公開の優先順位は、内容を先に残し、それを支える多言語導線をあとから丁寧に広げていく方針です。',
+						'公開の優先順位は、内容を先に残し、それを支える多言語導線をあとから丁寧に広げていく方針です。',
 					],
 				},
 			],

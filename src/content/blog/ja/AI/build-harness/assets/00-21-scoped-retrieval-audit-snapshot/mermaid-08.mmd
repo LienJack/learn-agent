@@ -1,0 +1,17 @@
+flowchart TB
+  EL["Event Log"] --> CP["Context Policy"]
+  ST["State"] --> CP
+  TL["Recent Tail"] --> CP
+  RT["Retrieval Snapshot"] --> RB["Retrieved Block"]
+  RB --> CP
+  MEM["Verified Memory"] --> SR["Scoped Retrieval"]
+  DOC["Project Docs"] --> SR
+  ART["Artifact Store"] --> SR
+  SR --> RT
+  CP --> MI["Model Input"]
+
+  SR:::hot
+  RT:::hot
+  CP:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

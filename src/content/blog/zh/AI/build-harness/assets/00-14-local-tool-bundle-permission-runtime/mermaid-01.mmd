@@ -1,0 +1,24 @@
+flowchart LR
+  U["用户目标\n修复测试失败"] --> L["Agent Loop"]
+  L --> I["Tool Intent\n模型提议"]
+  I --> R["Local Tool Bundle\n本地工具包"]
+  R --> V["Validate\n结构与语义校验"]
+  V --> P{"Permission\n权限决策"}
+  P -->|allow| E["Execute\n受控执行"]
+  P -->|ask| H["Human\n人工确认"]
+  P -->|deny| D["Reject\n拒绝"]
+  H -->|同意| E
+  H -->|拒绝| D
+  E --> O["Observation\n事实回填"]
+  D --> O
+  O --> L
+
+  R --> F["File\nRead/Edit/Write"]
+  R --> S["Search\nGlob/Grep"]
+  R --> B["Terminal\nBash"]
+
+  R:::hot
+  P:::hot
+  E:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

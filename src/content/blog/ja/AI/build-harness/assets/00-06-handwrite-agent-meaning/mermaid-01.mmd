@@ -1,0 +1,21 @@
+flowchart LR
+  F["框架抽象\nGraph / Agent / Tool / Memory"] --> Q["快速开始\n少写样板代码"]
+  Q --> P{"真实任务出问题"}
+
+  P -->|工具乱用| T["Tool Pipeline\nschema / permission / observe"]
+  P -->|上下文爆炸| C["Context Policy\nprojection / compact / reinject"]
+  P -->|权限卡住| G["Governance\nallow / ask / deny"]
+  P -->|评估回归| E["Eval Trace\ntrajectory / attribution"]
+
+  T --> J["工程判断\n用、绕开、扩展"]
+  C --> J
+  G --> J
+  E --> J
+
+  J --> H["Harness 思维\n模型外部控制系统"]
+
+  T:::hot
+  C:::hot
+  J:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

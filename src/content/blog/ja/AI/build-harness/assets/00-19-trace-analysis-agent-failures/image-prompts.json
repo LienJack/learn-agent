@@ -1,0 +1,67 @@
+{
+  "article": "docs/ja/00-19-trace-analysis-agent-failures.md",
+  "language": "ja",
+  "images": [
+    {
+      "id": "00-19-photo-01-log-to-trace-diagnosis",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、Session log は事実ソースだが、まだ診断ビューではない",
+      "purpose": "event log は事実ソースであり、trace は失敗診断向けの投影ビューであることを説明する",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.prompt.en.md",
+        "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-19-photo-02-failure-taxonomy-map",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 五、Failure Taxonomy：失敗分類はラベル遊びではなく修復ルート",
+      "purpose": "Agent 失敗原因の 7 種類の責任境界と、それぞれの修復方向を示す",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.prompt.en.md",
+        "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-19-photo-03-trace-analyzer-pipeline",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十三、Trace Analyzer のパイプライン：先に構造化し、次に判断し、最後に修復提案を生成する",
+      "purpose": "Trace Analyzer が事実ログから診断レポートと eval 候補へ進む処理パイプラインを説明する",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.prompt.en.md",
+        "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-19-photo-04-delegation-join-failure",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 十二、Delegation Join の誤り：子 Agent が見つけても、親 Agent が正しく使ったとは限らない",
+      "purpose": "子 Agent が事実を見つけた後、親 Agent join の誤りが最終的な失敗につながる仕組みを説明する",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.prompt.en.md",
+        "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.png",
+      "status": "prompt-translated"
+    }
+  ],
+  "status": "prompt-translated"
+}

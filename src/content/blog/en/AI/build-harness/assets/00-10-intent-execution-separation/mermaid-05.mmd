@@ -1,0 +1,16 @@
+flowchart TB
+  P["Intent -> Validate -> Approve -> Execute -> Observe"] --> T["Tool Runtime\n工具生命周期"]
+  P --> G["Permission\n风险授权"]
+  P --> A["Audit\n阶段差异记录"]
+  P --> R["Replay\n按事件重放"]
+
+  T --> T1["schema\nrisk\nscheduler\nresult policy"]
+  G --> G1["allow / ask / deny\npolicy\nhuman-in-loop"]
+  A --> A1["intent\ndecision\nexecution\nobservation"]
+  R --> R1["trace replay\nmodel replay\ndry-run\nsandbox replay"]
+
+  P:::hot
+  A:::hot
+  R:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

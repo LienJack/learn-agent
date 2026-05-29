@@ -1,0 +1,63 @@
+{
+  "article": "docs/zh/00-16-session-replay-event-log.md",
+  "language": "zh",
+  "images": [
+    {
+      "id": "00-16-photo-01-messages-vs-event-log",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、messages 是投影，不是事实源",
+      "purpose": "解释 Event Log 是事实源，State 是折叠结果，Messages 只是给模型看的投影",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.prompt.en.md",
+        "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-16-photo-02-replay-not-rerun-world",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 四、Replay 不是把世界重新跑一遍",
+      "purpose": "解释 Session Replay 只读重建状态，不重新执行真实世界副作用",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.prompt.en.md",
+        "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-16-photo-03-resume-stable-point-gate",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 五、Resume 要保守：继续之前先找最后一个稳定点",
+      "purpose": "解释恢复任务前要找到稳定点，并经过 Resume Gate 才能继续行动",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "docs/zh/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.prompt.en.md",
+        "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.png",
+      "status": "generated"
+    },
+    {
+      "id": "00-16-photo-04-artifact-honest-context",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 七、Artifact 让上下文保持诚实",
+      "purpose": "解释大块证据进入 artifact，messages 只拿可追溯投影，从而保持上下文诚实",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.prompt.en.md",
+        "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.png",
+      "status": "generated"
+    }
+  ],
+  "status": "generated"
+}

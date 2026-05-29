@@ -1,0 +1,53 @@
+{
+  "article": "docs/ja/00-02-agent-components.md",
+  "slug": "00-02-agent-components",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-four-part-agent-loop",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "Model、Loop、Tools、State が並列の名詞ではなく、閉ループ内の 4 つの責任境界であることを示す。",
+      "diagram_type": "円形ループ",
+      "prompt_file_zh": "docs/zh/assets/00-02-agent-components/photo-01-four-part-agent-loop.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-02-agent-components/photo-01-four-part-agent-loop.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-02-agent-components/photo-01-four-part-agent-loop.prompt.en.md",
+        "ja": "docs/ja/assets/00-02-agent-components/photo-01-four-part-agent-loop.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-02-agent-components/photo-01-four-part-agent-loop.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-tool-call-vs-tool-execution",
+      "kind": "body-photo",
+      "insert_after_heading": "## 三、Tools：「やりたい」を「できる」に変える",
+      "purpose": "モデルが生成する tool call と、システムが実行する tool implementation の境界を区別する。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.prompt.en.md",
+        "ja": "docs/ja/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-state-context-memory-session",
+      "kind": "body-photo",
+      "insert_after_heading": "### 4. State、Context、Memory、Session log の違い",
+      "purpose": "State、Context、Memory、Session log の関係を、理解しやすい階層と投影として描く。",
+      "diagram_type": "階層アーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-02-agent-components/photo-03-state-context-memory-session.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-02-agent-components/photo-03-state-context-memory-session.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-02-agent-components/photo-03-state-context-memory-session.prompt.en.md",
+        "ja": "docs/ja/assets/00-02-agent-components/photo-03-state-context-memory-session.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-02-agent-components/photo-03-state-context-memory-session.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

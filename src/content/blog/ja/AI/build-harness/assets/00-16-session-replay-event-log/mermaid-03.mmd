@@ -1,0 +1,26 @@
+flowchart TB
+  subgraph "Session Event Log"
+    U["UserMessage"]
+    I["ToolIntent"]
+    P["PolicyDecision"]
+    X["ToolExecution"]
+    O["Observation"]
+    C["Compaction"]
+    V["Verification"]
+  end
+
+  subgraph "Artifact Store"
+    L["测试日志"]
+    D["文件 diff"]
+    Q["模型输入快照"]
+    R["工具原始结果"]
+  end
+
+  U --> I --> P --> X --> O --> C --> V
+  X -.artifactRef.-> L
+  X -.artifactRef.-> D
+  O -.projectionRef.-> R
+  C -.snapshotRef.-> Q
+
+  classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
+  class U,X,O hot;

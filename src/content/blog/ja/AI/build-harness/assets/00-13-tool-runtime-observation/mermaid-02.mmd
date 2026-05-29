@@ -1,0 +1,12 @@
+flowchart TB
+  I["Intent\n工具名+input"] --> L["Registry Lookup\n查工具定义"]
+  L -->|找不到| U["Unknown Tool\n生成拒绝观察"]
+  L -->|找到| D["Tool Definition\nschema/risk/policy"]
+  D --> W{"Visible?\n本轮可见吗"}
+  W -->|否| K["Invisible Tool\n拒绝或要求重试"]
+  W -->|是| V["Input Validate\n进入校验"]
+
+  D:::hot
+  W:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

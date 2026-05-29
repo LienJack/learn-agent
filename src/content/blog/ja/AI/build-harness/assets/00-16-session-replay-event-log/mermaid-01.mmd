@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant U as 用户
+  participant H as Harness
+  participant M as Model
+  participant T as ToolRuntime
+  participant W as 工作区
+
+  U->>H: 修复失败测试
+  H->>M: 构建 messages
+  M-->>H: 提出 edit intent
+  H->>T: 权限通过后执行
+  T->>W: 修改文件
+  Note over H,T: 进程崩溃或中断
+  H-->>H: 仅从 messages 恢复
+  H-->>W: 无法确认副作用边界

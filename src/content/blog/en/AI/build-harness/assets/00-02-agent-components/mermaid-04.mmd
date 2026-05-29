@@ -1,0 +1,12 @@
+flowchart TB
+  ST["State\n完整任务现场"] --> CP["Context Policy\n选择、压缩、隔离"]
+  MEM["Memory\n长期经验和事实"] --> CP
+  KB["Knowledge Base\n项目文档和索引"] --> CP
+  CP --> MI["Model Input\n本轮模型可见内容"]
+  MI --> ME["Model Event\n文本或工具意图"]
+  ME --> ST
+
+  CP:::hot
+  MI:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

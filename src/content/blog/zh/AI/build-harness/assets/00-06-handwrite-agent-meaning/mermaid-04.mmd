@@ -1,0 +1,15 @@
+flowchart TB
+  EL["Session Event Log\n事实源：发生过什么"] --> ST["State Reducer\n折叠当前现场"]
+  ST --> CTX["Context Builder\n本轮模型输入"]
+  EL --> UI["Transcript / UI\n给人看的叙述"]
+  EL --> EV["Eval Trace\n给评估看的轨迹"]
+  ST --> MEM["Memory Candidate\n可沉淀经验"]
+  MEM --> KB["Long-term Memory\n跨任务知识"]
+
+  CTX --> M["Model\n判断下一步"]
+  M --> EL
+
+  EL:::hot
+  CTX:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

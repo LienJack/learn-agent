@@ -1,0 +1,53 @@
+{
+  "article": "docs/ja/00-03-chatbot-workflow-agent-harness.md",
+  "slug": "00-03-chatbot-workflow-agent-harness",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-boundary-decision-map",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "不確実性の位置から ChatBot、Workflow、Agent、Harness の境界を判断する。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.prompt.en.md",
+        "ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-workflow-vs-agent-control",
+      "kind": "body-photo",
+      "insert_after_heading": "## 五、四者の対照：能力ランクではなく制御境界",
+      "purpose": "Workflow の制御権はコードにあり、Agent の制御権は部分的に実行時モデルの判断へ渡ることを強調する。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.prompt.en.md",
+        "ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-uncertainty-budget-to-harness",
+      "kind": "body-photo",
+      "insert_after_heading": "### 不確実性予算：いつモデルに次の一手を決めさせる価値があるか",
+      "purpose": "不確実性、リスク、制御コストを Harness へ向かう圧力図として描く。",
+      "diagram_type": "入力-処理-出力",
+      "prompt_file_zh": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.prompt.en.md",
+        "ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

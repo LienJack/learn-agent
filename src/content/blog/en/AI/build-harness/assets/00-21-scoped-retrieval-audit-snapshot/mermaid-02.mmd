@@ -1,0 +1,21 @@
+flowchart TB
+  Q["检索请求"] --> SC["Retrieval Scope"]
+
+  SC --> P["项目边界"]
+  SC --> U["用户边界"]
+  SC --> T["时间边界"]
+  SC --> A["权限边界"]
+  SC --> E["证据要求"]
+  SC --> B["预算边界"]
+
+  P --> R["可召回来源"]
+  U --> R
+  T --> R
+  A --> R
+  E --> R
+  B --> R
+
+  SC:::hot
+  A:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

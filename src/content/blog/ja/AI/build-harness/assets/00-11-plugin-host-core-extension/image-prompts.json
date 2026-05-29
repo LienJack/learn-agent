@@ -1,0 +1,68 @@
+{
+  "article": "docs/ja/00-11-plugin-host-core-extension.md",
+  "slug": "00-11-plugin-host-core-extension",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-core-extension-boundary",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "core が組み込み能力から Plugin Host へ移るとき、境界は解放ではなく contract、registry、lifecycle、hook gate へ収束することを説明する。",
+      "diagram_type": "レイヤードアーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.prompt.en.md",
+        "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-plugin-host-layers",
+      "kind": "body-photo",
+      "insert_after_heading": "## 四、Plugin Host の五つの核心部品",
+      "purpose": "外部プラグイン、Plugin Host、Core Kernel の責任境界を分層構造で明確に描く。",
+      "diagram_type": "レイヤードアーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.prompt.en.md",
+        "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-hook-gate-decision",
+      "kind": "body-photo",
+      "insert_after_heading": "## 九、Hook Kernel：hook は普通のイベントリスナーではない",
+      "purpose": "preToolUse hook が intent と execution の間に立ち、allow、ask、deny、amend を返すことを示す。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.prompt.en.md",
+        "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-04-plugin-runtime-test-fix",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十、Plugin Host が「小型 CLI Agent のテスト修正」場面をどう受け止めるか",
+      "purpose": "provider プラグイン、test-runner プラグイン、policy hook、tool runtime、event log をテスト失敗修正の実経路としてつなぐ。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.prompt.en.md",
+        "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

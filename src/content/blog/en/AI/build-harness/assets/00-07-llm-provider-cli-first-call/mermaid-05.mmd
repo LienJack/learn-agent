@@ -1,0 +1,20 @@
+flowchart LR
+  U["User\n修复失败测试"] --> I["CLI Input"]
+  I --> B["Build ChatRequest"]
+  B --> P["Provider.stream()"]
+  P --> API["Model API"]
+  API --> RAW["Raw Events"]
+  RAW --> N["Normalize"]
+  N --> EV["ModelEvent"]
+  EV --> H{"Runtime Handle"}
+  H -->|text_delta| OUT["CLI Output"]
+  H -->|message_stop| DONE["Turn Done"]
+  H -->|error| ERR["Runtime Error"]
+  H -->|tool_intent| FUT["Tool Runtime\n后续章节"]
+
+  B:::hot
+  EV:::hot
+  FUT:::future
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;
+  classDef future fill:#eeeeee,stroke:#111,stroke-dasharray: 4 4,color:#111;

@@ -1,0 +1,50 @@
+{
+  "article": "docs/zh/00-04-harness-control-system.md",
+  "slug": "00-04-harness-control-system",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-etclovg-control-map",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "总览 ETCLOVG 七层控制责任，强调 Harness 是模型外部控制系统。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-04-harness-control-system/photo-01-etclovg-control-map.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-04-harness-control-system/photo-01-etclovg-control-map.prompt.en.md",
+        "ja": "docs/ja/assets/00-04-harness-control-system/photo-01-etclovg-control-map.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-04-harness-control-system/photo-01-etclovg-control-map.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-session-harness-sandbox-split",
+      "kind": "body-photo",
+      "insert_after_heading": "### Session、Harness、Sandbox：不要揉成一个对象",
+      "purpose": "解释 Session、Harness、Sandbox 三者职责不同但互相协作。",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "docs/zh/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.prompt.en.md",
+        "ja": "docs/ja/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-event-object-flow",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十一、事件对象：Harness 的专业性藏在这些小对象里",
+      "purpose": "把 Harness 中的 event、tool_call、permission、observation、verification 串成可审计事件流。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-04-harness-control-system/photo-03-event-object-flow.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-04-harness-control-system/photo-03-event-object-flow.prompt.en.md",
+        "ja": "docs/ja/assets/00-04-harness-control-system/photo-03-event-object-flow.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-04-harness-control-system/photo-03-event-object-flow.png",
+      "status": "generated"
+    }
+  ]
+}

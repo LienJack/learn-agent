@@ -1,0 +1,19 @@
+flowchart LR
+  U["用户目标\n修复测试失败"] --> RT["Runtime Loop"]
+  RT --> PR["Provider 插件\n模型事件"]
+  PR --> I["Tool Intent\nrun_tests"]
+  I --> V["Validate\nschema + registry"]
+  V --> HK{"Hook Gate\npreToolUse"}
+  HK -->|allow| TR["Tool Runtime\n执行 run_tests"]
+  HK -->|ask/deny| BO["Blocked Observation"]
+  TR --> OB["Observation\n测试输出"]
+  BO --> EV["Event Log"]
+  OB --> EV
+  EV --> CP["Context Projection\n下一轮模型输入"]
+  CP --> RT
+
+  PR:::hot
+  HK:::hot
+  EV:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

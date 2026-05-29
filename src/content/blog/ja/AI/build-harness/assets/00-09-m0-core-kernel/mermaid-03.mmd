@@ -1,0 +1,18 @@
+sequenceDiagram
+  participant CLI as CLI
+  participant RT as Runtime Facade
+  participant ST as Conversation State
+  participant PR as Provider Adapter
+  participant LLM as Real LLM
+  participant EB as Event Bus
+
+  CLI->>RT: run("修复测试失败")
+  RT->>EB: UserMessage event
+  RT->>ST: build model request
+  ST-->>RT: messages + visible tools
+  RT->>PR: stream(ModelRequest)
+  PR->>LLM: provider-specific API call
+  LLM-->>PR: raw stream chunks
+  PR-->>RT: ModelEvent stream
+  RT->>EB: append ModelEvent
+  RT-->>CLI: render text delta

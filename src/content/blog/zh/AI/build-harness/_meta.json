@@ -1,0 +1,7 @@
+{
+	"title": "Build Harness",
+	"alias": "从 0 到 1 构建 Agent 与 Harness",
+	"description": "从简单 CLI 助手开始，逐步构建可控、可观测、可扩展的 Agent Harness。",
+	"cover": "/blog-covers/build-harness.svg",
+	"order": 4
+}

@@ -1,0 +1,41 @@
+sequenceDiagram
+  participant U as User
+  participant M as Model
+  participant R as Runtime
+  participant P as Permission
+  participant L as Local Tools
+  participant S as State/Audit
+
+  U->>M: 修复测试失败
+  M->>R: Glob intent
+  R->>P: read/search policy
+  P-->>R: allow
+  R->>L: execute Glob
+  L-->>R: candidate files
+  R->>S: audit search
+  R-->>M: observation
+
+  M->>R: Read intent
+  R->>P: read path policy
+  P-->>R: allow
+  R->>L: execute Read
+  L-->>R: content + mtime
+  R->>S: readFileState
+  R-->>M: observation
+
+  M->>R: Bash test intent
+  R->>P: command policy
+  P-->>R: ask/allow
+  R->>L: execute Bash
+  L-->>R: exitCode + output preview
+  R->>S: audit command
+  R-->>M: observation
+
+  M->>R: Edit intent
+  R->>S: verify read baseline
+  R->>P: write policy
+  P-->>R: ask/allow
+  R->>L: apply edit
+  L-->>R: diff
+  R->>S: audit diff
+  R-->>M: observation

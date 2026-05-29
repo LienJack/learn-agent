@@ -2,7 +2,7 @@
 
 ## 平台范围
 
-日语 V1 只覆盖 Zenn。Zenn 通过 GitHub 连携仓库中的 Markdown 文件发布；更新文章通常是修改 Markdown 后 push 到连携仓库。
+Zenn 通过 GitHub 连携仓库中的 Markdown 文件发布；更新文章通常是修改 Markdown 后 push 到连携仓库。日语聚合入口 `publish/bin/publish-ja` 会同步处理 Zenn 和 Qiita，单独的 Zenn 规则仍以本文为准。
 
 参考：[Zenn Manual](https://zenn.dev/manual)、[Zenn CLI Guide](https://zenn.dev/zenn/articles/zenn-cli-guide)
 

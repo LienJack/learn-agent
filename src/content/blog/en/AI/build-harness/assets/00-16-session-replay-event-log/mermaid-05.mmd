@@ -1,0 +1,18 @@
+stateDiagram-v2
+  [*] --> IntentCreated
+  IntentCreated --> PolicyApproved
+  PolicyApproved --> ToolStarted
+  ToolStarted --> ToolFinished
+  ToolFinished --> ObservationProjected
+  ObservationProjected --> StablePoint
+  StablePoint --> NextModelTurn
+
+  IntentCreated --> ResumeCheck
+  PolicyApproved --> ResumeCheck
+  ToolStarted --> RecoveryInvestigation
+  ToolFinished --> ObservationRepair
+  ObservationProjected --> StablePoint
+
+  ResumeCheck --> StablePoint
+  RecoveryInvestigation --> StablePoint
+  ObservationRepair --> StablePoint

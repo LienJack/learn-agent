@@ -1,0 +1,64 @@
+{
+  "article": "docs/zh/00-08-minimal-agent-loop.md",
+  "slug": "00-08-minimal-agent-loop",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-react-loop-from-answer-to-action",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "展示单次回答如何变成 Think、Act、Observe、Final 的最小闭环。",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "docs/zh/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.en.md",
+        "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-state-machine-budget-stop",
+      "kind": "body-photo",
+      "insert_after_heading": "## 二、Loop 不是更长的上下文，而是状态机",
+      "purpose": "解释 loop 是有 Ready、Thinking、Acting、Observing、Finished、Stopped 的状态机，而不是无脑 while true。",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "docs/zh/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.en.md",
+        "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-observation-feedback-pipeline",
+      "kind": "body-photo",
+      "insert_after_heading": "## 七、Observe：工具结果不是日志，而是下一轮事实",
+      "purpose": "把 raw tool result 如何变成 observation、prompt context 和 event log 画清楚。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.en.md",
+        "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-04-stop-conditions-decision-path",
+      "kind": "body-photo",
+      "insert_after_heading": "## 八、停止条件：Loop 必须知道什么时候不该继续",
+      "purpose": "说明 final、maxTurns、budget、abort、invalid intent 等停止条件如何保护 loop。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.en.md",
+        "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.png",
+      "status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+flowchart TB
+  M["Model\n提出意图"] --> H["Harness\n校验意图"]
+  H --> V["Vault\n密钥事实源"]
+  H --> T["Tool Runtime\n受控使用"]
+  T --> B["Sandbox\n最小注入"]
+  B --> L["Logs\n脱敏输出"]
+  L --> O["Observation\n无密钥投影"]
+  O --> M
+
+  V -.不进入.-> M
+  V -.不直接暴露.-> B
+
+  classDef hot fill:#fff2b8,stroke:#b78900,color:#111;
+  class V,T hot;

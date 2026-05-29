@@ -1,0 +1,13 @@
+flowchart LR
+  Chat["Chat Agent\nmessages + model call"]
+  Tool["Tool Agent\ntool intent + execution + observation"]
+  Runtime["Runtime Agent\nbudget + interrupt + recovery + session log"]
+  Managed["Managed Agent\nsandbox + permission + context + memory + eval + trace"]
+  Harness["Harness\nshared control layer"]
+
+  Chat --> Tool --> Runtime --> Managed --> Harness
+
+  classDef agent fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#111;
+  classDef control fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;
+  class Chat,Tool,Runtime,Managed agent;
+  class Harness control;

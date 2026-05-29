@@ -1,0 +1,15 @@
+flowchart TB
+  X["Provider Raw Error\nSDK / HTTP / SSE"] --> A["Adapter\n错误识别"]
+  A --> E["ProviderError\n统一分类"]
+  E --> D{"Runtime 决策"}
+
+  D -->|auth / permission| S["停止\n提示配置或权限"]
+  D -->|rate_limit / overloaded| R["退避重试\n或稍后再试"]
+  D -->|quota| Q["停止\n额度问题"]
+  D -->|context_length| C["压缩上下文\n再重试"]
+  D -->|network / timeout| N["重试\n保留事件记录"]
+
+  E:::hot
+  D:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

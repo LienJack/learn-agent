@@ -1,0 +1,46 @@
+flowchart TB
+  subgraph Core["Agent Core"]
+    R["Runtime\n推进任务"]
+    S["Session State\n事实与现场"]
+    EB["Event Bus\n统一事件"]
+  end
+
+  subgraph Contract["Provider Contract"]
+    CR["ChatRequest"]
+    ME["ModelEvent"]
+    PE["ProviderError"]
+  end
+
+  subgraph Adapters["Provider Adapters"]
+    OA["OpenAI Adapter"]
+    AN["Anthropic Adapter"]
+    LO["Local Adapter"]
+  end
+
+  subgraph Models["Model APIs"]
+    OM["OpenAI API"]
+    AM["Anthropic API"]
+    LM["Local Server"]
+  end
+
+  R --> CR
+  CR --> OA
+  CR --> AN
+  CR --> LO
+  OA --> OM
+  AN --> AM
+  LO --> LM
+  OM --> OA
+  AM --> AN
+  LM --> LO
+  OA --> ME
+  AN --> ME
+  LO --> ME
+  ME --> EB
+  EB --> S
+
+  Contract:::hot
+  Core:::core
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;
+  classDef core fill:#e8f3ff,stroke:#111,stroke-width:1.5px,color:#111;

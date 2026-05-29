@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant AgentLoop as Agent Loop
+  participant R as Scoped Retrieval
+  participant KB as Knowledge Sources
+  participant Snap as Snapshot Store
+  participant M as Model
+
+  AgentLoop->>R: request(scope, asOf)
+  R->>KB: recall candidates within scope
+  KB-->>R: candidates + versions
+  R->>R: filter/rerank/trim/cite
+  R->>Snap: write audit snapshot
+  Snap-->>R: snapshotId
+  R-->>AgentLoop: context items + snapshotId
+  AgentLoop->>M: model input references snapshotId

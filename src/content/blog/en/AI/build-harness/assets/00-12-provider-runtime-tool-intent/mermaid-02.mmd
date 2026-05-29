@@ -1,0 +1,30 @@
+flowchart TB
+  subgraph Provider["Provider 协议层"]
+    TC["Tool Call\n供应商原始格式"]
+    TD["Tool Delta\n参数分片"]
+  end
+
+  subgraph Core["Core 语义层"]
+    TI["ToolIntent\n统一行动提议"]
+    EV["Event\n进入事实日志"]
+  end
+
+  subgraph Runtime["Tool Runtime 执行层"]
+    VA["Validate\nschema / policy"]
+    PE["Permission\n审批 / 风险"]
+    EX["Execution\n真实动作"]
+    OB["Observation\n事实结果"]
+  end
+
+  TC --> TI
+  TD --> TI
+  TI --> EV
+  EV --> VA
+  VA --> PE
+  PE --> EX
+  EX --> OB
+
+  TI:::hot
+  EX:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

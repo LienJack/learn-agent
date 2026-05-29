@@ -1,0 +1,13 @@
+flowchart LR
+  RT["Runtime\n统一事实事件"] --> BUS["CLI Event Stream\n稳定 schema"]
+  BUS --> TTY["TTY Renderer\n人类终端"]
+  BUS --> JSON["JSONL Renderer\n机器消费"]
+  BUS --> WB["Workbench Host\n可视化时间线"]
+  BUS --> CI["CI Log\n构建系统"]
+  BUS --> TRACE["Trace Store\n回放与分析"]
+
+  BUS:::hot
+  WB:::hot
+  TRACE:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

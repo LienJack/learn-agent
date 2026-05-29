@@ -1,0 +1,12 @@
+flowchart TB
+  A["环境接触面\n文本 -> 文件/Shell/API"] --> H["Harness 压力"]
+  B["运行时长\n单轮 -> 跨会话"] --> H
+  C["权限主体\n单用户 -> 多用户/组织"] --> H
+  D["证据要求\n人眼判断 -> trace/eval/audit"] --> H
+
+  H --> E["更多外部控制\npolicy/session/sandbox/eval"]
+
+  H:::hot
+  E:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

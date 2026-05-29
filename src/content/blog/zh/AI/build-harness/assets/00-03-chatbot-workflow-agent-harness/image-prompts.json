@@ -1,0 +1,50 @@
+{
+  "article": "docs/zh/00-03-chatbot-workflow-agent-harness.md",
+  "slug": "00-03-chatbot-workflow-agent-harness",
+  "language": "zh",
+  "status": "generated",
+  "images": [
+    {
+      "id": "photo-01-boundary-decision-map",
+      "kind": "body-photo",
+      "insert_after_heading": "## 问题链",
+      "purpose": "用不确定性位置来判断 ChatBot、Workflow、Agent、Harness 的边界。",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.prompt.en.md",
+        "ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-02-workflow-vs-agent-control",
+      "kind": "body-photo",
+      "insert_after_heading": "## 五、四者对照：不是能力等级，而是控制边界",
+      "purpose": "突出 Workflow 的控制权在代码，Agent 的控制权部分交给运行时模型判断。",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.prompt.en.md",
+        "ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.png",
+      "status": "generated"
+    },
+    {
+      "id": "photo-03-uncertainty-budget-to-harness",
+      "kind": "body-photo",
+      "insert_after_heading": "### 不确定性预算：什么时候值得让模型决定下一步",
+      "purpose": "把不确定性、风险、控制成本画成走向 Harness 的压力图。",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.prompt.zh.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.prompt.en.md",
+        "ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.prompt.ja.md"
+      },
+      "target_file": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.png",
+      "status": "generated"
+    }
+  ]
+}

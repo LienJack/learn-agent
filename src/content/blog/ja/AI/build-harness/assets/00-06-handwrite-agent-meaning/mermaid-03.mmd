@@ -1,0 +1,18 @@
+stateDiagram-v2
+  [*] --> BuildInput
+  BuildInput --> CallModel
+  CallModel --> Final: final_answer
+  CallModel --> ToolIntent: tool_intent
+  ToolIntent --> Validate
+  Validate --> Permission
+  Permission --> Paused: ask_user
+  Permission --> Denied: deny
+  Permission --> Execute: allow
+  Denied --> RecordObservation
+  Execute --> RecordObservation
+  RecordObservation --> CheckBudget
+  CheckBudget --> Compact: context_too_large
+  CheckBudget --> BuildInput: continue
+  Compact --> BuildInput
+  Paused --> BuildInput: approved
+  Final --> [*]

@@ -1,0 +1,17 @@
+flowchart LR
+  REQ["Model Request\n内部请求"] --> NEED["Capability Need\nstream/tool/context"]
+  NEED --> PREF["Profile Preference\n优先级与限制"]
+  PREF --> RES{"Provider Resolver\n可用性/成本/能力"}
+  RES -- "primary 可用" --> PA["Provider A\nadapter"]
+  RES -- "primary 不可用" --> FB["Fallback Chain\n解释切换原因"]
+  FB --> PB["Provider B\nadapter"]
+  PA --> EV["ModelEvent\n统一事件"]
+  PB --> EV
+  EV --> CORE["Core Runtime\n同一条 loop"]
+  RES --> TRACE["Trace\n记录选择原因"]
+
+  RES:::hot
+  EV:::hot
+  TRACE:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

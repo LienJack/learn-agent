@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant AgentLoop as Agent Loop
+  participant Store as Session Store
+  participant Policy as Context Policy
+  participant Provider as Model Provider
+  participant Tools as Tool Runtime
+
+  AgentLoop->>Store: load session events
+  Store-->>AgentLoop: events + state
+  AgentLoop->>Policy: project(state, goal, budget)
+  Policy-->>AgentLoop: model input + decision ledger
+  AgentLoop->>Provider: chat(model input)
+  Provider-->>AgentLoop: model event / tool intent
+  AgentLoop->>Tools: validate + execute intent
+  Tools-->>Store: observation event

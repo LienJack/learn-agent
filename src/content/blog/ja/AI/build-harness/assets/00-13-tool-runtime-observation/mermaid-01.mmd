@@ -1,0 +1,22 @@
+flowchart LR
+  I["Tool Intent\n模型申请"] --> R["Registry\n查找工具"]
+  R --> V["Validate\n结构/语义"]
+  V --> P{"Permission\nallow/ask/deny"}
+  P -->|allow| S["Scheduler\n调度"]
+  P -->|ask| H["Human\n确认"]
+  P -->|deny| N["Denied\n拒绝观察"]
+  H -->|同意| S
+  H -->|拒绝| N
+  S --> X["Sandbox\n受控执行"]
+  X --> Z["Normalize\n结果归一"]
+  Z --> T["Truncate\n截断/引用"]
+  T --> O["Observation\n事实投影"]
+  N --> O
+  O --> A["Audit Event\n审计记录"]
+  O --> M["Next Model Turn\n下一轮"]
+
+  V:::hot
+  P:::hot
+  O:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

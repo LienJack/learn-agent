@@ -1,0 +1,68 @@
+{
+  "article": "docs/ja/00-16-session-replay-event-log.md",
+  "slug": "00-16-session-replay-event-log",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "00-16-photo-01-messages-vs-event-log",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 二、messages は投影であり、事実ソースではない",
+      "purpose": "Event Log は事実ソース、State は折りたたみ結果、Messages はモデルに見せる投影にすぎないことを説明する。",
+      "diagram_type": "レイヤードアーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.prompt.en.md",
+        "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-16-photo-02-replay-not-rerun-world",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 四、Replay は世界をもう一度走らせることではない",
+      "purpose": "Session Replay は読み取り専用で状態を再構築し、現実世界の副作用を再実行しないことを説明する。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.prompt.en.md",
+        "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-16-photo-03-resume-stable-point-gate",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 五、Resume は保守的に：続行前に最後の安定点を探す",
+      "purpose": "復帰前に安定点を見つけ、Resume Gate を経て初めて行動を続けられることを説明する。",
+      "diagram_type": "状態シーケンス",
+      "prompt_file_zh": "docs/zh/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.prompt.en.md",
+        "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "00-16-photo-04-artifact-honest-context",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 七、Artifact はコンテキストを正直に保つ",
+      "purpose": "大きな証拠は artifact に入り、messages は追跡可能な投影だけを受け取ることで、コンテキストの正直さを保つことを説明する。",
+      "diagram_type": "入力-処理-出力",
+      "prompt_file_zh": "docs/zh/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.prompt.en.md",
+        "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

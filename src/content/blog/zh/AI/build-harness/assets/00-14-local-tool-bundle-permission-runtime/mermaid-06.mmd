@@ -1,0 +1,21 @@
+flowchart LR
+  I["Bash Intent"] --> S["Schema\ncommand/timeout/cwd"]
+  S --> A["Static Analysis\n解析命令"]
+  A --> P{"Permission\nallow/ask/deny"}
+  P -->|deny| R["Reject"]
+  P -->|ask| H["Human Confirm"]
+  H -->|拒绝| R
+  H -->|同意| W["Sandbox Decision"]
+  P -->|allow| W
+  W --> X["Spawn Process\n受控执行"]
+  X --> O["Output Capture\nstdout/stderr/exit"]
+  O --> B{"Too Large?"}
+  B -->|yes| K["Persist + Preview"]
+  B -->|no| N["Return Observation"]
+  K --> N
+
+  A:::hot
+  P:::hot
+  W:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

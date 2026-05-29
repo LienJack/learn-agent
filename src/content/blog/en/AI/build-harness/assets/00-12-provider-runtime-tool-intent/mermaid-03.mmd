@@ -1,0 +1,19 @@
+sequenceDiagram
+  participant M as Model
+  participant P as Provider Runtime
+  participant C as Core Runtime
+  participant T as Tool Runtime
+  participant S as Session Log
+
+  M->>P: text delta
+  P->>C: ModelEvent.text_delta
+  C->>S: append text_delta
+  M->>P: tool-call delta args part 1
+  P->>P: assemble partial args
+  M->>P: tool-call delta args part 2
+  P->>P: parse complete input
+  P->>C: ModelEvent.tool_intent
+  C->>S: append tool_intent.proposed
+  C->>T: validate / permission / execute
+  T->>C: Observation
+  C->>S: append observation

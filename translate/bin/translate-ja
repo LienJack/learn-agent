@@ -2,7 +2,12 @@
 import path from 'node:path';
 import { loadDotEnv, parseArgs, printSummary, requireExistingFiles, toRepoRelative, writeJson } from '../lib/common.mjs';
 import { createRun, finishRun, writeRunRecord } from '../lib/records.mjs';
-import { assertCanRunRealTranslation, planTranslations } from '../lib/translation.mjs';
+import {
+	assertCanRunRealTranslation,
+	planTranslations,
+	translateArticlesWithCodex,
+	updateRunWithTranslationResults,
+} from '../lib/translation.mjs';
 import { loadPipeline, resolvePipelineFiles } from '../lib/pipelines.mjs';
 
 loadDotEnv();
@@ -76,6 +81,9 @@ async function runTranslationCli({ language, options, files }) {
 	}
 
 	assertCanRunRealTranslation(options);
+	const results = translateArticlesWithCodex({ pipeline, language, plans: translationPlans, run });
+	updateRunWithTranslationResults(run, results);
+	finishRun(run, 'completed');
 }
 
 function usage() {
@@ -87,5 +95,5 @@ Behavior:
   - Reads translate/pipelines/<pipeline>.json.
   - Writes run records under translate/runs/.
   - Writes translation plans under translate/artifacts/.
-  - Real model translation requires --yes and is intentionally gated.`);
+  - Real model translation requires --yes and runs GPT Codex via codex exec.`);
 }

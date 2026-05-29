@@ -1,0 +1,21 @@
+flowchart LR
+  E["Event Log"] --> P["Trace Projection"]
+  P --> F["Fact Extraction"]
+  F --> R["Rule Checks"]
+  R --> C["Failure Classification"]
+  C --> H["诊断报告"]
+  C --> D["Eval Case 候选"]
+
+  subgraph "确定性"
+    P
+    R
+  end
+
+  subgraph "语义判断"
+    F
+    C
+    H
+  end
+
+  classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
+  class P,R,C,D hot;

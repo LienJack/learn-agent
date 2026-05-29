@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant S as Session Log
+  participant E as Evidence Selector
+  participant X as Extractor
+  participant L as Candidate Ledger
+  participant G as Governance
+  participant M as Memory Store
+
+  S->>E: 选择可作为证据的事件
+  E->>X: 提供用户规则、工具观察、验证结果
+  X-->>L: 写入 pending candidates
+  L->>G: 触发治理检查
+  G-->>L: 更新状态和原因
+  G->>M: 仅批准项进入长期存储

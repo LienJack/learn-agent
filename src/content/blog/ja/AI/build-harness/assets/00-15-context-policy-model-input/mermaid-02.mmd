@@ -1,0 +1,20 @@
+flowchart LR
+  A["全部历史\n塞进 messages"] --> B["Token 膨胀"]
+  A --> C["旧事实残留"]
+  A --> D["约束被挤掉"]
+  A --> E["不可信文本混入"]
+
+  B --> F["模型注意力稀释"]
+  C --> G["基于旧世界推理"]
+  D --> H["越过任务边界"]
+  E --> I["Prompt Injection 风险"]
+
+  F --> J["坏判断"]
+  G --> J
+  H --> J
+  I --> J
+
+  A:::hot
+  J:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

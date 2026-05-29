@@ -1,0 +1,53 @@
+{
+  "article": "docs/ja/00-05-agent-evolution-path.md",
+  "slug": "00-05-agent-evolution-path",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-four-stage-evolution",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "Chat Agent から Managed Agent、さらに Harness へ至る自然な進化経路を概観する。",
+      "diagram_type": "状態シーケンス",
+      "prompt_file_zh": "docs/zh/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.prompt.en.md",
+        "ja": "docs/ja/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-risk-pressure-axes",
+      "kind": "body-photo",
+      "insert_after_heading": "## 一、Chat Agent：まずシステムが回答できるようにする",
+      "purpose": "Agent の進化を能力ランクではなく、リスク圧力の増加として描く。",
+      "diagram_type": "入力-処理-出力",
+      "prompt_file_zh": "docs/zh/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.prompt.en.md",
+        "ja": "docs/ja/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-eval-and-handoff-flywheel",
+      "kind": "body-photo",
+      "insert_after_heading": "## 八、もう一層見る：復旧可能、評価可能、委譲可能",
+      "purpose": "復旧可能、評価可能、委譲可能という性質が Managed Agent の改善フライホイールを形成することを説明する。",
+      "diagram_type": "円形ループ",
+      "prompt_file_zh": "docs/zh/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.prompt.en.md",
+        "ja": "docs/ja/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

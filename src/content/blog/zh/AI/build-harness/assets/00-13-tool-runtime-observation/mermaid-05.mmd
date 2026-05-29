@@ -1,0 +1,19 @@
+sequenceDiagram
+  participant Model as Model
+  participant Runtime as Tool Runtime
+  participant Tool as Tool Executor
+  participant Log as Event Log
+  participant State as State Reducer
+  participant Context as Context Builder
+
+  Model->>Runtime: ToolIntent
+  Runtime->>Log: tool.intent
+  Runtime->>Runtime: registry / validate / permission
+  Runtime->>Log: tool.invocation.started
+  Runtime->>Tool: execute(invocation)
+  Tool-->>Runtime: raw result
+  Runtime->>Runtime: normalize / truncate
+  Runtime->>Log: tool.observation
+  Log->>State: fold events
+  State->>Context: current task state
+  Context-->>Model: next model input

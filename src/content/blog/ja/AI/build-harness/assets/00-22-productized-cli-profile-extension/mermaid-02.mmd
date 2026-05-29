@@ -1,0 +1,19 @@
+flowchart LR
+  P["Profile\n运行身份"] --> A["Policy\n权限边界"]
+  P --> B["Tool Bundle\n工具组合"]
+  P --> C["Context Source\n指令/记忆/Skill"]
+  P --> D["Provider Preference\n模型偏好"]
+  P --> E["Output Contract\n输出协议"]
+
+  A --> H["Harness Runtime\n统一执行纪律"]
+  B --> H
+  C --> H
+  D --> H
+  E --> H
+
+  H --> R["同一条任务\n稳定运行"]
+
+  P:::hot
+  H:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

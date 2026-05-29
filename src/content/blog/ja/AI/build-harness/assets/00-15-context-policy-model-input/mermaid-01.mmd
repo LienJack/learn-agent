@@ -1,0 +1,19 @@
+flowchart TB
+  State["Session State\nmessages + events + artifacts"]
+  Retrieval["Retrieved Evidence\nfiles + memory + search"]
+  Policy["Context Policy\nselect + rank + trim + isolate"]
+  Ledger["Decision Ledger\nincluded + excluded + why"]
+  Input["Model Input\nvisible projection"]
+  Model["Model Provider"]
+
+  State --> Policy
+  Retrieval --> Policy
+  Policy --> Input --> Model
+  Policy --> Ledger
+
+  classDef source fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#111;
+  classDef policy fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;
+  classDef model fill:#fce4ec,stroke:#c62828,stroke-width:2px,color:#111;
+  class State,Retrieval source;
+  class Policy,Ledger,Input policy;
+  class Model model;

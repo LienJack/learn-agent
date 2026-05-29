@@ -1,0 +1,13 @@
+flowchart TB
+  M["Model\n判断下一步"]:::model
+  E["Execution\n命令、沙箱、远程环境"]
+  T["Tools\nschema、权限、执行、回填"]
+  C["Context\n输入投影、压缩、检索"]
+  L["Lifecycle\nsession、resume、retry"]
+  O["Observability\ntrace、日志、成本"]
+  V["Verification\ntest、eval、regression"]
+  G["Governance\n安全、审批、审计"]
+
+  G --> V --> O --> L --> C --> T --> E --> M
+
+  classDef model fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

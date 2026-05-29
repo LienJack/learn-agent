@@ -1,0 +1,68 @@
+{
+  "article": "docs/ja/00-08-minimal-agent-loop.md",
+  "slug": "00-08-minimal-agent-loop",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-react-loop-from-answer-to-action",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "単発の回答が Think、Act、Observe、Final の最小閉ループへ変わる様子を示す。",
+      "diagram_type": "円形ループ",
+      "prompt_file_zh": "docs/zh/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.en.md",
+        "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-state-machine-budget-stop",
+      "kind": "body-photo",
+      "insert_after_heading": "## 二、Loop はより長いコンテキストではなく状態機械である",
+      "purpose": "loop は Ready、Thinking、Acting、Observing、Finished、Stopped を持つ状態機械であり、無思考な while true ではないことを説明する。",
+      "diagram_type": "状態シーケンス",
+      "prompt_file_zh": "docs/zh/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.en.md",
+        "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-observation-feedback-pipeline",
+      "kind": "body-photo",
+      "insert_after_heading": "## 七、Observe：ツール結果はログではなく次ターンの事実",
+      "purpose": "raw tool result が observation、prompt context、event log へ変わる流れを明確に描く。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.en.md",
+        "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-04-stop-conditions-decision-path",
+      "kind": "body-photo",
+      "insert_after_heading": "## 八、停止条件：Loop はいつ続けるべきでないかを知らなければならない",
+      "purpose": "final、maxTurns、budget、abort、invalid intent などの停止条件が loop を保護する仕組みを示す。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.en.md",
+        "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

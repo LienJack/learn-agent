@@ -1,0 +1,150 @@
+#!/usr/bin/env node
+import path from 'node:path';
+import {
+	createRun,
+	loadDotEnv,
+	parseArgs,
+	printSummary,
+	readArticle,
+	requireArticleFiles,
+	requireConfirmation,
+	writeJson,
+	writeRunRecord,
+} from '../lib/common.mjs';
+import { inspectQiitaArticle, prepareQiitaArticle, publishQiita, updateQiitaIndex } from '../lib/qiita.mjs';
+
+loadDotEnv();
+
+try {
+	const { options, files } = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		usage();
+		process.exit(0);
+	}
+	if (options.itemId && files.length > 1) {
+		throw new Error('--item-id can only be used with one article.');
+	}
+
+	const articles = requireArticleFiles(files).map(readArticle);
+	const run = createRun({ language: 'ja', platforms: ['qiita'], articles });
+	const prepared = [];
+	let hasBlockers = false;
+
+	for (const article of articles) {
+		const articleRecord = run.record.articles.find((item) => item.source === article.sourceRelPath);
+		const inspection = inspectQiitaArticle(article, options);
+		articleRecord.blockers = inspection.blockers;
+		articleRecord.warnings = inspection.warnings;
+		articleRecord.imageMode = inspection.imageMode;
+		articleRecord.tags = inspection.tags;
+		articleRecord.itemId = inspection.itemId;
+		articleRecord.visibility = inspection.visibility;
+		articleRecord.commands = inspection.commands;
+		articleRecord.acceptance = inspection.acceptance;
+
+		if (inspection.blockers.length > 0) {
+			hasBlockers = true;
+			articleRecord.status = 'blocked';
+			continue;
+		}
+
+		if (canPrepareBeforeConfirmation(inspection)) {
+			const result = await prepareQiitaArticle(article, run.artifactDir, options);
+			articleRecord.status = 'prepared';
+			articleRecord.artifacts.push(path.relative(process.cwd(), result.bodyPath));
+			articleRecord.artifacts.push(path.relative(process.cwd(), result.payloadPath));
+			articleRecord.imageRewrites = result.replacements.length;
+			prepared.push({ article, result, itemId: inspection.itemId });
+		} else {
+			const summaryPath = path.join(run.artifactDir, `${path.basename(article.sourcePath, path.extname(article.sourcePath))}.qiita-summary.json`);
+			writeJson(summaryPath, {
+				source: article.sourceRelPath,
+				title: article.data.title || '',
+				itemId: inspection.itemId,
+				imageMode: inspection.imageMode,
+				needsRemoteImageWork: inspection.needsRemoteImageWork,
+				visibility: inspection.visibility,
+				warnings: inspection.warnings,
+				tags: inspection.tags,
+				commands: inspection.commands,
+				acceptance: inspection.acceptance,
+			});
+			articleRecord.status = options.dryRun ? 'planned' : 'waiting_confirmation';
+			articleRecord.artifacts.push(path.relative(process.cwd(), summaryPath));
+			articleRecord.imageRewrites = 'pending';
+			prepared.push({ article, needsPrepare: true, itemId: inspection.itemId });
+		}
+	}
+
+	run.record.status = hasBlockers ? 'blocked' : 'waiting_confirmation';
+	run.record.confirmation = {
+		required: !hasBlockers,
+		action: `${options.private === false ? 'Publish publicly' : 'Publish privately'} to Qiita`,
+		confirmed: false,
+	};
+	writeRunRecord(run.recordPath, run.record);
+
+	printSummary('Qiita publish summary', [
+		`Run: ${path.relative(process.cwd(), run.recordPath)}`,
+		`Artifacts: ${path.relative(process.cwd(), run.artifactDir)}`,
+		`Visibility: ${options.private === false ? 'public' : 'private'}`,
+		...run.record.articles.flatMap((article) => [
+			`Article: ${article.source}`,
+			`Status: ${article.status}`,
+			`Item ID: ${article.itemId || 'new item'}`,
+			`Warnings: ${article.warnings?.length ? article.warnings.join('; ') : 'none'}`,
+			`Blockers: ${article.blockers.length ? article.blockers.join('; ') : 'none'}`,
+		]),
+	]);
+
+	if (hasBlockers || options.dryRun) {
+		process.exit(hasBlockers ? 1 : 0);
+	}
+
+	if (!requireConfirmation(options, `This will ${options.private === false ? 'publicly publish' : 'create or update a private item'} on Qiita.`)) {
+		run.record.status = 'cancelled';
+		run.record.confirmation.confirmed = false;
+		run.record.finishedAt = new Date().toISOString();
+		writeRunRecord(run.recordPath, run.record);
+		process.exit(0);
+	}
+
+	run.record.confirmation.confirmed = true;
+	for (const item of prepared) {
+		const result = item.needsPrepare ? await prepareQiitaArticle(item.article, run.artifactDir, options) : item.result;
+		const response = await publishQiita(result.payload, item.itemId);
+		updateQiitaIndex(item.article, response);
+		const articleRecord = run.record.articles.find((article) => article.source === item.article.sourceRelPath);
+		articleRecord.status = 'published';
+		articleRecord.itemId = response.id || item.itemId || '';
+		articleRecord.url = response.url || '';
+		articleRecord.results.push({
+			platform: 'qiita',
+			status: 'published',
+			itemId: response.id || item.itemId || '',
+			url: response.url || '',
+			private: response.private ?? options.private !== false,
+		});
+	}
+	run.record.status = 'completed';
+	run.record.finishedAt = new Date().toISOString();
+	writeRunRecord(run.recordPath, run.record);
+} catch (error) {
+	console.error(error instanceof Error ? error.message : String(error));
+	process.exit(1);
+}
+
+function canPrepareBeforeConfirmation(inspection) {
+	return !inspection.needsRemoteImageWork || inspection.imageMode === 'base-url';
+}
+
+function usage() {
+	console.log(`Usage:
+  publish/bin/publish-qiita [--dry-run] [--yes] [--public] [--tweet] [--item-id <id>] <article.md> [article-2.md ...]
+
+Behavior:
+  - Prepares Qiita Markdown and JSON payloads under publish/artifacts/.
+  - Writes run records under publish/runs/.
+  - Defaults to private Qiita items; pass --public only when ready.
+  - Uses qiita_id frontmatter or publish/qiita-items.json to update an existing item.`);
+}

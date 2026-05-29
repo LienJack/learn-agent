@@ -1,0 +1,53 @@
+{
+  "article": "docs/ja/00-04-harness-control-system.md",
+  "slug": "00-04-harness-control-system",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-etclovg-control-map",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "ETCLOVG の 7 層制御責任を概観し、Harness がモデル外部の制御システムであることを強調する。",
+      "diagram_type": "階層アーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-04-harness-control-system/photo-01-etclovg-control-map.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-04-harness-control-system/photo-01-etclovg-control-map.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-04-harness-control-system/photo-01-etclovg-control-map.prompt.en.md",
+        "ja": "docs/ja/assets/00-04-harness-control-system/photo-01-etclovg-control-map.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-04-harness-control-system/photo-01-etclovg-control-map.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-session-harness-sandbox-split",
+      "kind": "body-photo",
+      "insert_after_heading": "### Session、Harness、Sandbox：1 つのオブジェクトに混ぜない",
+      "purpose": "Session、Harness、Sandbox の 3 者は責任が異なるが相互に協作することを説明する。",
+      "diagram_type": "階層アーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.prompt.en.md",
+        "ja": "docs/ja/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-event-object-flow",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十一、イベントオブジェクト：Harness の専門性は小さなオブジェクトに宿る",
+      "purpose": "Harness 内の event、tool_call、permission、observation、verification を監査可能なイベント流としてつなぐ。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-04-harness-control-system/photo-03-event-object-flow.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-04-harness-control-system/photo-03-event-object-flow.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-04-harness-control-system/photo-03-event-object-flow.prompt.en.md",
+        "ja": "docs/ja/assets/00-04-harness-control-system/photo-03-event-object-flow.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-04-harness-control-system/photo-03-event-object-flow.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

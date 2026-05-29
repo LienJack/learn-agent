@@ -1,0 +1,29 @@
+flowchart TB
+  subgraph WRITE["写入侧"]
+    C["Candidate Ledger"] --> G["Governance Checks"]
+    G --> R["Review Decisions"]
+  end
+
+  subgraph STORE["Governance Store"]
+    M["Memory Records"]
+    V["Version History"]
+    A["Audit Trail"]
+    P["Policy Metadata"]
+  end
+
+  subgraph READ["读取侧"]
+    Q["Scoped Query"] --> S["Search / Rerank"]
+    S --> B["Boundary Filter"]
+    B --> X["Context Injection"]
+  end
+
+  R --> M
+  M --> V
+  M --> A
+  M --> P
+  M --> S
+
+  G:::hot
+  B:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

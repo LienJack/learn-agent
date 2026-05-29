@@ -1,0 +1,68 @@
+{
+  "article": "docs/ja/00-15-context-policy-model-input.md",
+  "slug": "00-15-context-policy-model-input",
+  "language": "ja",
+  "status": "prompt-translated",
+  "images": [
+    {
+      "id": "photo-01-context-policy-projection",
+      "kind": "body-photo",
+      "insert_after_heading": "## 問題の連鎖",
+      "purpose": "Context Policy が session log、state、memory、retrieval を今回の model input へ投影する仕組みを説明する。",
+      "diagram_type": "入力-処理-出力",
+      "prompt_file_zh": "docs/zh/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.prompt.en.md",
+        "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-02-context-selection-gates",
+      "kind": "body-photo",
+      "insert_after_heading": "## 四、選択：関連しているだけではコンテキストに入れない",
+      "purpose": "候補内容がモデルコンテキストへ入る前に、関連性、事実の新鮮さ、権限、信頼、予算の検査を通る必要があることを示す。",
+      "diagram_type": "決定経路",
+      "prompt_file_zh": "docs/zh/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.prompt.en.md",
+        "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-03-decision-ledger-trace",
+      "kind": "body-photo",
+      "insert_after_heading": "## 九、Decision Ledger：すべての投影は説明可能でなければならない",
+      "purpose": "context decision ledger が include/exclude/summarize 判断を記録し、trace による失敗責任層の特定を助けることを示す。",
+      "diagram_type": "横方向パイプライン",
+      "prompt_file_zh": "docs/zh/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.prompt.en.md",
+        "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.png",
+      "status": "prompt-translated"
+    },
+    {
+      "id": "photo-04-model-input-workbench",
+      "kind": "body-photo",
+      "insert_after_heading": "## 十八、完全な流れ：テスト修正時の一回の投影",
+      "purpose": "一回のテスト修正タスクでモデルが実際に見る作業台構造を描き、規則、現在状態、最新観察、証拠、ツール集合を強調する。",
+      "diagram_type": "レイヤードアーキテクチャ",
+      "prompt_file_zh": "docs/zh/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.prompt.zh.md",
+      "prompt_file_ja": "docs/ja/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.prompt.ja.md",
+      "future_prompt_files": {
+        "en": "docs/en/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.prompt.en.md",
+        "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.prompt.ja.md"
+      },
+      "target_file": "docs/ja/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.png",
+      "status": "prompt-translated"
+    }
+  ]
+}

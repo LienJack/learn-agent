@@ -1,0 +1,10 @@
+flowchart LR
+  E["Event Log\n事实索引"] --> R["artifact refs\n引用与 hash"]
+  R --> A["Artifact Store\n大块证据"]
+  A --> P["Projection\n摘要投影"]
+  P --> M["Messages\n模型输入"]
+  A --> U["User Report\n可下载证据"]
+  A --> T["Trace Viewer\n诊断视图"]
+
+  classDef hot fill:#fff2b8,stroke:#b78900,color:#111;
+  class E,A hot;

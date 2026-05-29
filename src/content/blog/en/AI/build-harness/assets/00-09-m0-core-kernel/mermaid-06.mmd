@@ -1,0 +1,17 @@
+flowchart LR
+  U["UserInput\n修复测试"] --> UE["user.message\n事件"]
+  UE --> ST["State\n当前现场"]
+  ST --> CX["Context\n本轮投影"]
+  CX --> PR["Provider\n真实模型"]
+  PR --> TX["TextDelta\n流式文本"]
+  PR --> TI["ToolIntent\n运行测试"]
+  TX --> EB["Event Bus\n追加事实"]
+  TI --> EB
+  EB --> NS["Next State\n等待执行"]
+  NS --> NX["下一篇\nIntent -> Execution"]
+
+  TI:::hot
+  EB:::hot
+  NX:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;

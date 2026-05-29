@@ -1,0 +1,21 @@
+flowchart LR
+  Model["Model\nproposes intent"]
+  Intent["ToolIntent\nstructured request"]
+  Validate["Validate\nschema + semantics"]
+  Permission["Permission\nrisk + approval"]
+  Execute["Execute\nruntime owns side effects"]
+  Observe["Observation\nfacts for next turn"]
+  Log["Event Log\nfull audit trail"]
+
+  Model --> Intent --> Validate --> Permission --> Execute --> Observe --> Model
+  Intent -.-> Log
+  Permission -.-> Log
+  Execute -.-> Log
+  Observe -.-> Log
+
+  classDef model fill:#fce4ec,stroke:#c62828,stroke-width:2px,color:#111;
+  classDef runtime fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#111;
+  classDef audit fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#111;
+  class Model model;
+  class Intent,Validate,Permission,Execute,Observe runtime;
+  class Log audit;

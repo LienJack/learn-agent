@@ -1,0 +1,16 @@
+flowchart TD
+  U["用户目标"] --> QE["Runtime / QueryEngine\n会话级编排"]
+  QE --> C["Context Builder\n构建本轮输入"]
+  C --> M["Model\n输出文本或工具意图"]
+  M --> D{"有工具意图？"}
+  D -- "否" --> F["Final\n返回结果"]
+  D -- "是" --> P["Permission Gate\n权限/审批"]
+  P --> T["Tool Runtime\n执行工具"]
+  T --> S["Session State\n记录观察"]
+  S --> G["Guardrails\n预算/压缩/中断"]
+  G --> C
+
+  P:::hot
+  S:::hot
+
+  classDef hot fill:#fff3b0,stroke:#111,stroke-width:2px,color:#111;
