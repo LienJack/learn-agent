@@ -6,7 +6,7 @@
 
 左側入力：Model Request。中央の決定ノード：Capability Need、Profile Preference、Provider Resolver。右側に 2 分岐：Provider A、Provider B fallback。分岐は統一 ModelEvent へ合流し、Core Runtime と Stable UX に入る。淡い黄色で Provider Resolver と ModelEvent を強調。アイコン比喩：リクエストカード、パズル能力ブロック、ルーティング分岐、2 つのクラウド、統一イベントカード、端末小ウィンドウ。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 
 記事内の技術解説図を描く。テーマは multi-provider が resolver を通じて Agent CLI のユーザー体験を安定させる仕組み。
 

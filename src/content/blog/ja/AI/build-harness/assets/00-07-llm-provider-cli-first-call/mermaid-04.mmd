@@ -1,13 +1,13 @@
 flowchart TB
-  X["Provider Raw Error\nSDK / HTTP / SSE"] --> A["Adapter\n错误识别"]
-  A --> E["ProviderError\n统一分类"]
-  E --> D{"Runtime 决策"}
+  X["Provider Raw Error\nSDK / HTTP / SSE"] --> A["アダプターエラーの識別"]
+  A --> E["ProviderError の統合分類"]
+  E --> D{"実行時の決定"}
 
-  D -->|auth / permission| S["停止\n提示配置或权限"]
-  D -->|rate_limit / overloaded| R["退避重试\n或稍后再试"]
-  D -->|quota| Q["停止\n额度问题"]
-  D -->|context_length| C["压缩上下文\n再重试"]
-  D -->|network / timeout| N["重试\n保留事件记录"]
+  D -->|auth / permission| S["構成または権限のプロンプトを停止する"]
+  D -->|rate_limit / overloaded| R["一旦戻って再試行するか、後で再試行してください"]
+  D -->|quota| Q["クォータの問題を停止する"]
+  D -->|context_length| C["コンテキストを圧縮して再試行してください"]
+  D -->|network / timeout| N["もう一度試してください イベント記録を残す"]
 
   E:::hot
   D:::hot

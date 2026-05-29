@@ -1,15 +1,15 @@
 flowchart TB
-  P["Permission Allow\n可执行"] --> C{"Concurrency\n并发安全吗"}
-  C -->|safe| Q["Parallel Queue\n并发队列"]
-  C -->|keyed| K{"Resource Key\n同资源冲突?"}
-  C -->|exclusive| E["Serial Queue\n串行队列"]
-  K -->|无冲突| Q
-  K -->|有冲突| E
-  Q --> B{"Long Running?\n长任务吗"}
+  P["Permission Allow Executable"] --> C{"Concurrency Is concurrency safe?"}
+  C -->|safe| Q["Parallel Queue concurrent queue"]
+  C -->|keyed| K{"Resource Key conflicts with resources?"}
+  C -->|exclusive| E["Serial Queue Serial Queue"]
+  K -->|No conflict| Q
+  K -->|There is conflict| E
+  Q --> B{"Long Running? Long task?"}
   E --> B
-  B -->|否| F["Foreground\n前台等待"]
-  B -->|是| G["Backgroundable\n后台任务/进度"]
-  F --> X["Execute\n执行"]
+  B -->|no| F["Foreground waiting at the front desk"]
+  B -->|yes| G["Backgroundable background task/progress"]
+  F --> X["Execute"]
   G --> X
 
   C:::hot

@@ -3,7 +3,7 @@ title: "Agent の基本定義：なぜ一文の Prompt ではないのか？"
 description: "多くの人が初めて Agent を作ろうとするとき、まず自然に考えるのはこうです。system prompt を少し長くして、ルールを細かく書けば、モデルは「Agent のように働く」のではないか？"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/00-01-agent-not-a-prompt/cover.png'
 locale: "ja"
 tags:
   - Agent

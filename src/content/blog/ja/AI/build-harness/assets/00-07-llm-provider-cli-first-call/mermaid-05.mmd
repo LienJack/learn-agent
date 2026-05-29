@@ -1,5 +1,5 @@
 flowchart LR
-  U["User\n修复失败测试"] --> I["CLI Input"]
+  U["失敗したテストをユーザーが修正する"] --> I["CLI Input"]
   I --> B["Build ChatRequest"]
   B --> P["Provider.stream()"]
   P --> API["Model API"]
@@ -10,7 +10,7 @@ flowchart LR
   H -->|text_delta| OUT["CLI Output"]
   H -->|message_stop| DONE["Turn Done"]
   H -->|error| ERR["Runtime Error"]
-  H -->|tool_intent| FUT["Tool Runtime\n后续章节"]
+  H -->|tool_intent| FUT["ツール ランタイムの後続の章"]
 
   B:::hot
   EV:::hot

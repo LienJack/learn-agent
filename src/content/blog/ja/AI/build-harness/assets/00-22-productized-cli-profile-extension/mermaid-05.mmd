@@ -1,16 +1,16 @@
 flowchart TB
-  A["Install\n文件落地"] --> B["Verify\n来源/版本/校验"]
-  B --> C{"Trust\n用户/组织策略"}
-  C -- "不信任" --> X["Disabled\n不能贡献能力"]
-  C -- "信任" --> D["Load Manifest\nPlugin Host"]
+  A["インストールファイルが実装されました"] --> B["ソース/バージョン/検証を確認する"]
+  B --> C{"ユーザー/組織ポリシーを信頼する"}
+  C -- 「信じないでください」--> X["無効 機能に貢献できません"]
+  C -- 「シンリ」--> D["Load Manifest\nPlugin Host"]
   D --> E["Contribute\nprovider/tool/skill/hook"]
-  E --> F["Capability Catalog\n候选能力"]
-  F --> G{"Discovery\n任务/路径/预算/权限"}
-  G -- "不可见" --> H["Hidden\n本轮不进入 prompt"]
-  G -- "可见" --> I["Visible Set\n模型可提出 intent"]
-  I --> J{"Permission Gate\n参数/风险/审批"}
-  J -- "拒绝" --> K["Denied Event\n写入日志"]
-  J -- "通过" --> L["Tool Runtime\n受控执行"]
+  E --> F["機能カタログの候補機能"]
+  F --> G{"タスク/パス/予算/権限の検出"}
+  G -- 「見えない」--> H["Hidden はこのラウンドではプロンプトに入りません"]
+  G -- 「見える」--> I["Visible Set モデルはインテントを提示できます"]
+  I --> J{"パーミッションゲートパラメータ/リスク/承認"}
+  J -- "拒絶"--> K["拒否されたイベントがログに書き込まれました"]
+  J -- 「資格のある」--> L["ツールのランタイム制御による実行"]
 
   C:::hot
   G:::hot

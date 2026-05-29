@@ -1,11 +1,11 @@
 flowchart LR
-  U["用户目标\n修复失败测试"] --> S["State\n当前现场"]
-  S --> T["Think\n判断缺什么"]
-  T --> A{"Act?\n需要工具吗"}
-  A -- "需要" --> X["Tool\n读取/搜索/测试"]
-  X --> O["Observe\n结果回填"]
+  U["User Goal Fix failed tests"] --> S["State current site"]
+  S --> T["Think to determine what is missing"]
+  T --> A{"Act? Need tools?"}
+  A -- "need" --> X["Tool read/search/test"]
+  X --> O["Observe result backfill"]
   O --> S
-  A -- "不需要" --> F["Final\n给出结论"]
+  A -- "unnecessary" --> F["Final gives conclusion"]
 
   T:::hot
   O:::hot

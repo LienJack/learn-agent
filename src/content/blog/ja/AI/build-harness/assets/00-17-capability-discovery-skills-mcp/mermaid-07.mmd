@@ -7,8 +7,8 @@ sequenceDiagram
   participant P as Tool Pipeline
   participant E as Event Log
 
-  L->>C: 读取候选能力
-  L->>D: 输入任务/路径/权限/预算/连接状态
+  L->>C: 候補能力を読む
+  L->>D: task/path/permission/budget/接続状態を入力する
   D-->>L: visible set
   L->>E: capability.diff
   L->>M: messages + visible tools + skill index

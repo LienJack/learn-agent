@@ -4,7 +4,7 @@ state sequence。streaming tool-call delta が断片状態から完全な ToolIn
 2. 画面要素リスト
 6 つの状態ノード：text delta、tool start、args part 1、args part 2、complete intent、tool pipeline。前四状態の下に「実行不可」を示す小さな鍵を描く。complete intent と tool pipeline を淡い黄色で強調し、時間軸矢印でつなぐ。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「streaming tool-call delta はまず完全な ToolIntent へ組み立てる必要があり、流れながら実行してはいけない」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

@@ -1,19 +1,19 @@
 flowchart LR
-  I["Tool Intent\n模型申请"] --> R["Registry\n查找工具"]
-  R --> V["Validate\n结构/语义"]
+  I["ツールインテントモデルのアプリケーション"] --> R["レジストリ検索ツール"]
+  R --> V["構造/セマンティクスを検証する"]
   V --> P{"Permission\nallow/ask/deny"}
-  P -->|allow| S["Scheduler\n调度"]
-  P -->|ask| H["Human\n确认"]
-  P -->|deny| N["Denied\n拒绝观察"]
-  H -->|同意| S
-  H -->|拒绝| N
-  S --> X["Sandbox\n受控执行"]
-  X --> Z["Normalize\n结果归一"]
-  Z --> T["Truncate\n截断/引用"]
-  T --> O["Observation\n事实投影"]
+  P -->|allow| S["スケジューラのスケジュール"]
+  P -->|ask| H["人間の確認"]
+  P -->|deny| N["拒否された 観察を拒否した"]
+  H -->|同意する| S
+  H -->|拒否する| N
+  S --> X["サンドボックス制御された実行"]
+  X --> Z["結果を正規化して正規化する"]
+  Z --> T["切り捨て 切り捨て/引用符"]
+  T --> O["観測事実の投影"]
   N --> O
-  O --> A["Audit Event\n审计记录"]
-  O --> M["Next Model Turn\n下一轮"]
+  O --> A["監査イベントの監査記録"]
+  O --> M["次のモデルターン"]
 
   V:::hot
   P:::hot

@@ -1,12 +1,12 @@
 flowchart LR
-  EV["Session Events\n用户/工具/模型"] --> EXT["Candidate Extractor\n候选提取"]
-  EXT --> NORM["Normalize\n结构化字段"]
-  NORM --> LEDGER["Candidate Ledger\n待治理账本"]
-  LEDGER --> CHECK["Governance Checks\n来源/范围/TTL/冲突"]
-  CHECK --> REVIEW{"Review Gate\n通过吗"}
-  REVIEW -- "通过" --> STORE["Governance Store\n长期记忆"]
-  REVIEW -- "补证据" --> WAIT["Pending Evidence\n等待验证"]
-  REVIEW -- "拒绝" --> REJ["Rejected\n保留原因"]
+  EV["セッション イベント ユーザー/ツール/モデル"] --> EXT["Candidate Extractor 候補抽出"]
+  EXT --> NORM["構造化フィールドを正規化する"]
+  NORM --> LEDGER["台帳候補 管理対象台帳"]
+  LEDGER --> CHECK["ガバナンスチェックソース/スコープ/TTL/競合"]
+  CHECK --> REVIEW{"審査ゲートは通過しましたか？"}
+  REVIEW -- 「資格のある」--> STORE["ガバナンス 長期記憶を保存する"]
+  REVIEW -- 「補足証拠」--> WAIT["証拠保留中 検証待ち"]
+  REVIEW -- "拒絶"--> REJ["拒否された保持理由"]
 
   LEDGER:::hot
   CHECK:::hot

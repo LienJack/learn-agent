@@ -1,7 +1,7 @@
 flowchart TB
-  subgraph UI["CLI / 上层入口"]
-    CLI["命令行输入"]
-    OUT["终端输出"]
+  subgraph UI["CLI / upper level entrance"]
+    CLI["Command line input"]
+    OUT["Terminal output"]
   end
 
   subgraph K["M0 Core Kernel"]
@@ -12,10 +12,10 @@ flowchart TB
     ST["Conversation State"]
   end
 
-  subgraph EXT["外部能力"]
+  subgraph EXT["external capabilities"]
     MP["Model Provider"]
-    TT["Test Tool\n后续扩展"]
-    FS["File / Shell\n后续扩展"]
+    TT["Test Tool subsequent extensions"]
+    FS["File / Shell subsequent extensions"]
   end
 
   CLI --> FC
@@ -27,8 +27,8 @@ flowchart TB
   RG --> CT
   FC --> OUT
 
-  TT -. "注册能力" .-> RG
-  FS -. "注册能力" .-> RG
+  TT -. "Registration ability" .-> RG
+  FS -. "Registration ability" .-> RG
 
   K:::hot
   CT:::hot

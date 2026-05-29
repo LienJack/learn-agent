@@ -1,6 +1,6 @@
 ---
 title: "Provider Runtime：なぜ provider は tool intent だけを返すべきか"
-description: "この段落では、設計上の責任境界を明確にし、実装時に同じ判断を再現できるようにします。"
+description: "前回までの記事群で、底にある重要な規律を一つ固定しました。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.png'

@@ -1,12 +1,12 @@
 flowchart LR
-  E["Event Log\n事实事件"] --> R["Reducer\n折叠状态"]
-  R --> S["Session State\n当前现场"]
-  S --> P["Projection\n上下文投影"]
-  P --> M["Messages\n模型输入"]
+  E["Event Log fact event"] --> R["Reducer folded state"]
+  R --> S["Session State current scene"]
+  S --> P["Projection context projection"]
+  P --> M["Messages model input"]
 
-  E --> A["Audit\n审计"]
-  E --> V["Replay\n回放"]
-  E --> T["Trace\n排错"]
+  E --> A["Audit Audit"]
+  E --> V["Replay"]
+  E --> T["Trace troubleshooting"]
 
   classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
   class E,P hot;

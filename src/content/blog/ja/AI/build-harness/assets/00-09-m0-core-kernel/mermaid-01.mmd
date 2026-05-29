@@ -1,17 +1,17 @@
 flowchart LR
-  U["用户目标\n修复测试"] --> F["Runtime Facade\n启动 run"]
+  U["ユーザーターゲット修正テスト"] --> F["ランタイムファサードが実行を開始します"]
   F --> C["Core Kernel\ncontracts / state / events"]
-  C --> P["Model Provider\n真实大模型"]
+  C --> P["モデルプロバイダー リアルラージモデル"]
   P --> ME["ModelEvent\ntext / tool_intent / final"]
   ME --> C
-  C --> R["Registry\n工具与能力目录"]
-  C --> EB["Event Bus\n事实日志"]
-  C --> S["Conversation State\n当前现场"]
-  C --> TR["Tool Runtime\n后续章节"]
+  C --> R["レジストリ ツールと機能のカタログ"]
+  C --> EB["イベントバスファクトログ"]
+  C --> S["会話の状態 現在のサイト"]
+  C --> TR["ツール ランタイムの後続の章"]
 
-  P -. "只返回事件" .-> ME
-  P -. "不执行工具" .-> TR
-  TR -. "执行权属于 runtime" .-> C
+  P -. 「イベントのみを排除」.-> ME
+  P -. 「ツールを実行しないでください」.-> TR
+  TR -. 「実行権制限はランタイムに戻ります」.-> C
 
   C:::hot
   ME:::hot

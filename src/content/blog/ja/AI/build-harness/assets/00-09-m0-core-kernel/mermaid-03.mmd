@@ -6,7 +6,7 @@ sequenceDiagram
   participant LLM as Real LLM
   participant EB as Event Bus
 
-  CLI->>RT: run("修复测试失败")
+  CLI->>RT: run("テストの失敗を修正する")
   RT->>EB: UserMessage event
   RT->>ST: build model request
   ST-->>RT: messages + visible tools

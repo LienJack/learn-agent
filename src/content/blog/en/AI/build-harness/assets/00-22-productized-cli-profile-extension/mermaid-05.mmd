@@ -1,16 +1,16 @@
 flowchart TB
-  A["Install\n文件落地"] --> B["Verify\n来源/版本/校验"]
-  B --> C{"Trust\n用户/组织策略"}
-  C -- "不信任" --> X["Disabled\n不能贡献能力"]
-  C -- "信任" --> D["Load Manifest\nPlugin Host"]
+  A["Install file implemented"] --> B["Verify source/version/verification"]
+  B --> C{"Trust user/organization policy"}
+  C -- "distrust" --> X["Disabled Cannot contribute capabilities"]
+  C -- "trust" --> D["Load Manifest\nPlugin Host"]
   D --> E["Contribute\nprovider/tool/skill/hook"]
-  E --> F["Capability Catalog\n候选能力"]
-  F --> G{"Discovery\n任务/路径/预算/权限"}
-  G -- "不可见" --> H["Hidden\n本轮不进入 prompt"]
-  G -- "可见" --> I["Visible Set\n模型可提出 intent"]
-  I --> J{"Permission Gate\n参数/风险/审批"}
-  J -- "拒绝" --> K["Denied Event\n写入日志"]
-  J -- "通过" --> L["Tool Runtime\n受控执行"]
+  E --> F["Capability Catalog candidate capabilities"]
+  F --> G{"Discovery tasks/paths/budgets/permissions"}
+  G -- "invisible" --> H["Hidden does not enter prompt this round"]
+  G -- "visible" --> I["The Visible Set model can present intents"]
+  I --> J{"Permission Gate parameters/risk/approval"}
+  J -- "reject" --> K["Denied Event written to log"]
+  J -- "pass" --> L["Tool Runtime controlled execution"]
 
   C:::hot
   G:::hot

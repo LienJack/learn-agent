@@ -1,14 +1,14 @@
 flowchart TB
-  U["用户输入\n修复测试失败"] --> CLI["Productized CLI\n稳定入口"]
-  CLI --> CFG["配置层\n默认/用户/项目/会话"]
-  CFG --> PROF["Profile\n策略+工具+上下文+模型偏好"]
-  PROF --> EXT["Extension Runtime\n安装/信任/能力声明"]
-  PROF --> PR["Provider Resolver\n模型选择与降级"]
-  PROF --> CAP["Capability Discovery\n本轮可见能力"]
+  U["User input fix test failure"] --> CLI["Productized CLI stable entry"]
+  CLI --> CFG["Configuration layer default/user/project/session"]
+  CFG --> PROF["Profile strategy + tool + context + model preference"]
+  PROF --> EXT["Extension Runtime Installation/Trust/Capability Statement"]
+  PROF --> PR["Provider Resolver model selection and degradation"]
+  PROF --> CAP["Capability Discovery Visible capabilities in this round"]
   CAP --> LOOP["Agent Runtime\nloop/session/tool pipeline"]
   PR --> LOOP
   EXT --> CAP
-  LOOP --> OUT["稳定输出协议\nTTY/JSON/Host Events"]
+  LOOP --> OUT["Stable output protocol TTY/JSON/Host Events"]
 
   PROF:::hot
   PR:::hot

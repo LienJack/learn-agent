@@ -1,12 +1,12 @@
 flowchart LR
-  U["User Goal\n修复测试"] --> C["Context\n本轮输入"]
-  C --> M["Model\n提出 intent"]
-  M --> T["Tool Runtime\n受控执行"]
-  T --> O["Observation\n事实投影"]
-  O --> S["Session State\n折叠现场"]
+  U["User Goal Fix Test"] --> C["Context input in this round"]
+  C --> M["Model proposes intent"]
+  M --> T["Tool Runtime controlled execution"]
+  T --> O["Observation fact projection"]
+  O --> S["Session State collapse scene"]
   S --> C
-  O --> A["Audit / Replay\n事实日志"]
-  O --> V["Verification\n验证依据"]
+  O --> A["Audit / Replay fact log"]
+  O --> V["Verification verification basis"]
 
   T:::hot
   O:::hot

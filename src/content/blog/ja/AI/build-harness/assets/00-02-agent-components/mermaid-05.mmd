@@ -1,12 +1,12 @@
 flowchart TB
-  LOG["Session Log\n不可变事件事实源"] --> FOLD["State Reducer\n折叠事件"]
-  FOLD --> ST["State\n当前任务现场"]
-  ST --> CP["Context Projector\n选择、压缩、隔离、排序"]
-  MEM["Memory Store\n跨任务经验"] --> CP
-  DOC["Project Docs / Index\n外部知识"] --> CP
-  CP --> INPUT["Model Input\n本轮上下文"]
-  INPUT --> MODEL["Model Provider\n模型事件"]
-  MODEL --> LOOP["Runtime Decision\n继续/审批/执行/结束"]
+  LOG["セッションログの不変イベントの信頼できるソース"] --> FOLD["State Reducer 崩壊イベント"]
+  FOLD --> ST["現在のタスクサイトを説明する"]
+  ST --> CP["コンテキスト プロジェクターの選択、圧縮、分離、並べ替え"]
+  MEM["メモリー ストアのクロスタスク エクスペリエンス"] --> CP
+  DOC["プロジェクト ドキュメント / 外部知識のインデックス化"] --> CP
+  CP --> INPUT["モデル入力現在のラウンドコンテキスト"]
+  INPUT --> MODEL["モデルプロバイダーのモデルイベント"]
+  MODEL --> LOOP["実行時の決定 続行/承認/実行/終了"]
   LOOP --> LOG
 
   LOG:::hot

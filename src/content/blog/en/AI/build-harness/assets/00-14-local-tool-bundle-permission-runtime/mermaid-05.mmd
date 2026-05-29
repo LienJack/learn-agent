@@ -1,13 +1,13 @@
 flowchart LR
-  G["Glob\n按路径缩小候选"] --> R["Grep\n按内容定位线索"]
-  R --> F["Read\n读取目标文件"]
-  F --> B["readFileState\n建立基线"]
-  B --> E["Edit\n局部修改"]
-  E --> D["Diff\n变更摘要"]
+  G["Glob narrows candidates by path"] --> R["Grep locate leads by content"]
+  R --> F["Read reads the target file"]
+  F --> B["readFileState establishes a baseline"]
+  B --> E["Edit local modification"]
+  E --> D["Diff summary of changes"]
 
-  G -->|只返回路径| O1["低 token 输出"]
-  R -->|只返回匹配片段| O2["受控观察"]
-  F -->|分页读取| O3["完整上下文"]
+  G -->|Return only path| O1["low token output"]
+  R -->|Return only matching fragments| O2["controlled observation"]
+  F -->|Paged reading| O3["full context"]
 
   B:::hot
   E:::hot

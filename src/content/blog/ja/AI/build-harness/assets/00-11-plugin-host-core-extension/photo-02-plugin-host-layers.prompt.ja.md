@@ -4,7 +4,7 @@
 2. 画面要素リスト
 3 つの横方向レイヤー：外部プラグイン層、Plugin Host 層、Core Kernel 層。主ノードは Manifest、Loader、Lifecycle、Registry、Hook Kernel、Contracts、Runtime、Event Log。Registry と Hook Kernel を強調する。アイコンは説明書、漏斗、時計、台帳、ゲート、契約紙、ループ矢印、ログ巻物。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Plugin Host の五つの核心部品が外部プラグインと Core Kernel を隔てる」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

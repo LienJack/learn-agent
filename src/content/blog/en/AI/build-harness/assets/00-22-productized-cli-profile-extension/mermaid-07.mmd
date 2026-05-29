@@ -1,5 +1,5 @@
 sequenceDiagram
-  participant U as 用户
+  participant U as user
   participant CLI as Productized CLI
   participant CFG as Config/Profile
   participant EXT as Extension Runtime
@@ -8,15 +8,15 @@ sequenceDiagram
   participant RT as Agent Runtime
   participant OUT as Output Contract
 
-  U->>CLI: --profile code 修复测试失败
-  CLI->>CFG: 解析配置与 profile
+  U->>CLI: --profile code Fix test failure
+  CLI->>CFG: Parse configuration and profile
   CFG-->>CLI: policy/tools/context/provider/output
-  CLI->>EXT: 加载可信 extension
-  EXT-->>CAP: 贡献候选能力
-  CLI->>PR: 选择满足能力的 provider
+  CLI->>EXT: Load trusted extension
+  EXT-->>CAP: Contribution candidate capabilities
+  CLI->>PR: Choose a provider that meets your capabilities
   PR-->>RT: provider adapter + model event contract
-  CLI->>CAP: 计算本轮 visible set
-  CAP-->>RT: 可见工具和 skill 索引
+  CLI->>CAP: Calculate visible set in this round
+  CAP-->>RT: Visible tools and skill index
   RT->>RT: loop / tool intent / observation
-  RT-->>OUT: 结构化事件
-  OUT-->>U: TTY 渲染与最终结果
+  RT-->>OUT: structured events
+  OUT-->>U: TTY Rendering and final results

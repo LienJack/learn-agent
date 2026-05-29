@@ -3,7 +3,7 @@ title: "Agent を手書きする意味：フレームワーク抽象の背後に
 description: "手書きの目的はフレームワークを置き換えることではなく、Loop、Tool、State、Context、Permission、Trace の境界を自分の目で見ることだ。境界を理解してから使うフレームワークは、黒箱ではなく組み合わせ可能な部品になる。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/00-06-handwrite-agent-meaning/cover.png'
 locale: "ja"
 tags:
   - Agent

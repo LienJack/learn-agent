@@ -1,15 +1,15 @@
 flowchart LR
-  U["用户目标\n修复测试失败"] --> RT["Runtime Loop"]
-  RT --> PR["Provider 插件\n模型事件"]
+  U["ユーザー目標修正テストの失敗"] --> RT["Runtime Loop"]
+  RT --> PR["プロバイダープラグインモデルイベント"]
   PR --> I["Tool Intent\nrun_tests"]
   I --> V["Validate\nschema + registry"]
   V --> HK{"Hook Gate\npreToolUse"}
-  HK -->|allow| TR["Tool Runtime\n执行 run_tests"]
+  HK -->|allow| TR["ツール ランタイムは run_tests を実行します"]
   HK -->|ask/deny| BO["Blocked Observation"]
-  TR --> OB["Observation\n测试输出"]
+  TR --> OB["観測試験出力"]
   BO --> EV["Event Log"]
   OB --> EV
-  EV --> CP["Context Projection\n下一轮模型输入"]
+  EV --> CP["モデル入力の次のラウンドのコンテキスト投影"]
   CP --> RT
 
   PR:::hot

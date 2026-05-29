@@ -1,13 +1,13 @@
 flowchart TD
-  U["用户目标"] --> QE["Runtime / QueryEngine\n会话级编排"]
-  QE --> C["Context Builder\n构建本轮输入"]
-  C --> M["Model\n输出文本或工具意图"]
-  M --> D{"有工具意图？"}
-  D -- "否" --> F["Final\n返回结果"]
-  D -- "是" --> P["Permission Gate\n权限/审批"]
-  P --> T["Tool Runtime\n执行工具"]
-  T --> S["Session State\n记录观察"]
-  S --> G["Guardrails\n预算/压缩/中断"]
+  U["user goals"] --> QE["Runtime/QueryEngine session-level orchestration"]
+  QE --> C["Context Builder builds the input of this round"]
+  C --> M["Model output text or tool intent"]
+  M --> D{"Have instrumental intentions?"}
+  D -- "no" --> F["Final return result"]
+  D -- "yes" --> P["Permission Gate permission/approval"]
+  P --> T["Tool Runtime execution tool"]
+  T --> S["Session State Record Observation"]
+  S --> G["Guardrails budget/compression/interruption"]
   G --> C
 
   P:::hot

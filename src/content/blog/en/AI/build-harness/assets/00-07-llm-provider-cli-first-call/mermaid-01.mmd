@@ -1,9 +1,9 @@
 flowchart LR
-  U["用户输入\n修复失败测试"] --> CLI["CLI\n读取输入"]
-  CLI --> R["Runtime\n组装请求"]
-  R --> C["Provider Contract\n统一模型契约"]
-  C --> A["Provider Adapter\n翻译 API 差异"]
-  A --> M["真实模型\nOpenAI / Anthropic / ..."]
+  U["User input Fix failed tests"] --> CLI["CLI read input"]
+  CLI --> R["Runtime assembly request"]
+  R --> C["Provider Contract Unified Model Contract"]
+  C --> A["Provider Adapter Translation API Differences"]
+  A --> M["Real model OpenAI/Anthropic/…"]
   M --> A
   A --> E["Model Events\ntext / usage / error"]
   E --> R

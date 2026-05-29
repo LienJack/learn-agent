@@ -1,17 +1,17 @@
 flowchart TD
-  L["Loop Tick\n准备下一轮"] --> A{"aborted?"}
-  A -- "是" --> S1["Stop\n用户中断"]
-  A -- "否" --> B{"turnCount >= maxTurns?"}
-  B -- "是" --> S2["Stop\n轮次耗尽"]
-  B -- "否" --> C{"budget exhausted?"}
-  C -- "是" --> S3["Stop\n预算耗尽"]
-  C -- "否" --> M["Call Model"]
+  L["ループティックは次のラウンドの準備ができています"] --> A{"aborted?"}
+  A -- "はい" --> S1["ユーザーの中断を停止する"]
+  A -- "いいえ" --> B{"turnCount >= maxTurns?"}
+  B -- "はい" --> S2["ラウンドを使い果たしたら停止する"]
+  B -- "いいえ" --> C{"budget exhausted?"}
+  C -- "はい" --> S3["予算の枯渇を阻止する"]
+  C -- "いいえ" --> M["Call Model"]
   M --> D{"final?"}
-  D -- "是" --> F["Finish\n输出结论"]
-  D -- "否" --> E{"tool intent valid?"}
-  E -- "否" --> S4["Stop or Repair\n无效意图"]
-  E -- "是" --> X["Execute Tool"]
-  X --> O["Observe\n写回状态"]
+  D -- "はい" --> F["出力の結論を終了する"]
+  D -- "いいえ" --> E{"tool intent valid?"}
+  E -- "いいえ" --> S4["無効なインテントを停止または修復する"]
+  E -- "はい" --> X["Execute Tool"]
+  X --> O["ライトバックステータスを観察する"]
   O --> L
 
   S2:::warn

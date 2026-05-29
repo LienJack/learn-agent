@@ -1,12 +1,12 @@
 flowchart TB
-  U["入口\nCLI / IDE / Web / Cron"] --> P["Policy\n用户、项目、组织规则"]
-  P --> S["Sandbox\n文件、网络、进程隔离"]
+  U["エントリ CLI / IDE / Web / Cron"] --> P["ポリシーユーザー、プロジェクト、組織ルール"]
+  P --> S["サンドボックス ファイル、ネットワーク、プロセスの分離"]
   S --> R["Runtime\nloop、budget、session"]
   R --> A["Agent\nmodel + tools + state"]
   A --> E["Environment\nrepo、tests、services"]
   R --> O["Observability\ntrace、metrics、logs"]
-  O --> V["Eval\n回归、质量、成本"]
-  V --> D["Deployment\n版本、调度、回滚"]
+  O --> V["回帰、品質、コストの評価"]
+  V --> D["デプロイメントのバージョン、スケジュール、ロールバック"]
   D --> P
 
   P:::hot

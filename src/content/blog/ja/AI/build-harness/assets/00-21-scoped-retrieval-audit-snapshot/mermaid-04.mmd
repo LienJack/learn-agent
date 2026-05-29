@@ -1,11 +1,11 @@
 flowchart TB
-  I["检索 Intent"] --> A["Source Access Gate"]
-  A -->|允许读取| R["召回候选"]
-  A -->|拒绝| D["拒绝事件"]
+  I["検索 Intent"] --> A["Source Access Gate"]
+  A -->|読み取り許可| R["候補を召回"]
+  A -->|拒否| D["拒否イベント"]
   R --> V["Model Visibility Gate"]
-  V -->|原文可见| O["原文证据"]
-  V -->|需脱敏| Z["脱敏摘要"]
-  V -->|不可见| X["runtime-only 引用"]
+  V -->|原文可視| O["原文証拠"]
+  V -->|脱敏が必要| Z["脱敏サマリー"]
+  V -->|不可視| X["runtime-only 参照"]
   O --> S["Snapshot"]
   Z --> S
   X --> S

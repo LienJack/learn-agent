@@ -1,9 +1,9 @@
 flowchart TB
-  I["Tool Intent"] --> S["Schema Validate\n字段、类型、范围"]
-  S -->|失败| VF["Validation Failed\n回填给模型"]
-  S -->|通过| R["Runtime Validate\n状态、基线、上下文"]
-  R -->|失败| RF["Runtime Rejected\n说明缺少前置条件"]
-  R -->|通过| A["Permission Gate\n进入权限决策"]
+  I["Tool Intent"] --> S["Schema Validate fields, types, ranges"]
+  S -->|fail| VF["Validation Failed is backfilled to the model."]
+  S -->|pass| R["Runtime Validate state, baseline, context"]
+  R -->|fail| RF["Runtime Rejected indicates missing preconditions"]
+  R -->|pass| A["Permission Gate entry permission decision"]
 
   S:::hot
   R:::hot

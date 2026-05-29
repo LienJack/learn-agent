@@ -2,11 +2,11 @@ flowchart TB
   M["Model Output"] --> P["Parse Tool Intent"]
   P --> V["Validate"]
   V -->|ok| A["Approve"]
-  V -->|fail| O1["Observation\n校验失败"]
+  V -->|fail| O1["観測検証に失敗しました"]
   A -->|allow| X["Execute"]
-  A -->|ask/deny| O2["Observation\n权限结果"]
-  X --> R["Result Policy\n截断/存 artifact"]
-  R --> O3["Observation\n事实投影"]
+  A -->|ask/deny| O2["観測許可結果"]
+  X --> R["結果ポリシーの切り捨て/アーティファクトの保存"]
+  R --> O3["観測事実の投影"]
   O1 --> N["Next Model Turn"]
   O2 --> N
   O3 --> N

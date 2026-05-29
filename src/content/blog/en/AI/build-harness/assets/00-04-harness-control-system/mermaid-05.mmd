@@ -2,9 +2,9 @@ flowchart LR
   U["UserMessage"] --> I["ModelIntent"]
   I --> V["ToolValidated"]
   V --> P["PolicyDecision"]
-  P --> A{"需要审批？"}
-  A -- "是" --> AP["ApprovalEvent"]
-  A -- "否" --> X["ToolStarted"]
+  P --> A{"Need approval?"}
+  A -- "yes" --> AP["ApprovalEvent"]
+  A -- "no" --> X["ToolStarted"]
   AP --> X
   X --> R["ExecutionResult"]
   R --> O["Observation"]

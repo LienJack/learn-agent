@@ -1,18 +1,18 @@
 sequenceDiagram
-  participant U as 用户目标
+  participant U as user goals
   participant C as Context
   participant M as Model
   participant H as Harness
   participant T as ToolRuntime
   participant V as Verification
 
-  U->>C: 投影当前目标和证据
-  C->>M: 构建模型输入
-  M-->>H: 判断并提出 tool intent
+  U->>C: Project current target and evidence
+  C->>M: Build model input
+  M-->>H: Determine and propose tool intent
   H->>H: validate + permission
-  H->>T: 执行工具
-  T-->>H: 返回原始结果
-  H->>C: 投影 observation
-  C->>M: 下一轮输入
-  H->>V: 运行验证
-  V-->>H: 目标是否成立
+  H->>T: Execution tool
+  T-->>H: Return original result
+  H->>C: projection observation
+  C->>M: Next round of input
+  H->>V: Run verification
+  V-->>H: Is the goal established?

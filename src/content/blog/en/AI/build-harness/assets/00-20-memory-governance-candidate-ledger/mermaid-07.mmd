@@ -1,12 +1,12 @@
 flowchart LR
-  STORE["Governance Store\n长期记忆"] --> USE["Retrieval Usage\n检索使用"]
-  USE --> SIGNAL["Signals\n命中/忽略/冲突"]
-  SIGNAL --> HEALTH["Health Check\n体检"]
-  HEALTH --> DECIDE{"处理动作"}
-  DECIDE -- "仍有效" --> KEEP["保持 active"]
-  DECIDE -- "过期" --> EXP["标记 expired"]
-  DECIDE -- "冲突" --> REV["进入 review"]
-  DECIDE -- "可合并" --> MERGE["合并版本"]
+  STORE["Governance Store long term memory"] --> USE["Retrieval Usage Retrieval Usage"]
+  USE --> SIGNAL["Signals hits/ignores/conflicts"]
+  SIGNAL --> HEALTH["Health Check"]
+  HEALTH --> DECIDE{"processing action"}
+  DECIDE -- "still valid" --> KEEP["stay active"]
+  DECIDE -- "Expired" --> EXP["mark expired"]
+  DECIDE -- "conflict" --> REV["Enter review"]
+  DECIDE -- "Can be merged" --> MERGE["merged version"]
   KEEP --> STORE
   EXP --> STORE
   REV --> STORE

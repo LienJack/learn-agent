@@ -1,11 +1,11 @@
 flowchart LR
-  A["User Goal\n修复测试"] --> B["Model Input\n上下文投影"]
-  B --> C["Provider Call\n真实模型"]
-  C --> D["ModelEvent\n文本 / intent"]
-  D --> E["Event Log\n事实源"]
-  E --> F["Tool Pipeline\n校验权限执行"]
-  F --> G["Observation\n结果事实"]
-  G --> H["State Reducer\n更新现场"]
+  A["ユーザー目標修正テスト"] --> B["モデル入力コンテキスト投影"]
+  B --> C["プロバイダーコールの実際のモデル"]
+  C --> D["ModelEvent テキスト / インテント"]
+  D --> E["イベントログの信頼できる情報源"]
+  E --> F["ツールパイプライン検証権限の実行"]
+  F --> G["観測結果事実"]
+  G --> H["State Reducer 更新サイト"]
   H --> B
 
   D:::hot

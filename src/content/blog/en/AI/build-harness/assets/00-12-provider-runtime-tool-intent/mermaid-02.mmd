@@ -1,19 +1,19 @@
 flowchart TB
-  subgraph Provider["Provider 协议层"]
-    TC["Tool Call\n供应商原始格式"]
-    TD["Tool Delta\n参数分片"]
+  subgraph Provider["Provider protocol layer"]
+    TC["Tool Call Vendor Original Format"]
+    TD["Tool Delta parameter slicing"]
   end
 
-  subgraph Core["Core 语义层"]
-    TI["ToolIntent\n统一行动提议"]
-    EV["Event\n进入事实日志"]
+  subgraph Core["Core semantic layer"]
+    TI["ToolIntent Unified Action Proposal"]
+    EV["Event enters the fact log"]
   end
 
-  subgraph Runtime["Tool Runtime 执行层"]
+  subgraph Runtime["Tool Runtime execution layer"]
     VA["Validate\nschema / policy"]
-    PE["Permission\n审批 / 风险"]
-    EX["Execution\n真实动作"]
-    OB["Observation\n事实结果"]
+    PE["Permission Approval/Risk"]
+    EX["Execution real action"]
+    OB["Observation fact result"]
   end
 
   TC --> TI

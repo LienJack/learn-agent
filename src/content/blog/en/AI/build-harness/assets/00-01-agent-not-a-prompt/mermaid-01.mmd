@@ -1,8 +1,8 @@
 flowchart LR
-  P["Prompt\n规定模型怎么回答"] --> C["ChatBot\n管理对话消息"]
+  P["How to answer Prompt stipulated model?"] --> C["ChatBot manages conversation messages"]
   C --> A["Agent\nLoop + Tools + State"]
-  A --> H["Harness\n执行、权限、上下文、观测"]
-  H --> W["真实任务\n可执行、可审计、可恢复"]
+  A --> H["Harness execution, permissions, context, observation"]
+  H --> W["Real tasks are executable, auditable, and recoverable"]
 
   A:::hot
   H:::hot

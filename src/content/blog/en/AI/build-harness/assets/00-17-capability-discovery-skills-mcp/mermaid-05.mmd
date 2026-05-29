@@ -1,14 +1,14 @@
 flowchart TD
-  A["任务开始\n修复测试失败"] --> B["基础工具可见\nRead/Grep/Bash"]
-  B --> C{"当前证据够吗"}
-  C -- "够" --> D["继续本地定位"]
-  C -- "不够" --> E["ToolSearch\n搜索候选能力"]
-  E --> F["候选结果\nMCP/Skill/Tool"]
-  F --> G{"权限和预算允许吗"}
-  G -- "否" --> H["返回不可用 observation"]
-  G -- "是" --> I["加入 Visible Set"]
-  I --> J["模型提出 intent"]
-  J --> K["统一 Tool Pipeline"]
+  A["Task starts Fix test failure"] --> B["Basic tools can be found in Read/Grep/Bash"]
+  B --> C{"Is the current evidence enough?"}
+  C -- "enough" --> D["Continue local targeting"]
+  C -- "not enough" --> E["ToolSearch search candidate capabilities"]
+  E --> F["Candidate result MCP/Skill/Tool"]
+  F --> G{"Do permissions and budget allow?"}
+  G -- "no" --> H["Return unavailable observation"]
+  G -- "yes" --> I["Join Visible Set"]
+  I --> J["The model proposes an intent"]
+  J --> K["Unified Tool Pipeline"]
 
   E:::hot
   G:::hot

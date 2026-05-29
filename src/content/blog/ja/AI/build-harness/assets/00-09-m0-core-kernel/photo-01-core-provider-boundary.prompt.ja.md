@@ -4,7 +4,7 @@
 2. 画面要素リスト
 6 つの主ノード：CLI、Runtime Facade、Core Kernel、Provider Adapter、実際の大規模モデル、Tool Runtime。Core Kernel 内部には contracts、event bus、state の 3 つの短いラベルを置く。Core Kernel と ToolIntent 境界を強調する。アイコンは端末、コンソール、チップ、クラウドインターフェース、ツールボックス、ログ帳。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「M0 Core Kernel は実際の大規模モデルをシステムへ接続するが、モデルにシステムを乗っ取らせない」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

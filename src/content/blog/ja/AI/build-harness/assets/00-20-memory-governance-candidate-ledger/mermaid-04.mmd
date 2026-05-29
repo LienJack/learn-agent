@@ -1,16 +1,16 @@
 flowchart TB
-  C["Candidate\n候选记忆"] --> SRC{"来源可靠吗"}
-  SRC -- "否" --> LOW["降置信度\n或拒绝"]
-  SRC -- "是" --> SCP{"范围明确吗"}
-  SCP -- "否" --> ASK["补范围\nneeds_review"]
-  SCP -- "是" --> TTL{"需要 TTL 吗"}
-  TTL -- "是" --> ADDTTL["写入过期/复核时间"]
-  TTL -- "否" --> CONFLICT{"有冲突吗"}
+  C["候補者記憶"] --> SRC{"情報源は信頼できるものですか?"}
+  SRC -- "いいえ" --> LOW["信頼度を下げるか拒否する"]
+  SRC -- "はい" --> SCP{"範囲は明確ですか？"}
+  SCP -- "いいえ" --> ASK["補足スコープのneeds_review"]
+  SCP -- "はい" --> TTL{"TTLは必要ですか?"}
+  TTL -- "はい" --> ADDTTL["書き込み有効期限/レビュー時間"]
+  TTL -- "いいえ" --> CONFLICT{"何か矛盾はありますか?"}
   ADDTTL --> CONFLICT
-  CONFLICT -- "有" --> REVIEW["Review Gate\n合并/替换/拒绝"]
-  CONFLICT -- "无" --> APPROVE{"置信度足够吗"}
-  APPROVE -- "否" --> PEND["保留 pending\n等待更多证据"]
-  APPROVE -- "是" --> STORE["写入 Governance Store"]
+  CONFLICT -- 「抱いている」--> REVIEW["レビューゲートのマージ/置換/拒否"]
+  CONFLICT -- "なし" --> APPROVE{"信頼レベルは十分ですか?"}
+  APPROVE -- "いいえ" --> PEND["さらなる証拠を待つために保留し続けます"]
+  APPROVE -- "はい" --> STORE["ガバナンスストアへの書き込み"]
 
   REVIEW:::hot
   STORE:::hot

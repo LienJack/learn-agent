@@ -1,17 +1,17 @@
 flowchart LR
-  U["用户目标\n修复测试"] --> F["Runtime Facade\n启动 run"]
+  U["User Target Fix Test"] --> F["Runtime Facade starts run"]
   F --> C["Core Kernel\ncontracts / state / events"]
-  C --> P["Model Provider\n真实大模型"]
+  C --> P["Model Provider Real large model"]
   P --> ME["ModelEvent\ntext / tool_intent / final"]
   ME --> C
-  C --> R["Registry\n工具与能力目录"]
-  C --> EB["Event Bus\n事实日志"]
-  C --> S["Conversation State\n当前现场"]
-  C --> TR["Tool Runtime\n后续章节"]
+  C --> R["Registry Tools and Capabilities Catalog"]
+  C --> EB["Event Bus fact log"]
+  C --> S["Conversation State Current Site"]
+  C --> TR["Tool Runtime subsequent chapters"]
 
-  P -. "只返回事件" .-> ME
-  P -. "不执行工具" .-> TR
-  TR -. "执行权属于 runtime" .-> C
+  P -. "Return only events" .-> ME
+  P -. "Don't execute tool" .-> TR
+  TR -. "Execution rights belong to runtime" .-> C
 
   C:::hot
   ME:::hot

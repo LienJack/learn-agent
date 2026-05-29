@@ -1,15 +1,15 @@
 1. 図解タイプ
-Horizontal pipeline。一回のローカルツール呼び出しがモデル提案から権限判断、実実行を経て observation と audit event になることを示す。
+Horizontal pipeline。一回のローカルツール呼び出しがモデル提案から権限判断、実行を経て observation と audit event になることを示す。
 
 2. 画面要素リスト
 横方向 5 ノード：Tool Intent、Permission Decision、Execution、Observation、Audit Trail。Permission Decision と Audit Trail を強調し、下部に Observation からモデルへ戻る小ループを置く。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「ローカルツール呼び出しの権限、実行、観察、監査の事実チェーン」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。
 
-構図：左から右への pipeline。① Tool Intent：対話バブル + JSON カードでモデル提案を表す。② Permission：盾 + 分岐小門で allow/ask/deny を表し、淡い黄色で強調。③ Execution：レンチ + フォルダ + 端末で制御実行を表す。④ Observation：目 + 要約カードで事実回填を表す。⑤ Audit Trail：タイムライン + 印章で追跡可能な記録を表し、淡い黄色で強調。ノード間は線幅がわずかに不均一な手描き矢印でつなぐ。下部に Observation から左側の小さな Model 顔アイコンへ細い矢印を戻し、次の推論回を示す。
+構図：左から右への pipeline。① Tool Intent：対話バブル + JSON カードでモデル提案を表す。② Permission：盾 + 分岐小門で allow/ask/deny を表し、淡い黄色で強調。③ Execution：レンチ + フォルダ + 端末で制御実行を表す。④ Observation：目 + 要約カードで事実書き戻しを表す。⑤ Audit Trail：タイムライン + 印章で追跡可能な記録を表し、淡い黄色で強調。ノード間は線幅がわずかに不均一な手描き矢印でつなぐ。下部に Observation から左側の小さな Model 顔アイコンへ細い矢印を戻し、次の推論回を示す。
 
 背景にはごく薄い回路線、ノード接続線、エンジニアリングスケッチの補助線を入れるが、主題より目立たせない。
 

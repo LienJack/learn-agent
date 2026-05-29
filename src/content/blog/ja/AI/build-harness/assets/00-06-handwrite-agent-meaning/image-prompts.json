@@ -23,7 +23,7 @@
       "id": "photo-02-minimal-cli-agent-loop",
       "kind": "body-photo",
       "insert_after_heading": "## 三、最小 Agent を手書きするのであって、完全なフレームワークを手書きするのではない",
-      "purpose": "手書き最小 CLI Agent の閉ループを描き、モデル意図、権限ポリシー、ツール実行、観察回填、状態更新を強調する。",
+      "purpose": "手書き最小 CLI Agent の閉ループを描き、モデル意図、権限ポリシー、ツール実行、観察書き戻し、状態更新を強調する。",
       "diagram_type": "円形ループ",
       "prompt_file_zh": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.zh.md",
       "prompt_file_ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.ja.md",

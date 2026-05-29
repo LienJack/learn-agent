@@ -3,7 +3,7 @@ title: "Harness の基本定義：モデル外部の制御システム"
 description: "ここまでで、Agent をいくつかの最小部品へ分解しました。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/00-04-harness-control-system/cover.png'
 locale: "ja"
 tags:
   - Agent

@@ -1,12 +1,12 @@
 flowchart TB
-  EL["Session Event Log\n事实源：发生过什么"] --> ST["State Reducer\n折叠当前现场"]
-  ST --> CTX["Context Builder\n本轮模型输入"]
-  EL --> UI["Transcript / UI\n给人看的叙述"]
-  EL --> EV["Eval Trace\n给评估看的轨迹"]
-  ST --> MEM["Memory Candidate\n可沉淀经验"]
-  MEM --> KB["Long-term Memory\n跨任务知识"]
+  EL["セッション イベント ログ 真実の情報源: 何が起こったのか"] --> ST["State Reducer は現在のシーンを折りたたみます"]
+  ST --> CTX["Context Builder の現在のラウンド モデル入力"]
+  EL --> UI["人々が読むためのトランスクリプト / UI ナレーション"]
+  EL --> EV["Eval Trace 評価用トレース"]
+  ST --> MEM["記憶候補生は経験を積むことができる"]
+  MEM --> KB["長期記憶のクロスタスク知識"]
 
-  CTX --> M["Model\n判断下一步"]
+  CTX --> M["モデルが次のステップを決定する"]
   M --> EL
 
   EL:::hot

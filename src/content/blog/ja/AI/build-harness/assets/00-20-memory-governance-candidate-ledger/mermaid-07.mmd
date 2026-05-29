@@ -1,12 +1,12 @@
 flowchart LR
-  STORE["Governance Store\n长期记忆"] --> USE["Retrieval Usage\n检索使用"]
-  USE --> SIGNAL["Signals\n命中/忽略/冲突"]
-  SIGNAL --> HEALTH["Health Check\n体检"]
-  HEALTH --> DECIDE{"处理动作"}
-  DECIDE -- "仍有效" --> KEEP["保持 active"]
-  DECIDE -- "过期" --> EXP["标记 expired"]
-  DECIDE -- "冲突" --> REV["进入 review"]
-  DECIDE -- "可合并" --> MERGE["合并版本"]
+  STORE["ガバナンス 長期記憶を保存する"] --> USE["取得の使用方法 取得の使用方法"]
+  USE --> SIGNAL["シグナルのヒット/無視/競合"]
+  SIGNAL --> HEALTH["健康診断"]
+  HEALTH --> DECIDE{"処理アクション"}
+  DECIDE -- 「まだ効果ありますよ」--> KEEP["アクティブに過ごす"]
+  DECIDE -- 「締め切りカット」--> EXP["マークの有効期限が切れました"]
+  DECIDE -- 「対立」--> REV["レビューを入力してください"]
+  DECIDE -- 「統合可能」--> MERGE["マージされたバージョン"]
   KEEP --> STORE
   EXP --> STORE
   REV --> STORE

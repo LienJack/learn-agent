@@ -1,19 +1,19 @@
 flowchart LR
-  C0["M0 Core\nprovider/tool/hook 内置"] --> P1{"能力增多"}
-  P1 --> M["模型分支\nprovider if/else"]
-  P1 --> T["工具分支\ntool bundle 细节"]
-  P1 --> H["策略分支\nhook 与权限"]
+  C0["M0コアプロバイダ/ツール/フック内蔵"] --> P1{"能力の向上"}
+  P1 --> M["モデルブランチプロバイダー if/else"]
+  P1 --> T["ツールブランチツールバンドルの詳細"]
+  P1 --> H["戦略ブランチのフックと権限"]
 
-  M --> X["Core 污染\n难测试/难替换"]
+  M --> X["炉心汚染、テストが困難/交換が困難"]
   T --> X
   H --> X
 
-  X --> PH["Plugin Host\n加载与约束"]
-  PH --> CT["Contracts\n统一能力形状"]
-  PH --> RG["Registry\n统一注册表"]
-  PH --> HK["Hook Kernel\n受控阻断点"]
+  X --> PH["プラグインホストの読み込みと制約"]
+  PH --> CT["統一された機能形状を契約します"]
+  PH --> RG["レジストリ統合レジストリ"]
+  PH --> HK["フック カーネル制御のブロッキング ポイント"]
 
-  CT --> HC["Harness 纪律\n扩展仍受控"]
+  CT --> HC["Harness の拡張範囲は引き続き制御下にある"]
   RG --> HC
   HK --> HC
 

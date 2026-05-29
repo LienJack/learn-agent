@@ -3,7 +3,7 @@ title: "Agent の構成モデル：Model、Loop、Tools、State"
 description: "前回はまず一つの誤解をほどきました。Agent は、より長い prompt ではありません。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/00-02-agent-components/cover.png'
 locale: "ja"
 tags:
   - Agent

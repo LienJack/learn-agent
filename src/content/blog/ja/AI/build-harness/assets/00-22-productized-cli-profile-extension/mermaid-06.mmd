@@ -1,10 +1,10 @@
 flowchart LR
-  RT["Runtime\n统一事实事件"] --> BUS["CLI Event Stream\n稳定 schema"]
-  BUS --> TTY["TTY Renderer\n人类终端"]
-  BUS --> JSON["JSONL Renderer\n机器消费"]
-  BUS --> WB["Workbench Host\n可视化时间线"]
-  BUS --> CI["CI Log\n构建系统"]
-  BUS --> TRACE["Trace Store\n回放与分析"]
+  RT["ランタイム統合ファクトイベント"] --> BUS["CLI イベント ストリームの安定したスキーマ"]
+  BUS --> TTY["TTY レンダラ人間端末"]
+  BUS --> JSON["JSONL レンダラー マシンの消費量"]
+  BUS --> WB["ワークベンチホストのビジュアルタイムライン"]
+  BUS --> CI["CIログビルドシステム"]
+  BUS --> TRACE["トレースストアの再生と分析"]
 
   BUS:::hot
   WB:::hot

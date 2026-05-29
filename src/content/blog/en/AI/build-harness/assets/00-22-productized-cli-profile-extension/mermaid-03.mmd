@@ -1,13 +1,13 @@
 flowchart TB
-  D["默认配置\n安全基线"] --> U["用户配置\n个人偏好"]
-  U --> P["项目配置\n仓库规则"]
-  P --> S["会话配置\n本次运行"]
-  S --> F["命令行参数\n显式 override"]
-  F --> E["环境变量\nsecret/部署注入"]
-  E --> R{"合并仲裁\n是否允许覆盖"}
-  R -- "允许" --> RC["Resolved Config\n带 provenance"]
-  R -- "不允许" --> W["诊断警告\n解释来源冲突"]
-  RC --> PROF["Active Profile\n运行身份"]
+  D["Default configuration security baseline"] --> U["User Configuration Personal Preferences"]
+  U --> P["Project configuration warehouse rules"]
+  P --> S["Session configuration for this run"]
+  S --> F["Command line parameters explicit override"]
+  F --> E["Environment variable secret/deployment injection"]
+  E --> R{"Merge Arbitration Is overwriting allowed?"}
+  R -- "allow" --> RC["Resolved Config with provenance"]
+  R -- "not allowed" --> W["Diagnostic Warning Explanation Source Conflict"]
+  RC --> PROF["Active Profile run as"]
 
   R:::hot
   RC:::hot

@@ -1,12 +1,12 @@
 flowchart TB
-  User["用户 / 调度器"] --> Session["Session\n任务生命周期"]
-  Session --> Runtime["Agent Runtime\nLoop 控制"]
-  Runtime --> Model["Model\n判断下一步"]
-  Runtime --> Tools["Tool Runtime\n校验与执行"]
-  Runtime --> Context["Context\n构建输入"]
-  Runtime --> Policy["Policy\n权限治理"]
-  Runtime --> Events["Event Log\n审计与回放"]
-  Runtime --> Eval["Verification\n测试与评估"]
+  User["User/Scheduler"] --> Session["Session task life cycle"]
+  Session --> Runtime["Agent Runtime Loop Control"]
+  Runtime --> Model["Model determines the next step"]
+  Runtime --> Tools["Tool Runtime verification and execution"]
+  Runtime --> Context["Context build input"]
+  Runtime --> Policy["Policy permission management"]
+  Runtime --> Events["Event Log Audit and Playback"]
+  Runtime --> Eval["Verification testing and evaluation"]
 
   Policy:::hot
   Events:::hot

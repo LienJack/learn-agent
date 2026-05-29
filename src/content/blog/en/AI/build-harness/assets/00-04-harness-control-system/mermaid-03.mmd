@@ -1,13 +1,13 @@
 flowchart LR
-  M["Model\n工具意图"] --> S["Schema\n参数校验"]
-  S --> P{"Permission\n允许吗"}
-  P -- "拒绝" --> D["Observation\n说明原因"]
-  P -- "需要确认" --> Q["User Approval\n暂停等待"]
-  P -- "允许" --> R["Tool Runtime\n调用工具"]
-  R --> E["Execution\n真实执行"]
-  E --> O["Observation\n结构化结果"]
-  O --> ST["Session\n事件日志"]
-  ST --> C["Context\n下一轮输入"]
+  M["Model tool intent"] --> S["Schema parameter verification"]
+  S --> P{"Permission allowed?"}
+  P -- "reject" --> D["Observation explains why"]
+  P -- "Need confirmation" --> Q["User Approval pause and wait"]
+  P -- "allow" --> R["Tool Runtime calls the tool"]
+  R --> E["Execution real execution"]
+  E --> O["Observation structured results"]
+  O --> ST["Session event log"]
+  ST --> C["Context next round of input"]
 
   P:::hot
   O:::hot

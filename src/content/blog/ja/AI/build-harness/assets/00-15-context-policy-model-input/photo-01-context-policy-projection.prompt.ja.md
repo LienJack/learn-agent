@@ -4,7 +4,7 @@
 2. 画面要素リスト
 左側 5 入力：Session Log、State、Rules、Memory、Retrieval。中央は Context Policy 作業台で、選択、圧縮、隔離、予算を含む。右側は Model Input と Decision Ledger。Context Policy と Model Input を強調する。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Context Policy が事実、状態、記憶、検索結果を今回のモデル入力へ投影する」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

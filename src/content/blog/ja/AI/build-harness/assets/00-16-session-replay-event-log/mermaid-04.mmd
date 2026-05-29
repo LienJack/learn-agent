@@ -1,14 +1,14 @@
 flowchart LR
-  E["事件日志"] --> R["Replay Reducer"]
-  R --> S["可解释状态"]
-  S --> M["messages 投影"]
-  S --> T["trace 视图"]
+  E["イベントログ"] --> R["Replay Reducer"]
+  R --> S["解釈可能な状態"]
+  S --> M["メッセージ投影"]
+  S --> T["トレースビュー"]
   S --> P["pending action"]
 
-  P --> D{"需要继续吗？"}
-  D -- "否" --> A["只读复盘"]
-  D -- "是" --> G["Resume Gate"]
-  G --> N["新的 Agent Loop"]
+  P --> D{"続行する必要がありますか?"}
+  D -- "いいえ" --> A["読み取り専用レビュー"]
+  D -- "はい" --> G["Resume Gate"]
+  G --> N["新しいエージェント ループ"]
 
   classDef hot fill:#fff3c4,stroke:#d6a700,color:#222;
   class E,R,G hot;

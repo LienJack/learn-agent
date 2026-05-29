@@ -1,18 +1,18 @@
 sequenceDiagram
-  participant U as 用户
+  participant U as user
   participant H as Harness
   participant C as Capability Catalog
   participant M as Model
   participant S as Skill Runtime
   participant P as Tool Pipeline
 
-  U->>H: 修复测试失败
-  H->>C: 查询相关 skill 索引
-  C-->>H: test-fix / code-review 摘要
-  H->>M: 任务 + 轻量 SkillIndex + 最小工具
+  U->>H: Fix test failure
+  H->>C: Query related skill index
+  C-->>H: test-fix / code-review summary
+  H->>M: Task + Light SkillIndex + Minimal Tool
   M-->>H: intent: load_skill(test-fix)
-  H->>S: 校验权限并渲染 Skill
-  S-->>H: Skill 正文和运行边界
-  H->>M: 注入 Skill 指南
+  H->>S: Verify permissions and render Skill
+  S-->>H: Skill body and running boundaries
+  H->>M: Inject Skill Guide
   M-->>H: intent: Bash(npm test)
-  H->>P: 统一执行管线
+  H->>P: Unified execution pipeline

@@ -1,8 +1,8 @@
 flowchart LR
-  R["Run\n执行任务"] --> T["Trace\n记录轨迹"]
-  T --> A["Attribution\n失败归因"]
-  A --> C["Change\n修改 Harness"]
-  C --> B["Benchmark\n重跑用例"]
+  R["実行してタスクを実行します"] --> T["トレースレコードトラック"]
+  T --> A["アトリビューション失敗のアトリビューション"]
+  A --> C["Harness に変更を加える"]
+  C --> B["ベンチマーク再実行の使用例"]
   B --> R
 
   A --> M["Model?"]

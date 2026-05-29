@@ -1,12 +1,12 @@
 flowchart LR
-  PA["父 Agent\n提出委派意图"] --> DI["DelegateIntent\n任务、角色、边界"]
-  DI --> V["Validate\n结构/范围/依赖"]
-  V --> P["Permission\n工具与风险审批"]
-  P --> S["Spawn\n启动受控子 Agent"]
-  S --> R["Run\n隔离上下文内执行"]
-  R --> O["Observation\n结构化结果"]
-  O --> J["Join\n父 Agent 审阅合并"]
-  J --> PA2["父 Agent\n继续主循环"]
+  PA["Parent Agent proposes delegation intent"] --> DI["DelegateIntent tasks, roles, boundaries"]
+  DI --> V["Validate structure/scope/dependency"]
+  V --> P["Permission Tools and Risk Approvals"]
+  P --> S["Spawn starts the controlled sub-Agent"]
+  S --> R["Run executes within the isolation context"]
+  R --> O["Observation structured results"]
+  O --> J["Join parent agent review merge"]
+  J --> PA2["The parent Agent continues the main loop"]
 
   DI:::hot
   P:::hot

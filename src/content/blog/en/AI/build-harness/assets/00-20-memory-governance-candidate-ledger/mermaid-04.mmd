@@ -1,16 +1,16 @@
 flowchart TB
-  C["Candidate\n候选记忆"] --> SRC{"来源可靠吗"}
-  SRC -- "否" --> LOW["降置信度\n或拒绝"]
-  SRC -- "是" --> SCP{"范围明确吗"}
-  SCP -- "否" --> ASK["补范围\nneeds_review"]
-  SCP -- "是" --> TTL{"需要 TTL 吗"}
-  TTL -- "是" --> ADDTTL["写入过期/复核时间"]
-  TTL -- "否" --> CONFLICT{"有冲突吗"}
+  C["Candidate candidate memory"] --> SRC{"Is the source reliable?"}
+  SRC -- "no" --> LOW["Downgrade confidence or reject"]
+  SRC -- "yes" --> SCP{"Is the scope clear?"}
+  SCP -- "no" --> ASK["Supplementary scope needs_review"]
+  SCP -- "yes" --> TTL{"Is TTL required?"}
+  TTL -- "yes" --> ADDTTL["Write expiration/review time"]
+  TTL -- "no" --> CONFLICT{"Is there any conflict?"}
   ADDTTL --> CONFLICT
-  CONFLICT -- "有" --> REVIEW["Review Gate\n合并/替换/拒绝"]
-  CONFLICT -- "无" --> APPROVE{"置信度足够吗"}
-  APPROVE -- "否" --> PEND["保留 pending\n等待更多证据"]
-  APPROVE -- "是" --> STORE["写入 Governance Store"]
+  CONFLICT -- "have" --> REVIEW["Review Gate merge/replace/reject"]
+  CONFLICT -- "none" --> APPROVE{"Is the confidence level sufficient?"}
+  APPROVE -- "no" --> PEND["Keep pending to wait for more evidence"]
+  APPROVE -- "yes" --> STORE["Write to Governance Store"]
 
   REVIEW:::hot
   STORE:::hot

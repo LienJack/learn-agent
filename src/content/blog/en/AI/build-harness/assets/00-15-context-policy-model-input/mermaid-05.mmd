@@ -1,15 +1,15 @@
 flowchart LR
-  C["候选内容"] --> R{"任务相关？"}
-  R -->|否| X1["排除"]
-  R -->|是| F{"当前事实？"}
-  F -->|否| X2["引用旧版本\n或重新读取"]
-  F -->|是| P{"权限允许？"}
-  P -->|否| X3["仅保留安全摘要"]
-  P -->|是| T{"可信等级？"}
-  T -->|低| U["隔离为\n不可信观察"]
-  T -->|高| B{"预算足够？"}
-  B -->|否| S["摘要/引用"]
-  B -->|是| I["进入 Model Input"]
+  C["Candidate content"] --> R{"Mission related?"}
+  R -->|no| X1["exclude"]
+  R -->|yes| F{"Current facts?"}
+  F -->|no| X2["Reference an older version or re-read"]
+  F -->|yes| P{"Permission allowed?"}
+  P -->|no| X3["Keep only security digests"]
+  P -->|yes| T{"Trust level?"}
+  T -->|Low| U["Isolated as untrustworthy observations"]
+  T -->|high| B{"Budget enough?"}
+  B -->|no| S["Abstract/Quote"]
+  B -->|yes| I["Enter Model Input"]
 
   C:::hot
   I:::hot

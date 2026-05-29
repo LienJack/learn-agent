@@ -4,7 +4,7 @@ horizontal pipeline。ユーザー目標が Core、Provider Runtime、ModelEvent
 2. 画面要素リスト
 6 つの主ノード：ユーザー目標、Core Runtime、Provider Runtime、ModelEvent、ToolIntent、Tool Pipeline。Provider Runtime と Tool Pipeline の間には赤いバツで遮断された破線を描き、直接実行できないことを表す。ToolIntent と Tool Pipeline を淡い黄色で強調する。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは「Provider Runtime はモデル出力を ToolIntent に翻訳するだけで、ツールを直接実行しない」。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線幅はわずかに不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向けの手描きフロー図、明瞭で抑制され、エンジニアリングのラフスケッチ感がある。

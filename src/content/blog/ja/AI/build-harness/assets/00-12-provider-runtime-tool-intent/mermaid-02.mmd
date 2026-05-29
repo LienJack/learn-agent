@@ -1,19 +1,19 @@
 flowchart TB
-  subgraph Provider["Provider 协议层"]
-    TC["Tool Call\n供应商原始格式"]
-    TD["Tool Delta\n参数分片"]
+  subgraph Provider["プロバイダープロトコル層"]
+    TC["ツール呼び出しベンダーのオリジナル形式"]
+    TD["ツールデルタパラメータスライス"]
   end
 
-  subgraph Core["Core 语义层"]
-    TI["ToolIntent\n统一行动提议"]
-    EV["Event\n进入事实日志"]
+  subgraph Core["コアセマンティックレイヤー"]
+    TI["ToolIntent の統合アクションの提案"]
+    EV["イベントがファクトログに記録される"]
   end
 
-  subgraph Runtime["Tool Runtime 执行层"]
+  subgraph Runtime["ツールランタイム実行層"]
     VA["Validate\nschema / policy"]
-    PE["Permission\n审批 / 风险"]
-    EX["Execution\n真实动作"]
-    OB["Observation\n事实结果"]
+    PE["許可承認・リスク"]
+    EX["実際のアクションの実行"]
+    OB["観測事実結果"]
   end
 
   TC --> TI

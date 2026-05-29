@@ -1,11 +1,11 @@
 flowchart TB
-  A["All Local Tools\n候选工具池"] --> V{"Visibility Gate\n本轮可见性"}
+  A["すべてのローカル ツール候補ツール プール"] --> V{"可視性ゲート このラウンドの可視性"}
   V -->|hide Bash| M1["Model Tools\nRead/Grep/Edit"]
   V -->|show Bash| M2["Model Tools\nRead/Grep/Edit/Bash"]
 
   M1 --> I["Tool Intent"]
   M2 --> I
-  I --> E{"Execution Gate\n单次审批"}
+  I --> E{"処刑門単独承認"}
   E -->|allow| X["Execute"]
   E -->|ask| H["Human Decision"]
   E -->|deny| D["Reject"]

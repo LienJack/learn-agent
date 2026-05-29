@@ -1,14 +1,14 @@
 flowchart TB
-  U["用户输入\n修复测试失败"] --> CLI["Productized CLI\n稳定入口"]
-  CLI --> CFG["配置层\n默认/用户/项目/会话"]
-  CFG --> PROF["Profile\n策略+工具+上下文+模型偏好"]
-  PROF --> EXT["Extension Runtime\n安装/信任/能力声明"]
-  PROF --> PR["Provider Resolver\n模型选择与降级"]
-  PROF --> CAP["Capability Discovery\n本轮可见能力"]
+  U["ユーザー入力修正テストの失敗"] --> CLI["製品化された CLI 安定エントリー"]
+  CLI --> CFG["構成レイヤーのデフォルト/ユーザー/プロジェクト/セッション"]
+  CFG --> PROF["プロファイル戦略 + ツール + コンテキスト + モデルの好み"]
+  PROF --> EXT["拡張機能ランタイムのインストール/信頼/機能に関する声明"]
+  PROF --> PR["プロバイダー リゾルバー モデルの選択と劣化"]
+  PROF --> CAP["能力の発見 このラウンドで目に見える能力"]
   CAP --> LOOP["Agent Runtime\nloop/session/tool pipeline"]
   PR --> LOOP
   EXT --> CAP
-  LOOP --> OUT["稳定输出协议\nTTY/JSON/Host Events"]
+  LOOP --> OUT["安定した出力プロトコル TTY/JSON/ホストイベント"]
 
   PROF:::hot
   PR:::hot

@@ -1,11 +1,11 @@
 flowchart LR
-  S["State\n当前任务现场"] --> M["Model\n判断下一步"]
-  M --> L["Loop\n推进轮次"]
-  L --> T["Tools\n受控行动"]
-  T --> O["Observation\n工具结果"]
+  S["State current task site"] --> M["Model determines the next step"]
+  M --> L["Loop advances rounds"]
+  L --> T["Tools controlled actions"]
+  T --> O["Observation tool results"]
   O --> S
 
-  T --> W["真实项目\n文件、命令、测试"]
+  T --> W["Real project files, commands, tests"]
   W --> T
 
   S:::hot

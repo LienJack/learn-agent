@@ -1,12 +1,12 @@
 flowchart LR
-  M["Model Output\n工具意图"] --> V["Validate\n参数校验"]
-  V --> P["Policy\n权限判断"]
-  P --> X["Execute\n受控执行"]
-  X --> R["Result\n真实结果"]
-  R --> O["Observation\n回填给模型"]
-  O --> S["State\n更新现场"]
+  M["モデル出力ツールの意図"] --> V["パラメータの検証を検証する"]
+  V --> P["ポリシー許可判定"]
+  P --> X["制御された実行を実行する"]
+  X --> R["結果 実際の結果"]
+  R --> O["モデルへの観測埋め戻し"]
+  O --> S["状態更新サイト"]
 
-  P -->|deny / ask| U["User / Rule\n拒绝或审批"]
+  P -->|deny / ask| U["ユーザー/ルールの拒否または承認"]
   U --> O
 
   M:::cold

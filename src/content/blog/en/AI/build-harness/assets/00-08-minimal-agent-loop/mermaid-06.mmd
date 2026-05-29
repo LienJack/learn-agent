@@ -1,17 +1,17 @@
 flowchart TD
-  L["Loop Tick\n准备下一轮"] --> A{"aborted?"}
-  A -- "是" --> S1["Stop\n用户中断"]
-  A -- "否" --> B{"turnCount >= maxTurns?"}
-  B -- "是" --> S2["Stop\n轮次耗尽"]
-  B -- "否" --> C{"budget exhausted?"}
-  C -- "是" --> S3["Stop\n预算耗尽"]
-  C -- "否" --> M["Call Model"]
+  L["Loop Tick ready for the next round"] --> A{"aborted?"}
+  A -- "yes" --> S1["Stop user interruption"]
+  A -- "no" --> B{"turnCount >= maxTurns?"}
+  B -- "yes" --> S2["Stop rounds exhausted"]
+  B -- "no" --> C{"budget exhausted?"}
+  C -- "yes" --> S3["Stop budget exhausted"]
+  C -- "no" --> M["Call Model"]
   M --> D{"final?"}
-  D -- "是" --> F["Finish\n输出结论"]
-  D -- "否" --> E{"tool intent valid?"}
-  E -- "否" --> S4["Stop or Repair\n无效意图"]
-  E -- "是" --> X["Execute Tool"]
-  X --> O["Observe\n写回状态"]
+  D -- "yes" --> F["Finish output conclusion"]
+  D -- "no" --> E{"tool intent valid?"}
+  E -- "no" --> S4["Stop or Repair Invalid Intent"]
+  E -- "yes" --> X["Execute Tool"]
+  X --> O["Observe writes back status"]
   O --> L
 
   S2:::warn

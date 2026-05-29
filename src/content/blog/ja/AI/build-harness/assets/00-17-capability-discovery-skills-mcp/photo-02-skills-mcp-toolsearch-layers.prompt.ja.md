@@ -4,7 +4,7 @@ layered architecture。この図は、Skills、MCP、ToolSearch、Deferred Loadi
 2. 画面要素リスト
 5 層構造：能力ソース層、能力カタログ層、発見と検索層、モデル投影層、実行パイプライン層。ノードには Skills、MCP、ToolSearch、Deferred Loading、Visible Tools、Tool Pipeline を含める。淡い黄色で「ToolSearch」と「Deferred Loading」を強調。パズル、クラウドインターフェース、虫眼鏡、折りたたみ文書、コンベヤーなどのアイコンを使う。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 記事内の技術解説図を描く。テーマは Skills、MCP、ToolSearch、Deferred Loading が動的な能力公開で担う階層ごとの役割。
 
 画風：アイボリーの紙背景、黒い手描きサインペンの線画、線の太さは少し不均一、少量の淡い黄色ハイライト、editorial technical illustration、技術ブログ向け手描き階層アーキテクチャ図、明快で抑制され、エンジニアリングスケッチ感がある。

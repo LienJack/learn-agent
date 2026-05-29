@@ -1,6 +1,6 @@
 ---
 title: "Local Tool Bundle：ファイル、検索、ターミナルと Permission Runtime"
-description: "この段落では、設計上の責任境界を明確にし、実装時に同じ判断を再現できるようにします。"
+description: "この段階まで来ると、多くの人は Agent のローカル能力を直感的な関数群として書きたくなります。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.png'

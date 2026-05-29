@@ -1,13 +1,13 @@
 flowchart LR
   I["Bash Intent"] --> S["Schema\ncommand/timeout/cwd"]
-  S --> A["Static Analysis\n解析命令"]
+  S --> A["Static Analysis parsing commands"]
   A --> P{"Permission\nallow/ask/deny"}
   P -->|deny| R["Reject"]
   P -->|ask| H["Human Confirm"]
-  H -->|拒绝| R
-  H -->|同意| W["Sandbox Decision"]
+  H -->|Reject| R
+  H -->|Approve| W["Sandbox Decision"]
   P -->|allow| W
-  W --> X["Spawn Process\n受控执行"]
+  W --> X["Spawn Process controlled execution"]
   X --> O["Output Capture\nstdout/stderr/exit"]
   O --> B{"Too Large?"}
   B -->|yes| K["Persist + Preview"]

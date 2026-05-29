@@ -1,5 +1,6 @@
 ---
 title: "Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent"
+shortTitle: "Agent 演化路径：四阶段路线图"
 description: "很多人第一次看 Agent 架构图，会有一种很自然的困惑：为什么一个“会聊天的模型”，最后会变成一整套 Harness？一开始我们明明只想做一个 CLI 助手。用户输入一句话，模型回答一句话。如果效果不错，再给它加几个工具。再往后，怎么突然就冒出了 Runtime、Session、Permis..."
 author: LienJack
 pubDate: 2026-05-29

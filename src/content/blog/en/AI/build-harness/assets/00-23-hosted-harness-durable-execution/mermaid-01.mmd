@@ -1,15 +1,15 @@
 flowchart TB
-  U["用户 / 项目"] --> A["Automation\n触发与计划"]
-  A --> H["Harness\n控制循环"]
-  H --> S["Session\n事件事实源"]
-  H --> B["Sandbox\n受控执行环境"]
-  B --> W["Workspace\n代码与依赖"]
-  H --> N["Notification\n通知与回执"]
-  D["Deployment\n队列 / worker / vault / artifact"] -.支撑.-> A
-  D -.支撑.-> H
-  D -.支撑.-> S
-  D -.支撑.-> B
-  D -.支撑.-> N
+  U["User/Project"] --> A["Automation triggering and scheduling"]
+  A --> H["Harness control loop"]
+  H --> S["Session event source of fact"]
+  H --> B["Sandbox controlled execution environment"]
+  B --> W["Workspace code and dependencies"]
+  H --> N["Notification notification and receipt"]
+  D["Deployment queue/worker/vault/artifact"] -.support.-> A
+  D -.support.-> H
+  D -.support.-> S
+  D -.support.-> B
+  D -.support.-> N
 
   classDef hot fill:#fff2b8,stroke:#b78900,color:#111;
   class H,S hot;

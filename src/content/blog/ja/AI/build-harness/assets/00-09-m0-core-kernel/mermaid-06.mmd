@@ -1,14 +1,14 @@
 flowchart LR
-  U["UserInput\n修复测试"] --> UE["user.message\n事件"]
-  UE --> ST["State\n当前现场"]
-  ST --> CX["Context\n本轮投影"]
-  CX --> PR["Provider\n真实模型"]
-  PR --> TX["TextDelta\n流式文本"]
-  PR --> TI["ToolIntent\n运行测试"]
-  TX --> EB["Event Bus\n追加事实"]
+  U["UserInput 修正テスト"] --> UE["ユーザーメッセージイベント"]
+  UE --> ST["現在のサイトを説明する"]
+  ST --> CX["コンテキスト周転円投影法"]
+  CX --> PR["プロバイダーの実モデル"]
+  PR --> TX["TextDelta ストリーミング テキスト"]
+  PR --> TI["ToolIntent がテストを実行する"]
+  TX --> EB["イベントバス追加の事実"]
   TI --> EB
-  EB --> NS["Next State\n等待执行"]
-  NS --> NX["下一篇\nIntent -> Execution"]
+  EB --> NS["次の状態は実行を待機します"]
+  NS --> NX["次の記事 意図 -> 実行"]
 
   TI:::hot
   EB:::hot

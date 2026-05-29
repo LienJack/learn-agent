@@ -1,15 +1,15 @@
 flowchart LR
-  Goal["用户目标"] --> Policy["Policy\n能否启动"]
-  Policy --> Sandbox["Sandbox\n在哪里跑"]
-  Sandbox --> Runtime["Runtime\n如何跑"]
-  Runtime --> Context["Context\n这一轮看什么"]
-  Context --> Model["Model\n判断下一步"]
-  Model --> Intent["Intent\n行动意图"]
-  Intent --> ToolRT["Tool Runtime\n校验执行"]
-  ToolRT --> Obs["Observation\n事实结果"]
-  Obs --> Log["Session Log\n持久轨迹"]
+  Goal["user goals"] --> Policy["Can Policy be activated?"]
+  Policy --> Sandbox["Where does Sandbox run?"]
+  Sandbox --> Runtime["Runtime How to run"]
+  Runtime --> Context["Context What to watch this round"]
+  Context --> Model["Model determines the next step"]
+  Model --> Intent["Intent action intention"]
+  Intent --> ToolRT["Tool Runtime verification execution"]
+  ToolRT --> Obs["Observation fact result"]
+  Obs --> Log["Session Log persistent track"]
   Log --> Runtime
-  Log --> Trace["Trace / Eval\n质量信号"]
+  Log --> Trace["Trace / Eval quality signal"]
 
   Runtime:::hot
   ToolRT:::hot

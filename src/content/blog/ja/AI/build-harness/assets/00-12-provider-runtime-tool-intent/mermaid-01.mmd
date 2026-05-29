@@ -1,17 +1,17 @@
 flowchart LR
-  U["用户目标\n修复测试失败"] --> C["Core Runtime\n组织一轮请求"]
-  C --> P["Provider Runtime\n调用真实模型"]
-  P --> S["Streaming Adapter\n归一化事件"]
+  U["ユーザー目標修正テストの失敗"] --> C["コア ランタイムは一連のリクエストを整理します"]
+  C --> P["プロバイダー ランタイムが実際のモデルを呼び出す"]
+  P --> S["ストリーミングアダプターの正規化されたイベント"]
   S --> E["ModelEvent\ntext / reasoning / finish / usage / error"]
-  S --> I["ToolIntent\n只描述动作"]
+  S --> I["ToolIntent はアクションのみを記述します"]
   E --> C
   I --> C
-  C --> L["Event Log\n记录事实"]
-  C --> T["Tool Pipeline\n验证 / 权限 / 执行"]
-  T --> O["Observation\n结果回填"]
+  C --> L["イベントログには事実が記録されます"]
+  C --> T["ツールパイプラインの検証/権限/実行"]
+  T --> O["観測結果埋め戻し"]
   O --> C
 
-  P -. "不能执行工具" .-> T
+  P -. 「ツールを実行できません」.-> T
   I:::hot
   C:::hot
   T:::hot

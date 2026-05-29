@@ -1,12 +1,12 @@
 flowchart LR
-  PA["父 Agent\n提出委派意图"] --> DI["DelegateIntent\n任务、角色、边界"]
-  DI --> V["Validate\n结构/范围/依赖"]
-  V --> P["Permission\n工具与风险审批"]
-  P --> S["Spawn\n启动受控子 Agent"]
-  S --> R["Run\n隔离上下文内执行"]
-  R --> O["Observation\n结构化结果"]
-  O --> J["Join\n父 Agent 审阅合并"]
-  J --> PA2["父 Agent\n继续主循环"]
+  PA["親エージェントが委任の意図を提案する"] --> DI["DelegateIntent のタスク、役割、境界"]
+  DI --> V["構造/スコープ/依存関係を検証する"]
+  V --> P["権限ツールとリスク承認"]
+  P --> S["Spawn は制御されているサブエージェントを開始します"]
+  S --> R["Run は分離コンテキスト内で実行されます"]
+  R --> O["構造化された観測結果"]
+  O --> J["親エージェントのレビュー結合に参加する"]
+  J --> PA2["親エージェントはメインループを継続します"]
 
   DI:::hot
   P:::hot

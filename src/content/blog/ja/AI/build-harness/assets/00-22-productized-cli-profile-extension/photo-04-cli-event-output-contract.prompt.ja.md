@@ -6,7 +6,7 @@
 
 左側入力：Runtime Events。中央処理：CLI Event Stream。右側の 5 出力：TTY Renderer、JSONL、Workbench、CI Log、Trace Store。淡い黄色で CLI Event Stream と Trace Store を強調。アイコン比喩：イベントカード、バス、端末ウィンドウ、波括弧文書、ワークベンチタイムライン、ビルドログ、データベース。
 
-3. 正向き画像プロンプト
+3. ポジティブ画像プロンプト
 
 記事内の技術解説図を描く。テーマは Productized CLI の安定した出力プロトコル。
 

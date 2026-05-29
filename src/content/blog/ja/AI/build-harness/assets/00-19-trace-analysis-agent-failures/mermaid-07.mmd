@@ -3,15 +3,15 @@ flowchart LR
   P --> F["Fact Extraction"]
   F --> R["Rule Checks"]
   R --> C["Failure Classification"]
-  C --> H["诊断报告"]
-  C --> D["Eval Case 候选"]
+  C --> H["診断レポート"]
+  C --> D["評価ケースの候補者"]
 
-  subgraph "确定性"
+  subgraph "確実"
     P
     R
   end
 
-  subgraph "语义判断"
+  subgraph "意味判断"
     F
     C
     H

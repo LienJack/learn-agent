@@ -1,13 +1,13 @@
 flowchart TD
-  B["buildQuery(state)\n组装本轮上下文"] --> M["model.generate()\n请求模型"]
-  M --> P["parseResponse()\n解析返回"]
-  P --> D{"包含 tool intent?"}
-  D -- "否" --> F["final answer\n结束本轮任务"]
-  D -- "是" --> V["validate intent\n校验工具名和参数"]
-  V --> E["execute tool\n受控执行"]
-  E --> R["make observation\n整理结果"]
-  R --> A["append to messages\n写回状态"]
-  A --> C["check budgets\n轮次/上下文/中断"]
+  B["buildQuery(state) assembles the current round context"] --> M["model.generate() request model"]
+  M --> P["parseResponse() parsing returns"]
+  P --> D{"Contains tool intent?"}
+  D -- "no" --> F["final answer ends this round of tasks"]
+  D -- "yes" --> V["validate intent verification tool name and parameters"]
+  V --> E["execute tool controlled execution"]
+  E --> R["make observation organize the results"]
+  R --> A["append to messages write back status"]
+  A --> C["check budgets rounds/context/interruptions"]
   C --> B
 
   D:::hot

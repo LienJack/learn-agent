@@ -7,7 +7,7 @@ sequenceDiagram
   participant M as Model
   participant E as Event Log
 
-  U->>L: 修复测试失败
+  U->>L: Fix test failure
   L->>T: run_test intent
   T-->>L: observation: role undefined
   L->>R: retrieval intent + scope
