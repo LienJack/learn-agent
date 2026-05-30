@@ -7,12 +7,13 @@ import HeaderLink from './HeaderLink.astro';
 const locale = getLocaleFromPathname(Astro.url.pathname);
 const messages = getMessages(locale);
 const currentPath = Astro.url.pathname;
+const displayTitle = messages.site.title.replace(/-\s*/g, ' ');
 ---
 
 <header class="site-header">
 	<nav class="site-header-inner" aria-label={messages.header.ariaLabel}>
 		<a class="site-brand" href={localizePath(locale, '/')}>
-			<span class="site-brand-title">{messages.site.title}</span>
+			<span class="site-brand-title">{displayTitle}</span>
 			<span class="site-brand-tagline">{messages.site.tagline}</span>
 		</a>
 		<div class="site-nav">
@@ -21,6 +22,24 @@ const currentPath = Astro.url.pathname;
 			<HeaderLink href={localizePath(locale, '/about')}>{messages.header.about}</HeaderLink>
 		</div>
 		<div class="site-header-actions">
+			<a
+				class="site-header-icon-link"
+				href="https://github.com/LienJack/learn-agent"
+				aria-label={messages.header.githubLabel}
+				title={messages.header.githubLabel}
+				target="_blank"
+				rel="noreferrer"
+			>
+				<svg
+					class="site-header-icon site-header-github-icon"
+					viewBox="0 0 24 24"
+					aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.69-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18A10.84 10.84 0 0 1 12 6.16c.98 0 1.96.13 2.88.39 2.19-1.49 3.15-1.18 3.15-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.03c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+				</svg>
+				<span class="sr-only">{messages.header.githubLabel}</span>
+			</a>
 			<details class="site-locale-switcher">
 				<summary
 					class="site-locale-trigger"
@@ -54,23 +73,6 @@ const currentPath = Astro.url.pathname;
 					}
 				</div>
 			</details>
-			<a
-				class="site-header-icon-link"
-				href="https://github.com/LienJack/learn-agent"
-				target="_blank"
-				rel="noreferrer"
-				aria-label={messages.header.githubLabel}
-			>
-				<svg
-					class="site-header-icon"
-					viewBox="0 0 24 24"
-					aria-hidden="true"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path d="M12 2C6.48 2 2 6.58 2 12.22c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-1.05-.01-1.91-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.37-2.22-.26-4.55-1.14-4.55-5.09 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05A9.35 9.35 0 0 1 12 6.92c.85 0 1.71.12 2.51.36 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.96-2.34 4.82-4.57 5.08.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.6.69.49A10.24 10.24 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z" />
-				</svg>
-				<span class="sr-only">{messages.header.githubLabel}</span>
-			</a>
 		</div>
 	</nav>
 </header>

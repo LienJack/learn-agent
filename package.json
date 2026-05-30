@@ -33,13 +33,16 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "astro": "^6.2.1",
+    "framer-motion": "^12.40.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "sharp": "^0.34.3",
+    "three": "^0.184.0",
     "unist-util-visit-parents": "^6.0.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@types/three": "^0.184.1",
     "typescript": "^5.9.3"
   }
 }

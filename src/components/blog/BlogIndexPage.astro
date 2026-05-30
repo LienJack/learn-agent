@@ -21,6 +21,23 @@ interface Props {
 
 const { locale, posts } = Astro.props;
 const messages = getMessages(locale);
+const indexCopy = {
+	zh: {
+		postCountShort: (count: number) => `${count} 篇`,
+		postCountLong: (count: number) => `${count} 篇内容`,
+		featuredPrefix: '首篇：',
+	},
+	en: {
+		postCountShort: (count: number) => `${count} posts`,
+		postCountLong: (count: number) => `${count} posts`,
+		featuredPrefix: 'Start here: ',
+	},
+	ja: {
+		postCountShort: (count: number) => `${count} 本`,
+		postCountLong: (count: number) => `${count} 本の記事`,
+		featuredPrefix: '最初の記事：',
+	},
+}[locale];
 const groupedCards = await buildBlogGroupCards(posts, locale);
 const useStructuredGroups = await hasStructuredBlogGroups(posts, locale);
 ---
@@ -52,7 +69,7 @@ const useStructuredGroups = await hasStructuredBlogGroups(posts, locale);
 												</a>
 											</h2>
 											<p class="blog-group-description">{group.description}</p>
-											<p class="blog-group-count">{group.postCount} 篇内容</p>
+											<p class="blog-group-count">{indexCopy.postCountLong(group.postCount)}</p>
 										</div>
 										<div class="blog-group-cover">
 											{
@@ -83,12 +100,12 @@ const useStructuredGroups = await hasStructuredBlogGroups(posts, locale);
 															}
 														</div>
 														<div class="blog-series-body">
-															<p class="blog-series-index">{series.postCount} 篇</p>
+															<p class="blog-series-index">{indexCopy.postCountShort(series.postCount)}</p>
 															<h3 class="blog-series-title">{series.title}</h3>
 															<p class="blog-series-description">{series.description}</p>
 															{series.featuredPost && (
 																<p class="blog-series-featured">
-																	首篇：{series.featuredPost.data.title}
+																	{indexCopy.featuredPrefix}{series.featuredPost.data.title}
 																</p>
 															)}
 														</div>
