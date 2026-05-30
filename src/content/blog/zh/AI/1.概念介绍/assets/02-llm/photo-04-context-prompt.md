@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md
 Section: 三、Context 为什么会出现：因为只有任务，没有材料，模型还是干不好活
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-04-context.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-04-context.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

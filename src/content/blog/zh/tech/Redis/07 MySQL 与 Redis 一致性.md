@@ -68,7 +68,7 @@ T5: 旧值 5999 被回填到缓存
 
 ### 1. Cache Aside（旁路缓存）
 
-![Cache Aside 模式](./assets/cache-aside-pattern.png)
+![Cache Aside 模式](./assets/cache-aside-pattern.jpg)
 
 这张图对应的是最常见也最实用的一条主线：读时回填，写时删缓存，而不是强行同步更新两个地方。
 
@@ -132,7 +132,7 @@ T5: 线程B 把旧值 5999 写入缓存
 
 ### 解决 1：延迟双删
 
-![延迟双删策略](./assets/delay-double-delete.png)
+![延迟双删策略](./assets/delay-double-delete.jpg)
 
 延迟双删的价值不在“更优雅”，而在于它给并发交错留了一次补救机会。
 

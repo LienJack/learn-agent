@@ -16,7 +16,7 @@
         "en": "docs/en/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.prompt.en.md",
         "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.png",
+      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-01-messages-vs-event-log.jpg",
       "status": "prompt-translated"
     },
     {
@@ -31,7 +31,7 @@
         "en": "docs/en/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.prompt.en.md",
         "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.png",
+      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-02-replay-not-rerun-world.jpg",
       "status": "prompt-translated"
     },
     {
@@ -46,7 +46,7 @@
         "en": "docs/en/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.prompt.en.md",
         "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.png",
+      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-03-resume-stable-point-gate.jpg",
       "status": "prompt-translated"
     },
     {
@@ -61,7 +61,7 @@
         "en": "docs/en/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.prompt.en.md",
         "ja": "docs/ja/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.png",
+      "target_file": "docs/ja/assets/00-16-session-replay-event-log/photo-04-artifact-honest-context.jpg",
       "status": "prompt-translated"
     }
   ]

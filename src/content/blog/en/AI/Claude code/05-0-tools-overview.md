@@ -70,7 +70,7 @@ This is the first core layer of the Claude Code tool system:
 
 > A Tool is not a feature button — it is the runtime contract that a model action must sign before entering the real world.
 
-![05.0 Core Mechanism - Tools Hand-drawn Figure 1: Tool.ts is the runtime contract](./assets/05-photo-01-tool-contract.png)
+![05.0 Core Mechanism - Tools Hand-drawn Figure 1: Tool.ts is the runtime contract](./assets/05-photo-01-tool-contract.jpg)
 
 ## 2. `inputSchema` Turns Model Output from "Natural Language" into "Structured Intent"
 
@@ -111,7 +111,7 @@ So the value of `inputSchema` goes beyond just "defining parameters."
 
 It turns a model's vague intent into an engineering object the system can act on.
 
-![05.0 Core Mechanism - Tools Sketch 2: natural-language intent becomes a structured tool call](./assets/05-photo-02-structured-intent.png)
+![05.0 Core Mechanism - Tools Sketch 2: natural-language intent becomes a structured tool call](./assets/05-photo-02-structured-intent.jpg)
 
 ## 3. `ToolUseContext` — Tools Are Not Isolated Functions
 
@@ -208,7 +208,7 @@ That is the point of "pushing security upstream."
 
 (In permission design, we often face this temptation: "let the model see everything, then block at execution time." Claude Code makes the opposite choice — what shouldn't be seen simply isn't shown. The cost is that the tool list changes frequently, but security improves by an order of magnitude.)
 
-![05.0 Core Mechanism - Hand-drawn Figure 3: Two gates for tool visibility and execution permissions](./assets/05-photo-03-permission-gates.png)
+![05.0 Core Mechanism - Hand-drawn Figure 3: Two gates for tool visibility and execution permissions](./assets/05-photo-03-permission-gates.jpg)
 
 ## 6. `ToolPermissionContext` — The Permission Backpack
 
@@ -278,7 +278,7 @@ model says something -> program takes a gamble -> command runs unchecked -> resu
 
 That clearly cannot support real-world engineering projects.
 
-![05.0 Core Mechanism - Tools Sketch 4: tool execution lifecycle](./assets/05-photo-04-tool-lifecycle.png)
+![05.0 Core Mechanism - Tools Sketch 4: tool execution lifecycle](./assets/05-photo-04-tool-lifecycle.jpg)
 
 ## 8. Why Tools Are Categorized as Read-Only, Destructive, and Concurrency-Safe
 

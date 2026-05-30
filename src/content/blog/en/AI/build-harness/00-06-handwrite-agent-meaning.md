@@ -3,7 +3,7 @@ title: "Why Write an Agent by Hand: Understanding the Minimal Mechanisms Behind 
 description: "Across the previous five posts, we've been doing one thing: pulling Agents back from \"magical model capabilities\" to \"explainable runtime systems.\""
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -72,7 +72,7 @@ This time, instead of rushing to write the full code, we'll first answer a more 
 
 ## The Question Chain
 
-![Explaining the relationship between framework abstractions, underlying mechanisms, and engineering judgment: frameworks help you start fast, while hand-writing minimal mechanisms helps you see boundaries clearly](assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.png)
+![Explaining the relationship between framework abstractions, underlying mechanisms, and engineering judgment: frameworks help you start fast, while hand-writing minimal mechanisms helps you see boundaries clearly](assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.jpg)
 
 Let's first pin down the question chain for this post:
 
@@ -416,7 +416,7 @@ Logs are raw material; evaluation needs attributable event objects.
 
 ## 3. Hand-Writing a Minimal Agent Is Not Hand-Writing a Full Framework
 
-![Drawing the closed loop of a hand-written minimal CLI Agent, highlighting model intent, permission policy, tool execution, observation feedback, and state updates](assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.png)
+![Drawing the closed loop of a hand-written minimal CLI Agent, highlighting model intent, permission policy, tool execution, observation feedback, and state updates](assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.jpg)
 
 At this point it's easy to swing to the other extreme:
 
@@ -985,7 +985,7 @@ A framework can give you hooks; it can't make engineering judgments for you.
 
 ## 10. When to Use, Bypass, or Extend a Framework
 
-![Using a decision path to explain when to use the framework directly, when to extend it, and when to bypass local abstractions and build your own Harness boundary](assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.png)
+![Using a decision path to explain when to use the framework directly, when to extend it, and when to bypass local abstractions and build your own Harness boundary](assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.jpg)
 
 Now we can return to the opening question.
 

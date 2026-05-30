@@ -8,8 +8,8 @@
   "sectionExcerpt": "当你把前面三部分都串起来后，就会自然理解为什么今天很多工程讨论里，开始更常出现另一个词：\n\n`Context Engineering（上下文工程）`\n\n这个词你不用现在就背得很重。对入门来说，只要先抓住它想强调的一件事：\n\n**真正让系统好用的，往往不是\"有没有 Prompt\"或\"有没有 RAG\"，而是你怎么组织整张资料桌。**\n\n也就是：\n\n- 哪些信息该进来\n\n- 哪些信息不该进来\n\n- 哪些要排前面\n\n- 哪些要压缩\n\n- 哪些要丢掉\n\n- 哪些该从外部检索后再补进来\n\n你会发现，这已经不是单点技巧了，而是一整套\"信息喂养工程\"。\n\n还是拿我们的例子说。\n\n如果用户问的是 Redis 缓存雪崩，你当然可以暴力把整个 Redis 知识库全塞进模型。但这通常不是最优方案。更好的方案往往是：\n\n1. 先把问题表达清楚\n\n2. 再检索出最相关的几段\n\n3. 把真正关键的处理办法放进上下文\n\n4. 把无关内容压掉\n\n5. 最后再让模型生成一版面向新人的解释\n\n这就是为什么现代系统越来越强调的，不只是\"模型够不够强\"，而是\"上下文组织得够不够好\"。\n\n换句话说，今天很多看起来像\"模型更聪明了\"的效果，其实背后是：\n\n**任务说明更清楚了，资料桌更干净了，补资料的机制也更顺了。**",
   "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-09-context-engineering-prompt.md",
   "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-09-context-engineering-prompt.json",
-  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-09-context-engineering.png",
-  "markdownRef": "./assets/02-llm/photo-09-context-engineering.png",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-09-context-engineering.jpg",
+  "markdownRef": "./assets/02-llm/photo-09-context-engineering.jpg",
   "alt": "Prompt、Context、RAG 到底是什么 - 七、为什么现在大家更常说 Context Engineering",
   "promptStatus": "planned"
 }

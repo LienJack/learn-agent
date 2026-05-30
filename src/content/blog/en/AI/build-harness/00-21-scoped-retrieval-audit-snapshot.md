@@ -3,7 +3,7 @@ title: "Scoped Retrieval: from bounded retrieval to audit snapshots"
 description: "Many people design the first retrieval layer for an Agent in a very direct way."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

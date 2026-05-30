@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md
 Section: Context 里可能包含什么
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-06-context.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-06-context.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

@@ -3,7 +3,7 @@ title: "Provider Runtime: why can a provider only return tool intent?"
 description: "In the previous group of articles, we defined a low-level discipline:"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

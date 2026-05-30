@@ -8,7 +8,7 @@ Use the blog-to-photo skill to turn the following section into an article-body t
 
 ## Section text
 
-![LLM 到底在做什么：从猜词到生成的完整链路 - 二、Token：语言进入模型前的切块](./assets/01-llm/photo-02-token.png)
+![LLM 到底在做什么：从猜词到生成的完整链路 - 二、Token：语言进入模型前的切块](./assets/01-llm/photo-02-token.jpg)
 
 先看第一步：切菜。
 

@@ -1,7 +1,7 @@
 # cover: 从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/cover-agent-tools-function-calling-mcp-skill.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/cover-agent-tools-function-calling-mcp-skill.jpg
 
 Use the imagegen skill to create a blog article cover image.
 

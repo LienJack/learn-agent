@@ -13,7 +13,7 @@
         "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.prompt.en.md",
         "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.png",
+      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-01-scope-to-snapshot.jpg",
       "status": "generated"
     },
     {
@@ -27,7 +27,7 @@
         "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.prompt.en.md",
         "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.png",
+      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-02-similarity-vs-relevance.jpg",
       "status": "generated"
     },
     {
@@ -41,7 +41,7 @@
         "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.prompt.en.md",
         "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.png",
+      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-03-permission-time-gates.jpg",
       "status": "generated"
     },
     {
@@ -55,7 +55,7 @@
         "en": "docs/en/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.prompt.en.md",
         "ja": "docs/ja/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.png",
+      "target_file": "docs/zh/assets/00-21-scoped-retrieval-audit-snapshot/photo-04-audit-snapshot-evidence-pack.jpg",
       "status": "generated"
     }
   ],

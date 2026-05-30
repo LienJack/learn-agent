@@ -3,7 +3,7 @@ title: "Harness Base Definition: The Control System Outside the Model"
 description: "Previously, we split Agent into several minimal parts:"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -73,7 +73,7 @@ This article does not turn Harness into a giant terminology box. It answers one 
 
 ## Problem Chain
 
-![Overview of the seven ETCLOVG control responsibilities, emphasizing Harness as a model-external control system](./assets/00-04-harness-control-system/photo-01-etclovg-control-map.png)
+![Overview of the seven ETCLOVG control responsibilities, emphasizing Harness as a model-external control system](./assets/00-04-harness-control-system/photo-01-etclovg-control-map.jpg)
 
 The problem sequence:
 
@@ -296,7 +296,7 @@ Agent produces action intent; Harness regulates action conditions.
 
 ### Session, Harness, Sandbox: Do Not Collapse Them Into One Object
 
-![Explains that Session, Harness, and Sandbox have different responsibilities but cooperate](./assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.png)
+![Explains that Session, Harness, and Sandbox have different responsibilities but cooperate](./assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.jpg)
 
 Mature Agent systems often split three things:
 
@@ -848,7 +848,7 @@ These objects feel verbose at first, but they save you when tasks grow, tools mu
 
 ## 11. Event Objects: Harness Professionalism Lives in Small Objects
 
-![Chains event, tool_call, permission, observation, and verification in Harness into an auditable event flow](./assets/00-04-harness-control-system/photo-03-event-object-flow.png)
+![Chains event, tool_call, permission, observation, and verification in Harness into an auditable event flow](./assets/00-04-harness-control-system/photo-03-event-object-flow.jpg)
 
 If Harness is only understood through seven layers, it remains abstract. In real code, Harness professionalism often appears in a small, stable set of events and objects.
 

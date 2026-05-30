@@ -16,7 +16,7 @@
         "en": "docs/en/assets/00-02-agent-components/photo-01-four-part-agent-loop.prompt.en.md",
         "ja": "docs/ja/assets/00-02-agent-components/photo-01-four-part-agent-loop.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-02-agent-components/photo-01-four-part-agent-loop.png",
+      "target_file": "docs/ja/assets/00-02-agent-components/photo-01-four-part-agent-loop.jpg",
       "status": "prompt-translated"
     },
     {
@@ -31,7 +31,7 @@
         "en": "docs/en/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.prompt.en.md",
         "ja": "docs/ja/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.png",
+      "target_file": "docs/ja/assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.jpg",
       "status": "prompt-translated"
     },
     {
@@ -46,7 +46,7 @@
         "en": "docs/en/assets/00-02-agent-components/photo-03-state-context-memory-session.prompt.en.md",
         "ja": "docs/ja/assets/00-02-agent-components/photo-03-state-context-memory-session.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-02-agent-components/photo-03-state-context-memory-session.png",
+      "target_file": "docs/ja/assets/00-02-agent-components/photo-03-state-context-memory-session.jpg",
       "status": "prompt-translated"
     }
   ]

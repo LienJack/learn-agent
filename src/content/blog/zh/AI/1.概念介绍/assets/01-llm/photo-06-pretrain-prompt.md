@@ -8,7 +8,7 @@ Use the blog-to-photo skill to turn the following section into an article-body t
 
 ## Section text
 
-![LLM 到底在做什么：从猜词到生成的完整链路 - 四、Pretrain：看海量菜谱练出来的模式](./assets/01-llm/photo-04-pretrain.png)
+![LLM 到底在做什么：从猜词到生成的完整链路 - 四、Pretrain：看海量菜谱练出来的模式](./assets/01-llm/photo-04-pretrain.jpg)
 
 如果说 token 是"切好的食材"，embedding 是"味道地图"，那 pretrain（在海量通用语料上通过无监督目标训练模型通用语言能力的阶段）就是：
 

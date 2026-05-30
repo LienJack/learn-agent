@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
 Section: Multi-head Attention
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-08-multi-head-attention.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-08-multi-head-attention.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

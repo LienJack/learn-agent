@@ -1,7 +1,7 @@
 # cover: LLM 到底在做什么：从猜词到生成的完整链路
 
 Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/cover-llm.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/cover-llm.jpg
 
 Use the imagegen skill to create a blog article cover image.
 

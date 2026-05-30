@@ -4,7 +4,7 @@ shortTitle: "Agent 演化路径：四阶段路线图"
 description: "很多人第一次看 Agent 架构图，会有一种很自然的困惑：为什么一个“会聊天的模型”，最后会变成一整套 Harness？一开始我们明明只想做一个 CLI 助手。用户输入一句话，模型回答一句话。如果效果不错，再给它加几个工具。再往后，怎么突然就冒出了 Runtime、Session、Permis..."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-05-agent-evolution-path/cover.png'
+heroImage: './assets/00-05-agent-evolution-path/cover.jpg'
 locale: "zh"
 tags:
   - Agent
@@ -42,7 +42,7 @@ aliases:
 
 ## 问题链
 
-![总览 Chat Agent 到 Managed Agent 再到 Harness 的自然演化路径](assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.png)
+![总览 Chat Agent 到 Managed Agent 再到 Harness 的自然演化路径](assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.jpg)
 
 先把这篇文章的问题链拉直：
 
@@ -96,7 +96,7 @@ Chat Agent 只管理 messages 和模型调用
 
 ## 一、Chat Agent：先让系统能回答
 
-![把 Agent 演化看成风险压力增长，而不是能力等级排行](assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.png)
+![把 Agent 演化看成风险压力增长，而不是能力等级排行](assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.jpg)
 
 故事要从最简单的形态开始。一个 Chat Agent 的结构通常非常朴素：
 
@@ -535,7 +535,7 @@ interface AgentHarness {
 
 ## 八、再看一层：可恢复、可评估、可委派
 
-![解释可恢复、可评估、可委派如何形成 Managed Agent 的改进飞轮](assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.png)
+![解释可恢复、可评估、可委派如何形成 Managed Agent 的改进飞轮](assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.jpg)
 
 如果只看 Chat、Tool、Runtime、Managed 四个阶段，读者可能会以为演化只是“功能越来越多”。更深一层看，真正发生的是三个工程性质逐步出现：
 

@@ -3,7 +3,7 @@ title: "Delegation Runtime: delegate work without losing control"
 description: "At this point, our small CLI Agent is no longer just a chat-shaped model wrapper."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

@@ -3,7 +3,7 @@ title: "Harness 基础定义：模型外部的控制系统"
 description: "前面我们已经把 Agent 拆成了几个最小部件："
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-04-harness-control-system/cover.png'
+heroImage: './assets/00-04-harness-control-system/cover.jpg'
 locale: "zh"
 tags:
   - Agent
@@ -69,7 +69,7 @@ Harness 是不是一个更外层、更聪明、更会管理 Agent 的 Agent？
 
 ## 问题链
 
-![总览 ETCLOVG 七层控制责任，强调 Harness 是模型外部控制系统](assets/00-04-harness-control-system/photo-01-etclovg-control-map.png)
+![总览 ETCLOVG 七层控制责任，强调 Harness 是模型外部控制系统](assets/00-04-harness-control-system/photo-01-etclovg-control-map.jpg)
 
 先把这篇的问题链固定住：
 
@@ -276,7 +276,7 @@ Agent 产生行动意图，Harness 调节行动条件。
 
 ### Session、Harness、Sandbox：不要揉成一个对象
 
-![解释 Session、Harness、Sandbox 三者职责不同但互相协作](assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.png)
+![解释 Session、Harness、Sandbox 三者职责不同但互相协作](assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.jpg)
 
 更成熟的 Agent 系统通常会把三件事拆开：
 
@@ -802,7 +802,7 @@ verification evidence
 
 ## 十一、事件对象：Harness 的专业性藏在这些小对象里
 
-![把 Harness 中的 event、tool_call、permission、observation、verification 串成可审计事件流](assets/00-04-harness-control-system/photo-03-event-object-flow.png)
+![把 Harness 中的 event、tool_call、permission、observation、verification 串成可审计事件流](assets/00-04-harness-control-system/photo-03-event-object-flow.jpg)
 
 如果只用七层分类理解 Harness，仍然容易停在抽象层。真正写代码时，Harness 的专业性往往体现在一组很小但很稳定的事件和对象上。
 

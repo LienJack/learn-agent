@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
 Section: 1.2 它能做什么，不能做什么
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-01-1-2.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-01-1-2.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

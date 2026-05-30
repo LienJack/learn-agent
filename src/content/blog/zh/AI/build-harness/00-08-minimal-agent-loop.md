@@ -3,7 +3,7 @@ title: "最小 Agent Loop：从单次回答到多步行动"
 description: "前面几篇我们一直在拆一个问题：Agent 不是一句 Prompt，也不是更会聊天的模型，而是一个能在受控过程里持续推进任务的运行系统。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-08-minimal-agent-loop/cover.png'
+heroImage: './assets/00-08-minimal-agent-loop/cover.jpg'
 locale: "zh"
 tags:
   - Agent
@@ -66,7 +66,7 @@ Agent Loop 要补上的，就是这道断裂：
 
 ## 问题链
 
-![展示单次回答如何变成 Think、Act、Observe、Final 的最小闭环](assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.png)
+![展示单次回答如何变成 Think、Act、Observe、Final 的最小闭环](assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.jpg)
 
 这篇的问题链很短，但每一步都很重：
 
@@ -177,7 +177,7 @@ Agent Loop 做的第一件事，就是承认模型第一轮不知道答案。
 
 ## 二、Loop 不是更长的上下文，而是状态机
 
-![解释 loop 是有 Ready、Thinking、Acting、Observing、Finished、Stopped 的状态机，而不是无脑 while true](assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.png)
+![解释 loop 是有 Ready、Thinking、Acting、Observing、Finished、Stopped 的状态机，而不是无脑 while true](assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.jpg)
 
 很多人会把多步 Agent 想成“把历史都塞回模型”。
 
@@ -542,7 +542,7 @@ Final 是否真的能让 loop 停下来？
 
 ## 七、Observe：工具结果不是日志，而是下一轮事实
 
-![把 raw tool result 如何变成 observation、prompt context 和 event log 画清楚](assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.png)
+![把 raw tool result 如何变成 observation、prompt context 和 event log 画清楚](assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.jpg)
 
 很多 Agent Demo 的第二个常见问题，是把工具输出直接塞回 prompt。
 
@@ -627,7 +627,7 @@ Observation 进入 Event Log，让系统以后能复盘。
 
 ## 八、停止条件：Loop 必须知道什么时候不该继续
 
-![说明 final、maxTurns、budget、abort、invalid intent 等停止条件如何保护 loop](assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.png)
+![说明 final、maxTurns、budget、abort、invalid intent 等停止条件如何保护 loop](assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.jpg)
 
 Agent Loop 最容易被低估的部分是停止条件。
 

@@ -78,7 +78,7 @@ Redis 早期最核心的执行模型是主线程配合 I/O 多路复用。简单
 
 这让 Redis 可以避免"一个连接一个线程"的粗暴模型。它不是每个客户端都分配一个独立执行线程，而是让主线程在事件循环里处理就绪事件。
 
-![Redis 单线程事件循环](./assets/redis-single-thread-event-loop.png)
+![Redis 单线程事件循环](./assets/redis-single-thread-event-loop.jpg)
 
 上图展示了 Redis 事件循环的核心机制：I/O 多路复用同时监控大量连接，就绪事件排队进入单线程执行，内存操作极快后响应返回。这个设计的精髓是"用单线程避免锁竞争，用事件循环高效管理连接"。
 
@@ -172,7 +172,7 @@ ZREVRANGE product:hot_rank 0 9 WITHSCORES
 | 附近门店 | GEO | 适合地理位置半径查询 |
 | 订单事件流 | Stream | 适合追加、消费组、确认语义 |
 
-![Redis 六大性能来源](./assets/redis-six-performance-sources.png)
+![Redis 六大性能来源](./assets/redis-six-performance-sources.jpg)
 
 上图把 Redis 快的六大来源压成一张图：内存存储、单线程无锁、I/O 多路复用、高效数据结构、紧凑编码、Pipeline 批量。每一项都在避开一条慢路径。
 

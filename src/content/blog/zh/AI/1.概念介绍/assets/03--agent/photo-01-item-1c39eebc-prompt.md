@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: 一、故事要从一个"只能说话"的模型开始
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-01-item-1c39eebc.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-01-item-1c39eebc.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

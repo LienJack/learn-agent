@@ -1,6 +1,6 @@
 # cover: Agent の進化経路：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent
 
-Asset target: docs/ja/assets/00-05-agent-evolution-path/cover.png
+Asset target: docs/ja/assets/00-05-agent-evolution-path/cover.jpg
 
 imagegen を使って技術ブログのカバー画像を生成する。
 

@@ -3,7 +3,7 @@ title: "Capability Discovery：Skills、MCP、動的 Tool 公開"
 description: "第 17 篇まで来ると、小さな CLI Agent は最初の「会話しかできないプログラム」ではなくなっている。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "ja"
 tags:
   - Agent

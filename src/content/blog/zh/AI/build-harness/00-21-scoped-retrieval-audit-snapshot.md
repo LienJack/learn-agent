@@ -3,7 +3,7 @@ title: "Scoped Retrieval：从边界检索到 audit snapshot"
 description: "很多人第一次给 Agent 加检索，会把事情想得很直接。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

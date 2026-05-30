@@ -1,6 +1,6 @@
 # cover: Agent 基础定义：它为什么不是一句 Prompt？
 
-Asset target: docs/zh/assets/00-01-agent-not-a-prompt/cover.png
+Asset target: docs/zh/assets/00-01-agent-not-a-prompt/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

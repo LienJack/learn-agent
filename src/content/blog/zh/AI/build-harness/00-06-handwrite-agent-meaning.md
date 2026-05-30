@@ -3,7 +3,7 @@ title: "手写 Agent 的意义：理解框架抽象背后的最小机制"
 description: "前面五篇，我们一直在做一件事：先把 Agent 从“神奇的模型能力”拉回到“可解释的运行系统”。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-06-handwrite-agent-meaning/cover.png'
+heroImage: './assets/00-06-handwrite-agent-meaning/cover.jpg'
 locale: "zh"
 tags:
   - Agent
@@ -72,7 +72,7 @@ Agent 会沿着 Chat -> Tool -> Runtime -> Managed 的压力路径长出 Harness
 
 ## 问题链
 
-![解释框架抽象、底层机制和工程判断之间的关系：框架帮忙快速开始，手写最小机制帮忙看清边界](assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.png)
+![解释框架抽象、底层机制和工程判断之间的关系：框架帮忙快速开始，手写最小机制帮忙看清边界](assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.jpg)
 
 先把这篇的问题链固定住：
 
@@ -416,7 +416,7 @@ Agent 的评估最容易被做薄。
 
 ## 三、手写最小 Agent，不是手写完整框架
 
-![把手写最小 CLI Agent 的闭环画出来，突出模型意图、权限策略、工具执行、观察回填和状态更新](assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.png)
+![把手写最小 CLI Agent 的闭环画出来，突出模型意图、权限策略、工具执行、观察回填和状态更新](assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.jpg)
 
 说到这里，很容易走向另一个极端：
 
@@ -985,7 +985,7 @@ tester
 
 ## 十、什么时候用框架、绕开框架、扩展框架
 
-![用决策路径说明什么时候直接用框架、什么时候扩展框架、什么时候绕开局部抽象自建 Harness 边界](assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.png)
+![用决策路径说明什么时候直接用框架、什么时候扩展框架、什么时候绕开局部抽象自建 Harness 边界](assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.jpg)
 
 现在可以回到开头的问题。
 

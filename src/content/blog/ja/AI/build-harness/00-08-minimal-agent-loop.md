@@ -3,7 +3,7 @@ title: "最小 Agent Loop：単発回答から多段階の行動へ"
 description: "前回までの記事では、Agent は一文の Prompt でも、より会話上手なモデルでもなく、制御されたプロセスの中でタスクを継続的に進める実行システムだと整理してきた。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-08-minimal-agent-loop/cover.png'
+heroImage: './assets/00-08-minimal-agent-loop/cover.jpg'
 locale: "ja"
 tags:
   - Agent
@@ -66,7 +66,7 @@ Agent Loop が埋めるのは、この断絶である。
 
 ## 問題の連鎖
 
-![単発回答が Think、Act、Observe、Final の最小閉ループへ変わる流れ](assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.png)
+![単発回答が Think、Act、Observe、Final の最小閉ループへ変わる流れ](assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.jpg)
 
 この章の問題の連鎖は短いが、一つひとつが重い。
 
@@ -177,7 +177,7 @@ Agent Loop が最初に行うのは、モデルが第一ターンでは答えを
 
 ## 二、Loop はより長い context ではなく状態機械である
 
-![loop は無思考な while true ではなく、Ready、Thinking、Acting、Observing、Finished、Stopped を持つ状態機械である](assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.png)
+![loop は無思考な while true ではなく、Ready、Thinking、Acting、Observing、Finished、Stopped を持つ状態機械である](assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.jpg)
 
 多くの人は multi-step Agent を「履歴を全部モデルへ戻すもの」と捉える。
 
@@ -542,7 +542,7 @@ Final は本当に loop を止めるか？
 
 ## 七、Observe：tool result はログではなく次ターンの事実である
 
-![raw tool result が observation、prompt context、event log へ変わる流れ](assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.png)
+![raw tool result が observation、prompt context、event log へ変わる流れ](assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.jpg)
 
 多くの Agent demo にある二つ目の問題は、tool output をそのまま prompt に戻してしまうことだ。
 
@@ -627,7 +627,7 @@ Observation は Event Log に入り、システムが後から復盤できる。
 
 ## 八、停止条件：Loop は続けるべきでない時を知る必要がある
 
-![final、maxTurns、budget、abort、invalid intent などの停止条件が loop を守る流れ](assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.png)
+![final、maxTurns、budget、abort、invalid intent などの停止条件が loop を守る流れ](assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.jpg)
 
 Agent Loop で最も過小評価されやすいのが停止条件だ。
 

@@ -13,7 +13,7 @@
         "en": "docs/en/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.prompt.en.md",
         "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.png",
+      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-01-delegation-as-tool-call.jpg",
       "status": "generated"
     },
     {
@@ -27,7 +27,7 @@
         "en": "docs/en/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.prompt.en.md",
         "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.png",
+      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-02-context-isolation-join.jpg",
       "status": "generated"
     },
     {
@@ -41,7 +41,7 @@
         "en": "docs/en/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.prompt.en.md",
         "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.png",
+      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-03-permission-escalation-control.jpg",
       "status": "generated"
     },
     {
@@ -55,7 +55,7 @@
         "en": "docs/en/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.prompt.en.md",
         "ja": "docs/ja/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.png",
+      "target_file": "docs/zh/assets/00-18-delegation-runtime-control/photo-04-failure-recovery-join.jpg",
       "status": "generated"
     }
   ],

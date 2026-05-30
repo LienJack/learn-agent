@@ -3,7 +3,7 @@ title: "Trace Analysis: locating Agent failures with fact logs"
 description: "The previous chapters gradually pushed a small CLI Agent into a more realistic position."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

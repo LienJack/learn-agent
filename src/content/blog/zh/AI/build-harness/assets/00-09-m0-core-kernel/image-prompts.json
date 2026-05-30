@@ -15,7 +15,7 @@
         "en": "docs/en/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.prompt.en.md",
         "ja": "docs/ja/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.png",
+      "target_file": "docs/zh/assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.jpg",
       "status": "generated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-09-m0-core-kernel/photo-02-event-state-projection.prompt.en.md",
         "ja": "docs/ja/assets/00-09-m0-core-kernel/photo-02-event-state-projection.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-09-m0-core-kernel/photo-02-event-state-projection.png",
+      "target_file": "docs/zh/assets/00-09-m0-core-kernel/photo-02-event-state-projection.jpg",
       "status": "generated"
     },
     {
@@ -43,7 +43,7 @@
         "en": "docs/en/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.prompt.en.md",
         "ja": "docs/ja/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.png",
+      "target_file": "docs/zh/assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.jpg",
       "status": "generated"
     }
   ]

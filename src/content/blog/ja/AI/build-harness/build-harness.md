@@ -3,7 +3,7 @@ title: "0 から 1 へ Agent と Harness を構築する"
 description: "会話できる CLI アシスタントから、制御可能で観測可能な Agent Harness へ育てる実践的な工程ガイド。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "ja"
 tags:
   - Agent

@@ -3,7 +3,7 @@ title: "Delegation Runtime：タスクを外へ渡しても、制御権を失わ
 description: "ここまで来ると、小さな CLI Agent はもう会話するだけのモデルの殻ではない。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "ja"
 tags:
   - Agent

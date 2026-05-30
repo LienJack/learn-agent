@@ -1,6 +1,6 @@
 # cover: Intent / Execution 分离：模型提议，系统执行
 
-Asset target: docs/zh/assets/00-10-intent-execution-separation/cover.png
+Asset target: docs/zh/assets/00-10-intent-execution-separation/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

@@ -3,7 +3,7 @@ title: "Agent Composition Model: Model, Loop, Tools, State"
 description: "In the previous article, we first removed one misunderstanding: an Agent is not a longer prompt."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -73,7 +73,7 @@ Once these four parts are clear, reading any Agent framework becomes much easier
 
 ## Problem Chain
 
-![Shows that Model, Loop, Tools, and State are not parallel nouns, but four responsibility boundaries in a closed loop](./assets/00-02-agent-components/photo-01-four-part-agent-loop.png)
+![Shows that Model, Loop, Tools, and State are not parallel nouns, but four responsibility boundaries in a closed loop](./assets/00-02-agent-components/photo-01-four-part-agent-loop.jpg)
 
 This article's problem sequence is:
 
@@ -436,7 +436,7 @@ The core value of Loop is not "looping"; it is placing every action turn into a 
 
 ## 3. Tools: Turning "Want To Do" Into "Can Do"
 
-![Distinguishes the boundary between the model generating a tool call and the system executing a tool implementation](./assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.png)
+![Distinguishes the boundary between the model generating a tool call and the system executing a tool implementation](./assets/00-02-agent-components/photo-02-tool-call-vs-tool-execution.jpg)
 
 After Model and Loop combine, the system can repeatedly judge, but it still only spins in text.
 
@@ -916,7 +916,7 @@ Agent also needs to save runtime information such as budget, turns, artifacts, t
 
 ### 4. State, Context, Memory, Session log
 
-![Draws State, Context, Memory, and Session log as understandable layers and projections](./assets/00-02-agent-components/photo-03-state-context-memory-session.png)
+![Draws State, Context, Memory, and Session log as understandable layers and projections](./assets/00-02-agent-components/photo-03-state-context-memory-session.jpg)
 
 These four terms are easily mixed into one "big prompt."
 

@@ -3,7 +3,7 @@ title: "Scoped Retrieval：境界付き検索から audit snapshot へ"
 description: "多くの人が初めて Agent に検索を加えるとき、話をとても直接的に考えます。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "ja"
 tags:
   - Agent

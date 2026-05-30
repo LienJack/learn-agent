@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: Skill 是什么
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-11-skill.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-11-skill.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

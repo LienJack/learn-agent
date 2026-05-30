@@ -3,7 +3,7 @@ title: "Session Replay: why is the event log the source of truth for long tasks?
 description: "When many people add persistence to an Agent for the first time, they naturally save messages."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

@@ -3,7 +3,7 @@ title: "M0 Core Kernel: Wire Real LLMs into the System, Don't Let Them Take Over
 description: "The previous articles have laid out the mental model for Agent and Harness."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -97,7 +97,7 @@ A one-liner to anchor it:
 
 ## Problem chain
 
-![Explaining that the real provider only returns model events and tool intents, while execution authority still sits with core/runtime](assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.png)
+![Explaining that the real provider only returns model events and tool intents, while execution authority still sits with core/runtime](assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.jpg)
 
 The line of reasoning in this chapter is:
 
@@ -678,7 +678,7 @@ With an event stream, you can attribute it to a specific layer.
 
 ## 7. Conversation State: state is a projection of facts, not the facts themselves
 
-![Explaining the responsibilities of Event Log, State, Context Projection, and ModelRequest](assets/00-09-m0-core-kernel/photo-02-event-state-projection.png)
+![Explaining the responsibilities of Event Log, State, Context Projection, and ModelRequest](assets/00-09-m0-core-kernel/photo-02-event-state-projection.jpg)
 
 Another key boundary in M0 is `conversation state`.
 
@@ -768,7 +768,7 @@ This is also why so many Agent demos can never grow up.
 
 ## 8. Runtime Facade: the CLI just kicks off a run, it doesn't take over the internals
 
-![Explaining the call boundaries between CLI, runtime facade, registry, and provider adapter](assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.png)
+![Explaining the call boundaries between CLI, runtime facade, registry, and provider adapter](assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.jpg)
 
 With contracts, registry, event bus, and state in place, we still need an outward-facing entry point.
 

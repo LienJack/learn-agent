@@ -1,6 +1,6 @@
 # cover: 系统边界：ChatBot、Workflow、Agent、Harness 的区别
 
-Asset target: docs/zh/assets/00-03-chatbot-workflow-agent-harness/cover.png
+Asset target: docs/zh/assets/00-03-chatbot-workflow-agent-harness/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

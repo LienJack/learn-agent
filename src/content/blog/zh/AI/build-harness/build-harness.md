@@ -3,7 +3,7 @@ title: "从 0 到 1 构建 Agent 与 Harness"
 description: "一套从简单 CLI 助手开始，逐步构建可控、可观测、可扩展 Agent Harness 的工程教程。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

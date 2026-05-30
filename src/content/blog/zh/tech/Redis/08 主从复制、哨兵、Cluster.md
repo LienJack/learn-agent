@@ -23,7 +23,7 @@ locale: zh
 
 ## 一、主从复制：数据冗余的基础
 
-![Redis 主从复制架构](./assets/master-slave-replication.png)
+![Redis 主从复制架构](./assets/master-slave-replication.jpg)
 
 先看最基础的一层：一个主节点负责写，多个副本节点复制数据并承担读请求。复制是高可用的起点，但它本身还不负责自动切主。
 
@@ -51,7 +51,7 @@ locale: zh
 
 ## 二、哨兵（Sentinel）：自动故障转移
 
-![Redis 哨兵高可用架构](./assets/sentinel-ha-architecture.png)
+![Redis 哨兵高可用架构](./assets/sentinel-ha-architecture.jpg)
 
 哨兵层解决的是“主挂了以后谁来接班、客户端怎么知道”的问题。
 
@@ -103,7 +103,7 @@ sentinel parallel-syncs mymaster 1
 
 ## 三、Cluster 集群：数据分片与水平扩展
 
-![Redis Cluster 分片架构](./assets/cluster-sharding.png)
+![Redis Cluster 分片架构](./assets/cluster-sharding.jpg)
 
 Cluster 再往前走一步，它不只是保可用，还开始解决单机装不下、单主写不动的问题。
 

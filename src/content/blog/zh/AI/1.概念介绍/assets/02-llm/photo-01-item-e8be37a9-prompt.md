@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md
 Section: 一、故事要从一个“只会接话”的模型开始
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-01-item-e8be37a9.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-01-item-e8be37a9.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

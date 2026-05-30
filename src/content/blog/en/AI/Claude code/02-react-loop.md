@@ -122,7 +122,7 @@ It's not about making the pipeline complex. Real tasks simply can't be resolved 
 
 Anyone who's debugged a production outage will recognize this pattern: start with a hypothesis, go gather evidence on the ground, then revise the next step based on what the evidence tells you.
 
-![ReAct Sketch 1: The Minimal ReAct Loop](./assets/02-photo-01-react-loop.png)
+![ReAct Sketch 1: The Minimal ReAct Loop](./assets/02-photo-01-react-loop.jpg)
 
 ## 2. ReAct Is Not the Model Acting on Its Own — It Is the Model Expressing Intent
 
@@ -190,7 +190,7 @@ interface State {
 }
 ```
 
-![ReAct Sketch 2: State Drives the Main Loop](./assets/02-photo-02-state-machine.png)
+![ReAct Sketch 2: State Drives the Main Loop](./assets/02-photo-02-state-machine.jpg)
 
 These few fields are the keys to understanding the ReAct loop.
 
@@ -387,7 +387,7 @@ Will context or budget spiral out of control?
 
 Real agent engineering lives in these places that don't look flashy.
 
-![ReAct Sketch 3: submitMessage Launches an Agent Run](./assets/02-photo-03-agent-run.png)
+![ReAct Sketch 3: submitMessage Launches an Agent Run](./assets/02-photo-03-agent-run.jpg)
 
 ## 6. Translating the Right-Hand Flow into Code: What Actually Happens Inside the While Loop?
 
@@ -508,7 +508,7 @@ Without the latter, the model suffers amnesia after every action.
 
 Plenty of minimal agent demos appear to invoke tools, yet they fail on longer tasks for exactly this reason: they have `Act`, but they do not have a reliable `Observe -> write-back -> next-round Reason` loop.
 
-![ReAct Sketch 4: Observation Write-Back and Compaction Check](./assets/02-photo-04-observe-compact.png)
+![ReAct Sketch 4: Observation Write-Back and Compaction Check](./assets/02-photo-04-observe-compact.jpg)
 
 ## 9. Why Is Compaction Placed After Tool Write-Back?
 

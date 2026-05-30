@@ -23,7 +23,7 @@ locale: zh
 
 好的 key 命名规范，能让 Redis 的维护成本大幅降低。一个生产环境的 Redis 实例可能有几十万甚至上百万个 key，没有规范就会一团糟。
 
-![Redis 业务 Key 命名规范](./assets/business-key-design.png)
+![Redis 业务 Key 命名规范](./assets/business-key-design.jpg)
 
 命名规范看起来很小，但它直接决定了排查时能不能快速看懂这个实例里到底存了什么。
 
@@ -178,7 +178,7 @@ uc:user:sign:42:202405 -> SETBIT day 1
 
 ## 三、架构设计原则
 
-![Redis 生产环境部署架构](./assets/redis-production-architecture.png)
+![Redis 生产环境部署架构](./assets/redis-production-architecture.jpg)
 
 这张部署图更适合当总复盘来看：前面每一篇讲的点，最后都会落到实例隔离、读写分离、持久化、监控和降级这几层上。
 

@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
 Section: 四、Pretrain：看海量菜谱练出来的模式
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-04-pretrain.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-04-pretrain.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

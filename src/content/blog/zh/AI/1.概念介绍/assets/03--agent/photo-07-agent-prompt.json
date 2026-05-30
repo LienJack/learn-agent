@@ -8,8 +8,8 @@
   "sectionExcerpt": "讲到这里，很容易产生另一个误解：\n\n既然 Agent 能循环、能用工具、能改代码，那是不是可以完全放手让它干？\n\n先别急。\n\nAgent 确实比普通聊天模型更能干活，但它的边界也更危险。\n\n因为它一旦能行动，就会带来新问题：\n\n- 工具调错了怎么办？\n\n- 文件改坏了怎么办？\n\n- 命令有危险怎么办？\n\n- 它陷入循环怎么办？\n\n- 它误解用户目标怎么办？\n\n- 它把错误结果当成正确观察怎么办？\n\n所以成熟的 Agent 系统，通常不只是\"模型 + 工具\"这么简单，还会有一堆护栏：\n\n- 权限审批\n\n- 工具参数校验\n\n- 沙箱环境\n\n- 最大循环次数\n\n- 上下文压缩\n\n- 日志和可观测性\n\n- 出错时请求用户决策\n\n这也是为什么说 Agent 更像一层执行壳，而不是一个神秘大脑。\n\n模型负责语言理解、计划和判断。\n\n程序负责工具执行、状态管理、权限边界和错误处理。\n\n更好的分工是：\n\n**把模糊的语义判断交给模型，把确定的执行边界交给代码。**\n\n（简单说，生产环境的 Agent 不能随便跑高危命令。命令白名单和目录沙箱是底线，不是可选项。）",
   "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-07-agent-prompt.md",
   "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-07-agent-prompt.json",
-  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-07-agent.png",
-  "markdownRef": "./assets/03--agent/photo-07-agent.png",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-07-agent.jpg",
+  "markdownRef": "./assets/03--agent/photo-07-agent.jpg",
   "alt": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么 - 五、Agent 不是什么：它不是一个完全自主的\"电子员工\"",
   "promptStatus": "planned"
 }

@@ -3,7 +3,7 @@ title: "Harness の基本定義：モデル外部の制御システム"
 description: "ここまでで、Agent をいくつかの最小部品へ分解しました。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-04-harness-control-system/cover.png'
+heroImage: './assets/00-04-harness-control-system/cover.jpg'
 locale: "ja"
 tags:
   - Agent
@@ -71,7 +71,7 @@ Harness は、より外側にいて、より賢く、Agent をよりうまく管
 
 ## 問題の連鎖
 
-![ETCLOVG 七層の制御責任を概観し、Harness がモデル外部の制御システムであることを強調する](assets/00-04-harness-control-system/photo-01-etclovg-control-map.png)
+![ETCLOVG 七層の制御責任を概観し、Harness がモデル外部の制御システムであることを強調する](assets/00-04-harness-control-system/photo-01-etclovg-control-map.jpg)
 
 まずこの記事の問題の連鎖を固定します。
 
@@ -286,7 +286,7 @@ Agent は行動意図を生成し、Harness は行動条件を調節する。
 
 ### Session、Harness、Sandbox：一つのオブジェクトに混ぜない
 
-![Session、Harness、Sandbox の責任は異なるが協調することを説明する](assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.png)
+![Session、Harness、Sandbox の責任は異なるが協調することを説明する](assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.jpg)
 
 より成熟した Agent システムは、通常三つのものを分けます。
 
@@ -812,7 +812,7 @@ verification evidence
 
 ## 十一、イベントオブジェクト：Harness の専門性は小さなオブジェクトに宿る
 
-![Harness 内の event、tool_call、permission、observation、verification を監査可能なイベントストリームとしてつなぐ](assets/00-04-harness-control-system/photo-03-event-object-flow.png)
+![Harness 内の event、tool_call、permission、observation、verification を監査可能なイベントストリームとしてつなぐ](assets/00-04-harness-control-system/photo-03-event-object-flow.jpg)
 
 七層分類だけで Harness を理解すると、まだ抽象に留まりやすいです。実際にコードを書くとき、Harness の専門性は、小さいが安定したイベントとオブジェクトの集合に表れます。
 

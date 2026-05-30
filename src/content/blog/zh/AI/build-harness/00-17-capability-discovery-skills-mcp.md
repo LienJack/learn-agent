@@ -3,7 +3,7 @@ title: "Capability Discovery：Skills、MCP 与动态工具暴露"
 description: "到了第 17 篇，我们的小型 CLI Agent 已经不再是最初那个只能聊天的程序。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

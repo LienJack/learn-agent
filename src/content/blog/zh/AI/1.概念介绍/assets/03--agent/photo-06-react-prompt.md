@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: ReAct 范式：边想边做，边做边看
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-06-react.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-06-react.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

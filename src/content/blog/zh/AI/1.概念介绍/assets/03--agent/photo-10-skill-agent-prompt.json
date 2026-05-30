@@ -8,8 +8,8 @@
   "sectionExcerpt": "讲到这里，Agent 已经有工具，也可以通过 MCP 接入更多外部能力了。\n\n但这还不够。\n\n因为很多任务的难点，不是\"有没有工具\"，而是：\n\n**这类任务到底应该按什么方法做。**\n\n这正是本地 wiki 里反复强调的一点：MCP 解决的是\"外部能力怎么接进来\"，而 Skill 解决的是\"接进来以后，Agent 应该如何完成某类任务\"。\n\n也就是说，MCP 偏能力接入，Skill 偏任务方法。\n\n继续用修登录 bug 的例子。\n\n即使 Agent 有这些工具：\n\n- 搜索文件\n\n- 读取文件\n\n- 修改文件\n\n- 执行测试\n\n- 查看 Git diff\n\n它仍然可能做得很粗糙：\n\n\n真正靠谱的做法应该更像：\n\n\n这套\"怎么做这类任务\"的经验，如果每次都靠模型临场发挥，就很不稳定。\n\n于是就有了 `Skill（技能，封装某类任务经验、流程和约束的可复用能力包）`。",
   "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-10-skill-agent-prompt.md",
   "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-10-skill-agent-prompt.json",
-  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-10-skill-agent.png",
-  "markdownRef": "./assets/03--agent/photo-10-skill-agent.png",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-10-skill-agent.jpg",
+  "markdownRef": "./assets/03--agent/photo-10-skill-agent.jpg",
   "alt": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么 - 七、Skill 为什么会出现：因为 Agent 还需要\"做事方法\"",
   "promptStatus": "planned"
 }

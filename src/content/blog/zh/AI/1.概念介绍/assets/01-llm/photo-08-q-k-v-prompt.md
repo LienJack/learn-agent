@@ -8,7 +8,7 @@ Use the blog-to-photo skill to turn the following section into an article-body t
 
 ## Section text
 
-![LLM 到底在做什么：从猜词到生成的完整链路 - Q/K/V 的工程解释](./assets/01-llm/photo-07-q-k-v.png)
+![LLM 到底在做什么：从猜词到生成的完整链路 - Q/K/V 的工程解释](./assets/01-llm/photo-07-q-k-v.jpg)
 
 Attention 的计算不是玄学。它用三组投影矩阵把输入向量映射到三个子空间：
 

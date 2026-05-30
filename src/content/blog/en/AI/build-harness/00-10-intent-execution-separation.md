@@ -3,7 +3,7 @@ title: "Intent / Execution Separation: The Model Proposes, the System Executes"
 description: "A lot of people, when they first wrote CLI Agent, thought of it as a direct call:"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -83,7 +83,7 @@ If this boundary is not established at the start, every later layer becomes ambi
 
 ## Problem chain
 
-![A horizontal pipeline explains how model intent is validated, approved, executed, and written back as observation](./assets/00-10-intent-execution-separation/photo-01-intent-execution-pipeline.png)
+![A horizontal pipeline explains how model intent is validated, approved, executed, and written back as observation](./assets/00-10-intent-execution-separation/photo-01-intent-execution-pipeline.jpg)
 
 This chapter follows this problem sequence:
 
@@ -216,7 +216,7 @@ So the first thing this article has to do is to split apart a flow that looks sm
 
 ## II. Intent Is Not Natural Language, but a System-Processable Request Object
 
-![Emphasizing that the model submitted an application, that real access to file systems and shell was Runtime](./assets/00-10-intent-execution-separation/photo-02-model-runtime-boundary.png)
+![Emphasizing that the model submitted an application, that real access to file systems and shell was Runtime](./assets/00-10-intent-execution-separation/photo-02-model-runtime-boundary.jpg)
 
 The first step to separate an intent from an execution is not to write permissions, but to make an object first.
 
@@ -551,7 +551,7 @@ These two events mean completely different things to audit and replay.
 
 ## IV. Approve: Permission Is Not a Popup, but the Gate Between Intent and Execution
 
-![Draw tool visibility and single approval doors to show that privileges are not the last popup](./assets/00-10-intent-execution-separation/photo-03-permission-gates.png)
+![Draw tool visibility and single approval doors to show that privileges are not the last popup](./assets/00-10-intent-execution-separation/photo-03-permission-gates.jpg)
 
 When intent passed through Validate, the system could still not be implemented immediately.
 
@@ -1072,7 +1072,7 @@ Observationis the transition layer between the two.
 
 ## VII. How This Pipeline Supports Tool Runtime, Permission, Audit, and Replay
 
-![Demonstrating how the full chain of events is being observed, audited and replayed in parallel with service models](./assets/00-10-intent-execution-separation/photo-04-observation-audit-replay.png)
+![Demonstrating how the full chain of events is being observed, audited and replayed in parallel with service models](./assets/00-10-intent-execution-separation/photo-04-observation-audit-replay.jpg)
 
 Here, intent - > validate - > approve - > execute - > observe looks like a tool to call a pipeline.
 

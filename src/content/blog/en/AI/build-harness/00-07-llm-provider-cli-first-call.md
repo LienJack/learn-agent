@@ -3,7 +3,7 @@ title: "LLM Provider Integration: Let the CLI Make Its First Model Call"
 description: "The previous chapters have all been about the boundary between the Agent and the Harness."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -96,7 +96,7 @@ Because every later capability of the Agent has to start from "what exactly happ
 
 ## The Problem Chain
 
-![Explain why the CLI's first model call also needs to go through a provider contract first, to keep provider details out of the Agent core](assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.png)
+![Explain why the CLI's first model call also needs to go through a provider contract first, to keep provider details out of the Agent core](assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.jpg)
 
 This article does not compare specific vendor capabilities, nor does it chase the latest naming of any one API; the actual interface fields in real code should follow the official documentation at the time of implementation. Here we are defining the system boundary first.
 
@@ -522,7 +522,7 @@ The provider message format is just the adapter's transport expression.
 
 ## 5. Streaming: The Terminal Wants a Streaming Experience; the Runtime Wants an Event Stream
 
-![Show how a provider's raw stream is normalized by the adapter into ModelEvents, which then feed both the Runtime's logging and the CLI's display](assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.png)
+![Show how a provider's raw stream is normalized by the adapter into ModelEvents, which then feed both the Runtime's logging and the CLI's display](assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.jpg)
 
 When the CLI calls the model for the first time, it quickly runs into the second question: should we stream?
 
@@ -601,7 +601,7 @@ If the first version is just `process.stdout.write(rawChunk)`, you'll need a maj
 
 ## 6. Error Mapping: Errors Are Not Strings, They Are Inputs to Runtime Decisions
 
-![Explain how raw provider errors map into ProviderError, which then drives runtime decisions like stop, retry, compact, or prompt the user to fix config](assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.png)
+![Explain how raw provider errors map into ProviderError, which then drives runtime decisions like stop, retry, compact, or prompt the user to fix config](assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.jpg)
 
 When the first model call fails, the most common code looks like this:
 

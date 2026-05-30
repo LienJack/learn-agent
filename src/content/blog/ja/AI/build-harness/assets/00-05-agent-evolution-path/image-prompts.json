@@ -16,7 +16,7 @@
         "en": "docs/en/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.prompt.en.md",
         "ja": "docs/ja/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.png",
+      "target_file": "docs/ja/assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.jpg",
       "status": "prompt-translated"
     },
     {
@@ -31,7 +31,7 @@
         "en": "docs/en/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.prompt.en.md",
         "ja": "docs/ja/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.png",
+      "target_file": "docs/ja/assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.jpg",
       "status": "prompt-translated"
     },
     {
@@ -46,7 +46,7 @@
         "en": "docs/en/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.prompt.en.md",
         "ja": "docs/ja/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.png",
+      "target_file": "docs/ja/assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.jpg",
       "status": "prompt-translated"
     }
   ]

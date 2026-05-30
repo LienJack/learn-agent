@@ -3,7 +3,7 @@ title: "Session Replay：为什么事件日志是长任务的事实源？"
 description: "很多人第一次给 Agent 加持久化时，会很自然地保存 messages。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

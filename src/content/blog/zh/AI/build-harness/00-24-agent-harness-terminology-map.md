@@ -3,7 +3,7 @@ title: "Agent Harness 术语地图：Intent、Observation、Event、Artifact、S
 description: "从 Tool Runtime 开始，系列文章进入了一个更容易混淆的阶段。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

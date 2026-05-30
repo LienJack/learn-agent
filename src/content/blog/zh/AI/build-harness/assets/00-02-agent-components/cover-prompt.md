@@ -1,6 +1,6 @@
 # cover: Agent 组成模型：Model、Loop、Tools、State
 
-Asset target: docs/zh/assets/00-02-agent-components/cover.png
+Asset target: docs/zh/assets/00-02-agent-components/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

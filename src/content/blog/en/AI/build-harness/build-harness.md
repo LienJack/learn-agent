@@ -3,7 +3,7 @@ title: "Building Agent and Harness from 0 to 1"
 description: "A hands-on engineering tutorial that starts with a simple CLI assistant and grows it into a controllable Agent Harness."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

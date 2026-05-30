@@ -1,6 +1,6 @@
 # cover: M0 Core Kernel：実モデルをシステムへ接続し、乗っ取らせない
 
-Asset target: docs/ja/assets/00-09-m0-core-kernel/cover.png
+Asset target: docs/ja/assets/00-09-m0-core-kernel/cover.jpg
 
 imagegen を使って技術ブログのカバー画像を生成する。
 

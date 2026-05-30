@@ -14,7 +14,7 @@
         "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.prompt.en.md",
         "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.png",
+      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-01-capability-catalog-visible-set.jpg",
       "status": "prompt-translated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.prompt.en.md",
         "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.png",
+      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-02-skills-mcp-toolsearch-layers.jpg",
       "status": "prompt-translated"
     },
     {
@@ -44,7 +44,7 @@
         "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.prompt.en.md",
         "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.png",
+      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-03-visibility-permission-gates.jpg",
       "status": "prompt-translated"
     },
     {
@@ -59,7 +59,7 @@
         "en": "docs/en/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.prompt.en.md",
         "ja": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.png",
+      "target_file": "docs/ja/assets/00-17-capability-discovery-skills-mcp/photo-04-dynamic-capability-diff.jpg",
       "status": "prompt-translated"
     }
   ],

@@ -8,7 +8,7 @@ Use the blog-to-photo skill to turn the following section into an article-body t
 
 ## Section text
 
-![LLM 到底在做什么：从猜词到生成的完整链路 - 1.2 它能做什么，不能做什么](./assets/01-llm/photo-01-1-2.png)
+![LLM 到底在做什么：从猜词到生成的完整链路 - 1.2 它能做什么，不能做什么](./assets/01-llm/photo-01-1-2.jpg)
 
 最容易误解的一点是：它"看起来懂"，不等于它"像人一样真的懂"。
 

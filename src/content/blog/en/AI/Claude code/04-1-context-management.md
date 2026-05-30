@@ -116,7 +116,7 @@ Too much context: token usage, cost, latency, and attention all spiral out of co
 
 Context management is the balancing act between those two failures.
 
-![04.1 core mechanism - Context management sketch 1: the workbench rebuilt on every turn](./assets/04-photo-01-context-workbench.png)
+![04.1 core mechanism - Context management sketch 1: the workbench rebuilt on every turn](./assets/04-photo-01-context-workbench.jpg)
 
 ## 2. Why Does a Coding Agent's Token Usage Spike So Quickly?
 
@@ -154,7 +154,7 @@ That is why Claude Code's context management is not "summarize when full." It is
 
 In engineering terms, this behaves more like a resident GC worker than a full GC that only runs after the heap is exhausted.
 
-![04.1 core mechanism - Context management sketch 2: three failure modes caused by token growth](./assets/04-photo-02-token-failures.png)
+![04.1 core mechanism - Context management sketch 2: three failure modes caused by token growth](./assets/04-photo-02-token-failures.jpg)
 
 ## 3. Put Context Back Inside the QueryEngine Main Loop
 
@@ -247,7 +247,7 @@ If you read the source, Claude Code's compression pipeline is easiest to underst
 
 It does not begin by turning all old history into one paragraph. It starts with low-risk, low-loss local cleanup. If that is not enough, it escalates toward folded views and only later toward full summarization.
 
-![04.1 core mechanism - Context management sketch 3: escalating compression defenses from light to heavy](./assets/04-photo-03-compact-defenses.png)
+![04.1 core mechanism - Context management sketch 3: escalating compression defenses from light to heavy](./assets/04-photo-03-compact-defenses.jpg)
 
 ![04.1 core mechanism - Context management figure 2](./assets/04-1-context-management-mermaid-02.png)
 
@@ -414,7 +414,7 @@ One of the most important lessons from long-running agents is this:
 
 **Compression is not only about remembering the past. It is also about staying grounded in the present.**
 
-![04.1 core mechanism - Context management sketch 4: keep the recent tail alongside the summary](./assets/04-photo-04-recent-tail.png)
+![04.1 core mechanism - Context management sketch 4: keep the recent tail alongside the summary](./assets/04-photo-04-recent-tail.jpg)
 
 ## 7. Do Not Confuse Context, Memory, and Transcript
 

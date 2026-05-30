@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md
 Section: 二、Prompt 为什么会出现：因为“只会接话”不等于“会按要求干活”
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-02-prompt.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-02-prompt.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

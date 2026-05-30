@@ -1,6 +1,6 @@
 # cover: 手写 Agent 的意义：理解框架抽象背后的最小机制
 
-Asset target: docs/zh/assets/00-06-handwrite-agent-meaning/cover.png
+Asset target: docs/zh/assets/00-06-handwrite-agent-meaning/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

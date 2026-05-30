@@ -98,7 +98,7 @@ So the challenge Claude Code faces isn't "how to write a universal prompt" — i
 
 That's why Prompt Runtime exists.
 
-![Prompt Construction Sketch 1: The Prompt Runtime Workbench](./assets/03-photo-01-prompt-runtime-workbench.png)
+![Prompt Construction Sketch 1: The Prompt Runtime Workbench](./assets/03-photo-01-prompt-runtime-workbench.jpg)
 
 ## 2. A Single Model Turn Contains More Than Just the System Prompt
 
@@ -232,7 +232,7 @@ With a single flat `CLAUDE.md`, all this information would bleed together. Organ
 
 By layering the memory system, Claude Code turns it into a governable stack of rules.
 
-![03-core-mechanism-prompt-engineering-sketch-3-claude-md-memory-layers](./assets/03-photo-03-memory-layers.png)
+![03-core-mechanism-prompt-engineering-sketch-3-claude-md-memory-layers](./assets/03-photo-03-memory-layers.jpg)
 
 ### Why does `CLAUDE.md` end up in the prompt?
 
@@ -374,7 +374,7 @@ everything below this line may change and is refreshed per turn.
 
 This boundary is critical.
 
-![03. Core Mechanism - Prompt Authoring, Sketch 4: Cache boundary between stable and dynamic segments](./assets/03-photo-04-cache-boundary.png)
+![03. Core Mechanism - Prompt Authoring, Sketch 4: Cache boundary between stable and dynamic segments](./assets/03-photo-04-cache-boundary.jpg)
 
 If you mix highly volatile information into the stable segment — say, stuffing a dynamic skill list directly into tool descriptions — every change to that skill list invalidates the entire system prompt cache. What looks like a small list update can actually force every turn's request to re-process thousands or even tens of thousands of tokens.
 

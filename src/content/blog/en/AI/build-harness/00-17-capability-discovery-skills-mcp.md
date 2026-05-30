@@ -3,7 +3,7 @@ title: "Capability Discovery: Skills, MCP, and dynamic tool exposure"
 description: "By Article 17, our small CLI Agent is no longer the original chat-only program."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
