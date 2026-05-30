@@ -32,7 +32,9 @@ export function loadDotEnv(filePath = path.join(repoRoot, '.env')) {
 function unquoteEnv(value) {
 	if (
 		(value.startsWith('"') && value.endsWith('"')) ||
-		(value.startsWith("'") && value.endsWith("'"))
+		(value.startsWith("'") && value.endsWith("'")) ||
+		(value.startsWith('“') && value.endsWith('”')) ||
+		(value.startsWith('‘') && value.endsWith('’'))
 	) {
 		return value.slice(1, -1);
 	}
