@@ -222,7 +222,7 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 								currentSeries.posts.map((post, index) => (
 									<li class:list={['series-post-item', { 'is-guide': index === 0 }]}>
 										<a class="series-post-link" href={localizePath(locale, `/blog/${getPostSlug(post)}`)}>
-											<span class="series-post-step">{String(index).padStart(2, '0')}</span>
+											<span class="series-post-step">{String(index + 1).padStart(2, '0')}</span>
 											<span class="series-post-main">
 												<span class="series-post-title-row">
 													<span class="series-post-title">{post.data.title}</span>
