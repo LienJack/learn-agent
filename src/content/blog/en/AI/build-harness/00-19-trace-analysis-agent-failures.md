@@ -169,7 +169,7 @@ When it goes wrong, can the system explain the error clearly?
 
 ## Problem Chain
 
-First, fix the problem chain for this chapter:
+First, let us pin down the problem sequence for this chapter:
 
 ```text
 After an Agent fails, looking only at the final transcript compresses the problem into "the model was wrong"
@@ -184,7 +184,7 @@ After an Agent fails, looking only at the final transcript compresses the proble
 
 ## 1. Without trace, failure gets compressed into "the model was wrong"
 
-Start with a very common failure scene.
+Start with a very common failure context.
 
 The user gives the CLI Agent a task:
 
@@ -281,13 +281,13 @@ Experience is valuable, of course.
 
 But a production-grade Harness cannot require someone familiar with the system to guess correctly during every incident.
 
-It should organize failure scenes into traces that can be replayed, compared, and turned into evals.
+It should organize failure contexts into traces that can be replayed, compared, and turned into evals.
 
 Then when the same kind of failure appears again, the system has not merely "failed one more time".
 
 It has gained another learnable sample.
 
-## 2. Session log is the fact source, but it is not yet a diagnostic view
+## 2. Session log is the source of truth, but it is not yet a diagnostic view
 
 Chapter 16 already laid the foundation for the source of truth.
 
@@ -2209,6 +2209,10 @@ Memory Governance.
 ```
 
 That is the journey from candidate ledger to governance store: how an Agent should preserve experience without turning its own memory into a new source of pollution.
+
+## Teaching Harness Landing Point
+
+The teaching UI’s Event Timeline is the first version of trace analysis. On failure, do not inspect only the final answer. Replay `turn_start`, `message_update`, `tool_execution_start`, `tool_execution_end`, and `turn_end`. This helps locate whether the issue is model judgment, tool arguments, tool result, context projection, or persistence order.
 
 ---
 

@@ -1957,6 +1957,10 @@ Trace Analysis。
 
 つまり Harness が動くだけでなく、なぜ間違って動いたかを説明できるようにする。
 
+## 教学 Harness への落とし込み
+
+教学プロジェクトに delegation を入れるなら、multi-agent chat から始めません。まず controlled run として作ります。parent が scope、allowed tools、expected output を持つ task packet を作り、child は isolated context で実行し、parent は structured result と event summary だけを受け取ります。delegation は Harness が管理する execution unit のままです。
+
 ---
 
 GitHub ソース: [00-18-delegation-runtime-control.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-18-delegation-runtime-control.md)

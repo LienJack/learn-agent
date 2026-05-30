@@ -62,7 +62,7 @@ We continue to follow the same example throughout the series. We're writing a sm
 Help me figure out why this project's tests are failing, and fix them.
 ```
 
-This Agent will gradually gain the ability to read files, search code, edit files, run tests, and inspect Git status. But Article 10 does not rush to finish the whole tool system. First, we pin down a lower-level engineering discipline:
+This Agent will gradually gain the ability to read files, search code, edit files, run tests, and inspect Git status. But Article 10 does not try to finish the whole tool system at once. First, we pin down a lower-level engineering discipline:
 
 ```text
 The model may only propose structured intent.
@@ -83,9 +83,9 @@ If this boundary is not established at the start, every later layer becomes ambi
 
 ## Problem chain
 
-![A horizontal pipeline explains how the model is intended to be verified, approved, executed and observed backfilled](./assets/00-10-intent-execution-separation/photo-01-intent-execution-pipeline.png)
+![A horizontal pipeline explains how model intent is validated, approved, executed, and written back as observation](./assets/00-10-intent-execution-separation/photo-01-intent-execution-pipeline.png)
 
-This article is a problem chain:
+This chapter follows this problem sequence:
 
 ```text
 Model output is probabilistic text
@@ -1531,15 +1531,15 @@ Even`npm test`, which is a safe-reading command, may have different results due 
 
 So replay is based first on the facts of the incident, not on re-execution.
 
-Re-laying can only take place in a controlled, isolated and clearly marked mode.
+Replay may only happen in a controlled, isolated, and clearly marked mode.
 
 ## X. Minimal achievable level when reaching M0/M1 code
 
-This article has not yet entered the full Tool Runtime, but we can give the follow-up field a minimal drop.
+This article has not yet entered the full Tool Runtime, but it can still give the later implementation a minimal landing point.
 
-Release 1 does not require a system of enterprise-level competencies.
+Release 1 does not need an enterprise-grade permission system.
 
-Nor need to do complex sandbox.
+Nor does it need a complex sandbox.
 
 But it is important to keep the right object boundaries.
 
@@ -1652,7 +1652,7 @@ If the answer is no, it means it hasn't really entered Harness.
 
 Intent / Execution separation is not architectural neatness for its own sake.
 
-It is the first engineering discipline an Agent must establish before it touches the real world.
+It is the first engineering discipline an Agent must establish before it interacts with the real world.
 
 Model outputs are probabilistic recommendations.
 
@@ -1672,22 +1672,9 @@ If this boundary is not established, then the more tools you add, the more compl
 
 In the next article, when we move into Tool Runtime, we will stop treating tools as a list of functions. Each tool becomes a runtime protocol: how it describes itself, validates input, declares risk, executes, and turns its result into an observation.
 
-## Diagram Planning
+## Teaching Harness Landing Point
 
-This article does not embed image-generation prompts directly in the body. The main prompt manifest is:
-
-```text
-docs/en/assets/00-10-intent-execution-separation/image-prompts.json
-```
-
-Plan:
-
-1. `photo-01-intent-execution-pipeline`: after `## Problem Chain`, draw the `intent -> validate -> approve -> execute -> observe` pipeline.
-2. `photo-02-model-runtime-boundary`: after `## II. Intent Is Not a Natural-Language Sentence, but a System-Processable Request Object`, emphasize that the model can reach the outside world only by submitting a request.
-3. `photo-03-permission-gates`: after `## IV. Approve: Permission Is Not a Popup, but the Gate Between intent and execution`, draw the two gates of tool visibility and per-action approval.
-4. `photo-04-observation-audit-replay`: after `## VII. How This Pipeline Supports Tool Runtime, Permission, Audit, and Replay`, draw how observation, audit, and replay share the same factual event chain.
-
-These prompt files are only a factual source for later image generation and multilingual conversion; their current status is `prompt-only`.
+The teaching project should make this visible in the message shape: an assistant message may contain `{ type: "toolCall" }`, but real execution happens only in `ToolRegistry.execute()`. If argument parsing fails, a tool is missing, or permission is denied, the system should produce a structured error `toolResult` or event. The provider or prompt should never narrate that execution happened.
 
 ---
 

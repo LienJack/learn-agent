@@ -1892,6 +1892,10 @@ event stream は remote observability protocol になります。
 製品化 CLI は Agent をコマンドに包むことではなく、Agent の実行身分、能力境界、モデル好み、拡張出所、出力 protocol をすべて説明可能な Harness 入口にすることである。
 ```
 
+## 教学 Harness への落とし込み
+
+教学プロジェクトを productize するときは、複雑な platform より先に profile と stable output を足します。profile は provider、default tools、permission mode、output renderer を決めます。CLI や API の出力は human-readable log と machine-readable JSONL を分けます。これで同じ Harness を local interaction、CI smoke test、documentation に使えます。
+
 ---
 
 GitHub ソース: [00-22-productized-cli-profile-extension.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-22-productized-cli-profile-extension.md)

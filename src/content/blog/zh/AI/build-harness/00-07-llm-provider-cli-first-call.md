@@ -1314,6 +1314,10 @@ core 可以专心推进任务。
 
 那时，第一次模型调用会变成循环里的一个步骤，而不是整个系统。
 
+## 落地到教学 Harness
+
+参考项目提醒了一个重要顺序：真实 provider adapter 应该在内部协议稳定后再接。先让 `TeachingModel.complete()` 返回内部 `AssistantMessage`，再把 OpenAI-compatible 的 `content`、`tool_calls`、`finish_reason` 映射进来。API Key、base URL、header 只属于配置和 adapter 日志，不能进入 messages、event log 或模型上下文。
+
 ---
 
 GitHub 地址: [00-07-llm-provider-cli-first-call.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-07-llm-provider-cli-first-call.md)

@@ -32,7 +32,7 @@ This line is smooth, but it misleads engineering judgment.
 
 `Agent` is not the more advanced default choice.
 
-In real projects, many problems are fully solved by ChatBot; many automations are more reliable as Workflow; only when the task path cannot be written in advance and the system must judge the next step from new evidence at runtime is Agent worth introducing. As for Harness, it is not "one more cool architecture wrapper"; it is the model-external control system that grows out when an Agent enters a real environment and must be stably hosted, permissioned, stateful, logged, recoverable, verifiable, and governed.
+In real projects, many problems are fully solved by ChatBot; many automations are more reliable as Workflow; only when the task path cannot be written in advance and the system must judge the next step from new evidence at runtime is Agent worth introducing. As for Harness, it is not "one more cool architecture wrapper"; it is the model-external control system that becomes necessary when an Agent enters a real environment and must be stably hosted, permissioned, stateful, logged, recoverable, verifiable, and governed.
 
 We keep using the example from the first two articles:
 
@@ -76,7 +76,7 @@ These four are not luxury versions on one line. They are engineering choices for
 
 ![Uses the location of uncertainty to judge boundaries among ChatBot, Workflow, Agent, and Harness](./assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.png)
 
-The problem chain:
+The problem sequence:
 
 ```text
 The user only needs understanding and expression
@@ -85,7 +85,7 @@ The user only needs understanding and expression
 -> Workflow is more reliable, cheaper, and easier to test
 -> The task path is uncertain and the next step must be judged at runtime
 -> Introduce Agent so the model participates in dynamic decisions
--> Once Agent touches a real environment, tools, permissions, state, side effects, and verification appear
+-> Once Agent enters a real environment, tools, permissions, state, side effects, and verification appear
 -> Model-proposed action cannot directly equal system execution
 -> Harness is needed to carry model-external engineering control
 ```
@@ -291,7 +291,7 @@ The key question:
 Who decides the next step?
 ```
 
-If the next step is decided by a flowchart, it is Workflow. If it is decided dynamically by the model from the current field, it starts approaching Agent.
+If the next step is decided by a flowchart, it is Workflow. If it is decided dynamically by the model from the current task state, it starts approaching Agent.
 
 Diagram:
 
@@ -333,7 +333,7 @@ You can write a giant Workflow covering every case, but it quickly becomes an un
 This is where Agent has value:
 
 ```text
-Let the model choose the next action each round from the current field.
+Let the model choose the next action each round from the current task state.
 ```
 
 The minimal Agent runtime:
@@ -844,7 +844,7 @@ Model -> Loop -> Tools -> State
 
 Then we add Provider Runtime, Tool Runtime, Context Engineering, Memory, Permission, Session, Observability, Verification, Multi-Agent, and Hosted Harness. Each layer is added not for architecture aesthetics, but because the previous layer exposes a new real-task failure mode.
 
-This article's job is to pin down boundaries. Later, when discussing Tool Runtime, remember: tools are not ChatBot decoration; they are the protocol boundary through which Agent touches the real world. When discussing Context Engineering, remember: more context is not automatically better; context is the field projection needed for this Agent turn. When discussing Harness, remember: Harness is not a smarter Agent; it is the external system that lets Agent run under control.
+This article's job is to pin down boundaries. Later, when discussing Tool Runtime, remember: tools are not ChatBot decoration; they are the protocol boundary through which Agent interacts with the real world. When discussing Context Engineering, remember: more context is not automatically better; context is the task-state projection needed for this Agent turn. When discussing Harness, remember: Harness is not a smarter Agent; it is the external system that keeps Agent execution under control.
 
 ## Summary: Choose the Boundary Before the Technology
 
@@ -872,29 +872,9 @@ If uncertainty is in expression, use ChatBot. If it has been digested into proce
 
 The next article asks a deeper question: what exactly is Harness? Why is it not a framework name, and not a bigger Agent? What model-external responsibilities does it own? We will split Harness into Execution, Tools, Context, Lifecycle, Observability, Verification, and Governance, drawing the control-system map for the rest of the tutorial.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-### Diagram Type
-
-Decision path plus layered architecture. The main diagram shows the decision path from requirement uncertainty to system form, and adds a small Harness shell on the right.
-
-### Visual Element List
-
-- Left entry: user need, icon as chat bubble.
-- First branch: conversation only, node labeled ChatBot, icon as chat window.
-- Second branch: fixed process, node labeled Workflow, icon as flow arrows.
-- Third branch: dynamic decision-making, node labeled Agent, icon as loop arrow and wrench.
-- After Agent enters a real environment, a Harness external control plane appears on the right, with shell, shield, log card, and verification check icons.
-- Highlight: Agent-to-Harness arrow, pale yellow, labeled "complexity cost / control responsibility."
-- Bottom note: not an upgrade path, but boundary choice.
-
-### Positive Image Prompt
-
-Off-white paper background, subtle paper texture, black hand-drawn marker linework, an English technical explanation diagram. On the left is a "User Need" entry, branching right into three main decision paths: ChatBot, Workflow, Agent. ChatBot uses a chat window icon, Workflow uses fixed flow arrows, Agent uses a loop arrow and wrench. The Agent node connects to a Harness external control plane on the right, using shell, shield, log card, and verification check to represent permission, state, observability, recovery, and verification. Highlight the Agent-to-Harness arrow in pale yellow and label it "complexity cost / control responsibility." Overall it should look like an engineering whiteboard sketch, with slightly uneven lines, short clear node labels, and plenty of whitespace.
-
-### Negative Prompt
-
-No 3D rendering, no cyberpunk, no complex colorful gradients, no photographic style, no dense tiny text, no long English sentences, no real people, no company logos, no techy blue-purple background, do not draw the four concepts as a low-to-high ranking ladder.
+The teaching project can expose two entries to show this boundary: `POST /api/prompt` as a simple debugging path, and `/api/runs` plus event streaming as the Harness-like run path. Deterministic workflow belongs in the API or tests; the model enters the loop only when the next step depends on observations. This teaches that not every automation needs an Agent. You need an Agent Loop when the next action depends on what the system just observed.
 
 ---
 

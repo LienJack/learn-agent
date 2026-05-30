@@ -2090,6 +2090,10 @@ Tool Runtime：从 tool intent 到 observation。
 
 **provider 是模型的翻译官，不是工具的执行官。**
 
+## 落地到教学 Harness
+
+真实模型接入时，provider runtime 只做格式适配：把 provider 的 tool-call 表达转换成内部 `ToolCallContent`，把内部 `ToolResultMessage` 转回 provider 需要的 tool message。它不读取文件，不运行命令，也不决定是否允许工具。这样换 provider 时不会影响 loop、tools 和 session。
+
 ---
 
 GitHub 地址: [00-12-provider-runtime-tool-intent.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-12-provider-runtime-tool-intent.md)

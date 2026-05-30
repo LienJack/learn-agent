@@ -1673,6 +1673,10 @@ intent -> validate -> approve -> execute -> observe
 
 次回 Tool Runtime に入るとき、私たちはもうツールを関数リストとして見ません。各ツールを runtime protocol として見ます。自分自身をどう記述するか、入力をどう検証するか、リスクをどう宣言するか、どう実行するか、結果をどう observation に変換するか、というプロトコルです。
 
+## 教学 Harness への落とし込み
+
+教学プロジェクトでは message shape でこの境界を見せます。assistant message は `{ type: "toolCall" }` を含められますが、実行は `ToolRegistry.execute()` でだけ起きます。argument parse failure、tool not found、permission denied は、構造化された error `toolResult` または event にします。provider や prompt が「実行した」と語るだけで済ませてはいけません。
+
 ---
 
-GitHub アドレス: [00-10-intent-execution-separation.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-10-intent-execution-separation.md)
+GitHub ソース: [00-10-intent-execution-separation.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-10-intent-execution-separation.md)

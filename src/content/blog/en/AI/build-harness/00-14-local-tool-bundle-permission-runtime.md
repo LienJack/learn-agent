@@ -1,6 +1,6 @@
 ---
 title: "Local Tool Bundle: files, search, terminal, and permission runtime"
-description: "At this point, many people cannot resist writing an Agent's local capabilities as a very intuitive set of functions."
+description: "At this point, many people are tempted to model an Agent's local capabilities as a very intuitive set of functions."
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.png'
@@ -20,7 +20,7 @@ aliases:
 
 # Local Tool Bundle: files, search, terminal, and permission runtime
 
-At this point, many people cannot resist writing an Agent's local capabilities as a very intuitive set of functions.
+At this point, many people are tempted to model an Agent's local capabilities as a very intuitive set of functions.
 
 ```text
 read(path)
@@ -100,7 +100,7 @@ Every step may also change the real project.
 
 ## Problem Chain
 
-First fix the problem chain for this article:
+First, let us pin down the problem sequence for this chapter:
 
 ```text
 A local Agent first needs read / write / edit / search / bash
@@ -1881,7 +1881,7 @@ Why?
 Because every later advanced capability eventually meets the same question:
 
 ```text
-A model or sub-Agent wants to touch the real world.
+A model or sub-Agent wants to interact with the real world.
 How does the system govern that contact?
 ```
 
@@ -1917,26 +1917,9 @@ At this point, our small CLI Agent has truly moved from "can propose tool intent
 
 Next, the system can connect these local tools into more complete Permission, Hook, Context, and Replay mechanisms.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-This article does not generate images directly.
-
-Image prompts live outside the article for later image generation, multilingual conversion, and Mermaid rendering workflows.
-
-Prompt manifest:
-
-```text
-docs/en/assets/00-14-local-tool-bundle-permission-runtime/image-prompts.json
-```
-
-This article plans 4 body images:
-
-```text
-photo-01-local-tool-bundle-as-runtime.prompt.en.md
-photo-02-tool-risk-classification.prompt.en.md
-photo-03-file-search-bash-boundaries.prompt.en.md
-photo-04-permission-audit-observation.prompt.en.md
-```
+The reference project’s three tools are enough for the first version: `list_files`, `read_file`, and `write_note`. The focus is path boundaries: every path goes through `resolveInsideWorkspace()`, writes are limited to controlled directories, and failures return readable observations. Only after this works should higher-risk shell, edit, or search tools be added.
 
 ---
 

@@ -899,6 +899,10 @@ Chat Agent
 
 到那时你会看到，Harness 不是一开始拍脑袋设计出来的大架构。它是每次 Agent 多接触一点真实世界，就被迫长出来的一层工程边界。
 
+## 落地到教学 Harness
+
+在教学项目里，Harness 不需要一开始很厚，但要把责任对象分开：Express API 负责请求编排，`runAgentLoop()` 负责状态转移，`ToolRegistry` 负责工具执行边界，`JsonlSessionStore` 负责事实记录，React UI 负责把消息和事件投影出来。只要这些对象不互相吞并，后面扩权限、trace、resume 时就不会重写核心。
+
 ---
 
 GitHub 地址: [00-04-harness-control-system.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-04-harness-control-system.md)

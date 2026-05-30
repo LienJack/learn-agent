@@ -1790,6 +1790,10 @@ provider 为什么只能返回 tool intent，而不能自己执行工具？
 
 也就是模型供应商、流式事件、tool call、error mapping 和 system runtime 之间更细的边界。
 
+## 落地到教学 Harness
+
+最小 Plugin Host 不必先做插件市场，只要把可替换点留出来：provider 实现 `TeachingModel`，工具通过 `registry.register()` 加入，权限策略通过 `beforeToolCall` hook 接入，UI 只读取工具 definitions。这样 core 稳定，扩展发生在边界上，而不是到处 if/else。
+
 ---
 
 GitHub 地址: [00-11-plugin-host-core-extension.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-11-plugin-host-core-extension.md)

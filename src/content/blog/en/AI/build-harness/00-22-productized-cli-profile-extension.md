@@ -160,7 +160,7 @@ That is the dividing line between a demo CLI and a productized CLI.
 
 ## Problem Chain
 
-First, fix the problem chain for this article.
+First, let us pin down the problem sequence for this chapter.
 
 ```text
 demo CLI only needs to send one user input into the agent loop
@@ -467,7 +467,7 @@ That is the value of profile.
 
 It turns "I want a coding Agent" from a user's casual phrase into a runtime identity the Harness can execute, audit, and reuse.
 
-## 3. Configuration layers: the first fact source of a productized CLI
+## 3. Configuration layers: the first source of truth of a productized CLI
 
 Profile solves composition.
 
@@ -633,7 +633,7 @@ The most important node in this diagram is `merge arbitration`.
 
 It says the configuration layer is not a simple priority stack.
 
-It is the first fact source of the productized CLI.
+It is the first source of truth of the productized CLI.
 
 If the configuration layer has no provenance, the later profile, provider, and extension layers become hard to diagnose.
 
@@ -1251,7 +1251,7 @@ Renderer: renders events into TTY, JSONL, Workbench UI, or CI logs.
 
 This matches the idea of Session Replay.
 
-The fact source is events.
+The source of truth is events.
 
 The interface is only a projection.
 
@@ -1573,7 +1573,7 @@ Support only manifest reading first.
 
 Support only trust state first.
 
-Do not rush into remote installation.
+Do not jump straight into remote installation.
 
 For example:
 
@@ -1883,6 +1883,10 @@ Remember this article in one sentence:
 ```text
 A productized CLI does not merely wrap an Agent as a command. It turns the Agent's runtime identity, capability boundary, model preference, extension source, and output protocol into an explainable Harness entry point.
 ```
+
+## Teaching Harness Landing Point
+
+When productizing the teaching project, add profiles and stable output before building a complex platform. A profile chooses provider, default tools, permission mode, and output renderer. CLI or API output should separate human-readable logs from machine-readable JSONL. The same Harness can then serve local interaction, CI smoke tests, and documentation.
 
 ---
 

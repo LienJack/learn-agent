@@ -1963,6 +1963,10 @@ Trace Analysis。
 
 也就是让 Harness 不只是能跑，还能解释自己为什么跑错。
 
+## 落地到教学 Harness
+
+如果要在教学项目里加 delegation，不要先做多 Agent 聊天。先把它做成一种受控 run：父级创建任务包，指定 scope、allowed tools、expected output；子级使用隔离 context 运行；父级只接收结构化结果和事件摘要。这样委派仍然是 Harness 管理的执行单元。
+
 ---
 
 GitHub 地址: [00-18-delegation-runtime-control.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-18-delegation-runtime-control.md)

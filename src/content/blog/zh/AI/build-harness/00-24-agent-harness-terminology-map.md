@@ -127,6 +127,10 @@ Final Answer 只能引用 verification evidence，不能代替 verification。
 
 Agent Harness 的完成语义应该以最后一种为准。
 
+## 落地到教学 Harness
+
+这张术语地图最好和教学项目的字段对齐：Intent 对应 `ToolCallContent`，Observation 对应 `ToolResultMessage`，Event 对应 `AgentEvent`，Projection 对应 `buildContext()` 产物，Snapshot 对应 retrieval 或模型输入快照，Trace 对应可回放的事件序列。这样术语不只是解释词，而能直接指导读者读代码。
+
 ---
 
 GitHub 地址: [00-24-agent-harness-terminology-map.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-24-agent-harness-terminology-map.md)

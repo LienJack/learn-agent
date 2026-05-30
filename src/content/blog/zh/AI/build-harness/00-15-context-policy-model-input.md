@@ -1568,6 +1568,10 @@ Scoped Retrieval：怎么形成可审计证据包。
 
 上下文要恰好够用，并且可解释。
 
+## 落地到教学 Harness
+
+教学版可以先把 Context Policy 放进 `JsonlSessionStore.buildContext()`：从当前 leaf 回溯消息，把 compaction summary 和最近消息投影成模型输入。重要的是别让工具或 session store 直接拼 prompt；它们只提供事实材料，最后由 context builder 决定本轮模型能看见什么。
+
 ---
 
 GitHub 地址: [00-15-context-policy-model-input.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-15-context-policy-model-input.md)

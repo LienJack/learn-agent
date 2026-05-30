@@ -1,6 +1,6 @@
 ---
 title: "Plugin Host: Why Must Core Learn to Be Extended?"
-description: "In Article 10, we nailed down an important boundary:"
+description: "In Article 10, we defined an important boundary:"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.png'
@@ -19,7 +19,7 @@ aliases:
 
 # Plugin Host: Why Must Core Learn to Be Extended?
 
-In Article 10, we nailed down an important boundary:
+In Article 10, we defined an important boundary:
 
 ```text
 The model only proposes Intent.
@@ -42,7 +42,7 @@ one loop
 
 It makes sense in M0.
 
-Because the goal of M0 is not to make a complete platform, but to prove:
+Because the goal of M0 is not to build a complete platform, but to prove:
 
 ```text
 A real model can be connected to the system, but it will not take over the system.
@@ -130,7 +130,7 @@ That's why Plugin Host appeared.
 
 ## Problem chain
 
-This article is a problem chain:
+This chapter follows this problem sequence:
 
 ```text
 M0 core can directly build in provider, tool, and hook
@@ -1788,37 +1788,11 @@ Why can a provider only return tool intent instead of executing tools itself?
 
 This will take us to Provider Runtime.
 
-This is the more detailed boundary between model suppliers, flow events, tool call, error moving and system runtime.
+This is the more detailed boundary between model providers, streaming events, tool calls, error mapping, and the system runtime.
 
-## Diagram Planning
+## Teaching Harness Landing Point
 
-This article does not generate images at the writing stage.
-
-The main entrance to the normal text is outside.
-
-```text
-docs/en/assets/00-11-plugin-host-core-extension/image-prompts.json
-```
-
-Plan at least 4 images:
-
-1. `photo-01-core-extension-boundary.prompt.en.md`
-   - Insert location:`## Problem Chain`
-   - Purpose: When explaining core's move from built-in capabilities to Plugin Host, make clear that the boundary is not loosened; it is bound to contracts, registry, lifecycle, and hook gates.
-
-2. `photo-02-plugin-host-layers.prompt.en.md`
-   - Insert location:`## IV. The Five Core Components of Plugin Host`
-   - Purpose: Draw external plugins, Plugin Host, Core Kernel's responsibility boundary with a layered structure.
-
-3. `photo-03-hook-gate-decision.prompt.en.md`
-   - Insert location:`## IX. Hook Kernel: hooks Are Not Ordinary Event Listeners`
-   - Purpose: Description of preToolUse hook between intent and execution returns allow, ask, deny or amend.
-
-4. `photo-04-plugin-runtime-test-fix.prompt.en.md`
-   - Insert location:`## X. How Plugin Host Handles the Small CLI Agent Fixes Tests Scenario`
-   - Purpose: Threading the provider plugins, test-runner plugins, policy hooks, tool runtime, event logs into the actual path for fixing failed tests.
-
-These prompt files serve only as a factual source for subsequent photo generation and multilingual conversion; the current status is unified to`prompt-only`.
+A minimal Plugin Host does not need a marketplace. It only needs replaceable points: providers implement `TeachingModel`, tools enter through `registry.register()`, permission policy attaches through `beforeToolCall`, and the UI reads only tool definitions. Core stays stable, and extension happens at boundaries instead of spreading `if/else` across the codebase.
 
 ---
 

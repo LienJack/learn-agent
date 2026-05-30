@@ -61,21 +61,12 @@
 		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
 			<feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#26313a" flood-opacity="0.12" />
 		</filter>
-		<linearGradient id="coverBg" x1="0%" x2="100%" y1="0%" y2="100%">
-			<stop offset="0%" stop-color="#fffdf8" />
-			<stop offset="100%" stop-color="#f3f0eb" />
-		</linearGradient>
 		<linearGradient id="windowTop" x1="0%" x2="100%" y1="0%" y2="100%">
 			<stop offset="0%" stop-color="#46a4f0" />
 			<stop offset="100%" stop-color="#2878c8" />
 		</linearGradient>
-		<pattern id="paperLines" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-			<path d="M0 0h34" fill="none" stroke="#e8dac2" stroke-width="3" opacity="0.2" />
-		</pattern>
 	</defs>
 
-	<rect width="900" height="520" fill="url(#coverBg)" />
-	<rect width="900" height="520" fill="url(#paperLines)" opacity="0.48" />
 	<ellipse cx="450" cy="365" rx="340" ry="26" fill="#221915" opacity="0.07" />
 
 	<g filter="url(#softShadow)">

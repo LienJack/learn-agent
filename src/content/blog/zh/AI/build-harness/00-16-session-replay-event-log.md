@@ -1621,6 +1621,10 @@ Skills、MCP、插件和动态工具暴露，如何进入同一条受控 pipelin
 
 但控制边界不能动态失踪。
 
+## 落地到教学 Harness
+
+参考项目用 JSONL session store 做了一个很好的最小形态：append-only entry、`id`、`parentId`、`leafId`、message entry、compaction entry。实现时要让 API 先 append user message，再 build context，再运行 loop，最后 append newMessages。这样崩溃时至少能知道任务停在事实链的哪一段。
+
 ---
 
 GitHub 地址: [00-16-session-replay-event-log.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-16-session-replay-event-log.md)

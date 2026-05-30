@@ -1674,6 +1674,10 @@ intent -> validate -> approve -> execute -> observe
 
 下一篇进入 Tool Runtime 时，我们就不再把工具看成函数列表，而会把每个工具看成一份运行时协议：它如何描述自己、如何校验输入、如何声明风险、如何执行、如何把结果变成 observation。
 
+## 落地到教学 Harness
+
+教学项目里最该强调的是消息结构：assistant message 可以包含 `{ type: "toolCall" }`，但真实执行只发生在 `ToolRegistry.execute()`。如果参数解析失败、工具不存在、权限拒绝，都应该生成结构化的错误 `toolResult` 或事件，而不是让 provider 或 prompt 自己解释成“执行过”。
+
 ---
 
 GitHub 地址: [00-10-intent-execution-separation.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-10-intent-execution-separation.md)

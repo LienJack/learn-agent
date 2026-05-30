@@ -1497,6 +1497,10 @@ governance store の中がよい記憶だけであっても、読み取り時に
 
 これが、ガバナンスされた書き込みから境界付き検索へ進む理由です。
 
+## 教学 Harness への落とし込み
+
+教学版では長期 memory store をまだ作らなくてもよいですが、memory と session は早めに分けます。`JsonlSessionStore` は今回の run の事実を保存します。tool や model が将来再利用できそうな preference を見つけた場合、作るのは candidate であり、long-term store への直接書き込みではありません。第一版が JSONL でも、source、scope、confidence、expiresAt などの governance fields を残します。
+
 ---
 
 GitHub ソース: [00-20-memory-governance-candidate-ledger.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-20-memory-governance-candidate-ledger.md)

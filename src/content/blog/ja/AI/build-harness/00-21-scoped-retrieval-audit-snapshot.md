@@ -1836,6 +1836,10 @@ Scoped Retrieval の一文は次です。
 現実を変える仕組みは、すべて制御可能、引用可能、再生可能でなければならない。
 ```
 
+## 教学 Harness への落とし込み
+
+教学プロジェクトの scoped retrieval は workspace files から始められます。retrieval results を prompt に直接貼らず、scope、query、matched files、snippets、reason を持つ snapshot にします。その後 context builder がどの snippet を model input に入れるかを決めます。後の trace で「その時 model はどの evidence を使ったか」を答えられます。
+
 ---
 
 GitHub ソース: [00-21-scoped-retrieval-audit-snapshot.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-21-scoped-retrieval-audit-snapshot.md)

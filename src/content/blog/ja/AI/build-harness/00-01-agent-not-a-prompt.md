@@ -765,6 +765,10 @@ Agent を神秘化しないために、最後に三文で締めます。
 
 > Prompt はモデルがどう話すかを規定し、Agent はモデルがどう作業するかを組織し、Harness はその作業を制御可能にする。
 
+## 教学 Harness への落とし込み
+
+教学プロジェクトでは、この章は system prompt を長くする話ではありません。prompt は役割と境界を示し、実際の行動は `runAgentLoop()` と `ToolRegistry` に任せます。最初の検収はシンプルで十分です。ユーザーが workspace files の一覧を求めたら、assistant の `toolCall`、tool の `toolResult`、その結果に基づく assistant answer が出ること。これで prompt は方向、Agent Loop は過程、Harness は実行と記録を担うことが見えます。
+
 ---
 
 GitHub ソース: [00-01-agent-not-a-prompt.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-01-agent-not-a-prompt.md)

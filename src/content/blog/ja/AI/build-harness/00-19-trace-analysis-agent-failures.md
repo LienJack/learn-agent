@@ -2202,6 +2202,10 @@ Memory Governance。
 
 candidate ledger から governance store へ。Agent が経験をどう保存し、自分の記憶を新しい汚染源にしないかを扱う。
 
+## 教学 Harness への落とし込み
+
+教学 UI の Event Timeline は trace analysis の第一版です。失敗時に final answer だけを見てはいけません。`turn_start`、`message_update`、`tool_execution_start`、`tool_execution_end`、`turn_end` を辿って replay します。これで問題が model judgment、tool arguments、tool result、context projection、persistence order のどこにあるかを切り分けられます。
+
 ---
 
 GitHub ソース: [00-19-trace-analysis-agent-failures.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-19-trace-analysis-agent-failures.md)
