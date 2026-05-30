@@ -1,6 +1,6 @@
 # cover: M0 Core Kernel：把真实大模型接进系统，而不是接管系统
 
-Asset target: docs/zh/assets/00-09-m0-core-kernel/cover.png
+Asset target: docs/zh/assets/00-09-m0-core-kernel/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

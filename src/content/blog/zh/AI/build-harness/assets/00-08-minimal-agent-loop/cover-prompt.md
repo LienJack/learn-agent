@@ -1,6 +1,6 @@
 # cover: 最小 Agent Loop：从单次回答到多步行动
 
-Asset target: docs/zh/assets/00-08-minimal-agent-loop/cover.png
+Asset target: docs/zh/assets/00-08-minimal-agent-loop/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

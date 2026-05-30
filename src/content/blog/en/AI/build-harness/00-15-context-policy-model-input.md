@@ -3,7 +3,7 @@ title: "Context Policy: what should the model see in this round?"
 description: "The previous articles have already split apart the Agent action chain."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

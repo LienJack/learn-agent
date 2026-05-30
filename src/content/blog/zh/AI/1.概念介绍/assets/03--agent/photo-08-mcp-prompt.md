@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: 六、MCP 为什么会出现：因为工具越来越多，接入方式不能一直手写
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-08-mcp.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-08-mcp.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

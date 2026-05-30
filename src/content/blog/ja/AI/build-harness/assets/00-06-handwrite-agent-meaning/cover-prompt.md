@@ -1,6 +1,6 @@
 # cover: 手書き Agent の意味：フレームワーク抽象の背後にある最小メカニズムを理解する
 
-Asset target: docs/ja/assets/00-06-handwrite-agent-meaning/cover.png
+Asset target: docs/ja/assets/00-06-handwrite-agent-meaning/cover.jpg
 
 imagegen を使って技術ブログのカバー画像を生成する。
 

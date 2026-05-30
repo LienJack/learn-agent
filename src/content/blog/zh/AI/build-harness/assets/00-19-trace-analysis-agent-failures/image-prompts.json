@@ -13,7 +13,7 @@
         "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.prompt.en.md",
         "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.png",
+      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-01-log-to-trace-diagnosis.jpg",
       "status": "generated"
     },
     {
@@ -27,7 +27,7 @@
         "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.prompt.en.md",
         "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.png",
+      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-02-failure-taxonomy-map.jpg",
       "status": "generated"
     },
     {
@@ -41,7 +41,7 @@
         "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.prompt.en.md",
         "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.png",
+      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-03-trace-analyzer-pipeline.jpg",
       "status": "generated"
     },
     {
@@ -55,7 +55,7 @@
         "en": "docs/en/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.prompt.en.md",
         "ja": "docs/ja/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.png",
+      "target_file": "docs/zh/assets/00-19-trace-analysis-agent-failures/photo-04-delegation-join-failure.jpg",
       "status": "generated"
     }
   ],

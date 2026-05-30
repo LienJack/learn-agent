@@ -8,7 +8,7 @@ Use the blog-to-photo skill to turn the following section into an article-body t
 
 ## Section text
 
-![LLM 到底在做什么：从猜词到生成的完整链路 - 5.1 Transformer：为什么它能担此大任](./assets/01-llm/photo-05-5-1-transformer.png)
+![LLM 到底在做什么：从猜词到生成的完整链路 - 5.1 Transformer：为什么它能担此大任](./assets/01-llm/photo-05-5-1-transformer.jpg)
 
 进入 Transformer（基于自注意力机制、摒弃循环结构的神经网络架构）后，数据流经多层相同的 block。每个 block 只做两件事：注意力计算和前馈网络。
 

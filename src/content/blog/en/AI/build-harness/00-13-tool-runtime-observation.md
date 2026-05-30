@@ -3,7 +3,7 @@ title: "Tool Runtime: from tool intent to observation"
 description: "In Article 10 we drew a clear boundary:"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

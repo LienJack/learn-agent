@@ -8,8 +8,8 @@
   "sectionExcerpt": "从工程上看，一个 Skill 通常是一个小目录，里面至少有一个 `SKILL.md`，必要时还会带 reference、script 和 asset：\n\n\n其中最重要的是 `SKILL.md`。\n\n它一般包含两部分：\n\n- frontmatter：告诉系统这个 Skill 叫什么、什么时候该触发\n\n- 正文：告诉 Agent 触发后应该怎么做\n\n有些 Skill 还会带：\n\n- `references/`：放详细资料、模板、长文档\n\n- `scripts/`：放确定性、重复、容易写错的执行步骤\n\n- `assets/`：放输出时要用的模板、图片、字体或样例文件\n\n一个非常简化的 `SKILL.md` 可能像这样：\n\n\n这份 Skill 不需要告诉模型什么是 Markdown，也不需要解释一堆常识。它只需要告诉模型：\n\n**这类任务里，哪些步骤不能忘，哪些本地规则必须遵守。**",
   "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-12-skill-prompt.md",
   "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-12-skill-prompt.json",
-  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-12-skill.png",
-  "markdownRef": "./assets/03--agent/photo-12-skill.png",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-12-skill.jpg",
+  "markdownRef": "./assets/03--agent/photo-12-skill.jpg",
   "alt": "从对话到干活：Agent、Tools、Function Calling、MCP、Skill 到底是什么 - Skill 通常长什么样",
   "promptStatus": "planned"
 }

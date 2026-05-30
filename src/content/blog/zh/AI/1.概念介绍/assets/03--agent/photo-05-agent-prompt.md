@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: 四、Agent 为什么会出现：因为真实任务不是一次问答，而是一串循环
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-05-agent.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-05-agent.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

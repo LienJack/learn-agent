@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
 Section: 二、Token：语言进入模型前的切块
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-02-token.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-02-token.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

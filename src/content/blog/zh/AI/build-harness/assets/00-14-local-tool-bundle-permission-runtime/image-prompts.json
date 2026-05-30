@@ -15,7 +15,7 @@
         "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.prompt.en.md",
         "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.png",
+      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-01-local-tool-bundle-as-runtime.jpg",
       "status": "generated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.prompt.en.md",
         "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.png",
+      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-02-tool-risk-classification.jpg",
       "status": "generated"
     },
     {
@@ -43,7 +43,7 @@
         "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.prompt.en.md",
         "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.png",
+      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-03-file-search-bash-boundaries.jpg",
       "status": "generated"
     },
     {
@@ -57,7 +57,7 @@
         "en": "docs/en/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.prompt.en.md",
         "ja": "docs/ja/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.png",
+      "target_file": "docs/zh/assets/00-14-local-tool-bundle-permission-runtime/photo-04-permission-audit-observation.jpg",
       "status": "generated"
     }
   ]

@@ -3,7 +3,7 @@ title: "Hosted Harness: Sandbox, Cron, Durable Execution, and remote deployment"
 description: "Move a local CLI Agent into a hosted environment and understand how sandbox, cron, durable execution, workspace setup, secret boundary, artifact store, resume/retry, and notification form a Hosted Harness."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

@@ -3,7 +3,7 @@ title: "Agent Base Definition: Why It Is Not a Prompt"
 description: "When many people first start building Agents, the most natural reaction is: if we make the system prompt longer, write the rules in more detail, wi..."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -35,7 +35,7 @@ This is where Agent appears.
 
 **An Agent is not a longer Prompt. It is a runtime process organized from "model + loop + tools + state"; once it enters a real environment, it also needs an external Harness to host that process.**
 
-![Shows that an Agent is composed of model, loop, tools, and state, while the external Harness provides the control system](./assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.png)
+![Shows that an Agent is composed of model, loop, tools, and state, while the external Harness provides the control system](./assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.jpg)
 
 That sentence sounds like a definition, but behind it is a plain engineering observation:
 
@@ -58,7 +58,7 @@ Do not jump straight into frameworks or get lost in names such as LangGraph, Cre
 
 ## Problem Chain
 
-![Explains how Prompt, ChatBot, Agent, and Harness add responsibility layer by layer](./assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.png)
+![Explains how Prompt, ChatBot, Agent, and Harness add responsibility layer by layer](./assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.jpg)
 
 This article will not write code yet. It pins down one minimal problem sequence:
 
@@ -290,7 +290,7 @@ This is also the gap many people hit when they first hand-write an Agent: at fir
 
 ## 3. Loop Turns the Model From "Answering" Into "Advancing"
 
-![Draws the difference between a one-shot answer and multi-turn progress as a loop, highlighting the return flow of state and observation](./assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.png)
+![Draws the difference between a one-shot answer and multi-turn progress as a loop, highlighting the return flow of state and observation](./assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.jpg)
 
 The first layer Agent adds beyond a normal ChatBot is loop.
 
@@ -566,7 +566,7 @@ This also foreshadows the Context Engineering problem later: state is not prompt
 
 ## 6. The Control System Keeps Agent From Running Away
 
-![Explains that model proposals must pass permission, sandbox, logs, and verification before entering the real world](./assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.png)
+![Explains that model proposals must pass permission, sandbox, logs, and verification before entering the real world](./assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.jpg)
 
 Once we have loop, tools, and state, Agent already looks like it can work. But the real complexity also starts here.
 

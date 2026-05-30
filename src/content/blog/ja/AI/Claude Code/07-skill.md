@@ -165,7 +165,7 @@ Available skills:
 
 まず全体図を見てみましょう。
 
-![07.Skill 図 1](./assets/07-skill-mermaid-01.png)
+![07.Skill 図 1](./assets/07-skill-mermaid-01.jpg)
 
 この図で最も誤解しやすいのは、最後の二つの経路です。
 

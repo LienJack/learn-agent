@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
 Section: 三、Embedding：把 token 放进味道地图
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-03-embedding-token.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-03-embedding-token.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

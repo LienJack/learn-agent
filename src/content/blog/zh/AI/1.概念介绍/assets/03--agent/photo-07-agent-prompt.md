@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: 五、Agent 不是什么：它不是一个完全自主的"电子员工"
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-07-agent.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-07-agent.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

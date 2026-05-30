@@ -3,7 +3,7 @@ title: "Agent 基础定义：它为什么不是一句 Prompt？"
 description: "很多人第一次开始做 Agent，最自然的反应是：是不是把 system prompt 写长一点，把规则写细一点，模型就会“像 Agent 一样工作”？"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-01-agent-not-a-prompt/cover.png'
+heroImage: './assets/00-01-agent-not-a-prompt/cover.jpg'
 locale: "zh"
 tags:
   - Agent
@@ -35,7 +35,7 @@ aliases:
 
 **Agent 不是一句更长的 Prompt，而是“模型 + 循环 + 工具 + 状态”组织起来的运行过程；当它进入真实环境，还需要外部 Harness 来托管这个过程。**
 
-![展示 Agent 由模型、循环、工具和状态组成，外部 Harness 提供控制系统](assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.png)
+![展示 Agent 由模型、循环、工具和状态组成，外部 Harness 提供控制系统](assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.jpg)
 
 这句话听起来像定义，但它背后其实是一条很朴素的工程经验：
 
@@ -58,7 +58,7 @@ aliases:
 
 ## 问题链
 
-![解释 Prompt、ChatBot、Agent、Harness 的责任如何逐层增加](assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.png)
+![解释 Prompt、ChatBot、Agent、Harness 的责任如何逐层增加](assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.jpg)
 
 这篇文章先不急着写代码，只固定一个最小问题链：
 
@@ -290,7 +290,7 @@ prompt 像任务说明书。Agent Runtime 像执行现场。
 
 ## 三、循环让模型从“回答”变成“推进”
 
-![把一次回答和多轮推进的差异画成闭环，突出状态和观察结果的回流](assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.png)
+![把一次回答和多轮推进的差异画成闭环，突出状态和观察结果的回流](assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.jpg)
 
 Agent 比普通 ChatBot 多出来的第一层，是 loop。
 
@@ -566,7 +566,7 @@ Artifact state：报告、摘要、评估结果、可恢复 checkpoint
 
 ## 六、控制系统让 Agent 不跑飞
 
-![说明模型提议必须经过权限、沙箱、日志和验证后才进入真实世界](assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.png)
+![说明模型提议必须经过权限、沙箱、日志和验证后才进入真实世界](assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.jpg)
 
 一旦有了 loop、tools 和 state，Agent 看起来已经能工作了。但真实复杂度也从这里开始。
 

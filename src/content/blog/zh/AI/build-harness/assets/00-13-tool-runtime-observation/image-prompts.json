@@ -15,7 +15,7 @@
         "en": "docs/en/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.prompt.en.md",
         "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.png",
+      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-01-tool-runtime-pipeline.jpg",
       "status": "generated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-13-tool-runtime-observation/photo-02-observation-projection.prompt.en.md",
         "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-02-observation-projection.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-02-observation-projection.png",
+      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-02-observation-projection.jpg",
       "status": "generated"
     },
     {
@@ -43,7 +43,7 @@
         "en": "docs/en/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.prompt.en.md",
         "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.png",
+      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-03-scheduler-sandbox-boundary.jpg",
       "status": "generated"
     },
     {
@@ -57,7 +57,7 @@
         "en": "docs/en/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.prompt.en.md",
         "ja": "docs/ja/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.png",
+      "target_file": "docs/zh/assets/00-13-tool-runtime-observation/photo-04-audit-replay-chain.jpg",
       "status": "generated"
     }
   ]

@@ -15,7 +15,7 @@
         "en": "docs/en/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.en.md",
         "ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.png",
+      "target_file": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.jpg",
       "status": "generated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.en.md",
         "ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.png",
+      "target_file": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.jpg",
       "status": "generated"
     },
     {
@@ -43,7 +43,7 @@
         "en": "docs/en/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.en.md",
         "ja": "docs/ja/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.png",
+      "target_file": "docs/zh/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.jpg",
       "status": "generated"
     }
   ]

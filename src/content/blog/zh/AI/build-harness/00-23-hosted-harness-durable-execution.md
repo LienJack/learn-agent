@@ -3,7 +3,7 @@ title: "Hosted Harness：Sandbox、Cron、Durable Execution 与远程部署"
 description: "把本地 CLI Agent 推到远程托管环境，理解 sandbox、cron、durable execution、workspace setup、secret boundary、artifact store、resume/retry 与 notification 如何共同组成 Hosted Harness。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

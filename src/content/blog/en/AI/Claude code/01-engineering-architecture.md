@@ -70,11 +70,11 @@ That engineering shell is the core value of Claude Code.
 
 This is exactly where many open-source agent projects stall: the model-calling layer looks great, but the engineering shell leaks the moment anything pushes back.
 
-![Engineering Architecture Sketch 1: The Engineering Shell Around the Model API](./assets/01-photo-01-engineering-shell.png)
+![Engineering Architecture Sketch 1: The Engineering Shell Around the Model API](./assets/01-photo-01-engineering-shell.jpg)
 
 ## 2. Functional Architecture: What Capability Layers Does Claude Code Have?
 
-![](./assets/02-photo-05.png)
+![](./assets/02-photo-05.jpg)
 
 Viewed through its functional architecture, Claude Code resembles a layered Agent Runtime — an agent execution environment built around the model, responsible for dispatching tools, managing state, and advancing tasks.
 
@@ -98,7 +98,7 @@ The core message this diagram aims to convey is not "Claude Code has many module
 
 **Claude Code's capabilities do not grow directly out of the model. They grow out of the engineering systems layered one by one around the model.**
 
-![Engineering Architecture Sketch 2: Claude Code's Capability Layers](./assets/01-photo-02-capability-layers.png)
+![Engineering Architecture Sketch 2: Claude Code's Capability Layers](./assets/01-photo-02-capability-layers.jpg)
 
 ### Model API: Responsible for Judgment, Not Execution
 
@@ -307,7 +307,7 @@ User input
 -> Until the task is complete or user decision is needed
 ```
 
-![Engineering Architecture Sketch 3: User Input Flow in the Runtime](./assets/01-photo-03-runtime-flow.png)
+![Engineering Architecture Sketch 3: User Input Flow in the Runtime](./assets/01-photo-03-runtime-flow.jpg)
 
 Drawn as a sequence diagram:
 
@@ -392,7 +392,7 @@ Entry point hands user input to a session
 → Permission / Hooks / State determine whether an action can land
 ```
 
-![Engineering Architecture Sketch 4: The Load-Bearing Chain for Reading the Source](./assets/01-photo-04-code-load-bearing-chain.png)
+![Engineering Architecture Sketch 4: The Load-Bearing Chain for Reading the Source](./assets/01-photo-04-code-load-bearing-chain.jpg)
 
 In other words, this section isn't listing directories — it's locating the source-code coordinates for the articles that follow.
 

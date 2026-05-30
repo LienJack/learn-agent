@@ -3,7 +3,7 @@ title: "Provider Runtime：なぜ provider は tool intent だけを返すべき
 description: "前回までの記事群で、私たちは土台となる規律を一つ固めました。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "ja"
 tags:
   - Agent

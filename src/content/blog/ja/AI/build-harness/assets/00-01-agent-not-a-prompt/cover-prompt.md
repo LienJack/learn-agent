@@ -1,6 +1,6 @@
 # cover: Agent の基礎定義：なぜそれは単なる Prompt ではないのか？
 
-Asset target: docs/ja/assets/00-01-agent-not-a-prompt/cover.png
+Asset target: docs/ja/assets/00-01-agent-not-a-prompt/cover.jpg
 
 imagegen を使って技術ブログのカバー画像を生成する。
 

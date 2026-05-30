@@ -3,7 +3,7 @@ title: "Memory Governance: from candidate ledger to governance store"
 description: "By part 20, our small CLI Agent can already do quite a lot."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

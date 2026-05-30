@@ -3,7 +3,7 @@ title: "LLM Provider 接入：让 CLI 完成第一次模型调用"
 description: "前面几篇一直在讲 Agent 和 Harness 的边界。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-07-llm-provider-cli-first-call/cover.png'
+heroImage: './assets/00-07-llm-provider-cli-first-call/cover.jpg'
 locale: "zh"
 tags:
   - Agent
@@ -96,7 +96,7 @@ error mapping：把 provider 私有错误映射成 runtime 能理解的错误
 
 ## 问题链
 
-![解释为什么 CLI 第一次模型调用也要先经过 provider contract，避免 provider 细节污染 Agent core](assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.png)
+![解释为什么 CLI 第一次模型调用也要先经过 provider contract，避免 provider 细节污染 Agent core](assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.jpg)
 
 这篇文章不比较具体供应商能力，也不追逐某个 API 的最新命名；实际代码里的接口字段需要以实现时的官方文档为准。这里先固定系统边界。
 
@@ -522,7 +522,7 @@ provider 消息格式只是 adapter 的传输表达。
 
 ## 五、Streaming：终端要的是流式体验，Runtime 要的是事件流
 
-![展示 provider raw stream 经过 adapter 归一化为 ModelEvent，再分别进入 Runtime 记录和 CLI 展示](assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.png)
+![展示 provider raw stream 经过 adapter 归一化为 ModelEvent，再分别进入 Runtime 记录和 CLI 展示](assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.jpg)
 
 CLI 第一次调用模型时，很快会遇到第二个问题：要不要 stream？
 
@@ -601,7 +601,7 @@ provider 连接中断
 
 ## 六、Error Mapping：错误不是字符串，是 Runtime 决策输入
 
-![解释 raw provider error 如何映射为 ProviderError，并驱动停止、重试、压缩或提示配置等 runtime 决策](assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.png)
+![解释 raw provider error 如何映射为 ProviderError，并驱动停止、重试、压缩或提示配置等 runtime 决策](assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.jpg)
 
 第一次模型调用失败时，最常见的写法是：
 

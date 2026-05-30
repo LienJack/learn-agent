@@ -1,6 +1,6 @@
 # cover: LLM Provider 接入：让 CLI 完成第一次模型调用
 
-Asset target: docs/zh/assets/00-07-llm-provider-cli-first-call/cover.png
+Asset target: docs/zh/assets/00-07-llm-provider-cli-first-call/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

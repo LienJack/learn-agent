@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: 二、Tools 为什么会出现：因为模型需要"手"
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-02-tools.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-02-tools.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

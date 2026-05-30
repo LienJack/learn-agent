@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
 Section: Q/K/V 的工程解释
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-07-q-k-v.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-07-q-k-v.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

@@ -8,8 +8,8 @@
   "sectionExcerpt": "这里一定要把几个特别容易混淆的点讲清楚。\n\n`RAG` 不是：\n\n- 重新训练模型\n\n- 微调模型（Fine-tuning，在预训练好的模型基础上用领域数据继续训练以适应特定任务）\n\n- 让模型永久学会新知识\n\n- 简单的关键词搜索\n\n它更像一种运行时补资料机制。\n\n也就是说，RAG 的核心不是\"把知识写进模型脑子里\"，而是\"在模型回答前，把相关知识临时拿给它看\"。\n\n所以如果你问：\n\n\"RAG 是不是重新训练模型？\"\n\n答案是：\n\n**不是。RAG 更像临时开卷，不是重新上学。**",
   "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-07-rag-prompt.md",
   "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-07-rag-prompt.json",
-  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-07-rag.png",
-  "markdownRef": "./assets/02-llm/photo-07-rag.png",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-07-rag.jpg",
+  "markdownRef": "./assets/02-llm/photo-07-rag.jpg",
   "alt": "Prompt、Context、RAG 到底是什么 - RAG 不是什么",
   "promptStatus": "planned"
 }

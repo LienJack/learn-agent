@@ -23,6 +23,9 @@ The current history starts with a simple `Initial commit`, so keep commit messag
 ## Content & Configuration Tips
 Update site metadata in `src/consts.ts` and `astro.config.mjs` together to keep titles, descriptions, and canonical site settings aligned. For new posts, add frontmatter that matches the blog schema: `title`, `description`, and `pubDate`, with optional `updatedDate` and `heroImage`.
 
+## Image Asset Rules
+Images generated with `/gen image` must be compressed before they are committed or referenced from content. Use the repository's existing image tooling or local compression utilities such as ImageMagick to reduce file size, and do not leave uncompressed generated originals in `src/content/`, `src/assets/`, or `public/`.
+
 ## CE Document Language Rule
 All documents produced through `ce-*` workflows must default to Chinese.
 

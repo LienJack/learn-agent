@@ -3,7 +3,7 @@ title: "Local Tool Bundle: files, search, terminal, and permission runtime"
 description: "At this point, many people are tempted to model an Agent's local capabilities as a very intuitive set of functions."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

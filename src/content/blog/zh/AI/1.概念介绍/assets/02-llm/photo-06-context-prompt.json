@@ -8,8 +8,8 @@
   "sectionExcerpt": "一个比较常见的上下文，可能包含这些部分：\n\n- `System Prompt`：系统层的行为规则\n\n- `User Prompt`：用户当前问题\n\n- `History`：之前的对话历史\n\n- `Retrieved Chunks`：检索回来的文档片段\n\n- `Tool Results`：工具执行结果\n\n- `Local Files / Code`：代码、文档、配置等材料\n\n你会发现，`Prompt` 其实也属于输入的一部分，但 `Context` 是更大的那个篮子。\n\n换句话说：\n\n**Prompt 是 Context 的一部分，但 Context 不等于 Prompt。**",
   "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-06-context-prompt.md",
   "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-06-context-prompt.json",
-  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-06-context.png",
-  "markdownRef": "./assets/02-llm/photo-06-context.png",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-06-context.jpg",
+  "markdownRef": "./assets/02-llm/photo-06-context.jpg",
   "alt": "Prompt、Context、RAG 到底是什么 - Context 里可能包含什么",
   "promptStatus": "planned"
 }

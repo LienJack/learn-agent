@@ -3,7 +3,7 @@ title: "システム境界：ChatBot、Workflow、Agent、Harness の違い"
 description: "多くの人が初めて Agent システムを作るとき、自然にそれを一つのアップグレード経路として理解しがちです。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-03-chatbot-workflow-agent-harness/cover.png'
+heroImage: './assets/00-03-chatbot-workflow-agent-harness/cover.jpg'
 locale: "ja"
 tags:
   - Agent
@@ -74,7 +74,7 @@ Jest の Cannot find module は通常どんな原因ですか？
 
 ## 問題の連鎖
 
-![不確実性がどこにあるかで ChatBot、Workflow、Agent、Harness の境界を判断する](assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.png)
+![不確実性がどこにあるかで ChatBot、Workflow、Agent、Harness の境界を判断する](assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.jpg)
 
 この記事の問題の連鎖は次の通りです。
 
@@ -559,7 +559,7 @@ Harness がない場合、Agent の失敗は多くの場合「モデルが賢く
 
 ## 五、四者の対照：能力等級ではなく制御境界
 
-![Workflow の制御権はコードにあり、Agent の制御権は一部 Runtime のモデル判断へ渡されることを強調する](assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.png)
+![Workflow の制御権はコードにあり、Agent の制御権は一部 Runtime のモデル判断へ渡されることを強調する](assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.jpg)
 
 ここまで来ると、四つの概念を一つの対照表に置けます。
 
@@ -669,7 +669,7 @@ LLM があるか？
 
 ### 不確実性予算：いつモデルに次の一手を決めさせる価値があるか
 
-![不確実性、リスク、制御コストが Harness へ向かう圧力として描かれている](assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.png)
+![不確実性、リスク、制御コストが Harness へ向かう圧力として描かれている](assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.jpg)
 
 Workflow と Agent を分けると、より実用的な設計原則が得られます。
 

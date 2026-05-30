@@ -16,7 +16,7 @@
         "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.prompt.en.md",
         "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.png",
+      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-00-agent-runtime-composition.jpg",
       "status": "prompt-translated"
     },
     {
@@ -31,7 +31,7 @@
         "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.prompt.en.md",
         "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.png",
+      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.jpg",
       "status": "prompt-translated"
     },
     {
@@ -46,7 +46,7 @@
         "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.prompt.en.md",
         "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.png",
+      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-02-agent-loop-reality-bridge.jpg",
       "status": "prompt-translated"
     },
     {
@@ -61,7 +61,7 @@
         "en": "docs/en/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.prompt.en.md",
         "ja": "docs/ja/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.png",
+      "target_file": "docs/ja/assets/00-01-agent-not-a-prompt/photo-03-control-system-catches-action.jpg",
       "status": "prompt-translated"
     }
   ]

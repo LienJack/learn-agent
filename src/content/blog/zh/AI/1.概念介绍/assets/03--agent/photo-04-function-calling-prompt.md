@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: 三、Function Calling 为什么会出现：因为"想用工具"必须说成机器听得懂的话
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-04-function-calling.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-04-function-calling.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

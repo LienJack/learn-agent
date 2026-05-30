@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: MCP 和 Agent 怎么结合
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-09-mcp-agent.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-09-mcp-agent.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

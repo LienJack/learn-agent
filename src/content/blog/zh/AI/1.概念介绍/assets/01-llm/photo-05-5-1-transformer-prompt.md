@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/01.LLM的原理.md
 Section: 5.1 Transformer：为什么它能担此大任
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-05-5-1-transformer.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/01-llm/photo-05-5-1-transformer.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

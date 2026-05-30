@@ -24,7 +24,7 @@ locale: zh
 
 持久化回答的就是这个问题。Redis 提供了三种主流做法：RDB、AOF、以及 RDB+AOF 的混合模式。它们不是谁更高级，而是谁更符合你对丢失窗口、恢复速度和线上抖动的容忍度。
 
-![RDB 与 AOF 对比](./assets/redis-rdb-aof-compare.png)
+![RDB 与 AOF 对比](./assets/redis-rdb-aof-compare.jpg)
 
 先把这张取舍图记住：RDB 更像“打快照”，AOF 更像“记流水”，混合模式则是在恢复速度和数据完整性之间取一个更实用的平衡点。
 

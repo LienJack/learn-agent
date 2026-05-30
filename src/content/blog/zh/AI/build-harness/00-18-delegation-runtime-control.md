@@ -3,7 +3,7 @@ title: "Delegation Runtime：把任务分出去，但不丢掉控制权"
 description: "到了这里，我们的小型 CLI Agent 已经不再是一个会聊天的模型壳。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

@@ -9,7 +9,7 @@
   },
   "cover": {
     "raw": "./assets/01-photo-01-rag-chain.png",
-    "absolute": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+    "absolute": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.jpg",
     "exists": true
   },
   "platforms": [
@@ -76,15 +76,15 @@
         ]
       },
       "uploadImages": [
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-two-phase-chain.png\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-two-phase-chain.jpg\" --json",
         "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01.整体步骤-mermaid-01.svg\" --json",
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-rag-overview.png\" --json",
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-02-offline-index-workbench.png\" --json",
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-03-online-answer-loop.png\" --json",
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-04-rag-misconception-map.png\" --json"
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-rag-overview.jpg\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-02-offline-index-workbench.jpg\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-03-online-answer-loop.jpg\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-04-rag-misconception-map.jpg\" --json"
       ],
       "draft": [
-        "md2wechat test-draft \"publish/artifacts/<run-id>/src-content-blog-zh-AI-2-Rag-01-wechat.html\" \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\" --json"
+        "md2wechat test-draft \"publish/artifacts/<run-id>/src-content-blog-zh-AI-2-Rag-01-wechat.html\" \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.jpg\" --json"
       ],
       "never": [
         "Do not use wechatsync -p weixin for the final WeChat draft."
@@ -92,19 +92,19 @@
     },
     "juejin": {
       "dryRun": [
-        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p juejin --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\" --dry-run"
+        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p juejin --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.jpg\" --dry-run"
       ],
       "draft": [
-        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p juejin --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\""
+        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p juejin --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.jpg\""
       ],
       "note": "Run Juejin and Zhihu as separate single-platform syncs when local images are present."
     },
     "zhihu": {
       "dryRun": [
-        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p zhihu --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\" --dry-run"
+        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p zhihu --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.jpg\" --dry-run"
       ],
       "draft": [
-        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p zhihu --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png\""
+        "WECHATSYNC_TOKEN=<from-env> wechatsync sync \"src/content/blog/zh/AI/2.Rag/01.整体步骤.md\" -p zhihu --title \"RAG 的整体流程：从资料到答案，一条链路讲清楚\" --cover \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.jpg\""
       ],
       "note": "Run Juejin and Zhihu as separate single-platform syncs when local images are present."
     }
@@ -115,7 +115,7 @@
       "draftSuccess": false,
       "draftLink": "",
       "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
-      "cover": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+      "cover": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.jpg",
       "imageUploadCount": 6,
       "imageUploadFailures": [],
       "confirmedNoOfficialPublish": true
@@ -125,7 +125,7 @@
       "draftSuccess": false,
       "draftLink": "",
       "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
-      "cover": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+      "cover": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.jpg",
       "imageUploadCount": 6,
       "imageUploadFailures": [],
       "confirmedNoOfficialPublish": true
@@ -135,7 +135,7 @@
       "draftSuccess": false,
       "draftLink": "",
       "title": "RAG 的整体流程：从资料到答案，一条链路讲清楚",
-      "cover": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.png",
+      "cover": "/Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-chain.jpg",
       "imageUploadCount": 6,
       "imageUploadFailures": [],
       "confirmedNoOfficialPublish": true

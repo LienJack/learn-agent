@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/03.从对话到干活-Agent.md
 Section: 工具不是魔法，而是宿主程序开放的能力
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-03-item-02e9c305.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/03--agent/photo-03-item-02e9c305.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

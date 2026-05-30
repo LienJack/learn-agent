@@ -1,6 +1,6 @@
 # cover: 最小 Agent Loop：単発の回答から複数ステップの行動へ
 
-Asset target: docs/ja/assets/00-08-minimal-agent-loop/cover.png
+Asset target: docs/ja/assets/00-08-minimal-agent-loop/cover.jpg
 
 imagegen を使って技術ブログのカバー画像を生成する。
 

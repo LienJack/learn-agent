@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md
 Section: Prompt 没解决的问题：模型还是可能“按要求胡说八道”
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-03-prompt.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-03-prompt.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

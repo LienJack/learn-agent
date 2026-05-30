@@ -3,7 +3,7 @@ title: "Memory Governance：candidate ledger 到 governance store"
 description: "到了第 20 篇，我们的小型 CLI Agent 已经能做不少事了。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

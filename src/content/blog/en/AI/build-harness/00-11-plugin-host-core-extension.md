@@ -3,7 +3,7 @@ title: "Plugin Host: Why Must Core Learn to Be Extended?"
 description: "In Article 10, we defined an important boundary:"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

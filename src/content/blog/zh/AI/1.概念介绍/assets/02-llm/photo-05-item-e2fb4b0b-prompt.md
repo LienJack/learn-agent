@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md
 Section: 一个最好记的比喻：开卷考试的资料桌
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-05-item-e2fb4b0b.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-05-item-e2fb4b0b.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

@@ -13,7 +13,7 @@
         "en": "docs/en/assets/00-12-provider-runtime-tool-intent/photo-01-provider-to-intent-boundary.prompt.en.md",
         "ja": "docs/ja/assets/00-12-provider-runtime-tool-intent/photo-01-provider-to-intent-boundary.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-12-provider-runtime-tool-intent/photo-01-provider-to-intent-boundary.png",
+      "target_file": "docs/zh/assets/00-12-provider-runtime-tool-intent/photo-01-provider-to-intent-boundary.jpg",
       "status": "generated"
     },
     {
@@ -27,7 +27,7 @@
         "en": "docs/en/assets/00-12-provider-runtime-tool-intent/photo-02-tool-call-intent-execution-split.prompt.en.md",
         "ja": "docs/ja/assets/00-12-provider-runtime-tool-intent/photo-02-tool-call-intent-execution-split.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-12-provider-runtime-tool-intent/photo-02-tool-call-intent-execution-split.png",
+      "target_file": "docs/zh/assets/00-12-provider-runtime-tool-intent/photo-02-tool-call-intent-execution-split.jpg",
       "status": "generated"
     },
     {
@@ -41,7 +41,7 @@
         "en": "docs/en/assets/00-12-provider-runtime-tool-intent/photo-03-stream-delta-assembler.prompt.en.md",
         "ja": "docs/ja/assets/00-12-provider-runtime-tool-intent/photo-03-stream-delta-assembler.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-12-provider-runtime-tool-intent/photo-03-stream-delta-assembler.png",
+      "target_file": "docs/zh/assets/00-12-provider-runtime-tool-intent/photo-03-stream-delta-assembler.jpg",
       "status": "generated"
     },
     {
@@ -55,7 +55,7 @@
         "en": "docs/en/assets/00-12-provider-runtime-tool-intent/photo-04-error-ownership-decision.prompt.en.md",
         "ja": "docs/ja/assets/00-12-provider-runtime-tool-intent/photo-04-error-ownership-decision.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-12-provider-runtime-tool-intent/photo-04-error-ownership-decision.png",
+      "target_file": "docs/zh/assets/00-12-provider-runtime-tool-intent/photo-04-error-ownership-decision.jpg",
       "status": "generated"
     }
   ],

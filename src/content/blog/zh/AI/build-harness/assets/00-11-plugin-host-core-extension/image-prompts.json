@@ -15,7 +15,7 @@
         "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.prompt.en.md",
         "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.png",
+      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-01-core-extension-boundary.jpg",
       "status": "generated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.prompt.en.md",
         "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.png",
+      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-02-plugin-host-layers.jpg",
       "status": "generated"
     },
     {
@@ -43,7 +43,7 @@
         "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.prompt.en.md",
         "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.png",
+      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-03-hook-gate-decision.jpg",
       "status": "generated"
     },
     {
@@ -57,7 +57,7 @@
         "en": "docs/en/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.prompt.en.md",
         "ja": "docs/ja/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.png",
+      "target_file": "docs/zh/assets/00-11-plugin-host-core-extension/photo-04-plugin-runtime-test-fix.jpg",
       "status": "generated"
     }
   ]

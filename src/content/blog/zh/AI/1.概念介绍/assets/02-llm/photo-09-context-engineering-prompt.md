@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md
 Section: 七、为什么现在大家更常说 Context Engineering
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-09-context-engineering.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-09-context-engineering.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

@@ -2,7 +2,7 @@
 
 Article: src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md
 Section: 五、把三者放回“问题接着问题”的链路里，你就不容易再混了
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-08-item-c598ea62.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-08-item-c598ea62.jpg
 
 Use the blog-to-photo skill to turn the following section into an article-body technical illustration prompt.
 

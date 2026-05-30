@@ -3,7 +3,7 @@ title: "Agent Evolution Path: Chat Agent -> Tool Agent -> Runtime Agent -> Manag
 description: "When people first look at Agent architecture diagrams, a natural confusion appears: why does a \"model that can chat\" eventually become a whole Harn..."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -45,7 +45,7 @@ If the system can only chat, it explains possible causes. If it can call tools, 
 
 ## Problem Chain
 
-![Overview of the natural evolution path from Chat Agent to Managed Agent and then Harness](./assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.png)
+![Overview of the natural evolution path from Chat Agent to Managed Agent and then Harness](./assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.jpg)
 
 The problem sequence:
 
@@ -103,7 +103,7 @@ Each task path chooses its control-layer thickness from its risk pressure.
 
 ## 1. Chat Agent: First Let the System Answer
 
-![Shows Agent evolution as rising risk pressure, not an ability ranking](./assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.png)
+![Shows Agent evolution as rising risk pressure, not an ability ranking](./assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.jpg)
 
 The story starts from the simplest form. A Chat Agent is usually:
 
@@ -643,7 +643,7 @@ This is the benefit of deriving architecture from evolution pressure. You do not
 
 ## 8. One Layer Deeper: Recoverable, Evaluable, Delegable
 
-![Explains how recoverability, evaluability, and delegation form the improvement flywheel of Managed Agent](./assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.png)
+![Explains how recoverability, evaluability, and delegation form the improvement flywheel of Managed Agent](./assets/00-05-agent-evolution-path/photo-03-eval-and-handoff-flywheel.jpg)
 
 If we only look at Chat, Tool, Runtime, and Managed stages, evolution may look like "more features." One layer deeper, three engineering properties gradually appear:
 

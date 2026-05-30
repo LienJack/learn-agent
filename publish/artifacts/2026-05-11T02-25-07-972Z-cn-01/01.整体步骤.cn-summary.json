@@ -76,12 +76,12 @@
         ]
       },
       "uploadImages": [
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-two-phase-chain.png\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-01-rag-two-phase-chain.jpg\" --json",
         "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01.整体步骤-mermaid-01.svg\" --json",
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-rag-overview.png\" --json",
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-02-offline-index-workbench.png\" --json",
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-03-online-answer-loop.png\" --json",
-        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-04-rag-misconception-map.png\" --json"
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-rag-overview.jpg\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-02-offline-index-workbench.jpg\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-03-online-answer-loop.jpg\" --json",
+        "md2wechat upload_image \"src/content/blog/zh/AI/2.Rag/assets/01-photo-04-rag-misconception-map.jpg\" --json"
       ],
       "draft": [
         "md2wechat test-draft \"publish/artifacts/<run-id>/src-content-blog-zh-AI-2-Rag-01-wechat.html\" <missing-cover> --json"

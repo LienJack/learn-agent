@@ -3,7 +3,7 @@ title: "Agent Harness terminology map: Intent, Observation, Event, Artifact, Sna
 description: "Starting with Tool Runtime, the series enters a stage where terms can easily blur together."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

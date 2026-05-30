@@ -14,7 +14,7 @@
         "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.prompt.en.md",
         "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.png",
+      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-01-hosted-harness-layers.jpg",
       "status": "prompt-translated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.prompt.en.md",
         "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.png",
+      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-02-cron-to-durable-job.jpg",
       "status": "prompt-translated"
     },
     {
@@ -44,7 +44,7 @@
         "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.prompt.en.md",
         "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.png",
+      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-03-sandbox-secret-boundary.jpg",
       "status": "prompt-translated"
     },
     {
@@ -59,7 +59,7 @@
         "en": "docs/en/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.prompt.en.md",
         "ja": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.png",
+      "target_file": "docs/ja/assets/00-23-hosted-harness-durable-execution/photo-04-worker-retry-resume.jpg",
       "status": "prompt-translated"
     }
   ],

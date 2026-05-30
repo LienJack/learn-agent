@@ -3,7 +3,7 @@ title: "Local Tool Bundle：文件、搜索、终端与权限运行时"
 description: "到了这一步，很多人会忍不住把 Agent 的本地能力写成一组很直观的函数。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

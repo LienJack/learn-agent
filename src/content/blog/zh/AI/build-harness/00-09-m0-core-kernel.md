@@ -4,7 +4,7 @@ shortTitle: "M0 Core Kernel：真实模型接入系统"
 description: "前面几篇已经把 Agent 和 Harness 的心智铺开了。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/00-09-m0-core-kernel/cover.png'
+heroImage: './assets/00-09-m0-core-kernel/cover.jpg'
 locale: "zh"
 tags:
   - Agent
@@ -98,7 +98,7 @@ runtime facade：外部 CLI 调 runtime，而不是直接调 provider
 
 ## 问题链
 
-![解释真实 provider 只返回模型事件和 tool intent，执行权仍在 core/runtime](assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.png)
+![解释真实 provider 只返回模型事件和 tool intent，执行权仍在 core/runtime](assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.jpg)
 
 这篇文章的问题链是：
 
@@ -679,7 +679,7 @@ context builder 把旧错误日志当成当前事实
 
 ## 七、Conversation State：状态是事实的投影，不是事实本身
 
-![解释 Event Log、State、Context Projection、ModelRequest 的责任关系](assets/00-09-m0-core-kernel/photo-02-event-state-projection.png)
+![解释 Event Log、State、Context Projection、ModelRequest 的责任关系](assets/00-09-m0-core-kernel/photo-02-event-state-projection.jpg)
 
 M0 的另一个关键边界是 `conversation state`。
 
@@ -769,7 +769,7 @@ Context 是本轮模型应该看见什么。
 
 ## 八、Runtime Facade：CLI 只启动 run，不接管内部细节
 
-![解释 CLI、runtime facade、registry、provider adapter 之间的调用边界](assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.png)
+![解释 CLI、runtime facade、registry、provider adapter 之间的调用边界](assets/00-09-m0-core-kernel/photo-03-runtime-facade-registry.jpg)
 
 有了 contracts、registry、event bus、state，最后还需要一个对外入口。
 

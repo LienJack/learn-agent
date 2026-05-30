@@ -8,7 +8,7 @@ Use the blog-to-photo skill to turn the following section into an article-body t
 
 ## Section text
 
-![LLM 到底在做什么：从猜词到生成的完整链路 - 三、Embedding：把 token 放进味道地图](./assets/01-llm/photo-03-embedding-token.png)
+![LLM 到底在做什么：从猜词到生成的完整链路 - 三、Embedding：把 token 放进味道地图](./assets/01-llm/photo-03-embedding-token.jpg)
 
 食材切好以后，下一步不是马上下锅，而是先知道它们大概属于什么味道、适合和谁搭配。
 

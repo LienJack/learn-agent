@@ -3,7 +3,7 @@ title: "Tool Runtime：tool intent から observation へ"
 description: "第 10 回では、ひとつの境界を明確にしました。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "ja"
 tags:
   - Agent

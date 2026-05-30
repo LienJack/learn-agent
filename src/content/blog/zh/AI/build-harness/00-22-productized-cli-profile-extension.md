@@ -3,7 +3,7 @@ title: "Productized CLI：profile、extension、multi-provider"
 description: "写到这里，我们的小型 CLI Agent 已经不再是最早那个能跑一次的 demo。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

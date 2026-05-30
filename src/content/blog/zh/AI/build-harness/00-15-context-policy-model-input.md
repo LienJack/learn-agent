@@ -3,7 +3,7 @@ title: "Context Policy：模型这一轮应该看见什么？"
 description: "前面几篇已经把 Agent 的行动链路拆开了。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

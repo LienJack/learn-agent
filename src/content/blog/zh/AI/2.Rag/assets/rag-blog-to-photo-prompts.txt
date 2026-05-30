@@ -38,7 +38,7 @@ images_generated: 0
 
 ## 01.整体步骤.md
 
-### 01-photo-01-rag-two-phase-chain.png
+### 01-photo-01-rag-two-phase-chain.jpg
 
 建议插入位置：`## 二、先看一眼完整链路` 附近。
 
@@ -54,7 +54,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 01-photo-02-offline-index-workbench.png
+### 01-photo-02-offline-index-workbench.jpg
 
 建议插入位置：`## 三、第一步：数据加载，把资料拿进系统` 到 `## 七、第五步：写入索引` 之间。
 
@@ -70,7 +70,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 01-photo-03-online-answer-loop.png
+### 01-photo-03-online-answer-loop.jpg
 
 建议插入位置：`## 八、第六步：用户提问，把问题也变成检索条件` 到 `## 十一、第九步：生成答案，并尽量保留依据` 之间。
 
@@ -86,7 +86,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 01-photo-04-rag-misconception-map.png
+### 01-photo-04-rag-misconception-map.jpg
 
 建议插入位置：`## 十三、初学者最容易误解的几个点` 附近。
 
@@ -104,7 +104,7 @@ images_generated: 0
 
 ## 02.数据导入.md
 
-### 02-photo-01-file-to-evidence.png
+### 02-photo-01-file-to-evidence.jpg
 
 建议插入位置：`## 一、故事要从“文件不是知识”开始` 附近。
 
@@ -120,7 +120,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 02-photo-02-file-router.png
+### 02-photo-02-file-router.jpg
 
 建议插入位置：`### 12. 一个简单的文件路由器` 附近。
 
@@ -136,7 +136,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 02-photo-03-cleaning-gate.png
+### 02-photo-03-cleaning-gate.jpg
 
 建议插入位置：`## 五、清洗：把不该进入知识库的东西挡在外面` 附近。
 
@@ -152,7 +152,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 02-photo-04-metadata-backlink.png
+### 02-photo-04-metadata-backlink.jpg
 
 建议插入位置：`## 六、元数据：让答案能回到原文` 附近。
 
@@ -170,7 +170,7 @@ images_generated: 0
 
 ## 03.分块技术.md
 
-### 03-photo-01-chunk-as-evidence-handle.png
+### 03-photo-01-chunk-as-evidence-handle.jpg
 
 建议插入位置：`## 二、Chunk 为什么会出现` 附近。
 
@@ -186,7 +186,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 03-photo-02-size-tradeoff-scale.png
+### 03-photo-02-size-tradeoff-scale.jpg
 
 建议插入位置：`## 三、分块不是越小越好` 到 `## 四、分块也不是越大越好` 之间。
 
@@ -202,7 +202,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 03-photo-03-overlap-bridge.png
+### 03-photo-03-overlap-bridge.jpg
 
 建议插入位置：`## 五、Overlap 为什么会出现` 附近。
 
@@ -218,7 +218,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 03-photo-04-chunk-strategy-selector.png
+### 03-photo-04-chunk-strategy-selector.jpg
 
 建议插入位置：`## 十五、工程里最常用的几种分块组合` 附近。
 
@@ -236,7 +236,7 @@ images_generated: 0
 
 ## 04.向量嵌入与向量数据库.md
 
-### 04-photo-01-text-to-semantic-coordinates.png
+### 04-photo-01-text-to-semantic-coordinates.jpg
 
 建议插入位置：文章开头或 `## 一、向量数据库到底解决什么` 附近。
 
@@ -252,7 +252,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 04-photo-02-vector-store-landscape.png
+### 04-photo-02-vector-store-landscape.jpg
 
 建议插入位置：`## 二、先用一张表建立直觉` 附近。
 
@@ -268,7 +268,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 04-photo-03-hybrid-search-coordinate.png
+### 04-photo-03-hybrid-search-coordinate.jpg
 
 建议插入位置：`## 六、Weaviate：对象模型和 hybrid search 更完整` 或 `## 十一、怎么快速选` 附近。
 
@@ -284,7 +284,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 04-photo-04-debuggable-vector-db.png
+### 04-photo-04-debuggable-vector-db.jpg
 
 建议插入位置：`## 十二、不要只比较性能，还要比较错误怎么排查` 附近。
 
@@ -302,7 +302,7 @@ images_generated: 0
 
 ## 05.检索前置处理.md
 
-### 05-photo-01-before-search-decision.png
+### 05-photo-01-before-search-decision.jpg
 
 建议插入位置：`## 二、检索前处理的三件事` 附近。
 
@@ -318,7 +318,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 05-photo-02-text2sql-chain.png
+### 05-photo-02-text2sql-chain.jpg
 
 建议插入位置：`### 1. Text2SQL：让用户用自然语言查关系数据库` 附近。
 
@@ -334,7 +334,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 05-photo-03-query-translation-toolbox.png
+### 05-photo-03-query-translation-toolbox.jpg
 
 建议插入位置：`## 四、查询翻译：让问题变得更适合检索` 附近。
 
@@ -350,7 +350,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 05-photo-04-query-routing-switchboard.png
+### 05-photo-04-query-routing-switchboard.jpg
 
 建议插入位置：`## 五、查询路由：先判断该去哪查` 附近。
 
@@ -368,7 +368,7 @@ images_generated: 0
 
 ## 06.索引优化.md
 
-### 06-photo-01-many-doors-to-knowledge.png
+### 06-photo-01-many-doors-to-knowledge.jpg
 
 建议插入位置：`## 二、索引优化到底在优化什么` 附近。
 
@@ -384,7 +384,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 06-photo-02-parent-child-index.png
+### 06-photo-02-parent-child-index.jpg
 
 建议插入位置：`## 三、父子块索引：小块负责找，大块负责答` 附近。
 
@@ -400,7 +400,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 06-photo-03-index-methods-speed-map.png
+### 06-photo-03-index-methods-speed-map.jpg
 
 建议插入位置：`## 九、选修：向量数据库里的 Index` 附近。
 
@@ -416,7 +416,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 06-photo-04-evaluation-driven-index-loop.png
+### 06-photo-04-evaluation-driven-index-loop.jpg
 
 建议插入位置：`## 十二、索引优化必须用评估闭环驱动` 附近。
 
@@ -434,7 +434,7 @@ images_generated: 0
 
 ## 07.检索后处理.md
 
-### 07-photo-01-from-candidates-to-evidence-desk.png
+### 07-photo-01-from-candidates-to-evidence-desk.jpg
 
 建议插入位置：文章开头或 `## 一、故事要从“召回结果不一定排得对”开始` 附近。
 
@@ -450,7 +450,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 07-photo-02-two-stage-rerank.png
+### 07-photo-02-two-stage-rerank.jpg
 
 建议插入位置：`## 二、Rerank 为什么会出现` 附近。
 
@@ -466,7 +466,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 07-photo-03-fusion-dedup-compress.png
+### 07-photo-03-fusion-dedup-compress.jpg
 
 建议插入位置：`## 五、去重` 到 `## 七、上下文压缩` 之间。
 
@@ -482,7 +482,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 07-photo-04-reranker-choice.png
+### 07-photo-04-reranker-choice.jpg
 
 建议插入位置：`## 九、选修：cross-encoder 和 LLM reranker 的实现原理` 附近。
 
@@ -500,7 +500,7 @@ images_generated: 0
 
 ## 08.检验召回质量.md
 
-### 08-photo-01-gold-evidence-benchmark.png
+### 08-photo-01-gold-evidence-benchmark.jpg
 
 建议插入位置：`## 二、评估召回前，先定义什么叫“正确证据”` 附近。
 
@@ -516,7 +516,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 08-photo-02-recall-hit-precision.png
+### 08-photo-02-recall-hit-precision.jpg
 
 建议插入位置：`## 四、Recall@K` 到 `## 六、Precision@K` 之间。
 
@@ -532,7 +532,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 08-photo-03-ranking-metrics-ladder.png
+### 08-photo-03-ranking-metrics-ladder.jpg
 
 建议插入位置：`## 七、MRR` 到 `## 八、NDCG` 之间。
 
@@ -548,7 +548,7 @@ images_generated: 0
 4. 负向提示词
 使用统一负向提示词。
 
-### 08-photo-04-retrieval-eval-loop.png
+### 08-photo-04-retrieval-eval-loop.jpg
 
 建议插入位置：`## 十一、一个可落地的召回评估框架` 附近。
 

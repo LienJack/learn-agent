@@ -16,7 +16,7 @@
         "en": "docs/en/assets/00-04-harness-control-system/photo-01-etclovg-control-map.prompt.en.md",
         "ja": "docs/ja/assets/00-04-harness-control-system/photo-01-etclovg-control-map.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-04-harness-control-system/photo-01-etclovg-control-map.png",
+      "target_file": "docs/ja/assets/00-04-harness-control-system/photo-01-etclovg-control-map.jpg",
       "status": "prompt-translated"
     },
     {
@@ -31,7 +31,7 @@
         "en": "docs/en/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.prompt.en.md",
         "ja": "docs/ja/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.png",
+      "target_file": "docs/ja/assets/00-04-harness-control-system/photo-02-session-harness-sandbox-split.jpg",
       "status": "prompt-translated"
     },
     {
@@ -46,7 +46,7 @@
         "en": "docs/en/assets/00-04-harness-control-system/photo-03-event-object-flow.prompt.en.md",
         "ja": "docs/ja/assets/00-04-harness-control-system/photo-03-event-object-flow.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-04-harness-control-system/photo-03-event-object-flow.png",
+      "target_file": "docs/ja/assets/00-04-harness-control-system/photo-03-event-object-flow.jpg",
       "status": "prompt-translated"
     }
   ]

@@ -1,6 +1,6 @@
 # cover: LLM Provider 接続：CLI に最初のモデル呼び出しを通す
 
-Asset target: docs/ja/assets/00-07-llm-provider-cli-first-call/cover.png
+Asset target: docs/ja/assets/00-07-llm-provider-cli-first-call/cover.jpg
 
 imagegen を使って技術ブログのカバー画像を生成する。
 

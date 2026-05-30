@@ -3,7 +3,7 @@ title: "Productized CLI: profile, extension, multi-provider"
 description: "At this point, our small CLI Agent is no longer the early demo that could only run once."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent

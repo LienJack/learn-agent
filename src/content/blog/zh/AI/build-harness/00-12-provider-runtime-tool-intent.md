@@ -3,7 +3,7 @@ title: "Provider Runtime：provider 为什么只能返回 tool intent？"
 description: "上一组文章里，我们已经把一条底层纪律钉住了："
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

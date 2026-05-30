@@ -1,6 +1,6 @@
 # cover: システム境界：ChatBot、Workflow、Agent、Harness の違い
 
-Asset target: docs/ja/assets/00-03-chatbot-workflow-agent-harness/cover.png
+Asset target: docs/ja/assets/00-03-chatbot-workflow-agent-harness/cover.jpg
 
 imagegen を使って技術ブログのカバー画像を生成する。
 

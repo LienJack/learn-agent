@@ -14,7 +14,7 @@
         "en": "docs/en/assets/00-22-productized-cli-profile-extension/photo-01-profile-runtime-identity.prompt.en.md",
         "ja": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-01-profile-runtime-identity.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-01-profile-runtime-identity.png",
+      "target_file": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-01-profile-runtime-identity.jpg",
       "status": "prompt-translated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-22-productized-cli-profile-extension/photo-02-provider-resolver-stable-ux.prompt.en.md",
         "ja": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-02-provider-resolver-stable-ux.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-02-provider-resolver-stable-ux.png",
+      "target_file": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-02-provider-resolver-stable-ux.jpg",
       "status": "prompt-translated"
     },
     {
@@ -44,7 +44,7 @@
         "en": "docs/en/assets/00-22-productized-cli-profile-extension/photo-03-extension-lifecycle-gates.prompt.en.md",
         "ja": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-03-extension-lifecycle-gates.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-03-extension-lifecycle-gates.png",
+      "target_file": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-03-extension-lifecycle-gates.jpg",
       "status": "prompt-translated"
     },
     {
@@ -59,7 +59,7 @@
         "en": "docs/en/assets/00-22-productized-cli-profile-extension/photo-04-cli-event-output-contract.prompt.en.md",
         "ja": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-04-cli-event-output-contract.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-04-cli-event-output-contract.png",
+      "target_file": "docs/ja/assets/00-22-productized-cli-profile-extension/photo-04-cli-event-output-contract.jpg",
       "status": "prompt-translated"
     }
   ],

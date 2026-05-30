@@ -3,7 +3,7 @@ title: "System Boundaries: The Difference Between ChatBot, Workflow, Agent, and 
 description: "When people first build Agent systems, they often naturally read them as an upgrade path:"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -74,7 +74,7 @@ These four are not luxury versions on one line. They are engineering choices for
 
 ## Problem Chain
 
-![Uses the location of uncertainty to judge boundaries among ChatBot, Workflow, Agent, and Harness](./assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.png)
+![Uses the location of uncertainty to judge boundaries among ChatBot, Workflow, Agent, and Harness](./assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.jpg)
 
 The problem sequence:
 
@@ -550,7 +550,7 @@ The model judges. Harness hosts the environment where judgment happens.
 
 ## 5. Comparison: Not Ability Levels, But Control Boundaries
 
-![Highlights that Workflow control lives in code, while Agent control is partly handed to runtime model judgment](./assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.png)
+![Highlights that Workflow control lives in code, while Agent control is partly handed to runtime model judgment](./assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.jpg)
 
 Comparison table:
 
@@ -660,7 +660,7 @@ That is why some systems look like Agents but are Workflows when you read the co
 
 ### Uncertainty Budget: When It Is Worth Letting the Model Decide Next Step
 
-![Draws uncertainty, risk, and control cost as pressure pushing toward Harness](./assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.png)
+![Draws uncertainty, risk, and control cost as pressure pushing toward Harness](./assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.jpg)
 
 Once Workflow and Agent are separated, a practical design principle appears:
 

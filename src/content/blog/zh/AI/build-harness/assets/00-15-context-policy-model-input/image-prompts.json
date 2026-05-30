@@ -15,7 +15,7 @@
         "en": "docs/en/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.prompt.en.md",
         "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.png",
+      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-01-context-policy-projection.jpg",
       "status": "generated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.prompt.en.md",
         "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.png",
+      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-02-context-selection-gates.jpg",
       "status": "generated"
     },
     {
@@ -43,7 +43,7 @@
         "en": "docs/en/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.prompt.en.md",
         "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.png",
+      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-03-decision-ledger-trace.jpg",
       "status": "generated"
     },
     {
@@ -57,7 +57,7 @@
         "en": "docs/en/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.prompt.en.md",
         "ja": "docs/ja/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.png",
+      "target_file": "docs/zh/assets/00-15-context-policy-model-input/photo-04-model-input-workbench.jpg",
       "status": "generated"
     }
   ]

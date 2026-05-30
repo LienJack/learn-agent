@@ -1,6 +1,6 @@
 # cover: Harness 基础定义：模型外部的控制系统
 
-Asset target: docs/zh/assets/00-04-harness-control-system/cover.png
+Asset target: docs/zh/assets/00-04-harness-control-system/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

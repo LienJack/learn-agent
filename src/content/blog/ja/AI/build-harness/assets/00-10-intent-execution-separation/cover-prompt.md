@@ -1,6 +1,6 @@
 # cover: Intent / Execution 分離：モデルが提案し、システムが実行する
 
-Asset target: docs/ja/assets/00-10-intent-execution-separation/cover.png
+Asset target: docs/ja/assets/00-10-intent-execution-separation/cover.jpg
 
 imagegen を使って技術ブログのカバー画像を生成する。
 

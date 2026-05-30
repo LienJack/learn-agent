@@ -1,6 +1,6 @@
 # cover: Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent
 
-Asset target: docs/zh/assets/00-05-agent-evolution-path/cover.png
+Asset target: docs/zh/assets/00-05-agent-evolution-path/cover.jpg
 
 使用 imagegen 生成一张技术博客封面图。
 

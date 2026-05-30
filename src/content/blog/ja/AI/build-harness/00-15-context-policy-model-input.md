@@ -3,7 +3,7 @@ title: "Context Policy：モデルはこのターンで何を見るべきか？"
 description: "ここまでの記事で、Agent の実行経路はかなり分解できた。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "ja"
 tags:
   - Agent

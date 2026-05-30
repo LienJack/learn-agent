@@ -3,7 +3,7 @@ title: "Trace Analysis：事実ログで Agent 失敗を特定する"
 description: "前の数篇で、小さな CLI Agent はかなり現実的な位置まで来た。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "ja"
 tags:
   - Agent

@@ -1,6 +1,6 @@
 # cover: Agent 構成モデル：Model、Loop、Tools、State
 
-Asset target: docs/ja/assets/00-02-agent-components/cover.png
+Asset target: docs/ja/assets/00-02-agent-components/cover.jpg
 
 imagegen を使って技術ブログのカバー画像を生成する。
 

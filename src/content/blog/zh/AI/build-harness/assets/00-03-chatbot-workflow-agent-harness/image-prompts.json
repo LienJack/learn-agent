@@ -15,7 +15,7 @@
         "en": "docs/en/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.prompt.en.md",
         "ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.png",
+      "target_file": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-01-boundary-decision-map.jpg",
       "status": "generated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.prompt.en.md",
         "ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.png",
+      "target_file": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-02-workflow-vs-agent-control.jpg",
       "status": "generated"
     },
     {
@@ -43,7 +43,7 @@
         "en": "docs/en/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.prompt.en.md",
         "ja": "docs/ja/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.png",
+      "target_file": "docs/zh/assets/00-03-chatbot-workflow-agent-harness/photo-03-uncertainty-budget-to-harness.jpg",
       "status": "generated"
     }
   ]

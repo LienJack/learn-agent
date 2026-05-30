@@ -8,8 +8,8 @@
   "sectionExcerpt": "前文讲过，[[01.LLM的原理#一、先建立直觉：LLM 是什么|大语言模型最底层做的事]]，本质上是 next token prediction：根据前文预测下一个 token。你可以先把它理解成一个\"特别会接话的续写机器\"。\n\n这个起点很重要，因为后面所有概念，几乎都是在给这个\"只会接话的模型\"补能力。\n\n一开始，你让它干活时遇到的第一个问题是：\n\n**它虽然很会说，但它不知道你到底想让它怎么说。**\n\n比如你丢一句：\n\n\n这句话对人来说都很模糊，更别说对模型了。它会卡在很多岔路口上：\n\n- 你要它讲定义，还是讲解决方案？\n\n- 你要它写给新人，还是写给架构师？\n\n- 你要它短一点，还是讲透一点？\n\n- 你想听通用知识，还是公司内部实践？\n\n于是，人类为了让它不乱猜，做了第一件很自然的事：\n\n**把任务说清楚。**\n\n这一步，就是 `Prompt` 出现的原因。",
   "promptPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-01-item-e8be37a9-prompt.md",
   "promptJsonPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-01-item-e8be37a9-prompt.json",
-  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-01-item-e8be37a9.png",
-  "markdownRef": "./assets/02-llm/photo-01-item-e8be37a9.png",
+  "targetPath": "src/content/blog/zh/AI/1.概念介绍/assets/02-llm/photo-01-item-e8be37a9.jpg",
+  "markdownRef": "./assets/02-llm/photo-01-item-e8be37a9.jpg",
   "alt": "Prompt、Context、RAG 到底是什么 - 一、故事要从一个“只会接话”的模型开始",
   "promptStatus": "planned"
 }

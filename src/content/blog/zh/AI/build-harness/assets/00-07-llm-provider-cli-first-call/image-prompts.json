@@ -15,7 +15,7 @@
         "en": "docs/en/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.en.md",
         "ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.png",
+      "target_file": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.jpg",
       "status": "generated"
     },
     {
@@ -29,7 +29,7 @@
         "en": "docs/en/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.en.md",
         "ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.png",
+      "target_file": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.jpg",
       "status": "generated"
     },
     {
@@ -43,7 +43,7 @@
         "en": "docs/en/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.en.md",
         "ja": "docs/ja/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.ja.md"
       },
-      "target_file": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.png",
+      "target_file": "docs/zh/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.jpg",
       "status": "generated"
     }
   ]

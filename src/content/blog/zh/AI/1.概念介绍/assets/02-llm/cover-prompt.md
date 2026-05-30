@@ -1,7 +1,7 @@
 # cover: Prompt、Context、RAG 到底是什么
 
 Article: src/content/blog/zh/AI/1.概念介绍/02.如何让LLM更聪明.md
-Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/cover-prompt-context-rag.png
+Asset target: src/content/blog/zh/AI/1.概念介绍/assets/02-llm/cover-prompt-context-rag.jpg
 
 Use the imagegen skill to create a blog article cover image.
 

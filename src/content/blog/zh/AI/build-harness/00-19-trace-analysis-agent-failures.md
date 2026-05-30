@@ -3,7 +3,7 @@ title: "Trace Analysis：用事实日志定位 Agent 失败"
 description: "前面几篇把一个小型 CLI Agent 慢慢推到了更真实的位置。"
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent

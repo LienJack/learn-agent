@@ -16,7 +16,7 @@
         "en": "docs/en/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.en.md",
         "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.png",
+      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.jpg",
       "status": "prompt-translated"
     },
     {
@@ -31,7 +31,7 @@
         "en": "docs/en/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.en.md",
         "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.png",
+      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.jpg",
       "status": "prompt-translated"
     },
     {
@@ -46,7 +46,7 @@
         "en": "docs/en/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.en.md",
         "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.png",
+      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.jpg",
       "status": "prompt-translated"
     },
     {
@@ -61,7 +61,7 @@
         "en": "docs/en/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.en.md",
         "ja": "docs/ja/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.ja.md"
       },
-      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.png",
+      "target_file": "docs/ja/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.jpg",
       "status": "prompt-translated"
     }
   ]

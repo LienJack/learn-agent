@@ -3,7 +3,7 @@ title: "Minimal Agent Loop: From One-Off Answers to Multi-Step Action"
 description: "In the previous chapters we kept circling around a single question: an Agent isn't a single Prompt, nor is it a chattier model — it's a running sys..."
 author: LienJack
 pubDate: 2026-05-29
-heroImage: './assets/cover.png'
+heroImage: './assets/cover.jpg'
 locale: "en"
 tags:
   - Agent
@@ -66,7 +66,7 @@ Pin one sentence first:
 
 ## The Question Chain
 
-![Showing how a one-off answer turns into the minimal closed loop of Think, Act, Observe, Final](assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.png)
+![Showing how a one-off answer turns into the minimal closed loop of Think, Act, Observe, Final](assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.jpg)
 
 The question chain in this chapter is short, but every step carries weight:
 
@@ -177,7 +177,7 @@ That's the first step from answer to action.
 
 ## 2. A Loop Isn't a Longer Context — It's a State Machine
 
-![Explaining that a loop is a state machine with Ready, Thinking, Acting, Observing, Finished, Stopped, not a brainless while true](assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.png)
+![Explaining that a loop is a state machine with Ready, Thinking, Acting, Observing, Finished, Stopped, not a brainless while true](assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.jpg)
 
 A lot of people picture a multi-step Agent as "stuff all the history back into the model."
 
@@ -542,7 +542,7 @@ The first principle of a minimal Agent isn't "more capabilities is better" — i
 
 ## 7. Observe: Tool Results Are Not Logs — They're Next Round's Facts
 
-![Drawing how raw tool result becomes observation, prompt context, and event log](assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.png)
+![Drawing how raw tool result becomes observation, prompt context, and event log](assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.jpg)
 
 The second common problem in many Agent demos is shoving tool output straight back into the prompt.
 
@@ -627,7 +627,7 @@ The minimal implementation doesn't need a complete event log yet, but don't trea
 
 ## 8. Stop Conditions: The Loop Has to Know When Not to Continue
 
-![Explaining how stop conditions like final, maxTurns, budget, abort, invalid intent protect the loop](assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.png)
+![Explaining how stop conditions like final, maxTurns, budget, abort, invalid intent protect the loop](assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.jpg)
 
 The most underestimated part of an Agent Loop is its stop conditions.
 
