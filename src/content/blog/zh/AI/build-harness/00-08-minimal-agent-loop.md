@@ -952,6 +952,10 @@ Harness 是让这颗心跳在真实环境里长期稳定运行的外部控制系
 
 下一篇会继续沿着这条线往下走：当真实大模型被接进系统时，core 应该如何保持控制权？也就是说，我们要把模型接进 loop，而不是让模型接管 loop。
 
+## 落地到教学 Harness
+
+这一章的代码落点就是 `runAgentLoop()`：输入 `systemPrompt`、`messages`、`tools`、`model` 和 `toolRegistry`，输出本次新增的 `newMessages` 与 `events`。loop 不应该知道 HTTP、React 或 session 文件。它只负责在 maxTurns 内完成“assistant -> toolResult -> assistant”的状态转换，并在每个关键点 emit event。
+
 ---
 
 GitHub 地址: [00-08-minimal-agent-loop.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-08-minimal-agent-loop.md)

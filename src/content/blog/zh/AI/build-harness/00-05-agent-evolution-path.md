@@ -700,6 +700,10 @@ Harness 则是这些控制责任的合体：
 ```
 所以 Agent 不是一开始就被设计成复杂系统。它是在一次次遇到真实环境以后，从 Chat 长到 Tool，从 Tool 长到 Runtime，从 Runtime 长到 Managed。这也是后面继续写 ETCLOVG 七层 Harness 时最重要的背景。Execution、Tools、Context、Lifecycle、Observability、Verification、Governance 不是七个抽象分类。它们都是这条演化路径上，被真实任务逼出来的工程责任。
 
+## 落地到教学 Harness
+
+这章可以用教学项目的里程碑来读：先让 CLI/API 能回答，再让 `MockModel` 触发工具，再把工具结果写回 loop，再把 session 持久化，再用 UI 和事件线展示运行过程。每一步都只增加一种工程压力，不要一口气做 provider、权限、前端和持久化。这样演化路径就从概念变成可提交的阶段。
+
 ---
 
 GitHub 地址: [00-05-agent-evolution-path.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-05-agent-evolution-path.md)

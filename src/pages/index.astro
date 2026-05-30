@@ -5,6 +5,7 @@ import HomePage from '../components/home/HomePage';
 import VercelAnalytics from '../components/VercelAnalytics.astro';
 import { DEFAULT_LOCALE } from '../i18n/config';
 import { getHtmlLang, getMessages } from '../i18n/messages';
+import { localizePath } from '../i18n/utils';
 
 const locale = DEFAULT_LOCALE;
 const messages = getMessages(locale);
@@ -25,8 +26,10 @@ const messages = getMessages(locale);
 			<HomePage
 				siteTitle={messages.site.title}
 				copy={messages.home}
-				blogHref="/blog"
-				recommendedHref="/blog/AI/3.ClaudeCode%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90"
+				blogHref={localizePath(locale, '/blog')}
+				recommendedHref={localizePath(locale, '/blog/AI/3.ClaudeCode源码解析')}
+				harnessHref={localizePath(locale, '/blog/AI/build-harness')}
+				client:load
 			/>
 		</main>
 		<VercelAnalytics />

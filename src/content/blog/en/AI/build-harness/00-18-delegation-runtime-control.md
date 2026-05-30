@@ -155,7 +155,7 @@ Let's unpack it slowly.
 
 ## Problem Chain
 
-First, fix the problem chain for this chapter:
+First, let us pin down the problem sequence for this chapter:
 
 ```text
 A single Agent can complete small tasks
@@ -296,7 +296,7 @@ It is not "copying brainpower outward".
 
 It is "compressing high-noise exploration into low-noise evidence".
 
-As a problem chain, it looks roughly like this:
+As a problem sequence, it looks roughly like this:
 
 ![Delegation Runtime: delegate work without losing control Mermaid 1](./assets/00-18-delegation-runtime-control/mermaid-01.png)
 
@@ -724,7 +724,7 @@ A simple decision rule is:
 ```text
 The child task needs an independent perspective -> clean
 The child task needs the current main-line facts -> summary
-The child task needs the full working scene -> fork
+The child task needs the full working context -> fork
 ```
 
 For our CLI Agent, summary is the better default.
@@ -1919,11 +1919,7 @@ Multi-Agent is not more models.
 
 Multi-Agent is more coordination problems.
 
-Delegation Runtime does not solve:
-
-```text
-How do we make several Agents chat together?
-```
+Delegation Runtime does not solve "how to make several Agents chat together."
 
 It solves:
 
@@ -1967,6 +1963,10 @@ Trace Analysis.
 ```
 
 That is how the Harness becomes not only capable of running, but capable of explaining why it ran wrong.
+
+## Teaching Harness Landing Point
+
+If delegation is added to the teaching project, do not start with multi-agent chatting. Make it a controlled run: the parent creates a task packet with scope, allowed tools, and expected output; the child runs with isolated context; the parent receives only structured result and event summary. Delegation remains a Harness-managed execution unit.
 
 ---
 

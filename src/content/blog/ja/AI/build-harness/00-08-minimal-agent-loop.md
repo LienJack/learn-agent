@@ -952,6 +952,10 @@ Harness は、その心拍を現実環境で長期に安定して動かすため
 
 次章では、この線に沿ってさらに進む。本物の大規模モデルをシステムに接続したとき、core はどう制御権を保つべきか。つまり、モデルを loop に接続するのであって、モデルに loop を乗っ取らせない方法を扱う。
 
+## 教学 Harness への落とし込み
+
+この章の実装上の着地点は `runAgentLoop()` です。入力は `systemPrompt`、`messages`、`tools`、`model`、`toolRegistry`、出力はその run で増えた `newMessages` と `events` だけです。loop は HTTP、React、session file を知るべきではありません。`maxTurns` の範囲で `assistant -> toolResult -> assistant` の state transition を行い、重要な地点で event を emit します。
+
 ---
 
-GitHub: [00-08-minimal-agent-loop.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-08-minimal-agent-loop.md)
+GitHub ソース: [00-08-minimal-agent-loop.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-08-minimal-agent-loop.md)

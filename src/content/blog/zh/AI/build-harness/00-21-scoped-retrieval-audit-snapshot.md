@@ -1836,6 +1836,10 @@ Scoped Retrieval 的一句话是：
 凡是改变现实的机制，都必须可控、可引用、可回放。
 ```
 
+## 落地到教学 Harness
+
+教学项目里的 scoped retrieval 可以从 workspace 文件开始：检索结果不直接拼进 prompt，而是形成带 scope、query、matched files、snippets、reason 的 snapshot。Context builder 再决定哪些 snippet 进入模型输入。这样后续 trace 能回答“模型当时用了哪些证据”。
+
 ---
 
 GitHub 地址: [00-21-scoped-retrieval-audit-snapshot.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-21-scoped-retrieval-audit-snapshot.md)

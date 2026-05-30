@@ -1,5 +1,6 @@
 ---
 import type { AboutCopy } from '../../i18n/messages';
+import AboutExperience from './AboutExperience';
 
 interface Props {
 	copy: AboutCopy;
@@ -8,30 +9,4 @@ interface Props {
 const { copy } = Astro.props;
 ---
 
-<div class="about-shell">
-	<section class="page-intro">
-		<p class="page-eyebrow">{copy.eyebrow}</p>
-		<h1>{copy.title}</h1>
-		<p class="page-lead">{copy.lead}</p>
-		{
-			copy.intro.map((paragraph) => (
-				<p>{paragraph}</p>
-			))
-		}
-	</section>
-
-	<div class="about-sections">
-		{
-			copy.sections.map((section) => (
-				<section class="about-card">
-					<h2>{section.title}</h2>
-					{section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-				</section>
-			))
-		}
-	</div>
-
-	<section class="about-closing">
-		{copy.closing.map((paragraph) => <p>{paragraph}</p>)}
-	</section>
-</div>
+<AboutExperience copy={copy} client:load />

@@ -1813,6 +1813,10 @@ Harness 负责决定它这一轮能看到哪些可行动的下一步。
 
 这就是动态工具暴露真正的含义。
 
+## 落地到教学 Harness
+
+教学项目可以先把 capability discovery 做成最小版：UI 展示 `toolRegistry.definitions()`，模型输入只包含当前 registry 暴露的工具 schema。下一步再把 registry 按任务类型、profile 或权限状态动态裁剪。这样读者能理解“能力发现”不是把所有工具塞给模型，而是维护一个当前可见能力集合。
+
 ---
 
 GitHub 地址: [00-17-capability-discovery-skills-mcp.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-17-capability-discovery-skills-mcp.md)

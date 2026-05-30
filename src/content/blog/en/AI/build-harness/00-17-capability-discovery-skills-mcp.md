@@ -118,7 +118,7 @@ This article makes that boundary explicit.
 
 ## Problem Chain
 
-First fix the problem chain:
+First pin down the problem sequence:
 
 ```text
 Tool Runtime lets the model propose structured tool calls
@@ -1811,24 +1811,9 @@ The Harness decides which actionable next steps it can see in this round.
 
 That is the real meaning of dynamic tool exposure.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-This article does not generate images during the writing stage.
-
-Body image prompts are written to:
-
-```text
-docs/en/assets/00-17-capability-discovery-skills-mcp/image-prompts.json
-```
-
-Planned images:
-
-```text
-photo-01-capability-catalog-visible-set: explain the filtering chain from candidate capabilities to this round's visible set.
-photo-02-skills-mcp-toolsearch-layers: explain how Skills, MCP, and ToolSearch are layered in capability discovery.
-photo-03-visibility-permission-gates: explain that visibility gate and permission gate are two different control points.
-photo-04-dynamic-capability-diff: explain how capability changes enter the event log and replay.
-```
+The teaching project can start with minimal capability discovery: the UI shows `toolRegistry.definitions()`, and model input contains only the tool schemas exposed by the current registry. The next step is to prune the registry by task type, profile, or permission state. This teaches that capability discovery is not dumping every tool into the model; it is maintaining the current visible capability set.
 
 ---
 

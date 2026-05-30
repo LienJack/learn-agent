@@ -1890,6 +1890,10 @@ event stream 会变成远程可观察性协议。
 产品化 CLI 不是把 Agent 包装成命令，而是把 Agent 的运行身份、能力边界、模型偏好、扩展来源和输出协议都变成可解释的 Harness 入口。
 ```
 
+## 落地到教学 Harness
+
+教学项目走向产品化时，先补 profile 和稳定输出，而不是先做复杂平台。profile 决定 provider、默认工具、权限模式、输出 renderer；CLI 或 API 输出要区分人类可读日志和机器可读 JSONL。这样同一套 Harness 能用于本地交互、CI smoke test 和文档教学。
+
 ---
 
 GitHub 地址: [00-22-productized-cli-profile-extension.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-22-productized-cli-profile-extension.md)

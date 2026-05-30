@@ -1975,6 +1975,10 @@ bash
 
 它们要实现的是一组带语义、带权限、带 observation 的受控动作。
 
+## 落地到教学 Harness
+
+教学项目的工具链应该明确三步：`ToolCallContent` 是意图，`ToolRegistry.execute()` 是执行，`ToolResultMessage` 是 observation。`AgentEvent` 再记录 `tool_execution_start` 和 `tool_execution_end`。不要把 stdout 原样塞回 prompt；先整理成文本块和 `details`，长输出放 artifact 或摘要。
+
 ---
 
 GitHub 地址: [00-13-tool-runtime-observation.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-13-tool-runtime-observation.md)

@@ -1248,6 +1248,10 @@ Intent / Execution 必须分离。
 
 只有把这条线画清楚，后面的 Tool Runtime、Permission、Sandbox、Audit、Replay 才不是补丁，而是自然长出来的工程层。
 
+## 落地到教学 Harness
+
+教学版的 M0 Kernel 可以很薄：共享协议、事件类型、loop contract、tool contract 和 session contract。核心原则是模型进入系统，但不拥有系统。`MockModel` 或真实 provider 都只是 `TeachingModel` 的实现；它们不能跳过 `ToolRegistry`、不能直接写 session，也不能决定 UI 如何展示事件。
+
 ---
 
 GitHub 地址: [00-09-m0-core-kernel.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-09-m0-core-kernel.md)

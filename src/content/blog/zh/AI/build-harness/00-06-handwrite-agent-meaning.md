@@ -1267,6 +1267,10 @@ LLM Provider 接入：让 CLI 完成第一次模型调用
 
 > 手写 Agent 不是为了不用框架，而是为了看懂框架把哪些工程责任藏起来了。
 
+## 落地到教学 Harness
+
+手写的最小目标可以非常具体：`protocol.ts`、`message.ts`、`model.ts`、`mockModel.ts`、`loop.ts`、`tools.ts`、`sessionStore.ts`。这些文件不追求完整，而是让读者亲眼看到框架平时隐藏的决定：消息怎么建模、tool call 怎么回填、错误是不是 observation、session 从哪里恢复。
+
 ---
 
 GitHub 地址: [00-06-handwrite-agent-meaning.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-06-handwrite-agent-meaning.md)

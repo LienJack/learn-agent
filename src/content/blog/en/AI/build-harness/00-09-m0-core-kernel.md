@@ -99,7 +99,7 @@ A one-liner to anchor it:
 
 ![Explaining that the real provider only returns model events and tool intents, while execution authority still sits with core/runtime](assets/00-09-m0-core-kernel/photo-01-core-provider-boundary.png)
 
-The problem chain of this article is:
+The line of reasoning in this chapter is:
 
 ```text
 A mock provider can verify the loop, but cannot expose the complexity of integrating a real model
@@ -107,7 +107,7 @@ A mock provider can verify the loop, but cannot expose the complexity of integra
 -> If the core depends directly on the provider's response format, the system boundary gets pierced by the model API
 -> So we must first define stable contracts that normalize provider output into ModelEvent and ToolIntent
 -> ToolIntent is only a proposed action; execution, state updates, and event logging stay under the runtime's control
--> The runtime manages capabilities through the registry, records facts through the event bus, and derives the current scene through the state reducer
+-> The runtime manages capabilities through the registry, records facts through the event bus, and derives the current state through the state reducer
 -> The CLI and any future upper-layer product calls only the runtime facade, never touching the provider or tool details directly
 ```
 
@@ -712,7 +712,7 @@ Which tool results were truncated
 Which information stays only in the runtime and isn't given to the model
 ```
 
-So M0's state is more like a running scene folded from the event stream:
+So M0's state is more like a running task state folded from the event stream:
 
 ```ts
 type ConversationState = {
@@ -756,7 +756,7 @@ Because when we get to Context Engineering, we will return repeatedly to this ch
 
 ```text
 Event Log is what happened.
-State is the current task scene.
+State is the current task state.
 Context is what the model should see this turn.
 ```
 
@@ -1247,30 +1247,8 @@ Intent / Execution must be separated.
 
 Only by drawing this line clearly do the later Tool Runtime, Permission, Sandbox, Audit, and Replay stop being patches and become engineering layers that grow out naturally.
 
-## Illustration plan
+## Teaching Harness Landing Point
 
-This article does not generate images during the writing stage. The main entry point for body illustrations is an external prompt manifest:
-
-```text
-docs/en/assets/00-09-m0-core-kernel/image-prompts.json
-```
-
-At least 3 body images are planned:
-
-1. `photo-01-core-provider-boundary.prompt.en.md`
-   - Insertion point: `## Problem chain`
-   - Goal: explain that the real provider only returns model events and tool intents, while execution authority still sits with core/runtime.
-
-2. `photo-02-event-state-projection.prompt.en.md`
-   - Insertion point: `## 7. Conversation State: state is a projection of facts, not the facts themselves`
-   - Goal: explain the responsibilities of Event Log, State, Context Projection, and ModelRequest.
-
-3. `photo-03-runtime-facade-registry.prompt.en.md`
-   - Insertion point: `## 8. Runtime Facade: the CLI just kicks off a run, it doesn't take over the internals`
-   - Goal: explain the call boundaries between CLI, runtime facade, registry, and provider adapter.
-
-All prompt files use the four-part `blog-to-photo` format; the manifest stays in `prompt-only` status, and is later handed off to the image generation and multilingual image pipelines.
-
----
+The teaching M0 Kernel can be thin: shared protocol, event types, loop contract, tool contract, and session contract. The principle is that the model enters the system but does not own it. `MockModel` and real providers are only implementations of `TeachingModel`; they cannot bypass `ToolRegistry`, write session state directly, or decide how the UI renders events.
 
 GitHub source: [00-09-m0-core-kernel.md](https://github.com/LienJack/build-harness/blob/main/docs/en/00-09-m0-core-kernel.md)

@@ -124,7 +124,7 @@ It is an engineering discipline that makes RAG controllable, explainable, and re
 
 ## Problem Chain
 
-The main line of this article can be compressed into one problem chain:
+The main line of this article can be compressed into one problem sequence:
 
 ```text
 An Agent needs external knowledge
@@ -1833,6 +1833,10 @@ Retrieval is not adding material to a prompt.
 Retrieval changes the reality visible to the model.
 Any mechanism that changes reality must be controllable, citable, and replayable.
 ```
+
+## Teaching Harness Landing Point
+
+Scoped retrieval in the teaching project can start from workspace files. Retrieval results should not be pasted directly into the prompt; they become a snapshot with scope, query, matched files, snippets, and reason. The context builder then decides which snippets enter model input. Later trace can answer what evidence the model used at that moment.
 
 ---
 

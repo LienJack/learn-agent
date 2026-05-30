@@ -98,9 +98,9 @@ Because every later capability of the Agent has to start from "what exactly happ
 
 ![Explain why the CLI's first model call also needs to go through a provider contract first, to keep provider details out of the Agent core](assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.png)
 
-This article does not compare specific vendor capabilities, nor does it chase the latest naming of any one API; the actual interface fields in real code should follow the official documentation at the time of implementation. Here we are nailing down the system boundary first.
+This article does not compare specific vendor capabilities, nor does it chase the latest naming of any one API; the actual interface fields in real code should follow the official documentation at the time of implementation. Here we are defining the system boundary first.
 
-The problem chain of this article is:
+The line of reasoning in this chapter is:
 
 ```text
 calling a particular vendor's API directly is fastest
@@ -1314,36 +1314,9 @@ judge, act, observe, judge again
 
 By then, the first model call will become a single step inside a loop, rather than the whole system.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-This chapter does not embed final images inline, nor does it generate any.
-
-The main entry point of the image pipeline is at:
-
-```text
-docs/en/assets/00-07-llm-provider-cli-first-call/image-prompts.json
-```
-
-Three in-text images are planned:
-
-```text
-photo-01-provider-contract-boundary
-Insertion point: ## The Problem Chain
-Purpose: Explain why the CLI's first model call must also go through the provider contract first.
-External prompt: docs/en/assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.prompt.en.md
-
-photo-02-stream-event-normalization
-Insertion point: ## 5. Streaming: The Terminal Wants a Streaming Experience; the Runtime Wants an Event Stream
-Purpose: Explain how a provider's raw stream is translated by the adapter into unified ModelEvents and then consumed by the runtime and the CLI.
-External prompt: docs/en/assets/00-07-llm-provider-cli-first-call/photo-02-stream-event-normalization.prompt.en.md
-
-photo-03-error-mapping-decision
-Insertion point: ## 6. Error Mapping: Errors Are Not Strings, They Are Inputs to Runtime Decisions
-Purpose: Explain how a raw provider error becomes an actionable error category for the runtime.
-External prompt: docs/en/assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.prompt.en.md
-```
-
-These prompt files are English-only prompts for the English article, with visible labels explicitly constrained to English.
+The reference project reinforces an important order: connect a real provider adapter only after the internal protocol is stable. First make `TeachingModel.complete()` return an internal `AssistantMessage`; then map OpenAI-compatible `content`, `tool_calls`, and `finish_reason` into that shape. API keys, base URLs, and headers belong to configuration and adapter logs, never to messages, event logs, or model context.
 
 ---
 

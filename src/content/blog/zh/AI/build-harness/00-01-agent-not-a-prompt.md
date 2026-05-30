@@ -765,6 +765,10 @@ Evaluation 不是事后打分，而是防止 Harness 改坏已有能力。
 
 > Prompt 规定模型怎么说话，Agent 组织模型怎么做事，Harness 保证这件事能被控制。
 
+## 落地到教学 Harness
+
+把这章落到教学项目里，第一步不是写更长的 system prompt，而是让 prompt 只表达角色和边界，把“行动”交给 `runAgentLoop()` 与 `ToolRegistry`。验收点也应该很朴素：用户说“列出工作区文件”时，系统必须产生 assistant 的 `toolCall`、工具的 `toolResult`，再由 assistant 基于结果回答。这样读者一开始就能看到：prompt 给方向，Agent Loop 组织过程，Harness 负责执行和记录。
+
 ---
 
 GitHub 地址: [00-01-agent-not-a-prompt.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-01-agent-not-a-prompt.md)

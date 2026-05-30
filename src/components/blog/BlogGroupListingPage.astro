@@ -23,8 +23,64 @@ type Props = {
 	series?: BlogSeriesPageData;
 };
 
+const listingCopy = {
+	zh: {
+		groupOverview: 'Group Overview',
+		postCountShort: (count: number) => `${count} 篇`,
+		postCountLong: (count: number) => `${count} 篇文章`,
+		backToGroup: (groupTitle: string | undefined) => `返回 ${groupTitle ?? '文章列表'}`,
+		seriesKicker: '阅读路径',
+		startReading: '开始阅读',
+		tocLabel: '目录',
+		tocSummary: '按顺序读下去，会从模型原理一路走到 Agent 与 Harness 的工程视角。',
+		guideBadge: '导读',
+		emptySeries: '这个系列的目录已经预留出来了，后续内容会继续补进来。',
+	},
+	en: {
+		groupOverview: 'Group Overview',
+		postCountShort: (count: number) => `${count} posts`,
+		postCountLong: (count: number) => `${count} articles`,
+		backToGroup: (groupTitle: string | undefined) => `Back to ${groupTitle ?? 'articles'}`,
+		seriesKicker: 'Reading path',
+		startReading: 'Start reading',
+		tocLabel: 'Contents',
+		tocSummary:
+			'Read in order to move from model fundamentals into an engineering view of agents and harnesses.',
+		guideBadge: 'Guide',
+		emptySeries: 'This series outline is ready. More articles will be added over time.',
+	},
+	ja: {
+		groupOverview: 'グループ概要',
+		postCountShort: (count: number) => `${count} 本`,
+		postCountLong: (count: number) => `${count} 本の記事`,
+		backToGroup: (groupTitle: string | undefined) => `${groupTitle ?? '記事一覧'} へ戻る`,
+		seriesKicker: '読む順番',
+		startReading: '読み始める',
+		tocLabel: '目次',
+		tocSummary:
+			'順番に読むと、モデルの仕組みから Agent と Harness の工学的な見方までたどれます。',
+		guideBadge: 'ガイド',
+		emptySeries: 'このシリーズの目次は準備中です。後続の記事を追加していきます。',
+	},
+} satisfies Record<
+	Locale,
+	{
+		groupOverview: string;
+		postCountShort: (count: number) => string;
+		postCountLong: (count: number) => string;
+		backToGroup: (groupTitle: string | undefined) => string;
+		seriesKicker: string;
+		startReading: string;
+		tocLabel: string;
+		tocSummary: string;
+		guideBadge: string;
+		emptySeries: string;
+	}
+>;
+
 const { locale, posts, title, description, group, series } = Astro.props;
 const messages = getMessages(locale);
+const copy = listingCopy[locale];
 const groupedCards = await buildBlogGroupCards(posts, locale);
 const currentGroup = series?.group ?? group ?? null;
 const currentSeries = series ?? null;
@@ -68,7 +124,7 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 						<article class="blog-group-card">
 							<div class="blog-group-hero">
 								<div class="blog-group-copy">
-									<p class="blog-group-kicker">Group Overview</p>
+									<p class="blog-group-kicker">{copy.groupOverview}</p>
 									<h2>{currentGroup.title}</h2>
 									{currentGroup.alias && <p class="blog-group-alias">{currentGroup.alias}</p>}
 									<p class="blog-group-description">{currentGroup.description}</p>
@@ -98,7 +154,7 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 													}
 												</div>
 												<div class="blog-series-body">
-													<p class="blog-series-index">{item.postCount} 篇</p>
+													<p class="blog-series-index">{copy.postCountShort(item.postCount)}</p>
 													<h3 class="blog-series-title">{item.title}</h3>
 													<p class="blog-series-description">{item.description}</p>
 												</div>
@@ -117,7 +173,7 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 					<section class="series-posts-shell series-posts-shell-editorial">
 						<div class="series-context-strip">
 							<a class="series-context-link" href={localizePath(locale, `/blog/${currentGroup?.slug}`)}>
-								返回 {currentGroup?.title}
+								{copy.backToGroup(currentGroup?.title)}
 							</a>
 							<span class="series-context-divider">/</span>
 							<span class="series-context-current">{currentSeries.title}</span>
@@ -134,9 +190,9 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 								}
 							</div>
 							<div class="series-overview-copy">
-								<p class="series-overview-kicker">阅读路径</p>
+								<p class="series-overview-kicker">{copy.seriesKicker}</p>
 								<div class="series-overview-heading">
-									<p class="blog-series-index">{currentSeries.postCount} 篇文章</p>
+									<p class="blog-series-index">{copy.postCountLong(currentSeries.postCount)}</p>
 									<h1 class:list={['series-overview-title', { 'is-short-series-title': currentSeries.title.length <= 18 }]}>
 										{currentSeries.title}
 									</h1>
@@ -149,7 +205,7 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 											class="series-guide-link"
 											href={localizePath(locale, `/blog/${getPostSlug(currentSeriesGuidePost)}`)}
 										>
-											<span class="series-guide-title">开始阅读</span>
+											<span class="series-guide-title">{copy.startReading}</span>
 										</a>
 									)
 								}
@@ -157,8 +213,8 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 						</div>
 
 						<div class="series-posts-intro">
-							<p class="series-posts-label">目录</p>
-							<p class="series-posts-summary">按顺序读下去，会从模型原理一路走到 Agent 与 Harness 的工程视角。</p>
+							<p class="series-posts-label">{copy.tocLabel}</p>
+							<p class="series-posts-summary">{copy.tocSummary}</p>
 						</div>
 
 						<ol class="series-post-list">
@@ -172,7 +228,7 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 													<span class="series-post-title">{post.data.title}</span>
 													{
 														index === 0 && (
-															<span class="series-post-badge">导读</span>
+															<span class="series-post-badge">{copy.guideBadge}</span>
 														)
 													}
 												</span>
@@ -185,7 +241,7 @@ const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.pos
 							{
 								currentSeries.posts.length === 0 && (
 									<li class="series-post-empty">
-										这个系列的目录已经预留出来了，后续内容会继续补进来。
+										{copy.emptySeries}
 									</li>
 								)
 							}

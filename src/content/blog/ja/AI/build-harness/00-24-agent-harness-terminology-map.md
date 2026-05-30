@@ -127,6 +127,10 @@ Final Answer は verification evidence を引用できるだけで、verificatio
 
 Agent Harness の完了セマンティクスは、最後の状態を基準にすべきです。
 
+## 教学 Harness への落とし込み
+
+この用語マップは教学プロジェクトの field と対応させるとよく機能します。Intent は `ToolCallContent`、Observation は `ToolResultMessage`、Event は `AgentEvent`、Projection は `buildContext()` の出力、Snapshot は retrieval または model-input snapshot、Trace は replay 可能な event sequence です。用語が抽象定義ではなく、コードを読む案内になります。
+
 ---
 
 GitHub ソース: [00-24-agent-harness-terminology-map.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-24-agent-harness-terminology-map.md)

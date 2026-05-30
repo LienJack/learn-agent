@@ -24,7 +24,7 @@ Previously, we split Agent into several minimal parts:
 ```text
 Model: judge the next step
 Loop: keep the process moving
-Tools: touch the real world
+Tools: interact with the real world
 State: keep the task connected
 ```
 
@@ -57,7 +57,7 @@ model says run tests
 program runs tests
 ```
 
-This chain can work once and already look like an Agent. But as soon as someone else really uses it, questions appear. What if the model wants to execute `rm -rf`? What if it wants to read private files under the user's home directory? If it runs for ten minutes and the user interrupts, how is the field saved? After a tool error, should the next model turn see the full log or only a summary? If the same task continues tomorrow, where does the session resume from? If a modification looks successful but no test verified it, how does the system know it is done? If a user says the Agent damaged a file, how do we reconstruct what happened?
+This chain can work once and already look like an Agent. But as soon as someone else really uses it, questions appear. What if the model wants to execute `rm -rf`? What if it wants to read private files under the user's home directory? If it runs for ten minutes and the user interrupts, how is the working state saved? After a tool error, should the next model turn see the full log or only a summary? If the same task continues tomorrow, where does the session resume from? If a modification looks successful but no test verified it, how does the system know it is done? If a user says the Agent damaged a file, how do we reconstruct what happened?
 
 These questions do not belong to the model itself. They should not be left for the model to decide. The model only generates the next-step judgment from the current context. Permission, execution environment, session lifecycle, observability logs, verification criteria, and governance policy are engineering responsibilities outside the model. Together, those responsibilities are Harness.
 
@@ -75,7 +75,7 @@ This article does not turn Harness into a giant terminology box. It answers one 
 
 ![Overview of the seven ETCLOVG control responsibilities, emphasizing Harness as a model-external control system](./assets/00-04-harness-control-system/photo-01-etclovg-control-map.png)
 
-The problem chain:
+The problem sequence:
 
 ```text
 Once Agent can call tools
@@ -408,7 +408,7 @@ type ExecutionResult = {
 };
 ```
 
-The point is that "execution" becomes a governable object. The model cannot bypass it. Tools should not bypass it privately. UI should not bypass it directly. Every action that touches the real environment passes through Execution. This is Harness's first gate to reality.
+The point is that "execution" becomes a governable object. The model cannot bypass it. Tools should not bypass it privately. UI should not bypass it directly. Every action that interacts with the real environment passes through Execution. This is Harness's first gate to reality.
 
 ## 4. Tools: Not Functions, But Protocol Entrypoints
 
@@ -513,13 +513,13 @@ recent modification: near line 42 of src/parser.ts
 constraint: only modify current workspace
 ```
 
-Context prepares a clean, relevant, constrained judgment field. It does not think for the model.
+Context prepares a clean, relevant, constrained decision context. It does not think for the model.
 
 Diagram:
 
 ![Harness Base Definition: The Control System Outside the Model Mermaid 4](./assets/00-04-harness-control-system/mermaid-04.png)
 
-`Context Policy` is key. Many Agent failures are not because the model cannot reason, but because Harness shows it a messy field: obsolete logs from 30 minutes ago placed before latest observation, a user-rejected plan kept in high-priority context, or dependency install logs crowding out relevant code.
+`Context Policy` is key. Many Agent failures are not because the model cannot reason, but because Harness shows it a messy context: obsolete logs from 30 minutes ago placed before latest observation, a user-rejected plan kept in high-priority context, or dependency install logs crowding out relevant code.
 
 Context's goal is not "more information." It is:
 
@@ -768,7 +768,7 @@ function reviewAction(action: Action, session: Session): PolicyDecision {
 }
 ```
 
-This code is ordinary, and that shows Harness's temperament. Harness does not solve problems by being "smarter"; it solves them by making boundaries clear. This is the fundamental difference between Harness and Agent. Agent's value comes from judgment under uncertain tasks. Harness's value comes from control under clear boundaries. They are not intelligence layers above and below each other. They are different responsibility layers.
+This code is ordinary, and that is exactly the point. Harness does not solve problems by being "smarter"; it solves them by making boundaries clear. This is the fundamental difference between Harness and Agent. Agent's value comes from judgment under uncertain tasks. Harness's value comes from control under clear boundaries. They are not intelligence layers above and below each other. They are different responsibility layers.
 
 ## 10. Applying ETCLOVG to a Small CLI Agent
 
@@ -947,25 +947,11 @@ Chat Agent
 -> Managed Agent
 ```
 
-Then you will see that Harness is not a huge architecture designed up front. It is an engineering boundary forced to grow every time Agent touches a little more of the real world.
+Then you will see that Harness is not a huge architecture designed up front. It is an engineering boundary forced to grow every time Agent operates on a little more of the real world.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-### Diagram Type
-
-A horizontal engineering architecture mechanism diagram about "the Harness control system outside the model." Put a small CLI Agent in the center; the model outputs tool intent on the left; the real project environment is on the right; a clear Harness control plane sits in between. The control plane uses seven sections for ETCLOVG: Execution, Tools, Context, Lifecycle, Observability, Verification, Governance.
-
-### Visual Element List
-
-On the left is a Model with chat bubble labeled "next action intent"; in the middle is a large control-console panel titled Harness, containing seven short label modules; on the right are icons for folder, terminal, test result, event log, permission lock, and verification check; at the bottom is an event flow from user goal to model intent, policy decision, tool execution, observation, and verification.
-
-### Positive Image Prompt
-
-English technical tutorial illustration, modern engineering architecture style, clear infographic, light background. The center is a CLI Agent Harness control system showing seven model-external layers: execution, tools, context, lifecycle, observability, verification, governance. Include terminal window, filesystem, test result, permission lock, event log, verification check. Clean lines, clear structure, suitable for a technical blog header image, subtle hand-drawn texture, high readability, no complex decoration.
-
-### Negative Prompt
-
-No cyberpunk, no dark background, no abstract glowing brain, no robot figure, no excessive sci-fi, no dense tiny text, no complex 3D perspective, no portrait close-up, no blurry code rain, no single-color purple gradient, no marketing poster style.
+In the teaching project, the Harness does not need to be thick at first, but responsibilities must stay separate: Express API orchestrates requests, `runAgentLoop()` handles state transitions, `ToolRegistry` owns tool execution boundaries, `JsonlSessionStore` records facts, and React UI projects messages and events. If these objects do not swallow each other, permissions, traces, and resume can be added later without rewriting core.
 
 ---
 

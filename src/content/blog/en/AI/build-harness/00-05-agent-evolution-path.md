@@ -47,12 +47,12 @@ If the system can only chat, it explains possible causes. If it can call tools, 
 
 ![Overview of the natural evolution path from Chat Agent to Managed Agent and then Harness](./assets/00-05-agent-evolution-path/photo-01-four-stage-evolution.png)
 
-The problem chain:
+The problem sequence:
 
 ```text
 Chat Agent only manages messages and model calls
 -> users start asking it to "do things," so Tool Agent is needed
--> tools make the system touch the real environment, bringing failures, cost, and long tasks
+-> tools make the system interact with the real environment, bringing failures, cost, and long tasks
 -> Runtime Agent is needed for budget, interruption, error recovery, and session log
 -> once the system serves multiple people, projects, and environments
 -> Managed Agent is needed for sandbox, permission, context policy, memory, eval, trace, and deployment scheduling
@@ -143,7 +143,7 @@ If it is an assertion failure, compare expected and actual values.
 
 This answer is not necessarily wrong. The problem is that it did not do anything. It did not read the repository, run tests, see the real error, open files, or verify whether the fix passed.
 
-That is the boundary of Chat Agent: **it can manage conversation, but cannot touch the real environment.**
+That is the boundary of Chat Agent: **it can manage conversation, but cannot interact with the real environment.**
 
 If the task is concept explanation, drafting, or text summarization, this boundary is fine. Once the user says "fix it for me," Chat Agent exposes problems. It may present advice as progress. It may say "I will inspect the test logs," but the system did not inspect. It may invent facts from imagination. Without project structure, the model may guess React, Node, Python, or Rails. It cannot close the loop with verification. It can say "run tests after editing," but it cannot know tests passed.
 
@@ -322,7 +322,7 @@ by tool history and performance
 
 This is why Tool Agent grows toward Runtime Agent. Once tools increase, the system must manage visibility, budget, failure modes, and history. Otherwise tools shift from "let Agent act" to "make Agent easier to lose."
 
-Tool Agent is not the endpoint. Once tools touch the real world, new problems arrive: test commands hang, files do not exist, the model calls the same tool repeatedly, output is too long, token budget burns out, the user hits Ctrl-C, the process crashes after half a modification. These are not solved by adding another tool. They belong to Runtime.
+Tool Agent is not the endpoint. Once tools interact with the real world, new problems arrive: test commands hang, files do not exist, the model calls the same tool repeatedly, output is too long, token budget burns out, the user hits Ctrl-C, the process crashes after half a modification. These are not solved by adding another tool. They belong to Runtime.
 
 ## 3. Runtime Agent: Making Long Tasks Controllable, Recoverable, and Reviewable
 
@@ -412,7 +412,7 @@ What is the current workspace state?
 
 Runtime Agent's key change: **Agent not only generates next steps; it leaves a reviewable runtime trace.**
 
-In systems like Claude Code, this matters because code changes are not one-shot text generation. They happen in the filesystem, Git workspace, tests, and user confirmations. Without session log, the field is cut off after a crash. Without replay, developers cannot tell whether the bug came from model judgment, tool execution, or Runtime feedback. Without interrupt, users watch helplessly. Without compaction, long tasks are swallowed by the context window.
+In systems like Claude Code, this matters because code changes are not one-shot text generation. They happen across the filesystem, Git workspace, tests, and user confirmations. Without a session log, a crash destroys the working state. Without replay, developers cannot tell whether the bug came from model judgment, tool execution, or Runtime feedback. Without interruption, users can only watch the Agent keep running. Without compaction, long tasks are swallowed by the context window.
 
 Runtime Agent naturally appears after Tool Agent enters long tasks. It solves:
 
@@ -464,6 +464,10 @@ Managed Agent places Agent inside a governable shell. Entry decides where it is 
 Sandbox is easy to misunderstand. It is a safety mechanism, but not only safety. Sandbox also provides repeatable execution environment. If Agent runs freely on user machines, node versions, dependency cache, environment variables, and file permissions all vary. The same task may pass today on your machine and fail tomorrow in CI. Managed Agent needs to narrow these differences. That is why sandbox, container, workspace, permission, and secret scope appear together.
 
 Permission also grows. Tool Agent already has tool permission. Managed Agent asks a wider set of questions:
+
+```text
+Can this tool be called?
+```
 
 ```text
 Can this user trigger this Agent in this project?
@@ -568,11 +572,11 @@ These failure modes show that added mechanisms are not decoration. Each layer so
 
 ## 7. Engineering Implementation: Do Not Build the Big Platform All at Once
 
-Since Harness eventually grows out, should we design as a Managed Agent platform from the start? Not necessarily. This article emphasizes "naturally grow," not "pile everything on day one."
+Since a Harness eventually emerges around the Agent, should we design a Managed Agent platform from the start? Not necessarily. This article emphasizes "natural growth," not "pile everything onto day one."
 
 For a small CLI Agent, a steadier path is to add control layers in stages.
 
-Stage 1: only Chat Agent. The goal is to get provider contract, messages, and streaming output working. Do not rush into complex tools. First confirm:
+Stage 1: only Chat Agent. The goal is to get provider contract, messages, and streaming output working. Do not jump straight into complex tools. First confirm:
 
 ```text
 is the model input/output boundary clear?
@@ -809,28 +813,9 @@ The model judges the next step; Harness makes the next step happen in the real w
 
 Agent is not designed as a complex system from the start. It grows from Chat to Tool, from Tool to Runtime, from Runtime to Managed, as it repeatedly encounters real environments. This is the most important background for the later ETCLOVG Harness layers. Execution, Tools, Context, Lifecycle, Observability, Verification, and Governance are not seven abstract categories. They are engineering responsibilities forced out by real tasks along this evolution path.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-### Diagram Type
-
-Hand-drawn technical architecture evolution diagram. From left to right, show four stages: Chat Agent, Tool Agent, Runtime Agent, Managed Agent. Under each stage, draw the newly added control layer, and finally merge into an external Harness shell. The overall style should resemble an engineering whiteboard explanation, not a corporate promo poster.
-
-### Visual Element List
-
-- Left: simple chat bubble labeled `messages / model call`
-- Second segment: toolbox, file, terminal, labeled `tool schema / execution / observation`
-- Third segment: timer, breakpoint, logbook, recovery arrow, labeled `budget / interrupt / session log / replay`
-- Fourth segment: sandbox box, permission gate, trace panel, eval dashboard, labeled `sandbox / permission / trace / eval`
-- Far right: translucent Harness shell wrapping Runtime, Tools, Context, Policy
-- Main color: black-and-white linework plus pale-yellow highlights for key layers
-
-### Positive Image Prompt
-
-A horizontal hand-drawn engineering whiteboard diagram showing Agent evolving from Chat Agent to Tool Agent, Runtime Agent, Managed Agent, and finally naturally growing into Harness. Include chat bubble, toolbox, terminal window, logbook, recovery arrow, sandbox box, permission gate, trace panel, and eval dashboard. Use clear arrows to show newly added system responsibilities at each stage. Style: technical tutorial illustration, clean, restrained, structurally clear, black-and-white linework with pale-yellow key highlights, suitable for Chinese technical blog cover and in-article image.
-
-### Negative Prompt
-
-No cyberpunk style, no complex 3D rendering, no sci-fi robot, no excessive glow, no abstract gradient background, no dense tiny text, do not draw Agent as a humanoid assistant, no corporate promo poster texture, no dark blurry background, no random code rain.
+Read this chapter as a sequence of teaching-project milestones: first make CLI/API answer, then let `MockModel` trigger tools, then feed tool results back into the loop, then persist the session, then show the run through UI and events. Each step adds one engineering pressure. Do not add provider, permissions, frontend, and persistence all at once. The evolution path becomes a series of commit-sized stages.
 
 ---
 

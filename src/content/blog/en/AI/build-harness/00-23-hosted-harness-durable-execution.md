@@ -35,7 +35,7 @@ It can use the event log for replay.
 
 It can even delegate local subtasks to sub-agents.
 
-At this point, a temptation appears easily:
+At this point, it is easy to fall into a tempting shortcut:
 
 Since the local CLI already runs, can we just put it on a server and call it a Hosted Harness?
 
@@ -217,7 +217,7 @@ It is about explicitly modeling the task lifecycle.
 Article 4 separated three objects:
 
 ```text
-Session: the fact source
+Session: the source of truth
 Harness: the control loop
 Sandbox: the executor
 ```
@@ -504,7 +504,7 @@ Filesystem: which repo / worktree can it see?
 Network: can it access package registries, GitHub API, or internal services?
 Process: how long may test commands run?
 Resources: what are CPU, memory, disk, and concurrency limits?
-Snapshot: can the scene be retained after failure?
+Snapshot: can the working context be retained after failure?
 Reset: does the next task start from a clean environment?
 Persistence: what can be kept across steps?
 ```
@@ -574,11 +574,11 @@ Otherwise policy is only a promise on paper.
 
 ## 5. Workspace Setup: remote tasks do not magically have project state
 
-Local CLI has a natural scene:
+Local CLI has a natural working context:
 
 the current directory is the project.
 
-A remote worker does not have that scene.
+A remote worker does not have that context.
 
 Every time it starts a task, it must answer:
 
@@ -590,7 +590,7 @@ Should it create a temporary worktree?
 How are dependencies installed?
 Where are project rules?
 Can caches be reused?
-How is the failure scene preserved?
+How is the failure context preserved?
 ```
 
 That is workspace setup.
@@ -792,7 +792,7 @@ Article 16 already explained why this form cannot support long-task recovery.
 
 In Hosted Harness, the problem is even more obvious.
 
-Because the worker is not a reliable fact source.
+Because the worker is not a reliable source of truth.
 
 Workers crash.
 
@@ -996,9 +996,9 @@ Observation gives the model only the necessary summary.
 
 This diagram extends the principle from Article 16:
 
-messages are not the fact source.
+messages are not the source of truth.
 
-the event log is the fact source.
+the event log is the source of truth.
 
 artifact is factual evidence.
 
@@ -1146,7 +1146,7 @@ The user is not clicking just a button.
 
 The user is authorizing an action with contextual identity.
 
-## 10. Remote Worker: replaceable executor, not task fact source
+## 10. Remote Worker: replaceable executor, not task source of truth
 
 Now connect these layers.
 
@@ -1162,7 +1162,7 @@ The worker is the current executor attempting to advance the session.
 
 It is not the session itself.
 
-It is also not the fact source.
+It is also not the source of truth.
 
 It is more like a rented pair of hands.
 
@@ -1289,7 +1289,7 @@ But it should still preserve the key boundaries:
 
 ```text
 job queue is not session
-worker is not fact source
+worker is not source of truth
 sandbox is not workspace identity
 messages are not event log
 secret is not ordinary env
@@ -1353,7 +1353,7 @@ It reads automation policy.
 
 Then it creates or resumes the session.
 
-### 3. Workspace setup prepares the scene
+### 3. Workspace setup prepares the workspace
 
 Harness fetches the repository.
 
@@ -1558,11 +1558,11 @@ type HostedRuntime = {
 
 `HostedRuntime` provides external dependencies.
 
-`SessionStore` is the fact source.
+`SessionStore` is the source of truth.
 
 `ArtifactStore` is the evidence store.
 
-`WorkspaceManager` prepares the project scene.
+`WorkspaceManager` prepares the project workspace.
 
 `SandboxPool` provides a controlled execution environment.
 
@@ -1619,7 +1619,7 @@ Do not reverse it.
 
 If you open the sandbox first, clone the repo first, call the model first, and only then remember to save the session, failure recovery becomes difficult.
 
-The temperament of Hosted Harness is:
+The Hosted Harness discipline is:
 
 **Establish fact boundaries first, then advance action.**
 
@@ -1633,7 +1633,7 @@ The second smell is worker memory storing task facts.
 
 Workers may cache.
 
-But they cannot be the only fact source.
+But they cannot be the only source of truth.
 
 The third smell is treating the sandbox directory as the session.
 
@@ -1703,7 +1703,7 @@ This article requires tool execution to have remote workspace, artifact, and sec
 Article 16 said:
 
 ```text
-Session event log is the fact source for long tasks.
+Session event log is the source of truth for long tasks.
 ```
 
 This article requires worker, cron, notification, and resume to revolve around session.
@@ -1741,7 +1741,7 @@ Third, reliability for remote long tasks does not come from the worker staying a
 
 Remote execution is not Hosted Harness.
 
-Only when task triggers, fact source, execution environment, evidence, approval, notification, and recovery are all persistable outside the worker has the system entered Hosted Harness.
+Only when task triggers, source of truth, execution environment, evidence, approval, notification, and recovery are all persistable outside the worker has the system entered Hosted Harness.
 
 So the memory hook for Hosted Harness is:
 
@@ -1754,7 +1754,7 @@ In the next phase, when looking at any Agent framework, we will no longer only a
 We can ask more engineering-shaped questions:
 
 ```text
-Where is its session fact source?
+Where is its session source of truth?
 Where is its sandbox boundary?
 Is its cron idempotent?
 Are its artifacts traceable?
@@ -1764,6 +1764,10 @@ Does its deployment really make long tasks recoverable?
 ```
 
 Being able to answer these questions is when you have truly started to understand Agent Harness.
+
+## Teaching Harness Landing Point
+
+The hosted version can grow from the semantics of `/api/runs` and SSE: a run has a `runId`, events can be consumed as a stream, session can resume, and side effects need checkpoints. A real hosted Harness is not just running the local loop on a server. Runs, workspace, event log, artifacts, and retries all need durable identities.
 
 ---
 

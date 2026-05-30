@@ -21,55 +21,55 @@ aliases:
 
 # Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ここまで前の章を追ってきたなら、手元にはだんだん実用的になってきた CLI Agent があるはずです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+provider に接続できる。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+モデルの出力を tool intent に分解できる。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+Tool Runtime を通じて、ファイル操作、検索、ターミナルツールを実行できる。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+observation を session に書き戻せる。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+event log を使って replay できる。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+局所的なタスクを sub-agent に委譲することさえできる。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この段階になると、つい次のように考えたくなります。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+ローカル CLI がもう動くなら、それをサーバーに載せれば Hosted Harness になるのではないか。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+たとえば worker を 1 つ立てる。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+CLI コマンドを HTTP API で包む。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+cron を 1 つ足す。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+毎日深夜に次のように実行する。
 
 ```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+node cli-agent.js --task "このリポジトリのテスト失敗を調べて修正する"
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+一見、とても素直に見えます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+しかし、これは危険でもあります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ローカル CLI が証明するのは、仕組みが動くことです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+モデル、loop、tools、state、permission、session という部品が 1 台のマシン上で協調できることを示してくれます。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+しかし Hosted Harness が証明しなければならないのは、別のことです。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+**Agent が目の前で動いていないとき、現在のターミナルにも、現在の作業ディレクトリにも、現在のプロセスメモリにも依存できないとき、それでも長いタスクを復元可能で、監査可能で、ガバナンス可能な形で完了できるか。**
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+この記事は「プロダクト化とホスティング」段階の締めくくりです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ローカル Agent に新しいツールを 1 つ足す話ではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+特定の runtime の細部だけを議論する話でもありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+前の記事で積み上げてきた、荷重を受ける層をまとめて扱います。
 
 ```text
 Session / Harness / Sandbox
@@ -83,153 +83,153 @@ Notification
 Deployment Topology
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これらは一緒になって、次の問いに答えます。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+> Hosted Harness は、なぜ「CLI をサーバーに置くこと」ではないのか？
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+答えを先に一文に圧縮すると、こうです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+**Hosted Harness はリモートの Agent プロセスではありません。時間、worker、sandbox をまたいで Agent タスクのライフサイクルをホストする制御システムです。**
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この記事で完全なプラットフォームを一度に実装するわけではありません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+ここで描くのはホスティングの境界です。どの事実を worker の外側に永続化すべきか、どの action を policy に通すべきか、どの復元点に証拠が必要かを整理します。
 
 ## 一、ローカル CLI が証明できるのは仕組みであり、ホスティングではない
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+前と同じ例を使います。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-```
-
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+ユーザーがローカルでこう入力します。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+このリポジトリの CI が落ちています。原因を特定して修正してください。
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+ローカル CLI Agent の実行の流れは、おおよそ次のようになります。
 
 ```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+プロジェクトルールを読む
+-> テストを実行する
+-> 失敗ログを観察する
+-> 関連コードを検索する
+-> ファイルを編集する
+-> もう一度テストを実行する
+-> 結果を要約する
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この流れがローカルで通るだけでも、十分に価値があります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+多くの抽象が机上の空論ではないと確認できるからです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+たとえば provider contract はきれいに保たれているか。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+tool intent は validate できるか。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+permission gate は高リスクなコマンドを止められるか。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+event log は事実を記録しているか。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+context policy は長いログを、次のモデルターンで扱える observation に圧縮できるか。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+ただし、ローカル CLI には隠れた前提があります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ユーザーはたいていターミナルの前に座っています。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+現在のプロセスは生きています。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+現在の作業ディレクトリは存在しています。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+現在の環境変数も残っています。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+現在の shell のネットワーク、ファイルシステム、依存キャッシュもまだあります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+たとえタスクが失敗しても、ユーザーはターミナル出力を見て、何が起きたかをおおよそ理解できます。
+
+このタスクがリモートのホストタスクになった瞬間、これらの前提はすべて変わります。
+
+たとえばユーザーが automation を設定します。
 
 ```text
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+毎朝 8 時に main ブランチのテストを確認する。
+失敗していたら、修正を試みてレポートを送る。
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+このとき Agent は、ユーザーのターミナル内ですぐに実行されるわけではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+将来のある時刻に scheduler から起こされるかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+リモート worker に配置されるかもしれません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+GitHub から最新コードを取得する必要があるかもしれません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+一時 workspace を作る必要があるかもしれません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+サーバー側 vault にしかない secret を使う必要があるかもしれません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+40 分間動くかもしれません。
+
+途中で worker が preempt されるかもしれません。
+
+途中でユーザーの承認待ちになるかもしれません。
+
+patch、テストログ、trace、レポートを生成するかもしれません。
+
+タスク終了後に thread、メール、Slack、PR comment でユーザーへ通知する必要があるかもしれません。
+
+これは「CLI がサーバー上で一度動いた」という話ではありません。
+
+ホストされた実行システムです。
+
+ローカル CLI よりはるかに多くの問いに答えなければなりません。
+
+```text
+タスクはいつ trigger されたのか？
+trigger は idempotent か？
+このタスクはどの user / project / profile に属するのか？
+workspace はどう準備するのか？
+sandbox はどう選ぶのか？
+secret はどう注入し、どう漏洩を防ぐのか？
+event log はどこに保存するのか？
+artifact はどこに保存するのか？
+worker がクラッシュしたらどこから再開するのか？
+再実行で副作用が重複しないか？
+ユーザーがオンラインでないとき、どう承認を求めるのか？
+実行完了をどう通知するのか？
+失敗時にどう原因を帰属させるのか？
+```
+
+これらに明確な答えがなければ、ローカル CLI をサーバーに置いても、デバッグしづらい CLI になるだけです。
+
+成功したときは自動化されているように見えます。
+
+失敗したときは、replay できないログの断片だけを残します。
+
+したがって Hosted Harness の第一原則は次のとおりです。
+
+**「実行場所がリモートになった」ことを「システムがホスト化された」ことと取り違えない。**
+
+ホスト化の核心はリモートにあることではありません。
+
+タスクのライフサイクルが明示的にモデル化されていることです。
 
 ## 二、Hosted Harness の 5 つの境界
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+第 4 篇では、3 つの対象を分けました。
 
 ```text
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+Session：事実源
+Harness：制御ループ
+Sandbox：実行する手
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness では、この三分法をさらに外側へ 2 層広げる必要があります。
 
 ```text
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Automation：いつ、なぜタスクが trigger されるのか
+Deployment：これらのコンポーネントがどこに配置され、どうスケールし、どう tenant を隔離するのか
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+つまり Hosted Harness には、少なくとも 5 つの境界があります。
 
 ```text
 Automation
@@ -239,33 +239,33 @@ Sandbox
 Deployment
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これらは同じものではありません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+1 つの「remote agent service」に混ぜ込むべきでもありません。
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ](assets/00-23-hosted-harness-durable-execution/mermaid-01.png)
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この図で重要なのは、ノードの数ではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+矢印の向きです。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+Automation はリポジトリを直接操作しません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+記録可能な trigger を 1 つ作るだけです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Harness は事実を worker のメモリに隠しません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+event を Session に書き込みます。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+Sandbox はタスクの事実を所有しません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+action を実行する環境にすぎません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Deployment も業務ロジックそのものではありません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+queue、worker、vault、artifact store、sandbox pool を継続的に動かすためのインフラ層です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これらの層を混ぜると、よくある実装は次のようになります。
 
 ```ts
 cron.schedule("0 8 * * *", async () => {
@@ -274,93 +274,93 @@ cron.schedule("0 8 * * *", async () => {
 
   const result = await runCliAgent({
     cwd: repo.path,
-    prompt: "检查测试并修复",
+    prompt: "テストを確認して修正する",
   });
 
   await sendEmail(project.ownerEmail, result.summary);
 });
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+このコードがまったく動かないわけではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+demo ではむしろ滑らかに見えるかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+しかし、重要な問いをすべて埋めてしまっています。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+cron trigger に event がありません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+repo workspace にバージョン identity がありません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+secret がそのままプロセス環境に入っています。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+agent の実行過程に durable checkpoint がありません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+tool の副作用が独立して記録されていません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+artifact は一時ファイルにすぎません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+worker がクラッシュした後、どこまで進んだかわかりません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+メール送信後も、それが検証済みの結果に基づくかどうかわかりません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness が避けたいのは、まさに「すべての層を 1 つの async 関数に書いてしまう」衝動です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+より安定した分層は、たとえば次のようになります。
 
 ```text
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Automation が JobIntent を作成する
+-> Queue が Job を永続化する
+-> Worker が Job を取得する
+-> Harness が Session を作成または復元する
+-> Workspace Setup がコード環境を準備する
+-> Sandbox Pool が実行環境を割り当てる
+-> Durable Loop が各ステップを進める
+-> Artifact Store が証拠を保存する
+-> Notification が結果を送る、またはユーザー入力を求める
 ```
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+各ステップに event があるべきです。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+各ステップは復元できるべきです。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+各ステップは監査できるべきです。
 
 ## 三、Cron は定時コマンドではなく、復元可能なタスクを作る
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+多くのシステムが初めて automation を追加するとき、cron を「定時 Bash」として扱います。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+普通のスクリプトなら、それでも許容できることがあります。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+しかし Agent にとって、cron は 1 本のコマンドだけを表すべきではありません。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+タスク意図を表すべきです。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+Agent タスクは長くなる可能性があるからです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+一時停止するかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+approval が必要になるかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+retry するかもしれません。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+次の cron が来た時点でも、まだ実行中かもしれません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+そのため Hosted Harness の cron は、少なくとも 4 つの問いを扱う必要があります。
 
 ```text
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+schedule：いつ trigger するか
+identity：誰の代理として trigger するか
+idempotency：同じ時間窓ですでに trigger されていないか
+handoff：trigger 後に誰が責任を引き継ぐか
 ```
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+たとえば「毎朝 8 時にテストを確認する」は、直接こう変換すべきではありません。
 
 ```text
 run npm test
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+まず構造化された object になるべきです。
 
 ```ts
 type AutomationTrigger = {
@@ -382,22 +382,22 @@ type AutomationTrigger = {
 };
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この object の価値は、型がきれいに見えることではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+システムが次の問いに答えられるようになることです。
 
 ```text
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+このタスクはどの automation が trigger したのか？
+同じ時間窓の重複 trigger ではないか？
+どのユーザー認可を使うべきか？
+どのプロジェクト設定を使うべきか？
+結果をどこに送るべきか？
+人間の承認が必要な場合、すぐ通知すべきか？
 ```
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+cron が trigger された後、最初にすることはモデルを起動することではありません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+event を書くことです。
 
 ```text
 automation.triggered
@@ -405,125 +405,121 @@ job.created
 job.enqueued
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+その後ではじめて worker に入ります。
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ](assets/00-23-hosted-harness-durable-execution/mermaid-02.png)
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+この図では、cron はモデルを直接呼んでいません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+コマンドも直接実行していません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+「将来のある時刻に、ある作業を続けるべきだ」という意図を、復元可能な job に変えているだけです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+これが Hosted Harness における automation と、普通の cron スクリプトの違いです。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+普通の cron は、タスクが短く、決定的で、同期的だと仮定します。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+Agent automation は、タスクが長く、不確実で、一時停止しうると仮定しなければなりません。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+したがって cron の出力は stdout ではなく、追跡可能な job lifecycle であるべきです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この層がうまくできていないと、最もよく起きる問題は重複実行です。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+たとえばある朝 8 時に scheduler がタスクを trigger します。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+worker が repo の clone を始めた直後に、プロセスが再起動します。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+scheduler が retry し、新しい job を作ります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+2 つの job が同じブランチを同時に修正します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+一方はテストを直します。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+もう一方は古い workspace をもとに、衝突する patch を提出します。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+最後にユーザーは、互いに矛盾する 2 つの通知を受け取ります。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+これはモデル推論の失敗ではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+automation に idempotency がないことによる失敗です。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+Hosted Harness は、この種の失敗をモデルの外側で止めるべきです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+## 四、リモート Sandbox：檻であり、同時に許可証でもある
 
-## 四、リモート Sandbox：檻であり、同時にライセンスでもある
+ローカル CLI が最も手を抜きやすいのは、実行環境です。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+ユーザーの作業ディレクトリに直接立っています。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ファイルを読む、ファイルを書く、テストを実行する。そのすべてが同じホスト上で起きます。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+Hosted Harness では、このやり方はできません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモートのホスト環境が向き合うのは、1 人のユーザーの 1 回のコマンドではないからです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+複数ユーザー、複数プロジェクト、複数タスク、複数 worker の組み合わせです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+各タスクは、モデルが生成したコードを実行する可能性があります。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+各タスクは、private repository に触れる可能性があります。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+各タスクは、依存関係をインストールし、テストを実行し、ネットワークにアクセスする可能性があります。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+そのため sandbox は安全装置であるだけではありません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+より積極的な役割も持ちます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+**Agent が自由に行動してよい領域を定義することです。**
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+sandbox がなければ、システムは action ごとにユーザーへ尋ねるしかありません。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+このファイルを書いてよいですか？
+この依存関係をインストールしてよいですか？
+このテストを実行してよいですか？
+このドメインにアクセスしてよいですか？
+patch を生成してよいですか？
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+承認が増えすぎると、ユーザーは疲れます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+疲れたユーザーは、Agent を使うのをやめるか、反射的にすべて承認するようになります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+どちらもシステムの価値を損ないます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+sandbox があれば、permission は「操作ごとに尋ねる」から「今回のタスク用に境界のある workspace を設定する」へ変えられます。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+だから sandbox は檻であると同時に許可証でもあります。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+Agent が境界を越えないよう制限します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+同時に、境界内では Agent が継続して前進することを許します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+ホストされたテスト修正タスクでは、sandbox は少なくとも次に答える必要があります。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+ファイルシステム：どの repo / worktree だけを見せるのか？
+ネットワーク：package registry、GitHub API、内部サービスへアクセスできるのか？
+プロセス：テストコマンドは最長どれくらい実行できるのか？
+リソース：CPU、メモリ、ディスク、並行数の上限はいくつか？
+スナップショット：失敗後に現場を保持できるのか？
+リセット：次のタスクはクリーンな環境から始まるのか？
+永続化：どの内容をステップ間で保持できるのか？
 ```
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+sandbox backend によってトレードオフは異なります。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+ローカル権限 sandbox は起動が速く、ホストの見え方を狭めるのに向いています。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+コンテナは依存関係をパッケージしやすく、プロジェクト単位の隔離に向いています。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+microVM は隔離が強い一方、コストと cold start が重くなります。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+ブラウザやデスクトップ sandbox は computer-use 系のタスクに向いています。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness は、これらの選択を Agent loop にハードコードすべきではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+execution backend として抽象化するべきです。
 
 ```ts
 type SandboxSpec = {
@@ -546,83 +542,81 @@ type SandboxSpec = {
 };
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ここに prompt は出てきません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+「モデルがよいと思った」という判断も出てきません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+sandbox spec は Harness の実行契約です。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+モデルはテスト実行を提案できます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+しかし、ユーザーの home ディレクトリにアクセスしてよいかどうかは決められません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+secret を stdout に出してよいかどうかも決められません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+これらの境界は、Hosted Harness の実行層が保持しなければなりません。
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ](assets/00-23-hosted-harness-durable-execution/mermaid-03.png)
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+この図で最も重要な境界は `Policy -> Sandbox Spec` です。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+多くの人は sandbox を tool execution の内部実装だと考えます。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+しかし Hosted Harness では、sandbox は policy の物理化です。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+policy が「repo workspace の中でだけテストを実行できる」と言うなら、sandbox はその policy をファイルシステム、ネットワーク、リソース、プロセスの制限として実体化しなければなりません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+そうでなければ、policy は紙の上の約束にすぎません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+## 五、Workspace Setup：リモートタスクはプロジェクトの現場を最初から持っていない
 
-## 五、Workspace Setup：リモートタスクは現場を自動的には持たない
+ローカル CLI には自然な現場があります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+現在のディレクトリがそのままプロジェクトです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+リモート worker には、この現場がありません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+タスクを始めるたびに、まず次の問いに答える必要があります。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+コードをどこから取るのか？
+どの commit を取るのか？
+どのブランチを使うのか？
+一時 worktree を作るのか？
+依存関係をどうインストールするのか？
+プロジェクトルールはどこにあるのか？
+キャッシュは再利用できるのか？
+失敗時の現場をどう保存するのか？
 ```
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+これが workspace setup です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+単なる `git clone` ではありません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness が「ユーザーのプロジェクト」を「今回のタスクが操作できる workspace」へ投影する過程です。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+テスト修正タスクなら、setup plan は次のようになるかもしれません。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+project config を読む
+-> repo を取得する
 -> checkout main@sha
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+-> task branch を作る
+-> 依存関係をインストールする
+-> AGENTS.md / project rules を読む
+-> artifact ディレクトリを作る
+-> workspace.ready event を書く
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ここで最も重要なのは `main@sha` です。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモートの長いタスクは、どのコード事実を基点に始まったかを必ず知る必要があります。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+単に「main ブランチ」とだけ言った場合、タスクの途中で main が更新されたらどうなるでしょうか。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Agent が patch を生成するときに base commit がなければ、後続の review も replay も曖昧になります。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+そのため workspace setup は event に書き込むべきです。
 
 ```json
 {
@@ -638,53 +632,53 @@ Hosted Harness は、Agent タスクのライフサイクルを worker の外側
 }
 ```
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+こうしておけば、後続の各 tool event を同じ workspace identity に紐づけられます。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+テストログはどの commit に属するのか。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+patch はどの base に基づくのか。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+依存関係のインストールはどの sandbox で行われたのか。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+artifact はまだ残っているのか。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+これらの問いに event から答えられます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Workspace setup には、過小評価されがちなもう 1 つの点があります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これは context policy の入力でもあります。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+モデルの次のターンが見るのは「ある worker のディスクに何があるか」ではありません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+Harness が workspace の事実から投影した context です。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+現在のリポジトリ
+現在の base commit
+現在の task branch
+プロジェクトルールの要約
+依存関係のインストール状態
+直近のテスト結果
+利用できる tool の境界
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+setup が構造化されていなければ、context は shell 出力から推測するしかありません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+それではリモートタスクは非常に脆くなります。
 
 ## 六、Secret Boundary：secret は sandbox にもモデル context にも属さない
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモートのホストタスクは、避けようとしても secret に触れます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+たとえば private repository を取得するには token が必要です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+private package をインストールするには registry credential が必要です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+cloud service を呼ぶには API key が必要です。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+ユーザーに通知するには webhook が必要です。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+しかし Hosted Harness で最も危険な誤りの 1 つは、secret を普通の環境変数として sandbox に入れてしまうことです。
 
 ```ts
 env: {
@@ -694,42 +688,42 @@ env: {
 }
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これは最も簡単に見えます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+そして最も漏れやすい方法でもあります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Agent は次を実行するかもしれません。
 
 ```bash
 env
 ```
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+テストスクリプトが環境変数を出力するかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+依存関係のインストールログに token が含まれるかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+モデルが stdout を observation に要約するかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+observation がさらに messages に入るかもしれません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+最後には secret が trace、artifact、通知、さらには PR comment にまで現れるかもしれません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+だから Hosted Harness では secret boundary を硬い境界にする必要があります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+基本原則は次のとおりです。
 
 ```text
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+secret は vault に置く。
+モデルは secret の生値を見ない。
+sandbox はデフォルトで secret の生値を受け取らない。
+tool は capability を通じて secret を使う。
+log と artifact は redact する。
+注入が必要な場合は、最小 scope と最短 lifetime にする。
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+たとえば GitHub 操作では、必ずしも token を shell に渡す必要はありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+制御された tool を提供できます。
 
 ```text
 create_pull_request
@@ -737,49 +731,49 @@ post_pr_comment
 fetch_ci_status
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これらの tool は Harness 側で vault credential を使います。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+モデルは intent を提案するだけです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Tool Runtime が intent を検証します。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+tool の実行時にだけ一時的に secret を取り出します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+結果は構造化された observation として返します。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+secret は sandbox stdout に入りません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+secret は messages に入りません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+secret はユーザー向けレポートにも入りません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+もちろん、sandbox 内で private package をインストールする必要が本当にあるタスクもあります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+その場合でも、一時 credential を使うべきです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+さらに domain、command、有効期限、出力の redact を制限するべきです。
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ](assets/00-23-hosted-harness-durable-execution/mermaid-04.png)
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この図で最も重要なのは 2 本の破線です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Vault はモデルに入らない。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+Vault は sandbox に直接露出しない。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+この 2 本を守れなければ、Hosted Harness のほかのガバナンスも弱くなります。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモートホスティングとは、システムがユーザーの代理として行動することだからです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ユーザーの代理として行動するには、identity と credential が必要です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+そして identity と credential が漏れたとき、Agent の問題は「間違ったコードを変更した」だけでは済みません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+システムをまたぐ権限事故になりえます。
 
-## 七、Durable Execution：長いタスクは worker の生存に賭けてはいけない
+## 七、Durable Execution：長いタスクは worker が生き続けることに賭けてはいけない
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ローカル CLI の最小 loop は、次のように書けます。
 
 ```ts
 while (!done) {
@@ -790,51 +784,51 @@ while (!done) {
 }
 ```
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+第 16 篇で見たように、この書き方では長いタスクの復元を支えられません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness になると、その問題はさらに明確になります。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+worker は信頼できる事実源ではないからです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+worker はクラッシュします。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+preempt されます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+rolling deploy されます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+timeout で kill されます。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+人間の承認待ちのあいだに解放されることもあります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+したがって durable execution の核心は「try/catch を増やすこと」ではありません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+各ステップを、確認可能で、復元可能で、retry または skip できる state transition にすることです。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+ここでいう `durable execution` は復元 semantics を指しており、特定の workflow framework に依存しません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+queue、database、workflow engine、あるいは素朴な state machine で実装できます。重要なのは、未知の副作用を再実行せず、証拠のある境界からだけ続けることです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+これは第 16 篇の Session Replay と同じ規律を、リモート環境へ拡張したものです。
 
 ```text
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+Replay はローカル長期タスク復元の事実メカニズムである。
+Durable execution は remote worker / queue / sandbox 環境における復元メカニズムである。
+両者は同じ規律を共有する。未知の副作用を再実行せず、証拠のある境界からだけ続ける。
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Agent loop の特殊な点は、次にあります。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+モデル呼び出しも tool 実行も、普通の関数ではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+モデル呼び出しは異なる結果を返す可能性があります。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+tool 実行には副作用がある可能性があります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+context projection はモデルが見る世界を変えます。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+permission gate はタスクを一時停止させることがあります。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+そのため Hosted Harness の durable loop は、少なくとも次のような形である必要があります。
 
 ```text
 load session
@@ -859,64 +853,64 @@ load session
 -> release or renew job lease
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この流れは面倒に見えます。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+しかし各ステップは、1 つの復元の問いに答えています。
 
 ```text
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+いま worker が死んだら、次はどこから続けるのか？
 ```
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ](assets/00-23-hosted-harness-durable-execution/mermaid-05.png)
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この図で最も重要なのは `WaitingApproval` と `Paused` です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ローカル CLI では、これらをブロッキングとして扱いがちです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモート Hosted Harness では、通常の lifecycle として扱わなければなりません。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+ユーザーがオンラインでないことは、タスク失敗を意味しません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+worker を解放する必要があることも、タスク失敗を意味しません。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+予算が尽きたことも、タスク失敗を意味しません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これらはすべて session の durable state です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+次に resume するとき、Harness は event log を読みます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+state を再構築します。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+artifact を確認します。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+workspace を再準備するか snapshot を復元します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+そのうえで次の一手を決めます。
 
-### Retry は単に最初から走り直すことではない
+### Retry は最初からやり直すことではない
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Durable execution で最も起きやすい誤解は、retry を「最初からもう一度実行すること」と考えることです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Agent にとって、それはたいてい間違いです。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+モデル request は送ったが response がまだ永続化されていない場合、モデル呼び出しを retry すると別の intent が返るかもしれません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+tool は実行されたが `tool.finished` が書けていない場合、tool を retry すると副作用が重複するかもしれません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+通知は送ったが notification event が書けていない場合、retry によってユーザーへ重複して通知するかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+そのため retry はステップごとに分類する必要があります。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+pure read：retry できる
+model call：retry できるが request identity を記録する
+tool write：副作用の証拠を確認する必要がある
+external notification：dedupe key が必要
+approval request：idempotent でなければならない
+workspace setup：再構築できるが base identity を保持する
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+単純な durable step は、次のように表せます。
 
 ```ts
 type DurableStep = {
@@ -935,141 +929,141 @@ type DurableStep = {
 };
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+重要なのは型名ではありません。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+Harness が長いタスクを、連続した関数呼び出しとして見なくなることです。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+長いタスクを、復元可能なステップ列として見ることです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+各ステップには identity があります。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+各ステップには証拠があります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+各ステップには retry semantics があります。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+これが durable execution と普通のバックグラウンド job queue の違いです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+普通の queue は、たいてい job の成功または失敗だけを気にします。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness は、job 内部の Agent loop 1 ターンごとの因果境界を気にしなければなりません。
 
-## 八、Artifact Store：リモートタスクの証拠をログだけに残してはいけない
+## 八、Artifact Store：リモートタスクの証拠はログだけに残してはいけない
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ローカル CLI の出力は、通常ターミナルに出ます。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモートタスクでは、そんな贅沢はできません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ユーザーがオンラインとは限りません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+worker 終了後にローカルディスクが消されるかもしれません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+sandbox が破棄されるかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ログシステムが rolling text しか保持しないかもしれません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+一方で Agent タスクの重要な証拠は、多くの場合かなり大きいものです。
 
 ```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+テスト stdout / stderr
+完全な patch
+モデル入力 snapshot
+モデル出力の原文
 workspace diff
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+依存関係インストールログ
+スクリーンショット
 trace
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+評価レポート
+最終 summary
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これらをすべて event log に詰め込むべきではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+messages にすべて入れるべきでもありません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+artifact store に入れるべきです。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+event log は参照と hash を記録します。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+artifact store は証拠資料を保存します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+observation はモデルが必要とする要約だけを持ちます。
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ](assets/00-23-hosted-harness-durable-execution/mermaid-06.png)
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この図は第 16 篇の原則を引き継いでいます。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+messages は事実源ではありません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+event log が事実源です。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+artifact は事実の証拠です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+projection は、消費者ごとに見せる view です。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness における artifact store には、もう 1 つの価値があります。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+notification をより誠実にできることです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+たとえばリモート automation がテスト修正に失敗したとします。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-
-```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-```
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+通知にこうだけ書くべきではありません。
 
 ```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+修正に失敗しました。
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+次のような情報を添えられるべきです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+```text
+失敗テストの要約
+重要ログ断片
+完全なログ artifact
+生成された patch artifact
+最後の安定 checkpoint
+ユーザー承認が必要な次のステップ
+```
+
+これにより、ユーザーは worker マシンを開かなくてもタスク状態を理解できます。
+
+次回の resume も、「メール内の文字要約」に頼らず続けられます。
 
 ## 九、Notification：通知は final answer ではなく lifecycle event である
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ローカル CLI の終わり方は単純です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Agent が最後に一言こう言います。
 
 ```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+修正しました。テストも通っています。
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモート Hosted Harness の終わり方は、もっと複雑です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ユーザーが画面を見ているとは限らないからです。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+タスクは成功するかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+失敗するかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+一時停止するかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+承認待ちになるかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ユーザーに次の一手を選んでもらう必要があるかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+PR を生成するかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+毎日の健康診断レポートにすぎないかもしれません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+したがって notification は、単に「final answer を送る」ものではないはずです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+lifecycle の consumer であるべきです。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+つまり notification system は session event を読みます。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+notification policy に基づいて何を送るかを決めます。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+そして送信した通知自体も event log に書き戻します。
 
 ```text
 task.completed -> send summary
@@ -1079,44 +1073,44 @@ job.paused -> send resume reason if policy requires
 verification.failed -> send diagnostics
 ```
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+なぜ通知も event にするのでしょうか。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+通知そのものが副作用だからです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+重複送信されるかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+送信に失敗するかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ユーザーがクリックするかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+後続の resume の入口になるかもしれません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+event log に入らなければ、システムは次の問いに答えられません。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+ユーザーに通知されたのか？
+通知されたのはどのバージョンの事実か？
+ユーザーが承認したのはどの action か？
+その承認は現在の workspace にまだ適用できるか？
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモートタスクでは、notification はよく HITL と結びつきます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+たとえば Agent が高リスクなコマンドを実行したいとします。
 
 ```text
 rm -rf node_modules && npm install
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ローカル CLI なら、ターミナルで直接尋ねられます。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+許可しますか？
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness は、ターミナルが存在するとは仮定できません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+approval request を生成する必要があります。
 
 ```json
 {
@@ -1124,63 +1118,63 @@ Hosted Harness は、Agent タスクのライフサイクルを worker の外側
   "sessionId": "s23",
   "actionId": "act_019",
   "risk": "medium",
-  "reason": "需要清理依赖后重新安装以复现 CI",
+  "reason": "CI を再現するため、依存関係をクリーンにして再インストールする必要があります",
   "expiresAt": "2026-05-28T10:00:00Z",
   "notificationRef": "notification://thread/abc"
 }
 ```
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+ユーザーが承認したあと、システムは古い action をそのまま続行してはいけません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+さらに次を確認する必要があります。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+approval は期限切れではないか？
+workspace はまだ同じ base か？
+action はまだ適用可能か？
+permission policy は変わっていないか？
+session は別の worker によって進められていないか？
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ここが hosted HITL がローカル prompt より複雑なところです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ユーザーがクリックしているのは、ただのボタンではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ユーザーは、context identity を持つ action に権限を与えています。
 
 ## 十、Remote Worker：worker は交換可能な実行者であり、タスクの事実源ではない
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ここまでの層をつなげて見てみます。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness には通常、job queue と worker があります。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+しかし worker の位置づけは誤解されやすいです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+多くの人は worker を「Agent が動いている場所」と見なします。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これは半分だけ正しいです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+worker は、現在 session を前に進めようとしている実行者です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+しかし session そのものではありません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+事実源でもありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+むしろ借りてきた手のようなものです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+job を受け取る。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+workspace を準備する。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+sandbox を取得する。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+数ステップ進める。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+lease を更新する。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+続けられなければ解放する。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+本当に重要な事実はすべて外部に書かれます。
 
 ```text
 Session Store
@@ -1193,147 +1187,147 @@ Trace Store
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ](assets/00-23-hosted-harness-durable-execution/mermaid-07.png)
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この図では、Worker A のクラッシュ自体は災害ではありません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+災害なのは、Worker A がクラッシュしたとき、事実がそのメモリにしかないことです。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+session と artifact が外部にあれば、Worker B が引き継げます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+引き継ぐとは、単に再実行することではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+event log を replay します。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+artifact を確認します。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+workspace を復元します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+最後の安定点を見つけます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+そのうえで resume gate を通して続行します。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+これが Hosted Harness と「バックグラウンドで agent プロセスを走らせること」の分岐点です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+バックグラウンドプロセスは、プロセスが生き続けることを重視します。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness は、事実を復元できることを重視します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+プロセスは死んでもかまいません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+session は失ってはいけません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+artifact は失ってはいけません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+permission decision は失ってはいけません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+notification dedupe は失ってはいけません。
 
 ## 十一、Deployment Topology：Local CLI、Server、Hosted Harness の違い
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ここまで来ると、deployment topology を 1 枚の図で整理できます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+同じ Agent でも、topology が違えば負う責任はまったく違います。
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ](assets/00-23-hosted-harness-durable-execution/mermaid-08.png)
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Local CLI の強みは feedback が速いことです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+仕組みを学ぶ、tool をデバッグする、最小 loop を検証する、といった用途に向いています。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+ユーザーが能動的に開始し、短時間見守るタスクにも向いています。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Server Agent は一歩進んでいます。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+実行をリモートに移しています。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+API、queue、worker、集中ログを持つかもしれません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+しかし session を worker メモリに置き、sandbox を一時ディレクトリとして扱い、notification を最後のメッセージとして扱っているなら、それはまだ Hosted Harness ではありません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-
-```text
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-```
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-
-### 最初から一気に完成形を目指さない
-
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Hosted Harness の目印は次のとおりです。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+タスク trigger が記録可能である
+session が復元可能である
+sandbox が交換可能である
+workspace が再構築可能である
+secret に境界がある
+artifact が追跡可能である
+worker が失敗してもよい
+approval が時間をまたげる
+notification が dedupe 可能である
+trace で原因帰属できる
+deployment が governance 可能である
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これは機能リストではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ホストされた長いタスクの最低限の規律です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+### 最初から一気に作ろうとしない
 
-## 十二、ホストされたテスト修正タスクがどう完了するか
+これらの層を見ると、Hosted Harness は最初から重くなければならないように感じるかもしれません。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+そうではありません。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+最小実用の Hosted Harness は、かなり狭くてもかまいません。
+
+たとえば 1 つの GitHub repo だけをサポートする。
+
+cron は 1 つだけ。
+
+Docker sandbox は 1 種類だけ。
+
+通知方法も 1 種類だけ。
+
+テスト修正という種類のタスクだけをサポートする。
+
+それでも、重要な分層は守るべきです。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+job queue は session ではない
+worker は事実源ではない
+sandbox は workspace identity ではない
+messages は event log ではない
+secret は普通の env ではない
+final answer は notification lifecycle ではない
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+これらの境界は最初から明確にしておく必要があります。
+
+能力は少なくてかまいません。
+
+境界は乱してはいけません。
+
+## 十二、ホストされたテスト修正タスクはどう完走するか
+
+ここで、この記事全体を同じ例に戻します。
+
+ユーザーが automation を設定しています。
+
+```text
+毎朝 8 時に main ブランチを確認する。
+テストが失敗していたら修正を試みる。
+高リスクな操作が必要なら、承認のために通知する。
+修正に成功したら patch レポートを生成する。
+```
+
+Hosted Harness の 1 回の完全な実行は、次のように展開できます。
 
 ### 1. Cron がタスクを作成する
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+Scheduler が時刻になって trigger します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Agent を直接実行しません。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+`AutomationTrigger` を作成します。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+automation id、日付 window、project id を使って idempotency key を生成します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Queue はこの key がすでに存在するかを確認します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+存在するなら、重複作成しません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+存在しないなら、次を書き込みます。
 
 ```text
 automation.triggered
@@ -1343,99 +1337,99 @@ job.enqueued
 
 ### 2. Worker が job を取得する
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+ある worker が job lease を取得します。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+タスクを所有するわけではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+一定時間だけ前に進める権利を得るだけです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+project config を読みます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+user profile を読みます。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+automation policy を読みます。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+その後、session を作成または復元します。
 
 ### 3. Workspace setup が現場を準備する
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Harness はリポジトリを取得します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+`main@baseSha` に checkout します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+task branch を作ります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+依存関係をインストールします。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+プロジェクトルールを読みます。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+artifact root を作ります。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+`workspace.ready` を書き込みます。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+依存関係のインストールに失敗した場合、失敗ログは artifact に入ります。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+session は復元可能な失敗状態に入ります。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+notification policy が、すぐ報告するかどうかを決めます。
 
-### 4. Sandbox が制御された Tool を実行する
+### 4. Sandbox が制御された tool を実行する
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+モデルが提案します。
 
 ```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+テストを実行する。
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Provider は tool intent を返します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Harness は schema を validate します。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+Permission policy は、これが許可されたテストコマンドだと判断します。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+Sandbox は制御されたリソースで実行します。
 
 ```text
 npm test
 ```
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+stdout と stderr は artifact に入ります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Tool Runtime は observation を生成します。
 
 ```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+テストに失敗しました。失敗ケースは session refresh です。
+重要なエラー：expected token to persist, got undefined。
+完全なログは artifact://... を参照してください。
 ```
 
-### 5. Model は observation に基づいて進む
+### 5. Model が observation に基づいて進める
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Context policy は完全なログをモデルに詰め込みません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+現在の goal、base commit、失敗要約、関連ファイル断片、利用可能な tool と permission boundary を渡します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+モデルは関連コードの検索を提案します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+検索 tool は read-only です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+結果は event log と observation に入ります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+モデルは特定のファイル修正を提案します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Edit intent が validate されます。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+Patch が workspace に書かれます。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+diff は artifact に入ります。
 
 ### 6. Durable loop が各境界を記録する
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+各ステップは、メモリ上の「もうやった」ではありません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+event 内の事実です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+たとえば次のように記録されます。
 
 ```text
 model.requested
@@ -1450,21 +1444,21 @@ verification.started
 verification.finished
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+もし worker が `tool.finished` の後、`observation.appended` の前にクラッシュした場合、次の resume は tool result artifact がすでに存在することを見つけます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+コマンドを盲目的に再実行しません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+artifact から observation を再投影します。
 
 ### 7. 承認が必要なら一時停止する
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+たとえば Agent が `node_modules` を削除して再インストールしたいとします。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+policy は、これは高危険度の破壊操作ではないが、リソースを多く消費すると判断します。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+automation policy は人間の承認を要求しています。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Harness は次を書き込みます。
 
 ```text
 approval.requested
@@ -1472,71 +1466,71 @@ notification.sent
 job.paused
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+worker は lease を解放します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+ユーザーがあとで承認をクリックします。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+システムは次を書き込みます。
 
 ```text
 approval.granted
 job.resumed
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+新しい worker が引き継ぎます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+session を replay します。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+workspace base が変わっていないことを確認します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+approval がまだ有効であることを確認します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+そして続行します。
 
-### 8. タスク終了は一言では終わらない
+### 8. タスク終了は一言ではない
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+修正が終わったら、Harness は verification を実行します。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+テストが通ります。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+最終 diff、テストログ、summary を保存します。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+設定が許せば、PR を作るか patch artifact を生成できます。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+最後にユーザーへ通知します。
 
 ```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+テスト失敗を修正しました。
 base: main@abc123
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+変更ファイル: src/session.ts
+検証: npm test passed
 artifact: patch / test log / trace
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+同時に次を書き込みます。
 
 ```text
 task.completed
 notification.sent
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+こうしてユーザーが見るのは結果です。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+システムが保持するのは追跡可能な事実です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+次回の trace analysis は、チェーン全体のどこに時間がかかったかを把握できます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+次回の evaluation は、この session を再利用できます。
 
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
+次回の regression は、同種のタスクがまだ安定しているかを確認できます。
 
-## 十三、Hosted Harness の最小インターフェース案
+## 十三、Hosted Harness の最小インターフェーススケッチ
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+概念をもう少し具体化するために、小さな interface boundary を描いてみます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+完全性を目指すものではありません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness がどの責任を混ぜるべきではないかを示すだけです。
 
 ```ts
 type HostedHarness = {
@@ -1558,25 +1552,25 @@ type HostedRuntime = {
 };
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+`HostedHarness` は lifecycle を担当します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+`HostedRuntime` は外部依存を提供します。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+`SessionStore` は事実源です。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+`ArtifactStore` は証拠庫です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+`WorkspaceManager` はプロジェクトの現場を準備します。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+`SandboxPool` は制御された実行環境を提供します。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+`Vault` は secret を管理します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+`Notifier` は時間をまたぐ human-in-the-loop を管理します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+`Provider` と `ToolRuntime` は、前の章で扱った境界のままです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+簡略化した `run` は、次のように書けます。
 
 ```ts
 async function runHostedJob(job: JobLease, runtime: HostedRuntime) {
@@ -1605,169 +1599,173 @@ async function runHostedJob(job: JobLease, runtime: HostedRuntime) {
 }
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この擬似コードで最も重要なのは関数名ではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+順序です。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+まず session を load します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+次に replay します。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+それから workspace を ensure します。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+その後で sandbox を allocate します。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+最後に durable loop に入ります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+逆にしてはいけません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+先に sandbox を開き、先に repo を clone し、先にモデルを呼び、それから session 保存を思い出すようでは、失敗時の復元が難しくなります。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Hosted Harness の性格はこうです。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+**先に事実の境界を作り、その後で action を進める。**
 
-## 十四、よくある悪い兆候：これが見えたらまだ Hosted Harness ではない
+## 十四、よくある悪い兆候：これが見えたら、まだ Hosted Harness ではない
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+1 つ目の悪い兆候は、cron が直接 Agent を呼ぶことです。
 
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
+schedule trigger に job identity、idempotency key、event log がなければ、それは定時スクリプトにすぎません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+2 つ目の悪い兆候は、worker メモリがタスクの事実を保持していることです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+worker は cache してもかまいません。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+しかし唯一の事実源になってはいけません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+3 つ目の悪い兆候は、sandbox ディレクトリが session になっていることです。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+sandbox は破棄されます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+session まで一緒に破棄されてはいけません。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+4 つ目の悪い兆候は、secret が prompt や普通の env に直接入ることです。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+モデル、stdout、artifact、notification のどれか 1 つでも secret の生値を見られるなら、境界は破れています。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+5 つ目の悪い兆候は、retry が直接最初から走ることです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これは副作用を重複させます。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+同じ履歴点でモデルが異なる分岐を生むことにもなります。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+6 つ目の悪い兆候は、notification が event log に入らないことです。
 
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+ユーザーが何を、いつ、どの action に基づいて承認したかは、すべて監査可能でなければなりません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+7 つ目の悪い兆候は、artifact が worker のディスクにしかないことです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモートタスク終了後も、証拠は trace、eval、ユーザーレポート、resume に使える必要があります。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+8 つ目の悪い兆候は、Hosted Harness に明確な tenant boundary がないことです。
 
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
+複数ユーザー、複数プロジェクト、複数 secret、複数 workspace が混ざると、誤りのコストは非常に高くなります。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+9 つ目の悪い兆候は、deployment を最後の手順として扱うことです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+プロダクション化は、Agent を書き終えてからデプロイすることではありません。
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+Agent Harness を設計する時点で、それが時間、プロセス、環境をまたいで動くことを認めることです。
 
-## 十五、この篇が前段の流れをどう締めるか
+## 十五、この記事はこれまでの道筋をどう締めくくるか
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+この連載の流れを振り返ると、Hosted Harness は突然現れたものではありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+前に扱ったすべての問題が合流したものです。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-```
-
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+第 4 篇ではこう述べました。
 
 ```text
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+Harness はモデル外部の制御システムである。
 ```
 
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+この記事では、その制御システムをリモートデプロイ環境に置きました。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+第 10 篇ではこう述べました。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
+モデルが提案し、システムが実行する。
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+この記事では、システムによる実行は制御された sandbox 内で行われなければならないとしました。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+第 13、14 篇ではこう述べました。
 
 ```text
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+Tool Runtime は intent を observation に変える。
+Local Tool Bundle は permission runtime の制約下で動く必要がある。
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+この記事では、tool execution が remote workspace、artifact、secret boundary を備える必要があるとしました。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+第 16 篇ではこう述べました。
 
 ```text
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+Session event log は長いタスクの事実源である。
 ```
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+この記事では、worker、cron、notification、resume のすべてが session を中心に回る必要があるとしました。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
-
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+第 18 篇ではこう述べました。
 
 ```text
-この例では、失敗したテストを修正するタスクを使い、Hosted Harness の各境界がどう連携するかを確認します。
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+Delegation で分けるのは仕事であって、制御権ではない。
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この記事では、同じ原則を remote worker に適用しました。
+
+worker は実行を分担しますが、事実と制御権を所有しません。
+
+前のいくつかの記事では、trace analysis、memory governance、scoped retrieval、productized CLI も補ってきました。
+
+しかし Hosted Harness は、ひとつの段階的な締めくくりとして位置づけられます。
+
+```text
+Agent は、もはやローカルで 1 回のタスクを完了できるだけではない。
+ホストされ、スケジュールされ、復元され、監査され、ガバナンスされる形を持ち始める。
+```
+
+これは「Agent を書く」から「Agent Harness を運用する」への転換点でもあります。
 
 ## 終わりに：Hosted の核心はクラウドではなく、ホスト可能なライフサイクルである
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+この記事全体を 3 文に圧縮できます。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+第一に、ローカル CLI は仕組みを証明し、Hosted Harness はライフサイクルをホストします。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+第二に、Hosted Harness は CLI をサーバーに置くことではなく、automation、session、harness、sandbox、workspace、secret、artifact、notification、deployment を分層することです。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+第三に、リモートの長いタスクの信頼性は worker が生き続けることから来るのではなく、事実、証拠、権限、復元点がすべて worker の外側で永続化されていることから来ます。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+リモート化は Hosted Harness ではありません。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+タスク trigger、事実源、実行環境、証拠、承認、通知、復元が worker の外側で永続化可能になってはじめて、Hosted Harness に入ります。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+だから Hosted Harness の覚え方は次のように書けます。
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+**プロセスは死んでもよい。sandbox は差し替わってもよい。worker は再割り当てされてもよい。session、artifact、permission、workspace identity が残っている限り、Agent タスクは本当には失われていない。**
 
-Hosted Harness は、Agent タスクのライフサイクルを worker の外側で明示的に扱うための制御境界を説明します。
+ここまでで、このルートの前半は「モデルがどう行動するか」から「システムがどう行動をホストするか」へ進みました。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+次の段階で任意の Agent framework を見るとき、きれいな API があるかどうかだけを見る必要はありません。
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+より工学的な問いを投げられるようになります。
 
 ```text
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
-Sandbox は Agent が安全に動ける範囲を定義し、境界内では継続的な作業を許可します。
-Automation と Cron はコマンドを直接実行するのではなく、idempotency を持つ job lifecycle を作成します。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
-Workspace、secret、artifact、notification はそれぞれ独立した責務として分け、Agent loop に混ぜ込まないようにします。
-この層では、実行の事実、証拠、権限、復元点を永続化し、後から replay と audit ができるようにします。
+その session の事実源はどこにあるのか？
+その sandbox 境界はどこにあるのか？
+その cron は idempotent か？
+その artifact は追跡可能か？
+その retry は副作用を理解しているか？
+その notification は lifecycle に入っているか？
+その deployment は本当に長いタスクを復元可能にしているか？
 ```
 
-要点は、プロセスが落ちても session、artifact、permission、workspace identity が残る設計にすることです。
+これらに答えられてはじめて、Agent Harness を本当に理解し始めたと言えます。
+
+## 教学 Harness への落とし込み
+
+hosted version は `/api/runs` と SSE の意味から伸ばせます。run には `runId` があり、events は stream として消費でき、session は resume でき、副作用には checkpoint が必要です。本当の hosted Harness は local loop を server で動かすだけではありません。run、workspace、event log、artifact、retry がそれぞれ durable identity を持つ必要があります。
 
 ---
 

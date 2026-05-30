@@ -29,7 +29,7 @@ This article keeps the scope small. We only focus on four minimal parts:
 ```text
 Model: judge the next step
 Loop: drive the multi-step process
-Tools: touch the real world through a controlled protocol
+Tools: interact with the real world through a controlled protocol
 State: keep the process connected
 ```
 
@@ -75,12 +75,12 @@ Once these four parts are clear, reading any Agent framework becomes much easier
 
 ![Shows that Model, Loop, Tools, and State are not parallel nouns, but four responsibility boundaries in a closed loop](./assets/00-02-agent-components/photo-01-four-part-agent-loop.png)
 
-This article's problem chain is:
+This article's problem sequence is:
 
 ```text
 With only the model, the system can answer but cannot act
 -> With loop, the system can advance multiple steps, but each step still only imagines
--> With tools, the system can touch a real project, but actions must be recorded
+-> With tools, the system can operate on a real project, but actions must be recorded
 -> With state, the model can continue from history, but state will grow, expire, and be polluted
 -> Therefore runtime and harness are needed to organize the four parts into a controlled system
 ```
@@ -88,7 +88,7 @@ With only the model, the system can answer but cannot act
 The minimal Agent is not four modules laid flat; it is a flowing closed loop:
 
 ```text
-State provides the current field
+State provides the current task state
 -> Model judges the next step
 -> Loop receives that judgment and advances
 -> Tools execute controlled actions
@@ -167,13 +167,13 @@ Whether it can be read, how it is read, how the result is truncated and fed back
 
 This is the root of all later Harness design: the model proposes, the system executes.
 
-You can think of the model as a judge that keeps reading the "task field."
+You can think of the model as a judge that keeps reading the "task state."
 
 Each round, its input roughly contains three parts:
 
 ```text
 Task goal: what the user wants
-Field facts: file content, test logs, search results, historical decisions
+Facts: file content, test logs, search results, historical decisions
 Available actions: which tools this round may call
 ```
 
@@ -440,7 +440,7 @@ The core value of Loop is not "looping"; it is placing every action turn into a 
 
 After Model and Loop combine, the system can repeatedly judge, but it still only spins in text.
 
-Tools let Agent touch the external world indirectly through Tool Runtime.
+Tools let Agent operate on the external world indirectly through Tool Runtime.
 
 For a local CLI Agent, the first tool set is usually:
 
@@ -624,7 +624,7 @@ I should inspect the project structure first.
 
 or forgets the failure log that a tool returned one turn ago.
 
-State saves the task field and reorganizes it before the next model call.
+State saves the task state and reorganizes it before the next model call.
 
 Minimal state may contain:
 
@@ -670,7 +670,7 @@ We will discuss that layer separately later.
 For now, distinguish four terms that are easily mixed together:
 
 ```text
-State: full task field saved by the system
+State: full task state saved by the system
 Context: visible information prepared for this model call
 Memory: cross-session reusable information
 ```
@@ -678,7 +678,7 @@ Memory: cross-session reusable information
 And one more term that matters in production:
 
 ```text
-Session log: the event source of truth recorded over time
+Session log: the event log as the source of truth over time
 ```
 
 They are best separated like this:
@@ -686,7 +686,7 @@ They are best separated like this:
 | Name | Question It Answers | Lifecycle | Typical Content | Common Mistake |
 | --- | --- | --- | --- | --- |
 | Session log | What actually happened? | One session, persistable | user message, model event, tool intent, observation, approval, diff | Only save summaries and lose replayable facts |
-| State | What is the task field now? | One run or session | goal, turn, budget, read files, pending approval, current error | Treat state as prompt and keep stuffing it |
+| State | What is the task state now? | One run or session | goal, turn, budget, read files, pending approval, current error | Treat state as prompt and keep stuffing it |
 | Context | What should the model see this turn? | One model call | system prompt, relevant history, tool schemas, compressed summaries, current observation | Put all state into the model unchanged |
 | Memory | What can future tasks reuse? | Cross-session | user preferences, project experience, stable conventions, lessons from failures | Write unverified temporary hypotheses into long-term memory |
 
@@ -703,7 +703,7 @@ what observations tools returned
 what state deltas happened
 ```
 
-`State` is the current work field folded from these events. It can be cached, rebuilt, or indexed for performance. But if state conflicts with session log, the event log should be trusted.
+`State` is the current work state folded from these events. It can be cached, rebuilt, or indexed for performance. But if state conflicts with session log, the event log should be trusted.
 
 This design looks annoying, but once Agent needs resume, debug, eval, or replay, it becomes valuable. Otherwise you can only see a final result and cannot explain why a decision was made.
 
@@ -733,8 +733,8 @@ The engineering meaning is:
 
 ```text
 Session log provides traceability.
-State reducer folds events into the current field.
-Context projector projects the current field into model input.
+State reducer folds events into the current task state.
+Context projector projects the current task state into model input.
 Memory store retrieves across tasks, but is not automatically fact.
 ```
 
@@ -770,19 +770,19 @@ interface MemoryRecord {
 
 Then Context Builder can decide what to treat as a rule, what to treat only as weak hint, what has expired, and what must be reverified.
 
-In this tutorial's main line, start with the simplest memory policy: do not rush into long-term memory. Make session log and state solid first. After Agent can reliably complete one task, then write verified, reusable, sourced experience into Memory.
+In this tutorial's main line, start with the simplest memory policy: do not jump straight into long-term memory. Make the session log and state solid first. After the Agent can reliably complete one task, write only verified, reusable, sourced experience into Memory.
 
 ## 5. How the Four Parts Fit Together
 
 Now place the four parts back into one closed loop:
 
 ```text
-State: current task field
+State: current task state
 -> Model: judge the next step
 -> Loop: decide continue, stop, or execute
 -> Tools / Tool Runtime: execute controlled action
 -> State: record observation and side effects
--> Model: continue judging from the new field
+-> Model: continue judging from the new task state
 ```
 
 For the test-fixing example:
@@ -814,15 +814,15 @@ As responsibility boundaries, the skeleton can be written as four harder enginee
 ```text
 Model can only propose next-step intent; it cannot bypass Runtime to execute actions.
 Loop only advances lifecycle; it cannot hard-code tool implementation details into the main loop.
-Tools only touch the external world through protocol; they cannot bypass permission and observation pipelines.
-State only saves and folds the fact field; it cannot treat this turn's prompt as the source of truth.
+Tools only operate on the external world through protocol; they cannot bypass permission and observation pipelines.
+State only saves and folds facts; it cannot treat this turn's prompt as the source of truth.
 ```
 
 These sentences matter more than the four words themselves. Module names can change; responsibility boundaries should not casually change.
 
 One-sentence version:
 
-> Model judges, Loop advances, Tools touch the world, State records the field.
+> Model judges, Loop advances, Tools act on the world, State records the state.
 
 A system closer to Claude Code adds more control points:
 
@@ -830,7 +830,7 @@ A system closer to Claude Code adds more control points:
 
 This diagram is closer to the later Harness shape.
 
-`Runtime / QueryEngine` holds long-lived session state. `Context Builder` decides what the model should see this turn. `Permission Gate` decides whether the model's request can land. `Tool Runtime` turns action into controlled execution. `Session State` writes results back to the fact source. `Guardrails` check whether to stop, compact, retry, or ask the user.
+`Runtime / QueryEngine` holds long-lived session state. `Context Builder` decides what the model should see this turn. `Permission Gate` decides whether the model's request can land. `Tool Runtime` turns action into controlled execution. `Session State` writes results back to the source of truth. `Guardrails` check whether to stop, compact, retry, or ask the user.
 
 Complex Agent architecture is just adding control points at key positions of the minimal loop.
 
@@ -841,7 +841,7 @@ How is model output interpreted as events?
 How is the tool menu pruned each turn?
 How are tool calls wrapped by permission and sandbox?
 How do observations return to state, not only strings?
-How does a long task preserve the field under context pressure?
+How does a long task preserve the working state under context pressure?
 How does failure recover, retry, attribute, or stop?
 ```
 
@@ -866,7 +866,7 @@ When a tool needs approval, who pauses the loop?
 
 Runtime is the execution control layer of Agent.
 
-If it grows outward, Runtime gradually becomes Harness:
+As the boundary expands outward, Runtime gradually grows into Harness:
 
 ```text
 Runtime: manages the execution process of one Agent run
@@ -923,8 +923,8 @@ These four terms are easily mixed into one "big prompt."
 A steadier split is:
 
 ```text
-Session log: event source of truth, recording what happened.
-State: current task field folded from events.
+Session log: event log as the source of truth, recording what happened.
+State: current task state folded from events.
 Context: information projected to the model this turn.
 Memory: retrievable cross-task experience and long-term facts.
 ```
@@ -966,35 +966,9 @@ One sentence to remember:
 
 > The minimal Agent loop is: Model judges, Loop advances, Tools act, State carries the next round forward.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-### Diagram Type
-
-Circular flow diagram, because this article focuses on how Model, Loop, Tools, and State form a continuously advancing closed loop.
-
-### Visual Element List
-
-The center is Agent Runtime; four circular nodes are State, Model, Loop, Tools; a real project folder sits beside it as the external world; highlight Tools and State; leave a quote line at the bottom.
-
-### Positive Image Prompt
-
-Create an in-article technical explanation image about how the four minimal Agent components form a loop.
-
-Style: off-white paper background, black hand-drawn marker linework, slightly uneven line weight, small amount of pale-yellow highlighting, editorial technical illustration, hand-drawn flow diagram for a technical blog, clear, restrained, with an engineering sketch feel.
-
-Composition: circular flow diagram. In the center, draw a simple Agent Runtime control core, like a small console or circular dashboard. Around it, draw 4 main nodes connected by clockwise hand-drawn arrows: 1. State: state cards + ledger icon, representing the task field. 2. Model: small chip + thought bubble, representing judging the next step. 3. Loop: loop arrow + counter, representing multi-turn progress. 4. Tools: wrench + folder + small terminal window, highlighted in pale yellow, representing controlled action. Outside the ring on the right, place a "real project" folder node connected to Tools. Also give State a subtle pale-yellow highlight to show observations feeding back.
-
-Highlight: use pale yellow to emphasize Tools and State, and the arrow from Tools back to State.
-
-Background: very faint circuit lines, node links, and engineering sketch guidelines that do not compete with the subject.
-
-Text: keep node labels short; leave space at the bottom for a handwritten quote: "Model judges, Loop advances, Tools act, State carries forward." If generated text is unstable, leave a blank area for later text.
-
-The overall feeling should be a hand-drawn mechanism diagram in a technical blog, not product UI or a formal architecture diagram. Elements should be clear, layered, and arrow relationships obvious.
-
-### Negative Prompt
-
-No photorealism, no 3D, no complex UI screenshots, no large amounts of code, no dense tiny text, no complex tables, no cyberpunk, no neon colors, no dark background, no colorful cartoons, no complex shadows, no excessive decoration, no more than 8 main nodes, do not let background circuit lines become more prominent than the subject, do not generate long text.
+The teaching project can turn the four parts into concrete files: `MockModel` for Model, `runAgentLoop()` for Loop, `ToolRegistry` for Tools, and `JsonlSessionStore` for State. The important part is not naming symmetry. It is the direction of data flow: the model emits messages or tool intent, the loop advances the task, the tool runtime owns side effects, and the store builds context for the next turn.
 
 ---
 

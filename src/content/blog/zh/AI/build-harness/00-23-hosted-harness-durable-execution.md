@@ -1769,6 +1769,10 @@ Agent 不再只是能在本地完成一次任务。
 
 能回答这些问题，才算真的开始理解 Agent Harness。
 
+## 落地到教学 Harness
+
+托管版可以从 `/api/runs` 与 SSE 的语义继续长出来：run 有 `runId`，事件可以流式消费，session 可以恢复，副作用要有 checkpoint。真正的 hosted Harness 不是“把本地 loop 放到服务器跑”，而是让 run、workspace、event log、artifact 和 retry 都有持久身份。
+
 ---
 
 GitHub 地址: [00-23-hosted-harness-durable-execution.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-23-hosted-harness-durable-execution.md)

@@ -21,7 +21,7 @@ Starting with Tool Runtime, the series enters a stage where terms can easily blu
 
 The model no longer only answers questions. It proposes tool intents; the Harness validates, authorizes, executes, records, resumes, retrieves, injects context, delegates subtasks, and finally verifies that the goal was actually completed.
 
-If the terms are not pinned down, boundaries slowly smear:
+If the terms are not defined, boundaries slowly smear:
 
 ```text
 observation looks like event
@@ -48,7 +48,7 @@ This short appendix fixes one shared map for the core objects used from 00-13 to
 | `Audit Event` | Fact event for replay, trace, and audit | Session Store / Trace Analyzer |
 | `Artifact` | Large evidence material, such as full logs, diffs, model input snapshots, or source evidence | Artifact Store / Audit |
 | `Snapshot` | Visible evidence package or context evidence package at one point in time | Replay / Trace / Context Policy |
-| `Projection` | A consumer-specific view derived from a fact source | Context Policy / UI / Trace |
+| `Projection` | A consumer-specific view derived from a source of truth | Context Policy / UI / Trace |
 
 The basic direction is:
 
@@ -120,6 +120,10 @@ Final Answer may cite verification evidence, but cannot replace it.
 ```
 
 So "the tool ran", "the model said it is fixed", and "verification passed" are three different states. Agent Harness completion semantics should use the third one as the anchor.
+
+## Teaching Harness Landing Point
+
+This terminology map should align with teaching-project fields: Intent maps to `ToolCallContent`, Observation to `ToolResultMessage`, Event to `AgentEvent`, Projection to the output of `buildContext()`, Snapshot to retrieval or model-input snapshots, and Trace to replayable event sequences. The terms then guide code reading instead of remaining abstract definitions.
 
 ---
 

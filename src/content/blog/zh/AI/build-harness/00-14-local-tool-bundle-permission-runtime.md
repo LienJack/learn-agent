@@ -1919,6 +1919,10 @@ Bash 要审批、隔离、限时、截断、审计。
 
 下一步，系统就可以继续把这些本地工具接入更完整的 Permission、Hook、Context 和 Replay 机制。
 
+## 落地到教学 Harness
+
+参考项目的三个工具足够做第一版：`list_files`、`read_file`、`write_note`。重点是路径边界：所有输入都要通过 `resolveInsideWorkspace()`，写入只允许到受控目录，工具失败要返回可读 observation。等这个边界跑通后，再考虑 shell、edit、search 这些更高风险工具。
+
 ---
 
 GitHub 地址: [00-14-local-tool-bundle-permission-runtime.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-14-local-tool-bundle-permission-runtime.md)

@@ -40,9 +40,21 @@ Agent 的核心要素包括：
 
 适合会写 Python 或 TypeScript，能看懂 HTTP API、JSON、CLI、Git、SQLite 等基础组件的开发者。你不需要是 AI 研究员，只需要想弄清楚：怎样把一个 LLM 包进可靠的工程系统里，让它真正做事。
 
-## 章节目录
+## 推荐读法
 
-### 第零章：Agent 基础模型与 Harness 演化
+这套教程最好按“问题 -> 机制 -> 失效点 -> 下一个机制”的节奏读。每读到一层，都问自己三个问题：
+
+```text
+它解决了什么痛点？
+如果没有它，Agent 会在哪里失控或失真？
+它和前后两层机制怎样接上？
+```
+
+如果你想先建立全局地图，可以先读 00-01 到 00-05；如果你想尽快进入实现，可以读完 00-07 后开始跟着 00-08 到 00-16 搭最小 loop、tool runtime、context policy 和 event log。后面的能力发现、委派、trace、memory、retrieval、产品化与托管，则更像把一个能跑的 Agent 变成能交付、能诊断、能长期维护的 Harness。
+
+## 系列路径
+
+### 第一部分：Agent 基础模型与 Harness 演化
 
 1. [Agent 基础定义：它为什么不是一句 Prompt？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-01-agent-not-a-prompt.md)  
    从最容易误解的地方开始：Agent 不是更长的提示词，而是会循环、会调用工具、会记录状态、会接受控制的运行系统。
@@ -74,7 +86,7 @@ Agent 的核心要素包括：
 10. [Intent / Execution 分离：模型提议，系统执行](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-10-intent-execution-separation.md)  
     建立最重要的安全边界：模型只提出 intent，系统负责执行。这样才能做权限审批、审计、重放和可控调试。
 
-### 第二章：扩展边界
+### 第二部分：扩展边界
 
 11. [Plugin Host：core 为什么要学会被扩展？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-11-plugin-host-core-extension.md)  
     解释为什么 Harness 需要插件边界。Provider、工具、策略和工作流都应该能扩展，但 core 本身必须保持稳定。
@@ -82,7 +94,7 @@ Agent 的核心要素包括：
 12. [Provider Runtime：provider 为什么只能返回 tool intent？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-12-provider-runtime-tool-intent.md)  
     定义模型供应商的运行时边界：provider 可以返回文本和工具意图，但不能直接执行工具。执行权必须留在 Harness。
 
-### 第三章：执行与现场控制
+### 第三部分：执行与现场控制
 
 13. [Tool Runtime：从 tool intent 到 observation](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-13-tool-runtime-observation.md)  
     把工具意图变成结构化 observation。你会看到工具调度、执行、结果整理和错误归属如何形成可审计的运行链路。
@@ -96,7 +108,7 @@ Agent 的核心要素包括：
 16. [Session Replay：为什么事件日志是长任务的事实源？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-16-session-replay-event-log.md)  
     用事件日志替代脆弱的聊天历史。长任务需要可重放、可恢复、可审计的事实记录，而不是一串不可控消息。
 
-### 第四章：能力、协作与诊断
+### 第四部分：能力、协作与诊断
 
 17. [Capability Discovery：Skills、MCP 与动态工具暴露](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-17-capability-discovery-skills-mcp.md)  
     让 Agent 只看见当前需要的能力。Skills、MCP 和动态工具发现可以扩展系统，同时避免把模型淹没在工具列表里。
@@ -113,7 +125,7 @@ Agent 的核心要素包括：
 21. [Scoped Retrieval：从边界检索到 audit snapshot](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-21-scoped-retrieval-audit-snapshot.md)  
     让检索结果有范围、有证据、有审计快照。Agent 使用了什么资料、为什么能使用，都应该可以被追踪。
 
-### 第五章：产品化与托管
+### 第五部分：产品化与托管
 
 22. [Productized CLI：profile、extension、multi-provider](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-22-productized-cli-profile-extension.md)  
     把原型变成真正可用的 CLI：支持 profile、扩展、多 provider、稳定输出和可预期的用户体验。

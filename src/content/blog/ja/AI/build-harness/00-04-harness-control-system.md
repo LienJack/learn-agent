@@ -909,6 +909,10 @@ Chat Agent
 
 そのとき分かるはずです。Harness は最初から思いつきで設計する巨大アーキテクチャではありません。Agent が現実世界へ少し深く触れるたび、やむを得ず育ってくるエンジニアリング境界です。
 
+## 教学 Harness への落とし込み
+
+教学プロジェクトの Harness は最初から厚くなくてかまいません。ただし責任は分けます。Express API は request orchestration、`runAgentLoop()` は state transition、`ToolRegistry` は tool execution boundary、`JsonlSessionStore` は事実記録、React UI は messages と events の projection を担当します。ここを混ぜなければ、後から permission、trace、resume を足しても core を作り直さずに済みます。
+
 ---
 
 GitHub ソース: [00-04-harness-control-system.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-04-harness-control-system.md)

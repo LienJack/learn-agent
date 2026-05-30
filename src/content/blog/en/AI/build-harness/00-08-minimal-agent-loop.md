@@ -46,7 +46,7 @@ The user, inside a project directory, types:
 Help me figure out why this project's tests are failing, and fix them.
 ```
 
-If the system only calls the LLM once, the model can only generate a guess based on that single user sentence. It might say "check your dependency versions," "could be a test environment issue," or "try running npm test." These suggestions aren't necessarily wrong, but they never touch the real project, and they don't keep evolving based on observations.
+If the system only calls the LLM once, the model can only generate a guess based on that single user sentence. It might say "check your dependency versions," "could be a test environment issue," or "try running npm test." These suggestions aren't necessarily wrong, but they never inspect or affect the real project, and they don't keep evolving based on observations.
 
 What the Agent Loop fills in is exactly that gap:
 
@@ -247,9 +247,9 @@ Now back to ReAct.
 To keep the terminology from overshadowing the mechanism, let's not unfold the English term yet — just remember the four actions:
 
 ```text
-Think: based on the current scene, the model judges the next step.
+Think: based on the current state, the model judges the next step.
 Act: the model proposes a structured action intent.
-Observe: the system executes the action and writes the result back into the model-visible scene.
+Observe: the system executes the action and writes the result back into the model-visible context.
 Final: the model decides no further action is needed and gives a final conclusion.
 ```
 
@@ -428,7 +428,7 @@ This is an important boundary:
 ```text
 messages is the model-visible context.
 state is the runtime fact set.
-session log is the more complete event-fact source.
+session log is the more complete event-source of truth.
 ```
 
 In the minimal-implementation phase, the three can be very close. But from day one you should know they aren't the same concept.
@@ -439,7 +439,7 @@ Otherwise, you'll definitely run into this kind of mess later:
 To make the model aware, all tool logs got stuffed into messages.
 To recover a task, what happened got reverse-engineered out of messages.
 To compress context, messages got summarized.
-And the session fact source got summarized away with it.
+And the session source of truth got summarized away with it.
 ```
 
 That road is dangerous.
@@ -687,7 +687,7 @@ This isn't a perfect outcome — but it's a controlled one.
 
 An uncontrolled Agent will keep circling until tokens run out or the user loses trust.
 
-A controlled Agent will admit its boundary and hand the scene back to the user.
+A controlled Agent will admit its boundary and hand the working context back to the user.
 
 ## 9. Minimal Pseudocode: Look at Responsibilities, Not Syntax
 
@@ -846,7 +846,7 @@ The system stuffs every fact into messages; runtime has no separate state.
 
 The symptom is that debugging is painful: you don't know which tool was used in which turn, which tool failed, why the budget ran out, or whether the final was based on verification.
 
-The root cause is mixing "the context shown to the model" with "the system's own fact source."
+The root cause is mixing "the context shown to the model" with "the system's own source of truth."
 
 The minimal version can keep state in memory, but get the fields straight:
 
@@ -905,7 +905,7 @@ Which observations enter the model?
 Which only enter the event log?
 How do you truncate big logs?
 How do you compress old history?
-How do you keep the current task scene unbroken?
+How do you keep the current task state unbroken?
 ```
 
 ### 4. Verification Becomes the Completion Standard
@@ -942,7 +942,7 @@ Second, the minimal ReAct loop contains at least `Think / Act / Observe / Final`
 
 Third, a tool call is not execution itself. The model only proposes intent; the system handles validation, execution, recording, and feedback.
 
-Fourth, state is not a chat log. messages is the model-visible context, state is the runtime scene, and the event log is the more complete fact source.
+Fourth, state is not a chat log. messages is the model-visible context, state is the runtime state, and the event log is the more complete source of truth.
 
 Fifth, an Agent that can stop is more trustworthy than an Agent that can only continue.
 
@@ -952,37 +952,9 @@ One sentence to remember this chapter:
 
 The next chapter continues along the same line: when a real LLM is wired into the system, how should the core retain control? That is, we want to wire the model into the loop, not let the model take over the loop.
 
-## Illustration Plan
+## Teaching Harness Landing Point
 
-> The external image-prompt file is the main entry point for the downstream image pipeline; this article does not generate images directly. Corresponding directory: `docs/en/assets/00-08-minimal-agent-loop/`.
-
-### photo-01-react-loop-from-answer-to-action
-
-- Insertion point: `## The Question Chain`
-- Diagram type: circular loop
-- Purpose: show how a one-off answer becomes the minimal closed loop of Think, Act, Observe, Final.
-- Target prompt: `docs/en/assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.prompt.en.md`
-
-### photo-02-state-machine-budget-stop
-
-- Insertion point: `## 2. A Loop Isn't a Longer Context — It's a State Machine`
-- Diagram type: state sequence
-- Purpose: explain that the loop is a state machine with Ready, Thinking, Acting, Observing, Finished, Stopped — not a brainless while true.
-- Target prompt: `docs/en/assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.prompt.en.md`
-
-### photo-03-observation-feedback-pipeline
-
-- Insertion point: `## 7. Observe: Tool Results Are Not Logs — They're Next Round's Facts`
-- Diagram type: horizontal pipeline
-- Purpose: clearly draw how a raw tool result becomes observation, prompt context, and event log.
-- Target prompt: `docs/en/assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.prompt.en.md`
-
-### photo-04-stop-conditions-decision-path
-
-- Insertion point: `## 8. Stop Conditions: The Loop Has to Know When Not to Continue`
-- Diagram type: decision path
-- Purpose: show how stop conditions like final, maxTurns, budget, abort, and invalid intent protect the loop.
-- Target prompt: `docs/en/assets/00-08-minimal-agent-loop/photo-04-stop-conditions-decision-path.prompt.en.md`
+The code landing point for this chapter is `runAgentLoop()`: it receives `systemPrompt`, `messages`, `tools`, `model`, and `toolRegistry`, then returns only this run’s `newMessages` and `events`. The loop should not know about HTTP, React, or session files. It only performs the `assistant -> toolResult -> assistant` state transition within `maxTurns` and emits events at the important points.
 
 ---
 

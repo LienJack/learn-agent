@@ -93,8 +93,8 @@ So Context Policy is not a prompt concatenation trick, nor is it "summarize when
 Shorter:
 
 ```text
-State is the scene the system saves.
-Context is the scene visible to the model in this round.
+State is the task state the system saves.
+Context is the state visible to the model in this round.
 Model Input is the final format of Context.
 Context Policy is the governance rule from the first two to the third.
 ```
@@ -105,7 +105,7 @@ This article answers:
 
 We keep using the same example: a small CLI Agent is fixing failing tests.
 
-This article will not rush into Memory or RAG. First we need to clarify a lower-level action:
+This article will not jump straight into Memory or RAG. First we need to clarify a lower-level action:
 
 ```text
 Select a workbench for the model from the world of facts.
@@ -113,7 +113,7 @@ Select a workbench for the model from the world of facts.
 
 ## Problem Chain
 
-The problem chain in this article is:
+The line of reasoning in this chapter is:
 
 ```text
 Every Agent round produces new tool results and state changes
@@ -310,7 +310,7 @@ In this tutorial, start with:
 | Name | Question answered | Lifecycle | Typical contents | Common mistake |
 | --- | --- | --- | --- | --- |
 | Session log | What actually happened? | One task, persistable | User messages, model events, tool intent, permission, observation, verification | Only storing summaries and losing the source of truth |
-| State | What is the current task scene? | One run or session | Current goal, turn, budget, read files, current error, pending approval | Using state verbatim as prompt |
+| State | What is the current task state? | One run or session | Current goal, turn, budget, read files, current error, pending approval | Using state verbatim as prompt |
 | Context | What does the model see in this round? | One model call | Rules, current task summary, recent observations, relevant file snippets, tool schema | Putting all information in |
 | Memory | What can be reused in future tasks? | Cross-session | User preferences, stable project facts, verified experience | Writing unverified temporary guesses into it |
 
@@ -320,7 +320,7 @@ It determines system boundaries.
 
 Session log should be as immutable as possible. It is the source of truth.
 
-State can be folded from session log. It is the current scene.
+State can be folded from session log. It is the current state.
 
 Context is the current-round view projected from state, rules, memory, and retrieval.
 
@@ -363,7 +363,7 @@ Tools should only produce observation.
 
 observation is written into the event log.
 
-state reducer folds events into the current scene.
+state reducer folds events into the current state.
 
 context projector then decides what the model sees in this round.
 
@@ -592,7 +592,7 @@ You can think of Model Input as a workbench:
 
 ```text
 Rules and current goal are on top.
-Current scene and latest observation are in the middle.
+Current state and latest observation are in the middle.
 Citable evidence sits nearby.
 Historical summaries sit in the corner.
 Artifacts stay in drawers until needed.
@@ -761,7 +761,7 @@ Context Policy does not need to panic.
 
 It only needs to consistently mark them as observation, not instruction.
 
-That is the Harness temperament: do not hope the model always sorts it out; make the system draw the boundary first.
+That is the Harness mindset: do not hope the model will always sort it out; make the system draw the boundary first.
 
 ## 8. Budget: Tokens Are a Runtime Resource
 
@@ -1056,7 +1056,7 @@ Besides latest observation, the model needs recent tail.
 
 Recent tail is the key events from the last few rounds.
 
-Its value is not full history, but preserving the feel of the current scene:
+Its value is not full history, but preserving the feel of the current state:
 
 ```text
 Why did we read this file?
@@ -1570,22 +1570,9 @@ More context is not automatically better.
 
 Context should be just enough, and explainable.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-Image prompts for this article are stored at:
-
-```text
-docs/en/assets/00-15-context-policy-model-input/image-prompts.json
-```
-
-Recommended body images:
-
-1. `photo-01-context-policy-projection`: projection from session log, state, memory, and retrieval to model input.
-2. `photo-02-context-selection-gates`: five gates: relevance, factual freshness, permission, trust, and budget.
-3. `photo-03-decision-ledger-trace`: how Context Decision Ledger helps trace locate failures.
-4. `photo-04-model-input-workbench`: the workbench structure visible to the model during one test-fixing round.
-
-These images still only write prompts and do not generate images. Mermaid handles immediate understanding in the article; the external prompt manifest supports later hand-drawn mechanism diagrams, multilingual image redraws, and the asset pipeline.
+The teaching version can first place Context Policy in `JsonlSessionStore.buildContext()`: walk back from the current leaf and project compaction summaries plus recent messages into model input. The key is not to let tools or the session store write the prompt directly. They provide factual material; the context builder decides what the model sees this turn.
 
 ---
 

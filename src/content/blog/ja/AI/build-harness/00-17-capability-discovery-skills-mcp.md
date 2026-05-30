@@ -1804,6 +1804,10 @@ Harness は、このターンでモデルにどの実行可能な一手を見せ
 
 これが動的 Tool 公開の本当の意味だ。
 
+## 教学 Harness への落とし込み
+
+教学プロジェクトでは、capability discovery を最小形から始められます。UI は `toolRegistry.definitions()` を表示し、model input には current registry が公開する tool schema だけを入れます。次に task type、profile、permission state で registry を絞ります。capability discovery はすべての tool を model に渡すことではなく、現在見える能力集合を管理することです。
+
 ---
 
 GitHub ソース: [00-17-capability-discovery-skills-mcp.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-17-capability-discovery-skills-mcp.md)

@@ -2,7 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import HomePageJa from '../../components/home/HomePageJa.astro';
+import HomePage from '../../components/home/HomePage';
 import VercelAnalytics from '../../components/VercelAnalytics.astro';
 import { getHtmlLang, getMessages } from '../../i18n/messages';
 import { localizePath } from '../../i18n/utils';
@@ -23,11 +23,13 @@ const messages = getMessages(locale);
 	<body class="locale-ja">
 		<Header />
 		<main class="page-shell-wide">
-			<HomePageJa
+			<HomePage
 				siteTitle={messages.site.title}
 				copy={messages.home}
-				blogHref="/blog"
-				aboutHref={localizePath(locale, '/about')}
+				blogHref={localizePath(locale, '/blog')}
+				recommendedHref={localizePath(locale, '/blog/AI/Claude Code')}
+				harnessHref={localizePath(locale, '/blog/AI/build-harness')}
+				client:load
 			/>
 		</main>
 		<Footer />

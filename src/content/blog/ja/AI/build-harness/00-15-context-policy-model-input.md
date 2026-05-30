@@ -1566,6 +1566,10 @@ Context は多ければよいのではない。
 
 ちょうど十分で、説明可能であるべきだ。
 
+## 教学 Harness への落とし込み
+
+教学版では、まず Context Policy を `JsonlSessionStore.buildContext()` に置けます。current leaf から遡り、compaction summary と recent messages を model input に projection します。大事なのは、tool や session store に prompt を直接書かせないことです。それらは事実材料を提供し、context builder がこの turn で model に見せるものを決めます。
+
 ---
 
 GitHub ソース: [00-15-context-policy-model-input.md](https://github.com/LienJack/build-harness/blob/main/docs/ja/00-15-context-policy-model-input.md)

@@ -37,7 +37,7 @@ If all of this holds, the next natural question is:
 
 This is a very practical question.
 
-If your goal is just to ship a quick demo, using a framework is obviously faster. The framework already prepares nodes, edges, tool bindings, memory interfaces, state graphs, multi-Agent orchestration, visual traces, and deployment entry points. You don't need to start from a `while` loop, define a `ToolIntent` yourself, or hand-write the message history and tool result back-fill.
+If your goal is just to ship a quick demo, using a framework is obviously faster. The framework already prepares nodes, edges, tool bindings, memory interfaces, state graphs, multi-Agent orchestration, visual traces, and deployment entry points. You don't need to start from a `while` loop, define a `ToolIntent` yourself, or hand-write the message history and tool-result write-back.
 
 So this article isn't trying to talk you out of using frameworks.
 
@@ -970,7 +970,7 @@ Or a memory framework that provides a long-term memory interface.
 You still have to ask:
 
 ```text
-What content is allowed to write into memory?
+What content is allowed to write to memory?
 Who approves the write?
 Does the memory have provenance and confidence?
 How are expiration and conflicts handled?
@@ -1267,36 +1267,9 @@ Take this one line away from the post:
 
 > Hand-writing an Agent isn't about avoiding frameworks — it's about seeing which engineering responsibilities the framework hides from you.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-The main entry point for the external image pipeline is:
-
-```text
-docs/en/assets/00-06-handwrite-agent-meaning/image-prompts.json
-```
-
-This post plans at least three image prompts in its body, all `prompt-only`, to be handed off later to the image generation and multilingual translation flow.
-
-### Image 1: Framework Abstraction, Underlying Mechanism, and Engineering Judgment
-
-- Insertion point: `## The Question Chain`
-- Diagram type: input-process-output
-- Purpose: Explain that the framework handles the fast start, hand-written minimal mechanisms make boundaries visible, and the final output is engineering judgment.
-- External prompt: `docs/en/assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.prompt.en.md`
-
-### Image 2: Hand-Written Minimal CLI Agent Closed Loop
-
-- Insertion point: `## 3. Hand-Writing a Minimal Agent Is Not Hand-Writing a Full Framework`
-- Diagram type: circular loop
-- Purpose: Draw the minimal closed loop of model, tool intent, policy, execution, observation, and state.
-- External prompt: `docs/en/assets/00-06-handwrite-agent-meaning/photo-02-minimal-cli-agent-loop.prompt.en.md`
-
-### Image 3: When to Use, Extend, or Bypass the Framework
-
-- Insertion point: `## 10. When to Use, Bypass, or Extend a Framework`
-- Diagram type: decision path
-- Purpose: Help readers weigh framework trade-offs by risk, hooks, and control boundaries.
-- External prompt: `docs/en/assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.prompt.en.md`
+The hand-written target can be very concrete: `protocol.ts`, `message.ts`, `model.ts`, `mockModel.ts`, `loop.ts`, `tools.ts`, and `sessionStore.ts`. These files do not need to be complete. They should expose the decisions frameworks usually hide: how messages are modeled, how tool calls are fed back, whether errors become observations, and where session recovery starts.
 
 ---
 

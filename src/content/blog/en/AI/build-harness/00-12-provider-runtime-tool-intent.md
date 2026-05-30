@@ -1,6 +1,6 @@
 ---
 title: "Provider Runtime: why can a provider only return tool intent?"
-description: "In the previous group of articles, we pinned down a low-level discipline:"
+description: "In the previous group of articles, we defined a low-level discipline:"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.png'
@@ -20,7 +20,7 @@ aliases:
 
 # Provider Runtime: why can a provider only return tool intent?
 
-In the previous group of articles, we pinned down a low-level discipline:
+In the previous group of articles, we defined a low-level discipline:
 
 ```text
 The model proposes; the system executes.
@@ -149,7 +149,7 @@ It is what lets a small CLI Agent still know, once it starts truly fixing tests,
 
 ## Problem Chain
 
-The problem chain in this article is:
+The line of reasoning in this chapter is:
 
 ```text
 A real provider returns text, reasoning, tool-call deltas, finish, usage, and errors
@@ -1631,7 +1631,7 @@ finally returned answer
 
 But the event log does not contain each intent, permission, execution, and observation.
 
-We cannot reconstruct the scene.
+We cannot reconstruct the working context.
 
 More dangerously, some replay paths might trigger tools again.
 
@@ -2090,15 +2090,9 @@ The memory hook for this article is simple:
 
 **provider is the model's translator, not the tool's executor.**
 
-## Image Plan
+## Teaching Harness Landing Point
 
-The image prompts for this article have been placed in the adjacent assets workspace for later image generation and multilingual localization workflows.
-
-```text
-docs/en/assets/00-12-provider-runtime-tool-intent/image-prompts.json
-```
-
-This stage only writes prompts and does not generate images.
+When connecting a real model, provider runtime should only adapt formats: convert provider tool-call output into internal `ToolCallContent`, and convert internal `ToolResultMessage` back into the provider’s tool-message shape. It does not read files, run commands, or decide whether tools are allowed. This keeps provider changes from touching loop, tools, and session.
 
 ---
 

@@ -122,7 +122,7 @@ These intents are not the same kind of thing.
 
 If Tool Runtime treats all of them as "calling a function," the system cannot distinguish observation, verification, modification, execution, and dangerous action.
 
-So this article will not rush into a complete file tool bundle.
+So this article will not jump straight into a complete file tool bundle.
 
 That comes next.
 
@@ -130,7 +130,7 @@ This article first clarifies the runtime pipeline that every tool must pass thro
 
 ## Problem Chain
 
-First fix the problem chain:
+First pin down the problem sequence:
 
 ```text
 The model outputs tool intent
@@ -320,7 +320,7 @@ The output was truncated; the full log is in an artifact.
 
 The next model round can reason from these facts.
 
-But the facts themselves must not be backfilled by the model.
+But the facts themselves must not be supplied by the model.
 
 By final answer time, we need an even narrower kind of observation:
 
@@ -1238,7 +1238,7 @@ A mature Agent has at least three write-back layers:
 
 ```text
 messages: context material for the next model round.
-state: the task scene folded out for current runtime.
+state: the task state folded out for current runtime.
 event log: the source of truth for session audit and replay.
 ```
 
@@ -1975,39 +1975,9 @@ But after reading this article, you should already see that what they really imp
 
 They implement a set of semantic, permissioned, observable controlled actions.
 
-## Image Plan
+## Teaching Harness Landing Point
 
-This article does not generate images during the writing stage.
-
-The main entry for ordinary article images is the external prompt manifest:
-
-```text
-docs/en/assets/00-13-tool-runtime-observation/image-prompts.json
-```
-
-At least 4 body images are planned:
-
-1. `photo-01-tool-runtime-pipeline.prompt.en.md`
-   - Insertion point: `## Problem Chain`
-   - Purpose: explain the complete controlled execution pipeline from tool intent to observation.
-
-2. `photo-02-observation-projection.prompt.en.md`
-   - Insertion point: `## 7. Result Normalization: Raw Result Is Not Observation`
-   - Purpose: emphasize that raw result must be projected into model view, user view, session fact, and artifact ref.
-
-3. `photo-03-scheduler-sandbox-boundary.prompt.en.md`
-   - Insertion point: `## 5. Scheduler: Tool Execution Is Not Immediately await`
-   - Purpose: show that after permission allow, execution must still pass through scheduling, concurrency policy, long-task handling, and sandbox.
-
-4. `photo-04-audit-replay-chain.prompt.en.md`
-   - Insertion point: `## 10. Audit Event: Record "What Happened," Not Only "What the Model Said"`
-   - Purpose: explain how intent, permission, invocation, and observation form an auditable, replayable factual chain.
-
-All prompt files use the four-section `blog-to-photo` format.
-
-Manifest status remains `prompt-only`.
-
-Later image generation and multilingual image pipelines will handle them.
+The teaching tool chain should make three steps explicit: `ToolCallContent` is intent, `ToolRegistry.execute()` is execution, and `ToolResultMessage` is observation. `AgentEvent` then records `tool_execution_start` and `tool_execution_end`. Do not dump raw stdout back into the prompt. Normalize it into text blocks and `details`; long output belongs in an artifact or summary.
 
 ---
 

@@ -969,6 +969,10 @@ Tool implementation 是宿主程序真正执行动作的代码。
 
 > Agent 的最小闭环是：Model 判断，Loop 推进，Tools 行动，State 续上下一轮。
 
+## 落地到教学 Harness
+
+教学项目可以把四个部件直接落成四组文件：`MockModel` 代表 Model，`runAgentLoop()` 代表 Loop，`ToolRegistry` 代表 Tools，`JsonlSessionStore` 代表 State。关键不是名字对应，而是数据流要单向清楚：model 只能生成 message 或 tool intent，loop 负责推进，tool runtime 负责副作用，store 负责从历史构造下一轮 context。
+
 ---
 
 GitHub 地址: [00-02-agent-components.md](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-02-agent-components.md)

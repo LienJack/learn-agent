@@ -54,21 +54,21 @@ So this article answers one question in the simplest possible way:
 
 > When we say "build an Agent," what are we building beyond "writing a prompt"?
 
-Do not rush into frameworks, and do not rush into words such as LangGraph, CrewAI, Claude Code, or MCP. We begin with the smallest scenario: a CLI assistant, where the user asks it to fix failing tests.
+Do not jump straight into frameworks or get lost in names such as LangGraph, CrewAI, Claude Code, or MCP. Start with the smallest scenario: a CLI assistant whose user asks it to fix failing tests.
 
 ## Problem Chain
 
 ![Explains how Prompt, ChatBot, Agent, and Harness add responsibility layer by layer](./assets/00-01-agent-not-a-prompt/photo-01-prompt-to-agent-evolution.png)
 
-This article will not write code yet. It fixes one minimal problem chain:
+This article will not write code yet. It pins down one minimal problem sequence:
 
 ```text
 A single LLM call can only generate an answer
 -> Real tasks need multi-step progress
 -> Multi-step progress needs a loop
--> The loop touches the outside world, so it needs tools
+-> The loop interacts with the outside world, so it needs tools
 -> Tool results must affect the next step, so it needs state
--> Once state, tools, and loop touch a real environment, a model-external control system is needed
+-> Once state, tools, and loop interact with a real environment, a model-external control system is needed
 -> Agent starts here; Harness makes the process hostable
 ```
 
@@ -82,7 +82,7 @@ The most important thing in this diagram is not the number of arrows, but the sh
 
 Prompt only influences how the model generates an answer. ChatBot begins to manage multi-turn conversation. Agent adds an action loop. Harness places action inside engineering boundaries so permission, logs, tests, and recovery mechanisms can catch it.
 
-This problem chain also explains why many Agent demos look magical at first glance and start leaking at the second.
+This problem sequence also explains why many Agent demos look magical at first glance and start falling apart on the second step.
 
 The most common demo pattern is:
 
@@ -101,7 +101,7 @@ After a dozen calls, is the state still clear?
 After a tool fails, does the system know how to recover?
 When the model proposes a dangerous action, who stops it?
 When context is full, how is old information compacted?
-When the user interrupts, can the field still be preserved?
+When the user interrupts, can the working state still be preserved?
 ```
 
 None of these are solved by prompt alone. They belong to Agent Runtime and Harness.
@@ -282,9 +282,9 @@ which errors can be recovered automatically
 
 So writing prompts and building Agents are not the same layer of work.
 
-Prompt is like a task brief. Agent Runtime is the worksite.
+Prompt is like a task brief. Agent Runtime is the execution environment.
 
-Optimizing prompt can certainly make the model more obedient. But as soon as the model needs to touch a real environment, worksite problems appear.
+Optimizing prompt can certainly make the model more obedient. But as soon as the model needs to interact with a real environment, runtime problems appear.
 
 This is also the gap many people hit when they first hand-write an Agent: at first they think the hard part is "how to make the model smarter"; later they discover the hard part is "how to put an unstable judging machine inside a stable engineering process."
 
@@ -576,7 +576,7 @@ A system that can act also starts making mistakes with consequences:
 - It may stuff very long logs back into context, causing cost to explode.
 - It may call high-risk tools and modify files it should not modify.
 - It may forget verification and announce the task is complete.
-- It may lose the field after failure and become unable to recover.
+- It may lose the working state after failure and become unable to recover.
 
 At this point, what we need is not only Agent, but the control system around Agent.
 
@@ -708,7 +708,7 @@ Step 2: model requests to read a file
 Tool Runtime turns the request into a validatable, auditable tool call.
 
 Step 3: tool returns package.json
-State writes the observation back into messages and task field.
+State writes the observation back into messages and task state.
 
 Step 4: model requests to run a command based on the test script
 Permission / Sandbox decides whether it can execute.
@@ -743,7 +743,7 @@ The rest of the tutorial follows this chain.
 
 To avoid mystifying Agent, we close with three sentences:
 
-1. The LLM judges the next step, but does not directly touch the real world.
+1. The LLM judges the next step, but does not directly interact with the real world.
 2. Agent is a runtime system that lets the model repeatedly judge, use tools, and absorb results.
 3. Harness is the control system outside the model, responsible for making every step executable, auditable, recoverable, verifiable, and governable.
 
@@ -757,13 +757,17 @@ These four words will appear again and again.
 
 `Tools` are controlled capabilities that connect the model's action intent to the real world.
 
-`State` is the field ledger, so the next model turn does not start from zero.
+`State` is the runtime ledger, so the next model turn does not start from zero.
 
 Together, these four parts form the minimal Agent we will hand-write later. Outside them, Runtime, Context, Memory, Permission, Trace, Eval, Sub-Agent, and Automation will grow.
 
 One sentence to remember:
 
 > Prompt defines how the model speaks; Agent organizes how the model acts; Harness ensures that action can be controlled.
+
+## Teaching Harness Landing Point
+
+In the teaching project, this chapter lands as a refusal to make the system prompt do everything. The prompt states role and boundaries, while action belongs to `runAgentLoop()` and `ToolRegistry`. The first acceptance check should be simple: when the user asks to list workspace files, the system must produce an assistant `toolCall`, a tool `toolResult`, and then an assistant answer grounded in that result. This makes the split concrete: prompt gives direction, Agent Loop organizes process, and Harness executes and records.
 
 ---
 

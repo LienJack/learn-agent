@@ -40,9 +40,21 @@ When those parts become observable, extensible, resumable, auditable, and produc
 
 This series is for developers who can read Python or TypeScript and are comfortable with APIs, JSON, CLI tools, Git, and basic runtime concepts. You do not need to be an AI researcher. You only need curiosity about how to build the system around an LLM so it can do real work.
 
-## Chapter Directory
+## How to Read This Series
 
-### Chapter 0: Agent Base Model and Harness Evolution
+Read the series in the rhythm of "problem -> mechanism -> failure mode -> next mechanism." For every layer, keep three questions in view:
+
+```text
+What pain does this mechanism solve?
+Where would the Agent lose control or distort reality without it?
+How does it connect to the previous and next layers?
+```
+
+If you want the big map first, read 00-01 through 00-05. If you want to reach implementation quickly, read 00-07 and then build through 00-08 to 00-16: the minimal loop, tool runtime, context policy, and event log. The later chapters on capability discovery, delegation, traces, memory, retrieval, productization, and hosting turn a working Agent into a Harness that can be shipped, diagnosed, and maintained.
+
+## Series Path
+
+### Part 1: Agent Base Model and Harness Evolution
 
 1. [Agent Base Definition: Why It Is Not a Prompt](https://github.com/LienJack/build-harness/blob/main/docs/en/00-01-agent-not-a-prompt.md)  
    Understand why an Agent is a runtime system, not a clever instruction. This chapter separates prompt design from action loops, state, tools, and control.
@@ -74,7 +86,7 @@ This series is for developers who can read Python or TypeScript and are comforta
 10. [Intent / Execution Separation: The Model Proposes, the System Executes](https://github.com/LienJack/build-harness/blob/main/docs/en/00-10-intent-execution-separation.md)  
     Separate model-generated intent from actual tool execution. This design makes permission checks, audits, replay, and debugging possible.
 
-### Chapter 2: Extension Boundaries
+### Part 2: Extension Boundaries
 
 11. [Plugin Host: Why Should Core Learn to Be Extended?](https://github.com/LienJack/build-harness/blob/main/docs/en/00-11-plugin-host-core-extension.md)  
     Learn why a serious Harness needs extension points. Plugin boundaries let the system gain providers, tools, policies, and workflows without bloating core.
@@ -82,7 +94,7 @@ This series is for developers who can read Python or TypeScript and are comforta
 12. [Provider Runtime: Why Can a Provider Only Return Tool Intent?](https://github.com/LienJack/build-harness/blob/main/docs/en/00-12-provider-runtime-tool-intent.md)  
     Keep model providers behind a clean runtime contract. The provider can stream text and tool intent, but execution stays inside the Harness.
 
-### Chapter 3: Execution and Field Control
+### Part 3: Execution and Working-State Control
 
 13. [Tool Runtime: From Tool Intent to Observation](https://github.com/LienJack/build-harness/blob/main/docs/en/00-13-tool-runtime-observation.md)  
     Build the runtime path from requested tool call to structured observation. This is where unsafe action becomes controlled, inspectable execution.
@@ -96,7 +108,7 @@ This series is for developers who can read Python or TypeScript and are comforta
 16. [Session Replay: Why Is the Event Log the Source of Truth for Long Tasks?](https://github.com/LienJack/build-harness/blob/main/docs/en/00-16-session-replay-event-log.md)  
     Replace fragile chat history with an event log that can be replayed, audited, and resumed. Long tasks need facts, not just messages.
 
-### Chapter 4: Capability, Collaboration, and Diagnosis
+### Part 4: Capability, Collaboration, and Diagnosis
 
 17. [Capability Discovery: Skills, MCP, and Dynamic Tool Exposure](https://github.com/LienJack/build-harness/blob/main/docs/en/00-17-capability-discovery-skills-mcp.md)  
     Expose only the capabilities the Agent needs right now. Skills, MCP, and tool discovery make the runtime flexible without overwhelming the model.
@@ -113,7 +125,7 @@ This series is for developers who can read Python or TypeScript and are comforta
 21. [Scoped Retrieval: From Bounded Retrieval to Audit Snapshot](https://github.com/LienJack/build-harness/blob/main/docs/en/00-21-scoped-retrieval-audit-snapshot.md)  
     Make retrieval explicit, bounded, and reviewable. A scoped snapshot explains what evidence the Agent used and why it was allowed.
 
-### Chapter 5: Productization and Hosting
+### Part 5: Productization and Hosting
 
 22. [Productized CLI: Profile, Extension, Multi-Provider](https://github.com/LienJack/build-harness/blob/main/docs/en/00-22-productized-cli-profile-extension.md)  
     Turn the prototype into a usable CLI with profiles, provider selection, extensions, stable output, and predictable user experience.

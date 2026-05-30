@@ -162,7 +162,7 @@ Which ones must expire, be revoked, or be merged?
 
 ## Problem Chain
 
-First, fix the problem chain for this article:
+First, pin down the problem sequence for this article:
 
 ```text
 After an Agent completes a task, it produces experience that looks reusable
@@ -248,11 +248,7 @@ The most important edge in this diagram is not `STORE -> Context`.
 
 Many systems first care only about how to retrieve memory and stuff it into the model.
 
-But the system's quality is really determined by the write chain:
-
-```text
-Session Log -> Candidate Ledger -> Governance -> Store
-```
+But the system's quality is really determined by the write chain: `Session Log -> Candidate Ledger -> Governance -> Store`.
 
 Reading memory is important, of course.
 
@@ -282,7 +278,7 @@ Earlier in the series, we distinguished four words:
 
 ```text
 Session log: what actually happened.
-State: what the current task scene is.
+State: what the current task state is.
 Context: what the model should see in this turn.
 Memory: what can be reused in future tasks.
 ```
@@ -403,7 +399,7 @@ So the first layer should be a candidate ledger.
 
 The word ledger emphasizes two things.
 
-First, it is an accounting book.
+First, it is a ledger.
 
 Every candidate has a source, time, evidence, and processing status.
 
@@ -1500,6 +1496,10 @@ With what boundary, citation, and audit snapshot should they enter context?
 ```
 
 That is why the path goes from governed writes to bounded retrieval.
+
+## Teaching Harness Landing Point
+
+The teaching version can skip a long-term memory store at first, but it should separate memory from session early. `JsonlSessionStore` stores facts of the current run. If tools or the model discover a preference that may be reusable later, they may create a candidate, not write directly to long-term store. Even if version one uses JSONL, keep governance fields such as source, scope, confidence, and expiresAt.
 
 ---
 
