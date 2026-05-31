@@ -2642,7 +2642,8 @@ main.page-shell-wide:has(.about-shell) {
 	display: grid;
 	min-height: 12rem;
 	place-items: center;
-	overflow: hidden;
+	overflow: visible;
+	pointer-events: none;
 }
 
 .about-feature-orbit {
@@ -2652,6 +2653,7 @@ main.page-shell-wide:has(.about-shell) {
 	border-radius: 50%;
 	transform: rotate(-12deg);
 	animation: about-feature-orbit-spin 28s linear infinite;
+	pointer-events: none;
 }
 
 .about-feature-orbit::before,
@@ -2683,6 +2685,7 @@ main.page-shell-wide:has(.about-shell) {
 	transform: rotate(-7deg);
 	overflow: hidden;
 	will-change: transform;
+	pointer-events: auto;
 }
 
 .about-product-tile::after {
