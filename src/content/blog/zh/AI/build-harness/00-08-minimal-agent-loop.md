@@ -60,15 +60,15 @@ Agent Loop 要补上的，就是这道断裂：
 
 这就是最小 ReAct loop 的骨架。这里的 ReAct 先按工程机制理解：让判断、行动和观察形成闭环，而不是要求模型输出冗长的私有思考。
 
-先把一句话压住：
+这一章先把范围收窄：
 
-**单次回答只是在当前上下文里生成文本；Agent Loop 让模型在“判断、行动、观察、再判断”的状态机里持续推进任务；其中行动仍然由系统受控执行。**
+**暂时不接真实文件系统，也不做权限；只用 fake tool 验证 observation 是否真的影响下一轮判断，以及 loop 是否能在 final 或 stop condition 下停下来。**
 
-## 问题链
+## 从一次回答到多轮状态机
 
 ![展示单次回答如何变成 Think、Act、Observe、Final 的最小闭环](assets/00-08-minimal-agent-loop/photo-01-react-loop-from-answer-to-action.jpg)
 
-这篇的问题链很短，但每一步都很重：
+这一章的链路很短，但每一步都很重：
 
 ```text
 单次回答无法根据真实观察继续推进
@@ -175,7 +175,7 @@ Agent Loop 做的第一件事，就是承认模型第一轮不知道答案。
 
 这就是从回答到行动的第一步。
 
-## 二、Loop 不是更长的上下文，而是状态机
+## 二、Loop 的状态机视角
 
 ![解释 loop 是有 Ready、Thinking、Acting、Observing、Finished、Stopped 的状态机，而不是无脑 while true](assets/00-08-minimal-agent-loop/photo-02-state-machine-budget-stop.jpg)
 
@@ -540,7 +540,7 @@ Final 是否真的能让 loop 停下来？
 
 最小 Agent 的第一原则不是“能力越多越好”，而是“每增加一个能力，都知道它挂在哪条状态转移上”。
 
-## 七、Observe：工具结果不是日志，而是下一轮事实
+## 七、Observation：把工具结果整理成事实
 
 ![把 raw tool result 如何变成 observation、prompt context 和 event log 画清楚](assets/00-08-minimal-agent-loop/photo-03-observation-feedback-pipeline.jpg)
 
@@ -946,13 +946,11 @@ Harness 是让这颗心跳在真实环境里长期稳定运行的外部控制系
 
 第五，一个能停下来的 Agent，比一个只会继续的 Agent 更可信。
 
-一句话记住这篇：
-
-> Agent Loop 的本质，是让模型在受控状态机里反复用真实观察修正下一步，而不是让模型无限续写回答。
+写代码时，只要守住这条线：Agent Loop 的本质，是让模型在受控状态机里反复用真实观察修正下一步，而不是让模型无限续写回答。
 
 下一篇会继续沿着这条线往下走：当真实大模型被接进系统时，core 应该如何保持控制权？也就是说，我们要把模型接进 loop，而不是让模型接管 loop。
 
-## 落地到教学 Harness
+## 本章代码落点
 
 这一章的代码落点就是 `runAgentLoop()`：输入 `systemPrompt`、`messages`、`tools`、`model` 和 `toolRegistry`，输出本次新增的 `newMessages` 与 `events`。loop 不应该知道 HTTP、React 或 session 文件。它只负责在 maxTurns 内完成“assistant -> toolResult -> assistant”的状态转换，并在每个关键点 emit event。
 

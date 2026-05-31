@@ -19,29 +19,22 @@ aliases:
 
 # 手写 Agent 的意义：理解框架抽象背后的最小机制
 
-前面五篇，我们一直在做一件事：先把 Agent 从“神奇的模型能力”拉回到“可解释的运行系统”。
+框架能让 demo 很快跑起来。
 
-到现在，我们已经有了几条基本判断：
+注册几个工具，写一句任务，trace 里开始出现 `read_file`、`run_command`、`edit_file`。第一次看到它自己跑测试、读日志、给出修改建议，确实很爽。
+
+问题通常出现在第二天：
 
 ```text
-Agent 不是一句更长的 Prompt。
-Agent 至少由 Model、Loop、Tools、State 组成。
-ChatBot、Workflow、Agent、Harness 不是能力等级，而是边界选择。
-Harness 是模型外面的控制系统。
-Agent 会沿着 Chat -> Tool -> Runtime -> Managed 的压力路径长出 Harness。
+它为什么重复读了三次 package.json？
+为什么把旧日志又塞回了上下文？
+为什么用户点了一路允许？
+为什么 trace 里只有“测试通过”，却没有验证证据？
 ```
 
-如果这几条都成立，下一步很自然的问题是：
+这时你缺的通常不是另一个框架教程，而是对最小机制的手感。
 
-**既然已经有 LangGraph、CrewAI、ADK、各种 Agent SDK，为什么还要手写一遍？**
-
-这个问题非常现实。
-
-如果目标只是快速做一个 demo，直接用框架当然更快。框架已经帮你准备了节点、边、工具绑定、记忆接口、状态图、多 Agent 编排、可视化 trace、部署入口。你不需要从一个 `while` 循环开始，不需要自己定义 `ToolIntent`，也不需要手写消息历史和工具结果回填。
-
-所以这篇文章不是要劝你“不要用框架”。
-
-恰恰相反，成熟项目最终往往应该用框架、平台或已有 runtime 去承接重复工程。问题在于：
+所以这一章不劝你“不要用框架”。成熟项目最终往往应该用框架、平台或已有 runtime 承接重复工程。问题在于：
 
 ```text
 如果你没有手写过最小机制，
@@ -70,11 +63,11 @@ Agent 会沿着 Chat -> Tool -> Runtime -> Managed 的压力路径长出 Harness
 
 > 为了看懂 Agent 框架，我们最少应该亲手实现哪些机制？
 
-## 问题链
+## 为什么要亲手摸一次承重点
 
 ![解释框架抽象、底层机制和工程判断之间的关系：框架帮忙快速开始，手写最小机制帮忙看清边界](assets/00-06-handwrite-agent-meaning/photo-01-framework-mechanism-judgement.jpg)
 
-先把这篇的问题链固定住：
+这一章只固定一条线：
 
 ```text
 直接用框架能快速开始
@@ -85,8 +78,6 @@ Agent 会沿着 Chat -> Tool -> Runtime -> Managed 的压力路径长出 Harness
 -> 手写最小 Agent 是为了看清这些抽象边界
 -> 看清边界以后，才能判断什么时候用框架、绕开框架、扩展框架
 ```
-
-这条链里最重要的是最后两句。
 
 手写不是目标，判断力才是目标。
 
@@ -500,425 +491,61 @@ tool call 不是工具执行，只是工具意图。
 
 不是为了把所有东西都写到生产级，而是为了亲自触摸几个承重点。
 
-## 四、最小机制一：把模型输出当成意图，不当成动作
+## 四、手写时只摸五个承重点
 
-如果只能手写一个机制，我会先写这个：
+00-06 只做路线图，不把后面几章提前写完。真正值得亲手写一次的，是下面五个承重点：
 
-```text
-模型输出 tool intent，系统执行 tool action。
-```
+| 承重点 | 亲手写一次要看见什么 | 正式展开位置 |
+| --- | --- | --- |
+| Model output -> Intent | 模型只提出下一步，系统还要把它变成可处理对象。 | 00-10 |
+| Loop -> State transition | 裸循环表达不了暂停、预算、重复失败和用户中断。 | 00-08 |
+| Tools -> Protocol boundary | 工具不是随手暴露函数，而是模型进入真实世界的协议入口。 | 00-10 |
+| Messages -> Context projection | `messages` 只是本轮投影，不是事实源、状态库和审计日志的混合体。 | 00-09 和 Context 章节 |
+| Eval -> Trajectory attribution | 最小评估要能回答失败发生在哪一层，而不是只看最终答案。 | 00-19 和 Eval 章节 |
 
-这是 Agent 工程的第一条分界线。
+这五个点都值得摸一下，但这一篇不展开完整实现。展开太早，后面的 Provider、Loop、M0、Intent / Execution 章节都会像复读。
 
-在最小 CLI Agent 里，模型可以输出：
+这里先留下每个承重点的检查问题。
 
-```json
-{
-  "type": "tool_intent",
-  "tool": "run_command",
-  "args": {
-    "cmd": "npm test"
-  }
-}
-```
+### 1. Model output -> Intent
 
-但这不代表 `npm test` 已经执行。
+模型说“我要运行测试”，系统有没有把它记录成结构化 intent？
 
-真正执行之前，系统至少要做：
+如果只是把模型文本直接交给工具执行，失败就很难归因。`npm test` 没跑，可能是模型没提出测试意图，可能是参数校验失败，可能是权限拒绝，也可能是命令超时。对象拆开，归因才有地方落。
 
-```text
-检查工具是否存在
-校验 args 是否符合 schema
-判断命令是否允许
-决定工作目录和超时
-执行命令
-记录 stdout / stderr / exit code
-把结果整理成 observation
-```
+### 2. Loop -> State transition
 
-这条链路可以画成：
+`while true` 只能表达“继续”，表达不了“为什么停”。
 
-![手写 Agent 的意义：理解框架抽象背后的最小机制 Mermaid 2](assets/00-06-handwrite-agent-meaning/mermaid-02.png)
+手写最小 loop 时，至少要让系统知道当前轮次、剩余预算、上一轮 observation、是否重复失败、是否已经有验证证据。00-08 会把这件事正式写成 `Think -> Act -> Observe -> Final`。
 
-这张图一旦进入你的脑子，你看框架就会完全不同。
+### 3. Tools -> Protocol boundary
 
-你会开始问：
+框架通常让你很快注册工具，但你要追问：工具 schema 在哪里？可见性怎么裁剪？失败结果怎么变成 observation？危险动作在执行前还是执行后拦？
 
-```text
-框架里的 tool call 对象在哪里？
-validation 是框架做，还是我做？
-permission hook 在执行前还是执行后？
-tool result 的原始值和给模型的 observation 是否分开？
-失败结果会不会进入状态？
-```
+这一篇只保留这个检查点。工具协议的完整管线放到 00-10。
 
-这些问题决定了系统能不能安全进入真实项目。
+### 4. Messages -> Context projection
 
-一个最小类型设计可以长这样：
+最容易偷懒的是把用户输入、模型回答、工具结果、错误、文件内容、测试日志、压缩摘要全塞进 messages。
 
-```ts
-type ToolIntent = {
-  type: "tool_intent";
-  id: string;
-  tool: string;
-  args: unknown;
-};
+这会让 messages 同时承担上下文、调试日志、事实源、状态存储、UI transcript 和评估输入。第一版可以简单，但心里要分清：session log 记录发生过什么，state 表示当前现场，context 是本轮给模型看的投影。
 
-type PolicyDecision =
-  | { type: "allow"; reason: string }
-  | { type: "ask"; prompt: string }
-  | { type: "deny"; reason: string };
+### 5. Eval -> Trajectory attribution
 
-type Observation = {
-  intentId: string;
-  ok: boolean;
-  summary: string;
-  data?: unknown;
-  truncated?: boolean;
-};
-```
-
-注意这里没有把模型输出、权限决定、工具结果混在一个对象里。
-
-这不是类型洁癖。
-
-这是为了让失败能归因。
-
-如果 `npm test` 没有执行，原因可能是：
+最小 eval 不需要先做复杂 benchmark。它只要能回答：
 
 ```text
-模型没有提出测试意图
-模型提出了错误命令
-参数校验失败
-权限拒绝
-命令超时
-测试自身失败
-结果被截断导致模型误判
+这次失败，是模型判断错了？
+工具输出被截断了？
+上下文投影漏了关键文件？
+权限策略太宽？
+完成前没有验证？
 ```
 
-这些失败对应完全不同的修复方向。
+这类问题会逼你把 trace 设计清楚。没有运行轨迹，改进就会退回“换模型、改 prompt、再试一次”。
 
-对象拆开，归因才有地方落。
-
-## 五、最小机制二：Loop 不是 while true，而是状态机
-
-很多教程会把 Agent Loop 写成：
-
-```ts
-while (true) {
-  const response = await model(messages);
-  if (response.final) break;
-  const result = await runTool(response.tool);
-  messages.push(result);
-}
-```
-
-这段代码能表达核心直觉，但不能表达真实边界。
-
-一个能修测试的 CLI Agent，loop 至少要知道：
-
-```text
-当前第几轮
-是否已经中断
-预算还剩多少
-上一轮用了什么工具
-是否重复失败
-是否需要压缩上下文
-是否已经有验证证据
-```
-
-否则它很容易在失败路径里打转。
-
-比如测试一直失败，模型每轮都说：
-
-```text
-我再运行一次 npm test 看看。
-```
-
-没有 loop state，系统只能照做。
-
-有了 loop state，系统可以发现：
-
-```text
-同一命令连续失败 3 次
-中间没有代码变更
-下一轮不应该继续跑同一命令
-应该把这个观察反馈给模型
-```
-
-所以最小 loop 不应该只是循环结构，而应该是状态转移：
-
-![手写 Agent 的意义：理解框架抽象背后的最小机制 Mermaid 3](assets/00-06-handwrite-agent-meaning/mermaid-03.png)
-
-这张图里的每个节点都可以先写得很简单。
-
-第一版 `CheckBudget` 可以只是最大轮次。
-
-第一版 `Compact` 可以先不做，只记录“需要压缩但未实现”。
-
-第一版 `Permission` 可以只区分 `read_file` 允许、`run_command` 询问、`edit_file` 禁止。
-
-重点不是一次写完。
-
-重点是从第一天开始承认这些状态存在。
-
-当你用框架时也一样。
-
-你不一定要自己管理所有状态，但你要知道框架的状态机在哪里，以及你能不能在关键节点挂钩。
-
-如果框架只暴露“运行 Agent，拿结果”的接口，却不让你观察 loop 内部，那么它可能适合 demo，但不适合承担高风险工程任务。
-
-## 六、最小机制三：Tools 不是函数列表，而是协议边界
-
-在最小 Agent demo 里，工具通常写成这样：
-
-```ts
-const tools = {
-  read_file: async ({ path }) => fs.readFile(path, "utf8"),
-  run_command: async ({ cmd }) => exec(cmd),
-};
-```
-
-这当然可以跑。
-
-但它把工具最重要的部分省略了。
-
-工具不只是函数。工具是模型行动进入真实世界之前的协议边界。
-
-一个工具至少要说明：
-
-```text
-name：模型如何引用它
-description：模型什么时候应该用它
-schema：参数结构是什么
-risk：只读、写入、执行、网络、删除
-visibility：本轮模型能不能看到它
-permission：调用前是否需要审批
-execute：如何执行
-serialize：如何把结果转成 observation
-```
-
-如果这些东西没有显式出现，它们不会消失，只会散落到 prompt、业务代码和框架默认值里。
-
-比如 `run_command`。
-
-如果它只是一个函数，模型可能把所有事情都交给它：
-
-```text
-cat package.json
-grep -R "foo" .
-python - <<EOF ...
-sed -i ...
-rm ...
-curl ...
-```
-
-系统很难知道每次 shell 的语义。
-
-但如果你同时提供专用工具：
-
-```text
-read_file
-search_text
-run_test
-edit_file
-```
-
-再限制 `run_command` 的可见性和权限，那么模型会被引导进更可控的行动空间。
-
-这就是工具设计的关键：
-
-```text
-工具菜单不是越强越好，而是越贴近任务语义越好。
-```
-
-在“修测试”的任务里，`run_test` 往往比万能 `bash` 更值得优先暴露。
-
-因为 `run_test` 可以天然记录：
-
-```text
-测试命令
-退出码
-失败测试名
-日志截断状态
-运行耗时
-是否产生验证证据
-```
-
-而 `bash("npm test")` 只是一段命令和一堆 stdout。
-
-两者都能执行测试。
-
-但前者更容易进入 Harness。
-
-这就是框架抽象里经常被忽略的点：工具不是“能力越多越好”，工具是“语义边界越清楚越好”。
-
-## 七、最小机制四：State、Context、Memory、Session 不要混成 messages
-
-手写 Agent 时，最容易偷懒的地方是 messages。
-
-一开始你会把所有东西都塞进去：
-
-```text
-用户输入
-模型回答
-工具调用
-工具结果
-错误
-文件内容
-测试日志
-压缩摘要
-计划
-```
-
-这很方便。
-
-但很快你会发现，messages 同时承担了太多职责：
-
-```text
-它是给模型看的上下文
-它是调试日志
-它是事件事实源
-它是状态存储
-它是 UI transcript
-它是评估输入
-```
-
-这会出问题。
-
-因为这些东西的要求不一样。
-
-```text
-Session log 要尽量忠实记录发生过什么。
-State 要表示当前任务现场。
-Context 要选择本轮模型该看什么。
-Memory 要跨任务保存可复用经验。
-UI transcript 要方便人阅读。
-Eval trace 要方便机器归因。
-```
-
-如果全都塞进 messages，你会面临一个无法同时满足的目标：
-
-```text
-既要完整，又要短。
-既要给人看，又要给模型看。
-既要保留原始证据，又要压缩摘要。
-既要能恢复，又要能随时裁剪。
-```
-
-更稳的拆法是：
-
-![手写 Agent 的意义：理解框架抽象背后的最小机制 Mermaid 4](assets/00-06-handwrite-agent-meaning/mermaid-04.png)
-
-第一版可以不用这么完整。
-
-但你至少应该在心里分清：
-
-```text
-messages 不是事实源。
-messages 是本轮给模型看的投影。
-```
-
-举个例子。
-
-工具执行 `npm test` 后返回 2000 行日志。
-
-Session event log 可以记录原始输出文件路径、退出码、截断策略、摘要、耗时。
-
-State 可以记录：
-
-```text
-当前测试失败
-失败测试名是 should parse empty input
-错误是 expected [] to equal null
-相关文件可能是 parser.ts
-```
-
-Context builder 可以只给模型：
-
-```text
-测试命令失败，失败用例为 should parse empty input。
-关键错误：expected [] to equal null。
-完整日志已保存，当前只展示相关片段。
-```
-
-UI 可以展示更友好的折叠日志。
-
-Eval trace 可以记录这次验证失败属于“测试执行成功但断言失败”。
-
-同一个工具结果，在不同层有不同形态。
-
-如果你手写过这一次，后面看任何框架的 memory / state / checkpoint / context API，都会知道该问什么。
-
-你不会再被一个统一的 `messages` 参数骗过去。
-
-## 八、最小机制五：评估不是最终答案，而是失败归因
-
-手写 Agent 的最后一个必要机制，是最小评估。
-
-这里的评估不是复杂 benchmark。
-
-第一版只需要能回答：
-
-```text
-这个 Agent 为什么失败？
-```
-
-比如我们准备三个本地小项目：
-
-```text
-case-1：测试命令缺依赖，Agent 应该先报告环境问题。
-case-2：一个明确断言失败，Agent 应该读源码并提出小修改。
-case-3：测试日志很长，Agent 应该截断并保留关键错误。
-```
-
-然后记录每次运行轨迹。
-
-你不只看最终回答，还看这些事实：
-
-```text
-是否运行了测试？
-是否读取了 package.json？
-是否读取了失败日志指向的文件？
-是否在修改前取得足够证据？
-是否在修改后重新验证？
-是否重复执行无意义命令？
-是否越权访问了不相关目录？
-```
-
-这类评估会逼你把 trace 设计清楚。
-
-因为如果 trace 里没有 `ToolStarted`、`ToolFinished`、`PolicyDecision`、`Observation`、`VerificationEvidence`，你就没法回答这些问题。
-
-所以最小 eval 不是额外工作。
-
-它会反过来塑造你的 Harness。
-
-可以把它理解成一个闭环：
-
-![手写 Agent 的意义：理解框架抽象背后的最小机制 Mermaid 5](assets/00-06-handwrite-agent-meaning/mermaid-05.png)
-
-这张图也解释了为什么“固定模型，只改 Harness”有时能显著提高 Agent 表现。
-
-因为很多失败不是模型能力问题，而是系统把现场给错了、工具边界太宽、结果回填太乱、验证门太薄。
-
-如果没有 trace 和归因，你会下意识地换模型。
-
-如果有 trace 和归因，你可能会发现真正该改的是：
-
-```text
-run_command 输出截断策略
-read_file 缓存投影
-重复工具调用 guardrail
-edit_file 前的 diff 审批
-final answer 前的 verification gate
-```
-
-这就是手写最小 eval 的价值。
-
-它让你不再把所有问题都甩给模型。
-
-## 九、看框架时，应该看它抽象了什么、暴露了什么
+## 五、看框架时，应该看它抽象了什么、暴露了什么
 
 有了这些最小机制，再回头看框架，你会更冷静。
 
@@ -983,7 +610,7 @@ tester
 
 框架可以帮你提供挂钩，但不能替你做工程判断。
 
-## 十、什么时候用框架、绕开框架、扩展框架
+## 六、什么时候用框架、绕开框架、扩展框架
 
 ![用决策路径说明什么时候直接用框架、什么时候扩展框架、什么时候绕开局部抽象自建 Harness 边界](assets/00-06-handwrite-agent-meaning/photo-03-framework-boundary-decision.jpg)
 
@@ -1068,7 +695,7 @@ tester
 
 我们会先写一个最小 CLI Agent，不是因为它比框架强，而是因为它足够小，小到每个承重点都能被看见。
 
-## 十一、一个最小手写路线图
+## 七、一个最小手写路线图
 
 为了避免“手写 Agent”听起来太大，我们把路线压成几个很小的递进。
 
@@ -1186,7 +813,7 @@ edit：禁止或询问
 
 这条规则会让 Agent 从“会写总结”变成“尊重现实证据”。
 
-## 十二、手写之后，再用框架会更稳
+## 八、手写之后，再用框架会更稳
 
 真正手写过这些机制以后，你再用框架，心态会变。
 
@@ -1230,9 +857,9 @@ Agent 工程里，默认值很重要。
 
 手写最小系统，就是一次把默认值拆开看的过程。
 
-## 十三、这篇先留下的工程边界
+## 九、这篇先留下的工程边界
 
-最后把这篇压成几句话。
+这一章先留下几句话。
 
 第一，框架解决的是常见路径的效率问题。
 
@@ -1263,13 +890,11 @@ LLM Provider 接入：让 CLI 完成第一次模型调用
 它只负责模型调用，不负责执行工具，不负责管理任务世界。
 ```
 
-一句话记住这篇：
+写代码时，只要守住这条线：手写 Agent 不是为了不用框架，而是为了看懂框架把哪些工程责任藏起来了。
 
-> 手写 Agent 不是为了不用框架，而是为了看懂框架把哪些工程责任藏起来了。
+## 本章代码落点
 
-## 落地到教学 Harness
-
-手写的最小目标可以非常具体：`protocol.ts`、`message.ts`、`model.ts`、`mockModel.ts`、`loop.ts`、`tools.ts`、`sessionStore.ts`。这些文件不追求完整，而是让读者亲眼看到框架平时隐藏的决定：消息怎么建模、tool call 怎么回填、错误是不是 observation、session 从哪里恢复。
+本章先不要求完整实现，只确定后续章节会逐步长出的文件：`protocol.ts`、`message.ts`、`model.ts`、`mockModel.ts`、`loop.ts`、`tools.ts`、`sessionStore.ts`。这些文件不追求完整，而是让读者亲眼看到框架平时隐藏的决定：消息怎么建模、tool intent 怎么回填、错误是不是 observation、session 从哪里恢复。
 
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: "Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent"
+title: "Agent 演进路线：从聊天原型到托管运行"
 shortTitle: "Agent 演化路径：四阶段路线图"
-description: "很多人第一次看 Agent 架构图，会有一种很自然的困惑：为什么一个“会聊天的模型”，最后会变成一整套 Harness？一开始我们明明只想做一个 CLI 助手。用户输入一句话，模型回答一句话。如果效果不错，再给它加几个工具。再往后，怎么突然就冒出了 Runtime、Session、Permis..."
+description: "用项目里程碑的方式看 Agent 如何从只会聊天，逐步长出工具、运行时控制和托管治理。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/00-05-agent-evolution-path/cover.jpg'
@@ -18,9 +18,11 @@ aliases:
   - Agent 如何长成 Harness
 ---
 
-# Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent
+# Agent 演进路线：从聊天原型到托管运行
 
-很多人第一次看 Agent 架构图，会有一种很自然的困惑：**为什么一个“会聊天的模型”，最后会变成一整套 Harness？**一开始我们明明只想做一个 CLI 助手。用户输入一句话，模型回答一句话。如果效果不错，再给它加几个工具。再往后，怎么突然就冒出了 Runtime、Session、Permission、Sandbox、Trace、Eval、Deployment 这些东西？它们看起来像架构师提前画出来的大图。但真实情况通常不是这样。真实的演化更像一个项目被任务一步步推着走：
+很多人第一次看 Agent 架构图，会有一种很自然的困惑：**为什么一个“会聊天的模型”，最后会变成一整套 Harness？**一开始我们明明只想做一个 CLI 助手。用户输入一句话，模型回答一句话。后来加了几个工具，再往后却突然冒出 Runtime、Session、Permission、Sandbox、Trace、Eval、Deployment。
+
+这些东西不像是第一天画出来的大图，更像一个项目被真实任务一步步推着走：
 
 ```text
 先让它能回答
@@ -29,7 +31,7 @@ aliases:
 -> 再让它能被别人安全使用
 -> 最后你发现，模型外面已经长出了一套 Harness 责任
 ```
-这篇文章要回答的核心问题就是：
+这一章回答的问题是：
 
 > Agent 是如何自然长成 Harness 的？
 
@@ -38,7 +40,17 @@ aliases:
 ```text
 帮我看看这个项目为什么测试失败，并把它修好。
 ```
-如果这个系统只能聊天，它会解释可能原因。如果它能调用工具，它会读文件、跑测试、改代码。如果它要跑很久，它就得管理预算、错误、中断和恢复。如果它要交给真实用户使用，它就得管理沙箱、权限、上下文策略、评估和部署。这就是从 Chat Agent 到 Managed Agent 的路。它不是四个平行名词。它是一条工程压力逐层显形的路径。
+如果这个系统只能聊天，它会解释可能原因。如果它能调用工具，它会读文件、跑测试、改代码。如果它要跑很久，它就得管理预算、错误、中断和恢复。如果它要交给真实用户使用，它就得管理沙箱、权限、上下文策略、评估和部署。
+
+所以这篇不再重新定义 Chat Agent、Tool Agent、Runtime Agent、Managed Agent。我们把它们当成一个项目的里程碑：
+
+| 版本 | 新增能力 | 新暴露的问题 | 必须补的控制层 |
+| --- | --- | --- | --- |
+| v0 | 只接模型，能回答 | 容易把建议说成进展 | messages、provider contract |
+| v1 | 加只读工具，能观察项目 | 工具结果要回填成事实 | tool intent、observation、tool visibility |
+| v2 | 加写入和命令，开始有副作用 | 权限、超时、验证开始变硬 | permission、execution、verification |
+| v3 | 加 session log、budget、interrupt | 长任务会断，会失败，会撑爆上下文 | lifecycle、event log、context policy |
+| v4 | 加 sandbox、policy、eval、deployment | 多用户、多仓库、多环境要治理 | sandbox、audit、trace、eval、deployment |
 
 ## 问题链
 
@@ -57,8 +69,8 @@ Chat Agent 只管理 messages 和模型调用
 ```
 画成一张总览图，大概是这样：
 
-![Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent Mermaid 1](assets/00-05-agent-evolution-path/mermaid-01.png)
-这张图里最重要的不是阶段名称，而是每个阶段新增的系统责任。Chat Agent 的责任还很窄：维护消息，调用模型，输出文本。Tool Agent 开始跨出语言世界：模型提出行动意图，系统执行工具，并把结果回填。Runtime Agent 开始承认一个事实：行动会失败，任务会很长，预算会耗尽，用户会中断，进程会崩溃。Managed Agent 则进一步承认另一个事实：真实用户不会只在你的笔记本上跑 demo，他们会把 Agent 放进不同仓库、不同权限、不同组织流程里。所以 Harness 不是凭空设计出来的“大架构”。它是每次把 Agent 放进更真实环境时，被迫长出来的控制层。
+![Agent 演进路线：从聊天原型到托管运行 Mermaid 1](assets/00-05-agent-evolution-path/mermaid-01.png)
+看这张图时，先看每个阶段新增的系统责任。Chat Agent 的责任还很窄：维护消息，调用模型，输出文本。Tool Agent 开始跨出语言世界：模型提出行动意图，系统执行工具，并把结果回填。Runtime Agent 开始承认一个事实：行动会失败，任务会很长，预算会耗尽，用户会中断，进程会崩溃。Managed Agent 则进一步承认另一个事实：真实用户不会只在你的笔记本上跑 demo，他们会把 Agent 放进不同仓库、不同权限、不同组织流程里。所以 Harness 不是凭空设计出来的“大架构”。它是每次把 Agent 放进更真实环境时，被迫长出来的控制层。
 
 这里要先补一个判断：这四个阶段不是成熟度排行榜。
 
@@ -82,7 +94,7 @@ Chat Agent 只管理 messages 和模型调用
 
 可以把演化压力画成四条轴：
 
-![Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent Mermaid 2](assets/00-05-agent-evolution-path/mermaid-02.png)
+![Agent 演进路线：从聊天原型到托管运行 Mermaid 2](assets/00-05-agent-evolution-path/mermaid-02.png)
 
 这张图能解释一个很重要的现象：同一个产品里可以同时存在不同层次的 Agent。
 
@@ -94,7 +106,7 @@ Chat Agent 只管理 messages 和模型调用
 每条任务路径根据风险压力选择自己的控制层厚度。
 ```
 
-## 一、Chat Agent：先让系统能回答
+## 一、v0 Chat Agent：先让系统能回答
 
 ![把 Agent 演化看成风险压力增长，而不是能力等级排行](assets/00-05-agent-evolution-path/photo-02-risk-pressure-axes.jpg)
 
@@ -158,7 +170,7 @@ async function chat(input: string) {
 ```
 这段伪代码的重点不是语法，而是它的职责边界。它只管理 messages。它只调用模型。它只返回文本。它没有工具协议，没有执行层，没有权限，也没有恢复机制。如果我们在这个阶段就硬让模型“假装已经运行测试”，系统会变得非常危险。因为用户看到的是自信叙述，实际背后没有任何可验证动作。所以第一层演化不是“把 prompt 写得更强”。第一层演化是让模型输出从“回答文本”变成“行动意图”。
 
-## 二、Tool Agent：让模型的意图变成受控行动
+## 二、v1 Tool Agent：让模型的意图变成受控行动
 
 Tool Agent 出现，是因为用户不满足于“告诉我怎么做”。用户真正想要的是：
 
@@ -201,7 +213,7 @@ Tool Agent 出现，是因为用户不满足于“告诉我怎么做”。用户
 ```
 画成运行过程是这样：
 
-![Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent Mermaid 3](assets/00-05-agent-evolution-path/mermaid-03.png)
+![Agent 演进路线：从聊天原型到托管运行 Mermaid 3](assets/00-05-agent-evolution-path/mermaid-03.png)
 这张图里最重要的边界，是 `Model -> Loop` 和 `Loop -> Tools` 之间的分工。模型只提出意图。Loop 和 Tool Runtime 决定这个意图能不能执行、怎么执行、执行结果如何写回。如果没有这条边界，Tool Agent 很容易退化成“模型吐 shell，系统照做”。那会带来一串问题。首先是参数不可控。模型可能输出半截命令、错误路径、拼错工具名，或者把自然语言混进参数里。所以每个工具都需要 schema。
 
 ```ts
@@ -283,7 +295,7 @@ run_tests -> 返回失败日志
 
 但 Tool Agent 也不是终点。工具一旦接入真实世界，新的问题马上出现。测试命令可能卡住。文件可能不存在。模型可能连续调用同一个工具。输出可能太长。token 预算可能烧完。用户可能中途按下 Ctrl-C。进程可能在修改了一半时崩溃。这些问题不是“再加一个工具”能解决的。它们属于 Runtime。所以 Tool Agent 会自然演化成 Runtime Agent。
 
-## 三、Runtime Agent：让长任务能被控制、恢复和复盘
+## 三、v2/v3 Runtime Agent：让长任务能被控制、恢复和复盘
 
 Tool Agent 解决了“能不能行动”。Runtime Agent 解决的是：**行动过程能不能稳定地持续下去。**在 demo 里，我们常常写一个很直接的循环：
 
@@ -313,8 +325,8 @@ compaction：上下文压缩
 ```
 这时 Agent 的循环已经不再是一个简单 `while true`。它更像一个受控状态机：
 
-![Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent Mermaid 4](assets/00-05-agent-evolution-path/mermaid-04.png)
-这张图里最重要的不是状态数量，而是 Agent 开始有了“生命周期”。Chat Agent 只有输入和输出。Tool Agent 有工具调用和工具结果。Runtime Agent 则有开始、暂停、恢复、失败、结束。一旦有生命周期，系统就必须回答很多工程问题。比如 budget。如果用户让 CLI Agent 修一个大型项目，模型可能会读很多文件、跑很多命令、尝试很多补丁。没有预算控制，它可能无限消耗 token 和时间。所以 Runtime 需要在每一轮之前检查：
+![Agent 演进路线：从聊天原型到托管运行 Mermaid 4](assets/00-05-agent-evolution-path/mermaid-04.png)
+看这张图时，先看 Agent 开始有了“生命周期”。Chat Agent 只有输入和输出。Tool Agent 有工具调用和工具结果。Runtime Agent 则有开始、暂停、恢复、失败、结束。一旦有生命周期，系统就必须回答很多工程问题。比如 budget。如果用户让 CLI Agent 修一个大型项目，模型可能会读很多文件、跑很多命令、尝试很多补丁。没有预算控制，它可能无限消耗 token 和时间。所以 Runtime 需要在每一轮之前检查：
 
 ```ts
 function canContinue(session: SessionState) {
@@ -364,7 +376,7 @@ type RuntimeEvent =
 ```
 这就引出 Managed Agent。
 
-## 四、Managed Agent：让 Agent 进入真实组织和真实环境
+## 四、v4 Managed Agent：让 Agent 进入真实组织和真实环境
 
 Runtime Agent 已经能跑长任务。但它通常还默认一个前提：
 
@@ -387,7 +399,7 @@ Agent 在一个可信、本地、单用户、临时的环境里运行。
 ```
 这些问题合起来，就是 Managed Agent 的范围。Managed Agent 不是“更聪明的 Agent”。它是被平台托管、治理、观测和部署的 Agent。如果说 Runtime Agent 管的是一次任务的生命周期，那么 Managed Agent 管的是 Agent 作为一个系统能力的生命周期。可以画成一张分层图：
 
-![Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent Mermaid 5](assets/00-05-agent-evolution-path/mermaid-05.png)
+![Agent 演进路线：从聊天原型到托管运行 Mermaid 5](assets/00-05-agent-evolution-path/mermaid-05.png)
 这张图里最重要的是：Managed Agent 把 Agent 放进了一个可治理的外壳里。入口决定它从哪里被触发。Policy 决定它能做什么。Sandbox 决定它在哪里做。Runtime 决定它怎么持续做。Observability 和 Eval 决定它做得好不好。Deployment 决定它如何被发布、升级和回滚。这里最容易误解的是 sandbox。很多人会把 sandbox 理解成“安全功能”。它当然是安全功能，但不只是安全。Sandbox 还提供可重复的执行环境。如果 Agent 在用户本机随便跑，它看到的 node 版本、依赖缓存、环境变量、文件权限都可能不同。同一个任务，今天在你的电脑能过，明天在 CI 里失败。Managed Agent 需要把这些环境差异收束起来。这就是为什么 sandbox、container、workspace、permission、secret scope 会一起出现。再看 permission。Tool Agent 阶段我们已经有了工具权限。但 Managed Agent 的权限更大一层。它不仅问：
 
 ```text
@@ -414,7 +426,7 @@ Agent 在一个可信、本地、单用户、临时的环境里运行。
 ```
 这就是 Managed Agent 必须接入 trace 和 evaluation 的原因。Trace 不是为了“看起来专业”。Trace 是为了把一次 Agent 运行拆成可检查的事件链。Eval 则把很多条事件链变成可比较的质量信号。当 Agent 从个人工具变成平台能力，这些东西就不再是可选项。
 
-## 五、Harness：不是另一个 Agent，而是模型外面的控制系统
+## 五、Harness 的位置：托管 Agent 的运行条件
 
 走到这里，我们可以回头看 Harness。如果一开始就说：
 
@@ -437,7 +449,7 @@ Harness 是模型外部的控制系统，负责 Execution、Tools、Context、Li
 ```
 再画成一张图：
 
-![Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent Mermaid 6](assets/00-05-agent-evolution-path/mermaid-06.png)
+![Agent 演进路线：从聊天原型到托管运行 Mermaid 6](assets/00-05-agent-evolution-path/mermaid-06.png)
 这张图说明 Harness 的位置。它不是在模型旁边又放了一个“总指挥模型”。它是一组确定性的工程控制层。模型负责在给定上下文里判断下一步。Harness 负责让这个下一步：
 
 ```text
@@ -545,7 +557,7 @@ interface AgentHarness {
 可委派
 ```
 
-### Session log 不是普通日志
+### Session log：能恢复的事件账本
 
 Runtime Agent 里最关键的对象之一，是 session log。
 
@@ -607,7 +619,7 @@ sandbox 还有第三层价值：活性。
 
 所以 sandbox 既是笼子，也是许可证。它把 Agent 关在一个可控区域里，同时允许它在这个区域内少打断用户、持续行动。
 
-### Eval flywheel：不是跑分，而是改 Harness
+### Eval flywheel：用 trace 改 Harness
 
 Managed Agent 的评估也不应该只理解成最终分数。
 
@@ -638,7 +650,7 @@ trace 捕获轨迹
 
 这个结论几乎没法指导改进。
 
-### Sub-agent handoff 不是多叫几个模型
+### Sub-agent handoff：委派时要传什么
 
 最后是委派。
 
@@ -671,7 +683,7 @@ Managed Agent 往往会引入 sub-agent，但 sub-agent 不是“多叫几个模
 
 没有这些问题的答案，多 Agent 只是把一个 Agent 的不确定性复制成多个。
 
-## 九、把四个阶段压成一句话
+## 九、把四个阶段压成一条路线
 
 最后把这条路再压缩一次。Chat Agent 解决的是：
 

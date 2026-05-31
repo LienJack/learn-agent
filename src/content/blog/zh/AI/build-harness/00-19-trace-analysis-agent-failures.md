@@ -1,6 +1,6 @@
 ---
 title: "Trace Analysis：用事实日志定位 Agent 失败"
-description: "前面几篇把一个小型 CLI Agent 慢慢推到了更真实的位置。"
+description: "从 Agent 说修好了但测试仍失败的事故出发，把 event log 投影成可诊断 trace，并归因到具体责任边界。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -20,32 +20,6 @@ aliases:
 ---
 
 # Trace Analysis：用事实日志定位 Agent 失败
-
-前面几篇把一个小型 CLI Agent 慢慢推到了更真实的位置。
-
-它不再只是一次模型调用。
-
-它有 provider。
-
-它有 loop。
-
-它有 core kernel。
-
-它有 intent / execution 分离。
-
-它有 tool runtime。
-
-它有 permission。
-
-它知道 messages 不是事实源。
-
-它能把 session event log 持久化下来。
-
-它还能把局部任务委派给 sub-agent，并把子任务 trace 归并回父任务。
-
-这听起来已经很像一个能工作的系统。
-
-但真正把它放进项目里以后，你很快会遇到一个新的问题。
 
 用户说：
 
@@ -101,19 +75,16 @@ Agent 跑了一会儿。
 
 因为如果真正的问题在 permission、tool runtime、context projection、verification 或 delegation join，你换模型也不会从根上修好。
 
-第 16 篇已经讲过：
+第 16 篇已经解决了“事实在哪里”：
 
 ```text
-Session log 是事实源。
-Messages 只是投影。
-Replay 不是重跑真实世界，而是恢复可解释状态。
+event log 是恢复和审计的事实输入。
 ```
 
-第 18 篇又往前走了一步：
+这一篇只解决第二个问题：
 
 ```text
-子 Agent 的 trace 必须归并回父任务。
-父 Agent 分出去的是局部工作，不是控制权。
+事实很多，怎样组织成能定位失败的责任链？
 ```
 
 这一篇要解决的是下一层问题：
@@ -150,13 +121,6 @@ Trace 组织为什么会这样发生。
 Trace Analysis 把失败归因到模型、上下文、工具、权限、观察、验证或委派边界。
 ```
 
-如果只能记住一个区别，记住这一句：
-
-```text
-日志让你知道“发生了什么”。
-Trace 让你知道“哪条责任链断了”。
-```
-
 我们还是沿用同一个 CLI Agent 修复测试失败的例子。
 
 这一次，我们不再只关心它能不能跑完。
@@ -167,9 +131,9 @@ Trace 让你知道“哪条责任链断了”。
 它跑错以后，系统能不能把错解释清楚。
 ```
 
-## 问题链
+## 从失败日志到责任链
 
-先把本篇的问题链固定住：
+本章新增的诊断对象是这条链：
 
 ```text
 Agent 失败后，只看最终 transcript 会把问题压缩成“模型错了”
@@ -263,7 +227,7 @@ verification 有没有正确识别退出码？
 
 ![Trace Analysis：用事实日志定位 Agent 失败 Mermaid 1](assets/00-19-trace-analysis-agent-failures/mermaid-01.png)
 
-这张图里最重要的不是右侧节点更多。
+看这张图时，重点不是右侧节点更多。
 
 真正重要的是分叉方式变了。
 
@@ -689,7 +653,7 @@ verification.finished 是否保留了 exitCode=1？
 
 而是沿着责任边界逐层缩小范围。
 
-## 五、Failure Taxonomy：失败分类不是标签游戏，而是修复路线
+## 五、Failure Taxonomy：失败分类必须指向修复路线
 
 Trace Analysis 必须有失败分类。
 
@@ -731,7 +695,7 @@ Delegation join 错，可能要改 task brief、result contract、join policy、
 
 ![Trace Analysis：用事实日志定位 Agent 失败 Mermaid 4](assets/00-19-trace-analysis-agent-failures/mermaid-04.png)
 
-这张图里最重要的是右侧修复路线。
+看这张图时，先看右侧修复路线。
 
 分类如果不能指导修复，就是日志装饰。
 
@@ -1536,7 +1500,7 @@ Trace 里需要能看到：
 
 ![Trace Analysis：用事实日志定位 Agent 失败 Mermaid 6](assets/00-19-trace-analysis-agent-failures/mermaid-06.png)
 
-这张图里最重要的是 Join / Review。
+看这张图时，先看 Join / Review。
 
 多 Agent 不是投票。
 
@@ -1714,6 +1678,20 @@ type TraceFinding = {
   suggestedFixArea: string;
   unknowns: string[];
 };
+```
+
+更具体一点，一个 finding 可以长这样：
+
+```yaml
+type: context_projection_missing_fact
+impact: 模型继续沿错误方向修改
+discovered_at: tool.finished:test-output-004
+missing_from: context.projected:turn-5
+evidence:
+  - artifact://test-output-004
+suggested_fix:
+  - verification failure 的新错误类型强制进入下一轮 context
+  - 同一命令前后失败差异显式标注
 ```
 
 比如：
@@ -2129,70 +2107,33 @@ legacy login API 需要 numeric user_id。
 
 这就是 Memory Governance。
 
-## 十九、把这一篇压成一条承重链路
+## 十九、本章代码落点
 
-我们最后把 Trace Analysis 压回一条链。
-
-第 16 篇说：
+本章代码里可以先落这些对象：
 
 ```text
-Event log 是事实源。
+TraceProjector
+FailureFinding
+FailureTaxonomy
+TraceReport
+EvalCaseCandidate
 ```
 
-第 18 篇说：
+新增测试可以先写这些：
 
 ```text
-Sub-agent trace 必须归并。
+final success without verification 归为 verification_missing。
+discovered fact 未进入 context 归为 context_projection_missing_fact。
+非零退出码被 observation 投影成成功，归为 observation_projection_error。
+子 Agent unknown 被父 Agent 忽略，归为 delegation_join_error。
 ```
 
-第 19 篇说：
+验收标准是：
 
 ```text
-Trace Analysis 把事实组织成失败归因。
-```
-
-完整链路是：
-
-```text
-用户目标
--> 模型判断
--> tool intent
--> 权限决策
--> 工具执行
--> observation 投影
--> context projection
--> verification
--> trace report
--> eval candidate
--> memory governance candidate
-```
-
-这条链里，每一段都可能断。
-
-Trace Analysis 的任务不是让失败消失。
-
-而是让失败可定位。
-
-让“模型错了”变成更具体的问题：
-
-```text
-模型看见事实后仍判断错。
-关键事实没有进入上下文。
-工具执行和 intent 不一致。
-权限分类错误。
-observation 丢掉了失败信号。
-verification 没有验证用户目标。
-父 Agent join 忽略了子任务 unknowns。
-```
-
-这些说法都比“模型不行”更有用。
-
-因为它们能指向修改。
-
-如果只能记住一句话，记这一句：
-
-```text
-Trace 不是日志的装饰层，而是 Harness 的失败归因层。
+trace report 指向具体责任边界，而不是只说模型错了。
+每条 finding 都有证据引用、影响说明和修复路线。
+失败样本能进入 eval candidate，避免同类问题反复出现。
 ```
 
 到这一步，我们的小型 CLI Agent 不只是能行动、能恢复、能委派。
@@ -2216,7 +2157,7 @@ Memory Governance。
 
 也就是从 candidate ledger 到 governance store，讨论 Agent 该怎样保存经验，而不把自己的记忆变成新的污染源。
 
-## 落地到教学 Harness
+## 教学 Harness 落点
 
 教学 UI 的 Event Timeline 就是 trace analysis 的第一版。每次失败时，不要只看最终回答，而要沿着 `turn_start`、`message_update`、`tool_execution_start`、`tool_execution_end`、`turn_end` 回放。这样能判断问题在模型判断、工具参数、工具结果、context 投影，还是持久化顺序。
 

@@ -1,6 +1,6 @@
 ---
 title: "Hosted Harness：Sandbox、Cron、Durable Execution 与远程部署"
-description: "把本地 CLI Agent 推到远程托管环境，理解 sandbox、cron、durable execution、workspace setup、secret boundary、artifact store、resume/retry 与 notification 如何共同组成 Hosted Harness。"
+description: "把本地 CLI Agent 推到远程托管生命周期：job、workspace、sandbox、secret、durable step、artifact、worker lease 与 notification。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -21,31 +21,11 @@ aliases:
 
 # Hosted Harness：Sandbox、Cron、Durable Execution 与远程部署
 
-如果你已经跟着前面的章节写到这里，手里应该有一个越来越像样的 CLI Agent。
+本地能跑，不等于远程可托管。
 
-它能接 provider。
+最常见的坏实现是：
 
-它能把模型输出拆成 tool intent。
-
-它能通过 Tool Runtime 执行文件、搜索、终端工具。
-
-它能把 observation 写回 session。
-
-它能用 event log 做 replay。
-
-它甚至能把局部任务委派给 sub-agent。
-
-这时很容易产生一个诱惑：
-
-既然本地 CLI 已经能跑了，那把它放到服务器上不就成 Hosted Harness 了吗？
-
-比如开一个 worker。
-
-把 CLI 命令包进 HTTP API。
-
-再加一个 cron。
-
-每天凌晨跑一次：
+开一个 worker，把 CLI 命令包进 HTTP API，再加一个 cron，每天凌晨跑一次：
 
 ```text
 node cli-agent.js --task "检查这个仓库的测试失败并修复"
@@ -55,6 +35,8 @@ node cli-agent.js --task "检查这个仓库的测试失败并修复"
 
 也很危险。
 
+这段代码能跑，但任务身份、workspace 身份、secret 边界、durable step、artifact 和 notification dedupe 都藏在了一个异步函数里。
+
 因为本地 CLI 能证明的是机制。
 
 它证明模型、loop、tools、state、permission、session 这些部件能在一台机器上协同工作。
@@ -63,33 +45,24 @@ node cli-agent.js --task "检查这个仓库的测试失败并修复"
 
 **当 Agent 不在你眼前运行、不依赖当前终端、不依赖当前工作目录、不依赖当前进程内存时，它还能不能可恢复、可审计、可治理地完成长任务。**
 
-这篇文章就是“产品化与托管”阶段的收束。
-
-我们不再给本地 Agent 加一个新工具。
-
-也不再只是讨论某个 runtime 细节。
-
-我们要把前面所有承重层合起来：
+这一篇只回答一个问题：
 
 ```text
-Session / Harness / Sandbox
-Automation / Cron
-Durable Execution
-Workspace Setup
-Secret Boundary
-Artifact Store
-Resume / Retry
-Notification
-Deployment Topology
+当 Agent 离开本地终端，进入远程 worker 后，哪些事实必须外部化，哪些动作必须 durable？
 ```
 
-它们共同回答一个问题：
+Hosted Harness 的新增对象不是 “cloud” 或 “server”，而是任务生命周期：
 
-> Hosted Harness 为什么不是“把 CLI 放到服务器上”？
-
-答案先压成一句：
-
-**Hosted Harness 不是一个远程 Agent 进程，而是一套能跨时间、跨 worker、跨 sandbox 托管 Agent 任务生命周期的控制系统。**
+```text
+Job lifecycle
+Workspace identity
+Sandbox spec
+Secret boundary
+Durable step
+Artifact store
+Worker lease
+Notification log
+```
 
 这篇不是要一次实现完整平台。
 
@@ -245,9 +218,7 @@ Deployment
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution 与远程部署 Mermaid 1](assets/00-23-hosted-harness-durable-execution/mermaid-01.png)
 
-这张图里最重要的不是节点多。
-
-而是箭头的方向。
+看这张图时，先看箭头的方向。
 
 Automation 不直接操作仓库。
 
@@ -325,7 +296,7 @@ Automation 创建 JobIntent
 
 每一步都应该能被审计。
 
-## 三、Cron 不是定时执行命令，而是创建可恢复任务
+## 三、Cron：创建可恢复任务
 
 很多系统第一次加 automation，会把 cron 当成一个“定时 Bash”。
 
@@ -761,7 +732,7 @@ secret 不进入用户可见报告。
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution 与远程部署 Mermaid 4](assets/00-23-hosted-harness-durable-execution/mermaid-04.png)
 
-这张图里最重要的是两条虚线：
+看这张图时，先看两条虚线：
 
 Vault 不进入模型。
 
@@ -869,7 +840,7 @@ load session
 
 ![Hosted Harness：Sandbox、Cron、Durable Execution 与远程部署 Mermaid 5](assets/00-23-hosted-harness-durable-execution/mermaid-05.png)
 
-这张图里最重要的是 `WaitingApproval` 和 `Paused`。
+看这张图时，先看 `WaitingApproval` 和 `Paused`。
 
 本地 CLI 常常把它们当成阻塞。
 
@@ -1033,7 +1004,7 @@ Hosted Harness 里 artifact store 还有一个额外价值：
 
 它也能让下一次 resume 不靠“邮件里的文字摘要”继续。
 
-## 九、Notification：通知不是 final answer，而是生命周期事件
+## 九、Notification：生命周期事件的消费者
 
 本地 CLI 的结束方式很简单。
 
@@ -1148,7 +1119,7 @@ session 是否已被其他 worker 推进？
 
 用户授权的是一个带上下文身份的 action。
 
-## 十、Remote Worker：worker 是可替换执行者，不是任务事实源
+## 十、Remote Worker：可替换执行者
 
 现在把这些层串起来看。
 
@@ -1733,43 +1704,40 @@ Agent 不再只是能在本地完成一次任务。
 
 这也是从“写一个 Agent”到“运营一套 Agent Harness”的转折。
 
-## 结尾：Hosted 的核心不是云端，而是可托管的生命周期
+## 十六、本章代码落点
 
-我们可以把整篇压缩成三句话。
-
-第一，本地 CLI 证明机制，Hosted Harness 托管生命周期。
-
-第二，Hosted Harness 不是把 CLI 放到服务器上，而是把 automation、session、harness、sandbox、workspace、secret、artifact、notification、deployment 分层。
-
-第三，远程长任务的可靠性不来自 worker 一直活着，而来自事实、证据、权限和恢复点都在 worker 外部被持久化。
-
-远程化不是 Hosted Harness。
-
-只有任务触发、事实源、执行环境、证据、审批、通知和恢复都在 worker 外部可持久化，才进入 Hosted Harness。
-
-所以 Hosted Harness 的记忆点可以写成：
-
-**进程可以死，sandbox 可以换，worker 可以重派；只要 session、artifact、permission 和 workspace identity 还在，Agent 任务就没有真正丢。**
-
-到了这里，整套路线上半段已经从“模型如何行动”走到了“系统如何托管行动”。
-
-下一阶段再看任意 Agent 框架时，就不只看它有没有漂亮的 API。
-
-而是能问出更工程化的问题：
+本章代码里可以先落这些对象：
 
 ```text
-它的 session 事实源在哪里？
-它的 sandbox 边界在哪里？
-它的 cron 是否幂等？
-它的 artifact 是否可追溯？
-它的 retry 是否理解副作用？
-它的 notification 是否进入 lifecycle？
-它的 deployment 是否真的让长任务可恢复？
+AutomationTrigger
+JobLease
+WorkspaceSetupPlan
+SandboxSpec
+DurableStep
+SecretVault
+ArtifactStore
+NotificationLog
 ```
 
-能回答这些问题，才算真的开始理解 Agent Harness。
+新增测试可以先写这些：
 
-## 落地到教学 Harness
+```text
+worker 死亡后 session 可恢复。
+tool write 不自动重试。
+approval 跨时间恢复前会重新验现场。
+notification 有 dedupe key。
+secret 不进入模型上下文，也不默认进入 sandbox。
+```
+
+验收标准是：
+
+```text
+进程可以死，sandbox 可以换，worker 可以重派。
+只要 session、artifact、permission 和 workspace identity 还在，任务能解释自己停在哪里。
+远程任务的事实不依赖 worker 内存。
+```
+
+## 教学 Harness 落点
 
 托管版可以从 `/api/runs` 与 SSE 的语义继续长出来：run 有 `runId`，事件可以流式消费，session 可以恢复，副作用要有 checkpoint。真正的 hosted Harness 不是“把本地 loop 放到服务器跑”，而是让 run、workspace、event log、artifact 和 retry 都有持久身份。
 

@@ -1,6 +1,6 @@
 ---
-title: "Plugin Host：core 为什么要学会被扩展？"
-description: "第 10 篇里，我们把一条很重要的边界钉住了："
+title: "Plugin Host：让外部能力按规则进入 Core"
+description: "从 core 被 provider、工具、hook 和策略污染的现场出发，解释外部能力如何以 contribution 进入系统。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -17,20 +17,26 @@ aliases:
   - Agent 插件宿主
 ---
 
-# Plugin Host：core 为什么要学会被扩展？
+# Plugin Host：让外部能力按规则进入 Core
 
-第 10 篇里，我们把一条很重要的边界钉住了：
+M0 写到后面，core 里通常会长出一堆 `if`：
 
 ```text
-模型只提出 Intent。
-系统负责 Validate、Approve、Execute、Observe。
+如果 provider 是 openai，走这里。
+如果 provider 是 anthropic，走那里。
+node 项目注册 npm test。
+python 项目注册 pytest。
+项目有 policy 文件，就插一个 preToolUse hook。
+工具来自 MCP，就先检查 server scope。
 ```
 
-这条边界让一个小型 CLI Agent 不至于变成“模型说什么，系统就干什么”。
+这还不是代码长的问题。
 
-但当你真的继续写下去，很快会遇到另一个问题。
+```text
+问题是 core 开始认识太多具体能力。
+```
 
-最开始，我们的 core 里可以直接写死所有东西：
+最开始，core 里直接写死这些东西很合理：
 
 ```text
 一个 provider adapter
@@ -40,60 +46,28 @@ aliases:
 一个 loop
 ```
 
-这在 M0 很合理。
+M0 的目标只是证明：真实模型可以被接入系统，但不会接管系统。
 
-因为 M0 的目标不是做一个完整平台，而是先证明：
+到了 M1，你会想接第二个 provider，把文件工具、搜索工具、终端工具拆成独立 bundle，让项目自己注册 hook，让团队把内部系统、代码规范、审查流程、部署入口接进来。
 
-```text
-真实模型可以被接入系统，但不会接管系统。
-```
-
-可是到了 M1，情况变了。
-
-你会想接第二个 provider。
-
-你会想把文件工具、搜索工具、终端工具拆成独立 bundle。
-
-你会想让项目自己注册某些 hook。
-
-你会想让团队把内部系统、代码规范、审查流程、部署入口接进来。
-
-你会想让不同工作区启用不同能力。
-
-然后 core 开始膨胀。
-
-一开始只是多几个 `if`。
-
-很快就变成：
+到这一步，core 不再只是 core。
 
 ```text
-如果 provider 是 openai，走这里。
-如果 provider 是 anthropic，走那里。
-如果工具来自本地 bundle，使用本地权限策略。
-如果工具来自 MCP，先检查 server scope。
-如果 hook 是 preToolUse，要能阻断。
-如果 hook 是 postToolUse，只能观察。
-如果插件禁用，就不要暴露它的工具。
-如果插件启动失败，不要拖垮整个 agent。
-```
-
-到这一步，你会发现：
-
-```text
-core 不再只是 core。
 core 变成了所有具体能力的垃圾桶。
 ```
 
 这篇文章要回答的核心问题就是：
 
-> 为什么一个 Agent Harness 的 core 必须学会被扩展？以及，为什么“可扩展”不是放开边界，而是把外部能力带进同一套 Harness 纪律？
+> 外部能力怎么进来，才不会把 core 变成能力垃圾桶？
 
-这里先压住一个边界：
+沿用第 10 篇的边界：模型只提出 intent，执行权在 runtime。本文不再重新论证这件事，只看插件这一层的具体落点：
 
 ```text
-core 学会被扩展，不等于 core 放手。
-Plugin Host 不是让外部能力自由进入系统。
-Plugin Host 是让外部能力排队进入同一套 Harness 纪律。
+插件如何声明？
+如何加载？
+如何注册？
+生命周期怎么管理？
+hook 怎么排序、阻断、隔离错误？
 ```
 
 我们继续沿用整个系列的贯穿例子：
@@ -128,9 +102,9 @@ core 如何接收它们，同时不被它们污染？
 
 这就是 Plugin Host 出现的原因。
 
-## 问题链
+## core 是怎么被具体能力污染的
 
-先把这篇文章的问题链固定住：
+先把这篇文章的新增对象固定住：
 
 ```text
 M0 core 可以直接内置 provider、tool、hook
@@ -141,14 +115,10 @@ M0 core 可以直接内置 provider、tool、hook
 -> Plugin Host 负责加载、校验、注册、启动、停止插件
 -> Registry 把外部能力转成内部统一 contract
 -> Hook Kernel 把扩展点变成受控阻断点
--> 扩展不是绕过 Harness，而是进入同一套 Harness 纪律
+-> 插件贡献能力，后续执行仍然进入第 10、13 篇的运行时管线
 ```
 
-这条链最重要的不是“插件让系统更灵活”。
-
-灵活只是表面收益。
-
-真正的收益是：
+这条链的收益是：
 
 ```text
 core 不再需要知道所有具体能力。
@@ -157,9 +127,9 @@ core 只需要知道外部能力必须怎样进入系统。
 
 画成图，大概是这样：
 
-![Plugin Host：core 为什么要学会被扩展？ Mermaid 1](assets/00-11-plugin-host-core-extension/mermaid-01.png)
+![Plugin Host：让外部能力按规则进入 Core Mermaid 1](assets/00-11-plugin-host-core-extension/mermaid-01.png)
 
-这张图里最关键的边界，是 `Core 污染` 和 `Plugin Host` 之间的边界。
+看这张图时，可以先抓一个点：插件贡献的是 contribution，不是执行权。
 
 没有 Plugin Host 时，core 会直接认识每一种 provider、每一种工具、每一种 hook。
 
@@ -351,7 +321,7 @@ Plugin Host 要解决的不是“代码怎么拆目录”。
 但不把具体能力的变化传染给 core。
 ```
 
-## 三、Plugin Host 不是插件市场，而是受控入口
+## 三、Plugin Host 的第一职责：受控入口
 
 很多人一听到 Plugin Host，会先想到“插件市场”。
 
@@ -446,7 +416,7 @@ type Plugin = {
 
 更不应该提供“直接修改 session state”的入口。
 
-Plugin Host 的第一条原则是：
+实现时先守住第一条线：
 
 ```text
 插件能声明能力，但不能越过 host 自行接管能力。
@@ -490,7 +460,7 @@ Hook Kernel
 
 这五个部件的关系可以画成一张分层图：
 
-![Plugin Host：core 为什么要学会被扩展？ Mermaid 2](assets/00-11-plugin-host-core-extension/mermaid-02.png)
+![Plugin Host：让外部能力按规则进入 Core Mermaid 2](assets/00-11-plugin-host-core-extension/mermaid-02.png)
 
 这张图里，`外部插件` 没有直接连到 `Core Kernel`。
 
@@ -602,7 +572,7 @@ manifest 不等于最终授权。
 
 这会让插件变成黑盒。
 
-Plugin Host 的第二条原则是：
+实现时再守住第二条线：
 
 ```text
 插件必须先声明，再运行；能力必须先登记，再暴露。
@@ -868,7 +838,7 @@ discovered
 
 画成图：
 
-![Plugin Host：core 为什么要学会被扩展？ Mermaid 3](assets/00-11-plugin-host-core-extension/mermaid-03.png)
+![Plugin Host：让外部能力按规则进入 Core Mermaid 3](assets/00-11-plugin-host-core-extension/mermaid-03.png)
 
 这张图的重点不是状态名字。
 
@@ -920,7 +890,7 @@ manifest 合法。
 停止插件 -> 清理资源并记录事件
 ```
 
-## 九、Hook Kernel：hook 不是普通事件监听
+## 九、Hook Kernel：哪些 hook 能阻断流程
 
 Plugin Host 最容易被写坏的地方，是 hook。
 
@@ -968,7 +938,7 @@ hook gate 是“发生以前必须过我”。
 
 用图看更清楚：
 
-![Plugin Host：core 为什么要学会被扩展？ Mermaid 4](assets/00-11-plugin-host-core-extension/mermaid-04.png)
+![Plugin Host：让外部能力按规则进入 Core Mermaid 4](assets/00-11-plugin-host-core-extension/mermaid-04.png)
 
 这张图里最重要的责任边界，是 `Hook Kernel` 位于 `Runtime` 和 `Tool Runtime` 之间。
 
@@ -1072,7 +1042,7 @@ provider 仍然只返回 model event 和 tool intent。
 
 完整链路可以画成这样：
 
-![Plugin Host：core 为什么要学会被扩展？ Mermaid 5](assets/00-11-plugin-host-core-extension/mermaid-05.png)
+![Plugin Host：让外部能力按规则进入 Core Mermaid 5](assets/00-11-plugin-host-core-extension/mermaid-05.png)
 
 这张图里，插件贡献了能力。
 
@@ -1774,9 +1744,9 @@ hook 必须结构化决策。
 
 而是 core 学会用更小、更稳定的 contract 管住更多外部能力。
 
-如果用一句话记住这篇：
+这一篇先留下一个判断：
 
-> Plugin Host 不是把边界打开，而是让外部能力排队进入同一套 Harness 纪律。
+> Plugin Host 的核心不是插件市场，而是把外部能力变成可校验、可登记、可隔离、可追踪的 contribution。
 
 下一篇会继续沿着 provider 往下走。
 
@@ -1790,7 +1760,7 @@ provider 为什么只能返回 tool intent，而不能自己执行工具？
 
 也就是模型供应商、流式事件、tool call、error mapping 和 system runtime 之间更细的边界。
 
-## 落地到教学 Harness
+## 本章代码落点
 
 最小 Plugin Host 不必先做插件市场，只要把可替换点留出来：provider 实现 `TeachingModel`，工具通过 `registry.register()` 加入，权限策略通过 `beforeToolCall` hook 接入，UI 只读取工具 definitions。这样 core 稳定，扩展发生在边界上，而不是到处 if/else。
 
