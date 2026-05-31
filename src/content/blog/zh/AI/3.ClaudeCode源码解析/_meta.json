@@ -1,7 +1,7 @@
 {
 	"title": "Claude code 源码解析",
 	"alias": "Claude Code 源码解析",
-	"description": "顺着架构、上下文、工具、MCP 和多 Agent 协作去理解一个编程 Agent 运行时。",
+	"description": "面向想读懂 Claude Code 源码的工程师，从 ReAct 主循环、上下文管理、工具执行、MCP、Skill 到多 Agent 协作，按源码阅读路径拆解编程 Agent 运行时。",
 	"cover": "/blog-covers/claude-code-typing.svg",
 	"order": 3
 }

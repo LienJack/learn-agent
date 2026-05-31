@@ -1,6 +1,6 @@
 ---
-title: "从 0 到 1 构建 Agent 与 Harness"
-description: "一套从简单 CLI 助手开始，逐步构建可控、可观测、可扩展 Agent Harness 的工程教程。"
+title: "Agent Harness 教程：从 CLI 助手到可控、可观测、可扩展的工程系统"
+description: "从第一次模型调用、最小 Agent Loop、工具运行时、上下文策略、事件日志到托管运行，逐步构建一个可控、可观测、可扩展的 Agent Harness。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -14,13 +14,15 @@ aliases:
   - Build Harness
 ---
 
-# 从 0 到 1 构建 Agent 与 Harness
+# Agent Harness 教程：从 CLI 助手到可控、可观测、可扩展的工程系统
 
 这是一套面向工程实践的 Agent Harness 教程。它不会一上来就把你扔进复杂框架，而是从一个能聊天的 CLI 助手开始，逐步长出 agent loop、工具调用、上下文策略、记忆、权限、trace、评测、子 Agent、自动化与托管运行。
 
 这套教程的目标很明确：让你真正理解“模型外面的系统”到底在做什么。LLM 可以判断下一步，但要让它稳定完成长任务，还需要执行层、状态层、权限层、观测层、恢复机制和产品化边界。这些东西组合起来，就是 Harness。
 
 如果你用过 ChatGPT、Claude、Cursor 或 Claude Code，却仍然好奇“Agent 为什么能干活”“Claude Code 这种工具背后大概怎么搭”，这套内容会带你从理论走到一个可运行、可扩展、可诊断的工程模型。
+
+站内阅读可以从 [Build Harness 系列入口](/blog/AI/build-harness) 开始；如果你更想先看成熟编程 Agent 的源码结构，可以对照 [Claude Code 源码解析导读](/blog/AI/3.ClaudeCode源码解析/00.系列导读)，再回到本系列亲手实现相同问题的最小版本。
 
 ## Agent 到底是什么？
 

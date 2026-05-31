@@ -15,6 +15,7 @@
     "test:publish": "node --test tests/publish/*.test.mjs",
     "test:translate": "node --test tests/translate/*.test.mjs",
     "test:images": "node --test tests/images/*.test.mjs",
+    "test:seo": "node --experimental-strip-types --test tests/seo/*.test.mjs",
     "publish:cn": "publish/bin/publish-cn",
     "publish:en": "publish/bin/publish-en",
     "publish:ja": "publish/bin/publish-ja",
