@@ -1,6 +1,6 @@
 ---
-title: "Local Tool Bundle：文件、搜索、终端与权限运行时"
-description: "到了这一步，很多人会忍不住把 Agent 的本地能力写成一组很直观的函数。"
+title: "Local Tool Bundle：文件、搜索、终端的本地边界"
+description: "把 Read、Edit、Write、Glob、Grep、Bash 拆成不同风险语义，说明本地工具如何填充 schema、risk、permission 和 observation。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -18,7 +18,7 @@ aliases:
   - 文件搜索终端权限运行时
 ---
 
-# Local Tool Bundle：文件、搜索、终端与权限运行时
+# Local Tool Bundle：文件、搜索、终端的本地边界
 
 到了这一步，很多人会忍不住把 Agent 的本地能力写成一组很直观的函数。
 
@@ -60,13 +60,11 @@ bash(command)
 
 一个裸露的 `bash`，可能从 `npm test` 滑到 `curl | bash`，再滑到 `git reset --hard`。
 
-所以这一篇要回答的核心问题不是：
+沿用第 13 篇的 Tool Runtime 管线，本文不再完整重讲 `validate -> permission -> execute -> observe`。这一篇只看本地工具怎么填充自己的语义：schema、risk、permission hint、workspace scope 和 observation。
 
-> 一个 Agent 要有哪些本地工具？
+这篇文章要回答的核心问题是：
 
-而是：
-
-> 为什么 Local Tool Bundle 不是一组便利函数，而是一组带风险分级、工作目录边界、权限策略、输出预算、审计事件的受控能力？
+> 为什么 Read、Edit、Write、Glob、Grep、Bash 不能混成一组便利函数？
 
 我们继续沿用整个系列同一个例子。
 
@@ -98,17 +96,16 @@ bash(command)
 
 每一步也都可能改变真实项目。
 
-## 问题链
+## 本地工具最容易在哪些地方失控
 
-先把本篇的问题链固定住：
+先把本篇的事故面固定住：
 
 ```text
 本地 Agent 最先需要 read / write / edit / search / bash
 -> 这些工具同时也是破坏文件和泄漏信息的入口
 -> 不能把它们实现成一组裸函数
 -> 每个工具都要声明动作语义、风险等级、工作目录边界和输出预算
--> 模型只提交结构化 intent
--> Tool Runtime 做 schema、语义、路径、权限、预算、审计
+-> 第 13 篇的 Tool Runtime 负责通用管线
 -> 不同工具走不同风险策略：读、搜、写、执行不能混在一起
 -> observation 回到模型时必须是事实摘要，而不是无限日志
 -> Local Tool Bundle 才能成为 Harness 的受控手脚
@@ -116,7 +113,7 @@ bash(command)
 
 画成一张总图，本篇讨论的是第 10 篇那条工具执行管线里的本地能力层：
 
-![Local Tool Bundle：文件、搜索、终端与权限运行时 Mermaid 1](assets/00-14-local-tool-bundle-permission-runtime/mermaid-01.png)
+![Local Tool Bundle：文件、搜索、终端的本地边界 Mermaid 1](assets/00-14-local-tool-bundle-permission-runtime/mermaid-01.png)
 
 这里最容易被低估的是中间的 `Local Tool Bundle`。
 
@@ -367,7 +364,7 @@ Local Tool Bundle 不是为了让模型拥有一个万能 shell。
 
 可以把这层画成一张分层图：
 
-![Local Tool Bundle：文件、搜索、终端与权限运行时 Mermaid 2](assets/00-14-local-tool-bundle-permission-runtime/mermaid-02.png)
+![Local Tool Bundle：文件、搜索、终端的本地边界 Mermaid 2](assets/00-14-local-tool-bundle-permission-runtime/mermaid-02.png)
 
 这张图里，模型没有直接碰到文件系统。
 
@@ -429,7 +426,7 @@ R5: 禁止动作，例如读取 secrets、越界路径、危险 shell 包装器
 
 风险分级的目的，是让常见低风险动作顺滑，让高风险动作清晰地停下来。
 
-![Local Tool Bundle：文件、搜索、终端与权限运行时 Mermaid 3](assets/00-14-local-tool-bundle-permission-runtime/mermaid-03.png)
+![Local Tool Bundle：文件、搜索、终端的本地边界 Mermaid 3](assets/00-14-local-tool-bundle-permission-runtime/mermaid-03.png)
 
 注意这里有两个容易混淆的点。
 
@@ -673,7 +670,7 @@ new_string 是否真的不同
 
 把文件工具放进“修复测试失败”的任务里，一条健康链路应该是：
 
-![Local Tool Bundle：文件、搜索、终端与权限运行时 Mermaid 4](assets/00-14-local-tool-bundle-permission-runtime/mermaid-04.png)
+![Local Tool Bundle：文件、搜索、终端的本地边界 Mermaid 4](assets/00-14-local-tool-bundle-permission-runtime/mermaid-04.png)
 
 这条链路里的每一步都在回答一个具体风险。
 
@@ -855,13 +852,13 @@ Grep 找到候选
 
 这条纪律会显著降低误改概率。
 
-![Local Tool Bundle：文件、搜索、终端与权限运行时 Mermaid 5](assets/00-14-local-tool-bundle-permission-runtime/mermaid-05.png)
+![Local Tool Bundle：文件、搜索、终端的本地边界 Mermaid 5](assets/00-14-local-tool-bundle-permission-runtime/mermaid-05.png)
 
 搜索工具不是为了让模型更快地“猜”。
 
 搜索工具是为了让模型更少地读错东西。
 
-## 六、终端工具：Bash 是最有用也最危险的本地能力
+## 六、终端工具：Bash 要收窄成受控执行
 
 如果只能给代码 Agent 一个本地工具，很多人会选 Bash。
 
@@ -1084,7 +1081,7 @@ npm test
 再尽量用运行时边界限制它能影响什么。
 ```
 
-![Local Tool Bundle：文件、搜索、终端与权限运行时 Mermaid 6](assets/00-14-local-tool-bundle-permission-runtime/mermaid-06.png)
+![Local Tool Bundle：文件、搜索、终端的本地边界 Mermaid 6](assets/00-14-local-tool-bundle-permission-runtime/mermaid-06.png)
 
 ### 5. Bash 输出必须变成 observation，而不是全文日志
 
@@ -1221,7 +1218,7 @@ Local Tool Runtime 必须回答。
 
 但比“路径字符串交给 fs”强很多。
 
-## 九、权限不是弹窗，而是一条决策记录
+## 九、Permission Runtime：路径、动作语义和执行环境
 
 很多人把权限系统理解成弹窗。
 
@@ -1299,7 +1296,7 @@ Tool Visibility Gate：本轮暴露哪些工具
 Tool Execution Gate：本次 intent 是否允许执行
 ```
 
-![Local Tool Bundle：文件、搜索、终端与权限运行时 Mermaid 7](assets/00-14-local-tool-bundle-permission-runtime/mermaid-07.png)
+![Local Tool Bundle：文件、搜索、终端的本地边界 Mermaid 7](assets/00-14-local-tool-bundle-permission-runtime/mermaid-07.png)
 
 这就是“权限不是最后的弹窗”的含义。
 
@@ -1650,7 +1647,7 @@ old_string 是否唯一
 
 重点是每一步都留下了事实。
 
-![Local Tool Bundle：文件、搜索、终端与权限运行时 Mermaid 8](assets/00-14-local-tool-bundle-permission-runtime/mermaid-08.png)
+![Local Tool Bundle：文件、搜索、终端的本地边界 Mermaid 8](assets/00-14-local-tool-bundle-permission-runtime/mermaid-08.png)
 
 这就是 Local Tool Bundle 作为受控能力层的样子。
 
@@ -1899,9 +1896,9 @@ Multi-Agent Delegation
 
 本质上是在讲 Agent Harness 的“手”应该如何被系统托住。
 
-## 十六、一句话记忆
+## 十六、本地工具设计时先守住什么
 
-可以把这一篇压成一句话：
+这一篇先留下一个判断：
 
 > Local Tool Bundle 不是 read/write/search/bash 的函数集合，而是 Agent 接触本机环境时的受控能力层：每个动作都要经过 schema、路径边界、风险分级、权限决策、输出预算和审计事件，最后以 observation 的形式回到模型。
 
@@ -1919,7 +1916,7 @@ Bash 要审批、隔离、限时、截断、审计。
 
 下一步，系统就可以继续把这些本地工具接入更完整的 Permission、Hook、Context 和 Replay 机制。
 
-## 落地到教学 Harness
+## 本章代码落点
 
 参考项目的三个工具足够做第一版：`list_files`、`read_file`、`write_note`。重点是路径边界：所有输入都要通过 `resolveInsideWorkspace()`，写入只允许到受控目录，工具失败要返回可读 observation。等这个边界跑通后，再考虑 shell、edit、search 这些更高风险工具。
 

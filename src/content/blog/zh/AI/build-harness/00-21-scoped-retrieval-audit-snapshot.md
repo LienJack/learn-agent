@@ -1,6 +1,6 @@
 ---
 title: "Scoped Retrieval：从边界检索到 audit snapshot"
-description: "很多人第一次给 Agent 加检索，会把事情想得很直接。"
+description: "把检索从无边界 topK 改造成带 scope、citation、audit snapshot 和 replay 证据的检索证据包。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -22,47 +22,31 @@ aliases:
 
 # Scoped Retrieval：从边界检索到 audit snapshot
 
-很多人第一次给 Agent 加检索，会把事情想得很直接。
+Agent 第一次接上向量库，通常会变聪明一点。
 
-用户问一个问题。
+它能找到历史 session。
 
-系统把问题变成 embedding。
+能找到项目文档。
 
-向量库返回最相似的几段文档。
+能找到类似错误。
 
-然后把这些文档塞进 prompt。
+能找到 memory 里记录过的项目习惯。
 
-模型看见更多资料，回答自然更准。
+问题也从这里开始。
 
-这个路径在问答 demo 里很顺。
+它找到了另一个项目的旧总结。
 
-但在一个会读代码、跑测试、修改文件、请求权限、保存记忆、恢复会话的 Agent Harness 里，它很快会出问题。
+找到了已经过期的 memory。
 
-我们继续沿用这一整套教程里的小型 CLI Agent 示例：
+找到了语义相似、但和当前分支无关的代码片段。
 
-```text
-用户说：这个项目测试失败了，帮我找原因并修好。
-```
+还把一段不该给模型看的私有日志塞进了 prompt。
 
-到了第 21 篇，这个 Agent 已经不只是一个循环。
+这时问题已经不是召回率。
 
-它有 provider runtime。
+而是检索边界。
 
-它有 tool runtime。
-
-它知道 model 只能提出 intent。
-
-它知道 tool runtime 才能执行。
-
-它有 event log。
-
-它能 replay。
-
-它有 context policy。
-
-它开始有 memory governance。
-
-现在我们给它加一个看起来很自然的能力：
+我们继续沿用这一整套教程里的小型 CLI Agent 示例：用户让 Agent 修复项目测试失败。现在我们给它加一个看起来很自然的能力：
 
 ```text
 当模型不知道某个项目约定、历史决策、API 行为或错误案例时，
@@ -118,13 +102,15 @@ search(query) -> topK chunks -> append to prompt
 这些内容如何被之后的 replay 和 audit 复原？
 ```
 
-换句话说，Scoped Retrieval 不是 RAG 的炫技版本。
+这一篇只回答一个问题：
 
-它是 Agent Harness 里让 RAG 变得可控、可解释、可复盘的一层工程纪律。
+```text
+一次检索如何从无边界 topK，变成可引用、可复盘、可审计的 evidence snapshot？
+```
 
-## 问题链
+## 从 scope 到 evidence snapshot
 
-这篇的主线可以压成一条问题链：
+本章新增的检索对象是这条证据链：
 
 ```text
 Agent 需要外部知识
@@ -140,13 +126,7 @@ Agent 需要外部知识
 
 ![Scoped Retrieval：从边界检索到 audit snapshot Mermaid 1](assets/00-21-scoped-retrieval-audit-snapshot/mermaid-01.png)
 
-这张图里最重要的不是 `召回候选`。
-
-很多 RAG 介绍会把召回放在中心。
-
-但在 Agent Harness 里，召回只是中间一个步骤。
-
-真正承重的是两端。
+看这张图时，先看左端的 scope 和右端的 snapshot。召回只是中间步骤。
 
 左端是 scope。
 
@@ -263,7 +243,7 @@ README 里有一段权限介绍。
 
 这就是 Scoped Retrieval 出现的原因。
 
-## 二、Scope 不是过滤条件，而是检索合约
+## 二、Scope：检索前的合约
 
 很多工程实现里会把 scope 写成几个 filter：
 
@@ -725,7 +705,7 @@ event log 里也记录这个 `snapshotId`。
 
 它应该读取当时的 retrieval snapshot。
 
-## 七、Audit Snapshot：不是缓存，而是证据包
+## 七、Audit Snapshot：记录一次检索的证据包
 
 讲到这里，容易把 audit snapshot 理解成 retrieval cache。
 
@@ -875,7 +855,7 @@ snapshot 保存引用和 hash。
 
 有 snapshot，失败归因才有落点。
 
-## 八、Context Projection：检索结果不能原样塞进 prompt
+## 八、Context Projection：把证据投影进模型输入
 
 Scoped Retrieval 最终要服务模型输入。
 
@@ -1346,7 +1326,7 @@ memory store 找治理后的经验。
 
 最后由 scope 和 rerank 合并。
 
-## 十三、Citation：引用不是给读者看的装饰
+## 十三、Citation：让每段证据能回到来源
 
 很多文章里的 citation 是排版需求。
 
@@ -1729,114 +1709,38 @@ projection 面向模型。
 snapshot 面向审计。
 ```
 
-## 十九、这层解决了什么，又引入了什么复杂度
+## 十九、本章代码落点
 
-Scoped Retrieval 解决的核心问题有三个。
-
-第一，它让 Agent 不再把检索当成无边界的 prompt 扩容。
-
-每次检索都有 scope。
-
-第二，它让 retrieval relevance 从单一相似度变成任务相关性。
-
-当前任务、当前状态、当前权限、当前时间点都进入排序和投影。
-
-第三，它让检索结果可 replay、可 trace、可 audit。
-
-未来排错时，系统能还原模型当时看见的证据包。
-
-但它也引入复杂度。
-
-你要设计 scope contract。
-
-你要维护 source metadata。
-
-你要保存 snapshot。
-
-你要处理过期、冲突、权限、脱敏。
-
-你要为检索写测试，而不是只相信向量库。
-
-这就是 Harness 的典型交换。
-
-它不会让代码变短。
-
-它会让失败更可解释。
-
-当 Agent 只是回答 FAQ 时，这可能显得重。
-
-当 Agent 会改代码、读隐私数据、使用长期记忆、跨 session 恢复时，这就是底线。
-
-## 二十、下一篇为什么会走向 Productized CLI
-
-到这里，我们的小型 CLI Agent 已经有了很多核心控制面。
-
-它能执行工具。
-
-它能记录 session。
-
-它能管理 context。
-
-它能治理 memory。
-
-它能按边界检索。
-
-它能回答：
+本章代码里可以先落这些对象：
 
 ```text
-模型当时为什么这么判断？
-它看见了什么？
-它没有看见什么？
-它引用了哪些证据？
-哪些证据被过滤或裁剪？
+RetrievalScope
+RetrievalPlan
+RetrievalCandidate
+RetrievalAuditSnapshot
+CitationMap
+SnapshotStore
 ```
 
-这已经不像一个 demo。
-
-它开始像一个可以被真实用户长期使用的工具。
-
-所以下一步自然不是再加一个算法。
-
-而是产品化。
-
-一个 Productized CLI 要面对：
+新增测试可以先写这些：
 
 ```text
-profile 如何管理？
-extension 如何安装？
-multi-provider 如何切换？
-用户配置和项目配置如何合并？
-诊断信息如何展示？
-失败时如何让用户理解？
+replay 不重新检索，只读取当时 snapshot。
+rejected candidate 也进入 snapshot，并记录拒绝理由。
+visibleTextHash 可校验。
+citation 能回到 sourceRef。
+越过 scope 的候选不能进入 context projection。
 ```
 
-Scoped Retrieval 把“模型当时看见什么”这件事钉牢。
-
-Productized CLI 则要把这些控制面做成开发者每天愿意使用的体验。
-
-## 一句话总结
-
-Scoped Retrieval 的一句话是：
+验收标准是：
 
 ```text
-先定义检索边界，再召回和重排证据，最后把模型实际看见的检索结果写成 audit snapshot。
+模型实际看见的检索证据能被重建。
+每段证据能解释来源、scope、选择理由和裁剪情况。
+检索失败能被 trace，不只表现成“模型没找到”。
 ```
 
-如果再压缩一点：
-
-```text
-相似只是候选，相关需要边界，可信必须快照。
-```
-
-这篇最想留下的工程判断是：
-
-```text
-检索不是给 prompt 加料。
-检索是在改变模型可见的现实。
-凡是改变现实的机制，都必须可控、可引用、可回放。
-```
-
-## 落地到教学 Harness
+## 教学 Harness 落点
 
 教学项目里的 scoped retrieval 可以从 workspace 文件开始：检索结果不直接拼进 prompt，而是形成带 scope、query、matched files、snippets、reason 的 snapshot。Context builder 再决定哪些 snippet 进入模型输入。这样后续 trace 能回答“模型当时用了哪些证据”。
 

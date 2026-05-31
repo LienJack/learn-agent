@@ -1,6 +1,6 @@
 ---
-title: "Provider Runtime：provider 为什么只能返回 tool intent？"
-description: "上一组文章里，我们已经把一条底层纪律钉住了："
+title: "Provider Runtime：把模型输出归一成 ToolIntent"
+description: "从 SDK execute 入口的诱惑出发，拆清 provider 私有格式如何归一成 ModelEvent 和 ToolIntent。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -18,23 +18,15 @@ aliases:
   - AI SDK Bridge
 ---
 
-# Provider Runtime：provider 为什么只能返回 tool intent？
+# Provider Runtime：把模型输出归一成 ToolIntent
 
-上一组文章里，我们已经把一条底层纪律钉住了：
+从这一篇开始，前面的边界变成默认前提：
 
 ```text
-模型提议，系统执行。
+模型只提出 intent，执行权在 runtime。
 ```
 
-第 7 篇讲了第一次 provider 接入。
-
-第 9 篇讲了 M0 Core Kernel。
-
-第 10 篇专门拆了 `Intent / Execution` 分离。
-
-第 11 篇又把外部能力进入系统的入口收束到了 Plugin Host。
-
-现在往前走一步，问题变得更真实：
+现在往前走一步，问题变得更代码化：
 
 ```text
 我们不再只调一个 provider。
@@ -96,21 +88,9 @@ SDK 调用 `execute`。
 
 终端里开始出现一个“会修测试”的 Agent。
 
-但这也是第 12 篇要专门拆开的陷阱。
+但这也是第 12 篇要专门拆开的陷阱：SDK 的 `execute` 入口很方便，也很容易在 provider runtime 里长出第二套 loop。
 
 **provider runtime 一旦负责执行工具，它就不再是 provider runtime，而是在系统内部长出了半个 Agent。**
-
-它会绕过 core。
-
-绕过 state。
-
-绕过 permission。
-
-绕过 audit。
-
-绕过 retry。
-
-绕过 replay。
 
 最后，整个 Harness 会变成两套循环：
 
@@ -143,13 +123,11 @@ Tool Runtime 才是执行层。
 Core Kernel 才是状态、权限、事件和回放的事实源。
 ```
 
-这不是抽象洁癖。
+因此，Provider Runtime 的接口里不应该出现 `executeTool`、`approveTool`、`runLoop`、`writeObservation`。它只负责把 provider 私有格式翻译成内部事件。
 
-这是为了让一个小型 CLI Agent 在真正开始修测试时，依然知道每一步是谁提议的、谁批准的、谁执行的、谁记录的、谁能重放。
+## SDK execute 入口为什么会长出隐藏 loop
 
-## 问题链
-
-这篇文章的问题链是：
+这篇文章的新增对象是 provider 翻译层：
 
 ```text
 真实 provider 会返回文本、reasoning、tool-call delta、finish、usage 和 error
@@ -165,11 +143,9 @@ Core Kernel 才是状态、权限、事件和回放的事实源。
 
 画成总览图，是这样：
 
-![Provider Runtime：provider 为什么只能返回 tool intent？ Mermaid 1](assets/00-12-provider-runtime-tool-intent/mermaid-01.png)
+![Provider Runtime：把模型输出归一成 ToolIntent Mermaid 1](assets/00-12-provider-runtime-tool-intent/mermaid-01.png)
 
-这张图里最重要的不是模块数量。
-
-最重要的是这条断开的边：
+看这张图时，先看这条断边：
 
 ```text
 Provider Runtime -X-> Tool Execution
@@ -379,7 +355,7 @@ exit code 是多少
 
 provider runtime 只要绕开 core，这些问题就没有统一事实源。
 
-## 二、Tool Call、Tool Intent、Tool Execution 是三件事
+## 二、三层对象：provider call、内部 intent、真实 execution
 
 要守住边界，先要把三个词拆开。
 
@@ -395,7 +371,7 @@ Tool Execution：runtime 真正执行工具造成的外部动作。
 
 这三者处在不同层。
 
-![Provider Runtime：provider 为什么只能返回 tool intent？ Mermaid 2](assets/00-12-provider-runtime-tool-intent/mermaid-02.png)
+![Provider Runtime：把模型输出归一成 ToolIntent Mermaid 2](assets/00-12-provider-runtime-tool-intent/mermaid-02.png)
 
 图里最重要的是层与层之间的翻译。
 
@@ -781,7 +757,7 @@ tool-call-end
 
 我们要抗住这个冲动。
 
-![Provider Runtime：provider 为什么只能返回 tool intent？ Mermaid 3](assets/00-12-provider-runtime-tool-intent/mermaid-03.png)
+![Provider Runtime：把模型输出归一成 ToolIntent Mermaid 3](assets/00-12-provider-runtime-tool-intent/mermaid-03.png)
 
 这张时序图里最重要的是 provider runtime 中间的两次自我克制。
 
@@ -948,9 +924,9 @@ type ProviderErrorEvent = {
 
 关键是错误归属不能乱。
 
-![Provider Runtime：provider 为什么只能返回 tool intent？ Mermaid 4](assets/00-12-provider-runtime-tool-intent/mermaid-04.png)
+![Provider Runtime：把模型输出归一成 ToolIntent Mermaid 4](assets/00-12-provider-runtime-tool-intent/mermaid-04.png)
 
-这张图里最重要的是左边那个分叉。
+看这张图时，先看左边那个分叉。
 
 同样叫“失败”，但失败的层不同，系统应该采取的动作完全不同。
 
@@ -1066,9 +1042,9 @@ CLI 接收用户目标
 
 画成图：
 
-![Provider Runtime：provider 为什么只能返回 tool intent？ Mermaid 5](assets/00-12-provider-runtime-tool-intent/mermaid-05.png)
+![Provider Runtime：把模型输出归一成 ToolIntent Mermaid 5](assets/00-12-provider-runtime-tool-intent/mermaid-05.png)
 
-这张图里最重要的是闭环的位置。
+这张图可以先只抓闭环的位置。
 
 闭环发生在 Core。
 
@@ -1145,7 +1121,7 @@ git reset --hard
 
 后面的 trace analysis、policy tuning、eval dataset 都依赖这些中间事实。
 
-## 七、Provider Runtime 的最小接口
+## 七、Provider Runtime 只暴露 stream()
 
 讲到这里，可以落到代码边界。
 
@@ -1341,9 +1317,9 @@ Error Mapper：把 SDK / HTTP 错误翻译成 ProviderError
 
 画成分层图：
 
-![Provider Runtime：provider 为什么只能返回 tool intent？ Mermaid 6](assets/00-12-provider-runtime-tool-intent/mermaid-06.png)
+![Provider Runtime：把模型输出归一成 ToolIntent Mermaid 6](assets/00-12-provider-runtime-tool-intent/mermaid-06.png)
 
-这张图里最重要的是 Provider Runtime 的中间位置。
+这张图可以先只抓 Provider Runtime 的中间位置。
 
 它两边都要懂一点。
 
@@ -1598,7 +1574,7 @@ Provider Runtime 是无会话的，或者至少是 request-scoped。
 
 不能是 provider runtime 的内部 messages 数组。
 
-## 十、Replay：为什么旧 intent 不能重新执行
+## 十、Replay：重放事件，不重跑外部世界
 
 Provider Runtime 只能返回 intent，还有一个很重要的原因：replay。
 
@@ -2081,16 +2057,16 @@ Provider Runtime 不可以：
 下一篇就会进入第三章的硬骨头：
 
 ```text
-Tool Runtime：从 tool intent 到 observation。
+Tool Runtime：从 ToolIntent 到 Observation。
 ```
 
 到那时，我们会把 `validate -> permission -> execute -> observe` 真正展开。
 
-而这一篇留下的记忆点很简单：
+这一篇留下的边界很简单：
 
 **provider 是模型的翻译官，不是工具的执行官。**
 
-## 落地到教学 Harness
+## 本章代码落点
 
 真实模型接入时，provider runtime 只做格式适配：把 provider 的 tool-call 表达转换成内部 `ToolCallContent`，把内部 `ToolResultMessage` 转回 provider 需要的 tool message。它不读取文件，不运行命令，也不决定是否允许工具。这样换 provider 时不会影响 loop、tools 和 session。
 

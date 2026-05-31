@@ -1,6 +1,6 @@
 ---
-title: "Harness 基础定义：模型外部的控制系统"
-description: "前面我们已经把 Agent 拆成了几个最小部件："
+title: "Harness 的控制回路：约束、反馈、再投影"
+description: "一个 demo 版 CLI Agent 跑通以后，真正的问题才开始：权限、执行、记录、恢复和验证都需要模型外部的控制回路。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/00-04-harness-control-system/cover.jpg'
@@ -17,9 +17,25 @@ aliases:
   - ETCLOVG
 ---
 
-# Harness 基础定义：模型外部的控制系统
+# Harness 的控制回路：约束、反馈、再投影
 
-前面我们已经把 Agent 拆成了几个最小部件：
+一个 demo 版 CLI Agent 跑通了：
+
+```text
+模型请求 read_file，系统读文件；
+模型请求 run_command，系统跑测试；
+模型请求 edit_file，系统改代码。
+```
+
+第一次演示很顺。它能读 `package.json`，能跑测试，能根据失败日志修改代码，还能给出一段看起来很像工程师的总结。
+
+问题出现在第二天。
+
+它在用户 home 目录里读到了不该读的文件；测试命令卡了十分钟；模型说“已经修好”，但系统没有任何验证记录；用户问“它刚才改了什么”，你只能翻一段聊天 transcript；进程中途崩掉以后，也没有 session 能恢复现场。
+
+这时缺的不是更长 prompt，而是 Harness。
+
+前几篇已经把 Agent 拆成了几个最小部件：
 
 ```text
 Model：判断下一步
@@ -28,36 +44,7 @@ Tools：接触真实世界
 State：让任务不断线
 ```
 
-到这里，很多人会自然冒出一个问题：
-
-**既然 Agent 已经有模型、有循环、有工具、有状态，为什么还要再讲 Harness？**
-
-更容易混淆的是另一种说法：
-
-```text
-Harness 是不是一个更外层、更聪明、更会管理 Agent 的 Agent？
-```
-
-这句话听起来像是对的。但它其实会把架构想歪。Harness 不是另一个 Agent。它也不是一个更大的 prompt，也不是某个框架名。它更像是模型外面的控制系统。我们继续沿用同一个小型 CLI Agent 示例：
-
-```text
-用户说：帮我看看这个项目为什么测试失败，并把它修好。
-```
-
-如果这个 CLI Agent 只是一个 demo，它可以很简单：
-
-```text
-把用户输入发给模型
-模型说要读文件
-程序读文件
-结果塞回 prompt
-模型说要改文件
-程序改文件
-模型说要跑测试
-程序跑测试
-```
-
-这条链路跑通一次，看起来就已经像 Agent 了。但只要你把它交给别人真实使用，问题会马上冒出来。模型想执行 `rm -rf` 怎么办？模型想读取用户 home 目录下的私密文件怎么办？模型连续跑了十分钟，用户想中断，现场怎么保存？工具报错以后，下一轮模型到底应该看到完整日志，还是只看到摘要？同一个任务明天继续跑，session 从哪里恢复？一次修改看起来成功了，但没有测试验证，系统怎么知道它真的完成了？线上某个用户说 Agent 把文件改坏了，我们怎么还原发生过什么？这些问题都不属于模型本身。它们也不应该交给模型自己决定。因为模型每一轮只是在当前上下文里生成下一步判断。而权限、执行环境、会话生命周期、观测日志、验证标准、治理策略，是模型外面的工程责任。这些责任合起来，就是这篇要讲的 Harness。一句话先压住：
+这些部件让 Agent 能行动。Harness 负责回答行动之后紧跟着出现的问题：这一步能不能做，在哪里做，做完留下了什么证据，失败后能不能恢复，最终完成有没有验证。
 
 **Agent 负责在任务里判断下一步，Harness 负责让每一步在真实环境里可执行、可约束、可观察、可恢复、可验证、可治理。**
 
@@ -65,7 +52,7 @@ Harness 是不是一个更外层、更聪明、更会管理 Agent 的 Agent？
 
 这篇文章不把 Harness 写成一个大而全的术语盒子。我们只回答一个核心问题：
 
-> Harness 和 Agent 是什么关系？为什么它不是另一个 Agent？
+> 一个能调用工具的 Agent，要被真实使用，模型外面必须补哪些控制责任？
 
 ## 问题链
 
@@ -101,9 +88,9 @@ Governance
 
 画成图就是：
 
-![Harness 基础定义：模型外部的控制系统 Mermaid 1](assets/00-04-harness-control-system/mermaid-01.png)
+![Harness 的控制回路：约束、反馈、再投影 Mermaid 1](assets/00-04-harness-control-system/mermaid-01.png)
 
-这张图里最重要的不是七个名词本身。最重要的是中间那条责任边界：
+看这张图时，先看中间那条责任边界：
 
 ```text
 Agent 提出下一步
@@ -195,7 +182,7 @@ while (!session.done) {
 
 为了不把概念混在一起，我们先画一条运行边界。同样是“修复失败测试”，一次完整轮次大概长这样：
 
-![Harness 基础定义：模型外部的控制系统 Mermaid 2](assets/00-04-harness-control-system/mermaid-02.png)
+![Harness 的控制回路：约束、反馈、再投影 Mermaid 2](assets/00-04-harness-control-system/mermaid-02.png)
 
 这张图里，`Model -->> Harness` 的箭头非常重要。模型返回的是工具意图，不是工具结果。真正接触项目环境的是 `Tool Runtime` 和 `Execution`。真正保存事实过程的是 `Session Store`。真正决定是否允许执行的是 Harness 里的策略层。这条边界一旦混掉，系统就会出现三类常见问题。第一类问题，是把 Agent 写成“模型加裸执行器”。伪代码通常长这样：
 
@@ -231,7 +218,7 @@ shell 命令必须有超时
 
 你就已经在写 Harness 了。只是早期 Harness 很薄。随着 Agent 面向真实任务，它会逐渐变厚。
 
-### Harness 不是 wrapper，而是控制回路
+### Harness 的控制回路：约束、反馈、再投影
 
 如果只把 Harness 理解成“包在 Agent 外面的一层 wrapper”，还是会少看一层。
 
@@ -386,7 +373,7 @@ type ExecutionResult = {
 
 这里的重点不是类型名字。重点是系统把“执行”独立成了一个可治理对象。模型不能绕过它。工具不能私自绕过它。UI 也不应该直接绕过它。所有接触真实环境的动作，都要通过 Execution。这就是 Harness 对真实世界的第一道闸门。
 
-## 四、Tools：工具不是函数，而是协议入口
+## 四、Tools：从函数到协议入口
 
 第二层是 Tools。上一节的 Execution 更靠近操作系统。Tools 则更靠近模型。它回答的问题是：
 
@@ -419,7 +406,7 @@ async function readFile(path: string) {
 
 否则模型和系统之间就只能靠自然语言猜。工具协议的价值，是把“我想读文件”变成结构化请求。工具运行时的价值，是把结构化请求变成受控执行。一条完整工具管线大概是这样：
 
-![Harness 基础定义：模型外部的控制系统 Mermaid 3](assets/00-04-harness-control-system/mermaid-03.png)
+![Harness 的控制回路：约束、反馈、再投影 Mermaid 3](assets/00-04-harness-control-system/mermaid-03.png)
 
 这张图里最容易被忽略的是 `Observation`。工具结果不能只是一段 stdout。它要告诉系统：
 
@@ -489,7 +476,7 @@ Prompt 是最终输入格式。
 
 Context 层就是做这件事的。它不是替模型思考。它是在给模型准备一个干净、相关、受约束的判断现场。可以画成这样：
 
-![Harness 基础定义：模型外部的控制系统 Mermaid 4](assets/00-04-harness-control-system/mermaid-04.png)
+![Harness 的控制回路：约束、反馈、再投影 Mermaid 4](assets/00-04-harness-control-system/mermaid-04.png)
 
 这张图里最关键的是 `Context Policy`。很多 Agent 失败，不是因为模型不会推理。而是因为 Harness 给它看的现场太乱。比如它把三十分钟前已经废弃的错误日志放在最新观察前面。或者把被用户否决过的方案继续放进高优先级上下文。或者把完整依赖安装日志塞进去，挤掉了真正相关的代码片段。这些都会让模型做出坏判断。所以 Context 层的工程目标不是“信息越多越好”。它的目标是：
 
@@ -502,7 +489,7 @@ Context 层就是做这件事的。它不是替模型思考。它是在给模型
 
 没有 Context 层，Agent 会在长任务里慢慢失明。有了 Context 层，模型每一轮才像回到一张整理好的工作台。
 
-## 六、Lifecycle：长任务不是一条永远不断的 while true
+## 六、Lifecycle：给长任务建状态机
 
 第四层是 Lifecycle。它回答的问题是：
 
@@ -867,7 +854,7 @@ AuditRecord：谁批准了什么动作
 
 一个更完整的事件流可以这样写：
 
-![Harness 基础定义：模型外部的控制系统 Mermaid 5](assets/00-04-harness-control-system/mermaid-05.png)
+![Harness 的控制回路：约束、反馈、再投影 Mermaid 5](assets/00-04-harness-control-system/mermaid-05.png)
 
 这张图的重点不是节点多，而是事实从哪里来。模型说“我需要运行测试”，只是 `ModelIntent`。测试真正执行结束，才有 `ExecutionResult`。把失败日志、退出码和截断状态整理后，才有 `Observation`。最后能不能说任务完成，要看 `VerificationEvidence`。
 
@@ -888,7 +875,7 @@ AuditRecord：谁批准了什么动作
 
 ## 结尾：模型负责判断，Harness 负责托管判断
 
-我们可以把整篇压缩成三句话。第一，Agent 不是模型自己在做事，而是模型在循环中提出下一步。第二，下一步一旦进入真实环境，就需要 Execution、Tools、Context、Lifecycle、Observability、Verification、Governance。第三，这些模型外部的控制责任合起来，就是 Harness。所以 Harness 不是另一个 Agent，也不是更长的 system prompt、监督模型、工具集合、框架名或产品 UI。它是 Agent 能安全进入真实世界的控制系统。下一篇继续往前走，我们会看一条自然演化路径：
+这一章先留下三件事。第一，Agent 在循环中提出下一步，不等于它已经接触了真实世界。第二，下一步一旦进入真实环境，就需要 Execution、Tools、Context、Lifecycle、Observability、Verification、Governance。第三，这些模型外部的控制责任合起来，就是 Harness。下一篇继续往前走，我们会看一条自然演化路径：
 
 ```text
 Chat Agent

@@ -2,24 +2,52 @@
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import { Font } from 'astro:assets';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { getHtmlLang, getMessages, getOgLocale } from '../i18n/messages';
+import {
+	buildCanonicalUrl,
+	buildDefaultAlternates,
+	resolveImageUrl,
+	serializeJsonLd,
+	type AlternateLink,
+	type JsonLdObject,
+	type SeoPageType,
+} from '../seo/metadata';
 
 interface Props {
 	title: string;
 	description: string;
-	image?: ImageMetadata;
+	image?: ImageMetadata | string;
 	locale?: Locale;
+	pageType?: SeoPageType;
+	canonicalPath?: string;
+	alternates?: AlternateLink[];
+	structuredData?: JsonLdObject | JsonLdObject[];
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-const { title, description, image = FallbackImage, locale = DEFAULT_LOCALE } = Astro.props;
+const {
+	title,
+	description,
+	image,
+	locale = DEFAULT_LOCALE,
+	pageType = 'website',
+	canonicalPath = Astro.url.pathname,
+	alternates,
+	structuredData,
+} = Astro.props;
 const messages = getMessages(locale);
 const siteTitle = messages.site.title;
 const pageTitle = title === siteTitle ? siteTitle : `${title} · ${siteTitle}`;
 const pageDescription = description || messages.site.description;
+const canonicalURL = buildCanonicalUrl(canonicalPath, Astro.site);
+const socialImageURL = resolveImageUrl(image, Astro.site);
+const alternateLinks = alternates ?? buildDefaultAlternates(locale, canonicalPath, Astro.site);
+const ogType = pageType === 'article' ? 'article' : 'website';
+const jsonLdBlocks = structuredData
+	? Array.isArray(structuredData)
+		? structuredData
+		: [structuredData]
+	: [];
 ---
 
 <meta charset="utf-8" />
@@ -33,21 +61,23 @@ const pageDescription = description || messages.site.description;
 <Font cssVariable="--font-atkinson" preload />
 
 <link rel="canonical" href={canonicalURL} />
+{alternateLinks.map((item) => <link rel="alternate" hreflang={item.hreflang} href={item.href} />)}
 
 <title>{pageTitle}</title>
 <meta name="title" content={pageTitle} />
 <meta name="description" content={pageDescription} />
 
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:site_name" content={siteTitle} />
 <meta property="og:locale" content={getOgLocale(locale)} />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={pageDescription} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={socialImageURL} />
 
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={pageTitle} />
 <meta property="twitter:description" content={pageDescription} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta property="twitter:image" content={socialImageURL} />
+{jsonLdBlocks.map((item) => <script is:inline type="application/ld+json" set:html={serializeJsonLd(item)} />)}

@@ -94,13 +94,13 @@ error mapping：把 provider 私有错误映射成 runtime 能理解的错误
 
 因为 Agent 后面所有能力，都要从“这一轮模型调用到底发生了什么”开始。
 
-## 问题链
+## 从三行调用到 provider contract
 
 ![解释为什么 CLI 第一次模型调用也要先经过 provider contract，避免 provider 细节污染 Agent core](assets/00-07-llm-provider-cli-first-call/photo-01-provider-contract-boundary.jpg)
 
 这篇文章不比较具体供应商能力，也不追逐某个 API 的最新命名；实际代码里的接口字段需要以实现时的官方文档为准。这里先固定系统边界。
 
-这篇文章的问题链是：
+这一章只固定 provider 这一层的边界：
 
 ```text
 直接调用某家 API 最快
@@ -117,9 +117,7 @@ error mapping：把 provider 私有错误映射成 runtime 能理解的错误
 
 ![LLM Provider 接入：让 CLI 完成第一次模型调用 Mermaid 1](assets/00-07-llm-provider-cli-first-call/mermaid-01.png)
 
-这张图里最重要的不是“多包了一层 adapter”。
-
-最重要的是两次翻译：
+看这张图时，先看两次翻译：
 
 ```text
 统一请求 -> provider 私有 API
@@ -240,7 +238,7 @@ core 只认识本项目自己的模型契约。
 provider adapter 才认识某家 API。
 ```
 
-## 二、Provider 不是 Model，也不是 Agent Core
+## 二、Provider 的位置：模型能力适配层
 
 很多命名会把人带偏。
 
@@ -599,7 +597,7 @@ provider 连接中断
 
 如果第一版只是 `process.stdout.write(rawChunk)`，后面就要大改。
 
-## 六、Error Mapping：错误不是字符串，是 Runtime 决策输入
+## 六、Error Mapping：把失败变成可决策事件
 
 ![解释 raw provider error 如何映射为 ProviderError，并驱动停止、重试、压缩或提示配置等 runtime 决策](assets/00-07-llm-provider-cli-first-call/photo-03-error-mapping-decision.jpg)
 
@@ -698,19 +696,9 @@ provider raw error 不直接决定 runtime 行为。
 
 但等它开始帮你修测试失败时，这就是“它为什么没有在限流时疯狂重试烧钱”的原因。
 
-## 七、Tool Intent：先留接口，不要让 Provider 执行工具
+## 七、Tool Intent：只预留事件，不在 Provider 执行
 
-这篇文章的标题是第一次模型调用。
-
-按理说还没到工具。
-
-但 provider contract 里必须提前留一个洞：`tool_intent`。
-
-原因很简单。
-
-现代模型 API 往往已经支持 tool use / function calling / structured output。
-
-不同 provider 对工具意图的表达方式不一样：
+现代模型 API 往往已经支持 tool use / function calling / structured output，所以 provider contract 里要预留 `tool_intent` event。不同 provider 对工具意图的表达方式不一样：
 
 ```text
 有的叫 function_call
@@ -722,40 +710,14 @@ provider raw error 不直接决定 runtime 行为。
 
 如果等到工具章节再重构 provider event，代价会更大。
 
-但留接口不等于执行工具。
-
-这一点非常关键：
+但本章只预留事件，不执行工具：
 
 ```text
 Provider 可以发现模型提出了 tool intent。
 Provider 不可以执行工具。
 ```
 
-为什么？
-
-因为工具执行需要一整条 Harness 管线：
-
-```text
-intent
--> schema validation
--> permission
--> sandbox / working directory
--> execution
--> truncation
--> observation
--> event log
--> context reinjection
-```
-
-这些都不属于 provider。
-
-Provider 只管模型能力适配。
-
-它不该知道某个 `read_file` 工具是否允许读用户目录。
-
-它不该知道 `bash` 是否要人工确认。
-
-它也不该把工具结果直接塞回下一轮 messages。
+工具执行需要 validate、permission、execution、observation 和 event log。那些属于 Tool Runtime 和 Harness，不属于 provider。Provider 不需要知道 `read_file` 是否允许读用户目录，也不需要知道 `bash` 是否要人工确认。
 
 所以第一版 contract 可以这样预留：
 
@@ -779,9 +741,7 @@ if (event.type === "tool_intent") {
 }
 ```
 
-这看起来像没做完。
-
-其实是边界清楚。
+这看起来像没做完，其实是边界清楚。
 
 本篇的目标是：
 
@@ -794,13 +754,7 @@ if (event.type === "tool_intent") {
 
 但工具的执行权仍然留给下一层。
 
-这条纪律后面会反复出现：
-
-**模型提议，系统执行。**
-
-Provider 是模型能力适配层，所以它最多把“模型提议”翻译出来。
-
-它不是执行系统。
+Provider 是模型能力适配层，所以它最多把模型提议翻译成统一事件。执行系统从下一阶段开始。
 
 ## 八、CLI 第一版应该怎么落地？
 
@@ -1294,9 +1248,7 @@ tool intent 可以延伸到 Tool Runtime。
 core 可以专心推进任务。
 ```
 
-所以这一篇的记忆点可以压成一句话：
-
-**Provider 不是 Agent Core；Provider 只负责把模型能力翻译成统一事件，不拥有工具执行权和会话事实源。**
+这一章先留下一个边界：Provider 只负责把模型能力翻译成统一事件，不拥有工具执行权和会话事实源。
 
 下一篇，我们会在这次模型调用外面加上最小 Agent Loop。
 
@@ -1314,9 +1266,16 @@ core 可以专心推进任务。
 
 那时，第一次模型调用会变成循环里的一个步骤，而不是整个系统。
 
-## 落地到教学 Harness
+## 本章代码落点
 
-参考项目提醒了一个重要顺序：真实 provider adapter 应该在内部协议稳定后再接。先让 `TeachingModel.complete()` 返回内部 `AssistantMessage`，再把 OpenAI-compatible 的 `content`、`tool_calls`、`finish_reason` 映射进来。API Key、base URL、header 只属于配置和 adapter 日志，不能进入 messages、event log 或模型上下文。
+本章代码落点要短而具体：
+
+- `providers/contract.ts`：定义 `ChatRequest`、`ModelEvent`、`ProviderError`。
+- `providers/fake.ts`：用固定 stream 测 runtime。
+- `providers/openai.ts`：只做协议翻译。
+- `cli/main.ts`：读取输入，打印 `text_delta`。
+
+验收标准：CLI 能流式输出；fake provider 能跑测试；真实 provider 错误会映射成结构化错误；API Key、base URL、header 不进入 messages、event log 或模型上下文。
 
 ---
 

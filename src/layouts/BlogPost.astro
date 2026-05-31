@@ -8,6 +8,7 @@ import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { getHtmlLang, getMessages } from '../i18n/messages';
 import { getPostSlug } from '../content/blog/utils';
 import { localizePath } from '../i18n/utils';
+import type { AlternateLink, JsonLdObject } from '../seo/metadata';
 
 type HeadingLink = {
 	depth: number;
@@ -30,6 +31,11 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	nextPost?: CollectionEntry<'blog'> | null;
 	headings?: HeadingLink[];
 	backHref?: string;
+	seo?: {
+		canonicalPath: string;
+		alternates: AlternateLink[];
+		structuredData: JsonLdObject[];
+	};
 };
 
 const {
@@ -43,6 +49,7 @@ const {
 	nextPost = null,
 	headings = [],
 	backHref = '/blog',
+	seo,
 } = Astro.props;
 const messages = getMessages(locale);
 const mediaViewer = {
@@ -79,7 +86,16 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 
 <html lang={getHtmlLang(locale)}>
 	<head>
-		<BaseHead title={title} description={description} locale={locale} />
+		<BaseHead
+			title={title}
+			description={description}
+			image={heroImage}
+			locale={locale}
+			pageType="article"
+			canonicalPath={seo?.canonicalPath}
+			alternates={seo?.alternates}
+			structuredData={seo?.structuredData}
+		/>
 	</head>
 
 	<body class="article-page">

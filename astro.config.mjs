@@ -16,7 +16,26 @@ export default defineConfig({
 			prefixDefaultLocale: false,
 		},
 	},
-	integrations: [mdx(), react(), sitemap()],
+	integrations: [
+		mdx(),
+		react(),
+		sitemap({
+			serialize(item) {
+				const url = new URL(item.url);
+				if (url.pathname !== '/') {
+					url.pathname = url.pathname.replace(/\/$/, '');
+					item.url = url.href;
+				}
+				item.priority =
+					url.pathname === '/blog' ||
+					url.pathname === '/blog/AI' ||
+					url.pathname.startsWith('/blog/AI/')
+						? 0.8
+						: 0.6;
+				return item;
+			},
+		}),
+	],
 	markdown: {
 		syntaxHighlight: {
 			type: 'shiki',

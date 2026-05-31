@@ -1,6 +1,6 @@
 ---
-title: "Agent Harness 术语地图：Intent、Observation、Event、Artifact、Snapshot、Projection、Trace 的关系"
-description: "从 Tool Runtime 开始，系列文章进入了一个更容易混淆的阶段。"
+title: "Agent Harness 术语地图：从 Intent 到 Trace"
+description: "用 glossary / map 的形式收口核心术语：首讲章节、典型消费者、常见混淆和教学项目字段映射。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -15,7 +15,7 @@ aliases:
   - Harness Glossary
 ---
 
-# Agent Harness 术语地图：Intent、Observation、Event、Artifact、Snapshot、Projection、Trace 的关系
+# Agent Harness 术语地图：从 Intent 到 Trace
 
 从 Tool Runtime 开始，系列文章进入了一个更容易混淆的阶段。
 
@@ -37,7 +37,30 @@ permission 像 governance。
 
 > 给 00-13 到 00-23 共用的核心对象固定一张地图。
 
-## 一、行动链路里的对象
+## 先按章节找词
+
+| 术语 | 首次正式展开 | 后续用途 |
+| --- | --- | --- |
+| `ToolIntent` | 00-10 / 00-12 | 模型行动提议 |
+| `Observation` | 00-13 | 给模型、UI、State 的事实投影 |
+| `Artifact` | 00-13 / 00-16 / 00-23 | 大块证据材料 |
+| `Snapshot` | 00-16 / 00-21 | 某一时刻的可复盘证据包 |
+| `Projection` | 00-15 / 00-19 | 给某类消费者看的视图 |
+| `Trace` | 00-19 | 失败诊断投影 |
+| `Governance` | 00-20 / 00-23 | 跨 session / 用户 / 项目的策略生命周期 |
+
+## 易混淆对照
+
+| 容易混淆 | 一句话区分 |
+| --- | --- |
+| Observation vs Audit Event | Observation 给模型 / 用户 / 状态，Audit Event 给 replay / trace / 审计。 |
+| Artifact vs Snapshot | Artifact 是材料，Snapshot 是一次可见证据包目录。 |
+| Trace vs Event Log | Event Log 是事实源，Trace 是诊断投影。 |
+| Permission vs Trust | Permission 管这次 intent 能不能执行，Trust 管这个来源能不能贡献能力。 |
+| Memory vs Retrieval | Memory 管长期知识写入治理，Retrieval 管本轮边界内召回和投影。 |
+| Verification vs Final Answer | Verification 证明目标是否完成，Final Answer 只能引用验证证据。 |
+
+## 行动链路里的对象
 
 | 术语 | 固定含义 | 典型消费者 |
 | --- | --- | --- |
@@ -78,7 +101,7 @@ EventLog -> TraceView
 CandidateMemory -> GovernanceStore
 ```
 
-## 二、能力系统里的对象
+## 能力系统里的对象
 
 能力系统也需要分层。
 
@@ -99,7 +122,7 @@ Tool Runtime 只处理某个具体 ToolIntent 是否可执行。
 可执行不等于可以绕过审计。
 ```
 
-## 三、控制语义里的三个词
+## 控制语义里的三个词
 
 `Permission`、`Trust`、`Governance` 不应该混用。
 
@@ -113,7 +136,7 @@ extension trust 不是 tool permission。
 
 memory governance 也不是某次工具调用审批。
 
-## 四、完成状态必须落到 verification
+## 完成状态必须落到 verification
 
 最终回答不能替代验证。
 
@@ -127,7 +150,27 @@ Final Answer 只能引用 verification evidence，不能代替 verification。
 
 Agent Harness 的完成语义应该以最后一种为准。
 
-## 落地到教学 Harness
+## 本章代码落点
+
+本章不是新增 runtime，而是给读者和代码建立同一张 glossary table：
+
+```text
+term
+firstMentionedChapter
+typicalConsumer
+commonConfusion
+projectFieldMapping
+```
+
+验收标准是：
+
+```text
+读者能查到术语首讲位置。
+每个术语都能对应到一个消费者或代码字段。
+易混淆概念能用一句话拆开。
+```
+
+## 教学 Harness 落点
 
 这张术语地图最好和教学项目的字段对齐：Intent 对应 `ToolCallContent`，Observation 对应 `ToolResultMessage`，Event 对应 `AgentEvent`，Projection 对应 `buildContext()` 产物，Snapshot 对应 retrieval 或模型输入快照，Trace 对应可回放的事件序列。这样术语不只是解释词，而能直接指导读者读代码。
 

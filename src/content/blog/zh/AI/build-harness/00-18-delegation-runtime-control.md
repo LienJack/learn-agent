@@ -1,6 +1,6 @@
 ---
 title: "Delegation Runtime：把任务分出去，但不丢掉控制权"
-description: "到了这里，我们的小型 CLI Agent 已经不再是一个会聊天的模型壳。"
+description: "把 sub-agent 建模成受控工具执行体：父 Agent 通过任务包、权限继承、上下文隔离和 JoinReview 保留控制权。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -21,23 +21,7 @@ aliases:
 
 # Delegation Runtime：把任务分出去，但不丢掉控制权
 
-到了这里，我们的小型 CLI Agent 已经不再是一个会聊天的模型壳。
-
-它能接 provider。
-
-它能把模型输出拆成 intent。
-
-它有 tool runtime。
-
-它有 permission。
-
-它能记录 event log。
-
-它知道 messages 不是事实源。
-
-它也知道 session replay 不是重新跑真实世界，而是用事件恢复可解释状态。
-
-这时用户给它一个稍微真实一点的任务：
+用户给 CLI Agent 一个稍微真实一点的任务：
 
 ```text
 这个项目测试失败了，帮我找原因并修好。
@@ -114,11 +98,7 @@ aliases:
 
 这就是第 18 篇要解决的问题。
 
-这篇文章讲的不是“多 Agent 很酷”。
-
-也不是“怎样设计一群角色扮演专家”。
-
-它要回答的是：
+这一篇只回答：
 
 ```text
 当任务变大以后，怎样把局部工作分出去，
@@ -152,9 +132,9 @@ sub-agent 是受控执行体。
 
 我们慢慢拆。
 
-## 问题链
+## 从局部任务到受控执行体
 
-先把本篇的问题链固定住：
+本章新增的运行时对象是这条委派链：
 
 ```text
 单 Agent 可以完成小任务
@@ -295,7 +275,7 @@ Agent 不是没做事。
 
 它是“把高噪声探索压缩成低噪声证据”。
 
-画成问题链，大概是这样：
+画成控制链，大概是这样：
 
 ![Delegation Runtime：把任务分出去，但不丢掉控制权 Mermaid 1](assets/00-18-delegation-runtime-control/mermaid-01.png)
 
@@ -309,7 +289,7 @@ Agent 不是没做事。
 
 这就是本文的主线。
 
-## 二、把 sub-agent 当成模型副本，是多 Agent 的第一个坑
+## 二、第一个坑：把委派写成 nested model call
 
 很多系统第一次实现 sub-agent，会写得很直接。
 
@@ -490,7 +470,7 @@ delegation 不是工具系统之外的捷径。
 
 它是工具系统里一种特殊但必须受控的工具。
 
-## 三、任务包：父 Agent 派出去的不是一句话
+## 三、任务包：委派的最小 contract
 
 如果 delegation 是工具调用，那么它的输入不能只是一段自然语言。
 
@@ -1912,37 +1892,34 @@ Delegation Runtime 不是终点。
 
 它只是让一个 Agent 从“单线程做事”，升级成“能组织受控局部工作”的开始。
 
-## 十六、最小记忆点
+## 十六、本章代码落点
 
-多 Agent 不是更多模型。
-
-多 Agent 是更多协调问题。
-
-Delegation Runtime 解决的不是“怎样让几个 Agent 一起聊”。
-
-它解决的是：
+本章代码里可以先落这些对象：
 
 ```text
-怎样把局部任务交给受控执行体，
-同时让父 Agent 继续持有目标、权限、状态、证据合并和最终责任。
+DelegationIntent
+ChildContextProjection
+ChildToolPolicy
+DelegationResult
+JoinReview
 ```
 
-如果只能记住一句话，记这一句：
+新增测试可以先写这些：
 
 ```text
-delegation 是工具调用的一种；
-父 Agent 分出去的是工作，不是控制权。
+子 Agent 不自动继承父 Agent 全部工具。
+子 transcript 不直接进入父 context。
+缺 evidence 的结果不能被 join。
+高风险动作必须冒泡回父 Agent。
+两个子 Agent 结论冲突时，父 Agent 必须进入 review，而不是投票通过。
 ```
 
-当你这样理解 delegation，很多设计会自然落位：
+验收标准是：
 
 ```text
-任务包不是 prompt 装饰，而是执行 contract。
-上下文隔离不是省 token，而是保护主线。
-工具继承不是默认复制，而是权限交集。
-结果 contract 不是格式洁癖，而是 join 的前提。
-trace 归并不是日志炫技，而是失败归因的基础。
-失败回收不是容错附加项，而是长任务 runtime 的基本职责。
+委派必须像一次特殊 tool invocation 一样进入事件链。
+父 Agent 派出去的是局部工作，不是最终控制权。
+JoinReview 能解释接受、拒绝、冲突和 unknowns。
 ```
 
 到这一步，我们的小型 CLI Agent 已经能把任务分出去。
@@ -1963,7 +1940,7 @@ Trace Analysis。
 
 也就是让 Harness 不只是能跑，还能解释自己为什么跑错。
 
-## 落地到教学 Harness
+## 教学 Harness 落点
 
 如果要在教学项目里加 delegation，不要先做多 Agent 聊天。先把它做成一种受控 run：父级创建任务包，指定 scope、allowed tools、expected output；子级使用隔离 context 运行；父级只接收结构化结果和事件摘要。这样委派仍然是 Harness 管理的执行单元。
 

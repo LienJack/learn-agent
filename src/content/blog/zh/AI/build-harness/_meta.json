@@ -1,7 +1,7 @@
 {
 	"title": "Build Harness",
 	"alias": "从 0 到 1 构建 Agent 与 Harness",
-	"description": "从简单 CLI 助手开始，逐步构建可控、可观测、可扩展的 Agent Harness。",
+	"description": "面向想亲手实现 Agent Harness 的开发者，从 CLI 模型调用、最小 Agent Loop、工具运行时、上下文策略、事件日志到托管运行，逐步搭出可控、可观测、可扩展的工程骨架。",
 	"cover": "/blog-covers/build-harness.svg",
 	"order": 4
 }

@@ -1,6 +1,6 @@
 ---
-title: "从 0 到 1 构建 Agent 与 Harness"
-description: "一套从简单 CLI 助手开始，逐步构建可控、可观测、可扩展 Agent Harness 的工程教程。"
+title: "Agent Harness 教程：从 CLI 助手到可控、可观测、可扩展的工程系统"
+description: "从第一次模型调用、最小 Agent Loop、工具运行时、上下文策略、事件日志到托管运行，逐步构建一个可控、可观测、可扩展的 Agent Harness。"
 author: LienJack
 pubDate: 2026-05-29
 heroImage: './assets/cover.jpg'
@@ -14,13 +14,15 @@ aliases:
   - Build Harness
 ---
 
-# 从 0 到 1 构建 Agent 与 Harness
+# Agent Harness 教程：从 CLI 助手到可控、可观测、可扩展的工程系统
 
 这是一套面向工程实践的 Agent Harness 教程。它不会一上来就把你扔进复杂框架，而是从一个能聊天的 CLI 助手开始，逐步长出 agent loop、工具调用、上下文策略、记忆、权限、trace、评测、子 Agent、自动化与托管运行。
 
 这套教程的目标很明确：让你真正理解“模型外面的系统”到底在做什么。LLM 可以判断下一步，但要让它稳定完成长任务，还需要执行层、状态层、权限层、观测层、恢复机制和产品化边界。这些东西组合起来，就是 Harness。
 
 如果你用过 ChatGPT、Claude、Cursor 或 Claude Code，却仍然好奇“Agent 为什么能干活”“Claude Code 这种工具背后大概怎么搭”，这套内容会带你从理论走到一个可运行、可扩展、可诊断的工程模型。
+
+站内阅读可以从 [Build Harness 系列入口](/blog/AI/build-harness) 开始；如果你更想先看成熟编程 Agent 的源码结构，可以对照 [Claude Code 源码解析导读](/blog/AI/3.ClaudeCode源码解析/00.系列导读)，再回到本系列亲手实现相同问题的最小版本。
 
 ## Agent 到底是什么？
 
@@ -56,8 +58,8 @@ Agent 的核心要素包括：
 
 ### 第一部分：Agent 基础模型与 Harness 演化
 
-1. [Agent 基础定义：它为什么不是一句 Prompt？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-01-agent-not-a-prompt.md)  
-   从最容易误解的地方开始：Agent 不是更长的提示词，而是会循环、会调用工具、会记录状态、会接受控制的运行系统。
+1. [Agent 基础定义：从回答到执行过程](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-01-agent-not-a-prompt.md)  
+   从 prompt-only 的边界开始：模型可以提出下一步，但真实任务需要 loop、tools、state 和最薄的一层外部控制。
 
 2. [Agent 组成模型：Model、Loop、Tools、State](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-02-agent-components.md)  
    拆开 Agent 的最小构成，理解模型、循环、工具和状态如何配合。读完后，你会知道一个 Agent 至少需要哪些工程零件。
@@ -65,73 +67,73 @@ Agent 的核心要素包括：
 3. [系统边界：ChatBot、Workflow、Agent、Harness 的区别](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-03-chatbot-workflow-agent-harness.md)  
    区分聊天机器人、固定流程、Agent 和 Harness。这个边界图能帮你判断什么时候该用脚本，什么时候需要真正的 Agent 架构。
 
-4. [Harness 基础定义：模型外部的控制系统](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-04-harness-control-system.md)  
-   把 Harness 看成模型外部的控制层：它负责执行、权限、审计、恢复和产品行为。模型提出意图，Harness 决定如何落地。
+4. [Harness 的控制回路：约束、反馈、再投影](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-04-harness-control-system.md)  
+   从一个 demo Agent 的事故现场进入，拆清 Harness 如何接住执行、权限、日志、恢复和验证这些控制责任。
 
-5. [Agent 演化路径：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-05-agent-evolution-path.md)  
-   展示 Agent 从聊天到工具、再到运行时控制和托管管理的演化路径。每一步都对应真实工程压力，而不是概念堆叠。
+5. [Agent 演进路线：从聊天原型到托管运行](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-05-agent-evolution-path.md)  
+   用项目里程碑看 Agent 如何从 v0 聊天原型，逐步长出工具、运行时控制、session log、sandbox、trace 和评估。
 
 6. [手写 Agent 的意义：理解框架抽象背后的最小机制](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-06-handwrite-agent-meaning.md)  
-   通过手写最小 Agent，看清框架背后的机制。理解底层之后，再用 LangChain、MCP 或其他框架时会更有判断力。
+   解释为什么要亲手摸一次最小机制：不是替代框架，而是看清框架藏起了哪些工程边界。
 
 7. [LLM Provider 接入：让 CLI 完成第一次模型调用](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-07-llm-provider-cli-first-call.md)  
-   把真实模型接进 CLI，完成第一次可运行的调用。这里开始从理论进入代码，让系统真正能和 LLM 对话。
+   把真实模型接进 CLI，并留下 provider contract：chat、stream、error mapping 先跑通，tool intent 只预留事件。
 
 8. [最小 Agent Loop：从单次回答到多步行动](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-08-minimal-agent-loop.md)  
-   把一次性回答改造成多步行动循环，加入停止条件、观察结果和错误处理。这是 Agent 开始“自己推进任务”的关键一步。
+   用 fake tool 验证最小 loop：observation 要影响下一轮判断，final、maxTurns 和错误要能让系统停下来。
 
-9. [M0 Core Kernel：把真实大模型接进系统，而不是接管系统](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-09-m0-core-kernel.md)  
-   设计一个最小核心内核，让模型进入系统，但不让模型接管系统。核心负责事件、状态、边界和运行时契约。
+9. [M0 Core Kernel：真实模型接入系统边界](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-09-m0-core-kernel.md)  
+   把真实 provider 事件接进 contracts、registry、event bus、state reducer 和 runtime facade，保持 core 的内部语言。
 
 10. [Intent / Execution 分离：模型提议，系统执行](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-10-intent-execution-separation.md)  
-    建立最重要的安全边界：模型只提出 intent，系统负责执行。这样才能做权限审批、审计、重放和可控调试。
+    正式展开 intent -> validate -> approve -> execute -> observe，让工具意图进入受控执行管线。
 
 ### 第二部分：扩展边界
 
-11. [Plugin Host：core 为什么要学会被扩展？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-11-plugin-host-core-extension.md)  
-    解释为什么 Harness 需要插件边界。Provider、工具、策略和工作流都应该能扩展，但 core 本身必须保持稳定。
+11. [Plugin Host：让外部能力按规则进入 Core](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-11-plugin-host-core-extension.md)  
+    解释外部能力如何以 contribution 进入系统：manifest、loader、registry、lifecycle 和 hook kernel 共同保护 core。
 
-12. [Provider Runtime：provider 为什么只能返回 tool intent？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-12-provider-runtime-tool-intent.md)  
-    定义模型供应商的运行时边界：provider 可以返回文本和工具意图，但不能直接执行工具。执行权必须留在 Harness。
+12. [Provider Runtime：把模型输出归一成 ToolIntent](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-12-provider-runtime-tool-intent.md)  
+    定义 provider 的翻译边界：把 streaming、tool-call delta、usage 和 error 归一成 ModelEvent / ToolIntent，但不执行工具。
 
 ### 第三部分：执行与现场控制
 
-13. [Tool Runtime：从 tool intent 到 observation](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-13-tool-runtime-observation.md)  
-    把工具意图变成结构化 observation。你会看到工具调度、执行、结果整理和错误归属如何形成可审计的运行链路。
+13. [Tool Runtime：从 ToolIntent 到 Observation](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-13-tool-runtime-observation.md)  
+    展开所有工具共享的执行管线：registry、validation、permission、scheduler、sandbox、normalization 和 observation。
 
-14. [Local Tool Bundle：文件、搜索、终端与权限运行时](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-14-local-tool-bundle-permission-runtime.md)  
-    加入最实用的本地工具：文件、搜索和终端。重点不是“能不能执行”，而是风险分级、权限门禁和输出规范。
+14. [Local Tool Bundle：文件、搜索、终端的本地边界](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-14-local-tool-bundle-permission-runtime.md)  
+    把 Read / Edit / Write / Glob / Grep / Bash 拆成不同本地风险语义，重点是路径、动作、执行环境和输出预算。
 
 15. [Context Policy：模型这一轮应该看见什么？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-15-context-policy-model-input.md)  
-    讨论每一轮到底该给模型看什么。好的上下文策略能降低成本、减少误判、保护隐私，也让调试更清楚。
+    治理模型输入投影：选什么、压什么、隔离什么、记录什么，让第 N 轮模型看到一张可信工作台。
 
-16. [Session Replay：为什么事件日志是长任务的事实源？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-16-session-replay-event-log.md)  
-    用事件日志替代脆弱的聊天历史。长任务需要可重放、可恢复、可审计的事实记录，而不是一串不可控消息。
+16. [Session Replay：用事件日志恢复长任务现场](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-16-session-replay-event-log.md)  
+    用 events.jsonl、artifact、snapshot、ReplayRunner 和 ResumeGate，让长任务中断后能恢复现场并判断能否继续。
 
 ### 第四部分：能力、协作与诊断
 
-17. [Capability Discovery：Skills、MCP 与动态工具暴露](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-17-capability-discovery-skills-mcp.md)  
-    让 Agent 只看见当前需要的能力。Skills、MCP 和动态工具发现可以扩展系统，同时避免把模型淹没在工具列表里。
+17. [Capability Discovery：按任务暴露最小能力集合](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-17-capability-discovery-skills-mcp.md)  
+    用 Capability Catalog、Discovery Policy 和 Visible Set 管理能力可见性，避免把模型淹没在工具、Skills 和 MCP 列表里。
 
 18. [Delegation Runtime：把任务分出去，但不丢掉控制权](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-18-delegation-runtime-control.md)  
-    引入子 Agent 和任务委派，但仍保持父级 Harness 对上下文、权限、结果合并和失败恢复的控制。
+    把 sub-agent 建模成受控工具执行体，通过任务包、上下文隔离、权限继承和 JoinReview 保留父级控制权。
 
 19. [Trace Analysis：用事实日志定位 Agent 失败](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-19-trace-analysis-agent-failures.md)  
-    用 trace 分析失败，而不是靠感觉猜。你会学会检查决策、工具输出、观察结果和控制点，找到 Agent 失败的真实位置。
+    把 event log 投影成诊断 trace，用 FailureFinding 和 FailureTaxonomy 判断失败断在模型、上下文、工具、权限、验证还是委派边界。
 
-20. [Memory Governance：candidate ledger 到 governance store](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-20-memory-governance-candidate-ledger.md)  
-    把记忆当成需要治理的数据，而不是随便写入的缓存。候选账本、审批、时效和清理机制让长期记忆保持可信。
+20. [Memory Governance：长期记忆的写入治理](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-20-memory-governance-candidate-ledger.md)  
+    把可复用经验先写入 CandidateLedger，再通过 source、scope、confidence、TTL、review 和 health check 进入长期记忆。
 
 21. [Scoped Retrieval：从边界检索到 audit snapshot](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-21-scoped-retrieval-audit-snapshot.md)  
-    让检索结果有范围、有证据、有审计快照。Agent 使用了什么资料、为什么能使用，都应该可以被追踪。
+    把一次检索做成 evidence snapshot：有 scope、query plan、citation、裁剪记录和可 replay 的审计证据。
 
 ### 第五部分：产品化与托管
 
-22. [Productized CLI：profile、extension、multi-provider](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-22-productized-cli-profile-extension.md)  
-    把原型变成真正可用的 CLI：支持 profile、扩展、多 provider、稳定输出和可预期的用户体验。
+22. [Productized CLI：从 demo 入口到稳定运行身份](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-22-productized-cli-profile-extension.md)  
+    把原型 CLI 的运行方式收敛成 profile、resolver chain、doctor、extension loader 和稳定事件流。
 
-23. [Hosted Harness：Sandbox、Cron、durable execution 与远程部署](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-23-hosted-harness-durable-execution.md)  
-    从本地运行走向托管执行。Sandbox、队列、重试、定时任务和持久状态，让 Agent 能面对真实生产环境。
+23. [Hosted Harness：Sandbox、Cron、Durable Execution 与远程部署](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-23-hosted-harness-durable-execution.md)  
+    进入远程托管生命周期：job、workspace、sandbox、secret、durable step、artifact、worker lease 和 notification。
 
-24. [Agent Harness 术语地图：Intent、Observation、Event、Artifact、Snapshot、Projection、Trace 的关系](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-24-agent-harness-terminology-map.md)  
-    用一张术语地图收束全系列。理解这些概念之间的关系，才能清晰设计、调试和讨论 Agent Harness。
+24. [Agent Harness 术语地图：从 Intent 到 Trace](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-24-agent-harness-terminology-map.md)  
+    用 glossary / map 收口核心术语：首讲章节、典型消费者、常见混淆和教学项目字段映射。

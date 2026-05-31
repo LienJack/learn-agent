@@ -13,6 +13,7 @@ import type { Locale } from '../../i18n/config';
 import { getHtmlLang, getMessages } from '../../i18n/messages';
 import { localizePath } from '../../i18n/utils';
 import { getPostSlug } from '../../content/blog/utils';
+import { buildBlogCollectionSeoData } from '../../seo/blog';
 
 interface Props {
 	locale: Locale;
@@ -40,6 +41,19 @@ const indexCopy = {
 }[locale];
 const groupedCards = await buildBlogGroupCards(posts, locale);
 const useStructuredGroups = await hasStructuredBlogGroups(posts, locale);
+const seo = buildBlogCollectionSeoData({
+	title: messages.meta.blogTitle,
+	description: messages.meta.blogDescription,
+	path: '/blog',
+	locale,
+	site: Astro.site,
+	image: groupedCards[0]?.cover,
+	items: groupedCards.map((group) => ({
+		name: group.title,
+		path: localizePath(locale, `/blog/${group.path}`),
+		description: group.description,
+	})),
+});
 ---
 
 <!doctype html>
@@ -48,7 +62,12 @@ const useStructuredGroups = await hasStructuredBlogGroups(posts, locale);
 		<BaseHead
 			title={messages.meta.blogTitle}
 			description={messages.meta.blogDescription}
+			image={groupedCards[0]?.cover}
 			locale={locale}
+			pageType="collection"
+			canonicalPath={seo.canonicalPath}
+			alternates={seo.alternates}
+			structuredData={seo.structuredData}
 		/>
 	</head>
 	<body>

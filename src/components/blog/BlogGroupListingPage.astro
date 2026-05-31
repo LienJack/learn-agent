@@ -13,6 +13,7 @@ import { getHtmlLang } from '../../i18n/messages';
 import { localizePath } from '../../i18n/utils';
 import { getMessages } from '../../i18n/messages';
 import { getPostSlug } from '../../content/blog/utils';
+import { buildBlogCollectionSeoData } from '../../seo/blog';
 
 type Props = {
 	locale: Locale;
@@ -85,12 +86,55 @@ const groupedCards = await buildBlogGroupCards(posts, locale);
 const currentGroup = series?.group ?? group ?? null;
 const currentSeries = series ?? null;
 const currentSeriesGuidePost = currentSeries?.featuredPost ?? currentSeries?.posts[0] ?? null;
+const collectionPath = currentSeries
+	? `/blog/${currentSeries.path}`
+	: currentGroup
+		? `/blog/${currentGroup.path}`
+		: '/blog';
+const collectionImage = currentSeries?.cover ?? currentGroup?.cover ?? groupedCards[0]?.cover;
+const collectionItems = currentSeries
+	? currentSeries.posts.map((post) => ({
+			name: post.data.title,
+			path: localizePath(locale, `/blog/${getPostSlug(post)}`),
+			description: post.data.description,
+		}))
+	: currentGroup
+		? currentGroup.series.map((item) => ({
+				name: item.title,
+				path: localizePath(locale, `/blog/${item.path}`),
+				description: item.description,
+			}))
+		: groupedCards.map((item) => ({
+				name: item.title,
+				path: localizePath(locale, `/blog/${item.path}`),
+				description: item.description,
+			}));
+const seo = buildBlogCollectionSeoData({
+	title,
+	description,
+	path: collectionPath,
+	locale,
+	site: Astro.site,
+	image: collectionImage,
+	group: currentGroup,
+	series: currentSeries,
+	items: collectionItems,
+});
 ---
 
 <!doctype html>
 <html lang={getHtmlLang(locale)}>
 	<head>
-		<BaseHead title={title} description={description} locale={locale} />
+		<BaseHead
+			title={title}
+			description={description}
+			image={collectionImage}
+			locale={locale}
+			pageType="collection"
+			canonicalPath={seo.canonicalPath}
+			alternates={seo.alternates}
+			structuredData={seo.structuredData}
+		/>
 	</head>
 	<body class:list={['blog-listing-page', { 'blog-series-route-page': currentSeries }]}>
 		<Header />

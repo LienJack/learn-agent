@@ -897,31 +897,21 @@ eval：把 trace 和测试样例变成回归反馈
 
 最小 Agent 可以全写在一个文件里。教程前几篇也会从单文件开始。但读者需要提前知道，单文件只是为了看清机制，不是终局形态。
 
-## 七、初学者最容易混淆的几个点
+## 七、容易混淆的几条边界
 
-### 1. Model 和 Agent 的区别
+前面已经把四个部件拆开了，这里不再重新定义一遍，只留几个后文会反复用到的判断。
 
-Model 是判断器，Agent 是运行系统。
+| 容易混的词 | 更稳的分法 |
+| --- | --- |
+| Model / Agent | Model 负责判断，Agent 负责把判断组织成多轮过程。 |
+| Tool call / 工具执行 | Tool call 更准确地说是 tool intent；真正执行前还要 validate、authorize、execute、observe。 |
+| Messages / State | Messages 是 state 的一部分；state 还包括预算、轮次、工件、工具结果、错误和审批状态。 |
+| Loop / Runtime | Loop 是反复推进的结构；Runtime 是预算、中断、错误、权限和恢复这些运行规则。 |
+| Tool schema / tool implementation | Schema 给模型描述可用协议；implementation 是宿主程序真正执行动作的代码。 |
 
-模型可以输出下一步建议，但 Agent 负责组织多轮过程、调用工具、保存状态和结束任务。
-
-### 2. Tool call 和工具执行的区别
-
-Tool call 更准确地说是 tool intent。
-
-它只是模型提出的结构化行动请求。真正执行前，还应该经过参数校验、权限判断、沙箱运行和结果回填。
-
-### 3. Messages 和 State 的区别
-
-Messages 是 state 的一部分，但不是全部 state。
-
-Agent 还需要保存预算、轮次、工件、工具结果、错误记录、审批状态等运行信息。
-
-### 4. State、Context、Memory、Session log 的区别
+还有一组词最容易被混成“大 prompt”：`State`、`Context`、`Memory`、`Session log`。
 
 ![把 State、Context、Memory、Session log 的关系画成可理解的分层和投影](assets/00-02-agent-components/photo-03-state-context-memory-session.jpg)
-
-这四个词最容易被混成“大 prompt”。
 
 更稳的分法是：
 
@@ -934,19 +924,7 @@ Memory：跨任务可检索的经验和长期事实。
 
 如果只能先做好一个，优先做好 Session log。因为没有事实源，后面的 state、context、memory 都会变成不可验证的摘要。
 
-### 5. Loop 和 Runtime 的区别
-
-Loop 是“反复推进”的结构。
-
-Runtime 是让这个结构可控运行的规则集合，包括预算、中断、错误、权限和恢复。
-
-### 6. Tool schema 和 tool implementation 的区别
-
-Tool schema 是模型能看到、能生成结构化意图的协议。
-
-Tool implementation 是宿主程序真正执行动作的代码。
-
-二者之间还隔着 validate、visibility、permission、execution、observation、audit。少掉这些环节，工具调用就会退化成“模型写参数，程序赌执行”。
+后文讲 Context、Memory 和 Session 时，会继续沿用这条分法。00-02 只需要先把它们压在同一张图里：保存事实的是 session，折叠现场的是 state，投影给模型的是 context，跨任务复用的是 memory。
 
 ## 八、下一步为什么会走向边界对照
 
@@ -965,7 +943,7 @@ Tool implementation 是宿主程序真正执行动作的代码。
 什么时候必须建设 Harness？
 ```
 
-一句话记住这篇：
+这一章先留下一个判断：
 
 > Agent 的最小闭环是：Model 判断，Loop 推进，Tools 行动，State 续上下一轮。
 
