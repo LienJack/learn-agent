@@ -239,7 +239,35 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 
 						if (sections.length === 0) return;
 
-						const setActiveLink = (id) => {
+						const progressStorageKey = `article-reading-progress:${window.location.pathname}`;
+
+						const readSavedHeadingId = () => {
+							try {
+								const rawProgress = window.localStorage.getItem(progressStorageKey);
+								if (!rawProgress) return null;
+
+								const progress = JSON.parse(rawProgress);
+								return typeof progress?.headingId === 'string' ? progress.headingId : null;
+							} catch {
+								return null;
+							}
+						};
+
+						const saveHeadingId = (id) => {
+							try {
+								window.localStorage.setItem(
+									progressStorageKey,
+									JSON.stringify({
+										headingId: id,
+										updatedAt: new Date().toISOString(),
+									}),
+								);
+							} catch {
+								// Ignore storage failures so reading behavior stays unchanged.
+							}
+						};
+
+						const setActiveLink = (id, shouldSave = true) => {
 							tocLinks.forEach((link) => {
 								link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
 							});
@@ -252,6 +280,27 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 									link.removeAttribute('aria-current');
 								}
 							});
+
+							if (shouldSave) {
+								saveHeadingId(id);
+							}
+						};
+
+						const restoreSavedProgress = () => {
+							if (window.location.hash) return false;
+
+							const savedHeadingId = readSavedHeadingId();
+							if (!savedHeadingId) return false;
+
+							const savedSection = sections.find((section) => section.target.id === savedHeadingId);
+							if (!savedSection) return false;
+
+							window.requestAnimationFrame(() => {
+								savedSection.target.scrollIntoView({ block: 'start' });
+								setActiveLink(savedHeadingId, false);
+							});
+
+							return true;
 						};
 
 						const observer = new IntersectionObserver(
@@ -271,7 +320,9 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 						);
 
 						sections.forEach((section) => observer.observe(section.target));
-						setActiveLink(sections[0].target.id);
+						if (!restoreSavedProgress()) {
+							setActiveLink(sections[0].target.id, false);
+						}
 					});
 				</script>
 			)
