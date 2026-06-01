@@ -1,0 +1,15 @@
+flowchart TD
+    A["Documents"] --> B["Parse / Clean"]
+    B --> C["Chunk"]
+    C --> D["Embed Chunks"]
+    D --> E["Vector Index"]
+    F["Query"] --> G["Embed Query"]
+    G --> H["Retrieve Top-k"]
+    E --> H
+    H --> I["Optional Rerank"]
+    I --> J["Build Context"]
+    J --> K["Generate Answer"]
+    K --> L["Citations"]
+    H --> M["检索日志"]
+    J --> M
+    L --> N["Support Check"]

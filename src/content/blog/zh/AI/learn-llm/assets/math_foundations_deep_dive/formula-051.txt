@@ -1,0 +1,1 @@
+loss = -log q(correct_token)

@@ -1,0 +1,1 @@
+gradient = [dL/dw1, dL/dw2, ..., dL/dwn]

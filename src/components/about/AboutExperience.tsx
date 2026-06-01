@@ -417,6 +417,56 @@ function ExperienceBoard({ copy }: Props) {
 	);
 }
 
+function ContactSection({ copy }: Props) {
+	return (
+		<motion.section
+			className="about-contact-section"
+			aria-labelledby="about-contact-heading"
+			variants={entryContainer}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, margin: '-120px' }}
+		>
+			<motion.div className="about-contact-copy" variants={entryItem}>
+				<p className="page-eyebrow">{copy.contact.eyebrow}</p>
+				<h2 id="about-contact-heading">{copy.contact.heading}</h2>
+				<p>
+					{copy.contact.lead}
+				</p>
+			</motion.div>
+
+			<motion.div className="about-contact-links" variants={entryItem}>
+				{copy.contact.links.map((item) => (
+					<a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
+						<span>{item.label}</span>
+						<strong>{item.value}</strong>
+					</a>
+				))}
+			</motion.div>
+
+			<motion.div className="about-social-grid" variants={entryContainer}>
+				{copy.contact.socials.map((item, index) => (
+					<motion.article
+						key={item.name}
+						className={`about-social-card about-spotlight-surface ${item.className}`}
+						variants={entryItem}
+						style={{ '--social-index': index } as CSSProperties}
+						onPointerMove={handleSpotlightPointerMove}
+						whileHover={{ y: -4, rotate: index === 0 ? -0.6 : 0.6 }}
+						transition={{ type: 'spring', stiffness: 130, damping: 22 }}
+					>
+						<div className="about-social-card-copy">
+							<span>{item.name}</span>
+							<small>{item.detail}</small>
+						</div>
+						<img src={item.image} alt={item.alt} loading="lazy" />
+					</motion.article>
+				))}
+			</motion.div>
+		</motion.section>
+	);
+}
+
 export default function AboutExperience({ copy }: Props) {
 	return (
 		<motion.div
@@ -446,6 +496,7 @@ export default function AboutExperience({ copy }: Props) {
 			</section>
 
 			<ExperienceBoard copy={copy} />
+			<ContactSection copy={copy} />
 		</motion.div>
 	);
 }

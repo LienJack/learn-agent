@@ -1,0 +1,25 @@
+{
+  "article": "lessons/08_huggingface_workflow.md",
+  "updatedAt": "2026-05-30T12:52:27.589950+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/08_huggingface_workflow/mermaid-01.mmd",
+      "promptPath": "lessons/assets/08_huggingface_workflow/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/08_huggingface_workflow/mermaid-01.png",
+      "markdownRef": "assets/08_huggingface_workflow/mermaid-01.png",
+      "sourceSha256": "67fe547eacb08d8e28aaa6290087ac111f0d27aa819f4b57c3e70678483daa59",
+      "bytes": 40906,
+      "sha256": "ad3b34af26ca1df77ffa77316e52d90757595bdac38e45ac85384ebd56875090",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 40906,
+        "afterBytes": 40906,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

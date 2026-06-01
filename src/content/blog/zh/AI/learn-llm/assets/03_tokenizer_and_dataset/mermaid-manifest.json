@@ -1,0 +1,25 @@
+{
+  "article": "lessons/03_tokenizer_and_dataset.md",
+  "updatedAt": "2026-05-30T12:52:20.558946+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/03_tokenizer_and_dataset/mermaid-01.mmd",
+      "promptPath": "lessons/assets/03_tokenizer_and_dataset/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/03_tokenizer_and_dataset/mermaid-01.png",
+      "markdownRef": "assets/03_tokenizer_and_dataset/mermaid-01.png",
+      "sourceSha256": "60e8aa9e12d3180f2855fa7e9779294e1dbfe6b03aeb4722585b3606d916bc10",
+      "bytes": 40257,
+      "sha256": "2e809890d231cdd77054753d5e4136637cd3401017dc0053258bc0955cb13849",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 40257,
+        "afterBytes": 40257,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

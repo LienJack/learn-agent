@@ -1,0 +1,5 @@
+x: [B, d_in]
+W: [d_in, d_out]
+W' = W + (alpha / r) * (A @ B)
+rank(A @ B) <= r
+base W frozen

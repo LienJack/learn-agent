@@ -41,6 +41,12 @@ export default defineConfig({
 			type: 'shiki',
 			excludeLangs: ['math'],
 		},
+		shikiConfig: {
+			langAlias: {
+				redis: 'shellscript',
+				conf: 'ini',
+			},
+		},
 		rehypePlugins: [rehypeArticleMedia],
 	},
 	fonts: [

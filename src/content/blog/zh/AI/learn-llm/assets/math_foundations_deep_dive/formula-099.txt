@@ -1,0 +1,2 @@
+高风险样本 n=20，观察到 0 个 unsafe
+不等于真实 unsafe rate = 0

@@ -1,0 +1,14 @@
+flowchart TD
+    A["Eval Gap"] --> B["Teacher Prompt"]
+    B --> C["Teacher Response"]
+    C --> D["规则过滤"]
+    D --> E["证据检查"]
+    E --> F["人工抽检"]
+    F --> G["Approved Distill Data"]
+    G --> H["Student SFT / LoRA"]
+    H --> I["Student Model"]
+    I --> J["同一 Eval Set"]
+    J --> K["Base / Teacher / Student 对比"]
+    K --> A
+    C --> L["Logits / Preference"]
+    L --> G

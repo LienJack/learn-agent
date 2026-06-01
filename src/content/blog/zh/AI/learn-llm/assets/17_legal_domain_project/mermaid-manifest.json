@@ -1,0 +1,25 @@
+{
+  "article": "lessons/17_legal_domain_project.md",
+  "updatedAt": "2026-05-30T12:52:40.140237+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/17_legal_domain_project/mermaid-01.mmd",
+      "promptPath": "lessons/assets/17_legal_domain_project/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/17_legal_domain_project/mermaid-01.png",
+      "markdownRef": "assets/17_legal_domain_project/mermaid-01.png",
+      "sourceSha256": "87307b9e365fbc7caf5082a86febbc6fe84f0e43578ebd831e8db674d7cf4c33",
+      "bytes": 30184,
+      "sha256": "e15eff69c03e74efffde3cf51d1ff55af963083fd92a6b7d568c3740ee44196e",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 30184,
+        "afterBytes": 30184,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

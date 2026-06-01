@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">Learn LLM Logo Icon</title>
+	<desc id="desc">一个橘色 LLM 几何标识，周围有 token 方块沿虚线轨道循环移动。</desc>
+	<style>
+		.orbit-line {
+			animation: orbit-line 1.55s linear infinite;
+			stroke-dasharray: 14 18;
+		}
+
+		.logo-float {
+			animation: logo-float 2.8s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		.token-a {
+			animation: token-a 3.2s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 450px 260px;
+		}
+
+		.token-b {
+			animation: token-b 3.2s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 450px 260px;
+		}
+
+		.token-c {
+			animation: token-c 3.2s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 450px 260px;
+		}
+
+		.spark {
+			animation: spark 2.1s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		@keyframes orbit-line {
+			to {
+				stroke-dashoffset: -64;
+			}
+		}
+
+		@keyframes logo-float {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-9px);
+			}
+		}
+
+		@keyframes token-a {
+			0%,
+			100% {
+				transform: rotate(-8deg) translateX(-4px);
+			}
+
+			50% {
+				transform: rotate(10deg) translateX(8px);
+			}
+		}
+
+		@keyframes token-b {
+			0%,
+			100% {
+				transform: rotate(7deg) translateY(6px);
+			}
+
+			50% {
+				transform: rotate(-10deg) translateY(-8px);
+			}
+		}
+
+		@keyframes token-c {
+			0%,
+			100% {
+				transform: rotate(10deg) translate(-5px, -3px);
+			}
+
+			50% {
+				transform: rotate(-7deg) translate(7px, 6px);
+			}
+		}
+
+		@keyframes spark {
+			0%,
+			100% {
+				opacity: 0.35;
+				transform: scale(0.92);
+			}
+
+			50% {
+				opacity: 1;
+				transform: scale(1.08);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.orbit-line,
+			.logo-float,
+			.token-a,
+			.token-b,
+			.token-c,
+			.spark {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-14%" y="-14%" width="128%" height="128%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.026" numOctaves="2" seed="73" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.75" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#24180f" flood-opacity="0.13" />
+		</filter>
+		<linearGradient id="coverBg" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f8f0e4" />
+		</linearGradient>
+		<linearGradient id="orangeBody" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ff8a25" />
+			<stop offset="58%" stop-color="#f26b2d" />
+			<stop offset="100%" stop-color="#d95425" />
+		</linearGradient>
+		<linearGradient id="orangeDark" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#d96538" />
+			<stop offset="100%" stop-color="#a83d2b" />
+		</linearGradient>
+		<pattern id="paperLines" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+			<path d="M0 0h34" fill="none" stroke="#ead8ba" stroke-width="3" opacity="0.22" />
+		</pattern>
+		<pattern id="gridMarks" width="58" height="58" patternUnits="userSpaceOnUse">
+			<path d="M58 0H0v58" fill="none" stroke="#f1dec0" stroke-width="2" opacity="0.36" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#coverBg)" />
+	<rect width="900" height="520" fill="url(#paperLines)" opacity="0.52" />
+	<rect x="110" y="70" width="680" height="380" rx="34" fill="url(#gridMarks)" opacity="0.6" />
+	<ellipse cx="450" cy="408" rx="194" ry="23" fill="#221915" opacity="0.1" />
+
+	<g filter="url(#roughInk)">
+		<path class="orbit-line" d="M260 260c0-99 78-166 190-166s190 67 190 166-78 166-190 166-190-67-190-166z" fill="none" stroke="#2b1a20" stroke-width="9" stroke-linecap="round" opacity="0.72" />
+		<path d="M623 216l33 43-48 20" fill="none" stroke="#2b1a20" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.72" />
+
+		<g class="token-a">
+			<rect x="218" y="177" width="58" height="58" rx="14" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+			<path d="M236 207h25" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round" />
+		</g>
+
+		<g class="token-b">
+			<rect x="625" y="158" width="58" height="58" rx="14" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+			<path d="M643 188h25" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round" />
+		</g>
+
+		<g class="token-c">
+			<rect x="636" y="308" width="58" height="58" rx="14" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+			<path d="M654 338h25" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round" />
+		</g>
+	</g>
+
+	<g class="logo-float" filter="url(#softShadow)">
+		<g filter="url(#roughInk)">
+			<rect x="330" y="140" width="240" height="240" rx="54" fill="url(#orangeBody)" />
+			<path d="M363 140h174c18 0 33 15 33 33v50H330v-50c0-18 15-33 33-33z" fill="url(#orangeDark)" opacity="0.78" />
+			<circle cx="370" cy="181" r="10" fill="#fff4e2" opacity="0.92" />
+			<circle cx="405" cy="181" r="10" fill="#fff4e2" opacity="0.72" />
+
+			<g fill="none" stroke="#fffaf0" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M374 239v82h49" stroke-width="22" />
+				<path d="M439 239v82h45" stroke-width="22" />
+				<path d="M502 321v-82l34 46 34-46v82" stroke-width="20" />
+			</g>
+
+			<path d="M374 239v82h49M439 239v82h45M502 321v-82l34 46 34-46v82" fill="none" stroke="#2b1a20" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.58" />
+		</g>
+	</g>
+
+	<g class="spark" filter="url(#roughInk)" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round">
+		<path d="M296 330l-22 21M295 351l-22-20" />
+		<path d="M602 116l-18 18M602 134l-18-18" />
+		<path d="M610 386l-18 18M610 404l-18-18" opacity="0.72" />
+	</g>
+</svg>

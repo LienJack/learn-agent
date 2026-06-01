@@ -1,0 +1,25 @@
+{
+  "article": "lessons/15_safety_and_model_card.md",
+  "updatedAt": "2026-05-30T12:52:37.323211+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/15_safety_and_model_card/mermaid-01.mmd",
+      "promptPath": "lessons/assets/15_safety_and_model_card/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/15_safety_and_model_card/mermaid-01.png",
+      "markdownRef": "assets/15_safety_and_model_card/mermaid-01.png",
+      "sourceSha256": "4edd0c9e717ab90d1317c23a43a21433e5738357bafe4235cdecff16b7830cb6",
+      "bytes": 30432,
+      "sha256": "8462c048fb01dd8d0bb2ff04963ecaf82a665ee2ddfe458e1294e7527fe407b0",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 30432,
+        "afterBytes": 30432,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

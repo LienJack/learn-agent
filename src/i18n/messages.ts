@@ -70,6 +70,28 @@ export type AboutLinkCopy = {
 	href: string;
 };
 
+export type AboutContactLinkCopy = {
+	label: string;
+	value: string;
+	href: string;
+};
+
+export type AboutSocialCopy = {
+	name: string;
+	detail: string;
+	image: string;
+	alt: string;
+	className: string;
+};
+
+export type AboutContactCopy = {
+	eyebrow: string;
+	heading: string;
+	lead: string;
+	links: AboutContactLinkCopy[];
+	socials: AboutSocialCopy[];
+};
+
 export type AboutStatCopy = {
 	label: string;
 	value: string;
@@ -140,6 +162,7 @@ export type AboutCopy = {
 	liveStageLabel: string;
 	liveErrorLabel: string;
 	links: AboutLinkCopy[];
+	contact: AboutContactCopy;
 	experienceGroups: AboutExperienceGroupCopy[];
 	projectGroup: AboutProjectGroupCopy;
 	techStack: AboutTechStackCopy;
@@ -386,6 +409,51 @@ const messages: Record<Locale, LocaleMessages> = {
 					href: 'https://blog.lienjack.com',
 				},
 			],
+			contact: {
+				eyebrow: 'Contact',
+				heading: '个人联系方式',
+				lead: '这里放最直接的入口：扫码找到我，或者从 GitHub 和邮箱继续聊工程、Agent、产品系统。',
+				links: [
+					{
+						label: 'GitHub',
+						value: 'github.com/LienJack',
+						href: 'https://github.com/LienJack',
+					},
+					{
+						label: '个人邮箱',
+						value: 'lienjoe96@gmail.com',
+						href: 'mailto:lienjoe96@gmail.com',
+					},
+					{
+						label: '工作邮箱',
+						value: 'lien@ecf.network',
+						href: 'mailto:lien@ecf.network',
+					},
+				],
+				socials: [
+					{
+						name: 'LINE',
+						detail: '日常沟通',
+						image: '/contact/line-qr.jpg',
+						alt: 'LINE 二维码',
+						className: 'about-social-line',
+					},
+					{
+						name: 'WeChat',
+						detail: '个人微信',
+						image: '/contact/wechat-qr.jpg',
+						alt: '微信二维码',
+						className: 'about-social-wechat',
+					},
+					{
+						name: '小红书',
+						detail: 'Lien · 1168378178',
+						image: '/contact/xiaohongshu-qr.jpg',
+						alt: '小红书二维码',
+						className: 'about-social-rednote',
+					},
+				],
+			},
 			experienceGroups: [
 				{
 					eyebrow: '公司经历',
@@ -767,11 +835,56 @@ const messages: Record<Locale, LocaleMessages> = {
 					label: 'GitHub',
 					href: 'https://github.com/LienJack',
 				},
-				{
-					label: 'Personal blog',
+					{
+						label: 'Personal blog',
 						href: 'https://blog.lienjack.com',
 					},
 				],
+				contact: {
+					eyebrow: 'Contact',
+					heading: 'Contact',
+					lead: 'The quickest ways to reach me: scan a social QR code, open GitHub, or continue the conversation by email about engineering, agents, and product systems.',
+					links: [
+						{
+							label: 'GitHub',
+							value: 'github.com/LienJack',
+							href: 'https://github.com/LienJack',
+						},
+						{
+							label: 'Personal email',
+							value: 'lienjoe96@gmail.com',
+							href: 'mailto:lienjoe96@gmail.com',
+						},
+						{
+							label: 'Work email',
+							value: 'lien@ecf.network',
+							href: 'mailto:lien@ecf.network',
+						},
+					],
+					socials: [
+						{
+							name: 'LINE',
+							detail: 'Daily contact',
+							image: '/contact/line-qr.jpg',
+							alt: 'LINE QR code',
+							className: 'about-social-line',
+						},
+						{
+							name: 'WeChat',
+							detail: 'Personal WeChat',
+							image: '/contact/wechat-qr.jpg',
+							alt: 'WeChat QR code',
+							className: 'about-social-wechat',
+						},
+						{
+							name: 'RedNote',
+							detail: 'Lien · 1168378178',
+							image: '/contact/xiaohongshu-qr.jpg',
+							alt: 'RedNote QR code',
+							className: 'about-social-rednote',
+						},
+					],
+				},
 				experienceGroups: [
 					{
 						eyebrow: 'Company Experience',
@@ -1158,6 +1271,51 @@ const messages: Record<Locale, LocaleMessages> = {
 						href: 'https://blog.lienjack.com',
 					},
 				],
+				contact: {
+					eyebrow: 'Contact',
+					heading: '連絡先',
+					lead: '連絡しやすい入口をまとめています。QR コード、GitHub、メールから、engineering、Agent、product system について話せます。',
+					links: [
+						{
+							label: 'GitHub',
+							value: 'github.com/LienJack',
+							href: 'https://github.com/LienJack',
+						},
+						{
+							label: '個人メール',
+							value: 'lienjoe96@gmail.com',
+							href: 'mailto:lienjoe96@gmail.com',
+						},
+						{
+							label: '仕事メール',
+							value: 'lien@ecf.network',
+							href: 'mailto:lien@ecf.network',
+						},
+					],
+					socials: [
+						{
+							name: 'LINE',
+							detail: '日常連絡',
+							image: '/contact/line-qr.jpg',
+							alt: 'LINE QR コード',
+							className: 'about-social-line',
+						},
+						{
+							name: 'WeChat',
+							detail: '個人 WeChat',
+							image: '/contact/wechat-qr.jpg',
+							alt: 'WeChat QR コード',
+							className: 'about-social-wechat',
+						},
+						{
+							name: '小紅書',
+							detail: 'Lien · 1168378178',
+							image: '/contact/xiaohongshu-qr.jpg',
+							alt: '小紅書 QR コード',
+							className: 'about-social-rednote',
+						},
+					],
+				},
 				experienceGroups: [
 					{
 						eyebrow: '企業経験',

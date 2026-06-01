@@ -1,0 +1,25 @@
+{
+  "article": "lessons/06_transformer_block.md",
+  "updatedAt": "2026-05-30T12:52:24.707752+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/06_transformer_block/mermaid-01.mmd",
+      "promptPath": "lessons/assets/06_transformer_block/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/06_transformer_block/mermaid-01.png",
+      "markdownRef": "assets/06_transformer_block/mermaid-01.png",
+      "sourceSha256": "374f5c80ad9b98ed9820a5add9d99f7b6dcc2b722ab59ce86af2a540b87e8ff0",
+      "bytes": 28376,
+      "sha256": "1354e50899fd2491b934ef634d0e8ca94bead5b998c24cfc3ff628a69ae6f367",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 28376,
+        "afterBytes": 28376,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

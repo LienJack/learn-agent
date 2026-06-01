@@ -1,0 +1,1 @@
+token -> embedding -> attention -> FFN -> logits -> loss

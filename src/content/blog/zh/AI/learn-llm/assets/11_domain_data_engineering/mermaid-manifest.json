@@ -1,0 +1,25 @@
+{
+  "article": "lessons/11_domain_data_engineering.md",
+  "updatedAt": "2026-05-30T12:52:31.824048+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/11_domain_data_engineering/mermaid-01.mmd",
+      "promptPath": "lessons/assets/11_domain_data_engineering/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/11_domain_data_engineering/mermaid-01.png",
+      "markdownRef": "assets/11_domain_data_engineering/mermaid-01.png",
+      "sourceSha256": "abb1cf6432e9a642a708e38bebd116f952c71af7beff77838f31ff959d998fc8",
+      "bytes": 37926,
+      "sha256": "08dbb7adf34c4da7b970211a066c9340c1fa0724604c87bce6098081a04b75d2",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 37926,
+        "afterBytes": 37926,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

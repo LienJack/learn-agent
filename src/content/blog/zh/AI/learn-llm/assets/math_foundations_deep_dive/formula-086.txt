@@ -1,0 +1,2 @@
+y = x + F(x)
+dL/dx = dL/dy * (I + dF/dx)

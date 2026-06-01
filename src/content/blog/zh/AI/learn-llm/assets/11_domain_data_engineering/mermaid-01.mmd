@@ -1,0 +1,14 @@
+flowchart TD
+    A["Raw Sources"] --> B["Manifest"]
+    A --> C["Clean / Dedup"]
+    C --> D["脱敏"]
+    D --> E["Cleaned Chunks"]
+    E --> F["RAG 知识库"]
+    E --> G["SFT Messages"]
+    E --> H["Frozen Eval"]
+    G --> I["LoRA / SFT"]
+    F --> J["RAG 回答"]
+    H --> K["回归评测"]
+    J --> L["Distill Prompts"]
+    L --> M["蒸馏样本"]
+    B --> K

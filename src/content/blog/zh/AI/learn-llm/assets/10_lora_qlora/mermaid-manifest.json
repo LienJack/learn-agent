@@ -1,0 +1,25 @@
+{
+  "article": "lessons/10_lora_qlora.md",
+  "updatedAt": "2026-05-30T12:52:30.416514+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/10_lora_qlora/mermaid-01.mmd",
+      "promptPath": "lessons/assets/10_lora_qlora/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/10_lora_qlora/mermaid-01.png",
+      "markdownRef": "assets/10_lora_qlora/mermaid-01.png",
+      "sourceSha256": "42583280d49f3fa1caaa05e4211fe071dfcbd53cc9a8b90f74f71e1473bb5de3",
+      "bytes": 35341,
+      "sha256": "4b32a8c7a9e1e78927441913d072d420cca0274e51362597ed6e85e508376e9c",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 35341,
+        "afterBytes": 35341,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

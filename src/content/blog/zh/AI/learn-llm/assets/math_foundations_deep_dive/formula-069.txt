@@ -1,0 +1,3 @@
+h = gelu(xW1)
+logits = hW2
+loss = CE(logits, y)

@@ -1,0 +1,25 @@
+{
+  "article": "lessons/19_domain_model_template.md",
+  "updatedAt": "2026-05-30T12:52:42.860959+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/19_domain_model_template/mermaid-01.mmd",
+      "promptPath": "lessons/assets/19_domain_model_template/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/19_domain_model_template/mermaid-01.png",
+      "markdownRef": "assets/19_domain_model_template/mermaid-01.png",
+      "sourceSha256": "85f6b6f7a00e148c9dd99d6c606e7986f57fea1b4479277c629137fb2b2324c5",
+      "bytes": 33392,
+      "sha256": "81cdc797a0d9f4866364a4f1c98f965d23d52145e93da6212ba0af004c62d8a7",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 33392,
+        "afterBytes": 33392,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

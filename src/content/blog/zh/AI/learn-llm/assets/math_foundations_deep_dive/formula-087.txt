@@ -1,0 +1,1 @@
+LayerNorm(x) = gamma * (x - mean(x)) / sqrt(var(x) + eps) + beta

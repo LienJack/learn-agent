@@ -1,0 +1,1 @@
+z_stable = z - max(z)

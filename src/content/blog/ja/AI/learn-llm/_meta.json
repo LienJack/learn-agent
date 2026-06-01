@@ -1,0 +1,7 @@
+{
+	"title": "Learn LLM",
+	"alias": "訓練ループからドメイン小型モデルへ",
+	"description": "PyTorch の訓練ループ、tokenizer、attention、MiniGPT から RAG、SFT、LoRA、評価、安全性、ドメインプロジェクトまで進む実践的な LLM 講座です。",
+	"cover": "/blog-covers/learn-llm.svg",
+	"order": 1.5
+}

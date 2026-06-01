@@ -1,0 +1,3 @@
+p_teacher = softmax(z_teacher / τ)
+p_student = softmax(z_student / τ)
+loss = τ^2 * KL(p_teacher || p_student)

@@ -1,0 +1,25 @@
+{
+  "article": "lessons/02_language_modeling.md",
+  "updatedAt": "2026-05-30T12:52:19.167447+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/02_language_modeling/mermaid-01.mmd",
+      "promptPath": "lessons/assets/02_language_modeling/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/02_language_modeling/mermaid-01.png",
+      "markdownRef": "assets/02_language_modeling/mermaid-01.png",
+      "sourceSha256": "2f932d41bd5d94e16a4a2fe705047c2f31efa314f1bc7be1a96caee263e1e36a",
+      "bytes": 31065,
+      "sha256": "579cf41de8207a9397b5c8352e77801a5ddc277c835d3121b90fd5170d753b68",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 31065,
+        "afterBytes": 31065,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

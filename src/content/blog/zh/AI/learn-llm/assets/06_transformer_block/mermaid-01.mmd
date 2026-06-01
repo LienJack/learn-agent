@@ -1,0 +1,12 @@
+flowchart TD
+    A["输入 x B T D"] --> B["LayerNorm 1"]
+    B --> C["Multi-Head Attention"]
+    C --> D["Dropout"]
+    A --> E["残差相加 1"]
+    D --> E
+    E --> F["LayerNorm 2"]
+    F --> G["FFN"]
+    G --> H["Dropout"]
+    E --> I["残差相加 2"]
+    H --> I
+    I --> J["输出 B T D"]

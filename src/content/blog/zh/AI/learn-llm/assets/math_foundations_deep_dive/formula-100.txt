@@ -1,0 +1,1 @@
+hidden -> Q/K/V -> attention -> FFN -> logits

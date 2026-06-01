@@ -1,0 +1,1 @@
+p_i = exp(z_i) / Σ exp(z_j)

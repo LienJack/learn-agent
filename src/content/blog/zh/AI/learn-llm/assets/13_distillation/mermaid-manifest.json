@@ -1,0 +1,25 @@
+{
+  "article": "lessons/13_distillation.md",
+  "updatedAt": "2026-05-30T12:52:34.591830+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/13_distillation/mermaid-01.mmd",
+      "promptPath": "lessons/assets/13_distillation/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/13_distillation/mermaid-01.png",
+      "markdownRef": "assets/13_distillation/mermaid-01.png",
+      "sourceSha256": "9aa52cabc847a392904a297033d6deb5489d2d230fc19a81946d0a932fed7bf4",
+      "bytes": 43205,
+      "sha256": "35405f0dafd2129c2bc79b81f7275fc5b9d3ef94577989a667b4d06f384705c9",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 43205,
+        "afterBytes": 43205,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

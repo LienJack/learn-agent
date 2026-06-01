@@ -1,0 +1,3 @@
+base_model 参数 requires_grad=False
+lora_A / lora_B 参数 requires_grad=True
+loss.backward() 后 LoRA 参数 grad 不为 None
