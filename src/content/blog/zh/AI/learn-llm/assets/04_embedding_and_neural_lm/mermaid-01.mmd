@@ -1,0 +1,9 @@
+flowchart TD
+    A["input_ids B T"] --> B["embedding 查表"]
+    B --> C["hidden B T D"]
+    C --> D["causal mask 限制未来"]
+    D --> E["汇聚历史上下文"]
+    E --> F["mixer 加工表示"]
+    F --> G["lm head 投影"]
+    G --> H["logits B T V"]
+    H --> I["预测 next token"]

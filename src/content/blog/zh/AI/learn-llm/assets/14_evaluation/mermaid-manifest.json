@@ -1,0 +1,25 @@
+{
+  "article": "lessons/14_evaluation.md",
+  "updatedAt": "2026-05-30T12:52:35.935514+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/14_evaluation/mermaid-01.mmd",
+      "promptPath": "lessons/assets/14_evaluation/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/14_evaluation/mermaid-01.png",
+      "markdownRef": "assets/14_evaluation/mermaid-01.png",
+      "sourceSha256": "d2c31c58b116c4055e24da318812f3f96b803e0024a1ad034e1c8f6436bf7426",
+      "bytes": 30328,
+      "sha256": "d091ab00bd4ce68fb5f6b05ac4f004030d5a739f8916e0284cb1e1b77041d8e1",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 30328,
+        "afterBytes": 30328,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

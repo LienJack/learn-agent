@@ -1,0 +1,4 @@
+Q: [B,H,T,D]
+K^T: [B,H,D,T]
+QK^T: [B,H,T,T]
+softmax(QK^T / sqrt(D)) V -> [B,H,T,D]

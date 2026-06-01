@@ -1,0 +1,25 @@
+{
+  "article": "lessons/07_mini_gpt.md",
+  "updatedAt": "2026-05-30T12:52:26.186633+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/07_mini_gpt/mermaid-01.mmd",
+      "promptPath": "lessons/assets/07_mini_gpt/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/07_mini_gpt/mermaid-01.png",
+      "markdownRef": "assets/07_mini_gpt/mermaid-01.png",
+      "sourceSha256": "b569ad2b4dd5a74bba0ef1a6a690195ce5c75088e306c2ac44e4e3c64e69ea7c",
+      "bytes": 42045,
+      "sha256": "63b4b96f20389d7813003a7920b7f4c5d45655319335ad299adbf97d39882cf5",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 42045,
+        "afterBytes": 42045,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

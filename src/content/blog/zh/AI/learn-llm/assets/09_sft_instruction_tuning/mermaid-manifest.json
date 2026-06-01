@@ -1,0 +1,25 @@
+{
+  "article": "lessons/09_sft_instruction_tuning.md",
+  "updatedAt": "2026-05-30T12:52:28.928741+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/09_sft_instruction_tuning/mermaid-01.mmd",
+      "promptPath": "lessons/assets/09_sft_instruction_tuning/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/09_sft_instruction_tuning/mermaid-01.png",
+      "markdownRef": "assets/09_sft_instruction_tuning/mermaid-01.png",
+      "sourceSha256": "e8a59f9727f6ad0c8c359746c5bdec8f0119b893fab6db86a0938726fce7b171",
+      "bytes": 34563,
+      "sha256": "880913fd6750590c7f9f3a8d0d21f67356b3d300005d6e787976fc124b00e3d3",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 34563,
+        "afterBytes": 34563,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

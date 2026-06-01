@@ -1,0 +1,7 @@
+{
+	"title": "Learn LLM",
+	"alias": "From training loops to domain small models",
+	"description": "A practical LLM course that moves from PyTorch training loops, tokenizers, attention, and MiniGPT into RAG, SFT, LoRA, evaluation, safety, and domain projects.",
+	"cover": "/blog-covers/learn-llm.svg",
+	"order": 1.5
+}

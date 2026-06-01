@@ -1,0 +1,25 @@
+{
+  "article": "lessons/01_pytorch_training_intuition.md",
+  "updatedAt": "2026-05-30T12:52:17.785651+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/01_pytorch_training_intuition/mermaid-01.mmd",
+      "promptPath": "lessons/assets/01_pytorch_training_intuition/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/01_pytorch_training_intuition/mermaid-01.png",
+      "markdownRef": "assets/01_pytorch_training_intuition/mermaid-01.png",
+      "sourceSha256": "110bdc33fc10ee7854f726af7e116f42d463e639a8bc08eaacbf34cf00a58862",
+      "bytes": 32615,
+      "sha256": "5377485d4c9cf8fe4d237dce9bce670d528be9ce271c688281c15b55f774abfd",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 32615,
+        "afterBytes": 32615,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

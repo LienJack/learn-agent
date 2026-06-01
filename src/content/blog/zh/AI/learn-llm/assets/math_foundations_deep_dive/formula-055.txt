@@ -1,0 +1,2 @@
+KL(P || Q)：P 有概率质量的地方，Q 不能给太低概率，偏 mode-covering。
+KL(Q || P)：Q 放概率质量的地方，P 也要认可，偏 mode-seeking。

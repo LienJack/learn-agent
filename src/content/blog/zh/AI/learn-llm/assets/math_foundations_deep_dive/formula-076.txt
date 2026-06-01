@@ -1,0 +1,5 @@
+logits 对错误贡献多少？
+FFN 对 logits 贡献多少？
+attention 对 FFN 输入贡献多少？
+embedding 对 attention 输入贡献多少？
+每个参数对自己所在环节贡献多少？

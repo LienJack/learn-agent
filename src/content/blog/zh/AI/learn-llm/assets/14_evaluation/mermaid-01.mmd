@@ -1,0 +1,11 @@
+flowchart TD
+    A["Eval Set"] --> B["运行模型"]
+    B --> C["保存预测"]
+    C --> D["自动指标"]
+    C --> E["人工评分"]
+    D --> F["切片报告"]
+    E --> F
+    F --> G["失败案例表"]
+    G --> H["数据/RAG/Prompt 修正"]
+    H --> A
+    F --> I["Release Gate"]

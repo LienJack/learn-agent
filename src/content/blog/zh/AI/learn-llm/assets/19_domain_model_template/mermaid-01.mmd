@@ -1,0 +1,13 @@
+flowchart TD
+    A["配置"] --> B["数据治理"]
+    B --> C["SFT/LoRA"]
+    B --> D["RAG Index"]
+    C --> E["领域模型"]
+    D --> E
+    E --> F["评测报告"]
+    F --> G["风险与模型卡"]
+    G --> H["Release Gate"]
+    H --> I["部署"]
+    I --> J["监控失败"]
+    J --> K["Root Cause"]
+    K --> B

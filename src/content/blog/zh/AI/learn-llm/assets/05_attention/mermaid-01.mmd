@@ -1,0 +1,11 @@
+flowchart TD
+    A["输入表示 x"] --> B["线性投影 Q"]
+    A --> C["线性投影 K"]
+    A --> D["线性投影 V"]
+    B --> E["QK 点积并缩放"]
+    C --> E
+    E --> F["应用 causal mask"]
+    F --> G["softmax 得到 weights"]
+    D --> H["按 weights 加权求和"]
+    G --> H
+    H --> I["上下文输出 out"]

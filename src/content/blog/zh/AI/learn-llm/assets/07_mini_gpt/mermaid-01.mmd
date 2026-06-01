@@ -1,0 +1,16 @@
+flowchart TD
+    A["原始文本"] --> B["Tokenizer"]
+    B --> C["input_ids"]
+    C --> D["Token Embedding"]
+    C --> E["Position Embedding"]
+    D --> F["相加"]
+    E --> F
+    F --> G["Transformer Blocks"]
+    G --> H["LM Head"]
+    H --> I["Next-token Loss"]
+    I --> J["反向传播"]
+    J --> K["Checkpoint"]
+    H --> L["取最后 logits"]
+    L --> M["采样 next token"]
+    M --> N["裁剪上下文"]
+    N --> G

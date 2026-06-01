@@ -1,0 +1,2 @@
+if temperature >= 39:
+    suggest_hospital

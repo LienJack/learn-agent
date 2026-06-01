@@ -1,0 +1,25 @@
+{
+  "article": "lessons/12_rag_baseline.md",
+  "updatedAt": "2026-05-30T12:52:33.229236+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/12_rag_baseline/mermaid-01.mmd",
+      "promptPath": "lessons/assets/12_rag_baseline/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/12_rag_baseline/mermaid-01.png",
+      "markdownRef": "assets/12_rag_baseline/mermaid-01.png",
+      "sourceSha256": "5604617e26672ffe176cd8baebc5bd7b2affa8f8865eba10222f2b9b54cb2dd3",
+      "bytes": 39241,
+      "sha256": "1455e66f4b9ee0b572eff726363398d29245c007c8f67db8ffc9a9dbd5a67f20",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 39241,
+        "afterBytes": 39241,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

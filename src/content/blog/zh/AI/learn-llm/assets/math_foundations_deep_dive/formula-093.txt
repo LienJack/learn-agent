@@ -1,0 +1,6 @@
+q_m' = R_m q
+k_n' = R_n k
+
+(q_m')^T k_n'
+= q^T R_m^T R_n k
+= q^T R_{n-m} k

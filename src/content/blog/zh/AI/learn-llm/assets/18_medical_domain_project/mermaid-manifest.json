@@ -1,0 +1,25 @@
+{
+  "article": "lessons/18_medical_domain_project.md",
+  "updatedAt": "2026-05-30T12:52:41.490422+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/18_medical_domain_project/mermaid-01.mmd",
+      "promptPath": "lessons/assets/18_medical_domain_project/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/18_medical_domain_project/mermaid-01.png",
+      "markdownRef": "assets/18_medical_domain_project/mermaid-01.png",
+      "sourceSha256": "20384c81590f16ec1b016f0f4f804c76ba34253df324bc510898be953b968b0f",
+      "bytes": 34146,
+      "sha256": "dcbb2e6cdafbef937c409e2c82f87913d34f266789e0fdc0fc0f80616f45d5ed",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 34146,
+        "afterBytes": 34146,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

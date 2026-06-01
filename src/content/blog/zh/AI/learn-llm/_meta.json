@@ -1,0 +1,7 @@
+{
+	"title": "Learn LLM",
+	"alias": "从训练闭环到领域小模型",
+	"description": "一套面向工程实践的 LLM 学习课程，从 PyTorch 训练闭环、tokenizer、attention、MiniGPT 到 RAG、SFT、LoRA、评测、安全和领域项目。",
+	"cover": "/blog-covers/learn-llm.svg",
+	"order": 1.5
+}

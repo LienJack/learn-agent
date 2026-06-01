@@ -1,0 +1,1 @@
+KL(P || Q) = Σ p(x) log(p(x) / q(x))

@@ -1,0 +1,1 @@
+x -> embedding -> attention -> ffn -> logits -> loss

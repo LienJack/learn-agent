@@ -1,0 +1,5 @@
+input_ids: [B,T]
+embedding: [B,T,C]
+q/k/v:     [B,H,T,D]
+scores:    [B,H,T,T]
+logits:    [B,T,V]

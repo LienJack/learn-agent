@@ -1,0 +1,9 @@
+x: [B, d_in]
+W: [d_in, d_out]
+y = xW
+ΔW = A @ B
+A: [d_in, r]
+B: [r, d_out]
+ΔW: [d_in, d_out]
+y = xW + (alpha / r) * xAB
+rank(A @ B) <= r

@@ -1,0 +1,3 @@
+A: [d_in, r]
+B: [r, d_out]
+A @ B: [d_in, d_out]

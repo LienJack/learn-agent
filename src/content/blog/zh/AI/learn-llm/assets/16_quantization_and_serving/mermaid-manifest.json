@@ -1,0 +1,25 @@
+{
+  "article": "lessons/16_quantization_and_serving.md",
+  "updatedAt": "2026-05-30T12:52:38.786047+00:00",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "sourcePath": "lessons/assets/16_quantization_and_serving/mermaid-01.mmd",
+      "promptPath": "lessons/assets/16_quantization_and_serving/mermaid-01.prompt.md",
+      "targetPath": "lessons/assets/16_quantization_and_serving/mermaid-01.png",
+      "markdownRef": "assets/16_quantization_and_serving/mermaid-01.png",
+      "sourceSha256": "04f2c3c7e6fee9d533517169d9acddb6648d10df469f0b9f98a6795a3f3f0700",
+      "bytes": 27108,
+      "sha256": "1d348da1f208d4936315ebec94bdffcdc36593303caaf2efe06d9cfe6ed9524b",
+      "renderStatus": "generated",
+      "compressionStatus": "unchanged",
+      "compression": {
+        "beforeBytes": 27108,
+        "afterBytes": 27108,
+        "savedBytes": 0
+      }
+    }
+  ]
+}

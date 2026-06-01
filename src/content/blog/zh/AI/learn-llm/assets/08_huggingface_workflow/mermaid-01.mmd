@@ -1,0 +1,15 @@
+flowchart TD
+    A["Model Hub"] --> B["AutoConfig"]
+    A --> C["AutoTokenizer"]
+    A --> D["AutoModel"]
+    C --> E["Prompt / Dataset"]
+    D --> F["Forward / Generate"]
+    E --> F
+    E --> G["Tokenize"]
+    G --> H["Trainer"]
+    D --> H
+    H --> I["Evaluate"]
+    H --> J["save_pretrained"]
+    C --> J
+    B --> J
+    J --> K["可复现加载"]

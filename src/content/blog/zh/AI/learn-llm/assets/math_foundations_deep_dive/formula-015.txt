@@ -1,0 +1,2 @@
+scores = q @ k^T
+scores: [B,H,T,T] = [2,2,6,6]
