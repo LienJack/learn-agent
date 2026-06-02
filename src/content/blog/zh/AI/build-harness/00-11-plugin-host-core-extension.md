@@ -685,7 +685,7 @@ M1 可以先只支持 builtin 和 test fake 插件。
 
 ## 七、Registry：外部能力必须变成内部对象
 
-Plugin Host 真正接住扩展能力的地方，是 registry。
+扩展能力真正进入 core 的入口，是 registry。
 
 插件不能把工具函数直接塞给模型。
 
@@ -998,7 +998,7 @@ Policy / Permission 提供治理判断。
 Runtime 根据 HookDecision 决定是否继续执行。
 ```
 
-## 十、Plugin Host 如何接住“小型 CLI Agent 修测试”的场景
+## 十、Plugin Host 如何支撑“小型 CLI Agent 修测试”的场景
 
 现在把这些概念放回贯穿例子。
 
@@ -1746,7 +1746,7 @@ hook 必须结构化决策。
 
 这一篇先留下一个判断：
 
-> Plugin Host 的核心不是插件市场，而是把外部能力变成可校验、可登记、可隔离、可追踪的 contribution。
+> Plugin Host 的核心是把外部能力变成可校验、可登记、可隔离、可追踪的 contribution，不是插件市场本身。
 
 下一篇会继续沿着 provider 往下走。
 
