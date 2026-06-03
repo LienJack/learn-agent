@@ -1,0 +1,15 @@
+flowchart TD
+	Root["Root / Lead creates TaskGraph"] --> BA["BackendAgent: API analysis"]
+	Root --> FA["FrontendAgent: dependency scan"]
+	BA --> Q["DependencyQuestion"]
+	Q --> FA
+	FA --> ANS["DependencyAnswer + Evidence"]
+	ANS --> BA
+	BA --> Contract["InterfaceContractProposal"]
+	Contract --> FA
+	Contract --> Rev["ReviewerAgent review"]
+	Rev --> Conflict["ConflictNotice"]
+	Conflict --> Lead["Lead records Decision"]
+	Lead --> Test["TestAgent adds fixture"]
+	Test --> Verifier["Verifier checks compatibility"]
+	Verifier --> Merge["Merge payment refactor"]

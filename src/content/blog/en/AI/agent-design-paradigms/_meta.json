@@ -1,0 +1,7 @@
+{
+	"title": "Agent Design Paradigms",
+	"alias": "Agent Design Paradigms",
+	"description": "Long-lived design paradigms for Agent systems, from Context Manager, tool boundaries, memory governance, collaboration isolation, to runtime control.",
+	"cover": "/blog-covers/agent-design-paradigm.svg",
+	"order": 5
+}

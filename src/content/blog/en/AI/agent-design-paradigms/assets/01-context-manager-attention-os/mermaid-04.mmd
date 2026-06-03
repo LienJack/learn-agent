@@ -1,0 +1,30 @@
+flowchart TB
+  Raw["Lossless Layer<br/>raw events / messages / tool outputs / artifacts"]
+  Job["Compaction Job<br/>safe range + source refs"]
+  SummaryOut["Summary<br/>compressed context for the model"]
+  StatePatch["State Patch<br/>update the current task scene"]
+  MemoryCandidate["Memory Candidate<br/>candidate long-term memory"]
+  Check["Compression Check<br/>goal / constraints / tool pairs / source refs"]
+  Governance["Memory Governance<br/>scope / confidence / TTL"]
+  ContextBuilderNode["ContextBuilder<br/>next-turn context compilation"]
+  Audit["Replay / Audit<br/>can still return to raw facts"]
+
+  Raw --> Job
+  Job --> SummaryOut
+  Job --> StatePatch
+  Job --> MemoryCandidate
+  SummaryOut --> Check
+  StatePatch --> Check
+  Check --> ContextBuilderNode
+  MemoryCandidate --> Governance
+  Raw -. "never overwritten" .-> Audit
+  Audit -. "rebuild state" .-> StatePatch
+
+  classDef raw fill:#eff6ff,stroke:#2563eb,color:#0f172a;
+  classDef lossy fill:#fff7ed,stroke:#ea580c,color:#0f172a;
+  classDef guard fill:#fef2f2,stroke:#dc2626,color:#0f172a;
+  classDef output fill:#ecfdf5,stroke:#059669,color:#0f172a;
+  class Raw,Audit raw;
+  class Job,SummaryOut,StatePatch,MemoryCandidate lossy;
+  class Check,Governance guard;
+  class ContextBuilderNode output;

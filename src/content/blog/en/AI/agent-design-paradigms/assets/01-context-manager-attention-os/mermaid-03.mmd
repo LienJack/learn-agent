@@ -1,0 +1,24 @@
+flowchart TB
+  subgraph Inputs["Sourced input material"]
+    direction LR
+    Required["P0 / P1 Required Inputs<br/>instructions / current request / tool pairs"]
+    StateTrace["State + Trace<br/>goal / plan / facts / evidence refs"]
+    History["Summary + Recent<br/>sourced summaries / recent full turns"]
+    Retrieval["Memory + Artifacts<br/>scope / trust / freshness"]
+  end
+
+  Required --> Builder["ContextBuilder<br/>select / rank / redact"]
+  StateTrace --> Builder
+  History --> Builder
+  Retrieval --> Builder
+  Builder --> BudgetFit["Fit to Budget<br/>keep P0 / P1, trim P2 / P3"]
+  BudgetFit --> Bundle["ContextBundle<br/>minimal sufficient context"]
+  Bundle --> Adapter["Provider Adapter<br/>adapt protocols and model formats"]
+  Adapter --> RequestPayload["Model Request<br/>final input snapshot for this turn"]
+
+  classDef input fill:#eff6ff,stroke:#2563eb,color:#0f172a;
+  classDef compile fill:#fff7ed,stroke:#ea580c,color:#0f172a;
+  classDef output fill:#ecfdf5,stroke:#059669,color:#0f172a;
+  class Required,StateTrace,History,Retrieval input;
+  class Builder,BudgetFit,Adapter compile;
+  class Bundle,RequestPayload output;

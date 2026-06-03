@@ -1,0 +1,16 @@
+flowchart LR
+  Evidence["Tool + Event<br/>observation を生成し<br/>事実を保存"]
+  StateContext["State + Context<br/>現場を畳み込み<br/>視野をコンパイル"]
+  ModelTrace["Model + Trace<br/>次の一手を判断し<br/>失敗を診断"]
+  CompactReplay["Compaction + Replay<br/>予算を解放し<br/>タスクを復元"]
+
+  Evidence --> StateContext --> ModelTrace --> CompactReplay
+
+  classDef source fill:#eff6ff,stroke:#2563eb,color:#0f172a;
+  classDef semantic fill:#ecfdf5,stroke:#059669,color:#0f172a;
+  classDef compile fill:#fff7ed,stroke:#ea580c,color:#0f172a;
+  classDef model fill:#f5f3ff,stroke:#7c3aed,color:#0f172a;
+  class Evidence source;
+  class StateContext semantic;
+  class CompactReplay compile;
+  class ModelTrace model;
