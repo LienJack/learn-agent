@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-03T07-13-21-482Z-article-images-01-context-manager-attention-os",
+  "command": "article-images",
+  "stage": "import",
+  "status": "completed",
+  "startedAt": "2026-06-03T07:13:21.482Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/agent设计范式/01-context-manager-attention-os.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os",
+      "artifacts": [
+        "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-10-trace.png"
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-03T07-13-21-482Z-article-images-01-context-manager-attention-os",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [],
+  "confirmation": null,
+  "notes": [],
+  "finishedAt": "2026-06-03T07:13:23.155Z"
+}

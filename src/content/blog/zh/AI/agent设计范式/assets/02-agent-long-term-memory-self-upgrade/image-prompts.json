@@ -1,0 +1,101 @@
+{
+  "article": "src/content/blog/zh/AI/agent设计范式/02-agent-long-term-memory-self-upgrade.md",
+  "language": "zh",
+  "status": "prompts-ready",
+  "dry_run": {
+    "run": "images/runs/2026-06-03T08-24-25-652Z-article-images-02-agent-long-term-memory-self-upgrade/record.json",
+    "planned_photo_prompts": 33
+  },
+  "selected_photo_prompts": 8,
+  "style": "off-white paper, black hand-drawn pen line art, pale warm yellow highlights, editorial technical illustration",
+  "images": [
+    {
+      "id": "photo-01-experience-to-capability",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 0. 核心定义：Agent 不是“记忆更多”，而是“把经历编译成能力”",
+      "purpose": "解释 Agent Experience OS 的核心：经历先变成记忆、技能和优化，只有跑赢基线才发布",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-01-experience-to-capability.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-01-experience-to-capability.png",
+      "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-01-experience-to-capability.png",
+      "status": "prompt-generated"
+    },
+    {
+      "id": "photo-02-typed-memory-taxonomy",
+      "kind": "ordinary-image",
+      "insert_after_heading": "### 1.2 记忆不是一种东西，必须 typed",
+      "purpose": "展示七类长期记忆及其不同工程存储位置",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-02-typed-memory-taxonomy.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-02-typed-memory-taxonomy.png",
+      "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-02-typed-memory-taxonomy.png",
+      "status": "prompt-generated"
+    },
+    {
+      "id": "photo-03-memory-read-write-paths",
+      "kind": "ordinary-image",
+      "insert_after_heading": "### 1.6 读写分离：在线使用，离线学习",
+      "purpose": "说明长期记忆的在线读取路径和离线学习写入路径必须分离",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-03-memory-read-write-paths.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-03-memory-read-write-paths.png",
+      "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-03-memory-read-write-paths.png",
+      "status": "prompt-generated"
+    },
+    {
+      "id": "photo-04-double-loop-three-assets",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 2. 总架构：双循环 + 三层资产",
+      "purpose": "概括在线行动循环、离线学习循环、治理层和三层资产的关系",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-04-double-loop-three-assets.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-04-double-loop-three-assets.png",
+      "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-04-double-loop-three-assets.png",
+      "status": "prompt-generated"
+    },
+    {
+      "id": "photo-05-skill-lifecycle",
+      "kind": "ordinary-image",
+      "insert_after_heading": "### 4.1 自我升级的本质",
+      "purpose": "展示从 trajectory 到 candidate skill、eval、release、monitor、patch 的闭环",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-05-skill-lifecycle.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-05-skill-lifecycle.png",
+      "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-05-skill-lifecycle.png",
+      "status": "prompt-generated"
+    },
+    {
+      "id": "photo-06-rats-skill-gate",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 6. Skill 必须满足 RATS 原则",
+      "purpose": "把 RATS 原则画成 skill 候选必须穿过的四道质量门",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-06-rats-skill-gate.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-06-rats-skill-gate.png",
+      "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-06-rats-skill-gate.png",
+      "status": "prompt-generated"
+    },
+    {
+      "id": "photo-07-skill-eval-harness",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 10. Skill 如何证明有效：评估不是可选项",
+      "purpose": "说明 Activation、Outcome、Process、Regression、Cost、Safety 六类 eval 如何共同决定是否升级",
+      "diagram_type": "input-process-output",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-07-skill-eval-harness.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-07-skill-eval-harness.png",
+      "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-07-skill-eval-harness.png",
+      "status": "prompt-generated"
+    },
+    {
+      "id": "photo-08-release-governance",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 12. Skill 发布与演化：不能直接上线",
+      "purpose": "展示 skill 从 draft 到 active、deprecated、archived 的发布治理与回滚路径",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-08-release-governance.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-08-release-governance.png",
+      "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-08-release-governance.png",
+      "status": "prompt-generated"
+    }
+  ]
+}

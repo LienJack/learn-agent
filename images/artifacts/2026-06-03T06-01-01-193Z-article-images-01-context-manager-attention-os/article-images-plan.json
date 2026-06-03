@@ -1,0 +1,92 @@
+{
+  "dryRun": false,
+  "stage": "mermaid",
+  "articles": [
+    {
+      "article": "src/content/blog/zh/AI/agent设计范式/01-context-manager-attention-os.md",
+      "workspace": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os",
+      "manifest": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-01.png",
+          "markdownRef": "./assets/01-context-manager-attention-os/mermaid-01.png",
+          "alt": "Context Manager 新范式：Agent 的注意力操作系统 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-02.png",
+          "markdownRef": "./assets/01-context-manager-attention-os/mermaid-02.png",
+          "alt": "Context Manager 新范式：Agent 的注意力操作系统 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-03.png",
+          "markdownRef": "./assets/01-context-manager-attention-os/mermaid-03.png",
+          "alt": "Context Manager 新范式：Agent 的注意力操作系统 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-04.png",
+          "markdownRef": "./assets/01-context-manager-attention-os/mermaid-04.png",
+          "alt": "Context Manager 新范式：Agent 的注意力操作系统 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-05.png",
+          "markdownRef": "./assets/01-context-manager-attention-os/mermaid-05.png",
+          "alt": "Context Manager 新范式：Agent 的注意力操作系统 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "block": 6,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-06.mmd",
+          "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-06.png",
+          "markdownRef": "./assets/01-context-manager-attention-os/mermaid-06.png",
+          "alt": "Context Manager 新范式：Agent 的注意力操作系统 flow 6",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "block": 7,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-07.mmd",
+          "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-07.png",
+          "markdownRef": "./assets/01-context-manager-attention-os/mermaid-07.png",
+          "alt": "Context Manager 新范式：Agent 的注意力操作系统 flow 7",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

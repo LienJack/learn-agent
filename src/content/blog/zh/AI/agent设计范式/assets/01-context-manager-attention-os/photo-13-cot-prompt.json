@@ -1,0 +1,15 @@
+{
+  "id": "photo-13",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "八、推理链路：保存证据，不保存隐藏 CoT",
+  "sectionScore": 2,
+  "anchor": "## 八、推理链路：保存证据，不保存隐藏 CoT",
+  "sectionExcerpt": "说“保持推理链路”时，要避免一个误区：\n\n\n工程上真正需要保存的是可审计 reasoning trace：\n\n\n这样你能回答的是：\n\n\n这些问题不需要 hidden CoT。\n\n它们需要的是事件、证据、决策摘要、操作记录和验证结果。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-13-cot-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-13-cot-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-13-cot.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-13-cot.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - 八、推理链路：保存证据，不保存隐藏 CoT",
+  "promptStatus": "planned"
+}

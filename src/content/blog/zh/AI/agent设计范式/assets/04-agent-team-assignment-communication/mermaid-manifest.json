@@ -1,0 +1,49 @@
+{
+  "article": "src/content/blog/zh/AI/agent设计范式/04-agent-team-assignment-communication.md",
+  "language": "zh",
+  "diagrams": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "title": "Agent Team 最小运行闭环",
+      "insert_after_heading": "## 0. Agent Team 的最小运行闭环",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/mermaid-01.mmd"
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "title": "任务分配八步流程",
+      "insert_after_heading": "## 2. 任务分配流程",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/mermaid-02.mmd"
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "title": "五种分配策略选择路径",
+      "insert_after_heading": "## 3. 五种主流分配策略",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/mermaid-03.mmd"
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "title": "三种拓扑下的分配路径",
+      "insert_after_heading": "## 4. 三种拓扑下的任务分配方式",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/mermaid-04.mmd"
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "title": "通信通道到验证合并的运行层",
+      "insert_after_heading": "## 7. 通信通道设计",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/mermaid-05.mmd"
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "title": "支付模块重构协作闭环",
+      "insert_after_heading": "## 13. 一个完整例子：支付模块重构",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/mermaid-06.mmd"
+    }
+  ],
+  "status": "prompted"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "photo-07",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "Event：事实源",
+  "sectionScore": 2,
+  "anchor": "### Event：事实源",
+  "sectionExcerpt": "`event` 是最容易被低估的对象。\n\n成熟 Agent 不应该只保存 message log，而应该保存 append-only event log。\n\n\n为什么 event 比 message 更底层？\n\n因为很多关键事实根本不是 message。\n\n上下文构建时选了哪些片段，不是 message。\n\n哪次工具调用被权限拒绝，不一定是 message。\n\n某个文件被修改、某个 diff 被应用、某次验证失败、某次压缩触发，这些都应该是事件。\n\n如果它们不进 event log，后面做 replay、trace、eval、audit 都会失去事实基础。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-07-event-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-07-event-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-07-event.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-07-event.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - Event：事实源",
+  "promptStatus": "planned"
+}

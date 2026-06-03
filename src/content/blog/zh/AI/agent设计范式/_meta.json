@@ -1,0 +1,7 @@
+{
+	"title": "Agent 设计范式",
+	"alias": "Agent 设计范式",
+	"description": "从 Context Manager、工具边界、记忆治理、协作隔离到运行时控制，沉淀 Agent 系统长期稳定的设计范式。",
+	"cover": "/blog-covers/agent-design-paradigm.svg",
+	"order": 5
+}

@@ -1,21 +1,24 @@
 ---
-title: "Agent Harness 术语地图：从 Intent 到 Trace"
-description: "用 glossary / map 的形式收口核心术语：首讲章节、典型消费者、常见混淆和教学项目字段映射。"
+title: "Agent Harness 术语地图：从 Intent 到 Context Manager"
+description: "用 glossary / map 的形式收口核心术语：首讲章节、典型消费者、常见混淆和教学项目字段映射，并补上 Context Policy 与 Context Manager 的边界。"
 author: LienJack
 pubDate: 2026-05-29
+updatedDate: 2026-06-03
 heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent
   - Harness
   - Glossary
+  - Context Manager
   - 技术教程
 aliases:
   - Agent Harness 术语地图
   - Harness Glossary
+  - Context Manager 术语
 ---
 
-# Agent Harness 术语地图：从 Intent 到 Trace
+# Agent Harness 术语地图：从 Intent 到 Context Manager
 
 从 Tool Runtime 开始，系列文章进入了一个更容易混淆的阶段。
 
@@ -35,7 +38,7 @@ permission 像 governance。
 
 这篇短附录只做一件事：
 
-> 给 00-13 到 00-23 共用的核心对象固定一张地图。
+> 给 00-13 以后共用的核心对象固定一张地图。
 
 ## 先按章节找词
 
@@ -46,8 +49,11 @@ permission 像 governance。
 | `Artifact` | 00-13 / 00-16 / 00-23 | 大块证据材料 |
 | `Snapshot` | 00-16 / 00-21 | 某一时刻的可复盘证据包 |
 | `Projection` | 00-15 / 00-19 | 给某类消费者看的视图 |
+| `ContextPolicy` | 00-15 | Context Builder 内部的模型输入投影策略 |
 | `Trace` | 00-19 | 失败诊断投影 |
+| `Compaction` | 00-15 / Agent 设计范式 01 | 可审计压缩，不替代原始事件 |
 | `Governance` | 00-20 / 00-23 | 跨 session / 用户 / 项目的策略生命周期 |
+| `ContextManager` | Agent 设计范式 01 | 事件溯源、状态投影、上下文编译、压缩和恢复的运行时中枢 |
 
 ## 易混淆对照
 
@@ -56,6 +62,8 @@ permission 像 governance。
 | Observation vs Audit Event | Observation 给模型 / 用户 / 状态，Audit Event 给 replay / trace / 审计。 |
 | Artifact vs Snapshot | Artifact 是材料，Snapshot 是一次可见证据包目录。 |
 | Trace vs Event Log | Event Log 是事实源，Trace 是诊断投影。 |
+| Context Policy vs Context Manager | Context Policy 管本轮模型输入投影，Context Manager 管事实源、状态投影、压缩、恢复和分支。 |
+| Summary vs Event Log | Summary 是派生物，Event Log 是事实源。 |
 | Permission vs Trust | Permission 管这次 intent 能不能执行，Trust 管这个来源能不能贡献能力。 |
 | Memory vs Retrieval | Memory 管长期知识写入治理，Retrieval 管本轮边界内召回和投影。 |
 | Verification vs Final Answer | Verification 证明目标是否完成，Final Answer 只能引用验证证据。 |

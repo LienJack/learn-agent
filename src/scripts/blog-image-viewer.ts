@@ -15,9 +15,88 @@ type ViewerState = {
 	wheelHandler: ((event: WheelEvent) => void) | null;
 };
 
+type AstroImagePlaceholder = {
+	src?: string;
+	alt?: string;
+};
+
 function parsePositiveNumber(value: string | null): number | null {
 	const parsed = Number.parseFloat(value ?? '');
 	return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+}
+
+function getBlogContentAssetBase(): string | null {
+	const segments = window.location.pathname
+		.split('/')
+		.filter(Boolean)
+		.map((segment) => decodeURIComponent(segment));
+	const locale =
+		segments[0] === 'en' || segments[0] === 'ja'
+			? segments[0]
+			: segments[0] === 'blog'
+				? 'zh'
+				: null;
+	const blogIndex = locale === 'zh' ? 0 : 1;
+	if (!locale || segments[blogIndex] !== 'blog') {
+		return null;
+	}
+
+	const slugSegments = segments.slice(blogIndex + 1);
+	if (slugSegments.length === 0) {
+		return null;
+	}
+
+	const articleDirSegments = slugSegments.slice(0, -1);
+	const articleDir = articleDirSegments.length > 0 ? `${articleDirSegments.join('/')}/` : '';
+	return `${window.location.origin}/src/content/blog/${locale}/${articleDir}`;
+}
+
+function resolveMarkdownImageSrc(markdownSrc: string): string {
+	if (/^(?:https?:|data:|blob:|\/)/i.test(markdownSrc)) {
+		return markdownSrc;
+	}
+
+	const contentBase = getBlogContentAssetBase();
+	if (!contentBase) {
+		return markdownSrc;
+	}
+
+	const resolved = new URL(markdownSrc, contentBase);
+	return `${resolved.pathname}${resolved.search}${resolved.hash}`;
+}
+
+function hydrateAstroImagePlaceholders(): void {
+	const images = Array.from(document.querySelectorAll<HTMLImageElement>('img'));
+	for (const image of images) {
+		if (image.currentSrc || image.getAttribute('src')) {
+			continue;
+		}
+
+		const rawPlaceholder = image.getAttribute('__ASTRO_IMAGE_') ?? image.getAttribute('__astro_image_');
+		if (!rawPlaceholder) {
+			continue;
+		}
+
+		try {
+			const placeholder = JSON.parse(rawPlaceholder) as AstroImagePlaceholder;
+			if (!placeholder.src) {
+				continue;
+			}
+
+			image.src = resolveMarkdownImageSrc(placeholder.src);
+			if (placeholder.alt && !image.getAttribute('alt')) {
+				image.alt = placeholder.alt;
+			}
+			if (!image.getAttribute('loading')) {
+				image.loading = 'lazy';
+			}
+			if (!image.getAttribute('decoding')) {
+				image.decoding = 'async';
+			}
+		} catch (error) {
+			console.warn('Failed to hydrate Astro image placeholder.', error);
+		}
+	}
 }
 
 function getNaturalDimensions(media: Element): { width: number; height: number } | null {
@@ -222,6 +301,8 @@ function nudgePanzoomToFit(panzoom: PanzoomObject, fitScale: number): void {
 }
 
 function setupArticleMediaViewer() {
+	hydrateAstroImagePlaceholders();
+
 	const viewer = document.querySelector<HTMLElement>('[data-article-media-viewer]');
 	if (!viewer) {
 		return;

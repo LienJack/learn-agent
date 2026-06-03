@@ -1,0 +1,29 @@
+{
+  "id": "2026-06-03T08-37-04-157Z-article-images-02-agent-long-term-memory-self-upgrade",
+  "command": "article-images",
+  "stage": "import",
+  "status": "blocked",
+  "startedAt": "2026-06-03T08:37:04.158Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/agent设计范式/02-agent-long-term-memory-self-upgrade.md",
+      "status": "blocked",
+      "workspace": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade",
+      "artifacts": [],
+      "blockers": [
+        "photo-01: image prompt not found in src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/manifest.json."
+      ],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-03T08-37-04-157Z-article-images-02-agent-long-term-memory-self-upgrade",
+  "blockers": [
+    "photo-01: image prompt not found in src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/manifest.json."
+  ],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [],
+  "confirmation": null,
+  "notes": [],
+  "finishedAt": "2026-06-03T08:37:04.159Z"
+}

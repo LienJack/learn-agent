@@ -11,6 +11,12 @@ tags:
   - Tool Runtime
   - Context
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - AgentLoop
+  - ToolRuntime
+  - Context
+  - 技術チュートリアル
 aliases:
   - Agent の構成モデル
   - Model Loop Tools State

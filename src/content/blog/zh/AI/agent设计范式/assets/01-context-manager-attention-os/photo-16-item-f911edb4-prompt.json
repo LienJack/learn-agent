@@ -1,0 +1,15 @@
+{
+  "id": "photo-16",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "十二、关键工程不变量",
+  "sectionScore": 1,
+  "anchor": "## 十二、关键工程不变量",
+  "sectionExcerpt": "这套范式最后要落到测试。\n\n下面这些不变量应该直接写进单元测试或 replay verifier：\n\n\n这些规则比“prompt 写好一点”更重要。\n\n因为它们把 Agent 的可靠性从模型感觉，拉回了工程约束。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-16-item-f911edb4-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-16-item-f911edb4-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-16-item-f911edb4.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-16-item-f911edb4.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - 十二、关键工程不变量",
+  "promptStatus": "planned"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "photo-05",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "五、稳定的 Context Ontology",
+  "sectionScore": 1,
+  "anchor": "## 五、稳定的 Context Ontology",
+  "sectionExcerpt": "一个成熟 Agent 的上下文系统，至少应该区分这些对象：\n\n\n它们的职责不同，不能混在一个 `messages[]` 里。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-05-context-ontology-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-05-context-ontology-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-05-context-ontology.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-05-context-ontology.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - 五、稳定的 Context Ontology",
+  "promptStatus": "planned"
+}

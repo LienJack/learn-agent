@@ -1,0 +1,15 @@
+{
+  "id": "photo-06",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "Session：工作身份和生命周期",
+  "sectionScore": 1,
+  "anchor": "### Session：工作身份和生命周期",
+  "sectionExcerpt": "`session` 管的是这次 Agent 工作的身份、边界和分支关系。\n\n最小字段可以先这样设计：\n\n\n这里的重点不是字段多。\n\n重点是 `session_id` 不只代表“一段聊天”。它还挂住工作目录、模型配置、权限配置、context budget、branch 关系和恢复位置。\n\n如果没有这些信息，所谓 resume 就只能恢复一段聊天，而不能恢复一个工作现场。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-06-session-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-06-session-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-06-session.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-06-session.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - Session：工作身份和生命周期",
+  "promptStatus": "planned"
+}

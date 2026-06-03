@@ -3872,6 +3872,10 @@ main.page-shell-wide:has(.about-shell) {
 	margin-bottom: var(--space-5);
 }
 
+.article-prose blockquote > :last-child {
+	margin-bottom: 0;
+}
+
 .article-prose ul,
 .article-prose ol {
 	padding-left: 1.35rem;

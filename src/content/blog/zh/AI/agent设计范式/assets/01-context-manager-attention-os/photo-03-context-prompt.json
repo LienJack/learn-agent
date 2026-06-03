@@ -1,0 +1,15 @@
+{
+  "id": "photo-03",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "三、新范式：Context 是编译产物，不是事实源",
+  "sectionScore": 3,
+  "anchor": "## 三、新范式：Context 是编译产物，不是事实源",
+  "sectionExcerpt": "错误范式是：\n\n\n这种设计早期快，但后期会遇到一堆问题：\n\n\n更稳的分层是这样：\n\n\n这四层里，只有最后一层会真正发送给模型。\n\n前面三层都属于 Harness 的运行时控制面。\n\n可以用一张表固定边界：\n\n| 层 | 回答的问题 | 是否事实源 | 是否可以压缩 |\n| --- | --- | --- | --- |\n| Raw Event Log | 实际发生过什么？ | 是 | 不应该被摘要覆盖 |\n| State Projection | 当前现场是什么？ | 否，是投影 | 可以重建 |\n| Context Builder | 这一轮模型该看什么？ | 否，是编译器 | 每轮重算 |\n| Model Request | 模型实际收到什么？ | 否，是快照 | 可以保存引用 |\n\n这就是新范式里最重要的一步：\n\n**LLM context 是运行时编译产物，不是系统事实源。**\n\n更完整地说：\n\n\n可以画成：\n\n![Context Manager 新范式：Agent 的注意力操作系统 flow 1](./assets/01-context-manager-attention-os/mermaid-01.png)\n\n所以，**发给模型的上下文只是一次临时视图**。它可以被压缩、裁剪、重排、脱敏、适配不同模型协议，但不能成为系统唯一事实来源。\n\n一句话：\n\n> **Context 是编译产物，不是数据库。**\n\n只要接受这件事，很多设计会自然清楚。\n\n原始历史尽量不丢。\n\n模型上下文可以丢、可以压缩、可以重建。\n\nsummary 是派生物，不是源数据。\n\n推理链路保存可审计证据，不依赖隐藏 chain-of-thought。\n\n会话是树，不只是线性数组。\n\nContext budget 是资源分配，不是简单截断。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-03-context-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-03-context-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-03-context.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-03-context.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - 三、新范式：Context 是编译产物，不是事实源",
+  "promptStatus": "planned"
+}

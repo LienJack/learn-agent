@@ -1,0 +1,152 @@
+{
+  "id": "2026-06-03T07-46-10-143Z-article-images-01-context-manager-attention-os",
+  "command": "article-images",
+  "stage": "compress",
+  "status": "completed",
+  "startedAt": "2026-06-03T07:46:10.143Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/agent设计范式/01-context-manager-attention-os.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "photo-01",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-02",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-03",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-04",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-05",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-06",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-07",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-08",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-09",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-10",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-11",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-12",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-13",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-14",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-15",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-16",
+          "kind": "photo",
+          "status": "imported"
+        },
+        {
+          "id": "photo-17",
+          "kind": "photo",
+          "status": "imported"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-03T07-46-10-143Z-article-images-01-context-manager-attention-os",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-03T07-46-10-143Z-article-images-01-context-manager-attention-os/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 1 article(s)",
+    "confirmed": true
+  },
+  "notes": [],
+  "finishedAt": "2026-06-03T07:46:40.899Z"
+}

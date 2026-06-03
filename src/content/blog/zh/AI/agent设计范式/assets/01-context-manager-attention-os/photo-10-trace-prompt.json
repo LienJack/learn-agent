@@ -1,0 +1,15 @@
+{
+  "id": "photo-10",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "Trace：可解释链路，不是隐藏思维链",
+  "sectionScore": 3,
+  "anchor": "### Trace：可解释链路，不是隐藏思维链",
+  "sectionExcerpt": "`Trace` 回答的是 Agent 为什么这么做、依据是什么、验证过什么、下一步是什么。\n\n不要把“保持推理链路”理解为保存模型隐藏 chain-of-thought。工程上更稳的做法是保存一条可公开、可审计、可回放的 **Accountable Reasoning Trace**：\n\n\n这比保存自然语言 CoT 更稳、更安全，也更适合审计和恢复。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-10-trace-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-10-trace-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-10-trace.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-10-trace.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - Trace：可解释链路，不是隐藏思维链",
+  "promptStatus": "planned"
+}

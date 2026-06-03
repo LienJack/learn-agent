@@ -1,0 +1,16 @@
+flowchart TD
+	U["User Goal"] --> D["Task Decomposition"]
+	D --> C["Task Classification"]
+	C --> S["Candidate Selection"]
+	S --> A["Assignment Decision"]
+	A --> X["Context Compilation"]
+	X --> E["Agent Execution"]
+	E --> M["Agent Communication"]
+	M --> R["Report Submission"]
+	R --> V["Verification"]
+	V --> G{"Result"}
+	G -->|accepted| N["Merge"]
+	G -->|needs work| P["Reassign"]
+	G -->|risk or conflict| H["Escalate"]
+	P --> S
+	H --> A

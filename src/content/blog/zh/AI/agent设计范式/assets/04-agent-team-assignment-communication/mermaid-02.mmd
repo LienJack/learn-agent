@@ -1,0 +1,15 @@
+flowchart LR
+	Goal["Goal"] --> Decompose["1 Decompose"]
+	Decompose --> Classify["2 Classify"]
+	Classify --> Select["3 Select Candidates"]
+	Select --> Mode["4 Decide Mode"]
+	Mode --> Owner["5 Assign Owner"]
+	Owner --> Context["6 Compile Context"]
+	Context --> Grant["7 Grant Execution"]
+	Grant --> Monitor["8 Monitor Verify Reassign"]
+	Monitor --> Done{"Accepted?"}
+	Done -->|yes| Merge["Merge"]
+	Done -->|no| Select
+
+	classDef gate fill:#fff7d6,stroke:#8a6d00,stroke-width:1px;
+	class Mode,Monitor gate;
