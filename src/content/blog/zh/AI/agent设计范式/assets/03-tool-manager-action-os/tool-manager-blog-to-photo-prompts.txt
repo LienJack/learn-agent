@@ -2,10 +2,10 @@
 date: 2026-06-03
 source_article: src/content/blog/zh/AI/agent设计范式/03-tool-manager-action-os.md
 skill: blog-to-photo
-status: prompts-ready
+status: images-generated
 dry_run_photo_prompts: 23
 selected_photo_prompts: 10
-images_generated: 0
+images_generated: 10
 ---
 
 # Tool Manager 文章插图提示词
@@ -14,7 +14,7 @@ images_generated: 0
 
 本文件为 `03-tool-manager-action-os.md` 准备正文手绘技术插图提示词。项目 `images/bin/article-images --dry-run --stage photos` 自动规划了 23 个章节位点；为了避免文章图片过密，这里人工收敛为 10 张图，覆盖核心范式、旧模型问题、行动控制面、工具调用生命周期、证据流、注册流程、Intent 解析、权限沙盒、能力来源分层、Agent Loop 和与 Context Manager 的关系。
 
-下一步可以按“目标文件名”逐张生成图片到 `src/content/blog/zh/AI/agent设计范式/assets/03-tool-manager-action-os/`，再通过项目 `article-images --import` 路径导入或手动插入对应 Markdown 图片引用。
+图片已按“目标文件名”生成到 `src/content/blog/zh/AI/agent设计范式/assets/03-tool-manager-action-os/`，并已插入 `03-tool-manager-action-os.md` 正文对应位置。
 
 统一负向提示词：
 
@@ -28,16 +28,16 @@ images_generated: 0
 
 | 目标文件 | 建议插入位置 | 提示词状态 | 生成状态 |
 | --- | --- | --- | --- |
-| `photo-01-action-control-plane.png` | 开头核心观点之后 | 完成 | 未生成 |
-| `photo-02-function-registry-risk.png` | `## 二、先看旧模型为什么不够` | 完成 | 未生成 |
-| `photo-03-tool-call-lifecycle.png` | `### 原则 3：Tool Call 是因果事件，不是普通文本` | 完成 | 未生成 |
-| `photo-04-evidence-artifact-flow.png` | `### 原则 5：工具结果是证据，不是上下文垃圾桶` | 完成 | 未生成 |
-| `photo-05-registration-state-machine.png` | `## 十、工具注册不是 registerTool(fn)` | 完成 | 未生成 |
-| `photo-06-intent-tool-resolution.png` | `## 十一、Intent 到 Tool 的解析` | 完成 | 未生成 |
-| `photo-07-permission-sandbox-gates.png` | `## 十二、权限模型` 到 `## 十三、沙盒模型` | 完成 | 未生成 |
-| `photo-08-capability-source-map.png` | `## 十四、CLI、Skill、MCP、Subagent 的位置` | 完成 | 未生成 |
-| `photo-09-agent-loop-tool-manager.png` | `## 十五、Agent Loop 中 Tool Manager 的位置` | 完成 | 未生成 |
-| `photo-10-context-tool-runtime-map.png` | `## 二十、和 Context Manager 的关系` | 完成 | 未生成 |
+| `photo-01-action-control-plane.png` | 开头核心观点之后 | 完成 | 已生成 |
+| `photo-02-function-registry-risk.png` | `## 二、先看旧模型为什么不够` | 完成 | 已生成 |
+| `photo-03-tool-call-lifecycle.png` | `### 原则 3：Tool Call 是因果事件，不是普通文本` | 完成 | 已生成 |
+| `photo-04-evidence-artifact-flow.png` | `### 原则 5：工具结果是证据，不是上下文垃圾桶` | 完成 | 已生成 |
+| `photo-05-registration-state-machine.png` | `## 十、工具注册不是 registerTool(fn)` | 完成 | 已生成 |
+| `photo-06-intent-tool-resolution.png` | `## 十一、Intent 到 Tool 的解析` | 完成 | 已生成 |
+| `photo-07-permission-sandbox-gates.png` | `## 十二、权限模型` 到 `## 十三、沙盒模型` | 完成 | 已生成 |
+| `photo-08-capability-source-map.png` | `## 十四、CLI、Skill、MCP、Subagent 的位置` | 完成 | 已生成 |
+| `photo-09-agent-loop-tool-manager.png` | `## 十五、Agent Loop 中 Tool Manager 的位置` | 完成 | 已生成 |
+| `photo-10-context-tool-runtime-map.png` | `## 二十、和 Context Manager 的关系` | 完成 | 已生成 |
 
 ## photo-01-action-control-plane.png
 

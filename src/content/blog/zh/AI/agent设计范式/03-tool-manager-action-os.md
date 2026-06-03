@@ -77,6 +77,8 @@ ToolCall_t = f(
 
 所以 Tool Manager 不是“工具列表”，而是 Agent 的 **Action Operating System**。
 
+![Tool Manager 新范式：行动控制面](./assets/03-tool-manager-action-os/photo-01-action-control-plane.png)
+
 我们仍然沿用这个专栏里的例子：一个 CLI Agent 正在修复测试失败。它需要读文件、搜索代码、执行测试、修改代码、再次验证。只要这些动作开始接触真实文件、真实命令、真实网络和真实账号，Tool Manager 就不能只是 `name + schema + handler`。
 
 这里先立住一个边界：
@@ -183,6 +185,8 @@ if (response.toolCall) {
 这段代码很容易理解。
 
 它的问题也在这里：它把工具调用当成了一次普通函数调用。
+
+![Tool Manager 新范式：函数注册表隐藏真实副作用](./assets/03-tool-manager-action-os/photo-02-function-registry-risk.png)
 
 在“修复测试失败”的任务里，工具调用可能包含：
 
@@ -437,6 +441,8 @@ ToolCallRequested
 
 这条链路以后可以用于审计、回放、恢复、复盘和 eval。
 
+![Tool Manager 新范式：Tool Call 生命周期](./assets/03-tool-manager-action-os/photo-03-tool-call-lifecycle.png)
+
 ### 原则 4：权限、沙盒、hook、validator 是确定性边界
 
 不要只在 system prompt 里写：
@@ -496,6 +502,8 @@ Tool Manager 管工具结果如何变成证据。
 Artifact Manager 管完整输出在哪里保存。
 
 三者不能混成一个 `messages[]`。
+
+![Tool Manager 新范式：工具结果进入 Artifact 和 Context](./assets/03-tool-manager-action-os/photo-04-evidence-artifact-flow.png)
 
 ### 原则 6：Tool Registry 是事实源，Tool View 是编译产物
 
@@ -1151,6 +1159,8 @@ deprecated
 
 授权之后才是可调用。
 
+![Tool Manager 新范式：工具注册状态机](./assets/03-tool-manager-action-os/photo-05-registration-state-machine.png)
+
 ## 十一、Intent 到 Tool 的解析
 
 不要把所有工具都暴露给模型。
@@ -1200,6 +1210,8 @@ async function resolveTools(intent: ActionIntent, state: AgentState) {
 模型不是在全量工具库里自由选择。
 模型是在 Tool Manager 编译出的 ToolView 里提出行动。
 ```
+
+![Tool Manager 新范式：Intent 到 ToolView 的解析](./assets/03-tool-manager-action-os/photo-06-intent-tool-resolution.png)
 
 ## 十二、权限模型：Approval 不是弹窗，而是合约
 
@@ -1300,6 +1312,8 @@ scope 变化后 approval 失效。
 
 否则 approval 就只是一个心理安慰。
 
+![Tool Manager 新范式：权限和沙盒守住执行边界](./assets/03-tool-manager-action-os/photo-07-permission-sandbox-gates.png)
+
 ## 十三、沙盒模型：限制执行，不是限制语言
 
 沙盒不是只有“能不能执行命令”。
@@ -1389,6 +1403,8 @@ type SandboxPolicy = {
 | Skill | 程序性知识包 / workflow package | intent + context activation + optional scripts | 教 Agent 如何完成一类任务 | 把说明当权限 |
 | MCP | 工具、资源、提示词互操作协议 | capability discovery + protocol adapter | 接入外部系统、工具服务、数据源 | 盲信 server、scope 混乱 |
 | Subagent / Handoff | 委托给专门 Agent | tool-like delegation adapter | 隔离研究、代码审查、长任务 | 上下文泄露、权限继承过宽 |
+
+![Tool Manager 新范式：CLI、Skill、MCP、Subagent 的位置](./assets/03-tool-manager-action-os/photo-08-capability-source-map.png)
 
 ### CLI：不要把 shell 暴露成一个万能工具
 
@@ -1550,6 +1566,8 @@ User Input
   -> Trace Manager records accountable action
   -> Context Manager compiles next turn
 ```
+
+![Tool Manager 新范式：Tool Manager 在 Agent Loop 中的位置](./assets/03-tool-manager-action-os/photo-09-agent-loop-tool-manager.png)
 
 简化伪代码：
 
@@ -2006,6 +2024,8 @@ ToolView 进入 ContextBundle。
 ToolResult 进入 Artifact / Evidence / State。
 State 再影响下一轮 ContextBundle。
 ```
+
+![Tool Manager 新范式：Context Manager 和 Tool Manager 的双控制面](./assets/03-tool-manager-action-os/photo-10-context-tool-runtime-map.png)
 
 所以成熟 Agent Harness 的主线可以这样记：
 
