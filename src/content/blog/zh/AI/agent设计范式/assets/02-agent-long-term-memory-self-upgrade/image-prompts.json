@@ -1,7 +1,7 @@
 {
   "article": "src/content/blog/zh/AI/agent设计范式/02-agent-long-term-memory-self-upgrade.md",
   "language": "zh",
-  "status": "prompts-ready",
+  "status": "generated",
   "dry_run": {
     "run": "images/runs/2026-06-03T08-24-25-652Z-article-images-02-agent-long-term-memory-self-upgrade/record.json",
     "planned_photo_prompts": 33
@@ -18,7 +18,7 @@
       "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-01-experience-to-capability.prompt.zh.md",
       "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-01-experience-to-capability.png",
       "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-01-experience-to-capability.png",
-      "status": "prompt-generated"
+      "status": "generated"
     },
     {
       "id": "photo-02-typed-memory-taxonomy",
@@ -29,7 +29,7 @@
       "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-02-typed-memory-taxonomy.prompt.zh.md",
       "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-02-typed-memory-taxonomy.png",
       "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-02-typed-memory-taxonomy.png",
-      "status": "prompt-generated"
+      "status": "generated"
     },
     {
       "id": "photo-03-memory-read-write-paths",
@@ -40,7 +40,7 @@
       "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-03-memory-read-write-paths.prompt.zh.md",
       "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-03-memory-read-write-paths.png",
       "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-03-memory-read-write-paths.png",
-      "status": "prompt-generated"
+      "status": "generated"
     },
     {
       "id": "photo-04-double-loop-three-assets",
@@ -51,7 +51,7 @@
       "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-04-double-loop-three-assets.prompt.zh.md",
       "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-04-double-loop-three-assets.png",
       "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-04-double-loop-three-assets.png",
-      "status": "prompt-generated"
+      "status": "generated"
     },
     {
       "id": "photo-05-skill-lifecycle",
@@ -62,7 +62,7 @@
       "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-05-skill-lifecycle.prompt.zh.md",
       "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-05-skill-lifecycle.png",
       "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-05-skill-lifecycle.png",
-      "status": "prompt-generated"
+      "status": "generated"
     },
     {
       "id": "photo-06-rats-skill-gate",
@@ -73,7 +73,7 @@
       "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-06-rats-skill-gate.prompt.zh.md",
       "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-06-rats-skill-gate.png",
       "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-06-rats-skill-gate.png",
-      "status": "prompt-generated"
+      "status": "generated"
     },
     {
       "id": "photo-07-skill-eval-harness",
@@ -84,7 +84,7 @@
       "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-07-skill-eval-harness.prompt.zh.md",
       "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-07-skill-eval-harness.png",
       "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-07-skill-eval-harness.png",
-      "status": "prompt-generated"
+      "status": "generated"
     },
     {
       "id": "photo-08-release-governance",
@@ -95,7 +95,9 @@
       "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-08-release-governance.prompt.zh.md",
       "target_file": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade/photo-08-release-governance.png",
       "markdown_ref": "./assets/02-agent-long-term-memory-self-upgrade/photo-08-release-governance.png",
-      "status": "prompt-generated"
+      "status": "generated"
     }
-  ]
+  ],
+  "images_generated": 8,
+  "updatedAt": "2026-06-03T09:07:35.960Z"
 }
