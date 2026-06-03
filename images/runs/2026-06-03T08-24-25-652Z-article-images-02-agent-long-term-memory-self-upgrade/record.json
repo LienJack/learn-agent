@@ -1,0 +1,197 @@
+{
+  "id": "2026-06-03T08-24-25-652Z-article-images-02-agent-long-term-memory-self-upgrade",
+  "command": "article-images",
+  "stage": "photos",
+  "status": "planned",
+  "startedAt": "2026-06-03T08:24:25.652Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/agent设计范式/02-agent-long-term-memory-self-upgrade.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/AI/agent设计范式/assets/02-agent-long-term-memory-self-upgrade",
+      "assets": [
+        {
+          "id": "photo-01",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-02",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-03",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-04",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-05",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-06",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-07",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-08",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-09",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-10",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-11",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-12",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-13",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-14",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-15",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-16",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-17",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-18",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-19",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-20",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-21",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-22",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-23",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-24",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-25",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-26",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-27",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-28",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-29",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-30",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-31",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-32",
+          "kind": "photo",
+          "status": "prompt-planned"
+        },
+        {
+          "id": "photo-33",
+          "kind": "photo",
+          "status": "prompt-planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-03T08-24-25-652Z-article-images-02-agent-long-term-memory-self-upgrade",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-03T08-24-25-652Z-article-images-02-agent-long-term-memory-self-upgrade/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 1 article(s)",
+    "confirmed": false
+  },
+  "notes": [],
+  "finishedAt": "2026-06-03T08:24:25.658Z"
+}

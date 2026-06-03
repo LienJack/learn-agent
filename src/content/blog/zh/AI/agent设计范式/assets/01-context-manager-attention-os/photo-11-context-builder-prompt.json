@@ -1,0 +1,15 @@
+{
+  "id": "photo-11",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "六、Context Builder：真正的模型输入编译器",
+  "sectionScore": 4,
+  "anchor": "## 六、Context Builder：真正的模型输入编译器",
+  "sectionExcerpt": "有了 session、event、message、state，才轮到 Context Builder。\n\nContext Builder 的输入不是一个巨大 `messages[]`。\n\n它的输入是一组有来源、有优先级、有信任等级的材料：\n\n\n这条编译链路可以画成：\n\n![Context Manager 新范式：Agent 的注意力操作系统 flow 3](./assets/01-context-manager-attention-os/mermaid-03.png)\n\n然后它按优先级裁剪：\n\n| 优先级 | 内容 | 是否可丢 |\n| --- | --- | --- |\n| P0 | system / developer / safety / 必需 tool schema | 不可丢 |\n| P0 | 当前用户请求 | 不可丢 |\n| P0 | 未完成 tool call / tool result pair | 不可丢 |\n| P1 | 当前 goal、acceptance criteria、plan、open questions | 基本不可丢 |\n| P1 | 当前工作文件、diff、测试结果、错误信息 | 可摘要 |\n| P1 | 最近 N 轮完整对话 | 可裁剪但不能破坏 turn |\n| P2 | 历史决策、关键事实、用户偏好 | 可摘要 |\n| P2 | 检索出的 memory / artifact | 可裁剪 |\n| P3 | 旧闲聊、重复解释、冗长工具输出 | 优先丢弃或摘要 |\n\n伪代码大概是这样：\n\n\n这就是 [00-15](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-15-context-policy-model-input.md) 那篇文章的位置。\n\n00-15 讲的是 Context Builder 内部的选择、排序、压缩、隔离、预算和决策记录。\n\n本章讲的是 Context Builder 上游还有事实源、状态投影、压缩账本、会话树和恢复机制。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-11-context-builder-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-11-context-builder-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-11-context-builder.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-11-context-builder.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - 六、Context Builder：真正的模型输入编译器",
+  "promptStatus": "planned"
+}

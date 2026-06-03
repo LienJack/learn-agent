@@ -636,7 +636,7 @@ messages 不是事实源。
 
 event log 才是。
 
-Scoped Retrieval 要接住同一个原则。
+Scoped Retrieval 也必须遵守这条原则。
 
 检索结果也不能只回答：
 

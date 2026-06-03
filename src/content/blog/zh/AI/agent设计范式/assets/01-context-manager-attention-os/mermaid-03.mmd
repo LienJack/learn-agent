@@ -1,0 +1,24 @@
+flowchart TB
+  subgraph Inputs["有来源的输入材料"]
+    direction LR
+    Required["P0 / P1 必需输入<br/>instructions / current request / tool pairs"]
+    StateTrace["State + Trace<br/>goal / plan / facts / evidence refs"]
+    History["Summary + Recent<br/>有来源摘要 / 最近完整回合"]
+    Retrieval["Memory + Artifacts<br/>scope / trust / freshness"]
+  end
+
+  Required --> Builder["ContextBuilder<br/>select / rank / redact"]
+  StateTrace --> Builder
+  History --> Builder
+  Retrieval --> Builder
+  Builder --> BudgetFit["Fit to Budget<br/>保留 P0 / P1，裁剪 P2 / P3"]
+  BudgetFit --> Bundle["ContextBundle<br/>最小充分上下文"]
+  Bundle --> Adapter["Provider Adapter<br/>协议和模型格式适配"]
+  Adapter --> RequestPayload["Model Request<br/>本轮最终输入快照"]
+
+  classDef input fill:#eff6ff,stroke:#2563eb,color:#0f172a;
+  classDef compile fill:#fff7ed,stroke:#ea580c,color:#0f172a;
+  classDef output fill:#ecfdf5,stroke:#059669,color:#0f172a;
+  class Required,StateTrace,History,Retrieval input;
+  class Builder,BudgetFit,Adapter compile;
+  class Bundle,RequestPayload output;

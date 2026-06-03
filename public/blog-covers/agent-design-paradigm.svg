@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">Agent 设计范式蓝图尺</title>
+	<desc id="desc">一把橘色蓝图三角尺连接上下文、记忆、工具和策略卡片，表示把 Agent 系统抽象成可复用的设计范式。</desc>
+	<style>
+		.blueprint-line {
+			animation: blueprint-line 1.45s linear infinite;
+			stroke-dasharray: 11 14;
+		}
+
+		.ruler-float {
+			animation: ruler-float 2.65s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 450px 284px;
+		}
+
+		.tile-a {
+			animation: tile-a 2.9s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 198px 201px;
+		}
+
+		.tile-b {
+			animation: tile-b 3s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 708px 198px;
+		}
+
+		.tile-c {
+			animation: tile-c 2.85s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 255px 360px;
+		}
+
+		.tile-d {
+			animation: tile-d 3.05s ease-in-out infinite;
+			transform-box: view-box;
+			transform-origin: 654px 360px;
+		}
+
+		.node-pulse-a {
+			animation: node-pulse 1.8s ease-in-out infinite;
+		}
+
+		.node-pulse-b {
+			animation: node-pulse 1.8s ease-in-out infinite 0.18s;
+		}
+
+		.node-pulse-c {
+			animation: node-pulse 1.8s ease-in-out infinite 0.36s;
+		}
+
+		@keyframes blueprint-line {
+			to {
+				stroke-dashoffset: -50;
+			}
+		}
+
+		@keyframes ruler-float {
+			0%,
+			100% {
+				transform: rotate(-1.5deg) translateY(0);
+			}
+
+			50% {
+				transform: rotate(1.5deg) translateY(-8px);
+			}
+		}
+
+		@keyframes tile-a {
+			0%,
+			100% {
+				transform: rotate(-5deg) translateY(0);
+			}
+
+			50% {
+				transform: rotate(3deg) translateY(-7px);
+			}
+		}
+
+		@keyframes tile-b {
+			0%,
+			100% {
+				transform: rotate(4deg) translateY(0);
+			}
+
+			50% {
+				transform: rotate(-3deg) translateY(-8px);
+			}
+		}
+
+		@keyframes tile-c {
+			0%,
+			100% {
+				transform: rotate(4deg) translateY(0);
+			}
+
+			50% {
+				transform: rotate(-4deg) translateY(-6px);
+			}
+		}
+
+		@keyframes tile-d {
+			0%,
+			100% {
+				transform: rotate(-4deg) translateY(0);
+			}
+
+			50% {
+				transform: rotate(3deg) translateY(-7px);
+			}
+		}
+
+		@keyframes node-pulse {
+			0%,
+			100% {
+				opacity: 0.38;
+				transform: translateY(0);
+			}
+
+			48% {
+				opacity: 1;
+				transform: translateY(-6px);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.blueprint-line,
+			.ruler-float,
+			.tile-a,
+			.tile-b,
+			.tile-c,
+			.tile-d,
+			.node-pulse-a,
+			.node-pulse-b,
+			.node-pulse-c {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-14%" y="-14%" width="128%" height="128%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.027" numOctaves="2" seed="64" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.85" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#24180f" flood-opacity="0.13" />
+		</filter>
+		<linearGradient id="coverBg" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f8f0e4" />
+		</linearGradient>
+		<linearGradient id="orangeBody" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ff8a25" />
+			<stop offset="58%" stop-color="#f26b2d" />
+			<stop offset="100%" stop-color="#d95425" />
+		</linearGradient>
+		<linearGradient id="orangeDark" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#d96538" />
+			<stop offset="100%" stop-color="#a83d2b" />
+		</linearGradient>
+		<pattern id="paperLines" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+			<path d="M0 0h34" fill="none" stroke="#ead8ba" stroke-width="3" opacity="0.22" />
+		</pattern>
+		<pattern id="gridMarks" width="58" height="58" patternUnits="userSpaceOnUse">
+			<path d="M58 0H0v58" fill="none" stroke="#f1dec0" stroke-width="2" opacity="0.36" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#coverBg)" />
+	<rect width="900" height="520" fill="url(#paperLines)" opacity="0.52" />
+	<rect x="96" y="70" width="708" height="380" rx="34" fill="url(#gridMarks)" opacity="0.62" />
+	<ellipse cx="450" cy="419" rx="236" ry="26" fill="#221915" opacity="0.1" />
+
+	<g filter="url(#roughInk)">
+		<path class="blueprint-line" d="M244 205c70 5 126 39 169 101M651 202c-68 10-120 46-156 105M288 364c61-10 105-36 136-79M604 365c-55-12-93-38-116-80" fill="none" stroke="#2b1a20" stroke-width="8" stroke-linecap="round" opacity="0.52" />
+		<path d="M452 94c-52 22-87 56-104 103M620 306c34-39 54-85 59-137" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round" opacity="0.35" />
+	</g>
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)">
+			<g class="ruler-float">
+				<path d="M450 93 694 394H206Z" fill="url(#orangeBody)" stroke="#2b1a20" stroke-width="10" stroke-linejoin="round" />
+				<path d="M450 203 555 334H345Z" fill="#fffaf0" stroke="#2b1a20" stroke-width="9" stroke-linejoin="round" />
+				<path d="M321 360h38M385 360h31M478 360h31M540 360h38" fill="none" stroke="#fff3df" stroke-width="9" stroke-linecap="round" opacity="0.82" />
+				<path d="M372 196l21 31M402 155l21 31M520 154l-21 31M551 196l-21 31" fill="none" stroke="#fff3df" stroke-width="8" stroke-linecap="round" opacity="0.76" />
+				<path d="M450 122v53M450 362v28" fill="none" stroke="#2b1a20" stroke-width="8" stroke-linecap="round" opacity="0.24" />
+				<circle cx="450" cy="270" r="31" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+				<circle cx="450" cy="270" r="13" fill="#f26b2d" opacity="0.65" />
+				<path d="M450 244v52M424 270h52" fill="none" stroke="#2b1a20" stroke-width="6" stroke-linecap="round" opacity="0.68" />
+				<g fill="#2b1a20">
+					<circle class="node-pulse-a" cx="360" cy="388" r="8" />
+					<circle class="node-pulse-b" cx="450" cy="388" r="8" />
+					<circle class="node-pulse-c" cx="540" cy="388" r="8" />
+				</g>
+			</g>
+
+			<g class="tile-a">
+				<rect x="130" y="161" width="142" height="86" rx="18" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+				<path d="M158 191h57M158 216h78" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round" />
+				<path d="M130 182c-18 2-30 11-37 28" fill="none" stroke="#2b1a20" stroke-width="7" stroke-linecap="round" opacity="0.55" />
+			</g>
+
+			<g class="tile-b">
+				<rect x="652" y="156" width="124" height="93" rx="20" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+				<path d="M714 180c19 12 35 14 49 12-1 41-15 67-49 82-34-15-48-41-49-82 14 2 30 0 49-12z" fill="#f26b2d" opacity="0.32" />
+				<path d="M714 188v62M683 221h62" fill="none" stroke="#2b1a20" stroke-width="7" stroke-linecap="round" opacity="0.68" />
+			</g>
+
+			<g class="tile-c">
+				<rect x="200" y="320" width="114" height="83" rx="18" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+				<path d="M226 344c12 9 47 9 60 0v38c-13 10-48 10-60 0z" fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+				<path d="M226 363c12 9 47 9 60 0" fill="none" stroke="#f26b2d" stroke-width="7" stroke-linecap="round" />
+			</g>
+
+			<g class="tile-d">
+				<rect x="604" y="319" width="127" height="86" rx="18" fill="#fffaf0" stroke="#2b1a20" stroke-width="8" />
+				<circle cx="641" cy="361" r="13" fill="#f26b2d" opacity="0.65" />
+				<circle cx="694" cy="347" r="13" fill="#f26b2d" opacity="0.3" />
+				<circle cx="691" cy="378" r="13" fill="#f26b2d" opacity="0.52" />
+				<path d="M653 358l28-10M653 366l27 11" fill="none" stroke="#2b1a20" stroke-width="7" stroke-linecap="round" opacity="0.68" />
+			</g>
+
+			<g fill="none" stroke="#f26b2d" stroke-width="8" stroke-linecap="round">
+				<path d="M286 132l-18 18M286 150l-18-18" opacity="0.72" />
+				<path d="M616 133l-18 18M616 151l-18-18" opacity="0.52" />
+				<path d="M742 328l-20 20M742 348l-20-20" opacity="0.62" />
+				<path d="M174 301c20 18 43 29 70 33" opacity="0.38" />
+			</g>
+		</g>
+	</g>
+</svg>

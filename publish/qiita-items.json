@@ -1,8 +1,20 @@
 {
   "src/content/blog/ja/AI/build-harness/00-01-agent-not-a-prompt.md": {
-    "id": "c627ccefb6197c3527a2",
-    "url": "https://qiita.com/LienJack/items/c627ccefb6197c3527a2",
+    "id": "93f618c0042f31d44f60",
+    "url": "https://qiita.com/LienJack/items/93f618c0042f31d44f60",
     "title": "Agent の基本定義：なぜ一文の Prompt ではないのか？",
-    "updatedAt": "2026-05-29T06:48:21.449Z"
+    "updatedAt": "2026-06-01T05:15:40.039Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-03-chatbot-workflow-agent-harness.md": {
+    "id": "3f5514ab585ba7d0eb7d",
+    "url": "https://qiita.com/LienJack/items/3f5514ab585ba7d0eb7d",
+    "title": "システム境界：ChatBot、Workflow、Agent、Harness の違い",
+    "updatedAt": "2026-06-03T03:48:11.679Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-02-agent-components.md": {
+    "id": "18f5d7a47d516d20d2c4",
+    "url": "https://qiita.com/LienJack/items/18f5d7a47d516d20d2c4",
+    "title": "Agent の構成モデル：Model、Loop、Tools、State",
+    "updatedAt": "2026-06-03T03:48:12.111Z"
   }
 }

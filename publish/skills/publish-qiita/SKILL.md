@@ -51,3 +51,5 @@ publish/bin/publish-qiita --item-id <qiita_item_id> --yes <article.md>
 - 不要在没有 `--yes` 的情况下调用 Qiita 写接口。
 - 源 Markdown 是内容源头；Qiita 发布副本只写入 `publish/artifacts/`。
 - 本地图片必须先转换成公开 URL，使用 `QIITA_IMAGE_BASE_URL`、`PUBLISH_IMAGE_BASE_URL` 或 `PUBLISH_IMAGE_UPLOAD_COMMAND`。
+- 使用 `QIITA_IMAGE_BASE_URL` 或 `PUBLISH_IMAGE_BASE_URL` 时，base URL 必须指向源文章所在目录的公网路径；不要只写仓库根路径，否则 `assets/...` 会被拼成不存在的 `.../main/assets/...`。
+- 发布前检查 `publish/artifacts/.../*.qiita.md` 中所有图片 URL，并用 HEAD 请求确认返回 `200`；发现 404 时先修正 base URL，再重新生成和发布。

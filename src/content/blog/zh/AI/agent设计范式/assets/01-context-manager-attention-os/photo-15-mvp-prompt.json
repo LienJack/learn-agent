@@ -1,0 +1,15 @@
+{
+  "id": "photo-15",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "十一、MVP 应该先做什么",
+  "sectionScore": 3,
+  "anchor": "## 十一、MVP 应该先做什么",
+  "sectionExcerpt": "不要一开始就做完所有模块。\n\n本地 CLI Agent 的 MVP 可以先做这些：\n\n\n暂时可以不做：\n\n\n但 MVP 里最好一开始就保留几个能力：\n\n\n这样即使系统还很小，边界也不会错。\n\n第一版 `ContextManager` 可以只有这个接口：\n\n\n复杂性藏进三个 pipeline：\n\n\n这已经足够支撑一个可演进的 Harness。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-15-mvp-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-15-mvp-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-15-mvp.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-15-mvp.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - 十一、MVP 应该先做什么",
+  "promptStatus": "planned"
+}

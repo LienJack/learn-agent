@@ -1,0 +1,67 @@
+{
+  "id": "2026-06-03T06-00-54-027Z-article-images-01-context-manager-attention-os",
+  "command": "article-images",
+  "stage": "mermaid",
+  "status": "planned",
+  "startedAt": "2026-06-03T06:00:54.027Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/agent设计范式/01-context-manager-attention-os.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-03T06-00-54-027Z-article-images-01-context-manager-attention-os",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-03T06-00-54-027Z-article-images-01-context-manager-attention-os/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 1 article(s)",
+    "confirmed": false
+  },
+  "notes": [],
+  "finishedAt": "2026-06-03T06:00:54.030Z"
+}

@@ -1,0 +1,240 @@
+---
+date: 2026-06-03
+source_article: src/content/blog/zh/AI/agent设计范式/03-tool-manager-action-os.md
+skill: blog-to-photo
+status: images-generated
+dry_run_photo_prompts: 23
+selected_photo_prompts: 10
+images_generated: 10
+---
+
+# Tool Manager 文章插图提示词
+
+## 使用说明
+
+本文件为 `03-tool-manager-action-os.md` 准备正文手绘技术插图提示词。项目 `images/bin/article-images --dry-run --stage photos` 自动规划了 23 个章节位点；为了避免文章图片过密，这里人工收敛为 10 张图，覆盖核心范式、旧模型问题、行动控制面、工具调用生命周期、证据流、注册流程、Intent 解析、权限沙盒、能力来源分层、Agent Loop 和与 Context Manager 的关系。
+
+图片已按“目标文件名”生成到 `src/content/blog/zh/AI/agent设计范式/assets/03-tool-manager-action-os/`，并已插入 `03-tool-manager-action-os.md` 正文对应位置。
+
+统一负向提示词：
+
+```text
+不要照片写实，不要 3D，不要复杂 UI 截图，不要大量代码，不要密集小字，不要复杂表格，不要赛博朋克，不要霓虹色，不要深色背景，不要彩色卡通，不要复杂阴影，不要过多装饰，不要超过 8 个主节点，不要让背景电路线比主体更明显，不要生成长段中文文字。
+```
+
+统一画风要求已经写入每条正向提示词：米白纸张、黑色手绘线稿、淡黄色高亮、技术博客工程草图。
+
+## 进度总览
+
+| 目标文件 | 建议插入位置 | 提示词状态 | 生成状态 |
+| --- | --- | --- | --- |
+| `photo-01-action-control-plane.png` | 开头核心观点之后 | 完成 | 已生成 |
+| `photo-02-function-registry-risk.png` | `## 二、先看旧模型为什么不够` | 完成 | 已生成 |
+| `photo-03-tool-call-lifecycle.png` | `### 原则 3：Tool Call 是因果事件，不是普通文本` | 完成 | 已生成 |
+| `photo-04-evidence-artifact-flow.png` | `### 原则 5：工具结果是证据，不是上下文垃圾桶` | 完成 | 已生成 |
+| `photo-05-registration-state-machine.png` | `## 十、工具注册不是 registerTool(fn)` | 完成 | 已生成 |
+| `photo-06-intent-tool-resolution.png` | `## 十一、Intent 到 Tool 的解析` | 完成 | 已生成 |
+| `photo-07-permission-sandbox-gates.png` | `## 十二、权限模型` 到 `## 十三、沙盒模型` | 完成 | 已生成 |
+| `photo-08-capability-source-map.png` | `## 十四、CLI、Skill、MCP、Subagent 的位置` | 完成 | 已生成 |
+| `photo-09-agent-loop-tool-manager.png` | `## 十五、Agent Loop 中 Tool Manager 的位置` | 完成 | 已生成 |
+| `photo-10-context-tool-runtime-map.png` | `## 二十、和 Context Manager 的关系` | 完成 | 已生成 |
+
+## photo-01-action-control-plane.png
+
+建议插入位置：开头核心观点之后。
+
+1. 图解类型
+分层架构。文章开头要建立 Tool Manager 不是工具列表，而是行动控制面的核心心智模型。
+
+2. 画面元素清单
+5 层节点：Intent、Tool View、Policy Gate、Runtime、Evidence；高亮“Policy Gate”和“Evidence”；顶部是 Agent，底部是真实世界资源。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是 Tool Manager 作为 Agent 的行动控制面。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘架构图，清晰、克制、有工程草图感。
+
+构图：纵向分层架构图。顶部画一个简笔 Agent 头像和“想做某事”的短气泡，下面依次是 5 个横向模块层，并用手绘箭头向下连接到真实世界资源。节点：① Intent：目标卡片和小旗，表示当前行动意图；② Tool View：一组被筛选的小工具卡片，表示模型可见的临时能力视图；③ Policy Gate：盾牌和检查勾，用淡黄色高亮，表示权限、风险、审批；④ Runtime：沙盒盒子、扳手和凭证钥匙，表示执行环境；⑤ Evidence：证据卡片进入日志抽屉，用淡黄色高亮，表示结果、artifact、trace。最底部画文件、API、数据库、终端四类真实资源。背景有很淡的电路线和工程草图辅助线，不要抢主体。节点标签短，底部留一行空白给后期添加金句：“Tool Manager 管行动边界”。
+
+4. 负向提示词
+使用统一负向提示词。
+
+## photo-02-function-registry-risk.png
+
+建议插入位置：`## 二、先看旧模型为什么不够` 附近。
+
+1. 图解类型
+对比图。文章这一段要让读者看到 function map 和真实行动风险之间的落差。
+
+2. 画面元素清单
+左右对比：左侧函数列表，右侧真实副作用；中间一条危险的直连箭头；高亮“副作用”和“权限空洞”。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是把 Tool 当成函数表会隐藏真实世界风险。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘对比图，清晰、克制、有工程草图感。
+
+构图：左右对比。左侧是一个简单函数注册表，像抽屉或卡片架，只有短标签：read、write、bash、api。右侧是真实世界副作用区，画文件被修改、终端命令、外部云 API、删除桶、消息发送几个小图标。中间有一条粗手绘箭头从“函数调用”直接冲向“真实资源”，箭头旁画一个空心盾牌和问号，表示权限空洞。节点：① 函数表：整齐但信息太少；② 模型调用：小机器人手指指向工具；③ 权限空洞：空盾牌，用淡黄色高亮；④ 副作用：文件、API、消息、删除图标，用淡黄色高亮；⑤ 审计缺失：断掉的日志纸带。背景有很淡电路线，右侧风险图标不要恐怖化，只要清楚表达工程风险。
+
+4. 负向提示词
+使用统一负向提示词。
+
+## photo-03-tool-call-lifecycle.png
+
+建议插入位置：`### 原则 3：Tool Call 是因果事件，不是普通文本` 附近。
+
+1. 图解类型
+水平流水线。文章这一段讲 Tool Call 应进入事件链，而不是作为普通文本附属字段。
+
+2. 画面元素清单
+8 个节点：请求、校验、策略、审批、执行、结果、证据、状态；高亮“策略”和“证据”。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是一次 Tool Call 的可审计生命周期。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘流程图，清晰、克制、有工程草图感。
+
+构图：从左到右的水平流水线，像一条带检查点的工程传送带。画面包含 8 个关键节点并用手绘箭头连接。节点：① 请求：模型递交工具调用卡片；② 参数校验：放大镜检查 JSON；③ 策略检查：盾牌和规则清单，用淡黄色高亮；④ 审批：用户签字小纸条；⑤ 沙盒执行：盒子里的终端和扳手；⑥ 结果验证：测试勾和警告三角；⑦ 证据入库：日志抽屉和 artifact 卡片，用淡黄色高亮；⑧ 状态更新：state 卡片被刷新。背景有很淡电路线和时间轴刻度。节点标签短，底部留空白给后期加一句：“Tool Call 是事件，不是文本”。
+
+4. 负向提示词
+使用统一负向提示词。
+
+## photo-04-evidence-artifact-flow.png
+
+建议插入位置：`### 原则 5：工具结果是证据，不是上下文垃圾桶` 附近。
+
+1. 图解类型
+输入-处理-输出。重点是完整工具输出进入 Artifact Store，只有摘要、片段和引用进入 Context。
+
+2. 画面元素清单
+6 个节点：工具输出、Artifact、摘要、证据引用、ContextBundle、下一轮模型；高亮“Artifact”和“ContextBundle”。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是工具结果如何变成证据，而不是直接塞满上下文。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘机制图，清晰、克制、有工程草图感。
+
+构图：输入-处理-输出结构。左侧画一大卷工具输出日志，太长的纸带从终端里流出；中间分成两路：上路完整输出进入 Artifact Store，画成带抽屉的档案柜，用淡黄色高亮；下路通过小剪刀和摘录器变成摘要、关键片段、证据引用；右侧这些精简材料进入 ContextBundle，再进入下一轮模型。节点：① 工具输出：长日志纸带；② Artifact：完整证据档案柜，高亮；③ 摘要：短卡片；④ 引用：带编号的小标签；⑤ ContextBundle：小输入包，高亮；⑥ 下一轮模型：简笔模型核心。用箭头清楚表达“完整保存，精简进入上下文”。背景电路线很淡，避免密集文字。
+
+4. 负向提示词
+使用统一负向提示词。
+
+## photo-05-registration-state-machine.png
+
+建议插入位置：`## 十、工具注册不是 registerTool(fn)` 附近。
+
+1. 图解类型
+状态序列。文章这里要解释发现工具不等于可以调用，注册需要经过多道验证。
+
+2. 画面元素清单
+7 个节点：发现、解析、归一、权限 lint、沙盒 lint、健康检查、可调用；高亮“权限 lint”和“可调用”。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是 Tool 注册从发现到可调用的状态机。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘状态图，清晰、克制、有工程草图感。
+
+构图：横向状态序列，像一排工程检查站。画面包含 7 个状态节点，用手绘箭头串起来。节点：① 发现：雷达看到新工具；② 解析：清单文件被打开；③ 归一：不同来源的工具卡片进入同一个 canonical descriptor；④ 权限 lint：盾牌检查 scope，用淡黄色高亮；⑤ 沙盒 lint：盒子检查文件和网络边界；⑥ 健康检查：心跳线和测试勾；⑦ 可调用：工具卡片盖上可用印章，用淡黄色高亮。下方画一条小的失败支路，指向 invalid、blocked、deprecated 三张灰色卡片。背景有淡电路线，节点标签短。
+
+4. 负向提示词
+使用统一负向提示词。
+
+## photo-06-intent-tool-resolution.png
+
+建议插入位置：`## 十一、Intent 到 Tool 的解析` 附近。
+
+1. 图解类型
+筛选漏斗。文章这一段讲不是把所有工具暴露给模型，而是按 intent、policy、context、risk 逐层筛选。
+
+2. 画面元素清单
+7 个节点：Intent、能力匹配、Policy、Context、Risk、候选集、ToolView；高亮“Policy”和“ToolView”。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是 Intent 如何被解析成模型可见的 ToolView。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘筛选图，清晰、克制、有工程草图感。
+
+构图：从左到右的漏斗式流水线。左侧是 UserIntent 小旗和当前任务卡片，进入一个多层漏斗；漏斗每一层都有短标签。节点：① Intent：目标卡片；② 能力匹配：工具库里抽出相关卡片；③ Policy：盾牌筛掉不允许的工具，用淡黄色高亮；④ Context：按当前文件、环境、预算过滤；⑤ Risk：风险温度计排序；⑥ 候选集：少量工具卡片；⑦ ToolView：最终给模型看的小工具面板，用淡黄色高亮。漏斗外侧画一些被过滤掉的灰色工具卡片。背景有淡电路线，文字短，箭头关系明确。
+
+4. 负向提示词
+使用统一负向提示词。
+
+## photo-07-permission-sandbox-gates.png
+
+建议插入位置：`## 十二、权限模型` 到 `## 十三、沙盒模型` 之间。
+
+1. 图解类型
+决策路径。权限决定能不能做，沙盒决定在哪里、以什么限制做。
+
+2. 画面元素清单
+6 个节点：工具调用、风险等级、审批、凭证、沙盒、执行结果；高亮“审批”和“沙盒”。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是权限和沙盒如何共同守住工具执行边界。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘决策图，清晰、克制、有工程草图感。
+
+构图：决策路径图。左侧是一个 ToolCall 卡片，进入风险分级小仪表盘，然后分成低风险自动通过和高风险需要审批两条路径，最后都进入沙盒执行盒。节点：① 工具调用：带参数的卡片；② 风险等级：L0 到 L5 的阶梯；③ 审批：用户签字和确认按钮，用淡黄色高亮；④ 凭证：钥匙只进入 runtime，不进入模型；⑤ 沙盒：带边界线的盒子，里面有文件系统、网络、进程限制图标，用淡黄色高亮；⑥ 执行结果：输出卡片进入审计日志。背景有淡辅助线，节点标签短，避免真实 UI。
+
+4. 负向提示词
+使用统一负向提示词。
+
+## photo-08-capability-source-map.png
+
+建议插入位置：`## 十四、CLI、Skill、MCP、Subagent 的位置` 附近。
+
+1. 图解类型
+分层映射图。文章要区分 CLI、Skill、MCP、Subagent 的本质和进入 Tool Manager 的不同位置。
+
+2. 画面元素清单
+5 个来源节点：Builtin、CLI、Skill、MCP、Subagent；中间是 Tool Manager；右侧是统一治理层；高亮“Skill 不是权限”和“MCP 不是安全边界”。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是 CLI、Skill、MCP、Subagent 在 Tool Manager 中的位置。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘架构图，清晰、克制、有工程草图感。
+
+构图：左中右三栏映射图。左侧竖排 5 个能力来源节点，分别是 Builtin、CLI、Skill、MCP、Subagent，每个配一个简单图标：内置积木、终端窗口、SOP 文件夹、插头协议、分身 Agent。中间是 Tool Manager 控制面，像一个带齿轮的路由器。右侧是统一治理层，包含 Policy、Sandbox、Credential、Artifact、Trace 五张小卡片。箭头从五个来源汇入 Tool Manager，再进入治理层。高亮两张便签：Skill 不是权限、MCP 不是安全边界。背景有淡电路线，标签短，布局清楚。
+
+4. 负向提示词
+使用统一负向提示词。
+
+## photo-09-agent-loop-tool-manager.png
+
+建议插入位置：`## 十五、Agent Loop 中 Tool Manager 的位置` 附近。
+
+1. 图解类型
+环形流程。文章这里讲 Tool Manager 如何嵌入完整 Agent Loop。
+
+2. 画面元素清单
+8 个节点：用户输入、Context、ToolView、模型、工具治理、执行、Artifact/State/Trace、下一轮；高亮“工具治理”和“Artifact/State/Trace”。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是 Tool Manager 在 Agent Loop 中的位置。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘循环图，清晰、克制、有工程草图感。
+
+构图：顺时针环形流程图，中央写一个短标签“Agent Runtime”。周围 8 个节点用手绘箭头连成闭环。节点：① 用户输入：对话气泡；② Context：上下文包；③ ToolView：工具小面板；④ 模型：简笔模型核心；⑤ 工具治理：盾牌、校验勾、审批笔，用淡黄色高亮；⑥ 执行：沙盒里的终端和 API 插头；⑦ Artifact/State/Trace：三个档案抽屉组合，用淡黄色高亮；⑧ 下一轮：回到 Context 的箭头。背景有很淡电路线和循环辅助线。节点标签短，底部留一句空白位置：“每次行动都回写证据和状态”。
+
+4. 负向提示词
+使用统一负向提示词。
+
+## photo-10-context-tool-runtime-map.png
+
+建议插入位置：`## 二十、和 Context Manager 的关系` 附近。
+
+1. 图解类型
+双控制面架构。文章最后要把 Context Manager 和 Tool Manager 的边界收束在一张图里。
+
+2. 画面元素清单
+6 个节点：Context Manager、Tool Manager、Policy、Artifact、State、Trace；高亮“Context 管注意力”和“Tool 管行动”。
+
+3. 正向图片提示词
+画一张文章内技术解释图，主题是 Context Manager 和 Tool Manager 在 Agent Harness 中的关系。
+
+画风：米白色纸张背景，黑色手绘签字笔线稿，线条粗细略不均，少量淡黄色高亮，editorial technical illustration，技术博客手绘系统图，清晰、克制、有工程草图感。
+
+构图：左右双控制面架构图。左侧是 Context Manager，画成注意力聚光灯照向模型输入包，旁边短标签“看见什么”；右侧是 Tool Manager，画成行动闸门和扳手，旁边短标签“能做什么”。中间上方是模型核心，下面连接 Policy、Artifact、State、Trace 四个共享运行时模块。节点：① Context Manager：聚光灯和上下文包，用淡黄色高亮；② Tool Manager：盾牌闸门和工具卡，用淡黄色高亮；③ Policy：规则清单；④ Artifact：证据档案柜；⑤ State：状态卡片；⑥ Trace：时间线。用箭头表现 ToolView 进入 ContextBundle，ToolResult 进入 Artifact/State/Trace，再影响下一轮 Context。背景电路线很淡，整体像工程师手绘运行时地图。
+
+4. 负向提示词
+使用统一负向提示词。

@@ -1,0 +1,15 @@
+{
+  "id": "photo-09",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "Artifact：大对象和证据实体",
+  "sectionScore": 1,
+  "anchor": "### Artifact：大对象和证据实体",
+  "sectionExcerpt": "`Artifact` 保存完整证据，而不是把所有东西塞进 prompt。\n\n\n正确模式是：\n\n\n这对 coding agent 尤其重要。文件全文、测试日志、命令输出、截图、diff 都可能很大，不应该直接进入 message history。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-09-artifact-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-09-artifact-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-09-artifact.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-09-artifact.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - Artifact：大对象和证据实体",
+  "promptStatus": "planned"
+}

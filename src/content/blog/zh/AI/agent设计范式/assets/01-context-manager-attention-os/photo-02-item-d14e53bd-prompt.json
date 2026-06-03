@@ -1,0 +1,15 @@
+{
+  "id": "photo-02",
+  "kind": "photo",
+  "status": "prompt-planned",
+  "sectionHeading": "二、先看旧模型为什么不够",
+  "sectionScore": 2,
+  "anchor": "## 二、先看旧模型为什么不够",
+  "sectionExcerpt": "最朴素的实现通常长这样：\n\n\n这段代码最大的优点是容易理解。\n\n它最大的缺点也是太容易理解了：它把所有东西都当成同一种消息。\n\n在修测试的任务里，`messages[]` 很快会混进这些内容：\n\n\n这些内容的性质完全不同。\n\n有些是事实，有些是猜测。\n\n有些是高优先级指令，有些是不可信工具输出。\n\n有些已经过期，有些必须永远保留。\n\n有些应该进入模型输入，有些只应该留给审计和回放。\n\n如果系统只有一个 `messages[]`，它就很难回答这些问题：\n\n\n所以 `messages[]` 不是不能有。\n\n它不能是整个 context 系统的事实源。",
+  "promptPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-02-item-d14e53bd-prompt.md",
+  "promptJsonPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-02-item-d14e53bd-prompt.json",
+  "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/photo-02-item-d14e53bd.png",
+  "markdownRef": "./assets/01-context-manager-attention-os/photo-02-item-d14e53bd.png",
+  "alt": "Context Manager 新范式：Agent 的注意力操作系统 - 二、先看旧模型为什么不够",
+  "promptStatus": "planned"
+}

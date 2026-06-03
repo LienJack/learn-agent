@@ -1,0 +1,68 @@
+{
+  "article": "src/content/blog/zh/AI/agent设计范式/04-agent-team-assignment-communication.md",
+  "language": "zh",
+  "generator": "blog-to-photo",
+  "images": [
+    {
+      "id": "04-photo-01-runtime-loop",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 0. Agent Team 的最小运行闭环",
+      "purpose": "解释 Agent Team 如何从用户目标进入任务拆解、分配、执行、通信、报告、验证、合并或重分配的闭环",
+      "diagram_type": "circular loop",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-01-runtime-loop.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-01-runtime-loop.jpg",
+      "status": "prompted"
+    },
+    {
+      "id": "04-photo-02-assignment-eight-steps",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 2. 任务分配流程",
+      "purpose": "解释任务分配从拆解、分类、候选选择到授权、监控和验证的八步管线",
+      "diagram_type": "horizontal pipeline",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-02-assignment-eight-steps.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-02-assignment-eight-steps.jpg",
+      "status": "prompted"
+    },
+    {
+      "id": "04-photo-03-allocation-strategy-selector",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 3. 五种主流分配策略",
+      "purpose": "解释不同任务形态如何选择 Lead Push、能力匹配、租约、递归委派、冗余分配或人工分配",
+      "diagram_type": "decision path",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-03-allocation-strategy-selector.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-03-allocation-strategy-selector.jpg",
+      "status": "prompted"
+    },
+    {
+      "id": "04-photo-04-topology-assignment-communication",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 4. 三种拓扑下的任务分配方式",
+      "purpose": "对比星型、受控总线型和层级型的任务分配与通信路径",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-04-topology-assignment-communication.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-04-topology-assignment-communication.jpg",
+      "status": "prompted"
+    },
+    {
+      "id": "04-photo-05-communication-channels",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 7. 通信通道设计",
+      "purpose": "解释 AgentMessage 如何经过不同通信通道、策略门、验证审计和 MergeManager",
+      "diagram_type": "layered architecture",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-05-communication-channels.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-05-communication-channels.jpg",
+      "status": "prompted"
+    },
+    {
+      "id": "04-photo-06-payment-refactor-collaboration",
+      "kind": "ordinary-image",
+      "insert_after_heading": "## 13. 一个完整例子：支付模块重构",
+      "purpose": "解释支付模块重构例子中多个 agent 如何通过依赖问答、接口契约、冲突通知、决策记录和测试验证完成协作",
+      "diagram_type": "state sequence",
+      "prompt_file_zh": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-06-payment-refactor-collaboration.prompt.zh.md",
+      "target_file": "src/content/blog/zh/AI/agent设计范式/assets/04-agent-team-assignment-communication/photo-06-payment-refactor-collaboration.jpg",
+      "status": "prompted"
+    }
+  ],
+  "status": "prompted"
+}

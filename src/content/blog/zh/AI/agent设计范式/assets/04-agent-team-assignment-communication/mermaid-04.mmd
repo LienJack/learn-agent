@@ -1,0 +1,24 @@
+flowchart LR
+	subgraph Star["Star Topology"]
+		User1["User"] --> Lead1["LeadAgent"]
+		Lead1 --> Brief1["DelegationBrief"]
+		Brief1 --> Sub1["Subagent"]
+		Sub1 --> Report1["AgentReport"]
+		Report1 --> Lead1
+	end
+
+	subgraph Bus["Controlled Bus Topology"]
+		Planner["Lead / Planner"] --> Board["TaskBoard"]
+		Board --> Scheduler["Scheduler"]
+		Scheduler --> Lease["Claim + Lease"]
+		Lease --> Agent["Agent Execution"]
+		Agent --> Store["ArtifactStore"]
+		Store --> Verify["Verifier + MergeManager"]
+	end
+
+	subgraph Hierarchy["Hierarchical Topology"]
+		Root["RootLead"] --> Domain["DomainLead"]
+		Domain --> Worker["WorkerAgent"]
+		Worker --> DomainReport["Domain Report"]
+		DomainReport --> Root
+	end

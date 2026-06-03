@@ -1,0 +1,25 @@
+flowchart TB
+  Root["root session<br/>用户目标和初始现场"]
+  Main["main path<br/>主线执行"]
+  BranchA["branch A<br/>方案 A 探索"]
+  BranchB["branch B<br/>方案 B 探索"]
+  Subagent["subagent task<br/>隔离研究 / 验证"]
+  Join["merge / compare<br/>带 evidence refs 回主线"]
+
+  Root --> Main
+  Root --> BranchA
+  Root --> BranchB
+  Root --> Subagent
+  BranchA --> Join
+  BranchB --> Join
+  Subagent --> Join
+  Join --> Main
+
+  classDef root fill:#eff6ff,stroke:#2563eb,color:#0f172a;
+  classDef branch fill:#fff7ed,stroke:#ea580c,color:#0f172a;
+  classDef main fill:#ecfdf5,stroke:#059669,color:#0f172a;
+  classDef join fill:#f5f3ff,stroke:#7c3aed,color:#0f172a;
+  class Root root;
+  class Main main;
+  class BranchA,BranchB,Subagent branch;
+  class Join join;

@@ -1,23 +1,43 @@
 ---
-title: "Context Policy：模型这一轮应该看见什么？"
-description: "从长任务的模型输入污染问题出发，解释 Context Policy 如何选择、压缩、隔离和记录这一轮模型该看见的现场。"
+title: "Context Policy：Context Builder 里的模型输入投影"
+description: "作为 Context Manager 注意力操作系统中的 Context Builder 子层，解释 Context Policy 如何选择、压缩、隔离和记录这一轮模型该看见的现场。"
 author: LienJack
 pubDate: 2026-05-29
+updatedDate: 2026-06-03
 heroImage: './assets/cover.jpg'
 locale: "zh"
 tags:
   - Agent
   - Context Engineering
+  - Context Manager
   - Harness
   - Model Input
   - 技术教程
 aliases:
   - Context Policy
+  - Context Builder
   - 模型输入投影
   - Agent 上下文策略
 ---
 
-# Context Policy：模型这一轮应该看见什么？
+# Context Policy：Context Builder 里的模型输入投影
+
+这一章现在要放到 [Context Manager 新范式：Agent 的注意力操作系统](/blog/AI/agent设计范式/01-context-manager-attention-os) 里读。
+
+新范式把上下文系统拆成四层：
+
+```text
+Raw Event Log
+-> State Projection
+-> Context Builder
+-> Model Request
+```
+
+本章只讲第三层：`Context Builder` 内部的 `Context Policy`。
+
+也就是说，它不负责保存所有事实，也不负责恢复 session。它只回答一个更窄的问题：
+
+> 当 Event Log 已经保存事实、State Projection 已经折叠出当前现场之后，模型这一轮到底应该看见什么？
 
 前面几篇解决的是“动作怎么发生”。
 
@@ -88,7 +108,7 @@ Agent 再跑测试
 
 把 Context Policy 写成 prompt 拼接函数，迟早会出问题：旧事实会留在 messages 里，工具日志会挤掉用户约束，不可信文本也会混进高优先级输入。
 
-所以 Context Policy 是 Harness 里一层很关键的控制系统：
+所以 Context Policy 是 Context Manager 里一层很关键的编译策略：
 
 **Context Policy 负责把 session log、state、verified memory、repository instructions、recent tail、tool observations、retrieved blocks 投影成这一轮模型真正应该看到的输入。**
 
@@ -1598,6 +1618,15 @@ Capability Discovery：哪些工具本轮可见。
 Trace Analysis：如何用事实日志定位失败。
 Memory Governance：什么经验能进入长期记忆。
 Scoped Retrieval：怎么形成可审计证据包。
+```
+
+如果你要看完整的 Context Manager 总架构，则继续读 [Agent 设计范式专栏](/blog/AI/agent设计范式/01-context-manager-attention-os)。那里会把本章的模型输入投影放回更大的链路里：
+
+```text
+Raw Event Log
+-> State Projection
+-> Context Builder
+-> Model Request
 ```
 
 这篇先留下一个最重要的记忆点：

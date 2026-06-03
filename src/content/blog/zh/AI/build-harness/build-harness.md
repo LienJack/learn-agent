@@ -68,13 +68,13 @@ Agent 的核心要素包括：
    区分聊天机器人、固定流程、Agent 和 Harness。这个边界图能帮你判断什么时候该用脚本，什么时候需要真正的 Agent 架构。
 
 4. [Harness 的控制回路：约束、反馈、再投影](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-04-harness-control-system.md)  
-   从一个 demo Agent 的事故现场进入，拆清 Harness 如何接住执行、权限、日志、恢复和验证这些控制责任。
+   从一个 demo Agent 的事故现场进入，拆清 Harness 如何承载执行、权限、日志、恢复和验证这些控制责任。
 
 5. [Agent 演进路线：从聊天原型到托管运行](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-05-agent-evolution-path.md)  
    用项目里程碑看 Agent 如何从 v0 聊天原型，逐步长出工具、运行时控制、session log、sandbox、trace 和评估。
 
 6. [手写 Agent 的意义：理解框架抽象背后的最小机制](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-06-handwrite-agent-meaning.md)  
-   解释为什么要亲手摸一次最小机制：不是替代框架，而是看清框架藏起了哪些工程边界。
+   解释为什么要亲手摸一次最小机制：目的在于看清框架藏起了哪些工程边界。
 
 7. [LLM Provider 接入：让 CLI 完成第一次模型调用](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-07-llm-provider-cli-first-call.md)  
    把真实模型接进 CLI，并留下 provider contract：chat、stream、error mapping 先跑通，tool intent 只预留事件。
@@ -104,8 +104,8 @@ Agent 的核心要素包括：
 14. [Local Tool Bundle：文件、搜索、终端的本地边界](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-14-local-tool-bundle-permission-runtime.md)  
     把 Read / Edit / Write / Glob / Grep / Bash 拆成不同本地风险语义，重点是路径、动作、执行环境和输出预算。
 
-15. [Context Policy：模型这一轮应该看见什么？](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-15-context-policy-model-input.md)  
-    治理模型输入投影：选什么、压什么、隔离什么、记录什么，让第 N 轮模型看到一张可信工作台。
+15. [Context Policy：Context Builder 里的模型输入投影](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-15-context-policy-model-input.md)  
+    作为 Context Manager 的子层，治理模型输入投影：选什么、压什么、隔离什么、记录什么，让第 N 轮模型看到一张可信工作台。
 
 16. [Session Replay：用事件日志恢复长任务现场](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-16-session-replay-event-log.md)  
     用 events.jsonl、artifact、snapshot、ReplayRunner 和 ResumeGate，让长任务中断后能恢复现场并判断能否继续。
@@ -135,5 +135,7 @@ Agent 的核心要素包括：
 23. [Hosted Harness：Sandbox、Cron、Durable Execution 与远程部署](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-23-hosted-harness-durable-execution.md)  
     进入远程托管生命周期：job、workspace、sandbox、secret、durable step、artifact、worker lease 和 notification。
 
-24. [Agent Harness 术语地图：从 Intent 到 Trace](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-24-agent-harness-terminology-map.md)  
+### 第六部分：术语复盘
+
+24. [Agent Harness 术语地图：从 Intent 到 Context Manager](https://github.com/LienJack/build-harness/blob/main/docs/zh/00-24-agent-harness-terminology-map.md)  
     用 glossary / map 收口核心术语：首讲章节、典型消费者、常见混淆和教学项目字段映射。
