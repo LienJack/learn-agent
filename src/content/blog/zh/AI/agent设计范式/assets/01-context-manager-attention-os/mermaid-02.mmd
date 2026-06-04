@@ -2,62 +2,68 @@ flowchart TB
   CM["ContextManager<br/>Agent 注意力治理层"]
 
   subgraph PolicyPlane["Policy Plane"]
+    direction LR
     PolicyManager["PolicyManager<br/>permission / privacy / safety"]
     StatsCollector["StatsCollector<br/>token / cost / latency"]
   end
 
   subgraph EvidencePlane["Evidence Plane"]
-    SessionStore["SessionStore<br/>会话 / 分支 / 运行配置"]
+    direction LR
     EventStore["EventStore<br/>append-only 事件流"]
     MessageStore["MessageStore<br/>typed messages / tool pairs"]
     ArtifactStore["ArtifactStore<br/>文件 / diff / tool output"]
+    SessionStore["SessionStore<br/>会话 / 分支 / 运行配置"]
   end
 
   subgraph SemanticPlane["Semantic Plane"]
+    direction LR
     StateProjector["StateProjector<br/>events -> AgentState"]
     MemoryStore["MemoryStore<br/>长期记忆 / 项目记忆"]
     TraceManager["TraceManager<br/>decision / evidence / action"]
   end
 
   subgraph CompilationPlane["Compilation Plane"]
+    direction LR
     ContextBuilder["ContextBuilder<br/>retrieve / rank / fit"]
     Compressor["Compressor<br/>summary / audit / check"]
   end
 
   subgraph ExecutionPlane["Execution Plane"]
+    direction LR
     ModelCalls["Model Calls"]
     ToolCalls["Tool Calls"]
     Validators["Validators"]
+    EventWrite["write events<br/>audit records"]
   end
 
   CM --> PolicyManager
-  CM --> StatsCollector
-  CM --> SessionStore
   CM --> EventStore
-  CM --> MessageStore
-  CM --> ArtifactStore
+
   EventStore --> StateProjector
-  MessageStore --> StateProjector
-  ArtifactStore --> StateProjector
+
   StateProjector --> ContextBuilder
   MemoryStore --> ContextBuilder
   TraceManager --> ContextBuilder
   PolicyManager --> ContextBuilder
   StatsCollector --> ContextBuilder
+
   ContextBuilder --> ModelCalls
   ModelCalls --> ToolCalls
-  ToolCalls --> EventStore
-  Validators --> EventStore
-  Compressor --> StateProjector
-  ContextBuilder --> Compressor
+  ToolCalls --> Validators
+  Validators --> EventWrite
 
+  ContextBuilder --> Compressor
+  Compressor -.summary / audit.-> EventWrite
+
+  classDef root fill:#f8fafc,stroke:#475569,color:#0f172a;
   classDef policy fill:#fef2f2,stroke:#dc2626,color:#0f172a;
   classDef evidence fill:#eff6ff,stroke:#2563eb,color:#0f172a;
   classDef semantic fill:#ecfdf5,stroke:#059669,color:#0f172a;
   classDef compile fill:#fff7ed,stroke:#ea580c,color:#0f172a;
   classDef execute fill:#f5f3ff,stroke:#7c3aed,color:#0f172a;
+  class CM root;
   class PolicyManager,StatsCollector policy;
   class SessionStore,EventStore,MessageStore,ArtifactStore evidence;
   class StateProjector,MemoryStore,TraceManager semantic;
   class ContextBuilder,Compressor compile;
-  class ModelCalls,ToolCalls,Validators execute;
+  class ModelCalls,ToolCalls,Validators,EventWrite execute;
