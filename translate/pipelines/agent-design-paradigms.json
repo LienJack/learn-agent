@@ -1,0 +1,164 @@
+{
+	"id": "agent-design-paradigms",
+	"name": "Agent 设计范式系列",
+	"sourceDir": "src/content/blog/zh/AI/agent设计范式",
+	"targets": {
+		"en": {
+			"locale": "en",
+			"targetDir": "src/content/blog/en/AI/agent-design-paradigms",
+			"prompt": "translate/prompts/en-translation.md",
+			"mermaidPrompt": "translate/prompts/en-mermaid.md",
+			"imagePrompt": "translate/prompts/en-image-localization.md",
+			"tags": {
+				"设计范式": "Design Paradigms",
+				"技术教程": "Technical Tutorial",
+				"权限治理": "Permission Governance"
+			}
+		},
+		"ja": {
+			"locale": "ja",
+			"targetDir": "src/content/blog/ja/AI/agent-design-paradigms",
+			"prompt": "translate/prompts/ja-translation.md",
+			"mermaidPrompt": "translate/prompts/ja-mermaid.md",
+			"imagePrompt": "translate/prompts/ja-image-localization.md",
+			"tags": {
+				"设计范式": "設計パラダイム",
+				"技术教程": "技術チュートリアル",
+				"权限治理": "権限ガバナンス"
+			}
+		}
+	},
+	"files": [
+		{
+			"source": "00.专栏导读.md",
+			"targets": {
+				"en": {
+					"file": "00-series-guide.md",
+					"title": "Guide to the Agent Design Paradigms Series",
+					"description": "A guide to stable Agent system design paradigms: context, memory, tools, permissions, collaboration, compaction, recovery, and auditable execution.",
+					"aliases": ["Agent design paradigms", "Agent system design", "Agent architecture patterns"]
+				},
+				"ja": {
+					"file": "00-series-guide.md",
+					"title": "Agent 設計パラダイムシリーズガイド",
+					"description": "Context、memory、tools、permission、collaboration、compaction、recovery、auditable execution など、Agent システムに長く残る設計パラダイムを整理するシリーズガイドです。",
+					"aliases": ["Agent 設計パラダイム", "Agent システム設計", "Agent アーキテクチャパターン"]
+				}
+			}
+		},
+		{
+			"source": "01-context-manager-attention-os.md",
+			"targets": {
+				"en": {
+					"file": "01-context-manager-attention-os.md",
+					"title": "Context Manager Paradigm: The Agent Attention Operating System",
+					"description": "Upgrade Agent context from concatenated messages[] into an attention governance layer built from event facts, state projection, long-term memory, external evidence, tool environment, and system policy.",
+					"aliases": ["Agent Context Manager", "Context Manager paradigm", "Attention Operating System", "Reconstructable context"]
+				},
+				"ja": {
+					"file": "01-context-manager-attention-os.md",
+					"title": "Context Manager 新パラダイム：Agent の注意オペレーティングシステム",
+					"description": "Agent の context を messages[] の連結から、event facts、state projection、long-term memory、external evidence、tool environment、system policy が参加する attention governance layer へ引き上げます。",
+					"aliases": ["Agent Context Manager", "Context Manager 新パラダイム", "Attention Operating System", "再構築可能な context"]
+				}
+			}
+		},
+		{
+			"source": "02-agent-long-term-memory-self-upgrade.md",
+			"targets": {
+				"en": {
+					"file": "02-agent-long-term-memory-self-upgrade.md",
+					"title": "Long-Term Memory and Self-Optimization for Agents",
+					"description": "Turn an Agent's experience into traceable memory, reusable skills, and testable optimizations, then use evaluation, gradual rollout, and rollback to make the Agent improve steadily.",
+					"aliases": ["Agent Experience OS", "ECO-SAGE Loop", "Long-term memory and self-optimization", "Agent self-upgrade"]
+				},
+				"ja": {
+					"file": "02-agent-long-term-memory-self-upgrade.md",
+					"title": "Agent の長期記憶と自己最適化パラダイム",
+					"description": "Agent の経験を追跡可能な memory、再利用可能な skill、テスト可能な optimization に変換し、evaluation、gradual rollout、rollback によって Agent を安定して改善します。",
+					"aliases": ["Agent Experience OS", "ECO-SAGE Loop", "長期記憶と自己最適化", "Agent Self-Upgrade"]
+				}
+			}
+		},
+		{
+			"source": "03-tool-manager-action-os.md",
+			"targets": {
+				"en": {
+					"file": "03-tool-manager-action-os.md",
+					"title": "Tool Manager Paradigm: The Agent Action Operating System",
+					"description": "Upgrade an Agent tool system from a function registry into an action governance layer around capability, intent, permission, credentials, sandboxing, execution, side effects, and auditability.",
+					"aliases": ["Agent Tool Manager", "Tool Manager paradigm", "Action Operating System", "Agent tool governance"]
+				},
+				"ja": {
+					"file": "03-tool-manager-action-os.md",
+					"title": "Tool Manager 新パラダイム：Agent の行動オペレーティングシステム",
+					"description": "Agent の tool system を function registry から、capability、intent、permission、credentials、sandbox、execution、side effects、auditability を扱う action governance layer へ引き上げます。",
+					"aliases": ["Agent Tool Manager", "Tool Manager 新パラダイム", "Action Operating System", "Agent ツールガバナンス"]
+				}
+			}
+		},
+		{
+			"source": "04-agent-team-assignment-communication.md",
+			"targets": {
+				"en": {
+					"file": "04-agent-team-assignment-communication.md",
+					"title": "Agent Team Task Assignment and Communication Protocols",
+					"description": "Move Agent Team design beyond topology diagrams into a collaboration runtime for task assignment, leases, structured communication, evidence return, conflict handling, and verified merge.",
+					"aliases": ["Agent Team assignment protocol", "Multi-Agent communication protocol", "Assignment and Communication Layer", "Agent collaboration runtime"]
+				},
+				"ja": {
+					"file": "04-agent-team-assignment-communication.md",
+					"title": "Agent Team のタスク割り当てと通信プロトコル",
+					"description": "Agent Team を複数 Agent の topology diagram から、task assignment、lease、structured communication、evidence return、conflict handling、verified merge を扱う collaboration runtime へ進めます。",
+					"aliases": ["Agent Team 割り当てプロトコル", "Multi-Agent 通信プロトコル", "Assignment and Communication Layer", "Agent 協調ランタイム"]
+				}
+			}
+		}
+	],
+	"mermaid": [
+		{ "source": "04-agent-team-assignment-communication.md", "prefix": "04-agent-team-assignment-communication/mermaid", "blocks": [1, 2, 3, 4, 5, 6] }
+	],
+	"ordinaryImages": [
+		"01-context-manager-attention-os/photo-01-context.png",
+		"01-context-manager-attention-os/photo-02-item-d14e53bd.png",
+		"01-context-manager-attention-os/photo-03-context.png",
+		"01-context-manager-attention-os/photo-04-context-manager.png",
+		"01-context-manager-attention-os/photo-05-context-ontology.png",
+		"01-context-manager-attention-os/photo-06-session.png",
+		"01-context-manager-attention-os/photo-07-event.png",
+		"01-context-manager-attention-os/photo-08-state.png",
+		"01-context-manager-attention-os/photo-09-artifact.png",
+		"01-context-manager-attention-os/photo-10-trace.png",
+		"01-context-manager-attention-os/photo-11-context-builder.png",
+		"01-context-manager-attention-os/photo-12-compaction.png",
+		"01-context-manager-attention-os/photo-13-cot.png",
+		"01-context-manager-attention-os/photo-14-branch-memory-retrieval-subagent-context.png",
+		"01-context-manager-attention-os/photo-15-mvp.png",
+		"01-context-manager-attention-os/photo-16-item-f911edb4.png",
+		"01-context-manager-attention-os/photo-17-item-cc93ad2b.png",
+		"02-agent-long-term-memory-self-upgrade/photo-01-experience-to-capability.png",
+		"02-agent-long-term-memory-self-upgrade/photo-02-typed-memory-taxonomy.png",
+		"02-agent-long-term-memory-self-upgrade/photo-03-memory-read-write-paths.png",
+		"02-agent-long-term-memory-self-upgrade/photo-04-double-loop-three-assets.png",
+		"02-agent-long-term-memory-self-upgrade/photo-05-skill-lifecycle.png",
+		"02-agent-long-term-memory-self-upgrade/photo-06-rats-skill-gate.png",
+		"02-agent-long-term-memory-self-upgrade/photo-07-skill-eval-harness.png",
+		"02-agent-long-term-memory-self-upgrade/photo-08-release-governance.png",
+		"03-tool-manager-action-os/photo-01-action-control-plane.png",
+		"03-tool-manager-action-os/photo-02-function-registry-risk.png",
+		"03-tool-manager-action-os/photo-03-tool-call-lifecycle.png",
+		"03-tool-manager-action-os/photo-04-evidence-artifact-flow.png",
+		"03-tool-manager-action-os/photo-05-registration-state-machine.png",
+		"03-tool-manager-action-os/photo-06-intent-tool-resolution.png",
+		"03-tool-manager-action-os/photo-07-permission-sandbox-gates.png",
+		"03-tool-manager-action-os/photo-08-capability-source-map.png",
+		"03-tool-manager-action-os/photo-09-agent-loop-tool-manager.png",
+		"03-tool-manager-action-os/photo-10-context-tool-runtime-map.png",
+		"04-agent-team-assignment-communication/photo-01-runtime-loop.png",
+		"04-agent-team-assignment-communication/photo-02-assignment-eight-steps.png",
+		"04-agent-team-assignment-communication/photo-03-allocation-strategy-selector.png",
+		"04-agent-team-assignment-communication/photo-04-topology-assignment-communication.png",
+		"04-agent-team-assignment-communication/photo-05-communication-channels.png",
+		"04-agent-team-assignment-communication/photo-06-payment-refactor-collaboration.png"
+	]
+}

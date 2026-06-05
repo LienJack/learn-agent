@@ -34,7 +34,7 @@ Qiita 专用可选字段：
 
 - `qiita_id`：已有文章 ID；存在时走更新，否则创建新文章。
 - `qiita_title`：覆盖发布到 Qiita 的标题。
-- `qiita_tags`：覆盖 `tags`，最多 5 个。
+- `qiita_tags`：覆盖 `tags`，最多 5 个。推荐使用不含空格的 Qiita-safe 标签，例如 `AgentRuntime`，不要写 `Agent Runtime`。
 - `qiita_tweet`：是否触发 Qiita 的 X/Twitter 联动。
 - `qiita_group_url_name`：Qiita Team group。
 - `qiita_organization_url_name`：Qiita Organization。
@@ -77,6 +77,13 @@ PUBLISH_IMAGE_BASE_URL=https://raw.githubusercontent.com/LienJack/learn-agent/ma
 这个错误会生成 `.../main/assets/...`，Qiita 页面会显示图片 404。
 
 发布前必须检查 `publish/artifacts/.../*.qiita.md` 中所有图片 URL；对每个 `raw.githubusercontent.com` URL 执行 HEAD 检查并确认返回 `200`。多篇文章如果位于不同目录，不要共用一个目录级 base URL 批量发布；应分目录发布，或使用 `PUBLISH_IMAGE_UPLOAD_COMMAND` 生成逐图公网 URL。
+
+## 标签经验
+
+- Qiita 某些带空格标签会触发 `POST /api/v2/items` 返回 `403 Forbidden`，即使同一 token 创建其他文章是正常的。
+- 已确认本系列中的 `Agent Runtime` 会触发这个问题；改为 `AgentRuntime` 后可正常发布。
+- 发布脚本现在会对 Qiita 标签自动移除半角/全角空格，并在 dry-run 摘要里给出 warning。
+- 如果想保持更可控的映射，建议在源文 frontmatter 里显式设置 `qiita_tags`，不要直接复用站内 `tags`。
 
 ## 更新映射
 

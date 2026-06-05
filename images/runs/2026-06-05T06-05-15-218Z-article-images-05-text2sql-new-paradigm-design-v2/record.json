@@ -1,0 +1,102 @@
+{
+  "id": "2026-06-05T06-05-15-218Z-article-images-05-text2sql-new-paradigm-design-v2",
+  "command": "article-images",
+  "stage": "compress",
+  "status": "completed",
+  "startedAt": "2026-06-05T06:05:15.219Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/AI/agent设计范式/05-text2sql-new-paradigm-design-v2.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-08",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-09",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-10",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-11",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-12",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-13",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-14",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-05T06-05-15-218Z-article-images-05-text2sql-new-paradigm-design-v2",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-05T06-05-15-218Z-article-images-05-text2sql-new-paradigm-design-v2/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 1 article(s)",
+    "confirmed": true
+  },
+  "notes": [],
+  "finishedAt": "2026-06-05T06:05:17.556Z"
+}

@@ -10,10 +10,10 @@ import {
 import BlogPost from '../../layouts/BlogPost.astro';
 import { DEFAULT_LOCALE } from '../../i18n/config';
 import {
+	getAdjacentPostsInSameSeries,
 	getLocalizedPosts,
 	getPostFilePathSegments,
 	getPostSlug,
-	sortPostsChronologically,
 } from '../../content/blog/utils';
 import { buildBlogPostSeoData } from '../../seo/blog';
 
@@ -54,7 +54,6 @@ type Props = PostProps | StructuredProps;
 
 const props = Astro.props as Props;
 const allPosts = await getCollection('blog');
-const localePosts = sortPostsChronologically(getLocalizedPosts(allPosts, locale));
 
 let template: 'post' | 'group' | 'series' = 'post';
 let renderedPost: CollectionEntry<'blog'> | null = null;
@@ -82,9 +81,9 @@ if (props.kind === 'post') {
 	const rendered = await render(renderedPost);
 	Content = rendered.Content;
 	headings = rendered.headings;
-	const currentIndex = localePosts.findIndex((entry) => entry.id === renderedPost?.id);
-	prevPost = currentIndex > 0 ? localePosts[currentIndex - 1] : null;
-	nextPost = currentIndex >= 0 ? localePosts[currentIndex + 1] ?? null : null;
+	const adjacentPosts = getAdjacentPostsInSameSeries(allPosts, renderedPost, locale);
+	prevPost = adjacentPosts.prevPost;
+	nextPost = adjacentPosts.nextPost;
 	seo = await buildBlogPostSeoData({
 		post: renderedPost,
 		allPosts,

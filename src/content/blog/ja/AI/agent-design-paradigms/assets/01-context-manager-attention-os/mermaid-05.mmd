@@ -1,0 +1,25 @@
+flowchart TB
+  Root["root session<br/>ユーザー目標と初期現場"]
+  Main["main path<br/>メインライン実行"]
+  BranchA["branch A<br/>案 A を探索"]
+  BranchB["branch B<br/>案 B を探索"]
+  Subagent["subagent task<br/>隔離した調査 / 検証"]
+  Join["merge / compare<br/>evidence refs 付きでメインラインへ戻す"]
+
+  Root --> Main
+  Root --> BranchA
+  Root --> BranchB
+  Root --> Subagent
+  BranchA --> Join
+  BranchB --> Join
+  Subagent --> Join
+  Join --> Main
+
+  classDef root fill:#eff6ff,stroke:#2563eb,color:#0f172a;
+  classDef branch fill:#fff7ed,stroke:#ea580c,color:#0f172a;
+  classDef main fill:#ecfdf5,stroke:#059669,color:#0f172a;
+  classDef join fill:#f5f3ff,stroke:#7c3aed,color:#0f172a;
+  class Root root;
+  class Main main;
+  class BranchA,BranchB,Subagent branch;
+  class Join join;

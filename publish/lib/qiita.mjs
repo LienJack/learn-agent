@@ -23,6 +23,7 @@ const qiitaIndexPath = path.join(publishRoot, 'qiita-items.json');
 export function inspectQiitaArticle(article, options = {}) {
 	const imageRefs = findMarkdownImageRefs(article.body);
 	const localImageRefs = imageRefs.filter((ref) => isLocalImageRef(ref.url));
+	const requestedTags = requestedQiitaTags(article);
 	const tags = qiitaTags(article);
 	const itemId = options.itemId || qiitaItemId(article);
 	const blockers = [
@@ -50,6 +51,13 @@ export function inspectQiitaArticle(article, options = {}) {
 	}
 	if (!itemId) {
 		warnings.push(`${article.sourceRelPath}: no qiita_id found; publish will create a new Qiita item.`);
+	}
+	const normalizedTagPairs = requestedTags
+		.map((tag, index) => [tag, tags[index]])
+		.filter(([requested, normalized]) => requested && normalized && requested !== normalized);
+	if (normalizedTagPairs.length > 0) {
+		const summary = normalizedTagPairs.map(([requested, normalized]) => `${JSON.stringify(requested)} -> ${JSON.stringify(normalized)}`).join(', ');
+		warnings.push(`${article.sourceRelPath}: normalized Qiita tags for API safety: ${summary}.`);
 	}
 
 	return {
@@ -157,8 +165,10 @@ export function qiitaItemId(article) {
 }
 
 export function qiitaTags(article) {
-	const values = asArray(article.data.qiita_tags).length > 0 ? asArray(article.data.qiita_tags) : asArray(article.data.tags);
-	return values.map((tag) => String(tag).trim()).filter(Boolean);
+	const normalized = requestedQiitaTags(article)
+		.map((tag) => normalizeQiitaTag(tag))
+		.filter(Boolean);
+	return [...new Set(normalized)];
 }
 
 function qiitaPayload(article, body, options) {
@@ -193,6 +203,16 @@ function qiitaCommandPlan(article) {
 		publishPublic: [`publish/bin/publish-qiita --public --yes ${JSON.stringify(article.sourceRelPath)}`],
 		update: [`publish/bin/publish-qiita --item-id <qiita_item_id> --yes ${JSON.stringify(article.sourceRelPath)}`],
 	};
+}
+
+function requestedQiitaTags(article) {
+	return (asArray(article.data.qiita_tags).length > 0 ? asArray(article.data.qiita_tags) : asArray(article.data.tags))
+		.map((tag) => String(tag).trim())
+		.filter(Boolean);
+}
+
+function normalizeQiitaTag(tag) {
+	return String(tag).trim().replace(/[\s\u3000]+/g, '');
 }
 
 async function publicUrlFor(localPath, sourceRef) {

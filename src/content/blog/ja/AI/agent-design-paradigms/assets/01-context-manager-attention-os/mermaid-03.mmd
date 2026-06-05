@@ -1,0 +1,24 @@
+flowchart TB
+  subgraph Inputs["出典つきの入力素材"]
+    direction LR
+    Required["P0 / P1 必須入力<br/>instructions / current request / tool pairs"]
+    StateTrace["State + Trace<br/>goal / plan / facts / evidence refs"]
+    History["Summary + Recent<br/>出典つき要約 / 直近の完全なターン"]
+    Retrieval["Memory + Artifacts<br/>scope / trust / freshness"]
+  end
+
+  Required --> Builder["ContextBuilder<br/>select / rank / redact"]
+  StateTrace --> Builder
+  History --> Builder
+  Retrieval --> Builder
+  Builder --> BudgetFit["Fit to Budget<br/>P0 / P1 を保持し、P2 / P3 を削る"]
+  BudgetFit --> Bundle["ContextBundle<br/>最小十分なコンテキスト"]
+  Bundle --> Adapter["Provider Adapter<br/>プロトコルとモデル形式を適配"]
+  Adapter --> RequestPayload["Model Request<br/>このターンの最終入力スナップショット"]
+
+  classDef input fill:#eff6ff,stroke:#2563eb,color:#0f172a;
+  classDef compile fill:#fff7ed,stroke:#ea580c,color:#0f172a;
+  classDef output fill:#ecfdf5,stroke:#059669,color:#0f172a;
+  class Required,StateTrace,History,Retrieval input;
+  class Builder,BudgetFit,Adapter compile;
+  class Bundle,RequestPayload output;

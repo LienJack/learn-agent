@@ -1,0 +1,14 @@
+flowchart LR
+  Source["Source-of-Truth Layer<br/>Event Log / Raw Messages<br/>Tool Results / Artifacts<br/>File Diffs / External Observations"]
+  Semantic["Semantic Layer<br/>State / Summary / Memory<br/>Decision Log / Evidence Graph / Trace"]
+  Input["Model Input Layer<br/>Context Bundle / Prompt Payload<br/>Tool Schemas / Model-specific Messages"]
+
+  Source -->|"projection / retrieval / compression"| Semantic
+  Semantic -->|"context compilation"| Input
+
+  classDef source fill:#e8f5ff,stroke:#0369a1,color:#0f172a;
+  classDef semantic fill:#ecfdf5,stroke:#047857,color:#0f172a;
+  classDef input fill:#fff7ed,stroke:#c2410c,color:#0f172a;
+  class Source source;
+  class Semantic semantic;
+  class Input input;

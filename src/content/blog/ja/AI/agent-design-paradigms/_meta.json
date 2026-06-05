@@ -1,0 +1,7 @@
+{
+	"title": "Agent 設計パラダイム",
+	"alias": "Agent 設計パラダイム",
+	"description": "Context Manager、ツール境界、メモリガバナンス、協調分離、ランタイム制御まで、Agent システムに長く残る設計パラダイムを整理します。",
+	"cover": "/blog-covers/agent-design-paradigm.svg",
+	"order": 5
+}

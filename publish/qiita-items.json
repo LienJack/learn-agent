@@ -16,5 +16,17 @@
     "url": "https://qiita.com/LienJack/items/18f5d7a47d516d20d2c4",
     "title": "Agent の構成モデル：Model、Loop、Tools、State",
     "updatedAt": "2026-06-03T03:48:12.111Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-04-harness-control-system.md": {
+    "id": "d3d27266d86d303e5c41",
+    "url": "https://qiita.com/LienJack/items/d3d27266d86d303e5c41",
+    "title": "Harness の基本定義：モデル外部の制御システム",
+    "updatedAt": "2026-06-04T02:00:23.650Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-05-agent-evolution-path.md": {
+    "id": "07be54623f97fd59470a",
+    "url": "https://qiita.com/LienJack/items/07be54623f97fd59470a",
+    "title": "Agent の進化経路：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent",
+    "updatedAt": "2026-06-05T01:03:03.119Z"
   }
 }

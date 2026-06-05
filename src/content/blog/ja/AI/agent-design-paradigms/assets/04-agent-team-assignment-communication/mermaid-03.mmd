@@ -1,0 +1,21 @@
+flowchart TD
+	T["TaskSpec"] --> Q{"Task shape"}
+	Q -->|small clear owned| LP["Lead Push"]
+	Q -->|many agents different skills| CM["Capability Matching"]
+	Q -->|long batch recoverable| CL["Claim + Lease"]
+	Q -->|large multi-domain| RD["Recursive Delegation"]
+	Q -->|high risk uncertain| RA["Redundant Assignment"]
+	Q -->|sensitive decision| HA["Human Assignment"]
+
+	LP --> O["Owner + DelegationBrief"]
+	CM --> O
+	CL --> L["TaskLease + Heartbeat"]
+	RD --> D["Domain Lead + Worker Tasks"]
+	RA --> J["ConflictDetector + Verifier"]
+	HA --> U["Human Approval"]
+
+	L --> V["Verification"]
+	O --> V
+	D --> V
+	J --> V
+	U --> V

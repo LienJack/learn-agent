@@ -1,0 +1,19 @@
+flowchart TD
+	LC["Lead Channel"] --> Msg["AgentMessage"]
+	TB["TaskBoard"] --> Msg
+	EB["EventBus"] --> Msg
+	MB["Mailbox"] --> Msg
+	AS["ArtifactStore"] --> Msg
+	DL["DecisionLog"] --> Msg
+	RQ["ReviewQueue"] --> Msg
+	EC["Escalation Channel"] --> Msg
+
+	Msg --> Policy["Policy Gate"]
+	Policy --> Trace["Trace + Audit"]
+	Trace --> Verify["Verifier"]
+	Verify --> Merge["MergeManager"]
+
+	classDef state fill:#eef7ff,stroke:#2d6f9f,stroke-width:1px;
+	classDef guard fill:#fff7d6,stroke:#8a6d00,stroke-width:1px;
+	class Msg,Trace state;
+	class Policy,Verify guard;

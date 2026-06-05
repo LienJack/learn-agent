@@ -1,0 +1,21 @@
+flowchart TD
+    API["API / Chat Controller"] --> Conv["Conversation Service"]
+    Conv --> Agent["Text2SQL Agent Runtime"]
+
+    Agent --> Intent["Intent Service"]
+    Agent --> Knowledge["Knowledge Service"]
+    Agent --> Planner["Planner Service"]
+    Agent --> Compiler["Query Compiler"]
+    Agent --> Validator["SQL Validator"]
+    Agent --> Executor["Query Executor"]
+    Agent --> Formatter["Answer Formatter"]
+    Agent --> Replay["Replay / Eval Service"]
+
+    Knowledge --> Catalog["Schema Catalog"]
+    Knowledge --> Semantic["Semantic Model"]
+    Knowledge --> Examples["SQL Examples"]
+
+    Compiler --> LLM["LLM Gateway"]
+    Validator --> Policy["Policy Service"]
+    Executor --> Policy
+    Knowledge --> Policy

@@ -1,0 +1,18 @@
+flowchart LR
+  Ingress["1. 入力を記録<br/>User message<br/>UserPromptSubmitted"]
+  StateContext["2. 投影とコンパイル<br/>retrieve memory / artifacts<br/>project state + build bundle"]
+  ModelTurn["3. モデルターン<br/>call model<br/>ModelResponseReceived"]
+  RuntimeBranch["4. 実行時ブランチ<br/>tool: validate / approve / execute<br/>limit: compact with provenance"]
+  Final["5. 検証して返信<br/>verifier checks<br/>assistant reply with evidence"]
+
+  Ingress --> StateContext --> ModelTurn --> RuntimeBranch --> Final
+
+  classDef event fill:#eff6ff,stroke:#2563eb,color:#0f172a;
+  classDef state fill:#ecfdf5,stroke:#059669,color:#0f172a;
+  classDef model fill:#f5f3ff,stroke:#7c3aed,color:#0f172a;
+  classDef tool fill:#fff7ed,stroke:#ea580c,color:#0f172a;
+  classDef gate fill:#fef2f2,stroke:#dc2626,color:#0f172a;
+  class Ingress event;
+  class StateContext,Final state;
+  class ModelTurn model;
+  class RuntimeBranch tool;

@@ -15,9 +15,8 @@ import {
 import { languageConfig, sourceToTargetSlugMap } from './pipelines.mjs';
 import { writeRunRecord } from './records.mjs';
 
-const DEFAULT_CODEX_MODEL = 'gpt-5-codex';
-const DEFAULT_CODEX_TIMEOUT_MS = 300_000;
-const MAX_TRANSLATION_CHARS = 12_000;
+const DEFAULT_CODEX_TIMEOUT_MS = 600_000;
+const MAX_TRANSLATION_CHARS = 1_000;
 
 export function planTranslations({ pipeline, language, plans }) {
 	const slugMap = sourceToTargetSlugMap(pipeline, language);
@@ -205,14 +204,11 @@ export function runCodexTranslation(prompt) {
 		'--ignore-rules',
 		'--sandbox',
 		'read-only',
-		'--ask-for-approval',
-		'never',
 		'--cd',
 		repoRoot,
 		'--output-last-message',
 		outputPath,
-		'--model',
-		codexModel(),
+		...codexModelArgs(),
 		'-',
 	];
 
@@ -252,7 +248,12 @@ ${chunk}`;
 }
 
 function codexModel() {
-	return process.env.TRANSLATE_CODEX_MODEL || DEFAULT_CODEX_MODEL;
+	return process.env.TRANSLATE_CODEX_MODEL || 'codex-default';
+}
+
+function codexModelArgs() {
+	const model = process.env.TRANSLATE_CODEX_MODEL;
+	return model ? ['--model', model] : [];
 }
 
 function codexTimeoutMs() {
