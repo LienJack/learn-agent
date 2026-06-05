@@ -1,0 +1,16 @@
+stateDiagram-v2
+    [*] --> GeneratedSql
+    GeneratedSql --> Validating
+    Validating --> Executable: pass
+    Validating --> CorrectableError: syntax / column / dialect
+    Validating --> HardReject: readonly / ACL / parse rejected
+    CorrectableError --> CorrectionAttempt: attempts below max
+    CorrectionAttempt --> Validating
+    CorrectableError --> HardReject: attempts exhausted
+    Executable --> ExecuteSql
+    ExecuteSql --> GroundedAnswer: rows returned
+    ExecuteSql --> EmptyResultAnswer: rows = 0
+    HardReject --> RefusalAnswer
+    GroundedAnswer --> Replay
+    EmptyResultAnswer --> Replay
+    RefusalAnswer --> Replay

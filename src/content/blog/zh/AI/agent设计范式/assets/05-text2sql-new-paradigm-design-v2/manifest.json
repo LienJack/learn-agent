@@ -1,0 +1,304 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/AI/agent设计范式/05-text2sql-new-paradigm-design-v2.md",
+  "workspace": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2",
+  "updatedAt": "2026-06-05T06:05:17.556Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-01.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-01.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 27224,
+      "sha256": "dcdaf091172942cc492b0c24c65dab0656c99509ee2548a1323133ffe7458391",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:15.266Z",
+      "compression": {
+        "beforeBytes": 27224,
+        "afterBytes": 27224,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-02.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-02.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 83825,
+      "sha256": "9fe681778b9dc63e757972cebecc5c0e717b5e766fbfdb3d148e58e091d4e9eb",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:15.393Z",
+      "compression": {
+        "beforeBytes": 83825,
+        "afterBytes": 83825,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-03.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-03.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 83307,
+      "sha256": "d24367cbad51a8e59ea0a9764d2b1cffb581984d4111765894ea14606af6b18f",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:15.521Z",
+      "compression": {
+        "beforeBytes": 83307,
+        "afterBytes": 83307,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-04.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-04.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 157086,
+      "sha256": "acb7707bb64e04cd4216810b7f07a155ea3b61ad5e5c1b373bef1f91dba270fd",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:15.771Z",
+      "compression": {
+        "beforeBytes": 157086,
+        "afterBytes": 157086,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-05.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-05.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 96993,
+      "sha256": "a9a8de9a5078caff99a97c44f0ebbc6002d3c5cf1cf8181489d6e59528b2cb27",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:15.927Z",
+      "compression": {
+        "beforeBytes": 96993,
+        "afterBytes": 96993,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-06.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-06.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-06.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 6",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 158636,
+      "sha256": "1a3a71ec75950653244451f6602b77539bdbbd3d13a4b83dbb84e86ca79536e5",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:16.225Z",
+      "compression": {
+        "beforeBytes": 158636,
+        "afterBytes": 158636,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-07",
+      "kind": "mermaid",
+      "block": 7,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-07.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-07.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-07.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 7",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 79149,
+      "sha256": "af7675a650c91c6935fed9fc1c7cc4ccde14a491bd50023dc2d9c9c27598dd87",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:16.353Z",
+      "compression": {
+        "beforeBytes": 79149,
+        "afterBytes": 79149,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-08",
+      "kind": "mermaid",
+      "block": 8,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-08.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-08.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-08.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 8",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 190329,
+      "sha256": "9dfc2152706e72e54d58337dd8bb0176c154b3538810842464bcc3fe2b5608a7",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:16.714Z",
+      "compression": {
+        "beforeBytes": 190329,
+        "afterBytes": 190329,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-09",
+      "kind": "mermaid",
+      "block": 9,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-09.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-09.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-09.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 9",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 119241,
+      "sha256": "88a56cab8519bf9c5fdf7ee8ad3c4511da70120a1e30a8d87de1219836444e27",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:16.918Z",
+      "compression": {
+        "beforeBytes": 119241,
+        "afterBytes": 119241,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-10",
+      "kind": "mermaid",
+      "block": 10,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-10.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-10.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-10.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 10",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 108974,
+      "sha256": "64017c62fead64cdd0d4a27338e907c96e824718124fb2392badd69e0daebfaf",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:17.108Z",
+      "compression": {
+        "beforeBytes": 108974,
+        "afterBytes": 108974,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-11",
+      "kind": "mermaid",
+      "block": 11,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-11.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-11.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-11.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 11",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 40781,
+      "sha256": "3a299d7cf0240be147fdecdc5f8c93c1735d616fed81327e5833390a040ac23d",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:17.161Z",
+      "compression": {
+        "beforeBytes": 40781,
+        "afterBytes": 40781,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-12",
+      "kind": "mermaid",
+      "block": 12,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-12.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-12.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-12.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 12",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 149516,
+      "sha256": "c9ee906ac4bd2b0ec3df3541cee857bc2a02e69630803ea7991c7040a51ccdc0",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:17.348Z",
+      "compression": {
+        "beforeBytes": 149516,
+        "afterBytes": 149516,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-13",
+      "kind": "mermaid",
+      "block": 13,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-13.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-13.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-13.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 13",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 87015,
+      "sha256": "574624f4e73186b9a954aa773707806fd0c78917e20eb5d1d7563c4f6cf01132",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:17.491Z",
+      "compression": {
+        "beforeBytes": 87015,
+        "afterBytes": 87015,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-14",
+      "kind": "mermaid",
+      "block": 14,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-14.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/mermaid-14.png",
+      "markdownRef": "./assets/05-text2sql-new-paradigm-design-v2/mermaid-14.png",
+      "alt": "Text2SQL 新范式：可验证问数操作系统 flow 14",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 48134,
+      "sha256": "67eaf785bc717100db5208adafef411af516e86127cb2a976fd86de131056adf",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-05T06:05:17.551Z",
+      "compression": {
+        "beforeBytes": 48134,
+        "afterBytes": 48134,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

@@ -64,3 +64,36 @@ export function sortPostsChronologically(posts: BlogEntry[]): BlogEntry[] {
 export function sortPostsReverseChronologically(posts: BlogEntry[]): BlogEntry[] {
 	return [...sortPostsChronologically(posts)].reverse();
 }
+
+type AdjacentBlogPosts = {
+	prevPost: BlogEntry | null;
+	nextPost: BlogEntry | null;
+};
+
+function getPostSeriesKey(post: BlogEntry): string | null {
+	const segments = getPostFilePathSegments(post);
+	if (segments.length < 4 || segments.includes('assets')) {
+		return null;
+	}
+
+	return segments.slice(0, 3).join('/');
+}
+
+export function getAdjacentPostsInSameSeries(
+	posts: BlogEntry[],
+	post: BlogEntry,
+	locale: Locale,
+): AdjacentBlogPosts {
+	const seriesKey = getPostSeriesKey(post);
+	const localizedPosts = getLocalizedPosts(posts, locale);
+	const candidatePosts = seriesKey
+		? localizedPosts.filter((entry) => getPostSeriesKey(entry) === seriesKey)
+		: localizedPosts;
+	const orderedPosts = sortPostsChronologically(candidatePosts);
+	const currentIndex = orderedPosts.findIndex((entry) => entry.id === post.id);
+
+	return {
+		prevPost: currentIndex > 0 ? orderedPosts[currentIndex - 1] : null,
+		nextPost: currentIndex >= 0 ? orderedPosts[currentIndex + 1] ?? null : null,
+	};
+}

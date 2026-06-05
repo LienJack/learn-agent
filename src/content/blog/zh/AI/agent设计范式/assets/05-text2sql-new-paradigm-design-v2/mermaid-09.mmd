@@ -1,0 +1,11 @@
+flowchart TD
+    DS["Datasource created / refreshed"] --> Extract["Extract raw schema"]
+    Extract --> Infer["Infer types and stats"]
+    Infer --> Enrich["Add comments, samples, tags"]
+    Enrich --> Rel["Detect relationships and join hints"]
+    Rel --> Sensitive["Mark sensitive fields"]
+    Sensitive --> Version["Create SchemaCatalogVersion"]
+    Version --> Gate{"Build success?"}
+    Gate -- "yes" --> Active["Switch active version"]
+    Gate -- "no" --> Failed["Keep previous active version"]
+    Active --> Ready["Datasource Ready for Text2SQL"]

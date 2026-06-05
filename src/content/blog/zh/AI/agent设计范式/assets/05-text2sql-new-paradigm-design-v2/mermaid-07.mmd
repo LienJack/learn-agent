@@ -1,0 +1,10 @@
+flowchart TD
+    Catalog["Active Schema Catalog"] --> ACL["Workspace / Actor ACL"]
+    ACL --> Visible["Visible tables and columns"]
+    Visible --> Retrieve["Retrieve schema / metrics / examples"]
+    Retrieve --> Rerank["Rerank by relevance and confidence"]
+    Rerank --> Budget["Fit token budget"]
+    Budget --> Pack["SelectedContextPack"]
+    Pack --> Prompt["Prompt Builder"]
+    Pack --> Evidence["Evidence Snapshot"]
+    Evidence --> Replay["Replay"]

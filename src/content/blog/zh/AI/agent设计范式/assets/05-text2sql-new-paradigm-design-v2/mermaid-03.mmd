@@ -1,0 +1,14 @@
+flowchart TD
+    U["用户问题"] --> BP["大 Prompt"]
+    SC["schema 片段"] --> BP
+    BI["业务术语"] --> BP
+    ACL["权限规则"] --> BP
+    EX["历史样例"] --> BP
+    ERR["执行错误"] --> BP
+    BP --> SQL["SQL 文本"]
+    SQL --> RUN["执行与回答"]
+    RUN --> BUG{"出错时"}
+    BUG --> B1["字段来源难追踪"]
+    BUG --> B2["权限泄露难证明"]
+    BUG --> B3["口径错误难复盘"]
+    BUG --> B4["无法沉淀 eval case"]

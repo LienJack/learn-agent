@@ -1,0 +1,12 @@
+flowchart TD
+    Run["Text2SQL Run"] --> Replay["Replay Evidence"]
+    Replay --> Classify["Classify failure layer"]
+    Classify --> Eval["Promote to eval case"]
+    Eval --> Regression["Regression suite"]
+    Regression --> Patch["Improve schema / metric / retrieval / prompt / validator"]
+    Patch --> NextRun["Next Text2SQL Run"]
+    NextRun --> Replay
+
+    Replay --> Metrics["Accuracy and safety metrics"]
+    Metrics --> Prioritize["Prioritize weakest plane"]
+    Prioritize --> Patch

@@ -1,0 +1,11 @@
+flowchart LR
+    Slots["QuerySlots<br/>用户想问什么"] --> IntentPlan["IntentPlan<br/>查询形态"]
+    IntentPlan --> SemanticPlan["SemanticPlan<br/>业务词绑定证据"]
+    SemanticPlan --> PhysicalPlan["PhysicalSqlPlan<br/>表列 join 聚合"]
+    PhysicalPlan --> PlanCheck["PlanValidation"]
+    PlanCheck --> SqlContract["SqlGenerationOutput Contract"]
+    SqlContract --> Validator["SQL Validator"]
+
+    Evidence["Evidence Refs"] -.-> SemanticPlan
+    Context["SelectedContextPack"] -.-> PhysicalPlan
+    Policy["Policy"] -.-> PlanCheck

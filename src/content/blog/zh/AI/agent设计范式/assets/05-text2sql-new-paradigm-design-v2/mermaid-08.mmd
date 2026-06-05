@@ -1,0 +1,22 @@
+flowchart TD
+    A["Datasource Ready"] --> B["Schema Ingestion"]
+    B --> C["Active Schema Catalog"]
+    C --> D["User Question"]
+    D --> E["Resolve Workspace ACL"]
+    E --> F["Understand Query Slots"]
+    F --> G{"Need Clarification?"}
+    G -- "yes" --> G1["Ask Focused Question"]
+    G -- "no" --> H["Retrieve Knowledge"]
+    H --> I["ACL-filtered Selected Context"]
+    I --> J["Intent Plan"]
+    J --> K["Semantic Plan"]
+    K --> L["Physical SQL Plan"]
+    L --> M["Plan Validation"]
+    M --> N["Generate Structured SQL"]
+    N --> O["SQL Validation"]
+    O --> P{"Correctable?"}
+    P -- "yes" --> Q["Diagnose + Correct SQL"]
+    Q --> O
+    P -- "no / pass" --> R["Execute SQL"]
+    R --> S["Grounded Answer"]
+    S --> T["Replay + Eval Metrics"]

@@ -1,0 +1,14 @@
+{
+  "dryRun": false,
+  "stage": "compress",
+  "articles": [
+    {
+      "article": "src/content/blog/zh/AI/agent设计范式/05-text2sql-new-paradigm-design-v2.md",
+      "workspace": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2",
+      "manifest": "src/content/blog/zh/AI/agent设计范式/assets/05-text2sql-new-paradigm-design-v2/manifest.json",
+      "assets": [],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

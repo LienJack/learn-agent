@@ -1,0 +1,13 @@
+flowchart TD
+    Q["User Question"] --> Slot["Extract QuerySlots"]
+    Slot --> Match["Match metrics / dimensions / entities"]
+    Match --> Risk{"High-risk missing slot?"}
+    Risk -- "yes" --> Clarify["Ask focused clarification"]
+    Risk -- "no" --> Conflict{"Multiple valid meanings?"}
+    Conflict -- "yes" --> Clarify
+    Conflict -- "no" --> Default{"Safe default available?"}
+    Default -- "yes" --> Assume["Proceed with explicit assumptions"]
+    Default -- "no" --> Clarify
+    Assume --> Plan["Build IntentPlan"]
+    Clarify --> Q2["User supplies missing fact"]
+    Q2 --> Slot

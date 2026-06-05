@@ -1,0 +1,13 @@
+flowchart TD
+    U["User Question"] --> I["Intent Plane<br/>slots / ambiguity / clarification"]
+    I --> K["Knowledge Plane<br/>schema / examples / relationships"]
+    K --> G["Governance Plane<br/>ACL / policy / audit"]
+    G --> C["Compilation Plane<br/>selected context / prompt / output contract"]
+    C --> P["Planning Plane<br/>intent / semantic / physical plan"]
+    P --> V["Validation Plane<br/>plan check / SQL check / dry-run"]
+    V --> E["Execution Plane<br/>query / rows / columns"]
+    E --> A["Answer Plane<br/>grounded response"]
+    A --> R["Feedback Plane<br/>replay / eval / metrics"]
+    R -.-> K
+    R -.-> P
+    R -.-> V

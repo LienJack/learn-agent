@@ -11,6 +11,12 @@ tags:
   - Agent Runtime
   - Observability
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - Harness
+  - AgentRuntime
+  - Observability
+  - 技術チュートリアル
 aliases:
   - Harness の基本定義
   - モデル外部の制御システム

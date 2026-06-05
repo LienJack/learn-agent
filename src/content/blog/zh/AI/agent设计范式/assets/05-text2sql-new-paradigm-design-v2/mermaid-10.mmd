@@ -1,0 +1,13 @@
+flowchart TD
+    User["Actor / Workspace"] --> Policy["Policy Service"]
+    Policy --> PromptAcl["Prompt-time ACL"]
+    Policy --> ExecuteAcl["Execute-time ACL"]
+    PromptAcl --> FilterSchema["Filter schema catalog"]
+    FilterSchema --> Context["SelectedContextPack"]
+    Context --> Model["SQL generation model"]
+    Model --> SQL["Generated SQL"]
+    SQL --> Parse["Parse referenced objects"]
+    Parse --> ExecuteAcl
+    ExecuteAcl --> Gate{"Authorized and parseable?"}
+    Gate -- "yes" --> Execute["Execute read-only SQL"]
+    Gate -- "no" --> Reject["Fail closed + audit"]

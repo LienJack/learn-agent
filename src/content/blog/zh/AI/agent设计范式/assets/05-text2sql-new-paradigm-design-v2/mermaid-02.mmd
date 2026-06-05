@@ -1,0 +1,23 @@
+flowchart TD
+    subgraph Inputs["输入事实与约束"]
+        Intent["Intent<br/>用户意图"]
+        Schema["SchemaCatalog<br/>真实表列关系"]
+        Semantic["SemanticModel<br/>指标与业务术语"]
+        Policy["Policy<br/>权限与安全边界"]
+        Evidence["Evidence<br/>样例与执行证据"]
+        Runtime["RuntimeState<br/>方言、预算、环境"]
+    end
+
+    Intent --> Compiler["Text2SQL Compiler"]
+    Schema --> Compiler
+    Semantic --> Compiler
+    Policy --> Compiler
+    Evidence --> Compiler
+    Runtime --> Compiler
+    Compiler --> Slots["QuerySlots"]
+    Compiler --> Context["SelectedContextPack"]
+    Compiler --> Plan["Intent / Semantic / Physical Plan"]
+    Plan --> SqlDraft["Structured SQL Draft"]
+    SqlDraft --> Validation["Validation Report"]
+    Validation --> Answer["Grounded Answer"]
+    Answer --> Replay["Replay Evidence"]
