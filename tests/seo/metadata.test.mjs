@@ -1,12 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+	DEFAULT_SHARE_IMAGE,
+	DEFAULT_SHARE_IMAGE_ALT,
 	buildAbsoluteUrl,
 	buildArticleJsonLd,
 	buildBreadcrumbJsonLd,
 	buildCanonicalUrl,
 	buildCollectionJsonLd,
 	buildLocalizedShellAlternates,
+	buildPersonId,
+	buildPersonJsonLd,
 	buildSelfAlternate,
 	resolveImageUrl,
 	serializeJsonLd,
@@ -27,12 +31,36 @@ test('builds canonical URLs, fallback images, and BlogPosting JSON-LD for an art
 		buildCanonicalUrl('/blog/AI/2.Rag/06.索引优化'),
 		'https://blog.lienjack.com/blog/AI/2.Rag/06.%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96',
 	);
-	assert.equal(resolveImageUrl(undefined), 'https://blog.lienjack.com/blog-covers/ai-reading-robot.svg');
+	assert.equal(DEFAULT_SHARE_IMAGE, '/social/lien-jack-share.jpg');
+	assert.equal(DEFAULT_SHARE_IMAGE_ALT, 'Lien Jack share image');
+	assert.equal(resolveImageUrl(undefined), 'https://blog.lienjack.com/social/lien-jack-share.jpg');
 	assert.equal(article['@type'], 'BlogPosting');
 	assert.equal(article.headline, 'RAG 索引优化');
-	assert.deepEqual(article.image, ['https://blog.lienjack.com/blog-covers/ai-reading-robot.svg']);
+	assert.deepEqual(article.image, ['https://blog.lienjack.com/social/lien-jack-share.jpg']);
 	assert.equal(article.mainEntityOfPage['@id'], buildAbsoluteUrl('/blog/AI/2.Rag/06.索引优化'));
+	assert.equal(article.author['@id'], 'https://blog.lienjack.com/about#lien-jack');
+	assert.equal(article.author.name, 'Lien Jack');
+	assert.deepEqual(article.author.alternateName, ['LienJack']);
+	assert.deepEqual(article.author.sameAs, ['https://github.com/LienJack']);
 	assert.doesNotMatch(serializeJsonLd(article), /undefined/);
+});
+
+test('builds Person JSON-LD from the centralized personal identity facts', () => {
+	const person = buildPersonJsonLd({ locale: 'zh' });
+
+	assert.equal(buildPersonId(), 'https://blog.lienjack.com/about#lien-jack');
+	assert.equal(person['@type'], 'Person');
+	assert.equal(person['@id'], 'https://blog.lienjack.com/about#lien-jack');
+	assert.equal(person.name, 'Lien Jack');
+	assert.deepEqual(person.alternateName, ['LienJack']);
+	assert.deepEqual(person.sameAs, ['https://github.com/LienJack']);
+	assert.equal(person.url, 'https://blog.lienjack.com/about');
+	assert.equal(person.image, 'https://blog.lienjack.com/social/lien-jack-share.jpg');
+	assert.match(person.description, /Agent Builder/);
+	assert.match(person.description, /全栈/);
+	assert.ok(person.knowsAbout.includes('Agent Harness'));
+	assert.ok(person.subjectOf.some((item) => item.url === 'https://blog.lienjack.com/blog/AI/build-harness'));
+	assert.doesNotMatch(serializeJsonLd(person), /undefined|\/Users|Photos Library|photoslibrary/i);
 });
 
 test('builds self-referencing and shell alternates without mixing canonical and hreflang', () => {

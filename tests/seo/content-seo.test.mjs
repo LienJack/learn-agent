@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { PERSONAL_IDENTITY } from '../../src/seo/identity.ts';
 
 const targetMetaFiles = [
 	'src/content/blog/zh/AI/3.ClaudeCode源码解析/_meta.json',
@@ -78,4 +79,28 @@ test('target content lines include verifiable same-topic internal links', async 
 	assert.match(ragIndex, /\]\(\/blog\/AI\/2\.Rag\)/);
 	assert.match(ragIndex, /\]\(\.\/01\.整体步骤\)/);
 	assert.match(ragIndex, /\]\(\.\/05\.检索前置处理\)/);
+});
+
+test('localized about metadata keeps the same public identity and career signal', async () => {
+	const messages = await readText('src/i18n/messages.ts');
+
+	assert.match(messages, /aboutTitle: '关于 Lien Jack'/);
+	assert.match(messages, /aboutTitle: 'About Lien Jack'/);
+	assert.match(messages, /aboutTitle: 'Lien Jack について'/);
+	assert.match(messages, /title: 'Lien Jack'/);
+	assert.match(messages, /role: '全栈工程师 \/ Agent Builder'/);
+	assert.match(messages, /role: 'Full Stack Engineer \/ Agent Builder'/);
+	assert.match(messages, /role: 'フルスタックエンジニア \/ Agent Builder'/);
+	assert.match(messages, new RegExp(`href: '${PERSONAL_IDENTITY.githubUrl}'`));
+});
+
+test('llms.txt describes identity boundaries without leaking local source paths', async () => {
+	const llms = await readText('public/llms.txt');
+
+	assert.match(llms, /Public name: Lien Jack/);
+	assert.match(llms, /Technical\/account alias: LienJack/);
+	assert.match(llms, /Official profile: https:\/\/blog\.lienjack\.com\/about/);
+	assert.match(llms, /GitHub identity anchor: https:\/\/github\.com\/LienJack/);
+	assert.match(llms, /contact channels, but they are not used here as same-person identity proof/);
+	assert.doesNotMatch(llms, /\/Users|Photos Library|photoslibrary|file:\/\//i);
 });

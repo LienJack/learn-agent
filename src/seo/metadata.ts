@@ -5,9 +5,18 @@ import {
 	LOCALE_TO_HTML_LANG,
 	type Locale,
 } from '../i18n/config.ts';
+import {
+	getCanonicalAuthorName,
+	getIdentityDescription,
+	getIdentityJobTitle,
+	getIdentityPath,
+	isPersonalIdentityAlias,
+	PERSONAL_IDENTITY,
+} from './identity.ts';
 
 export const SITE_URL = 'https://blog.lienjack.com';
-export const DEFAULT_SHARE_IMAGE = '/blog-covers/ai-reading-robot.svg';
+export const DEFAULT_SHARE_IMAGE = PERSONAL_IDENTITY.shareImagePath;
+export const DEFAULT_SHARE_IMAGE_ALT = PERSONAL_IDENTITY.shareImageAlt;
 
 export type SeoPageType = 'website' | 'article' | 'collection';
 
@@ -50,6 +59,11 @@ export type CollectionJsonLdInput = {
 		description?: string;
 	}>;
 	breadcrumbs?: BreadcrumbItem[];
+};
+
+export type PersonJsonLdInput = {
+	locale: Locale;
+	path?: string;
 };
 
 function getSiteUrl(site: string | URL | undefined = SITE_URL): string {
@@ -183,10 +197,54 @@ export function buildBreadcrumbJsonLd(
 	};
 }
 
+export function buildPersonId(site?: string | URL): string {
+	return `${buildAbsoluteUrl(getIdentityPath(DEFAULT_LOCALE), site)}#lien-jack`;
+}
+
+export function buildPersonReferenceJsonLd(site?: string | URL): JsonLdObject {
+	return {
+		'@type': 'Person',
+		'@id': buildPersonId(site),
+		name: PERSONAL_IDENTITY.name,
+		alternateName: [...PERSONAL_IDENTITY.alternateNames],
+		url: buildAbsoluteUrl(getIdentityPath(DEFAULT_LOCALE), site),
+		sameAs: [PERSONAL_IDENTITY.githubUrl],
+	};
+}
+
+export function buildPersonJsonLd(input: PersonJsonLdInput, site?: string | URL): JsonLdObject {
+	const canonicalUrl = buildCanonicalUrl(input.path ?? getIdentityPath(input.locale), site);
+
+	return {
+		'@context': 'https://schema.org',
+		...buildPersonReferenceJsonLd(site),
+		image: resolveImageUrl(PERSONAL_IDENTITY.shareImagePath, site),
+		jobTitle: getIdentityJobTitle(input.locale),
+		description: getIdentityDescription(input.locale),
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': canonicalUrl,
+		},
+		knowsAbout: [...PERSONAL_IDENTITY.knowsAbout],
+		subjectOf: PERSONAL_IDENTITY.representativeContent.map((item) => ({
+			'@type': 'WebPage',
+			name: item.name,
+			url: buildAbsoluteUrl(item.path, site),
+			description: item.description[input.locale],
+		})),
+	};
+}
+
 export function buildArticleJsonLd(input: ArticleJsonLdInput, site?: string | URL): JsonLdObject {
 	const canonicalUrl = buildCanonicalUrl(input.path, site);
 	const imageUrl = resolveImageUrl(input.image, site);
-	const authorName = input.author || 'Lien Jack';
+	const authorName = getCanonicalAuthorName(input.author);
+	const author = isPersonalIdentityAlias(authorName)
+		? buildPersonReferenceJsonLd(site)
+		: {
+				'@type': 'Person',
+				name: authorName,
+			};
 
 	return {
 		'@context': 'https://schema.org',
@@ -201,10 +259,7 @@ export function buildArticleJsonLd(input: ArticleJsonLdInput, site?: string | UR
 		image: [imageUrl],
 		datePublished: new Date(input.pubDate).toISOString(),
 		dateModified: new Date(input.updatedDate ?? input.pubDate).toISOString(),
-		author: {
-			'@type': 'Person',
-			name: authorName,
-		},
+		author,
 		publisher: {
 			'@type': 'Organization',
 			name: 'Learn- Agent',
