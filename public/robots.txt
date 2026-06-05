@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://blog.lienjack.com/sitemap-index.xml

@@ -6,9 +6,12 @@ import Header from '../components/Header.astro';
 import VercelAnalytics from '../components/VercelAnalytics.astro';
 import { DEFAULT_LOCALE } from '../i18n/config';
 import { getHtmlLang, getMessages } from '../i18n/messages';
+import { PERSONAL_IDENTITY } from '../seo/identity';
+import { buildPersonJsonLd } from '../seo/metadata';
 
 const locale = DEFAULT_LOCALE;
 const messages = getMessages(locale);
+const personJsonLd = buildPersonJsonLd({ locale }, Astro.site);
 ---
 
 <!doctype html>
@@ -17,7 +20,10 @@ const messages = getMessages(locale);
 		<BaseHead
 			title={messages.meta.aboutTitle}
 			description={messages.meta.aboutDescription}
+			image={PERSONAL_IDENTITY.shareImagePath}
+			imageAlt={PERSONAL_IDENTITY.shareImageAlt}
 			locale={locale}
+			structuredData={personJsonLd}
 		/>
 	</head>
 	<body>

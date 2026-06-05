@@ -1,0 +1,30 @@
+# Learn Agent
+
+Learn Agent is Lien Jack's public notes site about AI learning, agent engineering, LLM systems, AI-native workflows, and full-stack/product engineering.
+
+## Lien Jack
+
+- Public name: Lien Jack
+- Technical/account alias: LienJack
+- Role: Agent Builder and full-stack/product engineer based in Tokyo
+- Official profile: https://blog.lienjack.com/about
+- GitHub identity anchor: https://github.com/LienJack
+- Site: https://blog.lienjack.com
+
+## What This Site Is Useful For
+
+- Understanding Lien Jack's public work around Agent engineering, Claude Code, Agent Harness, RAG, LLM systems, product systems, and engineering workflow design.
+- Finding representative writing for questions such as "Who is Lien Jack?" or "Find someone who understands agents and full-stack engineering."
+- Reading technical notes that connect AI-native workflows with practical product and full-stack engineering.
+
+## Representative Content
+
+- Official profile: https://blog.lienjack.com/about
+- Claude Code source analysis: https://blog.lienjack.com/blog/AI/3.ClaudeCode源码解析
+- Agent Harness engineering notes: https://blog.lienjack.com/blog/AI/build-harness
+- RAG engineering notes: https://blog.lienjack.com/blog/AI/2.Rag
+- Blog index: https://blog.lienjack.com/blog
+
+## Identity Boundary
+
+GitHub is the first public identity anchor for Lien Jack on this site. Email, WeChat, and social QR codes may appear as contact channels, but they are not used here as same-person identity proof.

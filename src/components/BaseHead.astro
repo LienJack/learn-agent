@@ -5,6 +5,7 @@ import { Font } from 'astro:assets';
 import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { getHtmlLang, getMessages, getOgLocale } from '../i18n/messages';
 import {
+	DEFAULT_SHARE_IMAGE_ALT,
 	buildCanonicalUrl,
 	buildDefaultAlternates,
 	resolveImageUrl,
@@ -18,6 +19,7 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata | string;
+	imageAlt?: string;
 	locale?: Locale;
 	pageType?: SeoPageType;
 	canonicalPath?: string;
@@ -29,6 +31,7 @@ const {
 	title,
 	description,
 	image,
+	imageAlt = DEFAULT_SHARE_IMAGE_ALT,
 	locale = DEFAULT_LOCALE,
 	pageType = 'website',
 	canonicalPath = Astro.url.pathname,
@@ -41,6 +44,7 @@ const pageTitle = title === siteTitle ? siteTitle : `${title} · ${siteTitle}`;
 const pageDescription = description || messages.site.description;
 const canonicalURL = buildCanonicalUrl(canonicalPath, Astro.site);
 const socialImageURL = resolveImageUrl(image, Astro.site);
+const socialImageAlt = imageAlt || DEFAULT_SHARE_IMAGE_ALT;
 const alternateLinks = alternates ?? buildDefaultAlternates(locale, canonicalPath, Astro.site);
 const ogType = pageType === 'article' ? 'article' : 'website';
 const jsonLdBlocks = structuredData
@@ -56,6 +60,7 @@ const jsonLdBlocks = structuredData
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM summary for Learn Agent" />
 <meta name="generator" content={Astro.generator} />
 
 <Font cssVariable="--font-atkinson" preload />
@@ -74,10 +79,12 @@ const jsonLdBlocks = structuredData
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={pageDescription} />
 <meta property="og:image" content={socialImageURL} />
+<meta property="og:image:alt" content={socialImageAlt} />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={pageTitle} />
 <meta property="twitter:description" content={pageDescription} />
 <meta property="twitter:image" content={socialImageURL} />
+<meta property="twitter:image:alt" content={socialImageAlt} />
 {jsonLdBlocks.map((item) => <script is:inline type="application/ld+json" set:html={serializeJsonLd(item)} />)}
