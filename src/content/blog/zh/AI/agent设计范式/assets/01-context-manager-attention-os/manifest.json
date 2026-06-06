@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/AI/agent设计范式/01-context-manager-attention-os.md",
   "workspace": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os",
-  "updatedAt": "2026-06-03T07:46:40.898Z",
+  "updatedAt": "2026-06-06T05:16:46.145Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -148,6 +148,27 @@
       "compression": {
         "beforeBytes": 25178,
         "afterBytes": 25178,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-08",
+      "kind": "mermaid",
+      "block": 8,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-08.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/01-context-manager-attention-os/mermaid-08.png",
+      "markdownRef": "./assets/01-context-manager-attention-os/mermaid-08.png",
+      "alt": "Context Manager 新范式：Agent 的注意力操作系统 - L0-L3 四层关系",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 53663,
+      "sha256": "178c276e968c6f4ef4bef735e111c4d77e24e08417a347f1acba6baa751b09f1",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-06T05:16:46.144Z",
+      "compression": {
+        "beforeBytes": 53663,
+        "afterBytes": 53663,
         "savedBytes": 0
       }
     },

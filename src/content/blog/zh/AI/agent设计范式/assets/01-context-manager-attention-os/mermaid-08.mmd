@@ -1,0 +1,18 @@
+flowchart BT
+  L3["L3 Event & Evidence Layer<br/>append-only<br/>保存真实发生过什么"]
+  L2["L2 Semantic Projection Layer<br/>从事实层投影出状态、记忆、trace<br/>和可复用语义"]
+  L1["L1 Working Context Layer<br/>当前任务正在使用的热上下文"]
+  L0["L0 Model Request Layer<br/>发给模型的最终上下文快照"]
+
+  L3 -->|"project / compact / govern"| L2
+  L2 -->|"retrieve / select / activate"| L1
+  L1 -->|"compile / fit / redact"| L0
+
+  classDef evidence fill:#eff6ff,stroke:#2563eb,color:#0f172a;
+  classDef semantic fill:#ecfdf5,stroke:#059669,color:#0f172a;
+  classDef working fill:#fff7ed,stroke:#ea580c,color:#0f172a;
+  classDef request fill:#f5f3ff,stroke:#7c3aed,color:#0f172a;
+  class L3 evidence;
+  class L2 semantic;
+  class L1 working;
+  class L0 request;
