@@ -10,7 +10,7 @@ import { buildPersonJsonLd } from '../../seo/metadata';
 
 const locale = 'ja';
 const messages = getMessages(locale);
-const personJsonLd = buildPersonJsonLd({ locale }, Astro.site);
+const personJsonLd = buildPersonJsonLd({ locale, path: '/ja/about' }, Astro.site);
 ---
 
 <!doctype html>

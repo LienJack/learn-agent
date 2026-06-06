@@ -6,6 +6,8 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 import rehypeArticleMedia from './src/content/blog/plugins/rehype-article-media.ts';
 
+const BUILD_LASTMOD = new Date().toISOString();
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://blog.lienjack.com',
@@ -32,6 +34,7 @@ export default defineConfig({
 					url.pathname.startsWith('/blog/AI/')
 						? 0.8
 						: 0.6;
+				item.lastmod = BUILD_LASTMOD;
 				return item;
 			},
 		}),

@@ -6,9 +6,12 @@ import HomePage from '../../components/home/HomePage';
 import VercelAnalytics from '../../components/VercelAnalytics.astro';
 import { getHtmlLang, getMessages } from '../../i18n/messages';
 import { localizePath } from '../../i18n/utils';
+import { PERSONAL_IDENTITY } from '../../seo/identity';
+import { buildPersonJsonLd } from '../../seo/metadata';
 
 const locale = 'ja';
 const messages = getMessages(locale);
+const personJsonLd = buildPersonJsonLd({ locale, path: localizePath(locale, '/') }, Astro.site);
 ---
 
 <!doctype html>
@@ -17,7 +20,10 @@ const messages = getMessages(locale);
 		<BaseHead
 			title={messages.meta.homeTitle}
 			description={messages.site.description}
+			image={PERSONAL_IDENTITY.shareImagePath}
+			imageAlt={PERSONAL_IDENTITY.shareImageAlt}
 			locale={locale}
+			structuredData={personJsonLd}
 		/>
 	</head>
 	<body class="locale-ja">

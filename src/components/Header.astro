@@ -2,6 +2,7 @@
 import { LOCALES, LOCALE_LABELS } from '../i18n/config';
 import { getMessages } from '../i18n/messages';
 import { getLocaleFromPathname, getSwitchLocalePath, localizePath } from '../i18n/utils';
+import { getIdentityPath } from '../seo/identity';
 import HeaderLink from './HeaderLink.astro';
 
 const locale = getLocaleFromPathname(Astro.url.pathname);
@@ -19,7 +20,7 @@ const displayTitle = messages.site.title.replace(/-\s*/g, ' ');
 		<div class="site-nav">
 			<HeaderLink href={localizePath(locale, '/')}>{messages.header.home}</HeaderLink>
 			<HeaderLink href={localizePath(locale, '/blog')}>{messages.header.blog}</HeaderLink>
-			<HeaderLink href={localizePath(locale, '/about')}>{messages.header.about}</HeaderLink>
+			<HeaderLink href={getIdentityPath(locale)}>{messages.header.about}</HeaderLink>
 		</div>
 		<div class="site-header-actions">
 			<a

@@ -6,23 +6,30 @@ import Header from '../components/Header.astro';
 import VercelAnalytics from '../components/VercelAnalytics.astro';
 import { DEFAULT_LOCALE } from '../i18n/config';
 import { getHtmlLang, getMessages } from '../i18n/messages';
-import { PERSONAL_IDENTITY } from '../seo/identity';
+import {
+	getIdentityDescription,
+	getIdentityJobTitle,
+	getIdentityPath,
+	PERSONAL_IDENTITY,
+} from '../seo/identity';
 import { buildPersonJsonLd } from '../seo/metadata';
 
 const locale = DEFAULT_LOCALE;
 const messages = getMessages(locale);
-const personJsonLd = buildPersonJsonLd({ locale, path: '/about' }, Astro.site);
+const identityPath = getIdentityPath(locale);
+const personJsonLd = buildPersonJsonLd({ locale, path: identityPath }, Astro.site);
 ---
 
 <!doctype html>
 <html lang={getHtmlLang(locale)}>
 	<head>
 		<BaseHead
-			title={messages.meta.aboutTitle}
-			description={messages.meta.aboutDescription}
+			title={`${PERSONAL_IDENTITY.name} - ${getIdentityJobTitle(locale)}`}
+			description={getIdentityDescription(locale)}
 			image={PERSONAL_IDENTITY.shareImagePath}
 			imageAlt={PERSONAL_IDENTITY.shareImageAlt}
 			locale={locale}
+			canonicalPath={identityPath}
 			structuredData={personJsonLd}
 		/>
 	</head>

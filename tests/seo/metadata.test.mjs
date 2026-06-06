@@ -38,7 +38,7 @@ test('builds canonical URLs, fallback images, and BlogPosting JSON-LD for an art
 	assert.equal(article.headline, 'RAG 索引优化');
 	assert.deepEqual(article.image, ['https://blog.lienjack.com/social/lien-jack-share.jpg']);
 	assert.equal(article.mainEntityOfPage['@id'], buildAbsoluteUrl('/blog/AI/2.Rag/06.索引优化'));
-	assert.equal(article.author['@id'], 'https://blog.lienjack.com/about#lien-jack');
+	assert.equal(article.author['@id'], 'https://blog.lienjack.com/lien-jack#lien-jack');
 	assert.equal(article.author.name, 'Lien Jack');
 	assert.deepEqual(article.author.alternateName, ['LienJack']);
 	assert.deepEqual(article.author.sameAs, ['https://github.com/LienJack']);
@@ -48,13 +48,13 @@ test('builds canonical URLs, fallback images, and BlogPosting JSON-LD for an art
 test('builds Person JSON-LD from the centralized personal identity facts', () => {
 	const person = buildPersonJsonLd({ locale: 'zh' });
 
-	assert.equal(buildPersonId(), 'https://blog.lienjack.com/about#lien-jack');
+	assert.equal(buildPersonId(), 'https://blog.lienjack.com/lien-jack#lien-jack');
 	assert.equal(person['@type'], 'Person');
-	assert.equal(person['@id'], 'https://blog.lienjack.com/about#lien-jack');
+	assert.equal(person['@id'], 'https://blog.lienjack.com/lien-jack#lien-jack');
 	assert.equal(person.name, 'Lien Jack');
 	assert.deepEqual(person.alternateName, ['LienJack']);
 	assert.deepEqual(person.sameAs, ['https://github.com/LienJack']);
-	assert.equal(person.url, 'https://blog.lienjack.com/about');
+	assert.equal(person.url, 'https://blog.lienjack.com/lien-jack');
 	assert.equal(person.image, 'https://blog.lienjack.com/social/lien-jack-share.jpg');
 	assert.match(person.description, /Agent Builder/);
 	assert.match(person.description, /全栈/);
@@ -81,6 +81,12 @@ test('builds self-referencing and shell alternates without mixing canonical and 
 	assert.equal(alternates[1].href, 'https://blog.lienjack.com/en/blog');
 	assert.equal(alternates[2].href, 'https://blog.lienjack.com/ja/blog');
 	assert.equal(alternates[3].href, 'https://blog.lienjack.com/blog');
+
+	const identityAlternates = buildLocalizedShellAlternates('/en/lien-jack');
+	assert.equal(identityAlternates[0].href, 'https://blog.lienjack.com/lien-jack');
+	assert.equal(identityAlternates[1].href, 'https://blog.lienjack.com/en/lien-jack');
+	assert.equal(identityAlternates[2].href, 'https://blog.lienjack.com/ja/lien-jack');
+	assert.equal(identityAlternates[3].href, 'https://blog.lienjack.com/lien-jack');
 });
 
 test('builds collection and breadcrumb JSON-LD from directory metadata inputs', () => {

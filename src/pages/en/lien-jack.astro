@@ -1,42 +1,41 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
+import AboutPage from '../../components/about/AboutPage.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import HomePage from '../../components/home/HomePage';
 import VercelAnalytics from '../../components/VercelAnalytics.astro';
 import { getHtmlLang, getMessages } from '../../i18n/messages';
-import { localizePath } from '../../i18n/utils';
-import { PERSONAL_IDENTITY } from '../../seo/identity';
+import {
+	getIdentityDescription,
+	getIdentityJobTitle,
+	getIdentityPath,
+	PERSONAL_IDENTITY,
+} from '../../seo/identity';
 import { buildPersonJsonLd } from '../../seo/metadata';
 
 const locale = 'en';
 const messages = getMessages(locale);
-const personJsonLd = buildPersonJsonLd({ locale, path: localizePath(locale, '/') }, Astro.site);
+const identityPath = getIdentityPath(locale);
+const personJsonLd = buildPersonJsonLd({ locale, path: identityPath }, Astro.site);
 ---
 
 <!doctype html>
 <html lang={getHtmlLang(locale)}>
 	<head>
 		<BaseHead
-			title={messages.meta.homeTitle}
-			description={messages.site.description}
+			title={`${PERSONAL_IDENTITY.name} - ${getIdentityJobTitle(locale)}`}
+			description={getIdentityDescription(locale)}
 			image={PERSONAL_IDENTITY.shareImagePath}
 			imageAlt={PERSONAL_IDENTITY.shareImageAlt}
 			locale={locale}
+			canonicalPath={identityPath}
 			structuredData={personJsonLd}
 		/>
 	</head>
 	<body>
 		<Header />
 		<main class="page-shell-wide">
-			<HomePage
-				siteTitle={messages.site.title}
-				copy={messages.home}
-				blogHref={localizePath(locale, '/blog')}
-				recommendedHref={localizePath(locale, '/blog/AI/Claude code')}
-				harnessHref={localizePath(locale, '/blog/AI/build-harness')}
-				client:load
-			/>
+			<AboutPage copy={messages.about} />
 		</main>
 		<Footer />
 		<VercelAnalytics />
