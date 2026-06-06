@@ -1,6 +1,6 @@
 import { DEFAULT_LOCALE, LOCALES, type Locale } from './config';
 
-const SHELL_PATHS = new Set(['/', '/about', '/blog']);
+const SHELL_PATHS = new Set(['/', '/about', '/blog', '/lien-jack']);
 
 export function isLocale(value: string | undefined): value is Locale {
 	return typeof value === 'string' && LOCALES.includes(value as Locale);

@@ -16,9 +16,9 @@ export const PERSONAL_IDENTITY = {
 	shareImagePath: '/social/lien-jack-share.jpg',
 	shareImageAlt: 'Lien Jack share image',
 	officialPathByLocale: {
-		zh: '/about',
-		en: '/en/about',
-		ja: '/ja/about',
+		zh: '/lien-jack',
+		en: '/en/lien-jack',
+		ja: '/ja/lien-jack',
 	},
 	jobTitleByLocale: {
 		zh: 'Agent Builder / 全栈与产品工程师',

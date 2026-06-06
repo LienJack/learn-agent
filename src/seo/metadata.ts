@@ -171,7 +171,7 @@ export function buildDefaultAlternates(
 	pathname: string,
 	site?: string | URL,
 ): AlternateLink[] {
-	const shellPaths = new Set(['/', '/about', '/blog']);
+	const shellPaths = new Set(['/', '/about', '/blog', '/lien-jack']);
 	const basePath = stripLocaleFromPathname(pathname);
 
 	if (shellPaths.has(basePath)) {

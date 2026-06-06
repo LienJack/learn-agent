@@ -225,11 +225,11 @@ const messages: Record<Locale, LocaleMessages> = {
 	zh: {
 		site: {
 			title: 'Learn- Agent',
-			description: '记录 AI 学习、Agent 实践与工作流方法论的中文笔记站。',
+			description: 'Lien Jack 的 AI Agent、Claude Code、LLM 工程与全栈产品工程笔记站。',
 			tagline: 'AI 学习 / Agent 实践 / 工作流笔记',
 		},
 		meta: {
-			homeTitle: 'learn-agent',
+			homeTitle: 'Lien Jack 的 Learn Agent',
 			aboutTitle: '关于 Lien Jack',
 			aboutDescription:
 				'Lien Jack 的个人介绍：东京的全栈工程师与 Agent Builder，关注产品系统、AI 原生工作流和工程体验。',
@@ -241,15 +241,15 @@ const messages: Record<Locale, LocaleMessages> = {
 			ariaLabel: '主导航',
 			home: '首页',
 			blog: '文章',
-			about: '关于我',
+			about: 'Lien Jack',
 			rss: 'RSS',
 			githubLabel: '在 GitHub 上查看 learn-agent',
 			languageSwitcherLabel: '切换语言',
 		},
 		footer: {
-			description: '记录 AI 学习、Agent 实践与工作流方法论的中文笔记站。',
+			description: 'Lien Jack 的 AI Agent、Claude Code、LLM 工程与全栈产品工程笔记站。',
 			blog: '文章',
-			about: '关于',
+			about: 'Lien Jack',
 			rss: 'RSS',
 			copyrightLabel: '保留所有判断与修订痕迹。',
 		},
@@ -268,8 +268,8 @@ const messages: Record<Locale, LocaleMessages> = {
 			readingProgress: '阅读进度',
 		},
 		home: {
-			eyebrow: 'Agent Learning System',
-			lead: '学习 Agent、Claude Code 和全栈工程的前沿技术站。',
+			eyebrow: 'Lien Jack / Agent Learning System',
+			lead: 'Lien Jack 记录 Agent、Claude Code、LLM 工程和全栈产品工程的技术站。',
 			note: '这里不只写概念，而是把 Claude Code 的运行时、Agent Harness、工具调用、SQL、Redis 与全栈工程拆成可复用的学习路径。',
 			primaryCta: '进入学习路线',
 			secondaryCta: '查看推荐系列',
@@ -656,11 +656,11 @@ const messages: Record<Locale, LocaleMessages> = {
 	en: {
 		site: {
 			title: 'learn-agent',
-			description: 'A notebook on AI learning, agent practice, and workflow thinking.',
+			description: 'Lien Jack writes about AI agents, Claude Code, LLM engineering, and full-stack product engineering.',
 			tagline: 'AI learning / agent practice / workflow notes',
 		},
 		meta: {
-			homeTitle: 'learn-agent',
+			homeTitle: 'Lien Jack - Learn Agent',
 			aboutTitle: 'About Lien Jack',
 			aboutDescription:
 				'About Lien Jack, a Tokyo-based full stack engineer and agent builder focused on product systems and AI-native workflows.',
@@ -672,15 +672,15 @@ const messages: Record<Locale, LocaleMessages> = {
 			ariaLabel: 'Primary navigation',
 			home: 'Home',
 			blog: 'Articles',
-			about: 'About',
+			about: 'Lien Jack',
 			rss: 'RSS',
 			githubLabel: 'View learn-agent on GitHub',
 			languageSwitcherLabel: 'Switch language',
 		},
 		footer: {
-			description: 'A notebook on AI learning, agent practice, and workflow thinking.',
+			description: 'Lien Jack writes about AI agents, Claude Code, LLM engineering, and full-stack product engineering.',
 			blog: 'Articles',
-			about: 'About',
+			about: 'Lien Jack',
 			rss: 'RSS',
 			copyrightLabel: 'A long-form notebook, not a launch log.',
 		},
@@ -699,8 +699,8 @@ const messages: Record<Locale, LocaleMessages> = {
 			readingProgress: 'Reading progress',
 		},
 		home: {
-			eyebrow: 'Agent Learning System',
-			lead: 'A learning site for agent systems, Claude Code, and full stack engineering.',
+			eyebrow: 'Lien Jack / Agent Learning System',
+			lead: 'Lien Jack writes about agent systems, Claude Code, LLM engineering, and full-stack product engineering.',
 			note: 'The archive turns Claude Code runtime, agent harnesses, tool use, SQL, Redis, and product engineering into reusable learning paths.',
 			primaryCta: 'Start learning',
 			secondaryCta: 'Open the series',
@@ -1087,11 +1087,11 @@ const messages: Record<Locale, LocaleMessages> = {
 	ja: {
 		site: {
 			title: 'learn-agent',
-			description: 'AI 学習、Agent 実践、ワークフロー設計を記録するための日本語入口です。',
+			description: 'Lien Jack による AI Agent、Claude Code、LLM engineering、full-stack product engineering のノートです。',
 			tagline: 'AI 学習 / Agent 実践 / ワークフローノート',
 		},
 		meta: {
-			homeTitle: 'learn-agent',
+			homeTitle: 'Lien Jack - Learn Agent',
 			aboutTitle: 'Lien Jack について',
 			aboutDescription:
 				'東京を拠点にする Full Stack Engineer / Agent Builder、Lien Jack の紹介ページです。',
@@ -1103,15 +1103,15 @@ const messages: Record<Locale, LocaleMessages> = {
 			ariaLabel: 'サイトナビゲーション',
 			home: 'トップ',
 			blog: '記事',
-			about: '紹介',
+			about: 'Lien Jack',
 			rss: 'RSS',
 			githubLabel: 'GitHub で learn-agent を見る',
 			languageSwitcherLabel: '言語切替',
 		},
 		footer: {
-			description: 'AI 学習、Agent 実践、ワークフロー設計を記録するための日本語入口です。',
+			description: 'Lien Jack による AI Agent、Claude Code、LLM engineering、full-stack product engineering のノートです。',
 			blog: '記事',
-			about: '紹介',
+			about: 'Lien Jack',
 			rss: 'RSS',
 			copyrightLabel: '途中の判断も残すためのノートサイトです。',
 		},
@@ -1130,8 +1130,8 @@ const messages: Record<Locale, LocaleMessages> = {
 			readingProgress: '読書進捗',
 		},
 		home: {
-			eyebrow: 'Agent Learning System',
-			lead: 'Agent、Claude Code、Full Stack Engineering を学ぶための入口です。',
+			eyebrow: 'Lien Jack / Agent Learning System',
+			lead: 'Lien Jack が Agent、Claude Code、LLM engineering、full-stack product engineering を記録する入口です。',
 			note: 'Claude Code runtime、Agent Harness、tool use、SQL、Redis、product engineering を再利用できる学習経路として整理します。',
 			primaryCta: '学習を始める',
 			secondaryCta: 'シリーズを見る',

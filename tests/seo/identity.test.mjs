@@ -27,10 +27,10 @@ test('author aliases normalize LienJack frontmatter to Lien Jack', () => {
 	assert.equal(getCanonicalAuthorName('Guest Author'), 'Guest Author');
 });
 
-test('localized identity facts align across about pages', () => {
-	assert.equal(getIdentityPath('zh'), '/about');
-	assert.equal(getIdentityPath('en'), '/en/about');
-	assert.equal(getIdentityPath('ja'), '/ja/about');
+test('localized identity facts align across dedicated Lien Jack pages', () => {
+	assert.equal(getIdentityPath('zh'), '/lien-jack');
+	assert.equal(getIdentityPath('en'), '/en/lien-jack');
+	assert.equal(getIdentityPath('ja'), '/ja/lien-jack');
 	assert.match(getIdentityJobTitle('zh'), /Agent Builder/);
 	assert.match(getIdentityJobTitle('en'), /Full-stack/);
 	assert.match(getIdentityDescription('zh'), /LLM/);

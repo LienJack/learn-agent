@@ -1,6 +1,7 @@
 ---
 import { getMessages } from '../i18n/messages';
 import { getLocaleFromPathname, localizePath } from '../i18n/utils';
+import { getIdentityPath } from '../seo/identity';
 
 const today = new Date();
 const locale = getLocaleFromPathname(Astro.url.pathname);
@@ -15,7 +16,7 @@ const messages = getMessages(locale);
 		</div>
 		<div class="site-footer-meta">
 			<a href={localizePath(locale, '/blog')}>{messages.footer.blog}</a>
-			<a href={localizePath(locale, '/about')}>{messages.footer.about}</a>
+			<a href={getIdentityPath(locale)}>{messages.footer.about}</a>
 		</div>
 		<p class="site-footer-copyright">
 			&copy; {today.getFullYear()} {messages.site.title} · {messages.footer.copyrightLabel}
