@@ -28,5 +28,17 @@
     "url": "https://qiita.com/LienJack/items/07be54623f97fd59470a",
     "title": "Agent の進化経路：Chat Agent -> Tool Agent -> Runtime Agent -> Managed Agent",
     "updatedAt": "2026-06-05T01:03:03.119Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-06-handwrite-agent-meaning.md": {
+    "id": "d24fe9f3128e79d725dd",
+    "url": "https://qiita.com/LienJack/items/d24fe9f3128e79d725dd",
+    "title": "Agent を手書きする意味：フレームワーク抽象の背後にある最小メカニズムを理解する",
+    "updatedAt": "2026-06-06T01:04:22.706Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-07-llm-provider-cli-first-call.md": {
+    "id": "e7bca354884ef617ccc7",
+    "url": "https://qiita.com/LienJack/items/e7bca354884ef617ccc7",
+    "title": "LLM Provider 接続：CLI に最初のモデル呼び出しを完了させる",
+    "updatedAt": "2026-06-06T09:04:49.287Z"
   }
 }
