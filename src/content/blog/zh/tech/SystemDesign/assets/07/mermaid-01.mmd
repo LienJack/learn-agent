@@ -1,0 +1,12 @@
+flowchart TB
+  A["全球用户与区域故障"] --> B["地理位置进入架构设计"]
+  B --> C["CDN 与边缘节点"]
+  B --> D["Multi-AZ"]
+  B --> E["Multi-Region"]
+  E --> F["Active-Passive"]
+  E --> G["Active-Active"]
+  C --> H["延迟、流量、合规与故障边界"]
+  D --> H
+  F --> H
+  G --> H
+  H --> I["一致性、切流演练、冲突解决与成本"]

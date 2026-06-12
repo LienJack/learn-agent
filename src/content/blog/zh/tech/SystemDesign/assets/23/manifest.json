@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/SystemDesign/23.韧性工程、混沌工程与事故管理.md",
+  "workspace": "src/content/blog/zh/tech/SystemDesign/assets/23",
+  "updatedAt": "2026-06-07T05:10:10.086Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/SystemDesign/assets/23/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/SystemDesign/assets/23/mermaid-01.png",
+      "markdownRef": "./assets/23/mermaid-01.png",
+      "alt": "韧性工程、混沌工程与事故管理：让失败可控、可恢复、可学习 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 48360,
+      "sha256": "2256f1dd440da4e65aaf39eb695d7ca9ca5bfe5bfc0ea81c00889383b321206a",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:10:10.085Z",
+      "compression": {
+        "beforeBytes": 48360,
+        "afterBytes": 48360,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

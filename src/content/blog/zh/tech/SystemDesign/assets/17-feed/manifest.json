@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/SystemDesign/17.搜索、推荐、Feed 与实时数据.md",
+  "workspace": "src/content/blog/zh/tech/SystemDesign/assets/17-feed",
+  "updatedAt": "2026-06-07T05:09:59.134Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/SystemDesign/assets/17-feed/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/SystemDesign/assets/17-feed/mermaid-01.png",
+      "markdownRef": "./assets/17-feed/mermaid-01.png",
+      "alt": "搜索、推荐、Feed 与实时数据：派生读模型如何支撑业务反馈 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 37172,
+      "sha256": "668b25bf0e083da93650dff1940ff20cd822bedb5cf7c9a65d85190a394200ad",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:59.134Z",
+      "compression": {
+        "beforeBytes": 37172,
+        "afterBytes": 37172,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

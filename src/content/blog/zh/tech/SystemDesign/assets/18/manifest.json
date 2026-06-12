@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/SystemDesign/18.分布式协调、共识与时间.md",
+  "workspace": "src/content/blog/zh/tech/SystemDesign/assets/18",
+  "updatedAt": "2026-06-07T05:10:00.882Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/SystemDesign/assets/18/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/SystemDesign/assets/18/mermaid-01.png",
+      "markdownRef": "./assets/18/mermaid-01.png",
+      "alt": "分布式协调、共识与时间：锁、租约和顺序不能只靠直觉 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 35286,
+      "sha256": "04e0f02445772ddefd36152886f7f02467e3087a7010227c7c13520811335aa4",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:10:00.881Z",
+      "compression": {
+        "beforeBytes": 35286,
+        "afterBytes": 35286,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

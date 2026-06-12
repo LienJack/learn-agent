@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/SystemDesign/14.缓存、索引与读路径优化.md",
+  "workspace": "src/content/blog/zh/tech/SystemDesign/assets/14",
+  "updatedAt": "2026-06-07T05:09:54.052Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/SystemDesign/assets/14/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/SystemDesign/assets/14/mermaid-01.png",
+      "markdownRef": "./assets/14/mermaid-01.png",
+      "alt": "缓存、索引与读路径优化：性能优化首先是读路径设计 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 37716,
+      "sha256": "f32561afdb4ba245ec7cb7e3d296e41a427ced9f747069143543015e0590f3e5",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:54.051Z",
+      "compression": {
+        "beforeBytes": 37716,
+        "afterBytes": 37716,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

@@ -12,6 +12,12 @@ tags:
   - Tool Intent
   - AI SDK
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - Harness
+  - ProviderRuntime
+  - ToolIntent
+  - 技術チュートリアル
 aliases:
   - Provider Runtime Tool Intent
   - Provider は Tool Intent だけを返す

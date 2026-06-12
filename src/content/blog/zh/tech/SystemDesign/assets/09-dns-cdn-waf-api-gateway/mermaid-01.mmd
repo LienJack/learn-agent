@@ -1,0 +1,9 @@
+flowchart TB
+  A["用户请求"] --> B["DNS"]
+  B --> C["CDN 与 TLS"]
+  C --> D["WAF 与 Bot 防护"]
+  D --> E["Global Load Balancer"]
+  E --> F["API Gateway 或 Ingress"]
+  F --> G["业务服务"]
+  H["路由、鉴权、限流、缓存、灰度、隔离"] --> F
+  H --> D

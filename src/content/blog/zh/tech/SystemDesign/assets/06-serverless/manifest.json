@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/SystemDesign/06.云原生、Serverless 与后微服务时代.md",
+  "workspace": "src/content/blog/zh/tech/SystemDesign/assets/06-serverless",
+  "updatedAt": "2026-06-07T05:09:40.238Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/SystemDesign/assets/06-serverless/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/SystemDesign/assets/06-serverless/mermaid-01.png",
+      "markdownRef": "./assets/06-serverless/mermaid-01.png",
+      "alt": "云原生、Serverless 与后微服务时代：托管能力也是架构选择 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 40108,
+      "sha256": "e2cc14f841a12c6b8d7d9491c107a8920452406f8bed17d754765785564503fc",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:40.237Z",
+      "compression": {
+        "beforeBytes": 40108,
+        "afterBytes": 40108,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

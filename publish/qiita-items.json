@@ -40,5 +40,35 @@
     "url": "https://qiita.com/LienJack/items/e7bca354884ef617ccc7",
     "title": "LLM Provider 接続：CLI に最初のモデル呼び出しを完了させる",
     "updatedAt": "2026-06-06T09:04:49.287Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-08-minimal-agent-loop.md": {
+    "id": "d2277d1e386a257035c2",
+    "url": "https://qiita.com/LienJack/items/d2277d1e386a257035c2",
+    "title": "最小 Agent Loop：単発回答から多段階の行動へ",
+    "updatedAt": "2026-06-08T09:04:40.766Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-09-m0-core-kernel.md": {
+    "id": "adc2bfbb6d13798f07d9",
+    "url": "https://qiita.com/LienJack/items/adc2bfbb6d13798f07d9",
+    "title": "M0 Core Kernel：実モデルをシステムへ接続し、システムを乗っ取らせない",
+    "updatedAt": "2026-06-09T09:03:30.613Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-10-intent-execution-separation.md": {
+    "id": "966e9ce1a67fbea4e70c",
+    "url": "https://qiita.com/LienJack/items/966e9ce1a67fbea4e70c",
+    "title": "Intent / Execution の分離：モデルが提案し、システムが実行する",
+    "updatedAt": "2026-06-10T09:03:08.427Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-11-plugin-host-core-extension.md": {
+    "id": "61f61d664feb8d35bef2",
+    "url": "https://qiita.com/LienJack/items/61f61d664feb8d35bef2",
+    "title": "Plugin Host：なぜ core は拡張されることを覚える必要があるのか？",
+    "updatedAt": "2026-06-11T09:02:41.126Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-12-provider-runtime-tool-intent.md": {
+    "id": "a2c86ba39a698770951b",
+    "url": "https://qiita.com/LienJack/private/a2c86ba39a698770951b",
+    "title": "Provider Runtime：なぜ provider は tool intent だけを返すべきなのか",
+    "updatedAt": "2026-06-12T09:04:23.961Z"
   }
 }

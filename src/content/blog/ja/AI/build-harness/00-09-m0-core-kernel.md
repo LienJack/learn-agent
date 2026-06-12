@@ -12,6 +12,12 @@ tags:
   - Provider
   - Agent Runtime
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - Harness
+  - CoreKernel
+  - AgentRuntime
+  - 技術チュートリアル
 aliases:
   - M0 Core Kernel
   - Agent Core Kernel

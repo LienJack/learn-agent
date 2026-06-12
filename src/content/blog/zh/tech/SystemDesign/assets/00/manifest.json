@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/SystemDesign/00.专栏导读.md",
+  "workspace": "src/content/blog/zh/tech/SystemDesign/assets/00",
+  "updatedAt": "2026-06-07T05:09:29.586Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/SystemDesign/assets/00/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/SystemDesign/assets/00/mermaid-01.png",
+      "markdownRef": "./assets/00/mermaid-01.png",
+      "alt": "系统设计专栏导读 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 45606,
+      "sha256": "45f3e7c1e0d85d45033a567d3066c53cec40cdf43dfad21c8d879e72daebdb05",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:29.585Z",
+      "compression": {
+        "beforeBytes": 45606,
+        "afterBytes": 45606,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

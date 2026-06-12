@@ -1,0 +1,359 @@
+{
+  "id": "2026-06-07T05-09-27-176Z-article-images-mermaid-24-articles",
+  "command": "article-images",
+  "stage": "mermaid",
+  "status": "completed",
+  "startedAt": "2026-06-07T05:09:27.176Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/00.专栏导读.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/00",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/01.现代互联网系统设计导论.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/01",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/02.需求、约束与架构决策.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/02",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/03.从用户旅程看系统边界.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/03",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/04.从单体到模块化单体.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/04",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/05.SOA、微服务与服务边界.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/05-soa",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/06.云原生、Serverless 与后微服务时代.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/06-serverless",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/07.边缘、全球化与多区域架构.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/07",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/08.客户端、前端与用户体验系统.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/08",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/09.入口层：DNS、CDN、WAF、API Gateway.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/09-dns-cdn-waf-api-gateway",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/10.API 设计：REST、GraphQL、gRPC 与契约治理.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/10-api-rest-graphql-grpc",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/11.同步通信与可靠调用.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/11",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/12.异步通信、消息队列与事件驱动.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/12",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/13.数据建模与存储系统.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/13",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/14.缓存、索引与读路径优化.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/14",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/15.事务、一致性与分布式数据.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/15",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/16.分库分表、复制与扩展.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/16",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/17.搜索、推荐、Feed 与实时数据.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/17-feed",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/18.分布式协调、共识与时间.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/18",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/19.容器、Kubernetes 与运行时抽象.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/19-kubernetes",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/20.发布系统、灰度与实验平台.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/20",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/21.平台工程与内部开发者平台.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/21",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/22.可观测性：从日志到因果诊断.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/22",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/SystemDesign/23.韧性工程、混沌工程与事故管理.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/SystemDesign/assets/23",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-07T05-09-27-176Z-article-images-mermaid-24-articles",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-07T05-09-27-176Z-article-images-mermaid-24-articles/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 24 article(s)",
+    "confirmed": true
+  },
+  "notes": [],
+  "finishedAt": "2026-06-07T05:10:10.086Z"
+}

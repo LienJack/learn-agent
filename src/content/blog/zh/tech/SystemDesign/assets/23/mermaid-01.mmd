@@ -1,0 +1,11 @@
+flowchart TB
+  A["故障模型"] --> B["预防与限制扩散"]
+  B --> C["Timeout、Retry、Circuit Breaker"]
+  B --> D["Bulkhead、Backpressure、Fallback"]
+  C --> E["监测与告警"]
+  D --> E
+  E --> F["事故响应与恢复"]
+  F --> G["无责复盘"]
+  G --> H["行动项回流到架构、平台、发布与观测"]
+  H --> A
+  I["GameDay 与混沌实验"] --> B
