@@ -1,0 +1,11 @@
+flowchart TB
+  A["多个节点与网络分区"] --> B["协调系统"]
+  B --> C["Quorum 与复制日志"]
+  C --> D["Leader Election"]
+  C --> E["配置版本"]
+  C --> F["Lease 与锁"]
+  F --> G["Fencing Token"]
+  D --> H["控制面事实来源"]
+  E --> H
+  G --> H
+  I["物理时间、逻辑时间与顺序语义"] --> C

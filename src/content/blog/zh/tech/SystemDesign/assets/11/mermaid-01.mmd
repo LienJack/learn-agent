@@ -1,0 +1,10 @@
+flowchart TB
+  A["上游调用"] --> B["Deadline 与 Timeout"]
+  B --> C["Retry、Backoff 与 Jitter"]
+  C --> D["Circuit Breaker"]
+  D --> E["Bulkhead 与限流"]
+  E --> F["Fallback 与降级"]
+  F --> G["指标、日志与 Trace"]
+  G --> H["判断是否转为异步链路"]
+  I["幂等与副作用边界"] --> C
+  I --> F

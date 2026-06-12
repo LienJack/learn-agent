@@ -1,0 +1,9 @@
+flowchart TB
+  A["代码与依赖"] --> B["容器镜像"]
+  B --> C["Pod 与 Deployment"]
+  C --> D["Scheduler 调度"]
+  D --> E["Node 与 Kubelet"]
+  E --> F["Service、Probe、HPA"]
+  F --> G["控制循环调和期望状态"]
+  H["资源、配置、密钥与安全策略"] --> C
+  I["应用语义、数据迁移与优雅下线"] --> G

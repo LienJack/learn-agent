@@ -1,0 +1,10 @@
+flowchart TB
+  A["调用方与业务语义"] --> B["API 契约"]
+  B --> C["资源、命令或事件"]
+  B --> D["REST、GraphQL、gRPC、AsyncAPI"]
+  B --> E["版本、错误、幂等与权限"]
+  C --> F["文档、SDK 与契约测试"]
+  D --> F
+  E --> F
+  F --> G["CI/CD 治理与兼容性保护"]
+  G --> H["下一章：可靠同步调用"]

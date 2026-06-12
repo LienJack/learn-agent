@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/SystemDesign/19.容器、Kubernetes 与运行时抽象.md",
+  "workspace": "src/content/blog/zh/tech/SystemDesign/assets/19-kubernetes",
+  "updatedAt": "2026-06-07T05:10:02.599Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/SystemDesign/assets/19-kubernetes/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/SystemDesign/assets/19-kubernetes/mermaid-01.png",
+      "markdownRef": "./assets/19-kubernetes/mermaid-01.png",
+      "alt": "容器、Kubernetes 与运行时抽象：平台到底替应用解决了什么 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 38908,
+      "sha256": "8dcabde3995fecf0a214ec75962e628dcfbf1489f09414c897ad11c624e11ec6",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:10:02.599Z",
+      "compression": {
+        "beforeBytes": 38908,
+        "afterBytes": 38908,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

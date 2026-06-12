@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/SystemDesign/05.SOA、微服务与服务边界.md",
+  "workspace": "src/content/blog/zh/tech/SystemDesign/assets/05-soa",
+  "updatedAt": "2026-06-07T05:09:38.532Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/SystemDesign/assets/05-soa/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/SystemDesign/assets/05-soa/mermaid-01.png",
+      "markdownRef": "./assets/05-soa/mermaid-01.png",
+      "alt": "SOA、微服务与服务边界：什么时候该拆，什么时候不该拆 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 35446,
+      "sha256": "0cbfd977c58c50b67b75eecf4a46c86727ec18cacead00f01f85fe0af871d33d",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:38.532Z",
+      "compression": {
+        "beforeBytes": 35446,
+        "afterBytes": 35446,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

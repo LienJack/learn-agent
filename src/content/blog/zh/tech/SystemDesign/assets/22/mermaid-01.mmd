@@ -1,0 +1,12 @@
+flowchart TB
+  A["用户请求或后台任务"] --> B["Trace Context"]
+  B --> C["Logs"]
+  B --> D["Metrics"]
+  B --> E["Traces"]
+  B --> F["Events、Profiling、RUM"]
+  C --> G["关联分析"]
+  D --> G
+  E --> G
+  F --> G
+  G --> H["发生了什么、影响谁、为什么、如何恢复"]
+  H --> I["SLO 告警与事故响应"]
