@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/AudioVideo/08.WebCodecs 视频处理实战.md",
+  "workspace": "src/content/blog/zh/tech/AudioVideo/assets/08-webcodecs",
+  "updatedAt": "2026-06-15T04:28:06.284Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/08-webcodecs/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/08-webcodecs/mermaid-01.png",
+      "markdownRef": "./assets/08-webcodecs/mermaid-01.png",
+      "alt": "WebCodecs 视频处理实战：浏览器端视频处理 Pipeline flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 64064,
+      "sha256": "42c214d299a3afc14bceaa5e96ac2d634cc6af9dbe8aa7f98bc629ac325482aa",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-15T04:28:06.283Z",
+      "compression": {
+        "beforeBytes": 64064,
+        "afterBytes": 64064,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

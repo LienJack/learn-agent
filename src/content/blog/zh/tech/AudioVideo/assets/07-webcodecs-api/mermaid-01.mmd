@@ -1,0 +1,16 @@
+flowchart TB
+  A["MP4 WebM MP3 等文件"] --> B["Demuxer"]
+  B --> C["EncodedVideoChunk"]
+  B --> D["EncodedAudioChunk"]
+  C --> E["VideoDecoder"]
+  D --> F["AudioDecoder"]
+  E --> G["VideoFrame"]
+  F --> H["AudioData"]
+  G --> I["Canvas WebGL WebGPU 处理"]
+  H --> J["PCM Web Audio 处理"]
+  I --> K["VideoEncoder"]
+  J --> L["AudioEncoder"]
+  K --> M["EncodedVideoChunk"]
+  L --> N["EncodedAudioChunk"]
+  M --> O["Muxer 或 MSE"]
+  N --> O

@@ -1,0 +1,18 @@
+flowchart TB
+  A["MP4 文件"] --> B["ftyp 文件身份"]
+  A --> C["moov 播放目录"]
+  A --> D["mdat 媒体数据"]
+  C --> E["trak 轨道"]
+  E --> F["mdia 媒体信息"]
+  F --> G["minf 媒体处理信息"]
+  G --> H["stbl sample 表"]
+  H --> I["stsd codec 配置"]
+  H --> J["stts ctts 时间映射"]
+  H --> K["stsz sample 大小"]
+  H --> L["stco co64 数据偏移"]
+  H --> M["stss 关键帧索引"]
+  J --> N["定位要播放的 sample"]
+  K --> N
+  L --> N
+  M --> N
+  N --> D

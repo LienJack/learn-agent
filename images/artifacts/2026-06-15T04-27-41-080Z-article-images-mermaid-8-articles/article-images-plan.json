@@ -1,0 +1,166 @@
+{
+  "dryRun": false,
+  "stage": "mermaid",
+  "articles": [
+    {
+      "article": "src/content/blog/zh/tech/AudioVideo/01.数字音视频基础.md",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/01",
+      "manifest": "src/content/blog/zh/tech/AudioVideo/assets/01/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/01/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/01/mermaid-01.png",
+          "markdownRef": "./assets/01/mermaid-01.png",
+          "alt": "数字音视频基础：面向前端工程师的音视频入门心智模型 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/AudioVideo/02.容器格式 vs 编码格式.md",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/02-vs",
+      "manifest": "src/content/blog/zh/tech/AudioVideo/assets/02-vs/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/02-vs/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/02-vs/mermaid-01.png",
+          "markdownRef": "./assets/02-vs/mermaid-01.png",
+          "alt": "容器格式 vs 编码格式：MP4、WebM、H.264、AAC 到底是什么关系 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/AudioVideo/03.MP4 内部结构.md",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/03-mp4",
+      "manifest": "src/content/blog/zh/tech/AudioVideo/assets/03-mp4/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/03-mp4/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/03-mp4/mermaid-01.png",
+          "markdownRef": "./assets/03-mp4/mermaid-01.png",
+          "alt": "MP4 内部结构：从 box/atom、moov、mdat 到 stbl 采样表 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/AudioVideo/04.MP3 内部结构.md",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/04-mp3",
+      "manifest": "src/content/blog/zh/tech/AudioVideo/assets/04-mp3/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/04-mp3/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/04-mp3/mermaid-01.png",
+          "markdownRef": "./assets/04-mp3/mermaid-01.png",
+          "alt": "MP3 内部结构：Frame、ID3、CBR/VBR flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/AudioVideo/05.编解码基础.md",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/05",
+      "manifest": "src/content/blog/zh/tech/AudioVideo/assets/05/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/05/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/05/mermaid-01.png",
+          "markdownRef": "./assets/05/mermaid-01.png",
+          "alt": "编解码基础：压缩到底在压什么 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/AudioVideo/06.Muxing Demuxing Remuxing Transcoding.md",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/06-muxing-demuxing-remuxing-transcoding",
+      "manifest": "src/content/blog/zh/tech/AudioVideo/assets/06-muxing-demuxing-remuxing-transcoding/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/06-muxing-demuxing-remuxing-transcoding/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/06-muxing-demuxing-remuxing-transcoding/mermaid-01.png",
+          "markdownRef": "./assets/06-muxing-demuxing-remuxing-transcoding/mermaid-01.png",
+          "alt": "Muxing / Demuxing / Remuxing / Transcoding：音视频合成与处理流程 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/AudioVideo/07.WebCodecs API 入门.md",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/07-webcodecs-api",
+      "manifest": "src/content/blog/zh/tech/AudioVideo/assets/07-webcodecs-api/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/07-webcodecs-api/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/07-webcodecs-api/mermaid-01.png",
+          "markdownRef": "./assets/07-webcodecs-api/mermaid-01.png",
+          "alt": "WebCodecs API 入门 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/AudioVideo/08.WebCodecs 视频处理实战.md",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/08-webcodecs",
+      "manifest": "src/content/blog/zh/tech/AudioVideo/assets/08-webcodecs/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/08-webcodecs/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/08-webcodecs/mermaid-01.png",
+          "markdownRef": "./assets/08-webcodecs/mermaid-01.png",
+          "alt": "WebCodecs 视频处理实战：浏览器端视频处理 Pipeline flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

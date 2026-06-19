@@ -1,0 +1,15 @@
+flowchart TB
+  A["文件名和 MIME type"] --> B["容器格式"]
+  B --> C["轨道 时间戳 索引 元数据"]
+  C --> D["Demux 解封装"]
+  D --> E["视频编码数据"]
+  D --> F["音频编码数据"]
+  E --> G["视频 Decoder"]
+  F --> H["音频 Decoder"]
+  G --> I["VideoFrame 或 YUV RGB"]
+  H --> J["PCM 或 AudioData"]
+  I --> K["渲染画面"]
+  J --> L["播放声音"]
+  M["播放兼容性判断"] --> B
+  M --> E
+  M --> F

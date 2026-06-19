@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/AudioVideo/01.数字音视频基础.md",
+  "workspace": "src/content/blog/zh/tech/AudioVideo/assets/01",
+  "updatedAt": "2026-06-15T04:27:46.078Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/01/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/01/mermaid-01.png",
+      "markdownRef": "./assets/01/mermaid-01.png",
+      "alt": "数字音视频基础：面向前端工程师的音视频入门心智模型 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 42775,
+      "sha256": "4830e4aaaa1cdf587bf45908a517fe47eacea622a6d09550b52803ddbdf825ed",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-15T04:27:46.077Z",
+      "compression": {
+        "beforeBytes": 42775,
+        "afterBytes": 42775,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

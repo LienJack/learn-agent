@@ -1,0 +1,13 @@
+flowchart TB
+  A["MP3 文件"] --> B["可选 ID3v2 标签"]
+  B --> C["第一个 MPEG Audio Frame"]
+  C --> D["Frame Header"]
+  D --> E["bitrate sample rate padding channel mode"]
+  C --> F["Side Info 和 Main Data"]
+  F --> G["压缩后的音频数据"]
+  C --> H["可选 Xing Info VBRI"]
+  H --> I["VBR 时长和 seek 信息"]
+  C --> J["后续连续音频帧"]
+  J --> K["可选 ID3v1 尾部标签"]
+  D --> L["计算帧大小"]
+  L --> J

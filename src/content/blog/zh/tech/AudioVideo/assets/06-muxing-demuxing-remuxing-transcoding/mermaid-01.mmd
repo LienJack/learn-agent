@@ -1,0 +1,13 @@
+flowchart TB
+  A["输入媒体文件"] --> B["Demux 解封装"]
+  B --> C["Encoded samples 或 chunks"]
+  C --> D["Decode 解码"]
+  D --> E["VideoFrame AudioData PCM"]
+  E --> F["Process Composition Mixing"]
+  F --> G["Encode 重新编码"]
+  G --> H["Mux 封装"]
+  H --> I["输出 MP4 WebM WAV 或预览"]
+  C --> J["Remux 路径"]
+  J --> H
+  K["只换容器或提取轨道"] --> J
+  L["改画面 声音 码率 codec"] --> D

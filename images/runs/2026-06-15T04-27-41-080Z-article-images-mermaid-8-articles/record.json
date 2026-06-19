@@ -1,0 +1,135 @@
+{
+  "id": "2026-06-15T04-27-41-080Z-article-images-mermaid-8-articles",
+  "command": "article-images",
+  "stage": "mermaid",
+  "status": "completed",
+  "startedAt": "2026-06-15T04:27:41.081Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/tech/AudioVideo/01.数字音视频基础.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/01",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/AudioVideo/02.容器格式 vs 编码格式.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/02-vs",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/AudioVideo/03.MP4 内部结构.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/03-mp4",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/AudioVideo/04.MP3 内部结构.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/04-mp3",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/AudioVideo/05.编解码基础.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/05",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/AudioVideo/06.Muxing Demuxing Remuxing Transcoding.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/06-muxing-demuxing-remuxing-transcoding",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/AudioVideo/07.WebCodecs API 入门.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/07-webcodecs-api",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/AudioVideo/08.WebCodecs 视频处理实战.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/AudioVideo/assets/08-webcodecs",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-15T04-27-41-080Z-article-images-mermaid-8-articles",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-15T04-27-41-080Z-article-images-mermaid-8-articles/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 8 article(s)",
+    "confirmed": true
+  },
+  "notes": [],
+  "finishedAt": "2026-06-15T04:28:06.285Z"
+}
