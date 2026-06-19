@@ -12,6 +12,12 @@ tags:
   - Observability
   - Evaluation
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - Harness
+  - TraceAnalysis
+  - Observability
+  - Evaluation
 aliases:
   - Agent Trace Analysis
   - Agent 失敗原因の特定

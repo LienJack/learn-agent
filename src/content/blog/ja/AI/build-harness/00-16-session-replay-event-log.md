@@ -12,6 +12,12 @@ tags:
   - Replay
   - Durable Execution
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - Harness
+  - Session
+  - Replay
+  - DurableExecution
 aliases:
   - Session Replay
   - event log の事実源
