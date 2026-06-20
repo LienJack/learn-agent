@@ -71,7 +71,7 @@ const FALLBACK_COVERS = [
 ];
 
 function isVisibleDirectoryName(name: string): boolean {
-	return !name.startsWith('.') && !name.startsWith('_');
+	return !name.startsWith('.') && !name.startsWith('_') && !name.endsWith('_old');
 }
 
 function normalizeTitleFromSlug(slug: string): string {
