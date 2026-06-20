@@ -1,0 +1,7 @@
+{
+	"title": "RocketMQ",
+	"alias": "RocketMQ 消息队列",
+	"description": "围绕 RocketMQ 5.x 的领域模型、可靠消息、顺序消息、事务消息、延迟消息、消费重试和工程选型做系统化整理。",
+	"cover": "/blog-covers/tech-flow.svg",
+	"order": 8
+}
