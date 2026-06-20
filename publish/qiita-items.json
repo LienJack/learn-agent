@@ -112,5 +112,11 @@
     "url": "https://qiita.com/LienJack/items/f7308c8fbb6912394c01",
     "title": "Trace Analysis：事実ログで Agent 失敗を特定する",
     "updatedAt": "2026-06-19T05:02:38.713Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-20-memory-governance-candidate-ledger.md": {
+    "id": "a30e6e4a813d37851200",
+    "url": "https://qiita.com/LienJack/items/a30e6e4a813d37851200",
+    "title": "Memory Governance：candidate ledger から governance store へ",
+    "updatedAt": "2026-06-20T01:04:13.150Z"
   }
 }
