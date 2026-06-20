@@ -1,0 +1,9 @@
+flowchart TB
+    A["函数是一等值"] --> B["Method Value / Expression"]
+    B --> C["闭包捕获变量"]
+    C --> D["逃逸与生命周期"]
+    D --> E["defer 求值与 LIFO"]
+    E --> F["panic 栈展开"]
+    F --> G["recover 生效边界"]
+    G --> H["errors 包装树"]
+    H --> I["工程错误边界"]

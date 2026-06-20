@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/03.String-byte-rune与Unicode.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/03-string-byte-rune-unicode",
+  "updatedAt": "2026-06-19T14:43:59.718Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/03-string-byte-rune-unicode/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/03-string-byte-rune-unicode/mermaid-01.png",
+      "markdownRef": "./assets/03-string-byte-rune-unicode/mermaid-01.png",
+      "alt": "第 3 章：String、byte、rune 与 Unicode flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 31007,
+      "sha256": "997c56e86781536331ab5f33d79ab6f267ce33518829378e3f38a8332b101c31",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:43:59.718Z",
+      "compression": {
+        "beforeBytes": 31007,
+        "afterBytes": 31007,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

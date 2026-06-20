@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/01.类型系统-常量-Struct-方法集与嵌入.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/01----struct",
+  "updatedAt": "2026-06-19T14:43:59.597Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/01----struct/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/01----struct/mermaid-01.png",
+      "markdownRef": "./assets/01----struct/mermaid-01.png",
+      "alt": "第 1 章：Go 类型系统、常量、Struct、方法集与嵌入 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 27004,
+      "sha256": "6b9a59e7c4a39fe999d7b62add492e1b033e548caf238d1b53e559b4fa59cbef",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:43:59.596Z",
+      "compression": {
+        "beforeBytes": 27004,
+        "afterBytes": 27004,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

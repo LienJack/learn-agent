@@ -1,7 +1,0 @@
-{
-	"title": "RabbitMQ",
-	"alias": "RabbitMQ",
-	"description": "围绕 RabbitMQ 4.x 的核心模型、可靠性边界、队列类型、集群高可用、运维排障和后端面试场景做系统化整理。",
-	"cover": "/blog-covers/tech-flow.svg",
-	"order": 8
-}

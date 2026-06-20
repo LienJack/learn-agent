@@ -1,0 +1,9 @@
+flowchart TB
+    A["变量与对象生命周期"] --> B["逃逸分析"]
+    B --> C["栈 / 堆 / 全局 / native"]
+    C --> D["mcache / mcentral / mheap"]
+    D --> E["mspan / page / size class"]
+    E --> F["并发 GC 与写屏障"]
+    F --> G["Green Tea GC"]
+    G --> H["GOGC / GOMEMLIMIT"]
+    H --> I["pprof / trace / runtime metrics"]

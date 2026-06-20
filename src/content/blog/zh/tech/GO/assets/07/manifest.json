@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/07.接口反射与泛型导论.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/07",
+  "updatedAt": "2026-06-19T14:43:59.983Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/07/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/07/mermaid-01.png",
+      "markdownRef": "./assets/07/mermaid-01.png",
+      "alt": "第 7 章：接口、反射与泛型：抽象机制导论 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 44909,
+      "sha256": "721f007dbe3ee34b402afc70e28570b2c7adb63024dab7769e7d98f7f036ce00",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:43:59.983Z",
+      "compression": {
+        "beforeBytes": 44909,
+        "afterBytes": 44909,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

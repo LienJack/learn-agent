@@ -1,0 +1,9 @@
+flowchart TB
+    A["并发正确性维度"] --> B["Data Race / Race Condition"]
+    B --> C["sequenced-before"]
+    C --> D["synchronized-before"]
+    D --> E["happens-before / DRF-SC"]
+    E --> F["Channel / Mutex / RWMutex"]
+    F --> G["WaitGroup / Once / Pool"]
+    G --> H["Atomic 与不变量"]
+    H --> I["Race / profile / trace 排查"]

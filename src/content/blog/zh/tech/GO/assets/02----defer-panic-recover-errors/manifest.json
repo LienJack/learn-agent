@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/02.函数-闭包-defer-panic-recover-errors.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/02----defer-panic-recover-errors",
+  "updatedAt": "2026-06-19T14:43:59.664Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/02----defer-panic-recover-errors/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/02----defer-panic-recover-errors/mermaid-01.png",
+      "markdownRef": "./assets/02----defer-panic-recover-errors/mermaid-01.png",
+      "alt": "第 2 章：函数、闭包、defer、panic/recover 与 errors flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 30233,
+      "sha256": "305419cbb50d9e9e32bc0bf63e8911b8b9c0f094dd8eec86e2f8bbf7a9fd7b5a",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:43:59.663Z",
+      "compression": {
+        "beforeBytes": 30233,
+        "afterBytes": 30233,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

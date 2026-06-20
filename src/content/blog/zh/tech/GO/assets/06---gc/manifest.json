@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/06.内存管理-逃逸分析与GC.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/06---gc",
+  "updatedAt": "2026-06-19T14:43:59.903Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/06---gc/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/06---gc/mermaid-01.png",
+      "markdownRef": "./assets/06---gc/mermaid-01.png",
+      "alt": "第 6 章：Go 内存管理、逃逸分析与垃圾回收 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 32159,
+      "sha256": "f7530d2711f09a3d1dba1851af9c5e35795d10bdb6d27d2aeb4781ecdfb84639",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:43:59.903Z",
+      "compression": {
+        "beforeBytes": 32159,
+        "afterBytes": 32159,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

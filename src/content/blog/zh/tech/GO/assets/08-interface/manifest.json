@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/08.Interface底层实现与设计.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/08-interface",
+  "updatedAt": "2026-06-19T14:44:00.053Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/08-interface/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/08-interface/mermaid-01.png",
+      "markdownRef": "./assets/08-interface/mermaid-01.png",
+      "alt": "第 8 章：Go Interface 底层实现与设计 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 32451,
+      "sha256": "65705db38ca76caee8e4e6b5aaee8482346d69d9811922f0a9b6c51956645fd8",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:44:00.053Z",
+      "compression": {
+        "beforeBytes": 32451,
+        "afterBytes": 32451,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

@@ -1,0 +1,9 @@
+flowchart TB
+    A["Map 语言语义"] --> B["Key 必须 comparable"]
+    B --> C["nil / 查询 / 遍历"]
+    C --> D["赋值与函数传参"]
+    D --> E["Swiss Table"]
+    E --> F["directory / table / group / slot"]
+    F --> G["查找 / 写入 / 删除"]
+    G --> H["grow / split"]
+    H --> I["并发安全与 sync.Map 选型"]

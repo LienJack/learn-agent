@@ -1,0 +1,11 @@
+flowchart TB
+    A["抽象需求"] --> B{"类型在何时确定"}
+    B -->|运行期行为多态| C["Interface"]
+    B -->|编译期类型复用| D["Generic"]
+    B -->|运行期结构检查| E["Reflection"]
+    C --> F["小接口 / 隐式实现 / typed nil"]
+    D --> G["约束 / 类型集合 / shape"]
+    E --> H["Type / Value / 可设置性"]
+    F --> I["API 设计与性能验证"]
+    G --> I
+    H --> I
