@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/06.内存管理-逃逸分析与GC.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/06---gc",
-  "updatedAt": "2026-06-19T14:43:59.903Z",
+  "updatedAt": "2026-06-21T10:00:48.490Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -23,6 +23,28 @@
         "beforeBytes": 32159,
         "afterBytes": 32159,
         "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-memory-gc-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 6 章：Go 内存管理、逃逸分析与垃圾回收",
+      "anchor": "第-6-章go-内存管理逃逸分析与垃圾回收",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/06---gc/go-memory-gc-summary.webp",
+      "markdownRef": "./assets/06---gc/go-memory-gc-summary.webp",
+      "alt": "Go 内存管理、逃逸分析与 GC 开头总结图",
+      "contentType": "image/webp",
+      "bytes": 216788,
+      "sha256": "62bf6d16a5a193335879bf11685b996894652a5d1c19e29e619b12e30bbae0fe",
+      "importedFrom": "../../../Downloads/ChatGPT Image 2026年6月21日 17_59_55.png",
+      "importedAt": "2026-06-21T10:00:48.490Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T10:00:48.490Z",
+      "compression": {
+        "beforeBytes": 1704089,
+        "afterBytes": 216788,
+        "savedBytes": 1487301
       }
     }
   ],

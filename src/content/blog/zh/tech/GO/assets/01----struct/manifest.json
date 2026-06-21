@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/01.类型系统-常量-Struct-方法集与嵌入.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/01----struct",
-  "updatedAt": "2026-06-19T14:43:59.597Z",
+  "updatedAt": "2026-06-21T09:54:24.450Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -23,6 +23,28 @@
         "beforeBytes": 27004,
         "afterBytes": 27004,
         "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-type-system-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 1 章：Go 类型系统、常量、Struct、方法集与嵌入",
+      "anchor": "第-1-章go-类型系统常量struct方法集与嵌入",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/01----struct/go-type-system-summary.webp",
+      "markdownRef": "./assets/01----struct/go-type-system-summary.webp",
+      "alt": "Go 类型系统、Struct 与方法集开头总结图",
+      "contentType": "image/webp",
+      "bytes": 232762,
+      "sha256": "8834a5eb09315a02012b8768fccebe4044d25485dcbd7efbf16472451cf00ec8",
+      "importedFrom": "../../../../../var/folders/pr/9d5650jj78bfwgs8ptl34h9c0000gn/T/codex-clipboard-66efe83e-fd31-4dbc-8be4-e62293d48e44.png",
+      "importedAt": "2026-06-21T09:54:24.450Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T09:54:24.450Z",
+      "compression": {
+        "beforeBytes": 493702,
+        "afterBytes": 232762,
+        "savedBytes": 260940
       }
     }
   ],
