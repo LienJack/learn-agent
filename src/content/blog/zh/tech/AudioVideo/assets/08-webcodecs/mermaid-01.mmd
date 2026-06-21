@@ -1,0 +1,16 @@
+flowchart TB
+  A["用户选择 input.mp4"] --> B["读取 ArrayBuffer"]
+  B --> C["MP4 Demuxer"]
+  C --> D["视频 samples 和 codec config"]
+  C --> E["音频 samples"]
+  D --> F["VideoDecoder"]
+  F --> G["VideoFrame"]
+  G --> H["Canvas WebGL WebGPU 逐帧处理"]
+  H --> I["VideoEncoder"]
+  I --> J["新的 EncodedVideoChunk"]
+  E --> K["音频旁路 remux 或单独处理"]
+  J --> L["Muxer"]
+  K --> L
+  L --> M["输出文件 预览 上传"]
+  N["Worker 队列和进度"] --> F
+  N --> I

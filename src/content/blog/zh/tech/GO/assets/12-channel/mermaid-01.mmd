@@ -1,0 +1,9 @@
+flowchart TB
+    A["Channel 类型"] --> B["nil / 正常 / 已关闭"]
+    B --> C["send / recv / close"]
+    C --> D["无缓冲同步交接"]
+    D --> E["有缓冲背压队列"]
+    E --> F["select 求值与选择"]
+    F --> G["happens-before"]
+    G --> H["hchan / sudog / park"]
+    H --> I["Pipeline / Worker / 泄漏排查"]

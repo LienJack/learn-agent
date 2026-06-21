@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/04.Slice.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/04-slice",
+  "updatedAt": "2026-06-19T14:43:59.776Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/04-slice/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/04-slice/mermaid-01.png",
+      "markdownRef": "./assets/04-slice/mermaid-01.png",
+      "alt": "第 4 章：Slice flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 29317,
+      "sha256": "f0ac4155a839852ef96661412ed64e8218bca4d16996a9882fa96a2f84f36551",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:43:59.776Z",
+      "compression": {
+        "beforeBytes": 29317,
+        "afterBytes": 29317,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

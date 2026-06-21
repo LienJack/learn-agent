@@ -12,6 +12,12 @@ tags:
   - Candidate Ledger
   - Long-term Memory
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - Harness
+  - MemoryGovernance
+  - CandidateLedger
+  - LongTermMemory
 aliases:
   - Agent 記憶ガバナンス
   - Candidate Ledger

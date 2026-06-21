@@ -1,0 +1,7 @@
+{
+	"title": "Go",
+	"alias": "Go 语言",
+	"description": "围绕 Go 语言核心数据结构、runtime 机制、并发模型和工程面试高频问题做系统化整理。",
+	"cover": "/blog-covers/tech-flow.svg",
+	"order": 7
+}

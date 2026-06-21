@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/AudioVideo/07.WebCodecs API 入门.md",
+  "workspace": "src/content/blog/zh/tech/AudioVideo/assets/07-webcodecs-api",
+  "updatedAt": "2026-06-15T04:28:04.240Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/07-webcodecs-api/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/07-webcodecs-api/mermaid-01.png",
+      "markdownRef": "./assets/07-webcodecs-api/mermaid-01.png",
+      "alt": "WebCodecs API 入门 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 46549,
+      "sha256": "f7aeb21ac9dc8dd294d7b70525d9c4a6f4309032fbbd33780be51e06842fbb1b",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-15T04:28:04.238Z",
+      "compression": {
+        "beforeBytes": 46549,
+        "afterBytes": 46549,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

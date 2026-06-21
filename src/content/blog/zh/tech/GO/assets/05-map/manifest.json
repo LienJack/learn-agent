@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/05.Map.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/05-map",
+  "updatedAt": "2026-06-20T10:37:15.300Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/05-map/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/05-map/mermaid-01.png",
+      "markdownRef": "./assets/05-map/mermaid-01.png",
+      "alt": "第 5 章：Map flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 31998,
+      "sha256": "adaa3e468d9ed09307ebf3c93e17fcab71a942177c090ed1861fac0b93f79cba",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:43:59.838Z",
+      "compression": {
+        "beforeBytes": 31998,
+        "afterBytes": 31998,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "swiss-table-lookup",
+      "kind": "imported",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "/Users/lienli/Downloads/ChatGPT Image 2026年6月20日 18_34_39.png",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/05-map/swiss-table-lookup.webp",
+      "markdownRef": "./assets/05-map/swiss-table-lookup.webp",
+      "alt": "Swiss Table 查找原理：先看小标签，再比较真实 Key",
+      "renderer": "cwebp",
+      "renderStatus": "generated",
+      "bytes": 233204,
+      "sha256": "8586902942bd1867393bdbf43e367e82a6aff77a952fb5bb1bbfabf5a77dd4d1",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-20T10:37:15.300Z",
+      "compression": {
+        "beforeBytes": 1674798,
+        "afterBytes": 233204,
+        "savedBytes": 1441594
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

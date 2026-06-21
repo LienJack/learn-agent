@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/AudioVideo/05.编解码基础.md",
+  "workspace": "src/content/blog/zh/tech/AudioVideo/assets/05",
+  "updatedAt": "2026-06-15T04:27:59.586Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/05/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/05/mermaid-01.png",
+      "markdownRef": "./assets/05/mermaid-01.png",
+      "alt": "编解码基础：压缩到底在压什么 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 32083,
+      "sha256": "8e87f07767dedebd03e45f2c608ac9425a35b875a79fc30b0061360c18167437",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-15T04:27:59.585Z",
+      "compression": {
+        "beforeBytes": 32083,
+        "afterBytes": 32083,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

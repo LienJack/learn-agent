@@ -1,0 +1,9 @@
+flowchart TB
+    A["string 是只读字节序列"] --> B["byte / rune / Unicode"]
+    B --> C["UTF-8 编码"]
+    C --> D["len / index / range"]
+    D --> E["string 与 []byte 转换"]
+    E --> F["Builder / Join / 拼接"]
+    F --> G["子字符串保留大对象"]
+    G --> H["unsafe 零拷贝边界"]
+    H --> I["Map Key / 哈希 / 比较"]

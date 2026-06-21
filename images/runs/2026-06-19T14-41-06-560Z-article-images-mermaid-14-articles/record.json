@@ -1,0 +1,219 @@
+{
+  "id": "2026-06-19T14-41-06-560Z-article-images-mermaid-14-articles",
+  "command": "article-images",
+  "stage": "mermaid",
+  "status": "planned",
+  "startedAt": "2026-06-19T14:41:06.562Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/tech/GO/01.类型系统-常量-Struct-方法集与嵌入.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/01----struct",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/02.函数-闭包-defer-panic-recover-errors.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/02----defer-panic-recover-errors",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/03.String-byte-rune与Unicode.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/03-string-byte-rune-unicode",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/04.Slice.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/04-slice",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/05.Map.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/05-map",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/06.内存管理-逃逸分析与GC.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/06---gc",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/07.接口反射与泛型导论.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/07",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/08.Interface底层实现与设计.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/08-interface",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/09.泛型-类型集合与迭代器.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/09",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/10.Reflection-unsafe与Go内存布局.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/10-reflection-unsafe-go",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/11.Goroutine与Go调度器.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/11-goroutine-go",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/12.Channel.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/12-channel",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/13.并发同步-MemoryModel-锁-Atomic-Race.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/13--memorymodel---atomic-race",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/GO/14.Context-取消传播与生命周期管理.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/GO/assets/14-context",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-19T14-41-06-560Z-article-images-mermaid-14-articles",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-19T14-41-06-560Z-article-images-mermaid-14-articles/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 14 article(s)",
+    "confirmed": false
+  },
+  "notes": [],
+  "finishedAt": "2026-06-19T14:41:06.568Z"
+}

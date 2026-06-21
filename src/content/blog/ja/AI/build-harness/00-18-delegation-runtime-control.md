@@ -12,6 +12,12 @@ tags:
   - Sub-Agent
   - Multi-Agent
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - Harness
+  - DelegationRuntime
+  - SubAgent
+  - MultiAgent
 aliases:
   - Delegation Runtime
   - Agent タスク委任

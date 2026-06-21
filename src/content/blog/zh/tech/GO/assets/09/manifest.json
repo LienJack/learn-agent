@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/09.泛型-类型集合与迭代器.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/09",
+  "updatedAt": "2026-06-19T14:44:00.121Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/09/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/09/mermaid-01.png",
+      "markdownRef": "./assets/09/mermaid-01.png",
+      "alt": "第 9 章：泛型、类型集合与迭代器 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 32197,
+      "sha256": "e1aa722916df5798e965234832939e6acd14b7b4f1733bdb9cd007196d008ed8",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:44:00.121Z",
+      "compression": {
+        "beforeBytes": 32197,
+        "afterBytes": 32197,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

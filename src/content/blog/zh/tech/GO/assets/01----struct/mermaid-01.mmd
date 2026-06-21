@@ -1,0 +1,8 @@
+flowchart TB
+    A["类型与值"] --> B["defined type / alias"]
+    B --> C["underlying type / identity"]
+    C --> D["赋值 / 转换 / 常量表示"]
+    D --> E["struct 布局与比较"]
+    E --> F["方法集与 receiver"]
+    F --> G["嵌入与 selector"]
+    G --> H["复制锁与 API 迁移"]

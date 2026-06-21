@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/AudioVideo/06.Muxing Demuxing Remuxing Transcoding.md",
+  "workspace": "src/content/blog/zh/tech/AudioVideo/assets/06-muxing-demuxing-remuxing-transcoding",
+  "updatedAt": "2026-06-15T04:28:01.690Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/06-muxing-demuxing-remuxing-transcoding/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/06-muxing-demuxing-remuxing-transcoding/mermaid-01.png",
+      "markdownRef": "./assets/06-muxing-demuxing-remuxing-transcoding/mermaid-01.png",
+      "alt": "Muxing / Demuxing / Remuxing / Transcoding：音视频合成与处理流程 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 51819,
+      "sha256": "91101ea43a4f3b9c19d5bf86cde8474fd096d0f438d79253199951313170f30c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-15T04:28:01.687Z",
+      "compression": {
+        "beforeBytes": 51819,
+        "afterBytes": 51819,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

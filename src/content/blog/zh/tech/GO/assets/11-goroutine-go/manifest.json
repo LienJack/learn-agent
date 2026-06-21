@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/GO/11.Goroutine与Go调度器.md",
+  "workspace": "src/content/blog/zh/tech/GO/assets/11-goroutine-go",
+  "updatedAt": "2026-06-19T14:44:00.257Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/GO/assets/11-goroutine-go/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/11-goroutine-go/mermaid-01.png",
+      "markdownRef": "./assets/11-goroutine-go/mermaid-01.png",
+      "alt": "第 11 章：Goroutine 与 Go 调度器 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 28485,
+      "sha256": "4bf2c115797b602bc2de7b7fa1bd44668c71d1703f2698635d6b4f24338b505c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-19T14:44:00.256Z",
+      "compression": {
+        "beforeBytes": 28485,
+        "afterBytes": 28485,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

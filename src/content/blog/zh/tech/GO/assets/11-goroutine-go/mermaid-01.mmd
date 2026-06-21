@@ -1,0 +1,9 @@
+flowchart TB
+    A["go 语句"] --> B["Goroutine 生命周期"]
+    B --> C["G / M / P"]
+    C --> D["newproc 与入队"]
+    D --> E["schedule / findRunnable"]
+    E --> F["gopark / goready"]
+    F --> G["netpoll / syscall / cgo"]
+    G --> H["栈增长与抢占"]
+    H --> I["GOMAXPROCS 与生产排查"]

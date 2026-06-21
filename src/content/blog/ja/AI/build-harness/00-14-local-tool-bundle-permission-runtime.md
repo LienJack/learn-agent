@@ -12,6 +12,12 @@ tags:
   - Permission
   - Local Tools
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - Harness
+  - ToolRuntime
+  - Permission
+  - LocalTools
 aliases:
   - Local Tool Bundle
   - ローカルツールバンドル

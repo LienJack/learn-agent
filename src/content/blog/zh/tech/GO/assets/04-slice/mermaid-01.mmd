@@ -1,0 +1,9 @@
+flowchart TB
+    A["Slice 描述符"] --> B["ptr / len / cap"]
+    B --> C["底层数组共享"]
+    C --> D["append 与 growslice"]
+    D --> E["copy / clear / 删除"]
+    E --> F["range 语义"]
+    F --> G["小 Slice 保留大数组"]
+    G --> H["并发 append 风险"]
+    H --> I["工程模式与排查"]

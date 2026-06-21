@@ -1,0 +1,9 @@
+flowchart TB
+    A["Context 解决生命周期问题"] --> B["Context 接口"]
+    B --> C["Background / TODO"]
+    C --> D["WithCancel / Timeout / Deadline"]
+    D --> E["Cause / AfterFunc / WithoutCancel"]
+    E --> F["父子取消树"]
+    F --> G["HTTP / DB / RPC"]
+    G --> H["Worker Pool / Pipeline"]
+    H --> I["泄漏 / 超时预算 / 排查"]

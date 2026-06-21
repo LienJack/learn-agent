@@ -7,7 +7,7 @@ const blog = defineCollection({
 	// Load Markdown and MDX files in locale-specific directories under `src/content/blog/`.
 	loader: glob({
 		base: './src/content/blog',
-		pattern: ['**/*.{md,mdx}', '!**/assets/**/*.{md,mdx}'],
+		pattern: ['**/*.{md,mdx}', '!**/assets/**/*.{md,mdx}', '!**/*_old/**/*.{md,mdx}'],
 	}),
 	schema: ({ image }) =>
 		z.object({

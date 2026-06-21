@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/AudioVideo/02.容器格式 vs 编码格式.md",
+  "workspace": "src/content/blog/zh/tech/AudioVideo/assets/02-vs",
+  "updatedAt": "2026-06-15T04:27:53.027Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/02-vs/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/02-vs/mermaid-01.png",
+      "markdownRef": "./assets/02-vs/mermaid-01.png",
+      "alt": "容器格式 vs 编码格式：MP4、WebM、H.264、AAC 到底是什么关系 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 49805,
+      "sha256": "f5ce64c3c82a16704d1d64f9100698f8cbc63c23ec4e80f5a091ce5a9bcce263",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-15T04:27:53.026Z",
+      "compression": {
+        "beforeBytes": 49805,
+        "afterBytes": 49805,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

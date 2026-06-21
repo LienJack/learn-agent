@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/AudioVideo/04.MP3 内部结构.md",
+  "workspace": "src/content/blog/zh/tech/AudioVideo/assets/04-mp3",
+  "updatedAt": "2026-06-15T04:27:57.362Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/AudioVideo/assets/04-mp3/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/AudioVideo/assets/04-mp3/mermaid-01.png",
+      "markdownRef": "./assets/04-mp3/mermaid-01.png",
+      "alt": "MP3 内部结构：Frame、ID3、CBR/VBR flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 39980,
+      "sha256": "0abb512f088abbd20dc813c3cbe9f90236e865bc1b60496adabd9285426a4fdb",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-15T04:27:57.361Z",
+      "compression": {
+        "beforeBytes": 39980,
+        "afterBytes": 39980,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

@@ -12,6 +12,12 @@ tags:
   - Skills
   - MCP
   - Tool Runtime
+qiita_tags:
+  - Agent
+  - Harness
+  - CapabilityDiscovery
+  - Skills
+  - MCP
 aliases:
   - 能力発見
   - 動的 Tool 公開
