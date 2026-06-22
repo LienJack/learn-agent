@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/03.String-byte-rune与Unicode.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/03-string-byte-rune-unicode",
-  "updatedAt": "2026-06-19T14:43:59.718Z",
+  "updatedAt": "2026-06-21T13:41:36.531Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -22,6 +22,28 @@
       "compression": {
         "beforeBytes": 31007,
         "afterBytes": 31007,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-string-unicode-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 3 章：String、byte、rune 与 Unicode",
+      "anchor": "第-3-章stringbyterune-与-unicode",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/03-string-byte-rune-unicode/go-string-unicode-summary.webp",
+      "markdownRef": "./assets/03-string-byte-rune-unicode/go-string-unicode-summary.webp",
+      "alt": "Go String、byte、rune 与 Unicode 开头总结图",
+      "contentType": "image/webp",
+      "bytes": 176650,
+      "sha256": "841c74735e78ffa2e5e851430f2af5a25bdfa4b2859a62bd455b67e19bd5e341",
+      "importedFrom": "deterministic svg summary generator",
+      "importedAt": "2026-06-21T13:41:36.531Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T13:41:36.531Z",
+      "compression": {
+        "beforeBytes": 176650,
+        "afterBytes": 176650,
         "savedBytes": 0
       }
     }

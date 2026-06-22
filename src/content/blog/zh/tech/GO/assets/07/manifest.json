@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/07.接口反射与泛型导论.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/07",
-  "updatedAt": "2026-06-19T14:43:59.983Z",
+  "updatedAt": "2026-06-21T14:02:33.000Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -23,6 +23,28 @@
         "beforeBytes": 44909,
         "afterBytes": 44909,
         "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-abstraction-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 7 章：接口、反射与泛型：抽象机制导论",
+      "anchor": "第-7-章接口反射与泛型抽象机制导论",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/07/go-abstraction-summary.webp",
+      "markdownRef": "./assets/07/go-abstraction-summary.webp",
+      "alt": "Go 接口、反射与泛型速览总结图",
+      "contentType": "image/webp",
+      "bytes": 359774,
+      "sha256": "db18aff07a38f2410b5b97f633f29c467ebb061cab67eccd737ab994aea3a4f6",
+      "importedFrom": "/Users/lienli/Downloads/ChatGPT Image 2026年6月21日 22_00_02.png",
+      "importedAt": "2026-06-21T14:02:33.000Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T14:02:33.000Z",
+      "compression": {
+        "beforeBytes": 1701068,
+        "afterBytes": 359774,
+        "savedBytes": 1341294
       }
     }
   ],

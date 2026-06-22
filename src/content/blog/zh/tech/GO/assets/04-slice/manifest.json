@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/04.Slice.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/04-slice",
-  "updatedAt": "2026-06-19T14:43:59.776Z",
+  "updatedAt": "2026-06-21T13:41:36.531Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -22,6 +22,28 @@
       "compression": {
         "beforeBytes": 29317,
         "afterBytes": 29317,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-slice-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 4 章：Slice",
+      "anchor": "第-4-章slice",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/04-slice/go-slice-summary.webp",
+      "markdownRef": "./assets/04-slice/go-slice-summary.webp",
+      "alt": "Go Slice 开头总结图",
+      "contentType": "image/webp",
+      "bytes": 175350,
+      "sha256": "5cb31ee89979d76c5c134887a2ab4aead0cefd375fe0ccd2047b719242a128c8",
+      "importedFrom": "deterministic svg summary generator",
+      "importedAt": "2026-06-21T13:41:36.531Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T13:41:36.531Z",
+      "compression": {
+        "beforeBytes": 175350,
+        "afterBytes": 175350,
         "savedBytes": 0
       }
     }

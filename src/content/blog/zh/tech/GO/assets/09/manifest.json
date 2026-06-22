@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/09.泛型-类型集合与迭代器.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/09",
-  "updatedAt": "2026-06-19T14:44:00.121Z",
+  "updatedAt": "2026-06-21T13:41:36.531Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -22,6 +22,28 @@
       "compression": {
         "beforeBytes": 32197,
         "afterBytes": 32197,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-generics-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 9 章：泛型、类型集合与迭代器",
+      "anchor": "第-9-章泛型类型集合与迭代器",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/09/go-generics-summary.webp",
+      "markdownRef": "./assets/09/go-generics-summary.webp",
+      "alt": "Go 泛型、类型集合与迭代器开头总结图",
+      "contentType": "image/webp",
+      "bytes": 190364,
+      "sha256": "4e97d032fca488cb1fa6f56eeb14be366aa72b43300250258cbe5fc66ba5b1e0",
+      "importedFrom": "deterministic svg summary generator",
+      "importedAt": "2026-06-21T13:41:36.531Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T13:41:36.531Z",
+      "compression": {
+        "beforeBytes": 190364,
+        "afterBytes": 190364,
         "savedBytes": 0
       }
     }

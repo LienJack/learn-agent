@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/08.Interface底层实现与设计.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/08-interface",
-  "updatedAt": "2026-06-19T14:44:00.053Z",
+  "updatedAt": "2026-06-21T13:41:36.531Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -22,6 +22,28 @@
       "compression": {
         "beforeBytes": 32451,
         "afterBytes": 32451,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-interface-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 8 章：Go Interface 底层实现与设计",
+      "anchor": "第-8-章go-interface-底层实现与设计",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/08-interface/go-interface-summary.webp",
+      "markdownRef": "./assets/08-interface/go-interface-summary.webp",
+      "alt": "Go Interface 底层实现与设计开头总结图",
+      "contentType": "image/webp",
+      "bytes": 179758,
+      "sha256": "7f0fd5afb98ade025d9e8b2587aefe27da9136dc8cfa69c78aeac9362348ae66",
+      "importedFrom": "deterministic svg summary generator",
+      "importedAt": "2026-06-21T13:41:36.531Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T13:41:36.531Z",
+      "compression": {
+        "beforeBytes": 179758,
+        "afterBytes": 179758,
         "savedBytes": 0
       }
     }
