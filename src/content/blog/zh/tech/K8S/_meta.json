@@ -1,0 +1,7 @@
+{
+	"title": "Kubernetes",
+	"alias": "Docker 与 Kubernetes",
+	"description": "从容器化、镜像交付、编排调度、声明式 API 和云原生平台能力出发，系统理解 Docker 与 Kubernetes 的职责边界。",
+	"cover": "/blog-covers/tech-k8s.svg",
+	"order": 9
+}
