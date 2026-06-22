@@ -2,6 +2,6 @@
 	"title": "System Design",
 	"alias": "系统设计",
 	"description": "从用户旅程、系统边界、可靠性、可观测性、成本和演进约束出发，系统化理解现代互联网系统设计。",
-	"cover": "/blog-covers/tech-flow.svg",
+	"cover": "/blog-covers/tech-system-design.svg",
 	"order": 5
 }
