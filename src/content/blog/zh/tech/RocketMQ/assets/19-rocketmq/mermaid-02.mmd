@@ -1,0 +1,9 @@
+flowchart LR
+    U[用户] --> O[订单服务]
+    O --> DB[(订单库)]
+    O --> MQ[(ORDER_EVENT_NORMAL)]
+    MQ --> S[搜索投影组]
+    MQ --> BI[实时数仓组]
+    MQ --> N[通知编排组]
+    MQ --> R[风控审计组]
+    MQ --> M[营销分析组]

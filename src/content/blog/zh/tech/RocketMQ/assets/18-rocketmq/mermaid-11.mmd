@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant H as BrokerHeartbeatManager
+    participant M as ControllerManager
+    participant C as JRaft/DLedger Controller
+    participant P as ControllerRequestProcessor
+    participant R as Broker ReplicasManager
+    participant A as AutoSwitchHAService
+    participant N as NameServer
+
+    H->>M: Broker inactive
+    M->>C: getReplicaInfo
+    M->>C: electMaster
+    C->>C: 复制选举状态并生成新 Epoch
+    C-->>M: 新 Master、SyncStateSet
+    M->>R: NOTIFY_BROKER_ROLE_CHANGED
+    R->>R: changeBrokerRole
+    alt 当前 Broker 当选
+        R->>A: changeToMaster
+    else 当前 Broker 为从
+        R->>A: changeToSlave
+    end
+    R->>N: 重新注册 Broker 路由

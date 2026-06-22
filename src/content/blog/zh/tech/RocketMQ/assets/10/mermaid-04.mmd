@@ -1,0 +1,20 @@
+flowchart TB
+    P[Producer 设置 deliveryTimestamp] --> X[Proxy/Broker 校验消息类型与时间]
+    X --> C[CommitLog 写入内部定时消息]
+    C --> CQ[内部定时 Topic 的 ConsumeQueue]
+    CQ --> EG[TimerEnqueueGetService]
+    EG --> EP[TimerEnqueuePutService]
+    EP --> TL[TimerLog 追加索引项]
+    EP --> TW[TimerWheel 更新到期槽位]
+
+    CLOCK[Broker 时间推进] --> DG[TimerDequeueGetService]
+    TW --> DG
+    DG --> GM[读取槽位链表]
+    GM --> BODY[按物理位置读取原消息]
+    BODY --> CHECK{滚动/删除/正常}
+    CHECK -- 远期滚动 --> C
+    CHECK -- 已召回 --> DROP[跳过业务投递]
+    CHECK -- 正常到期 --> RESTORE[恢复真实 Topic、Queue 与属性]
+    RESTORE --> PUT[重新写入普通 CommitLog]
+    PUT --> BIZCQ[构建业务 ConsumeQueue]
+    BIZCQ --> CONSUMER[Consumer 可见]

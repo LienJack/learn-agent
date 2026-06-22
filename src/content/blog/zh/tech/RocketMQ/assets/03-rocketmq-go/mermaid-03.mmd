@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant R as Go Remoting SDK
+    participant N as NameServer :9876
+    participant B as Broker :10911
+
+    R->>N: 查询 Topic 路由
+    N-->>R: Broker 地址与队列
+    R->>B: SendMessage / PullMessage
+    B-->>R: Remoting Response

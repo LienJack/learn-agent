@@ -1,0 +1,10 @@
+flowchart TD
+    A[准备定义一类消息] --> B{MessageType 是否不同}
+    B -- 是 --> T[拆分 Topic]
+    B -- 否 --> C{业务域、ACL、SLA、保留期或故障隔离是否不同}
+    C -- 是 --> T
+    C -- 否 --> D{只是同一业务内的稳定事件子类吗}
+    D -- 是 --> E[同 Topic，不同 Tag]
+    D -- 否 --> F{需要多维范围或组合过滤吗}
+    F -- 是 --> G[同 Topic，用户属性加 SQL92]
+    F -- 否 --> H[同 Topic，Tag 或全量订阅]

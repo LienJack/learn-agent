@@ -1,0 +1,14 @@
+flowchart LR
+    P[Producer<br/>序列化·压缩·并发] --> X[Proxy/网络<br/>连接·排队·带宽]
+    X --> B[Broker<br/>校验·写 CommitLog]
+    B --> PC[Page Cache]
+    PC --> D[磁盘刷盘]
+    B --> R[副本复制]
+    B --> C[Consumer 拉取/投递]
+    C --> L[本地缓存与线程池]
+    L --> DB[数据库/HTTP/计算]
+
+    P -.发送超时.-> P
+    DB -.处理变慢.-> L
+    L -.缓存满/不再拉取.-> B
+    B -.限流.-> P

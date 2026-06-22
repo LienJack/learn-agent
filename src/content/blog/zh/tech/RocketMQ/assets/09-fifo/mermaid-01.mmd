@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant B as 订单服务
+    participant P as Producer
+    participant Q as FIFO 有序单元
+    participant C as Consumer
+    participant DB as 业务数据库
+
+    B->>P: v1 创建订单
+    P->>Q: 串行发送 v1
+    Q-->>P: 发送成功
+    B->>P: v2 支付成功
+    P->>Q: 串行发送 v2
+    Q-->>P: 发送成功
+
+    Q->>C: 投递 v1
+    C->>DB: 提交 CREATED
+    DB-->>C: 成功
+    C-->>Q: ACK v1
+    Q->>C: 投递 v2
+    C->>DB: CREATED → PAID
+    DB-->>C: 成功
+    C-->>Q: ACK v2

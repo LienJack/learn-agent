@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant B as Broker/Proxy
+    participant C1 as Consumer C1
+    participant C2 as Consumer C2
+
+    B-->>C1: 投递 Q0 中消息 M100
+    Note over B: M100 进入不可见窗口
+    B-->>C2: 投递同一 Q0 中消息 M101
+    Note over B: M101 也进入独立不可见窗口
+    C2->>B: ACK M101
+    alt C1 处理成功
+        C1->>B: ACK M100
+    else C1 崩溃或超时
+        Note over B: M100 不可见时间结束
+        B-->>C2: 重新投递 M100
+    end

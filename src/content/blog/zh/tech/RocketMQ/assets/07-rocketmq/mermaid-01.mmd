@@ -1,0 +1,10 @@
+flowchart LR
+    P[Producer] --> CL[CommitLog<br/>全局追加日志]
+    CL -->|异步分发| CQ0[TopicA/queue-0<br/>ConsumeQueue]
+    CL -->|异步分发| CQ1[TopicA/queue-1<br/>ConsumeQueue]
+    CL -->|异步分发| CQ2[TopicB/queue-0<br/>ConsumeQueue]
+    CL -->|异步建索引| IDX[IndexFile<br/>Topic#Key → 物理偏移候选]
+    CQ0 -->|phyOffset + size| CL
+    CQ1 -->|phyOffset + size| CL
+    CQ2 -->|phyOffset + size| CL
+    IDX -->|phyOffset| CL

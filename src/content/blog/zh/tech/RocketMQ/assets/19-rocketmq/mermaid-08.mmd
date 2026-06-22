@@ -1,0 +1,9 @@
+flowchart LR
+    DB[(业务数据库)] --> C[CDC/Outbox Connector]
+    C --> M[(CDC_EVENT_FIFO)]
+    M --> S[搜索索引]
+    M --> W[数仓实时层]
+    M --> D[缓存/读模型]
+    M --> A[审计归档]
+    A --> RP[历史回放任务]
+    RP --> RM[(REPLAY_TOPIC)]

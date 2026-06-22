@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant C as CommitLog
+    participant H as DefaultHAService
+    participant G as GroupTransferService
+    participant W as Master WriteSocketService
+    participant S as Slave DefaultHAClient
+    participant L as Slave CommitLog
+    participant R as Master ReadSocketService
+
+    C->>C: appendMessage
+    C->>H: handleHA / putRequest
+    H->>G: 等待目标 Offset
+    W->>S: 发送 CommitLog 数据
+    S->>L: appendToCommitLog
+    S->>R: 上报最大复制 Offset
+    R->>H: notifyTransferSome(offset)
+    H->>G: 唤醒等待请求
+    G-->>C: PUT_OK 或 FLUSH_SLAVE_TIMEOUT

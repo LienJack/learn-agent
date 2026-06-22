@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant O as 订单服务
+    participant DB1 as 订单库
+    participant R as Outbox Relay
+    participant MQ as RocketMQ
+    participant C as 履约Consumer
+    participant DB2 as 履约库
+    participant J as 对账任务
+
+    O->>DB1: 本地事务：订单置PAID + 插入Outbox(E1005,v7)
+    DB1-->>O: COMMIT
+    R->>DB1: 扫描未发送Outbox
+    R->>MQ: 发送，Key=order_id，event_id=E1005
+    MQ-->>R: ACK或结果未知
+    R->>DB1: 成功则标记；未知则允许重发
+    MQ->>C: 至少一次投递
+    C->>DB2: 本地事务：Inbox(E1005)+状态机v7
+    DB2-->>C: COMMIT
+    C-->>MQ: ACK
+    J->>DB1: 扫描已支付订单与Outbox
+    J->>DB2: 核对履约状态
+    J->>MQ: 缺失时按原event_id受控补发

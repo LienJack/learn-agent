@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/01.消息队列基础、业务价值与RocketMQ技术定位.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-01.png",
+      "markdownRef": "./assets/01-rocketmq/mermaid-01.png",
+      "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 69977,
+      "sha256": "ff31a5cb2d7b896a9535a8c5f7350c730cced3315b10c1439cd5286e722b6e90",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:31:59.514Z",
+      "compression": {
+        "beforeBytes": 69977,
+        "afterBytes": 69977,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-02.png",
+      "markdownRef": "./assets/01-rocketmq/mermaid-02.png",
+      "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 96039,
+      "sha256": "d83f0031c5c5be17200b06da94e4bfc6ef77fd4fa34b9a06514232a6547d24b3",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:01.813Z",
+      "compression": {
+        "beforeBytes": 96039,
+        "afterBytes": 96039,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-03.png",
+      "markdownRef": "./assets/01-rocketmq/mermaid-03.png",
+      "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 54036,
+      "sha256": "a04029fde26337c16770047c6ccf73065c9e248d54026c5a473470cda8e551f9",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:03.953Z",
+      "compression": {
+        "beforeBytes": 54036,
+        "afterBytes": 54036,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-04.png",
+      "markdownRef": "./assets/01-rocketmq/mermaid-04.png",
+      "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 81621,
+      "sha256": "1890d6336d14b393a5237c75573a79f26e6593b2b4ba6861df0f2520b2aec85e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:06.006Z",
+      "compression": {
+        "beforeBytes": 81621,
+        "afterBytes": 81621,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-05.png",
+      "markdownRef": "./assets/01-rocketmq/mermaid-05.png",
+      "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 167350,
+      "sha256": "e109100e2fa628776aa7bf6cb7a6cb8fd3da2239fe6eb288f1087cbb47b95f0b",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:08.637Z",
+      "compression": {
+        "beforeBytes": 167350,
+        "afterBytes": 167350,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

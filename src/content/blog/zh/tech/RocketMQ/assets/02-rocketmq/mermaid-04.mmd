@@ -1,0 +1,36 @@
+flowchart LR
+    subgraph Client["业务客户端"]
+        P["Producer"]
+        C["Consumer"]
+    end
+
+    subgraph Access["接入平面"]
+        PX["Proxy"]
+    end
+
+    subgraph Routing["路由与控制平面"]
+        NS["NameServer<br/>路由发现"]
+        CT["Controller<br/>副本选主"]
+    end
+
+    subgraph Data["数据平面"]
+        B1["Broker Master"]
+        B2["Broker Slave"]
+    end
+
+    P -->|"5.x gRPC"| PX
+    C -->|"5.x gRPC"| PX
+    PX -->|"消息请求"| B1
+
+    P -.->|"4.x 查询路由"| NS
+    C -.->|"4.x 查询路由"| NS
+    P -->|"4.x 直接发送"| B1
+    C -->|"4.x 直接消费"| B1
+
+    B1 -.->|"注册 Topic 路由"| NS
+    B1 -->|"消息复制"| B2
+
+    B1 -.->|"副本状态"| CT
+    B2 -.->|"副本状态"| CT
+    CT -.->|"角色变更"| B1
+    CT -.->|"角色变更"| B2

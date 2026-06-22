@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant P as 订单 Producer
+    participant B as RocketMQ Broker
+    participant DB as 订单数据库
+    participant C as 积分 Consumer
+
+    P->>B: 发送 Half Message
+    B-->>P: Half Message ACK
+    Note over B: 消息暂不可消费
+
+    P->>DB: 开启本地事务
+    P->>DB: 写入订单和事务状态
+    DB-->>P: COMMIT 成功
+
+    P->>B: Commit Transaction
+    B->>B: 恢复真实 Topic 并生成可投递消息
+    B-->>P: Commit ACK
+
+    B->>C: 投递订单创建事件
+    C->>C: 幂等发放积分
+    C-->>B: 消费成功

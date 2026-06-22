@@ -1,0 +1,7 @@
+flowchart LR
+    M[MinOffset=100] --> A[100 ... 169 已确认]
+    A --> C[ConsumerOffset=170]
+    C --> P[170 ... 179 已拉取/在途]
+    P --> R[PullOffset=180]
+    R --> L[180 ... 199 尚未拉取]
+    L --> X[MaxOffset=200]

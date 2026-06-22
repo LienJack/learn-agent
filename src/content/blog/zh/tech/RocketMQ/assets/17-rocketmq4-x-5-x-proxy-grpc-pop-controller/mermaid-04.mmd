@@ -1,0 +1,7 @@
+flowchart TB
+    subgraph QueueBased[4.x 典型队列级负载均衡]
+        Q0[Queue 0] --> C1[Consumer 1]
+        Q1[Queue 1] --> C1
+        Q2[Queue 2] --> C2[Consumer 2]
+        Q3[Queue 3] --> C3[Consumer 3]
+    end

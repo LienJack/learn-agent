@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/13.RocketMQ高可用.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-01.png",
+      "markdownRef": "./assets/13-rocketmq/mermaid-01.png",
+      "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 79633,
+      "sha256": "ec4b34d82fcb01c47298581f23aa658415a2c500db94f1391e552dcc1ee4deec",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:05.903Z",
+      "compression": {
+        "beforeBytes": 79633,
+        "afterBytes": 79633,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-02.png",
+      "markdownRef": "./assets/13-rocketmq/mermaid-02.png",
+      "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 115692,
+      "sha256": "447ea2d47e1dd61eb054e3a6d0a06ffdca7dd3a1db2294d824691e61e682ecd3",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:08.313Z",
+      "compression": {
+        "beforeBytes": 115692,
+        "afterBytes": 115692,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-03.png",
+      "markdownRef": "./assets/13-rocketmq/mermaid-03.png",
+      "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 178288,
+      "sha256": "af04c389b745b0cf3d24da2a5c1f1cecbec9ba094990ea9bb7b06b56498b51e0",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:10.462Z",
+      "compression": {
+        "beforeBytes": 178288,
+        "afterBytes": 178288,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-04.png",
+      "markdownRef": "./assets/13-rocketmq/mermaid-04.png",
+      "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 64045,
+      "sha256": "039119686e45ef613d3cc2f425b9a8417f18958f008783fc0160766dc55cc90d",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:12.541Z",
+      "compression": {
+        "beforeBytes": 64045,
+        "afterBytes": 64045,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-05.png",
+      "markdownRef": "./assets/13-rocketmq/mermaid-05.png",
+      "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 138737,
+      "sha256": "bfca9a05e930bebb0064c7a261e539121bd6a8ddce996bddbe0e780a3f0d17a2",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:14.563Z",
+      "compression": {
+        "beforeBytes": 138737,
+        "afterBytes": 138737,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-06.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-06.png",
+      "markdownRef": "./assets/13-rocketmq/mermaid-06.png",
+      "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 6",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 89899,
+      "sha256": "2638f90a1eee95a9bdd9130190442cb138d7c1833069c0783fb6ff95e9d738fa",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:16.427Z",
+      "compression": {
+        "beforeBytes": 89899,
+        "afterBytes": 89899,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-07",
+      "kind": "mermaid",
+      "block": 7,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-07.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-07.png",
+      "markdownRef": "./assets/13-rocketmq/mermaid-07.png",
+      "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 7",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 56487,
+      "sha256": "a650c4e75363e84709132466056a655f2c2b5717efb14cb12a31eb3a58dc522e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:18.251Z",
+      "compression": {
+        "beforeBytes": 56487,
+        "afterBytes": 56487,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

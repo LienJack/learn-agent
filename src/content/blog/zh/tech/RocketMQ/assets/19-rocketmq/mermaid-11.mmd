@@ -1,0 +1,34 @@
+flowchart TB
+    U[用户/商户] --> G[网关与幂等层]
+    G --> O[订单服务]
+    O --> ODB[(订单库)]
+    O --> OE[(ORDER_EVENT_NORMAL)]
+    O --> OF[(ORDER_STATE_FIFO)]
+    O --> OD[(ORDER_CLOSE_DELAY)]
+
+    PAY[支付回调] --> PS[支付服务]
+    PS --> PDB[(支付库)]
+    PS --> PT[(PAYMENT_RESULT_TXN)]
+    PT --> OS[订单状态服务]
+    OS --> ODB
+    OS --> OF
+
+    OE --> SEARCH[搜索投影组]
+    OE --> BI[实时数据组]
+    PT --> LEDGER[账务组]
+    PT --> POINTS[积分组]
+    PT --> INVOICE[发票组]
+    OF --> NOTIFY[通知编排组]
+    OD --> CLOSE[超时关闭组]
+
+    subgraph RocketMQ多可用区集群
+      OE
+      OF
+      OD
+      PT
+    end
+
+    ARCH[归档消费者] --> OBJ[(对象存储)]
+    OE --> ARCH
+    OF --> ARCH
+    PT --> ARCH

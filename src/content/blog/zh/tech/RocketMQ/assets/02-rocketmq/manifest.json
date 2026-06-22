@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/02.RocketMQ整体架构、核心组件与领域模型.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-01.png",
+      "markdownRef": "./assets/02-rocketmq/mermaid-01.png",
+      "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 162532,
+      "sha256": "7a050b8b6ce9e3f4c8fe2c6ac4475e60fc59c4768727df15ce5db07a2c184f27",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:10.830Z",
+      "compression": {
+        "beforeBytes": 162532,
+        "afterBytes": 162532,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-02.png",
+      "markdownRef": "./assets/02-rocketmq/mermaid-02.png",
+      "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 42705,
+      "sha256": "1e06ced85f5135d2ec844276b6b0e209132a962f9b726db3f73f31c47c443264",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:12.747Z",
+      "compression": {
+        "beforeBytes": 42705,
+        "afterBytes": 42705,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-03.png",
+      "markdownRef": "./assets/02-rocketmq/mermaid-03.png",
+      "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 40709,
+      "sha256": "12272df897cb0e8a0d1e838d8229a0a20d06f847339ccccedf7ce6be580a6bd3",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:14.691Z",
+      "compression": {
+        "beforeBytes": 40709,
+        "afterBytes": 40709,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-04.png",
+      "markdownRef": "./assets/02-rocketmq/mermaid-04.png",
+      "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 108225,
+      "sha256": "c8ede16a7f105ce032970094fa26923e10d0c45578a2178d9bf003737fbface8",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:16.660Z",
+      "compression": {
+        "beforeBytes": 108225,
+        "afterBytes": 108225,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-05.png",
+      "markdownRef": "./assets/02-rocketmq/mermaid-05.png",
+      "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 139466,
+      "sha256": "fa02c90ac0f60f134c27c06fbfbf64caaf0bf42614af86c6bf5b1bb40aed0e23",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:18.768Z",
+      "compression": {
+        "beforeBytes": 139466,
+        "afterBytes": 139466,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-06.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-06.png",
+      "markdownRef": "./assets/02-rocketmq/mermaid-06.png",
+      "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 6",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 85550,
+      "sha256": "2c3495c148ea4a4b07b0ad61cbb5b657cb222def052a03bd5dff3dfb7c7768b6",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:20.912Z",
+      "compression": {
+        "beforeBytes": 85550,
+        "afterBytes": 85550,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-07",
+      "kind": "mermaid",
+      "block": 7,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-07.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-07.png",
+      "markdownRef": "./assets/02-rocketmq/mermaid-07.png",
+      "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 7",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 150417,
+      "sha256": "997c04098f92963d95ebe7dcc12672f646c79c55596ec6d7a94cbf8ff89eaa13",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:23.408Z",
+      "compression": {
+        "beforeBytes": 150417,
+        "afterBytes": 150417,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "photo-01-rocketmq-core-components-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 2 章：RocketMQ 整体架构、核心组件与领域模型",
+      "anchor": "第-2-章rocketmq-整体架构核心组件与领域模型",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/rocketmq-core-components-summary.webp",
+      "markdownRef": "./assets/02-rocketmq/rocketmq-core-components-summary.webp",
+      "alt": "RocketMQ 核心组件速览总结图",
+      "contentType": "image/webp",
+      "bytes": 208498,
+      "sha256": "a65a1120a4300df4f35c6016b927bd9f43cb7fe9f9069be904d20b82ee1c244d",
+      "importedFrom": "/Users/lienli/Downloads/ChatGPT Image 2026年6月22日 15_05_31.png",
+      "importedAt": "2026-06-22T07:07:52.000Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-22T07:07:52.000Z",
+      "compression": {
+        "beforeBytes": 1691716,
+        "afterBytes": 208498,
+        "savedBytes": 1483218
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

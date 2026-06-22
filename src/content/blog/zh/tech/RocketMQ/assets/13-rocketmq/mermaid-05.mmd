@@ -1,0 +1,9 @@
+stateDiagram-v2
+    [*] --> CatchingUp: 新副本/重启副本
+    CatchingUp --> SyncStateSet: maxOffset >= confirmOffset\n且已进入当前 Epoch
+    SyncStateSet --> Lagging: 超时未追上或连接丢失
+    Lagging --> Outside: Controller 提交收缩
+    Outside --> CatchingUp: 重新连接并追赶
+    SyncStateSet --> Candidate: 当前 Master 故障
+    Candidate --> NewMaster: Controller 选举并 masterEpoch+1
+    NewMaster --> SyncStateSet: 新集合初始仅含新 Master

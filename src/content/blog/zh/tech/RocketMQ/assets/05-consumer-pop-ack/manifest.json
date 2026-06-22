@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/05.Consumer类型、长轮询、POP、ACK与完整消费链路.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack",
+  "updatedAt": "2026-06-22T08:33:37.000Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-01.png",
+      "markdownRef": "./assets/05-consumer-pop-ack/mermaid-01.png",
+      "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 34897,
+      "sha256": "3fdf980f19a33228cd90a9b6527b6a5ab074b9b3e485928a9a286c2599320dce",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:41.880Z",
+      "compression": {
+        "beforeBytes": 34897,
+        "afterBytes": 34897,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-02.png",
+      "markdownRef": "./assets/05-consumer-pop-ack/mermaid-02.png",
+      "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 116824,
+      "sha256": "bc122554557ec55901166f2f712d66faa6a2b4abd5f6cb0eb7a6e21415f607e6",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:43.893Z",
+      "compression": {
+        "beforeBytes": 116824,
+        "afterBytes": 116824,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-03.png",
+      "markdownRef": "./assets/05-consumer-pop-ack/mermaid-03.png",
+      "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 150113,
+      "sha256": "adefacae0530e528adb1279ed8bfcdc7287d03428a7bf5a5da8c450881fcdf5d",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:45.966Z",
+      "compression": {
+        "beforeBytes": 150113,
+        "afterBytes": 150113,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-04.png",
+      "markdownRef": "./assets/05-consumer-pop-ack/mermaid-04.png",
+      "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 115585,
+      "sha256": "c825dcfc222359b7947e75184f781b9524f26bc9466199bd0875728e8e787247",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:48.047Z",
+      "compression": {
+        "beforeBytes": 115585,
+        "afterBytes": 115585,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-05.png",
+      "markdownRef": "./assets/05-consumer-pop-ack/mermaid-05.png",
+      "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 99313,
+      "sha256": "c1d140a518622f1eb2bf6a58ace9727ece85b27a090edfef4fabe0963b54fa1e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:50.294Z",
+      "compression": {
+        "beforeBytes": 99313,
+        "afterBytes": 99313,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "photo-01-rocketmq-consumer-flow-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路",
+      "anchor": "第-5-章consumer-类型长轮询popack-与完整消费链路",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/rocketmq-consumer-flow-summary.webp",
+      "markdownRef": "./assets/05-consumer-pop-ack/rocketmq-consumer-flow-summary.webp",
+      "alt": "RocketMQ Consumer 消费链路速览总结图",
+      "contentType": "image/webp",
+      "bytes": 236812,
+      "sha256": "19e2ff128b02e996620347c2f800f2266ce0d62a2a04b1fe08b1edd331e8a4ac",
+      "importedFrom": "/Users/lienli/Downloads/ChatGPT Image 2026年6月22日 16_32_26.png",
+      "importedAt": "2026-06-22T08:33:37.000Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-22T08:33:37.000Z",
+      "compression": {
+        "beforeBytes": 1790058,
+        "afterBytes": 236812,
+        "savedBytes": 1553246
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

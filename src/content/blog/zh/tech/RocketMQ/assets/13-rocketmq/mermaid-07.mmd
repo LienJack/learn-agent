@@ -1,0 +1,31 @@
+flowchart TB
+    subgraph AZ1
+        NS1[NameServer 1]
+        PX1[Proxy 1]
+        C1[Controller 1]
+        B0[Broker Group A - Replica 0]
+    end
+    subgraph AZ2
+        NS2[NameServer 2]
+        PX2[Proxy 2]
+        C2[Controller 2]
+        B1[Broker Group A - Replica 1]
+    end
+    subgraph AZ3
+        NS3[NameServer 3]
+        PX3[Proxy 3]
+        C3[Controller 3]
+        B2[Broker Group A - Replica 2]
+    end
+    APP[应用集群] --> LB[四层/七层负载均衡或多 Endpoint]
+    LB --> PX1
+    LB --> PX2
+    LB --> PX3
+    PX1 --> B0
+    PX2 --> B0
+    PX3 --> B0
+    B0 <--> B1
+    B0 <--> B2
+    C1 <--> C2
+    C2 <--> C3
+    C1 <--> C3

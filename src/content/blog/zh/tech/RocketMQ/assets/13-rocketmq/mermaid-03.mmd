@@ -1,0 +1,13 @@
+flowchart TD
+    A[Slave HAClient 连接 Master HA 端口] --> B[上报本地 maxPhyOffset]
+    B --> C[Master HAConnection 定位 CommitLog]
+    C --> D[发送 physicalOffset + bodySize + bytes]
+    D --> E{Slave 本地 maxOffset == physicalOffset?}
+    E -- 否 --> X[断开/重新握手或截断对齐]
+    E -- 是 --> F[appendToCommitLog]
+    F --> G[唤醒 Reput，构建 ConsumeQueue/Index]
+    G --> H[Slave 上报新的 maxPhyOffset]
+    H --> I[Master 唤醒 GroupTransferService]
+    I --> J{达到 ACK 条件?}
+    J -- 否 --> C
+    J -- 是 --> K[写请求复制阶段完成]

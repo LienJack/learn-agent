@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/09.FIFO顺序消息.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-01.png",
+      "markdownRef": "./assets/09-fifo/mermaid-01.png",
+      "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 88618,
+      "sha256": "61f44a91f898fe1d162b58f5284310372d2e63d2674cc5129882b53bcff4166a",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:17.149Z",
+      "compression": {
+        "beforeBytes": 88618,
+        "afterBytes": 88618,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-02.png",
+      "markdownRef": "./assets/09-fifo/mermaid-02.png",
+      "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 84366,
+      "sha256": "6e96fcbdb109f5da952176d2b5e7c2391577a8f8b40343444ce53b210058cc16",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:19.380Z",
+      "compression": {
+        "beforeBytes": 84366,
+        "afterBytes": 84366,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-03.png",
+      "markdownRef": "./assets/09-fifo/mermaid-03.png",
+      "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 67069,
+      "sha256": "deb55dcd71e8cbc0f309b745e1eab37ea2acac87d433b82b3ce223a7f1b41e55",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:21.168Z",
+      "compression": {
+        "beforeBytes": 67069,
+        "afterBytes": 67069,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-04.png",
+      "markdownRef": "./assets/09-fifo/mermaid-04.png",
+      "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 97127,
+      "sha256": "040f2bdfdd07d3aa3dc116d036c1c56c57a087ab3f89bc08aa430627d2092c2e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:23.200Z",
+      "compression": {
+        "beforeBytes": 97127,
+        "afterBytes": 97127,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-05.png",
+      "markdownRef": "./assets/09-fifo/mermaid-05.png",
+      "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 54094,
+      "sha256": "f119bd97ed1066d451427eeed3310b74afb88a00fab2a6931c6bda488af4a6b4",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:25.104Z",
+      "compression": {
+        "beforeBytes": 54094,
+        "afterBytes": 54094,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

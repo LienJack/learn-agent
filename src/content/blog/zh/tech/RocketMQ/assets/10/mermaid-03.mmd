@@ -1,0 +1,8 @@
+stateDiagram-v2
+    [*] --> Initialized: Producer 构造消息
+    Initialized --> Timing: Broker 持久化到定时存储
+    Timing --> Ready: 到期后写入普通消息存储
+    Ready --> Inflight: Consumer 获取消息
+    Inflight --> Acked: 处理成功并提交结果
+    Inflight --> Ready: 超时或失败后重试
+    Acked --> Deleted: 达到保留条件后物理清理

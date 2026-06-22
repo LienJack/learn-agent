@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant P as Producer
+    participant M as Master CommitLog
+    participant F as Flush Service
+    participant H as HAService
+    participant S as Slave CommitLog
+
+    P->>M: SendMessage
+    M->>M: 追加消息，得到 nextOffset
+    par 本机刷盘
+        M->>F: 提交 GroupCommitRequest(nextOffset)
+        F-->>M: flushedWhere >= nextOffset
+    and 副本复制
+        M->>H: 提交 HA GroupCommitRequest(nextOffset, ackNums)
+        H->>S: 推送 offset + bodySize + CommitLog bytes
+        S->>S: 按相同物理位点追加
+        S-->>H: 上报 slaveMaxOffset
+        H-->>M: ACK 数量达到要求
+    end
+    M-->>P: 汇总 flushStatus 与 replicaStatus

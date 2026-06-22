@@ -1,0 +1,12 @@
+flowchart LR
+    P[Producer] -->|发送消息| M[Broker Master]
+    M -->|追加| CL[Master CommitLog]
+    CL -->|刷盘策略| D1[(Master Disk)]
+    M -->|HA 复制| S1[Slave / Replica 1]
+    M -->|HA 复制| S2[Slave / Replica 2]
+    S1 --> D2[(Replica Disk)]
+    S2 --> D3[(Replica Disk)]
+    C[Controller 集群] -.管理 Master/Epoch/SyncStateSet.-> M
+    C -.角色通知.-> S1
+    C -.角色通知.-> S2
+    NS[NameServer] -.发布路由.-> P

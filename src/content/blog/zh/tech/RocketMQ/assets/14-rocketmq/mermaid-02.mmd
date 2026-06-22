@@ -1,0 +1,12 @@
+flowchart TD
+    A[业务请求] --> P[Producer 有界队列]
+    P -->|令牌桶/Inflight 上限| B[Broker]
+    B -->|容量足够| S[存储与复制]
+    B -->|排队/磁盘水位/限流| T[THROTTLED/超时]
+    T --> R[指数退避 + 抖动 + 总重试预算]
+    R --> P
+    S --> C[Consumer]
+    C -->|有界缓存| W[处理 Worker]
+    W --> D[下游数据库/API]
+    D -->|慢或拒绝| C
+    C -->|暂停拉取而非无限缓存| B

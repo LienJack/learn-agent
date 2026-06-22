@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant OM as Old Master
+    participant C as Controller Leader
+    participant R1 as Replica 1
+    participant R2 as Replica 2
+    participant NS as NameServer
+    participant P as Producer
+
+    OM-xC: 心跳中断
+    C->>C: 超时判定 Old Master inactive
+    C->>C: 从 SyncStateSet 选择 R1
+    C->>C: Raft 提交 masterEpoch+1, SyncStateSet={R1}
+    C-->>R1: 通知成为新 Master
+    C-->>R2: 通知跟随 R1
+    R1->>R1: 对比 Epoch，截断无效/不完整尾部
+    R1->>NS: 以 Master 身份重新注册路由
+    R2->>R1: 握手、比较 Epoch、必要时截断后追赶
+    P->>NS: 刷新路由
+    P->>R1: 重试写入

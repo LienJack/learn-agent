@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant P as Producer
+    participant A as 集群 A
+    participant B as 集群 B
+
+    P->>A: 发送事件 E
+    A-->>P: 成功
+    P->>B: 发送事件 E
+    B--xP: 响应超时
+
+    Note over P,B: B 可能未写入，也可能已经写入但响应丢失
+
+    P->>B: 重试事件 E
+    B-->>P: 成功
+    Note over B: B 中可能出现两个 E

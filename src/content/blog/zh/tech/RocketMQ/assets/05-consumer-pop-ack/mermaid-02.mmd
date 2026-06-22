@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant C as Consumer SDK
+    participant B as Broker/Proxy
+    participant S as Message Store
+
+    C->>B: Receive/Pull（允许等待）
+    B->>S: 查询可消费消息
+    S-->>B: 暂无消息
+    B-->>B: 挂起请求上下文，不占用业务工作线程忙等
+    Note over C,B: 连接与请求仍占用一定资源
+    S-->>B: 新消息到达，触发唤醒
+    B->>S: 再次查询
+    S-->>B: 返回消息
+    B-->>C: 消息或批次
+    C->>B: 下一次 Receive/Pull

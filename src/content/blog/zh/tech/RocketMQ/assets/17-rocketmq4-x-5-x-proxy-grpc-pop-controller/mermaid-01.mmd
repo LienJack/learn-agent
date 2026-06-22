@@ -1,0 +1,11 @@
+flowchart LR
+    P[Producer<br/>Remoting SDK] -->|查询路由| NS[NameServer]
+    C[Push/Pull Consumer<br/>Remoting SDK] -->|查询路由| NS
+
+    P -->|直接发送| BM[Broker Master]
+    C -->|直接拉取| BM
+
+    BM -->|主从复制| BS[Broker Slave]
+
+    NS -.保存路由<br/>不保存消息.-> BM
+    NS -.保存路由<br/>不保存消息.-> BS

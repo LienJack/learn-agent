@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant P as 4.x Producer
+    participant NS as NameServer
+    participant B as Broker Master
+
+    B->>NS: 注册 Broker、Topic 和队列信息
+    loop 周期性注册
+        B->>NS: 更新路由与存活时间
+    end
+
+    P->>NS: 查询 TopicRouteData
+    NS-->>P: 返回 BrokerData、QueueData 等路由
+    P->>P: 缓存路由并选择 MessageQueue
+    P->>B: 建立 Remoting 连接并发送消息
+    B->>B: 校验并写入 CommitLog
+    B-->>P: 返回 SendResult
+
+    loop 周期性刷新
+        P->>NS: 重新查询 Topic 路由
+        NS-->>P: 返回最新路由
+    end

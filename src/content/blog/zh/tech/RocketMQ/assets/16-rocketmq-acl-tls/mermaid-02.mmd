@@ -1,0 +1,17 @@
+flowchart LR
+    Producer[Producer]
+    Consumer[Consumer]
+    LB[内部负载均衡]
+    Proxy[Proxy]
+    NameServer[NameServer]
+    Broker[Broker]
+    Slave[Broker Replica]
+    Controller[Controller]
+
+    Producer -- TLS --> LB
+    Consumer -- TLS --> LB
+    LB -- TLS或可信专网 --> Proxy
+    Proxy -- 独立评估链路加密 --> NameServer
+    Proxy -- 独立评估链路加密 --> Broker
+    Broker -- 复制链路保护 --> Slave
+    Broker -- 控制链路保护 --> Controller

@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/11.事务消息、HalfMessage、事务回查与最终一致性.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-01.png",
+      "markdownRef": "./assets/11-halfmessage/mermaid-01.png",
+      "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 130630,
+      "sha256": "85cd57f0a7cce0f8c9e2679a27735e2ec161161349df5b68284e0754378543c5",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:48.056Z",
+      "compression": {
+        "beforeBytes": 130630,
+        "afterBytes": 130630,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-02.png",
+      "markdownRef": "./assets/11-halfmessage/mermaid-02.png",
+      "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 92371,
+      "sha256": "3042e38ac41d225931694581c6b1dc4b73cda19f0931f468372a6acccd585ba6",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:49.883Z",
+      "compression": {
+        "beforeBytes": 92371,
+        "afterBytes": 92371,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-03.png",
+      "markdownRef": "./assets/11-halfmessage/mermaid-03.png",
+      "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 109972,
+      "sha256": "89aad567764fcd33c7d76dc5a4e92ca322113e918c487ca0a145d9b805caba70",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:51.774Z",
+      "compression": {
+        "beforeBytes": 109972,
+        "afterBytes": 109972,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-04.png",
+      "markdownRef": "./assets/11-halfmessage/mermaid-04.png",
+      "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 104880,
+      "sha256": "f664cf92ba5f7915c064a18a4acd35d9ddf91675fb4ada7cbc6558d41e9cce2c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:53.788Z",
+      "compression": {
+        "beforeBytes": 104880,
+        "afterBytes": 104880,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-05.png",
+      "markdownRef": "./assets/11-halfmessage/mermaid-05.png",
+      "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 81594,
+      "sha256": "e9e42a094ad1876704aae7959c56577c34018a81b42721fbeca2c86d45be1a26",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:55.821Z",
+      "compression": {
+        "beforeBytes": 81594,
+        "afterBytes": 81594,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

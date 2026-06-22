@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant C as Client
+    participant S as SendMessageProcessor〔R5.5〕
+    participant D as DefaultMessageStore〔R5.5〕
+    participant L as CommitLog〔R5.5〕
+    participant M as DefaultMappedFile〔R5.5〕
+    participant F as FlushManager〔R5.5〕
+    participant R as ReputMessageService〔R5.5〕
+    participant Q as ConsumeQueue/IndexFile
+
+    C->>S: 发送消息
+    S->>D: asyncPutMessage
+    D->>L: asyncPutMessage
+    L->>L: 分配 QueueOffset、编码、加写锁
+    L->>M: appendMessage
+    M-->>L: wroteOffset + wroteBytes
+    L->>F: handleDiskFlush
+    F-->>C: 根据刷盘/复制条件完成结果
+    R->>L: 从 reputFromOffset 顺序解析
+    R->>Q: doDispatch 构建 CQ 与 Index
+    R-->>R: 推进 reputFromOffset

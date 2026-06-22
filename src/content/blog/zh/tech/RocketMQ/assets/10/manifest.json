@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/10.延迟消息、定时消息与分布式任务调度.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/10",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-01.png",
+      "markdownRef": "./assets/10/mermaid-01.png",
+      "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 121031,
+      "sha256": "1bfabf2b5383ff4e6bcdb9f8f560950bc0189528e1f16beb1877bb13a198101f",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:27.148Z",
+      "compression": {
+        "beforeBytes": 121031,
+        "afterBytes": 121031,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-02.png",
+      "markdownRef": "./assets/10/mermaid-02.png",
+      "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 26394,
+      "sha256": "04499881eaa711774ca02f78a2f92008e5b8af9b6398e955294df052efc52081",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:39.977Z",
+      "compression": {
+        "beforeBytes": 26394,
+        "afterBytes": 26394,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-03.png",
+      "markdownRef": "./assets/10/mermaid-03.png",
+      "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 93264,
+      "sha256": "25fc5c90457293d8822b4f57ad736160cf1e363667b9c924048e22922137bc6c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:42.037Z",
+      "compression": {
+        "beforeBytes": 93264,
+        "afterBytes": 93264,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-04.png",
+      "markdownRef": "./assets/10/mermaid-04.png",
+      "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 208387,
+      "sha256": "fc76be0ecfd88caeff477dba1adf7056f6f480f5ebf92180ec6e4ed2331825c2",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:44.340Z",
+      "compression": {
+        "beforeBytes": 208387,
+        "afterBytes": 208387,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-05.png",
+      "markdownRef": "./assets/10/mermaid-05.png",
+      "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 19591,
+      "sha256": "43fc3433be3b4821b8a39de29a0be296ee2ac13024b02b15e8ae7b268874781c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:46.195Z",
+      "compression": {
+        "beforeBytes": 19591,
+        "afterBytes": 19591,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

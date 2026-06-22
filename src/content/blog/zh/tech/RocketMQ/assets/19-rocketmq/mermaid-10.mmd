@@ -1,0 +1,10 @@
+flowchart LR
+    A[(在线Topic)] --> C[在线ConsumerGroup]
+    A --> H[归档消费者]
+    H --> O[(对象存储/数据湖)]
+    O --> J[回放任务]
+    J --> T[过滤/脱敏/限速]
+    T --> R[(REPLAY_TOPIC)]
+    R --> RC[Replay ConsumerGroup]
+    RC --> V[校验报告]
+    V -->|审核后| P[生产修复]

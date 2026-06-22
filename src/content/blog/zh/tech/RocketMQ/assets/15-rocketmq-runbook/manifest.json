@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/15.RocketMQ可观测性、故障诊断、应急处理与生产Runbook.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-01.png",
+      "markdownRef": "./assets/15-rocketmq-runbook/mermaid-01.png",
+      "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 22692,
+      "sha256": "8d612e64808073e3c290b05efa01adf353e0fe76e41a22ac2ffa2b26cbc64a94",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:27.851Z",
+      "compression": {
+        "beforeBytes": 22692,
+        "afterBytes": 22692,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-02.png",
+      "markdownRef": "./assets/15-rocketmq-runbook/mermaid-02.png",
+      "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 209635,
+      "sha256": "b98a8e22619880d6bfe0bc554d6d6ca2f18b2629e0bedf9199dec96ca04f8c24",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:29.880Z",
+      "compression": {
+        "beforeBytes": 209635,
+        "afterBytes": 209635,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-03.png",
+      "markdownRef": "./assets/15-rocketmq-runbook/mermaid-03.png",
+      "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 131201,
+      "sha256": "6658368fcbc52acd21368133cf7e0b5ab974f988f214c329a5bdf33e0d1a4ce0",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:31.854Z",
+      "compression": {
+        "beforeBytes": 131201,
+        "afterBytes": 131201,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-04.png",
+      "markdownRef": "./assets/15-rocketmq-runbook/mermaid-04.png",
+      "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 181152,
+      "sha256": "c3bfdeff5bc2384f51b932abf2fd9c74f193904c0c74706f7ada1251633c11d7",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:34.088Z",
+      "compression": {
+        "beforeBytes": 181152,
+        "afterBytes": 181152,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-05.png",
+      "markdownRef": "./assets/15-rocketmq-runbook/mermaid-05.png",
+      "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 116636,
+      "sha256": "40a9994df9de519e0f8d804beb5dbbdbb5414a1421b06f9a41f2a07568735498",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:35.900Z",
+      "compression": {
+        "beforeBytes": 116636,
+        "afterBytes": 116636,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-06.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-06.png",
+      "markdownRef": "./assets/15-rocketmq-runbook/mermaid-06.png",
+      "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 6",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 187352,
+      "sha256": "05d4b4ba754b6e24ba1cf86e2030b977b80c535701203b3e81095bcd9c611a51",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:38.128Z",
+      "compression": {
+        "beforeBytes": 187352,
+        "afterBytes": 187352,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

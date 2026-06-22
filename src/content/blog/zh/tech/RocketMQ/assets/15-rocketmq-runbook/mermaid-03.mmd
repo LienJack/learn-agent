@@ -1,0 +1,15 @@
+flowchart TD
+    A[Producer 发送失败] --> B{错误是否为 No route info}
+    B -- 是 --> C[核对 endpoint、namespace、Topic 和环境]
+    C --> D{NameServer/Proxy 可达吗}
+    D -- 否 --> E[修复 DNS、网络、ACL、证书或地址配置]
+    D -- 是 --> F{Topic 路由存在且 Broker 已注册吗}
+    F -- 否 --> G[恢复 Broker 注册或正确创建 Topic]
+    F -- 是 --> H[检查客户端路由缓存和版本兼容]
+
+    B -- 否 --> I{是否超时}
+    I -- 是 --> J[检查 Producer P99、Broker RPC、线程池和磁盘]
+    J --> K{按 Key 能否查到消息}
+    K -- 是 --> L[视为可能重复，依赖幂等并停止盲目重试]
+    K -- 否 --> M[检查网络丢包、Broker 拒绝、刷盘和复制等待]
+    I -- 否 --> N[按响应码检查限流、权限、消息大小和系统错误]

@@ -1,0 +1,9 @@
+flowchart LR
+    D[设备/物流节点] --> G[接入网关]
+    G --> R[(RAW_EVENT_NORMAL)]
+    G --> S[(STATE_EVENT_FIFO)]
+    R --> TS[时序库/数据湖]
+    R --> ML[实时分析]
+    S --> DT[数字孪生/轨迹投影]
+    S --> AL[告警服务]
+    R --> AR[冷归档]

@@ -1,0 +1,7 @@
+stateDiagram-v2
+    [*] --> CREATED: OrderCreated v1
+    CREATED --> PAID: PaymentSucceeded v2
+    PAID --> STOCKED_OUT: StockDeducted v3
+    STOCKED_OUT --> SHIPPED: OrderShipped v4
+    SHIPPED --> SIGNED: OrderSigned v5
+    SIGNED --> [*]

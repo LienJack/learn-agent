@@ -1,0 +1,19 @@
+flowchart LR
+    A1[订单 A v1] --> GA[MessageGroup=order-A]
+    A2[订单 A v2] --> GA
+    A3[订单 A v3] --> GA
+    B1[订单 B v1] --> GB[MessageGroup=order-B]
+    B2[订单 B v2] --> GB
+    C1[订单 C v1] --> GC[MessageGroup=order-C]
+
+    GA --> H[组键路由]
+    GB --> H
+    GC --> H
+
+    H --> Q0[MessageQueue 0]
+    H --> Q1[MessageQueue 1]
+    H --> Q2[MessageQueue 2]
+
+    Q0 --> C01[Consumer 1]
+    Q1 --> C02[Consumer 2]
+    Q2 --> C03[Consumer 3]

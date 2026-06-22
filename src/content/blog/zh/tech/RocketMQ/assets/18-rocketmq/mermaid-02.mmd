@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant API as DefaultMQProducer
+    participant P as DefaultMQProducerImpl
+    participant F as MQFaultStrategy
+    participant C as MQClientAPIImpl
+    participant N as NettyRemotingClient
+    participant S as SendMessageProcessor
+    participant M as DefaultMessageStore
+
+    API->>P: send(message)
+    P->>P: sendDefaultImpl()
+    P->>P: tryToFindTopicPublishInfo()
+    P->>F: selectOneMessageQueue()
+    P->>P: sendKernelImpl()
+    P->>C: sendMessage()
+    C->>N: invokeSync / invokeAsync / invokeOneway
+    N->>S: SEND_MESSAGE
+    S->>M: asyncPutMessage()
+    M-->>P: PutMessageResult → SendResult

@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant C as 5.x gRPC Client
+    participant P as Proxy
+    participant NS as NameServer
+    participant B as Broker
+
+    B->>NS: 注册 Broker 与 Topic 路由
+    P->>NS: 获取 Broker 集群路由
+    C->>P: 使用 Endpoint 建立 gRPC 连接
+    C->>P: QueryRoute / Send / Receive
+    P->>B: 转换并转发 Broker 请求
+    B->>B: 存储或读取消息
+    B-->>P: 返回处理结果
+    P-->>C: 返回 gRPC 响应

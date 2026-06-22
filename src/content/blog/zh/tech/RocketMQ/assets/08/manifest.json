@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/08.端到端消息可靠性、重试、死信队列与消费幂等.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/08",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-01.png",
+      "markdownRef": "./assets/08/mermaid-01.png",
+      "alt": "RocketMQ 第 8 章：端到端消息可靠性、重试、死信队列与消费幂等 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 102996,
+      "sha256": "0dfbec107b1a12b8cdcc0d4b85a94f829f3f3b5e4d2e10ec600981dd38c9f487",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:09.564Z",
+      "compression": {
+        "beforeBytes": 102996,
+        "afterBytes": 102996,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-02.png",
+      "markdownRef": "./assets/08/mermaid-02.png",
+      "alt": "RocketMQ 第 8 章：端到端消息可靠性、重试、死信队列与消费幂等 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 84588,
+      "sha256": "c9fdd3911315040a3fbe80e231db1fd0bbd38af32b320e2d07511968dfaa81cd",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:11.588Z",
+      "compression": {
+        "beforeBytes": 84588,
+        "afterBytes": 84588,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-03.png",
+      "markdownRef": "./assets/08/mermaid-03.png",
+      "alt": "RocketMQ 第 8 章：端到端消息可靠性、重试、死信队列与消费幂等 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 95506,
+      "sha256": "eb1fadd111cdc5a5737655c395539e6d662252eabe61c1d99f78423c1ffa6abb",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:13.494Z",
+      "compression": {
+        "beforeBytes": 95506,
+        "afterBytes": 95506,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-04.png",
+      "markdownRef": "./assets/08/mermaid-04.png",
+      "alt": "RocketMQ 第 8 章：端到端消息可靠性、重试、死信队列与消费幂等 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 70135,
+      "sha256": "d08407fad34aa1bd700d69d756023d7b6f4538bfa16dfa052ece51a9aeb29b99",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:15.286Z",
+      "compression": {
+        "beforeBytes": 70135,
+        "afterBytes": 70135,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

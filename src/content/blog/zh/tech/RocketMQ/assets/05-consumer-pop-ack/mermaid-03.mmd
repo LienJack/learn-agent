@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant A as Consumer A
+    participant P as Proxy
+    participant B as Broker POP
+    participant X as Consumer B
+
+    A->>P: Receive(max=8, invisible=30s)
+    P->>B: POP/领取可见消息
+    B-->>P: Message + ReceiptHandle
+    P-->>A: 返回消息，开始不可见期
+    X->>P: Receive
+    P->>B: 请求同组消息
+    B-->>P: 原消息不可见，不分配给 B
+    A->>A: 执行业务副作用
+    alt 业务成功且 ACK 成功
+        A->>P: Ack(Message, ReceiptHandle)
+        P->>B: ACK
+        B-->>A: 完成
+    else 处理超时、进程宕机或未 ACK
+        B-->>B: 不可见期到期
+        B-->>P: 消息重新可投递/进入重试
+    end

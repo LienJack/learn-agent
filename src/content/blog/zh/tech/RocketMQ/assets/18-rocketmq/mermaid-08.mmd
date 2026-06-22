@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant C as gRPC Consumer
+    participant A as AckMessageActivity
+    participant M as MessagingProcessor
+    participant P as AckMessageProcessor
+    participant B as PopBufferMergeService
+    participant R as Revive Topic / PopConsumerService
+    participant V as PopReviveService
+
+    C->>A: AckMessage
+    A->>M: ackMessage / batchAckMessage
+    M->>P: ACK_MESSAGE / BATCH_ACK_MESSAGE
+    P->>B: 尝试合并 ACK
+    alt 合并成功
+        B-->>P: 完成
+    else 旧版 Revive 路径
+        P->>R: 写入 ACK 记录
+        V->>R: 扫描 CK 与 ACK
+    else KV POP 路径
+        P->>R: PopConsumerService.ackAsync
+    end
+    P-->>C: ACK 结果

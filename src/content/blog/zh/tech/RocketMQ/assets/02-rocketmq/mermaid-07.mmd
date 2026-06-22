@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant BP as 业务 Producer
+    participant R as 路由层<br/>NameServer/Proxy
+    participant B as Broker
+    participant CL as CommitLog
+    participant CQ as ConsumeQueue/Index
+    participant C as Consumer
+    participant O as ConsumerOffset
+
+    BP->>BP: 构造 Topic、Key、Tag、Body
+    BP->>R: 获取 Topic 路由
+    R-->>BP: 返回可用队列或 Broker
+    BP->>B: 发送消息
+    B->>B: 权限、类型和消息大小校验
+    B->>CL: 顺序追加完整消息
+    CL-->>B: 写入结果
+    B-->>BP: 返回发送成功或异常
+
+    B->>CQ: 异步构建逻辑队列和索引
+    C->>B: Pull / Receive / POP
+    B->>CQ: 按 QueueOffset 查询索引
+    CQ-->>B: 返回 CommitLogOffset
+    B->>CL: 读取完整消息
+    CL-->>B: 返回消息
+    B-->>C: 投递消息
+
+    alt 消费成功
+        C->>B: ACK 或提交消费进度
+        B->>O: 更新 ConsumerOffset/确认状态
+    else 消费失败或超时
+        B->>B: 进入重试流程
+        B-->>C: 稍后重新投递
+    end

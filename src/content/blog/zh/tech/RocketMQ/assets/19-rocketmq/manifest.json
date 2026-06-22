@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/19.RocketMQ业务架构设计、技术选型与复杂场景落地.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-01.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-01.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 19286,
+      "sha256": "b742a2abd1589c72b179efddfb7014eaf3e1ab3626266fcbe9090b3d1ba94fe4",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:27.577Z",
+      "compression": {
+        "beforeBytes": 19286,
+        "afterBytes": 19286,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-02.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-02.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 82843,
+      "sha256": "e5ed40fe4ecd40ea59708744f4b985236b6e161858a3074b4d7b5c6208a6c5df",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:29.455Z",
+      "compression": {
+        "beforeBytes": 82843,
+        "afterBytes": 82843,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-03.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-03.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 115399,
+      "sha256": "b4bedc531db1bacd051cd9434461a904e3fadbc4632abc2b3b8fc81f656cc450",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:31.430Z",
+      "compression": {
+        "beforeBytes": 115399,
+        "afterBytes": 115399,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-04.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-04.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 41655,
+      "sha256": "993a19a82814571677404b81754395be008809be178a41c55d142eebf0a653ad",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:33.574Z",
+      "compression": {
+        "beforeBytes": 41655,
+        "afterBytes": 41655,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-05.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-05.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 104791,
+      "sha256": "92478d92ec9608bfdd702936482fc16ee83eda7d665c118f9157a9e54264867c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:35.621Z",
+      "compression": {
+        "beforeBytes": 104791,
+        "afterBytes": 104791,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-06.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-06.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-06.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 6",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 93720,
+      "sha256": "ea62c4e7f1554a5686b9a9cac6dab163e8b7616571daf3cd0d916ef6fa1e91ce",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:37.490Z",
+      "compression": {
+        "beforeBytes": 93720,
+        "afterBytes": 93720,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-07",
+      "kind": "mermaid",
+      "block": 7,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-07.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-07.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-07.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 7",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 87701,
+      "sha256": "e9d9a5afed066e3589d6687c6422a97c45a6edda99913d99121b1a2eeb77b57b",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:39.435Z",
+      "compression": {
+        "beforeBytes": 87701,
+        "afterBytes": 87701,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-08",
+      "kind": "mermaid",
+      "block": 8,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-08.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-08.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-08.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 8",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 56711,
+      "sha256": "ab4d378917f39d45d6a4496118a7283d1ccb80c8c663a1e89a79ae5fd7089946",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:41.277Z",
+      "compression": {
+        "beforeBytes": 56711,
+        "afterBytes": 56711,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-09",
+      "kind": "mermaid",
+      "block": 9,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-09.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-09.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-09.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 9",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 87272,
+      "sha256": "094f365a1e2663769d4258c899e53264857bc2e08637a34904f3dc0040042441",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:43.208Z",
+      "compression": {
+        "beforeBytes": 87272,
+        "afterBytes": 87272,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-10",
+      "kind": "mermaid",
+      "block": 10,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-10.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-10.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-10.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 10",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 33643,
+      "sha256": "01a24f4fb2f6fe8d8b73bc19a8743de359c2428c88b8efef49a58013e621b77e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:45.048Z",
+      "compression": {
+        "beforeBytes": 33643,
+        "afterBytes": 33643,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-11",
+      "kind": "mermaid",
+      "block": 11,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-11.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-11.png",
+      "markdownRef": "./assets/19-rocketmq/mermaid-11.png",
+      "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 11",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 106839,
+      "sha256": "60b0853f6bafb4f0d20dcc19f2a79bf64d40f10d208f5fe54c7db47d31fb2df4",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:46.842Z",
+      "compression": {
+        "beforeBytes": 106839,
+        "afterBytes": 106839,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

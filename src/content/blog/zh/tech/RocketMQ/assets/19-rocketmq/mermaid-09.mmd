@@ -1,0 +1,12 @@
+flowchart LR
+    E[业务事件] --> N[通知编排服务]
+    N --> M[(NOTIFY_NORMAL/DELAY)]
+    M --> SMS[短信消费组]
+    M --> MAIL[邮件消费组]
+    M --> PUSH[Push消费组]
+    E --> R[(RISK_EVENT_NORMAL)]
+    R --> RT[实时风控分析]
+    R --> AU[审计归档]
+    SMS --> L[(发送尝试流水)]
+    MAIL --> L
+    PUSH --> L

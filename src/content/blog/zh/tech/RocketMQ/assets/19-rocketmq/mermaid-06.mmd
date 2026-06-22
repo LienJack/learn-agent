@@ -1,0 +1,9 @@
+flowchart LR
+    P[支付服务] -->|PaymentConfirmed命令| S[订单状态服务]
+    W[履约服务] -->|ShipmentCreated命令| S
+    R[退款服务] -->|RefundConfirmed命令| S
+    S --> D[(订单状态机/版本)]
+    S --> F[(ORDER_STATE_FIFO)]
+    F --> Q[查询投影]
+    F --> N[用户通知]
+    F --> A[审计归档]

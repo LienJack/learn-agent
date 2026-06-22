@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant P as Producer
+    participant B1 as Broker A
+    participant B2 as Broker B
+    participant C as Consumer
+
+    P->>B1: 第1次发送 bizId=X
+    B1->>B1: 写入成功
+    B1--xP: 成功响应丢失
+    P->>B2: 超时后重试 bizId=X
+    B2->>B2: 再次写入成功
+    B2-->>P: 成功响应
+    B1-->>C: 投递 X
+    B2-->>C: 再次投递 X
+    C->>C: 依据 bizId=X 幂等处理

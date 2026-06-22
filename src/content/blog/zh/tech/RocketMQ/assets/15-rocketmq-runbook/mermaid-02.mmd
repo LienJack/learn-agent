@@ -1,0 +1,14 @@
+flowchart TD
+    A[业务报告消息未处理] --> B{Producer 有发送记录吗}
+    B -- 否 --> C[检查业务分支、事务、异步任务和进程日志]
+    B -- 是 --> D{取得明确成功确认吗}
+    D -- 否/超时 --> E[结果未知：先按 Key/MessageId 查询 Broker]
+    D -- 是 --> F[按 Key/MessageId 查询 Broker]
+    E --> G{Broker 能查询到吗}
+    F --> G
+    G -- 否 --> H[检查集群、Topic、时间范围、路由、保留期和索引]
+    G -- 是 --> I{Consumer 是否拉取或位点前进}
+    I -- 否 --> J[检查在线实例、订阅、权限、Rebalance 和 Offset]
+    I -- 是 --> K{业务处理成功吗}
+    K -- 否 --> L[检查本地缓存、消费异常、重试和 DLQ]
+    K -- 是 --> M[检查确认失败、重复投递及业务查询口径]

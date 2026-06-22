@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/17.从RocketMQ4.x到5.x：Proxy、gRPC、POP、Controller与架构演进.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-01.png",
+      "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-01.png",
+      "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 78136,
+      "sha256": "266fafa90a4b0eb20d0ff39231d0268a5e86ff4641560ec4b177ec669f4026ee",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:52.182Z",
+      "compression": {
+        "beforeBytes": 78136,
+        "afterBytes": 78136,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-02.png",
+      "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-02.png",
+      "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 87401,
+      "sha256": "836d8567831e326d9ef27309156a5f96adbbbd91b6209dca8bf467dabee3e560",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:53.970Z",
+      "compression": {
+        "beforeBytes": 87401,
+        "afterBytes": 87401,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-03.png",
+      "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-03.png",
+      "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 42809,
+      "sha256": "da86b3c5287ed4a28c75c0b4b9809c2f17edebe72e2517d515da3c7af92ed6e9",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:55.746Z",
+      "compression": {
+        "beforeBytes": 42809,
+        "afterBytes": 42809,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-04.png",
+      "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-04.png",
+      "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 40402,
+      "sha256": "6a9c45bdfeab0630a34abe37ecbe9b6904c6c751e56dbbacaa51209d91cfb459",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:57.471Z",
+      "compression": {
+        "beforeBytes": 40402,
+        "afterBytes": 40402,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-05.png",
+      "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-05.png",
+      "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 88122,
+      "sha256": "e390a49f2e0a7ab07277416fa24b4341bb2f80cc5739dfd8d2c57dc50baabe2d",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:59.394Z",
+      "compression": {
+        "beforeBytes": 88122,
+        "afterBytes": 88122,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-06.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-06.png",
+      "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-06.png",
+      "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 6",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 82535,
+      "sha256": "5808d40066c0c9d90644097fd23edbb822e8d08d1c4ff28df3265e9f525af5bc",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:01.249Z",
+      "compression": {
+        "beforeBytes": 82535,
+        "afterBytes": 82535,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-07",
+      "kind": "mermaid",
+      "block": 7,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-07.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-07.png",
+      "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-07.png",
+      "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 7",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 24695,
+      "sha256": "d66b75f3340dba16cd5169dcc6ffe802733284dd72753aef0d9c9ed0f275e91f",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:03.206Z",
+      "compression": {
+        "beforeBytes": 24695,
+        "afterBytes": 24695,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph ControllerQuorum[Controller Raft Group]
+        C1[Controller Leader]
+        C2[Controller Follower]
+        C3[Controller Follower]
+        C1 <--> C2
+        C1 <--> C3
+    end
+
+    B0[Broker Replica 0] -->|heartbeat: epoch/maxOffset/confirmOffset| C1
+    B1[Broker Replica 1] -->|heartbeat| C2
+    B2[Broker Replica 2] -->|heartbeat| C3
+    C1 -->|Raft commit: Master/SyncStateSet/Epoch| C2
+    C1 -->|Raft commit| C3
+    C1 -.role change notification.-> B0
+    C1 -.role change notification.-> B1
+    C1 -.role change notification.-> B2

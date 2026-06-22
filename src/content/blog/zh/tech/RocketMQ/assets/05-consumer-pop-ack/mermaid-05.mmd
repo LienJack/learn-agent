@@ -1,0 +1,24 @@
+sequenceDiagram
+    participant R as RebalanceImpl
+    participant P as PullMessageService
+    participant D as DefaultMQPushConsumerImpl
+    participant B as Broker PullMessageProcessor
+    participant H as PullRequestHoldService
+    participant Q as 本地 ProcessQueue
+    participant E as ConsumeMessageService
+
+    R->>D: 分配 MessageQueue，创建 ProcessQueue
+    P->>D: 执行 pullMessage
+    D->>B: Pull(queueId, nextOffset, batchSize)
+    alt 有消息
+        B-->>D: 消息批次 + nextBeginOffset
+    else 暂无消息且允许挂起
+        B->>H: 保存长轮询请求
+        H-->>B: 新消息到达或超时后唤醒
+        B-->>D: 消息或空结果
+    end
+    D->>Q: putMessage
+    Q->>E: 提交并发/顺序消费任务
+    E->>E: 执行业务 Listener
+    E->>D: 更新并持久化消费位点
+    D->>P: 调度下一次 Pull

@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant C as CommitLog
+    participant R as ReputMessageService
+    participant D as DefaultMessageStore
+    participant Q as ConsumeQueueStore
+    participant I as IndexService
+    participant L as LongPolling Listener
+
+    C-->>R: 新增物理记录
+    R->>C: getData(reputFromOffset)
+    R->>C: checkMessageAndReturnSize
+    R->>D: doDispatch(dispatchRequest)
+    D->>Q: 构建逻辑队列单元
+    D->>I: 构建 Key 索引
+    R->>L: notifyMessageArriveIfNecessary
+    R->>R: reputFromOffset += messageSize
