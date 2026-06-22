@@ -118,5 +118,11 @@
     "url": "https://qiita.com/LienJack/items/a30e6e4a813d37851200",
     "title": "Memory Governance：candidate ledger から governance store へ",
     "updatedAt": "2026-06-20T01:04:13.150Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-21-scoped-retrieval-audit-snapshot.md": {
+    "id": "cbdddb062e83f62e99d4",
+    "url": "https://qiita.com/LienJack/items/cbdddb062e83f62e99d4",
+    "title": "Scoped Retrieval：境界付き検索から audit snapshot へ",
+    "updatedAt": "2026-06-22T01:03:57.691Z"
   }
 }
