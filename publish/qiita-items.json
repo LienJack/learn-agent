@@ -124,5 +124,17 @@
     "url": "https://qiita.com/LienJack/items/cbdddb062e83f62e99d4",
     "title": "Scoped Retrieval：境界付き検索から audit snapshot へ",
     "updatedAt": "2026-06-22T01:03:57.691Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-22-productized-cli-profile-extension.md": {
+    "id": "5fa0a7050f81c1ba6ce2",
+    "url": "https://qiita.com/LienJack/items/5fa0a7050f81c1ba6ce2",
+    "title": "Productized CLI：profile、extension、multi-provider",
+    "updatedAt": "2026-06-23T01:04:08.739Z"
+  },
+  "src/content/blog/ja/AI/build-harness/00-23-hosted-harness-durable-execution.md": {
+    "id": "d89a29cf74fd6f26506c",
+    "url": "https://qiita.com/LienJack/items/d89a29cf74fd6f26506c",
+    "title": "Hosted Harness：Sandbox、Cron、Durable Execution とリモートデプロイ",
+    "updatedAt": "2026-06-24T01:04:46.448Z"
   }
 }
