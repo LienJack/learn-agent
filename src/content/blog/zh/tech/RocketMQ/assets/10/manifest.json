@@ -2,8 +2,30 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/RocketMQ/10.延迟消息、定时消息与分布式任务调度.md",
   "workspace": "src/content/blog/zh/tech/RocketMQ/assets/10",
-  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "updatedAt": "2026-06-23T05:41:33.000Z",
   "assets": [
+    {
+      "id": "photo-01-rocketmq-delay-timer-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 10 章：延迟消息、定时消息与分布式任务调度",
+      "anchor": "第-10-章延迟消息定时消息与分布式任务调度",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/rocketmq-delay-timer-summary.webp",
+      "markdownRef": "./assets/10/rocketmq-delay-timer-summary.webp",
+      "alt": "RocketMQ 延迟消息与定时消息速览总结图",
+      "contentType": "image/webp",
+      "bytes": 319762,
+      "sha256": "c1aa788392130909cf3e398ba0ad0a8c1012137fe99a768a4e14bcf4b0d48a57",
+      "importedFrom": "/Users/lienli/Downloads/ChatGPT Image 2026年6月23日 13_39_48.png",
+      "importedAt": "2026-06-23T05:41:33.000Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-23T05:41:33.000Z",
+      "compression": {
+        "beforeBytes": 1854317,
+        "afterBytes": 319762,
+        "savedBytes": 1534555
+      }
+    },
     {
       "id": "mermaid-01",
       "kind": "mermaid",

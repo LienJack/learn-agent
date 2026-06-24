@@ -2,8 +2,30 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/RocketMQ/09.FIFO顺序消息.md",
   "workspace": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo",
-  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "updatedAt": "2026-06-23T08:18:24.000Z",
   "assets": [
+    {
+      "id": "photo-01-rocketmq-fifo-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡",
+      "anchor": "第-9-章fifo-顺序消息发送有序存储有序消费有序与并发权衡",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/rocketmq-fifo-summary.webp",
+      "markdownRef": "./assets/09-fifo/rocketmq-fifo-summary.webp",
+      "alt": "RocketMQ FIFO 顺序消息速览总结图",
+      "contentType": "image/webp",
+      "bytes": 313224,
+      "sha256": "37fee056988d8ec442370e9abe2a43d1208cf07f8440941c24da2fa633938927",
+      "importedFrom": "/var/folders/pr/9d5650jj78bfwgs8ptl34h9c0000gn/T/codex-clipboard-6026a7d1-7982-48e8-b0c7-f407e2a97fba.png",
+      "importedAt": "2026-06-23T08:18:24.000Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-23T08:18:24.000Z",
+      "compression": {
+        "beforeBytes": 2025492,
+        "afterBytes": 313224,
+        "savedBytes": 1712268
+      }
+    },
     {
       "id": "mermaid-01",
       "kind": "mermaid",

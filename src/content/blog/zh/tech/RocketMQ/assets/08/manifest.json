@@ -2,8 +2,30 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/RocketMQ/08.端到端消息可靠性、重试、死信队列与消费幂等.md",
   "workspace": "src/content/blog/zh/tech/RocketMQ/assets/08",
-  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "updatedAt": "2026-06-23T04:47:53.000Z",
   "assets": [
+    {
+      "id": "photo-01-rocketmq-reliability-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 8 章：端到端消息可靠性、重试、死信队列与消费幂等",
+      "anchor": "第-8-章端到端消息可靠性重试死信队列与消费幂等",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/08/rocketmq-reliability-summary.webp",
+      "markdownRef": "./assets/08/rocketmq-reliability-summary.webp",
+      "alt": "RocketMQ 端到端消息可靠性速览总结图",
+      "contentType": "image/webp",
+      "bytes": 261014,
+      "sha256": "a449dae84632f039dfd056fb1e6e99770afb13cb171502c2fc9ae3b7d27aa165",
+      "importedFrom": "/Users/lienli/Downloads/ChatGPT Image 2026年6月23日 12_45_16.png",
+      "importedAt": "2026-06-23T04:47:53.000Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-23T04:47:53.000Z",
+      "compression": {
+        "beforeBytes": 1720132,
+        "afterBytes": 261014,
+        "savedBytes": 1459118
+      }
+    },
     {
       "id": "mermaid-01",
       "kind": "mermaid",
