@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/08.PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class",
+  "updatedAt": "2026-06-24T02:49:38.089Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-01.png",
+      "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-01.png",
+      "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 132089,
+      "sha256": "47d771e647a7b8e2dc207d6d2c8a2606f443521fddd21f908fa979b5713471a8",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:09.695Z",
+      "compression": {
+        "beforeBytes": 132089,
+        "afterBytes": 132089,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-02.png",
+      "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-02.png",
+      "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 121182,
+      "sha256": "1593c9a8e1085f82e4ccea0a8bda6eb8e51b83d20b9451dc65abae62d37543c7",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:09.946Z",
+      "compression": {
+        "beforeBytes": 121182,
+        "afterBytes": 121182,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-03.png",
+      "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-03.png",
+      "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 92839,
+      "sha256": "7c5a63a3687ecc5535c8ed491c0f590b6419a2199124213b0b28f99374e80880",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:10.193Z",
+      "compression": {
+        "beforeBytes": 92839,
+        "afterBytes": 92839,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

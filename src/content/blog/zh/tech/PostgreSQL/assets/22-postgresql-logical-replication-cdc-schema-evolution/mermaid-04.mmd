@@ -1,0 +1,9 @@
+flowchart LR
+    APP[Writer] --> P[Primary Publisher]
+    P -->|Physical WAL| R[Physical Standby]
+    P -->|Logical Slot| C[Subscriber / CDC]
+    SLOT1[(failover=true Slot)] --- P
+    SLOT2[(synced=true Slot)] --- R
+    DCS[Fencing/HA Control] --> P
+    DCS --> R
+    R -->|Promotion 后继续逻辑流| C

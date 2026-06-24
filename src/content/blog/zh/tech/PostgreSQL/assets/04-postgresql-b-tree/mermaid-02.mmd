@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant A as Backend A
+    participant B as Backend B
+    participant L as 旧 Leaf Page
+    participant R as 新右 Leaf Page
+    participant P as Parent Page
+    participant W as WAL
+
+    A->>L: 定位插入位置并锁住 Buffer
+    A->>L: 清理可删项/尝试 Dedup
+    alt 仍有空间
+        A->>L: 插入 Index Tuple
+        A->>W: 记录索引插入 WAL
+    else 页面仍满
+        A->>R: 分配并初始化新页
+        A->>L: 重分配元组，设置 High Key/Right Link
+        A->>W: 记录 Split WAL
+        Note over L,R: 同层链先保证可向右纠偏
+        A->>P: 插入新 Downlink
+        alt Parent 也满
+            A->>P: 递归 Split
+        end
+        alt 原 Root 被分裂
+            A->>P: 创建新 Root，树高 +1
+            A->>W: 记录 New Root WAL
+        end
+    end
+    B->>L: 并发查找目标键
+    B->>L: 目标键超过 High Key
+    B->>R: 沿 Right Link 继续

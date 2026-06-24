@@ -1,0 +1,7 @@
+stateDiagram-v2
+    [*] --> Attached
+    Attached --> PendingDetach: 第1事务标记 + 提交
+    PendingDetach --> WaitingOldTransactions: 等待已使用分区树的旧事务
+    WaitingOldTransactions --> Detached: 第2事务完成目录变更并加 CHECK
+    PendingDetach --> Interrupted: 会话取消/崩溃
+    Interrupted --> Detached: DETACH ... FINALIZE

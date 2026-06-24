@@ -1,0 +1,27 @@
+flowchart LR
+    A[INSERT/UPDATE/DELETE] --> B[新 Tuple + 旧版本 xmax]
+    B --> C{是否仍有旧快照/锁/Slot horizon?}
+    C -- 是 --> D[Recently Dead / 不可移除]
+    C -- 否 --> E[Dead / 可移除]
+
+    B --> P[访问页面时机会性 Page/HOT Pruning]
+    P --> F[同页空间可复用]
+
+    E --> L[Autovacuum Launcher]
+    L --> W[Autovacuum Worker / 手工 VACUUM]
+    W --> H[扫描 Heap]
+    H --> I[记录 Dead TID]
+    I --> J[Index Cleanup]
+    J --> K[Vacuum Heap + FSM]
+    K --> V[设置 VM all-visible/all-frozen]
+    K --> T[可选尾部 Truncation]
+
+    X[XID/MultiXact 年龄] --> R{接近阈值?}
+    R -- 是 --> AW[Anti-wraparound VACUUM]
+    AW --> Z[Freeze + 推进 relfrozenxid/relminmxid]
+
+    W --> WAL[产生 WAL 与脏页]
+    WAL --> CP[Checkpoint/归档]
+    WAL --> REPL[物理副本重放]
+    REPL --> CONFLICT[恢复冲突或复制延迟]
+    HS[hot_standby_feedback] --> C

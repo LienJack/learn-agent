@@ -1,0 +1,11 @@
+flowchart TD
+    A[构造新 heap tuple] --> B{超过 TOAST 目标?}
+    B -->|否| I[内联保存]
+    B -->|是| C{列 storage 允许压缩?}
+    C -->|是| D[尝试 pglz / lz4]
+    C -->|否| E[保持原表示]
+    D --> F{仍过大且允许外置?}
+    E --> F
+    F -->|否| I
+    F -->|是| G[切分约 2 KiB chunk]
+    G --> H[写入 pg_toast relation<br/>主 tuple 保存外部指针]

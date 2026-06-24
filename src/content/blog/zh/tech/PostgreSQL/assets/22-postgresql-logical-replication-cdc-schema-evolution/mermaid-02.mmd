@@ -1,0 +1,9 @@
+stateDiagram-v2
+    [*] --> i: initialize
+    i --> d: Table Sync Worker 开始 COPY
+    d --> f: COPY 完成
+    f --> s: 追赶 COPY 期间增量
+    s --> r: 与主 Apply 位置同步并交接
+    r --> r: 持续复制
+    d --> d: Worker 失败后重启
+    r --> [*]: 移出 Subscription / Drop

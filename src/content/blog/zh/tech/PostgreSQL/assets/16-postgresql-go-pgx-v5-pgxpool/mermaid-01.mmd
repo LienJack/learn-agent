@@ -1,0 +1,20 @@
+flowchart LR
+    R[HTTP/RPC 请求] --> G[有界 goroutine]
+    G --> A[Admission Control]
+    A --> Q[pgxpool 获取队列]
+
+    Q --> C1[Pool Connection 1]
+    Q --> C2[Pool Connection 2]
+    Q --> C3[Pool Connection N]
+
+    C1 --> B1[PostgreSQL Backend 1]
+    C2 --> B2[PostgreSQL Backend 2]
+    C3 --> B3[PostgreSQL Backend N]
+
+    B1 --> DB[(shared_buffers / WAL / Locks)]
+    B2 --> DB
+    B3 --> DB
+
+    Q -.超时.-> E1[Acquire 失败]
+    C1 -.网络/Failover.-> E2[旧连接失效]
+    B1 -.锁等待.-> E3[连接长期占用]

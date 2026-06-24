@@ -1,0 +1,28 @@
+flowchart LR
+    C[Client] --> A[Admission Control]
+    A --> CA[Cache]
+    CA -- Hit --> C
+    CA -- Miss --> R[Shard Router]
+
+    R -. route epoch .-> M[(Metadata Service)]
+    R --> PA[Pool: Shard A Primary]
+    R --> RA[Pool: Shard A Replica]
+    R --> PB[Pool: Shard B Primary]
+    R --> RB[Pool: Shard B Replica]
+
+    PA --> AP[(Shard A Primary)]
+    RA --> AR[(Shard A Replica)]
+    PB --> BP[(Shard B Primary)]
+    RB --> BR[(Shard B Replica)]
+
+    AP -- Physical WAL --> AR
+    BP -- Physical WAL --> BR
+
+    AP --> OA[(Outbox)]
+    OA --> CDC[CDC / Reshard Worker]
+    CDC --> BP
+
+    AP --> OBS[Metrics / Logs / Traces]
+    BP --> OBS
+    R --> OBS
+    M --> OBS

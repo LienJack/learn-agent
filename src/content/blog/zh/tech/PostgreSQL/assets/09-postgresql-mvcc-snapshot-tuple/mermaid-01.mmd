@@ -1,0 +1,29 @@
+flowchart LR
+    A[BEGIN] --> B[获得 VXID]
+    B --> C{是否需要真实 XID?}
+    C -- 只读且未强制分配 --> D[可能一直没有 XID]
+    C -- 首次写入或显式请求 --> E[分配 32-bit XID]
+    E --> F[组合为 Full XID / xid8]
+    F --> G[INSERT: 新 Tuple.xmin=XID]
+    F --> H[UPDATE: 旧 Tuple.xmax=XID\n新 Tuple.xmin=XID]
+    F --> I[DELETE: 旧 Tuple.xmax=XID]
+
+    J[语句或事务取得 Snapshot] --> K[Snapshot xmin/xmax/xip/curcid]
+    G --> L[HeapTupleSatisfiesMVCC]
+    H --> L
+    I --> L
+    K --> L
+    M[Tuple Hint Bits] --> L
+    N[pg_xact 提交状态] --> L
+    O[pg_subtrans 父子关系] --> L
+
+    L --> P{该版本可见?}
+    P -- 是 --> Q[Executor 返回或继续处理]
+    P -- 否 --> R[跳过该版本/沿更新链寻找]
+
+    S[COMMIT/ROLLBACK] --> N
+    S --> T[旧版本等待 VACUUM]
+    U[长 Snapshot / backend_xmin] --> T
+    T --> V{旧版本仍可能被某 Snapshot 看见?}
+    V -- 是 --> W[不能移除]
+    V -- 否 --> X[VACUUM 可回收/冻结]

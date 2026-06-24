@@ -1,0 +1,11 @@
+flowchart LR
+    APP[pgxpool Connection] --> PB[PgBouncer Client Connection]
+
+    subgraph Session Pooling
+        PB --> S1[固定 PostgreSQL Backend]
+    end
+
+    subgraph Transaction Pooling
+        PB --> T1[事务 1 -> Backend A]
+        PB --> T2[事务 2 -> Backend B]
+    end

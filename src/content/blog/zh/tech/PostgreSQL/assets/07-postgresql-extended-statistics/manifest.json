@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/07.PostgreSQL 统计信息、基数估算、Extended Statistics 与计划稳定性.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/07-postgresql-extended-statistics",
+  "updatedAt": "2026-06-24T02:49:38.089Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/07-postgresql-extended-statistics/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/07-postgresql-extended-statistics/mermaid-01.png",
+      "markdownRef": "./assets/07-postgresql-extended-statistics/mermaid-01.png",
+      "alt": "PostgreSQL 统计信息、基数估算、Extended Statistics 与计划稳定性 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 190404,
+      "sha256": "fd3b47e2805be044f7478237b33c08d9992e1ab6d7a7040304bb59cd171385d5",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:08.359Z",
+      "compression": {
+        "beforeBytes": 190404,
+        "afterBytes": 190404,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

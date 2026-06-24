@@ -1,0 +1,16 @@
+flowchart LR
+    A[收集 SQL 与调用频率] --> B[拆解过滤条件]
+    B --> C[排序 + LIMIT]
+    C --> D[返回列]
+    D --> E[数据分布与相关性]
+    E --> F[写入频率与更新列]
+    F --> G[盘点现有索引]
+    G --> H[生成候选索引]
+    H --> I[EXPLAIN 与负载测试]
+    I -->|收益不足| H
+    I -->|通过| J[CREATE INDEX CONCURRENTLY]
+    J --> K{构建状态}
+    K -->|valid| L[观察 P95/P99、WAL、Lag、idx_scan]
+    K -->|invalid| M[诊断并 DROP/REINDEX]
+    L --> N[清理被证明冗余的索引]
+    N --> A

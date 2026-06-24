@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/17.PostgreSQL Go 高吞吐写入、幂等、任务队列、Outbox 与跨服务一致性.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/17-postgresql-go-outbox",
+  "updatedAt": "2026-06-24T02:49:38.091Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/17-postgresql-go-outbox/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/17-postgresql-go-outbox/mermaid-01.png",
+      "markdownRef": "./assets/17-postgresql-go-outbox/mermaid-01.png",
+      "alt": "PostgreSQL Go 高吞吐写入、幂等、任务队列、Outbox 与跨服务一致性 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 66284,
+      "sha256": "30d1636767d5da444656bf2e01d97594c80b0c5d20497bdd7568c93baa617d2b",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:13.081Z",
+      "compression": {
+        "beforeBytes": 66284,
+        "afterBytes": 66284,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

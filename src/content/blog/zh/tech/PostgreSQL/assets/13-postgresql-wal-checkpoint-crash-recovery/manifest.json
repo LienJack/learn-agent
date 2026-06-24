@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/13.PostgreSQL WAL、Checkpoint、提交路径与 Crash Recovery.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/13-postgresql-wal-checkpoint-crash-recovery",
+  "updatedAt": "2026-06-24T02:49:38.090Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/13-postgresql-wal-checkpoint-crash-recovery/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/13-postgresql-wal-checkpoint-crash-recovery/mermaid-01.png",
+      "markdownRef": "./assets/13-postgresql-wal-checkpoint-crash-recovery/mermaid-01.png",
+      "alt": "PostgreSQL WAL、Checkpoint、提交路径与 Crash Recovery flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 93593,
+      "sha256": "e4c6505e12138b131fd4d2b4d468b2053a695a503edad43aeed890466e6e3e15",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:11.646Z",
+      "compression": {
+        "beforeBytes": 93593,
+        "afterBytes": 93593,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

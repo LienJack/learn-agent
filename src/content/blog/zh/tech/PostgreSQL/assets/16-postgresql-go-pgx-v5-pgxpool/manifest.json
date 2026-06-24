@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/16.PostgreSQL Go、pgx-v5、pgxpool 与生产级数据库访问层.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool",
+  "updatedAt": "2026-06-24T02:49:38.091Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-01.png",
+      "markdownRef": "./assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-01.png",
+      "alt": "PostgreSQL Go、pgx/v5、pgxpool 与生产级数据库访问层 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 57083,
+      "sha256": "621d62315b7d3b180e237c050ff998f69da327de8e4e45f0c58aa39539032918",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:12.380Z",
+      "compression": {
+        "beforeBytes": 57083,
+        "afterBytes": 57083,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-02.png",
+      "markdownRef": "./assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-02.png",
+      "alt": "PostgreSQL Go、pgx/v5、pgxpool 与生产级数据库访问层 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 156972,
+      "sha256": "accf46572d022c55b468814f0fdb7cdc6363e174c01885cd1ebd908aae8a095b",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:12.668Z",
+      "compression": {
+        "beforeBytes": 156972,
+        "afterBytes": 156972,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-03.png",
+      "markdownRef": "./assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-03.png",
+      "alt": "PostgreSQL Go、pgx/v5、pgxpool 与生产级数据库访问层 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 58538,
+      "sha256": "a896be2301e68efa6ce92f6b49f2f42e8733eb12626d4d8af864ad3e5b35112f",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:12.785Z",
+      "compression": {
+        "beforeBytes": 58538,
+        "afterBytes": 58538,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-04.png",
+      "markdownRef": "./assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-04.png",
+      "alt": "PostgreSQL Go、pgx/v5、pgxpool 与生产级数据库访问层 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 147026,
+      "sha256": "cd4625813b9cee671b14aacba08dfd5496914933ef461b0dab90bb4227629f48",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:12.999Z",
+      "compression": {
+        "beforeBytes": 147026,
+        "afterBytes": 147026,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

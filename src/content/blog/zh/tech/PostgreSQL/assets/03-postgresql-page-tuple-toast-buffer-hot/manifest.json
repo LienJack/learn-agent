@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/03.PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot",
+  "updatedAt": "2026-06-24T02:49:38.088Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-01.png",
+      "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-01.png",
+      "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 108739,
+      "sha256": "4a3bf94a721cb0352672a5229348cd076122de1ad3919390e6e76d86d1aa5ca1",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:06.664Z",
+      "compression": {
+        "beforeBytes": 108739,
+        "afterBytes": 108739,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-02.png",
+      "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-02.png",
+      "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 134146,
+      "sha256": "e2c9d34c98211acbfffa779b8e3a7c411987926f63a574b22d25368f45ece732",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:06.866Z",
+      "compression": {
+        "beforeBytes": 134146,
+        "afterBytes": 134146,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.png",
+      "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.png",
+      "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 50851,
+      "sha256": "9565ab331a9fa7c426eff5968baa5b32e50f4b8196116ae29a64cbc5d36bf820",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:06.943Z",
+      "compression": {
+        "beforeBytes": 50851,
+        "afterBytes": 50851,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-04.png",
+      "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-04.png",
+      "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 120404,
+      "sha256": "881eb23af9b1793e7a835fa7fc602276c0145208191cf772dae0e65710c37bea",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:07.164Z",
+      "compression": {
+        "beforeBytes": 120404,
+        "afterBytes": 120404,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-05.png",
+      "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-05.png",
+      "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 5",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 105929,
+      "sha256": "77e96ed14df6d5e074cab0293a39ff4c767b999b987253ead3bf1a99ae606b52",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:07.351Z",
+      "compression": {
+        "beforeBytes": 105929,
+        "afterBytes": 105929,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

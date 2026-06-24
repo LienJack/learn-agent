@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant C as Client
+    participant B as Backend
+
+    C->>B: Query("SELECT ...")
+    B->>B: Parse / Analyze / Rewrite / Plan / Execute
+    alt 返回行
+        B-->>C: RowDescription
+        loop 每一行
+            B-->>C: DataRow
+        end
+    else 无行结果或命令
+        B-->>C: CommandComplete
+    end
+    B-->>C: ReadyForQuery(I/T/E)

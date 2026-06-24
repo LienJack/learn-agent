@@ -1,0 +1,63 @@
+flowchart TB
+    subgraph APP[应用层]
+        G[有界 goroutine / 请求]
+        P[pgxpool\n连接池与等待队列]
+        G --> P
+    end
+
+    subgraph INSTANCE[PostgreSQL Server Instance]
+        PM[Main Server Process\nPostmaster]
+        B1[Backend A\n一个客户端会话]
+        B2[Backend B]
+        BN[Backend N]
+        PW[Parallel Workers\n按需]
+
+        subgraph AUX[辅助进程]
+            BG[Background Writer]
+            CP[Checkpointer]
+            WW[WAL Writer]
+            AVL[Autovacuum Launcher]
+            AVW[Autovacuum Workers]
+            AR[Archiver\n按配置启用]
+            WS[WAL Senders\n按复制连接启用]
+            WR[WAL Receiver\nStandby 上]
+            IOW["PG18 I/O Workers<br/>io_method=worker"]
+        end
+
+        subgraph SHMEM[Shared Memory]
+            SB[shared_buffers]
+            WB[WAL Buffers]
+            LT[Lock Table]
+            PA[ProcArray / PGPROC]
+            OTHER[其他共享状态\n统计、WAL、SLRU 等]
+        end
+
+        PM --> B1
+        PM --> B2
+        PM --> BN
+        PM --> AUX
+        B1 -.并行查询.-> PW
+        B1 <--> SHMEM
+        B2 <--> SHMEM
+        BN <--> SHMEM
+        AUX <--> SHMEM
+    end
+
+    subgraph OS[操作系统]
+        SCHED[进程调度 / 虚拟内存]
+        PC[OS Page Cache]
+        FS[文件系统]
+        DISK[(块设备 / 云盘)]
+        NET[网络栈]
+        PC <--> FS <--> DISK
+    end
+
+    P <-->|TCP / Unix Socket\nFrontend-Backend Protocol| PM
+    B1 <--> NET
+    B2 <--> NET
+    SB <--> PC
+    WB --> PC
+    IOW <--> PC
+    AR --> FS
+    WS <--> NET
+    WR <--> NET

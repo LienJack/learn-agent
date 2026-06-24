@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> HOME_OLD
+    HOME_OLD --> COPYING: 创建目标与开始 Outbox/CDC
+    COPYING --> CATCHING_UP: Backfill 完成
+    CATCHING_UP --> VALIDATING: CDC Lag 达标
+    VALIDATING --> FENCING: 校验通过
+    FENCING --> HOME_NEW: 阻止旧路由并完成最终增量
+    HOME_NEW --> FINALIZING: 观察与反向 CDC 窗口
+    FINALIZING --> [*]: 删除旧副本
+    COPYING --> HOME_OLD: 回滚
+    CATCHING_UP --> HOME_OLD: 回滚
+    VALIDATING --> HOME_OLD: 回滚

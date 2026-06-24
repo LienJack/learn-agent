@@ -1,0 +1,13 @@
+flowchart LR
+    R[业务规则与生命周期] --> T[数据类型与 NULL 语义]
+    R --> K[主键/租户键/业务键]
+    R --> C[约束与事务边界]
+    T --> H[Heap Tuple 与 TOAST]
+    K --> I[B-tree / GiST 索引]
+    C --> L[锁、等待与冲突处理]
+    H --> W[WAL、Checkpoint、Vacuum]
+    I --> W
+    L --> W
+    W --> P[物理/逻辑复制与恢复]
+    G[Go + pgx] -->|参数化 SQL、tenant_id、幂等键| C
+    P -->|提交不确定、重连、重试| G

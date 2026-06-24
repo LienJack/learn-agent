@@ -1,0 +1,463 @@
+{
+  "id": "2026-06-24T02-44-36-468Z-article-images-mermaid-22-articles",
+  "command": "article-images",
+  "stage": "mermaid",
+  "status": "blocked",
+  "startedAt": "2026-06-24T02:44:36.470Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/01.PostgreSQL 架构与请求生命周期.md",
+      "status": "blocked",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "failed"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [
+        "mermaid-01: Command failed: npx -y @mermaid-js/mermaid-cli -i /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-01.mmd -o /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-01.png -b transparent\n\nError: Parse error on line 24:\n...           IOW[[PG18] I/O Workers\\nio_me\n-----------------------^\nExpecting 'SUBROUTINEEND', 'TAGEND', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'SQE'\nParser.parseError (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/chunks/mermaid.esm/flowDiagram-ZXTF6DY4.mjs:1453:21)\n    at #evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:388:19)\n    at async ExecutionContext.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:274:16)\n    at async IsolatedWorld.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/IsolatedWorld.js:102:16)\n    at async CdpJSHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/JSHandle.js:146:20)\n    at async CdpElementHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:343:20)\n    at async CdpElementHandle.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:497:24)\n    at async CdpFrame.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:464:20)\n    at async CdpPage.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:456:20)\n    at async renderMermaid (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/@mermaid-js/mermaid-cli/src/index.js:328:22)\n    at fromText (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/mermaid.esm.mjs:1190:17)\n\n"
+      ],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/02.PostgreSQL 生产级数据模型、数据类型、约束与主键设计.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/02-postgresql",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/03.PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT.md",
+      "status": "blocked",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "failed"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [
+        "mermaid-03: Command failed: npx -y @mermaid-js/mermaid-cli -i /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.mmd -o /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.png -b transparent\n\nError: Parse error on line 2:\n...X1, xmax=0<br/>ctid=(p,lp0)] --> U[事务 X2\n-----------------------^\nExpecting 'SQE', 'DOUBLECIRCLEEND', 'PE', '-)', 'STADIUMEND', 'SUBROUTINEEND', 'PIPE', 'CYLINDEREND', 'DIAMOND_STOP', 'TAGEND', 'TRAPEND', 'INVTRAPEND', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'PS'\nParser.parseError (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/chunks/mermaid.esm/flowDiagram-ZXTF6DY4.mjs:1453:21)\n    at #evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:388:19)\n    at async ExecutionContext.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:274:16)\n    at async IsolatedWorld.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/IsolatedWorld.js:102:16)\n    at async CdpJSHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/JSHandle.js:146:20)\n    at async CdpElementHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:343:20)\n    at async CdpElementHandle.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:497:24)\n    at async CdpFrame.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:464:20)\n    at async CdpPage.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:456:20)\n    at async renderMermaid (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/@mermaid-js/mermaid-cli/src/index.js:328:22)\n    at fromText (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/mermaid.esm.mjs:1190:17)\n\n"
+      ],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/04.PostgreSQL B-tree 索引、索引扫描与高并发页面行为.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/05.PostgreSQL 高级索引设计、冗余分析与在线索引生命周期.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/05-postgresql",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/06.PostgreSQL Planner、Executor 与 EXPLAIN 执行计划分析.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/06-postgresql-planner-executor-explain",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/07.PostgreSQL 统计信息、基数估算、Extended Statistics 与计划稳定性.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/07-postgresql-extended-statistics",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/08.PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/09.PostgreSQL 事务、MVCC、Snapshot 与 Tuple 可见性.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/09-postgresql-mvcc-snapshot-tuple",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/10.PostgreSQL 隔离级别、并发异常、SSI 与 Go 事务重试.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/10-postgresql-ssi-go",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/11.PostgreSQL 锁、死锁、热点竞争与高并发任务队列.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/12.PostgreSQL VACUUM、Autovacuum、Freeze、Wraparound 与 Bloat.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/13.PostgreSQL WAL、Checkpoint、提交路径与 Crash Recovery.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/13-postgresql-wal-checkpoint-crash-recovery",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/14.PostgreSQL Declarative Partitioning 与大型数据生命周期.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/15.PostgreSQL 在线 DDL、Expand-Contract 与零停机 Schema 迁移.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/16.PostgreSQL Go、pgx-v5、pgxpool 与生产级数据库访问层.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/17.PostgreSQL Go 高吞吐写入、幂等、任务队列、Outbox 与跨服务一致性.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/17-postgresql-go-outbox",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/18.PostgreSQL 性能工程、可观测性、准入控制与 PgBouncer.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/18-postgresql-pgbouncer",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/19.PostgreSQL 容量规划、读扩展、分片与水平扩展.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/19-postgresql",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/21.PostgreSQL Streaming Replication、读副本与同步复制.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/21-postgresql-streaming-replication",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/22.PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/PostgreSQL/23.PostgreSQL Patroni、Fencing、故障转移与综合高可用架构.md",
+      "status": "completed",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "generated"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "generated"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-24T02-44-36-468Z-article-images-mermaid-22-articles",
+  "blockers": [
+    "mermaid-01: Command failed: npx -y @mermaid-js/mermaid-cli -i /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-01.mmd -o /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-01.png -b transparent\n\nError: Parse error on line 24:\n...           IOW[[PG18] I/O Workers\\nio_me\n-----------------------^\nExpecting 'SUBROUTINEEND', 'TAGEND', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'SQE'\nParser.parseError (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/chunks/mermaid.esm/flowDiagram-ZXTF6DY4.mjs:1453:21)\n    at #evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:388:19)\n    at async ExecutionContext.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:274:16)\n    at async IsolatedWorld.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/IsolatedWorld.js:102:16)\n    at async CdpJSHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/JSHandle.js:146:20)\n    at async CdpElementHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:343:20)\n    at async CdpElementHandle.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:497:24)\n    at async CdpFrame.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:464:20)\n    at async CdpPage.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:456:20)\n    at async renderMermaid (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/@mermaid-js/mermaid-cli/src/index.js:328:22)\n    at fromText (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/mermaid.esm.mjs:1190:17)\n\n",
+    "mermaid-03: Command failed: npx -y @mermaid-js/mermaid-cli -i /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.mmd -o /Users/lienli/Documents/GitHub/learn-agent/src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.png -b transparent\n\nError: Parse error on line 2:\n...X1, xmax=0<br/>ctid=(p,lp0)] --> U[事务 X2\n-----------------------^\nExpecting 'SQE', 'DOUBLECIRCLEEND', 'PE', '-)', 'STADIUMEND', 'SUBROUTINEEND', 'PIPE', 'CYLINDEREND', 'DIAMOND_STOP', 'TAGEND', 'TRAPEND', 'INVTRAPEND', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'PS'\nParser.parseError (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/chunks/mermaid.esm/flowDiagram-ZXTF6DY4.mjs:1453:21)\n    at #evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:388:19)\n    at async ExecutionContext.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/ExecutionContext.js:274:16)\n    at async IsolatedWorld.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/IsolatedWorld.js:102:16)\n    at async CdpJSHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/JSHandle.js:146:20)\n    at async CdpElementHandle.evaluate (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:343:20)\n    at async CdpElementHandle.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/ElementHandle.js:497:24)\n    at async CdpFrame.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:464:20)\n    at async CdpPage.$eval (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:456:20)\n    at async renderMermaid (file:///Users/lienli/.npm/_npx/668c188756b835f3/node_modules/@mermaid-js/mermaid-cli/src/index.js:328:22)\n    at fromText (https://mermaid-cli-intercept.invalid/Users/lienli/.npm/_npx/668c188756b835f3/node_modules/mermaid/dist/mermaid.esm.mjs:1190:17)\n\n"
+  ],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-24T02-44-36-468Z-article-images-mermaid-22-articles/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 22 article(s)",
+    "confirmed": true
+  },
+  "notes": [],
+  "finishedAt": "2026-06-24T02:46:02.529Z"
+}

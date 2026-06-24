@@ -1,0 +1,7 @@
+stateDiagram-v2
+    [*] --> Unsummarized: 新 Block Range
+    Unsummarized --> Summarized: VACUUM / autosummarize / summarize 函数
+    Summarized --> Widened: 新值写入已汇总范围
+    Widened --> Widened: 摘要只能保守扩张
+    Widened --> Desummarized: 管理员判断摘要失真
+    Desummarized --> Summarized: 重新汇总

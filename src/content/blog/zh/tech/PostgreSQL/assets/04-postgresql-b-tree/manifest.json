@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/04.PostgreSQL B-tree 索引、索引扫描与高并发页面行为.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree",
+  "updatedAt": "2026-06-24T02:49:38.089Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree/mermaid-01.png",
+      "markdownRef": "./assets/04-postgresql-b-tree/mermaid-01.png",
+      "alt": "PostgreSQL B-tree 索引、索引扫描与高并发页面行为 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 50939,
+      "sha256": "ad3140003ec8e711d5b38b7d4573b1cae2a7c86a259bc9b0c12df79e414cb2be",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:07.425Z",
+      "compression": {
+        "beforeBytes": 50939,
+        "afterBytes": 50939,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree/mermaid-02.png",
+      "markdownRef": "./assets/04-postgresql-b-tree/mermaid-02.png",
+      "alt": "PostgreSQL B-tree 索引、索引扫描与高并发页面行为 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 162902,
+      "sha256": "a0e670f3bab648f2d41ce0e5b169db0b50c7c1e73cb6d097d3d3400a6e9f0f09",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:07.699Z",
+      "compression": {
+        "beforeBytes": 162902,
+        "afterBytes": 162902,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

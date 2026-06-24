@@ -1,0 +1,17 @@
+flowchart LR
+    Q[SQL + Snapshot] --> P[Planner]
+    P -->|高选择性/有序 LIMIT| IS[Index / Backward / Index Only Scan]
+    P -->|中等选择性| BIS[Bitmap Index Scan]
+    P -->|大范围| SS[Seq Scan]
+
+    IS --> BTR[Meta → Root → Internal → Leaf]
+    BTR --> TID[Index Tuple / Posting List → TID]
+    TID -->|VM all-visible 否| HEAP[Heap Fetch + MVCC 可见性]
+    TID -->|VM all-visible 是且列齐全| RET[直接返回索引列]
+
+    BIS --> BM[Exact/Lossy TID Bitmap]
+    BM --> BHS[Bitmap Heap Scan 按 Block 访问]
+    BHS --> RC[Recheck + MVCC]
+    HEAP --> RET
+    RC --> RET
+    SS --> RET

@@ -1,0 +1,39 @@
+flowchart TD
+    Q[SQL 谓词、表达式、类型、Collation] --> P[Planner 规范化与选择率估算]
+    P --> M{操作符是否属于索引 Opclass/Opfamily?}
+    M -- 否 --> S[Seq Scan 或其他索引]
+    M -- 是 --> AM{Access Method}
+
+    AM --> GIN[GIN: 提取键 -> Entry Tree]
+    GIN --> PL[Posting List / Posting Tree]
+    GIN --> PD[Pending List]
+
+    AM --> GIST[GiST: Consistent / Union]
+    GIST --> GP[Penalty / PickSplit]
+    GIST --> GK[KNN Distance]
+
+    AM --> SP[SP-GiST: Prefix + Nodes]
+    SP --> ST[Quad/KD/Radix 分区]
+
+    AM --> BR[BRIN: Block Range Summary]
+    BR --> BS[Minmax / Multi / Bloom / Inclusion]
+
+    AM --> H[Hash: 32-bit Hash -> Bucket]
+
+    PL --> C[候选 TID 或距离有序 TID]
+    GP --> C
+    GK --> C
+    ST --> C
+    BS --> C
+    H --> C
+    PD --> C
+
+    C --> BM[Bitmap Index/Heap Scan 或 Index Scan]
+    BM --> MVCC[Heap Tuple + Snapshot 可见性检查]
+    MVCC --> R{需要 Recheck?}
+    R -- 是 --> E[重新执行原始操作符]
+    R -- 否 --> O[返回结果]
+    E --> O
+
+    PD --> CL[Vacuum/Autoanalyze/阈值触发清理]
+    CL --> GIN

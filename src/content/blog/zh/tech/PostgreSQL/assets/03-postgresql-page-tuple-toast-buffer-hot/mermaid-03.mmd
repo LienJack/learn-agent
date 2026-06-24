@@ -1,0 +1,9 @@
+flowchart LR
+    O["旧 tuple T0<br/>xmin=X1, xmax=0<br/>ctid=p,lp0"] --> U["事务 X2 执行 UPDATE"]
+    U --> M["旧 T0: xmax=X2<br/>t_ctid 指向新版本"]
+    U --> N["新 tuple T1<br/>xmin=X2, xmax=0"]
+    N --> H{"同页且无需更新非摘要索引?"}
+    H -->|是| HOT["HOT: 索引仍指向根 ItemId"]
+    H -->|否| NON["非 HOT: 为新 TID 建索引项"]
+    HOT --> P["未来 pruning 可缩短链并产生 redirect"]
+    NON --> V["VACUUM 需清理旧 heap 与索引项"]

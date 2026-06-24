@@ -1,0 +1,9 @@
+stateDiagram-v2
+    [*] --> MainTreeOnly
+    MainTreeOnly --> PendingGrowing: fastupdate=on 的 DML
+    PendingGrowing --> PendingGrowing: 追加条目
+    PendingGrowing --> Cleaning: Vacuum/Autoanalyze/函数/超过阈值
+    Cleaning --> MainTreeOnly: 排序并合并完成
+    PendingGrowing --> DirectMainInsert: fastupdate 关闭后的新 DML
+    DirectMainInsert --> DirectMainInsert
+    DirectMainInsert --> MainTreeOnly: 显式清理旧 Pending

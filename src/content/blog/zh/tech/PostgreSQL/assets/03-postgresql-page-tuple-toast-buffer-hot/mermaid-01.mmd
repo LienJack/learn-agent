@@ -1,0 +1,17 @@
+flowchart TD
+    A[SQL 表 / 索引 / TOAST relation] --> B[pg_class: OID 与 relfilenode]
+    B --> C{Fork}
+    C --> C1[main: 数据页]
+    C --> C2[fsm: 近似空闲空间]
+    C --> C3[vm: all-visible / all-frozen]
+    C --> C4[init: 仅 unlogged relation]
+    C1 --> D[Segment: base, .1, .2 ...]
+    D --> E[Block/Page: 通常 8 KiB]
+    E --> F[PageHeaderData]
+    E --> G[ItemId / Line Pointer 数组]
+    E --> H[Heap Tuple 数据区]
+    H --> I[Tuple Header]
+    H --> J[NULL bitmap + padding + attributes]
+    J --> K{大 varlena 值?}
+    K -->|可内联| H
+    K -->|压缩/外置| L[关联 TOAST table + index]

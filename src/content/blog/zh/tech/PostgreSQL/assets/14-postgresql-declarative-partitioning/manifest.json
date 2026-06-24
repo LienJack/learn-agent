@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/14.PostgreSQL Declarative Partitioning 与大型数据生命周期.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning",
+  "updatedAt": "2026-06-24T02:49:38.090Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning/mermaid-01.png",
+      "markdownRef": "./assets/14-postgresql-declarative-partitioning/mermaid-01.png",
+      "alt": "PostgreSQL Declarative Partitioning 与大型数据生命周期 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 133820,
+      "sha256": "853c88c2b21cb847d1b32ff1bb6d8d22c5a0511af82eeb6e3adbb555442b26e7",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:11.882Z",
+      "compression": {
+        "beforeBytes": 133820,
+        "afterBytes": 133820,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning/mermaid-02.png",
+      "markdownRef": "./assets/14-postgresql-declarative-partitioning/mermaid-02.png",
+      "alt": "PostgreSQL Declarative Partitioning 与大型数据生命周期 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 81796,
+      "sha256": "bdb0b288bc169d918ec7c73b6e6f6d8a0988366afdde727eb257fa6d0ae2d1ef",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:11.999Z",
+      "compression": {
+        "beforeBytes": 81796,
+        "afterBytes": 81796,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

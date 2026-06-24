@@ -1,0 +1,721 @@
+{
+  "dryRun": true,
+  "stage": "mermaid",
+  "articles": [
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/01.PostgreSQL 架构与请求生命周期.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-01.png",
+          "markdownRef": "./assets/01-postgresql/mermaid-01.png",
+          "alt": "PostgreSQL 架构与请求生命周期 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-02.png",
+          "markdownRef": "./assets/01-postgresql/mermaid-02.png",
+          "alt": "PostgreSQL 架构与请求生命周期 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-03.png",
+          "markdownRef": "./assets/01-postgresql/mermaid-03.png",
+          "alt": "PostgreSQL 架构与请求生命周期 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-04.png",
+          "markdownRef": "./assets/01-postgresql/mermaid-04.png",
+          "alt": "PostgreSQL 架构与请求生命周期 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/02.PostgreSQL 生产级数据模型、数据类型、约束与主键设计.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/02-postgresql",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/02-postgresql/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/02-postgresql/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/02-postgresql/mermaid-01.png",
+          "markdownRef": "./assets/02-postgresql/mermaid-01.png",
+          "alt": "PostgreSQL 生产级数据模型、数据类型、约束与主键设计 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/03.PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-01.png",
+          "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-01.png",
+          "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-02.png",
+          "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-02.png",
+          "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.png",
+          "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-03.png",
+          "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-04.png",
+          "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-04.png",
+          "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-05.png",
+          "markdownRef": "./assets/03-postgresql-page-tuple-toast-buffer-hot/mermaid-05.png",
+          "alt": "PostgreSQL 物理存储：Page、Tuple、TOAST、Buffer 与 HOT flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/04.PostgreSQL B-tree 索引、索引扫描与高并发页面行为.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree/mermaid-01.png",
+          "markdownRef": "./assets/04-postgresql-b-tree/mermaid-01.png",
+          "alt": "PostgreSQL B-tree 索引、索引扫描与高并发页面行为 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/04-postgresql-b-tree/mermaid-02.png",
+          "markdownRef": "./assets/04-postgresql-b-tree/mermaid-02.png",
+          "alt": "PostgreSQL B-tree 索引、索引扫描与高并发页面行为 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/05.PostgreSQL 高级索引设计、冗余分析与在线索引生命周期.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/05-postgresql",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/05-postgresql/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/05-postgresql/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/05-postgresql/mermaid-01.png",
+          "markdownRef": "./assets/05-postgresql/mermaid-01.png",
+          "alt": "PostgreSQL 高级索引设计、冗余分析与在线索引生命周期 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/06.PostgreSQL Planner、Executor 与 EXPLAIN 执行计划分析.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/06-postgresql-planner-executor-explain",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/06-postgresql-planner-executor-explain/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/06-postgresql-planner-executor-explain/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/06-postgresql-planner-executor-explain/mermaid-01.png",
+          "markdownRef": "./assets/06-postgresql-planner-executor-explain/mermaid-01.png",
+          "alt": "PostgreSQL Planner、Executor 与 EXPLAIN 执行计划分析 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/07.PostgreSQL 统计信息、基数估算、Extended Statistics 与计划稳定性.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/07-postgresql-extended-statistics",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/07-postgresql-extended-statistics/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/07-postgresql-extended-statistics/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/07-postgresql-extended-statistics/mermaid-01.png",
+          "markdownRef": "./assets/07-postgresql-extended-statistics/mermaid-01.png",
+          "alt": "PostgreSQL 统计信息、基数估算、Extended Statistics 与计划稳定性 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/08.PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-01.png",
+          "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-01.png",
+          "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-02.png",
+          "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-02.png",
+          "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-03.png",
+          "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-03.png",
+          "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/09.PostgreSQL 事务、MVCC、Snapshot 与 Tuple 可见性.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/09-postgresql-mvcc-snapshot-tuple",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/09-postgresql-mvcc-snapshot-tuple/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/09-postgresql-mvcc-snapshot-tuple/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/09-postgresql-mvcc-snapshot-tuple/mermaid-01.png",
+          "markdownRef": "./assets/09-postgresql-mvcc-snapshot-tuple/mermaid-01.png",
+          "alt": "PostgreSQL 事务、MVCC、Snapshot 与 Tuple 可见性 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/10.PostgreSQL 隔离级别、并发异常、SSI 与 Go 事务重试.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/10-postgresql-ssi-go",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/10-postgresql-ssi-go/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/10-postgresql-ssi-go/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/10-postgresql-ssi-go/mermaid-01.png",
+          "markdownRef": "./assets/10-postgresql-ssi-go/mermaid-01.png",
+          "alt": "PostgreSQL 隔离级别、并发异常、SSI 与 Go 事务重试 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/11.PostgreSQL 锁、死锁、热点竞争与高并发任务队列.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-01.png",
+          "markdownRef": "./assets/11-postgresql/mermaid-01.png",
+          "alt": "PostgreSQL 锁、死锁、热点竞争与高并发任务队列 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-02.png",
+          "markdownRef": "./assets/11-postgresql/mermaid-02.png",
+          "alt": "PostgreSQL 锁、死锁、热点竞争与高并发任务队列 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-03.png",
+          "markdownRef": "./assets/11-postgresql/mermaid-03.png",
+          "alt": "PostgreSQL 锁、死锁、热点竞争与高并发任务队列 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/12.PostgreSQL VACUUM、Autovacuum、Freeze、Wraparound 与 Bloat.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat/mermaid-01.png",
+          "markdownRef": "./assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat/mermaid-01.png",
+          "alt": "PostgreSQL VACUUM、Autovacuum、Freeze、Wraparound 与 Bloat flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/13.PostgreSQL WAL、Checkpoint、提交路径与 Crash Recovery.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/13-postgresql-wal-checkpoint-crash-recovery",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/13-postgresql-wal-checkpoint-crash-recovery/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/13-postgresql-wal-checkpoint-crash-recovery/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/13-postgresql-wal-checkpoint-crash-recovery/mermaid-01.png",
+          "markdownRef": "./assets/13-postgresql-wal-checkpoint-crash-recovery/mermaid-01.png",
+          "alt": "PostgreSQL WAL、Checkpoint、提交路径与 Crash Recovery flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/14.PostgreSQL Declarative Partitioning 与大型数据生命周期.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning/mermaid-01.png",
+          "markdownRef": "./assets/14-postgresql-declarative-partitioning/mermaid-01.png",
+          "alt": "PostgreSQL Declarative Partitioning 与大型数据生命周期 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/14-postgresql-declarative-partitioning/mermaid-02.png",
+          "markdownRef": "./assets/14-postgresql-declarative-partitioning/mermaid-02.png",
+          "alt": "PostgreSQL Declarative Partitioning 与大型数据生命周期 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/15.PostgreSQL 在线 DDL、Expand-Contract 与零停机 Schema 迁移.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema/mermaid-01.png",
+          "markdownRef": "./assets/15-postgresql-ddl-expand-contract-schema/mermaid-01.png",
+          "alt": "PostgreSQL 在线 DDL、Expand-Contract 与零停机 Schema 迁移 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema/mermaid-02.png",
+          "markdownRef": "./assets/15-postgresql-ddl-expand-contract-schema/mermaid-02.png",
+          "alt": "PostgreSQL 在线 DDL、Expand-Contract 与零停机 Schema 迁移 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/16.PostgreSQL Go、pgx-v5、pgxpool 与生产级数据库访问层.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-01.png",
+          "markdownRef": "./assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-01.png",
+          "alt": "PostgreSQL Go、pgx/v5、pgxpool 与生产级数据库访问层 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-02.png",
+          "markdownRef": "./assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-02.png",
+          "alt": "PostgreSQL Go、pgx/v5、pgxpool 与生产级数据库访问层 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-03.png",
+          "markdownRef": "./assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-03.png",
+          "alt": "PostgreSQL Go、pgx/v5、pgxpool 与生产级数据库访问层 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-04.png",
+          "markdownRef": "./assets/16-postgresql-go-pgx-v5-pgxpool/mermaid-04.png",
+          "alt": "PostgreSQL Go、pgx/v5、pgxpool 与生产级数据库访问层 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/17.PostgreSQL Go 高吞吐写入、幂等、任务队列、Outbox 与跨服务一致性.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/17-postgresql-go-outbox",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/17-postgresql-go-outbox/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/17-postgresql-go-outbox/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/17-postgresql-go-outbox/mermaid-01.png",
+          "markdownRef": "./assets/17-postgresql-go-outbox/mermaid-01.png",
+          "alt": "PostgreSQL Go 高吞吐写入、幂等、任务队列、Outbox 与跨服务一致性 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/18.PostgreSQL 性能工程、可观测性、准入控制与 PgBouncer.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/18-postgresql-pgbouncer",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/18-postgresql-pgbouncer/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/18-postgresql-pgbouncer/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/18-postgresql-pgbouncer/mermaid-01.png",
+          "markdownRef": "./assets/18-postgresql-pgbouncer/mermaid-01.png",
+          "alt": "PostgreSQL 性能工程、可观测性、准入控制与 PgBouncer flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/19.PostgreSQL 容量规划、读扩展、分片与水平扩展.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/19-postgresql",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/19-postgresql/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/19-postgresql/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/19-postgresql/mermaid-01.png",
+          "markdownRef": "./assets/19-postgresql/mermaid-01.png",
+          "alt": "PostgreSQL 容量规划、读扩展、分片与水平扩展 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/19-postgresql/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/19-postgresql/mermaid-02.png",
+          "markdownRef": "./assets/19-postgresql/mermaid-02.png",
+          "alt": "PostgreSQL 容量规划、读扩展、分片与水平扩展 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/19-postgresql/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/19-postgresql/mermaid-03.png",
+          "markdownRef": "./assets/19-postgresql/mermaid-03.png",
+          "alt": "PostgreSQL 容量规划、读扩展、分片与水平扩展 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/21.PostgreSQL Streaming Replication、读副本与同步复制.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/21-postgresql-streaming-replication",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/21-postgresql-streaming-replication/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/21-postgresql-streaming-replication/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/21-postgresql-streaming-replication/mermaid-01.png",
+          "markdownRef": "./assets/21-postgresql-streaming-replication/mermaid-01.png",
+          "alt": "PostgreSQL Streaming Replication、读副本与同步复制 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/22.PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-01.png",
+          "markdownRef": "./assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-01.png",
+          "alt": "PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-02.png",
+          "markdownRef": "./assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-02.png",
+          "alt": "PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-03.png",
+          "markdownRef": "./assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-03.png",
+          "alt": "PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-04.png",
+          "markdownRef": "./assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-04.png",
+          "alt": "PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/PostgreSQL/23.PostgreSQL Patroni、Fencing、故障转移与综合高可用架构.md",
+      "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing",
+      "manifest": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing/mermaid-01.png",
+          "markdownRef": "./assets/23-postgresql-patroni-fencing/mermaid-01.png",
+          "alt": "PostgreSQL Patroni、Fencing、故障转移与综合高可用架构 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing/mermaid-02.png",
+          "markdownRef": "./assets/23-postgresql-patroni-fencing/mermaid-02.png",
+          "alt": "PostgreSQL Patroni、Fencing、故障转移与综合高可用架构 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing/mermaid-03.png",
+          "markdownRef": "./assets/23-postgresql-patroni-fencing/mermaid-03.png",
+          "alt": "PostgreSQL Patroni、Fencing、故障转移与综合高可用架构 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/23-postgresql-patroni-fencing/mermaid-04.png",
+          "markdownRef": "./assets/23-postgresql-patroni-fencing/mermaid-04.png",
+          "alt": "PostgreSQL Patroni、Fencing、故障转移与综合高可用架构 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

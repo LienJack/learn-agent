@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/05.PostgreSQL 高级索引设计、冗余分析与在线索引生命周期.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/05-postgresql",
+  "updatedAt": "2026-06-24T02:49:38.089Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/05-postgresql/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/05-postgresql/mermaid-01.png",
+      "markdownRef": "./assets/05-postgresql/mermaid-01.png",
+      "alt": "PostgreSQL 高级索引设计、冗余分析与在线索引生命周期 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 28559,
+      "sha256": "0fc073cc31d06c6714f2862f588692db04a487c5dc37142d3c2e80baa5ab48cf",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:07.746Z",
+      "compression": {
+        "beforeBytes": 28559,
+        "afterBytes": 28559,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}
