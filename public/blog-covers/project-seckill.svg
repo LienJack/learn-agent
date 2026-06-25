@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">Seckill order system cover</title>
+	<desc id="desc">A high-concurrency flash-sale order pipeline flowing through gateway, Redis, RocketMQ, Go workers, and PostgreSQL.</desc>
+	<style>
+		.seckill-flow {
+			animation: seckill-flow 1.35s linear infinite;
+			stroke-dasharray: 13 14;
+		}
+
+		.seckill-pulse {
+			animation: seckill-pulse 1.9s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		.queue-rise {
+			animation: queue-rise 2.4s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		@keyframes seckill-flow {
+			to {
+				stroke-dashoffset: -54;
+			}
+		}
+
+		@keyframes seckill-pulse {
+			0%,
+			100% {
+				opacity: 0.78;
+				transform: scale(1);
+			}
+
+			50% {
+				opacity: 1;
+				transform: scale(1.04);
+			}
+		}
+
+		@keyframes queue-rise {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-6px);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.seckill-flow,
+			.seckill-pulse,
+			.queue-rise {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-14%" y="-14%" width="128%" height="128%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.023" numOctaves="2" seed="97" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.65" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="13" stdDeviation="13" flood-color="#26313a" flood-opacity="0.13" />
+		</filter>
+		<linearGradient id="paper" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f4efe2" />
+		</linearGradient>
+		<linearGradient id="saleRed" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ff8a25" />
+			<stop offset="100%" stop-color="#e0483e" />
+		</linearGradient>
+		<linearGradient id="redisFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#f4665a" />
+			<stop offset="100%" stop-color="#ce322f" />
+		</linearGradient>
+		<linearGradient id="mqFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fff0c4" />
+			<stop offset="100%" stop-color="#f3c55b" />
+		</linearGradient>
+		<pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+			<path d="M34 0H0v34" fill="none" stroke="#d9e1e3" stroke-width="1" opacity="0.42" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#paper)" />
+	<rect width="900" height="520" fill="url(#grid)" opacity="0.36" />
+	<path d="M90 126c82-55 216-67 337-40 87 19 120 58 203 64 76 5 143-17 184 31 43 50 20 132-43 177-82 60-239 62-364 72-147 12-281-14-336-88-53-71-22-168 19-216z" fill="#f7faf7" opacity="0.72" />
+	<ellipse cx="450" cy="410" rx="326" ry="25" fill="#1f2d35" opacity="0.08" />
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			<path class="seckill-flow" d="M193 246h84" stroke="#405767" stroke-width="7" />
+			<path d="M267 225l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="seckill-flow" d="M398 246h86" stroke="#405767" stroke-width="7" />
+			<path d="M474 225l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="seckill-flow" d="M604 246h82" stroke="#405767" stroke-width="7" />
+			<path d="M676 225l30 21-30 21" stroke="#405767" stroke-width="7" />
+		</g>
+
+		<g filter="url(#roughInk)">
+			<g class="seckill-pulse">
+				<rect x="78" y="158" width="124" height="176" rx="18" fill="#fffdf8" stroke="#30445f" stroke-width="7" />
+				<path d="M104 199h72M104 229h54M104 294h74" fill="none" stroke="#b9c9d1" stroke-width="7" stroke-linecap="round" />
+				<circle cx="151" cy="262" r="31" fill="url(#saleRed)" />
+				<path d="M135 262h32M151 246v32" fill="none" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" />
+			</g>
+
+			<g>
+				<path d="M333 163l73 42v84l-73 42-73-42v-84z" fill="url(#redisFill)" stroke="#30445f" stroke-width="7" />
+				<path d="M300 215h66M300 246h66M300 277h46" fill="none" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" opacity="0.9" />
+				<circle cx="386" cy="246" r="22" fill="#fffdf8" opacity="0.26" />
+			</g>
+
+			<g class="queue-rise">
+				<rect x="506" y="166" width="108" height="160" rx="18" fill="url(#mqFill)" stroke="#30445f" stroke-width="7" />
+				<path d="M535 205h50M535 235h50M535 265h50M535 295h30" fill="none" stroke="#30445f" stroke-width="7" stroke-linecap="round" opacity="0.75" />
+				<circle cx="592" cy="190" r="18" fill="#ff8a25" />
+				<path d="M582 190h20M592 180v20" fill="none" stroke="#fffdf8" stroke-width="6" stroke-linecap="round" />
+			</g>
+
+			<g>
+				<ellipse cx="748" cy="174" rx="61" ry="24" fill="#dfe6eb" stroke="#4d5f6c" stroke-width="6" />
+				<path d="M687 174v104c0 13 27 24 61 24s61-11 61-24V174" fill="#dfe6eb" stroke="#4d5f6c" stroke-width="6" />
+				<path d="M687 222c0 13 27 24 61 24s61-11 61-24" fill="none" stroke="#4d5f6c" stroke-width="6" />
+				<circle cx="804" cy="292" r="34" fill="#2da88a" />
+				<path d="M786 292h36M804 274v36" fill="none" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" />
+			</g>
+
+			<g>
+				<rect x="275" y="381" width="350" height="38" rx="19" fill="#fffdf8" stroke="#30445f" stroke-width="6" />
+				<circle cx="314" cy="400" r="9" fill="#ff8a25" />
+				<circle cx="402" cy="400" r="9" fill="#ce322f" />
+				<circle cx="489" cy="400" r="9" fill="#f3c55b" />
+				<circle cx="577" cy="400" r="9" fill="#2da88a" />
+				<path d="M326 400h64M414 400h63M501 400h64" fill="none" stroke="#30445f" stroke-width="6" stroke-linecap="round" opacity="0.68" />
+			</g>
+		</g>
+	</g>
+</svg>

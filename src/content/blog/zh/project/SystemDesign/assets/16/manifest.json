@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/SystemDesign/16.分库分表、复制与扩展.md",
+  "workspace": "src/content/blog/zh/project/SystemDesign/assets/16",
+  "updatedAt": "2026-06-07T05:09:57.425Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/16/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/16/mermaid-01.png",
+      "markdownRef": "./assets/16/mermaid-01.png",
+      "alt": "分库分表、复制与扩展：分片键是长期架构决策 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 32462,
+      "sha256": "7ba44ff8787c26ea5324581056227ff04c9a9ee13c5fa9bf2ad2af116cebae52",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:57.424Z",
+      "compression": {
+        "beforeBytes": 32462,
+        "afterBytes": 32462,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

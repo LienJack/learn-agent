@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">Project architecture cover</title>
+	<desc id="desc">A product window, architecture map, and delivery track connected as a project case-study workflow.</desc>
+	<style>
+		.project-flow {
+			animation: project-flow 1.7s linear infinite;
+			stroke-dasharray: 12 15;
+		}
+
+		.project-lift {
+			animation: project-lift 2.8s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		.project-pulse {
+			animation: project-pulse 2.2s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		@keyframes project-flow {
+			to {
+				stroke-dashoffset: -54;
+			}
+		}
+
+		@keyframes project-lift {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-7px);
+			}
+		}
+
+		@keyframes project-pulse {
+			0%,
+			100% {
+				opacity: 0.76;
+				transform: scale(1);
+			}
+
+			50% {
+				opacity: 1;
+				transform: scale(1.035);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.project-flow,
+			.project-lift,
+			.project-pulse {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-13%" y="-13%" width="126%" height="126%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="2" seed="82" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.62" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="13" stdDeviation="13" flood-color="#26313a" flood-opacity="0.13" />
+		</filter>
+		<linearGradient id="paper" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#f4efe2" />
+		</linearGradient>
+		<linearGradient id="screen" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#55b7d8" />
+			<stop offset="100%" stop-color="#2e7cc4" />
+		</linearGradient>
+		<linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ff9a3c" />
+			<stop offset="100%" stop-color="#e16035" />
+		</linearGradient>
+		<pattern id="draftGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+			<path d="M36 0H0v36" fill="none" stroke="#d9e1e3" stroke-width="1" opacity="0.48" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#paper)" />
+	<rect width="900" height="520" fill="url(#draftGrid)" opacity="0.36" />
+	<path d="M112 96c83-37 188-45 292-18 76 20 106 56 187 65 74 8 150-11 195 39 42 47 24 126-37 168-80 56-234 58-356 68-143 11-273-15-330-86-55-70-23-184 49-236z" fill="#f4f8f8" opacity="0.72" />
+	<ellipse cx="450" cy="410" rx="325" ry="24" fill="#1f2d35" opacity="0.07" />
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			<path class="project-flow" d="M258 250h103" stroke="#405767" stroke-width="7" />
+			<path d="M351 229l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="project-flow" d="M532 250h103" stroke="#405767" stroke-width="7" />
+			<path d="M625 229l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="project-flow" d="M451 326v76" stroke="#74818a" stroke-width="5" />
+		</g>
+
+		<g filter="url(#roughInk)">
+			<g class="project-lift">
+				<rect x="82" y="156" width="178" height="153" rx="18" fill="#fffdf8" stroke="#30445f" stroke-width="7" />
+				<path d="M82 193h178v-19c0-10-8-18-18-18H100c-10 0-18 8-18 18z" fill="url(#screen)" stroke="#30445f" stroke-width="7" />
+				<circle cx="110" cy="176" r="7" fill="#fffdf8" />
+				<circle cx="132" cy="176" r="7" fill="#fffdf8" />
+				<circle cx="154" cy="176" r="7" fill="#fffdf8" />
+				<rect x="113" y="220" width="116" height="28" rx="6" fill="#30445f" />
+				<path d="M113 271h102M113 291h62" fill="none" stroke="#b9c9d1" stroke-width="7" stroke-linecap="round" />
+			</g>
+
+			<g class="project-pulse">
+				<rect x="382" y="142" width="150" height="181" rx="22" fill="#fff7dc" stroke="#30445f" stroke-width="7" />
+				<circle cx="457" cy="199" r="25" fill="url(#accent)" />
+				<path d="M457 174v50M432 199h50" fill="none" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" />
+				<path d="M418 259h78M418 285h58" fill="none" stroke="#30445f" stroke-width="8" stroke-linecap="round" opacity="0.78" />
+				<path d="M532 176c25 10 43 25 53 47M532 293c29-13 49-32 60-59" fill="none" stroke="#e16035" stroke-width="7" stroke-linecap="round" opacity="0.54" />
+			</g>
+
+			<g>
+				<path d="M727 144 813 195v103l-86 51-87-51V195z" fill="#f1fbf8" stroke="#3f766f" stroke-width="7" />
+				<path d="M727 178v137M669 212l58 34 58-34M669 282l58-36 58 36" fill="none" stroke="#3f766f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" />
+				<circle cx="727" cy="246" r="22" fill="#2da88a" opacity="0.34" />
+			</g>
+
+			<g>
+				<rect x="333" y="401" width="235" height="39" rx="19" fill="#fffdf8" stroke="#30445f" stroke-width="6" />
+				<circle cx="371" cy="421" r="9" fill="#2da88a" />
+				<circle cx="451" cy="421" r="9" fill="#ff9a3c" />
+				<circle cx="531" cy="421" r="9" fill="#2e7cc4" />
+				<path d="M383 421h56M463 421h56" fill="none" stroke="#30445f" stroke-width="6" stroke-linecap="round" opacity="0.68" />
+			</g>
+		</g>
+	</g>
+</svg>

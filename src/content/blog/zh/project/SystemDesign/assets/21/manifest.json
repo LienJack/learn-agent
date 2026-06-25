@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/SystemDesign/21.平台工程与内部开发者平台.md",
+  "workspace": "src/content/blog/zh/project/SystemDesign/assets/21",
+  "updatedAt": "2026-06-07T05:10:06.496Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/21/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/21/mermaid-01.png",
+      "markdownRef": "./assets/21/mermaid-01.png",
+      "alt": "平台工程与内部开发者平台：把工程复杂度做成 Golden Path flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 35366,
+      "sha256": "349ab223173bfc819808842f5b3fab31de42f42fa5db3583289386f446dd3eea",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:10:06.495Z",
+      "compression": {
+        "beforeBytes": 35366,
+        "afterBytes": 35366,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

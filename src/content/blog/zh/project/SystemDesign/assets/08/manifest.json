@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/SystemDesign/08.客户端、前端与用户体验系统.md",
+  "workspace": "src/content/blog/zh/project/SystemDesign/assets/08",
+  "updatedAt": "2026-06-07T05:09:43.658Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/08/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/08/mermaid-01.png",
+      "markdownRef": "./assets/08/mermaid-01.png",
+      "alt": "客户端、前端与用户体验系统：客户端也是系统设计的一部分 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 32683,
+      "sha256": "84717a2d7ae40a74265791da3b499273f56e777199e2c5368466dcff22e43893",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:43.657Z",
+      "compression": {
+        "beforeBytes": 32683,
+        "afterBytes": 32683,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

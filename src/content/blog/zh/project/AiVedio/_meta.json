@@ -1,0 +1,7 @@
+{
+	"title": "AiVedio",
+	"alias": "AI 视频生成平台",
+	"description": "围绕 AI 视频生成、素材资产、在线剪辑、服务端渲染、供应商调度、计费对账和企业租户隔离展开的项目级架构实战。",
+	"cover": "/blog-covers/project-ai-video.svg",
+	"order": 3
+}

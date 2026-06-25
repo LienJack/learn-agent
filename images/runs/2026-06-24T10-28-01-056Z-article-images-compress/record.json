@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-24T10-28-01-056Z-article-images-compress",
+  "command": "article-images",
+  "stage": "compress",
+  "status": "completed",
+  "startedAt": "2026-06-24T10:28:01.057Z",
+  "inputs": [
+    {
+      "source": "tmp/images-tests/cli/compress.md",
+      "status": "completed",
+      "workspace": "tmp/images-tests/cli/assets/compress",
+      "assets": [
+        {
+          "id": "manual-01",
+          "kind": "photo",
+          "status": "imported"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-24T10-28-01-056Z-article-images-compress",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-24T10-28-01-056Z-article-images-compress/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 1 article(s)",
+    "confirmed": true
+  },
+  "notes": [],
+  "finishedAt": "2026-06-24T10:28:01.090Z"
+}

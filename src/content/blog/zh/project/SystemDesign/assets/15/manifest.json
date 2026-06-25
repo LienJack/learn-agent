@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/SystemDesign/15.事务、一致性与分布式数据.md",
+  "workspace": "src/content/blog/zh/project/SystemDesign/assets/15",
+  "updatedAt": "2026-06-07T05:09:55.717Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/15/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/15/mermaid-01.png",
+      "markdownRef": "./assets/15/mermaid-01.png",
+      "alt": "事务、一致性与分布式数据：把业务损失模型放在技术选择之前 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 34018,
+      "sha256": "562eb59334b888956041d4e20fb5488a9809324c4c817b5d0e4a8f8c8615f261",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:55.716Z",
+      "compression": {
+        "beforeBytes": 34018,
+        "afterBytes": 34018,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

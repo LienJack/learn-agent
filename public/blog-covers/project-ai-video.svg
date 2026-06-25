@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">AI video platform cover</title>
+	<desc id="desc">An AI video workflow with prompt input, async scheduling, media processing, timeline editing, storage, and delivery.</desc>
+	<style>
+		.media-flow {
+			animation: media-flow 1.7s linear infinite;
+			stroke-dasharray: 14 16;
+		}
+
+		.render-pulse {
+			animation: render-pulse 2.2s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		.timeline-slide {
+			animation: timeline-slide 3.2s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		@keyframes media-flow {
+			to {
+				stroke-dashoffset: -60;
+			}
+		}
+
+		@keyframes render-pulse {
+			0%,
+			100% {
+				opacity: 0.82;
+				transform: scale(1);
+			}
+
+			50% {
+				opacity: 1;
+				transform: scale(1.04);
+			}
+		}
+
+		@keyframes timeline-slide {
+			0%,
+			100% {
+				transform: translateX(0);
+			}
+
+			50% {
+				transform: translateX(10px);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.media-flow,
+			.render-pulse,
+			.timeline-slide {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-14%" y="-14%" width="128%" height="128%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="131" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.58" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#1f2f3a" flood-opacity="0.14" />
+		</filter>
+		<linearGradient id="paper" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fffdf8" />
+			<stop offset="100%" stop-color="#eef6f2" />
+		</linearGradient>
+		<linearGradient id="screenFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#233a5f" />
+			<stop offset="100%" stop-color="#326f86" />
+		</linearGradient>
+		<linearGradient id="modelFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#79d6c8" />
+			<stop offset="100%" stop-color="#2f9a91" />
+		</linearGradient>
+		<linearGradient id="mediaFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ffe7a8" />
+			<stop offset="100%" stop-color="#f2b84b" />
+		</linearGradient>
+		<linearGradient id="exportFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ff9f7c" />
+			<stop offset="100%" stop-color="#e85f52" />
+		</linearGradient>
+		<pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+			<path d="M34 0H0v34" fill="none" stroke="#cfdfe0" stroke-width="1" opacity="0.46" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="url(#paper)" />
+	<rect width="900" height="520" fill="url(#grid)" opacity="0.44" />
+	<path d="M92 122c76-54 199-66 311-42 93 20 134 70 222 76 74 5 133-29 180 18 52 51 31 145-44 194-84 55-226 54-358 61-141 8-265-15-326-85-59-68-35-169 15-222z" fill="#f7fbf7" opacity="0.78" />
+	<ellipse cx="450" cy="413" rx="326" ry="26" fill="#1f2d35" opacity="0.08" />
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			<path class="media-flow" d="M216 249h88" stroke="#405767" stroke-width="7" />
+			<path d="M294 228l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="media-flow" d="M431 249h91" stroke="#405767" stroke-width="7" />
+			<path d="M511 228l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="media-flow" d="M647 249h72" stroke="#405767" stroke-width="7" />
+			<path d="M708 228l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="media-flow" d="M560 311c-50 58-131 73-205 45" stroke="#62727c" stroke-width="5" />
+		</g>
+
+		<g filter="url(#roughInk)">
+			<g>
+				<rect x="80" y="160" width="144" height="180" rx="19" fill="#fffdf8" stroke="#30445f" stroke-width="7" />
+				<path d="M107 202h89M107 232h65M107 294h81" fill="none" stroke="#b9c9d1" stroke-width="7" stroke-linecap="round" />
+				<rect x="106" y="251" width="91" height="29" rx="9" fill="#eaf6f3" stroke="#2f9a91" stroke-width="5" />
+				<path d="M130 266h43" stroke="#2f9a91" stroke-width="7" stroke-linecap="round" />
+			</g>
+
+			<g class="render-pulse">
+				<path d="M367 156l72 42v84l-72 42-72-42v-84z" fill="url(#modelFill)" stroke="#30445f" stroke-width="7" />
+				<circle cx="367" cy="240" r="30" fill="#fffdf8" opacity="0.9" />
+				<path d="M352 240h30M367 225v30" stroke="#30445f" stroke-width="7" stroke-linecap="round" />
+				<path d="M323 206c20-15 68-15 88 0M323 276c20 15 68 15 88 0" fill="none" stroke="#fffdf8" stroke-width="6" stroke-linecap="round" opacity="0.74" />
+			</g>
+
+			<g>
+				<rect x="541" y="156" width="124" height="180" rx="19" fill="url(#screenFill)" stroke="#30445f" stroke-width="7" />
+				<path d="M571 206l64 37-64 37z" fill="#fffdf8" opacity="0.94" />
+				<rect x="564" y="300" width="78" height="12" rx="6" fill="#79d6c8" />
+				<circle cx="631" cy="187" r="13" fill="#f2b84b" />
+			</g>
+
+			<g>
+				<ellipse cx="770" cy="172" rx="58" ry="23" fill="#dfe6eb" stroke="#4d5f6c" stroke-width="6" />
+				<path d="M712 172v93c0 13 26 23 58 23s58-10 58-23v-93" fill="#dfe6eb" stroke="#4d5f6c" stroke-width="6" />
+				<path d="M712 218c0 13 26 23 58 23s58-10 58-23" fill="none" stroke="#4d5f6c" stroke-width="6" />
+				<circle cx="810" cy="304" r="32" fill="url(#exportFill)" />
+				<path d="M793 304h34M810 287v34" fill="none" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" />
+			</g>
+
+			<g class="timeline-slide">
+				<rect x="236" y="376" width="383" height="44" rx="20" fill="#fffdf8" stroke="#30445f" stroke-width="6" />
+				<rect x="265" y="390" width="86" height="16" rx="8" fill="url(#modelFill)" />
+				<rect x="367" y="390" width="62" height="16" rx="8" fill="url(#mediaFill)" />
+				<rect x="446" y="390" width="112" height="16" rx="8" fill="url(#exportFill)" />
+				<path d="M580 388v20" stroke="#30445f" stroke-width="6" stroke-linecap="round" />
+			</g>
+		</g>
+	</g>
+</svg>
