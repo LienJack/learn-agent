@@ -1,22 +1,18 @@
 flowchart LR
-    A[SQL 文本] --> B[raw_parser]
-    B --> C[RawStmt / Parse Tree]
+    A[SQL 文本] --> B[Raw Parser]
+    B --> C[Parse Tree]
     C --> D[Parse Analysis<br/>名称解析、类型检查]
     D --> E[Query Tree]
     E --> F[Rule Rewriter<br/>视图与规则展开]
-    F --> G[一个或多个 Query]
-    G --> H[PlannerInfo]
-    H --> I[RelOptInfo]
-    I --> J[候选 Path<br/>Scan / Join / Sort / Agg / Parallel]
-    J --> K[最便宜且满足属性的 Path]
-    K --> L[Plan Tree]
-    L --> M[ExecutorStart]
-    M --> N[PlanState Tree]
-    N --> O[ExecutorRun<br/>Demand-Pull]
-    O --> P[TupleTableSlot / 输出行]
-    O <--> Q[Buffer / Heap / Index / Temp]
-    O --> R[WAL：仅发生写入或相关页变化时]
+    F --> G[PlannerInfo]
+    G --> H[RelOptInfo]
+    H --> I[候选 Path]
+    I --> J[成本最优且满足属性的 Path]
+    J --> K[Plan Tree]
+    K --> L[PlanState Tree]
+    L --> M[Executor demand-pull]
+    M --> N[Tuple / 结果]
 
-    S[统计信息 pg_statistic] -.估算.-> H
-    T[成本参数与 enable_*] -.候选与成本.-> H
-    U[work_mem / 并行参数 / JIT] -.运行约束.-> J
+    S[统计信息] -.估算行数.-> G
+    T[成本参数] -.比较候选.-> I
+    U[work_mem / 并行资源 / 缓存 / 锁] -.影响实际执行.-> M

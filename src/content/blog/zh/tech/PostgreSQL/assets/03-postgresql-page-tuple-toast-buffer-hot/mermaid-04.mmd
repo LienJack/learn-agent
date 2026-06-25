@@ -1,11 +1,7 @@
 flowchart TD
-    A[构造新 heap tuple] --> B{超过 TOAST 目标?}
-    B -->|否| I[内联保存]
-    B -->|是| C{列 storage 允许压缩?}
-    C -->|是| D[尝试 pglz / lz4]
-    C -->|否| E[保持原表示]
-    D --> F{仍过大且允许外置?}
-    E --> F
-    F -->|否| I
-    F -->|是| G[切分约 2 KiB chunk]
-    G --> H[写入 pg_toast relation<br/>主 tuple 保存外部指针]
+    A[UPDATE 产生新 Tuple] --> B{非摘要索引依赖值实际变化?}
+    B -->|是| C[非 HOT：需要新索引项]
+    B -->|否| D{新 Tuple 能放在旧 Page?}
+    D -->|否| E[非 HOT：跨页更新]
+    D -->|是| F[HOT：索引继续指向链根]
+    F --> G[未来 pruning 收短链]

@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/PostgreSQL/09.PostgreSQL 事务、MVCC、Snapshot 与 Tuple 可见性.md",
   "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/09-postgresql-mvcc-snapshot-tuple",
-  "updatedAt": "2026-06-24T02:49:38.089Z",
+  "updatedAt": "2026-06-24T09:41:36.419Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -15,13 +15,13 @@
       "alt": "PostgreSQL 事务、MVCC、Snapshot 与 Tuple 可见性 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 88223,
-      "sha256": "55ab3fd9ca2d8114ce5affcfe2304c3aac42464f987c824e015f9f1bd20f4ab6",
+      "bytes": 34526,
+      "sha256": "5e649a0c1c0441f308cf471fb7b85df47fc68a10d9f48c3d4a7db1a668ab1934",
       "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-24T02:49:10.408Z",
+      "compressedAt": "2026-06-24T09:41:36.418Z",
       "compression": {
-        "beforeBytes": 88223,
-        "afterBytes": 88223,
+        "beforeBytes": 34526,
+        "afterBytes": 34526,
         "savedBytes": 0
       }
     }

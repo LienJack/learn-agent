@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/PostgreSQL/06.PostgreSQL Planner、Executor 与 EXPLAIN 执行计划分析.md",
   "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/06-postgresql-planner-executor-explain",
-  "updatedAt": "2026-06-24T02:49:38.089Z",
+  "updatedAt": "2026-06-24T09:19:39.352Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -15,13 +15,13 @@
       "alt": "PostgreSQL Planner、Executor 与 EXPLAIN 执行计划分析 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 27783,
-      "sha256": "84a81c2a72e226cd574fefd1e8d155882ca7b277f6ab177b306a925b0eeec0ae",
+      "bytes": 11220,
+      "sha256": "04d34c0a63408fb1ae08236e40623e9e8393901c644953334c560f183cc89051",
       "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-24T02:49:07.792Z",
+      "compressedAt": "2026-06-24T09:19:39.351Z",
       "compression": {
-        "beforeBytes": 27783,
-        "afterBytes": 27783,
+        "beforeBytes": 11220,
+        "afterBytes": 11220,
         "savedBytes": 0
       }
     }

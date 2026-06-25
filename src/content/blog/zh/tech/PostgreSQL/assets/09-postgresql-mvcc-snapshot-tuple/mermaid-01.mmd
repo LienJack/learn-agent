@@ -1,29 +1,35 @@
 flowchart LR
-    A[BEGIN] --> B[获得 VXID]
-    B --> C{是否需要真实 XID?}
-    C -- 只读且未强制分配 --> D[可能一直没有 XID]
-    C -- 首次写入或显式请求 --> E[分配 32-bit XID]
-    E --> F[组合为 Full XID / xid8]
-    F --> G[INSERT: 新 Tuple.xmin=XID]
-    F --> H[UPDATE: 旧 Tuple.xmax=XID\n新 Tuple.xmin=XID]
-    F --> I[DELETE: 旧 Tuple.xmax=XID]
+    A[BEGIN] --> B[先拥有 VXID]
+    B --> C{是否首次写入或显式请求 XID}
+    C -- 否 --> D[可能始终无真实 XID]
+    C -- 是 --> E[分配 XID]
 
-    J[语句或事务取得 Snapshot] --> K[Snapshot xmin/xmax/xip/curcid]
-    G --> L[HeapTupleSatisfiesMVCC]
-    H --> L
-    I --> L
-    K --> L
-    M[Tuple Hint Bits] --> L
-    N[pg_xact 提交状态] --> L
-    O[pg_subtrans 父子关系] --> L
+    E --> F[INSERT: 新版本 xmin=XID]
+    E --> G[UPDATE: 旧版本 xmax=XID\n新版本 xmin=XID]
+    E --> H[DELETE: 当前版本 xmax=XID]
 
-    L --> P{该版本可见?}
-    P -- 是 --> Q[Executor 返回或继续处理]
-    P -- 否 --> R[跳过该版本/沿更新链寻找]
+    I[语句/事务取得 Snapshot] --> J[Snapshot xmin/xmax/xip/curcid]
+    F --> K[可见性判断]
+    G --> K
+    H --> K
+    J --> K
+    L[pg_xact + Hint Bits] --> K
+    M[当前事务 CID] --> K
 
-    S[COMMIT/ROLLBACK] --> N
-    S --> T[旧版本等待 VACUUM]
-    U[长 Snapshot / backend_xmin] --> T
-    T --> V{旧版本仍可能被某 Snapshot 看见?}
-    V -- 是 --> W[不能移除]
-    V -- 否 --> X[VACUUM 可回收/冻结]
+    K --> N{创建已生效且结束未生效?}
+    N -- 是 --> O[返回该版本]
+    N -- 否 --> P[跳过或寻找链上其他版本]
+
+    Q[COMMIT/ROLLBACK] --> L
+    Q --> R[旧版本进入等待清理阶段]
+    S[所有 backend/slot/standby 的 xmin] --> T[全局清理地平线]
+    R --> U{版本是否早于安全地平线}
+    T --> U
+    U -- 否 --> V[仍需保留]
+    U -- 是 --> W[VACUUM 可移除/复用]
+
+    X[WAL 传到 Standby] --> Y[恢复 Snapshot]
+    W --> Z[清理 WAL 回放]
+    Y --> AA{旧查询仍需要该版本?}
+    Z --> AA
+    AA -- 是 --> AB[等待、取消查询或反馈 xmin]

@@ -1,31 +1,11 @@
 sequenceDiagram
-    participant App as 应用/pgx
-    participant Exec as Executor
-    participant BM as Buffer Manager
-    participant SB as shared_buffers
-    participant OS as OS Page Cache
-    participant Disk as 文件/存储
-    participant WAL as WAL
+    participant A as 事务 A：旧快照
+    participant B as 事务 B：UPDATE
+    participant H as Heap Page
 
-    App->>Exec: UPDATE ... WHERE id = $1
-    Exec->>BM: ReadBuffer(BufferTag)
-    BM->>SB: 查找目标 block
-    alt shared buffer hit
-        SB-->>BM: 已驻留 page，增加 pin
-    else shared buffer miss
-        BM->>OS: 发起文件 read
-        alt OS cache hit
-            OS-->>BM: 内存拷贝返回
-        else OS cache miss
-            OS->>Disk: 物理读取
-            Disk-->>OS: block
-            OS-->>BM: block
-        end
-    end
-    BM-->>Exec: pinned buffer + content lock
-    Exec->>Exec: 生成新 tuple version，判断 HOT
-    Exec->>WAL: 生成 heap/索引相关 WAL record
-    Exec->>SB: 修改 page，标记 dirty
-    Exec->>BM: 释放 content lock 与 pin
-    App->>WAL: COMMIT 需要满足相应 WAL 持久化策略
-    Note over SB,Disk: heap dirty page 可稍后由 backend/background writer/checkpointer 写回
+    A->>H: 读取 T0
+    B->>H: 标记 T0 被 X2 替换
+    B->>H: 创建 T1，xmin=X2
+    B->>B: COMMIT
+    A->>H: 仍按旧快照读取 T0
+    Note over H: T0 直到不再被任何相关快照需要，才可回收

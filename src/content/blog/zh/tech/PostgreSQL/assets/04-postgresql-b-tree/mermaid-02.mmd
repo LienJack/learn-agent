@@ -1,30 +1,17 @@
 sequenceDiagram
-    participant A as Backend A
-    participant B as Backend B
-    participant L as 旧 Leaf Page
-    participant R as 新右 Leaf Page
-    participant P as Parent Page
-    participant W as WAL
+    participant A as Writer A
+    participant B as Reader B
+    participant L as Old Leaf
+    participant R as New Right Leaf
+    participant P as Parent
 
-    A->>L: 定位插入位置并锁住 Buffer
-    A->>L: 清理可删项/尝试 Dedup
-    alt 仍有空间
-        A->>L: 插入 Index Tuple
-        A->>W: 记录索引插入 WAL
-    else 页面仍满
-        A->>R: 分配并初始化新页
-        A->>L: 重分配元组，设置 High Key/Right Link
-        A->>W: 记录 Split WAL
-        Note over L,R: 同层链先保证可向右纠偏
-        A->>P: 插入新 Downlink
-        alt Parent 也满
-            A->>P: 递归 Split
-        end
-        alt 原 Root 被分裂
-            A->>P: 创建新 Root，树高 +1
-            A->>W: 记录 New Root WAL
-        end
+    A->>L: 定位并短时锁住页面
+    A->>L: 删除可回收项 / 尝试 Dedup
+    alt 仍放不下
+        A->>R: 分配新页面并移动部分索引项
+        A->>L: 设置新的 High Key 与 Right Link
+        A->>P: 插入指向 R 的 Downlink
     end
-    B->>L: 并发查找目标键
-    B->>L: 目标键超过 High Key
+    B->>L: 通过稍旧的父 Downlink 到达 L
+    B->>L: 发现目标键超过 High Key
     B->>R: 沿 Right Link 继续
