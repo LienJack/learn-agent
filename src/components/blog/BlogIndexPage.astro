@@ -27,16 +27,22 @@ const indexCopy = {
 		postCountShort: (count: number) => `${count} 篇`,
 		postCountLong: (count: number) => `${count} 篇内容`,
 		featuredPrefix: '首篇：',
+		groupCta: '进入专栏',
+		emptyGroup: '这个专栏入口已经准备好，后续项目系列会继续补进来。',
 	},
 	en: {
 		postCountShort: (count: number) => `${count} posts`,
 		postCountLong: (count: number) => `${count} posts`,
 		featuredPrefix: 'Start here: ',
+		groupCta: 'Open group',
+		emptyGroup: 'This topic shelf is ready. Project series will be added over time.',
 	},
 	ja: {
 		postCountShort: (count: number) => `${count} 本`,
 		postCountLong: (count: number) => `${count} 本の記事`,
 		featuredPrefix: '最初の記事：',
+		groupCta: '棚を開く',
+		emptyGroup: 'この棚の入口は準備済みです。プロジェクトシリーズを順次追加します。',
 	},
 }[locale];
 const groupedCards = await buildBlogGroupCards(posts, locale);
@@ -89,6 +95,9 @@ const seo = buildBlogCollectionSeoData({
 											</h2>
 											<p class="blog-group-description">{group.description}</p>
 											<p class="blog-group-count">{indexCopy.postCountLong(group.postCount)}</p>
+											<a class="blog-group-entry-link" href={localizePath(locale, `/blog/${group.path}`)}>
+												{indexCopy.groupCta}
+											</a>
 										</div>
 										<div class="blog-group-cover">
 											{
@@ -101,38 +110,44 @@ const seo = buildBlogCollectionSeoData({
 										</div>
 									</div>
 
-									<ul class="blog-series-grid">
-										{
-											group.series.map((series) => (
-												<li class="blog-series-card">
-													<a
-														class="blog-series-link"
-														href={localizePath(locale, `/blog/${series.path}`)}
-													>
-														<div class="blog-series-cover">
-															{
-																typeof series.cover === 'string' ? (
-																	<img src={series.cover} alt="" loading="lazy" decoding="async" width="640" height="420" />
-																) : (
-																	<Image width={640} height={420} src={series.cover} alt="" />
-																)
-															}
-														</div>
-														<div class="blog-series-body">
-															<p class="blog-series-index">{indexCopy.postCountShort(series.postCount)}</p>
-															<h3 class="blog-series-title">{series.title}</h3>
-															<p class="blog-series-description">{series.description}</p>
-															{series.featuredPost && (
-																<p class="blog-series-featured">
-																	{indexCopy.featuredPrefix}{series.featuredPost.data.title}
-																</p>
-															)}
-														</div>
-													</a>
-												</li>
-											))
-										}
-									</ul>
+									{
+										group.series.length > 0 ? (
+											<ul class="blog-series-grid">
+												{
+													group.series.map((series) => (
+														<li class="blog-series-card">
+															<a
+																class="blog-series-link"
+																href={localizePath(locale, `/blog/${series.path}`)}
+															>
+																<div class="blog-series-cover">
+																	{
+																		typeof series.cover === 'string' ? (
+																			<img src={series.cover} alt="" loading="lazy" decoding="async" width="640" height="420" />
+																		) : (
+																			<Image width={640} height={420} src={series.cover} alt="" />
+																		)
+																	}
+																</div>
+																<div class="blog-series-body">
+																	<p class="blog-series-index">{indexCopy.postCountShort(series.postCount)}</p>
+																	<h3 class="blog-series-title">{series.title}</h3>
+																	<p class="blog-series-description">{series.description}</p>
+																	{series.featuredPost && (
+																		<p class="blog-series-featured">
+																			{indexCopy.featuredPrefix}{series.featuredPost.data.title}
+																		</p>
+																	)}
+																</div>
+															</a>
+														</li>
+													))
+												}
+											</ul>
+										) : (
+											<p class="blog-group-empty">{indexCopy.emptyGroup}</p>
+										)
+									}
 								</article>
 							))
 						}

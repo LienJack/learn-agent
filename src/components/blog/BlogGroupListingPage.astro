@@ -35,6 +35,8 @@ const listingCopy = {
 		tocLabel: '目录',
 		tocSummary: '按顺序读下去，会从模型原理一路走到 Agent 与 Harness 的工程视角。',
 		guideBadge: '导读',
+		groupCta: '进入专栏',
+		emptyGroup: '这个专栏入口已经准备好，后续项目系列会继续补进来。',
 		emptySeries: '这个系列的目录已经预留出来了，后续内容会继续补进来。',
 	},
 	en: {
@@ -48,6 +50,8 @@ const listingCopy = {
 		tocSummary:
 			'Read in order to move from model fundamentals into an engineering view of agents and harnesses.',
 		guideBadge: 'Guide',
+		groupCta: 'Open group',
+		emptyGroup: 'This topic shelf is ready. Project series will be added over time.',
 		emptySeries: 'This series outline is ready. More articles will be added over time.',
 	},
 	ja: {
@@ -61,6 +65,8 @@ const listingCopy = {
 		tocSummary:
 			'順番に読むと、モデルの仕組みから Agent と Harness の工学的な見方までたどれます。',
 		guideBadge: 'ガイド',
+		groupCta: '棚を開く',
+		emptyGroup: 'この棚の入口は準備済みです。プロジェクトシリーズを順次追加します。',
 		emptySeries: 'このシリーズの目次は準備中です。後続の記事を追加していきます。',
 	},
 } satisfies Record<
@@ -75,6 +81,8 @@ const listingCopy = {
 		tocLabel: string;
 		tocSummary: string;
 		guideBadge: string;
+		groupCta: string;
+		emptyGroup: string;
 		emptySeries: string;
 	}
 >;
@@ -183,30 +191,36 @@ const seo = buildBlogCollectionSeoData({
 									}
 								</div>
 							</div>
-							<ul class="blog-series-grid">
-								{
-									currentGroup.series.map((item) => (
-										<li class="blog-series-card">
-											<a class="blog-series-link" href={localizePath(locale, `/blog/${item.path}`)}>
-												<div class="blog-series-cover">
-													{
-														typeof item.cover === 'string' ? (
-															<img src={item.cover} alt="" loading="lazy" decoding="async" width="640" height="420" />
-														) : (
-															<Image width={640} height={420} src={item.cover} alt="" />
-														)
-													}
-												</div>
-												<div class="blog-series-body">
-													<p class="blog-series-index">{copy.postCountShort(item.postCount)}</p>
-													<h3 class="blog-series-title">{item.title}</h3>
-													<p class="blog-series-description">{item.description}</p>
-												</div>
-											</a>
-										</li>
-									))
-								}
-							</ul>
+							{
+								currentGroup.series.length > 0 ? (
+									<ul class="blog-series-grid">
+										{
+											currentGroup.series.map((item) => (
+												<li class="blog-series-card">
+													<a class="blog-series-link" href={localizePath(locale, `/blog/${item.path}`)}>
+														<div class="blog-series-cover">
+															{
+																typeof item.cover === 'string' ? (
+																	<img src={item.cover} alt="" loading="lazy" decoding="async" width="640" height="420" />
+																) : (
+																	<Image width={640} height={420} src={item.cover} alt="" />
+																)
+															}
+														</div>
+														<div class="blog-series-body">
+															<p class="blog-series-index">{copy.postCountShort(item.postCount)}</p>
+															<h3 class="blog-series-title">{item.title}</h3>
+															<p class="blog-series-description">{item.description}</p>
+														</div>
+													</a>
+												</li>
+											))
+										}
+									</ul>
+								) : (
+									<p class="blog-group-empty">{copy.emptyGroup}</p>
+								)
+							}
 						</article>
 					</section>
 				)
@@ -305,6 +319,9 @@ const seo = buildBlogCollectionSeoData({
 											<p class="blog-group-kicker">Group</p>
 											<h2>{item.title}</h2>
 											<p class="blog-group-description">{item.description}</p>
+											<a class="blog-group-entry-link" href={localizePath(locale, `/blog/${item.path}`)}>
+												{copy.groupCta}
+											</a>
 										</div>
 										<div class="blog-group-cover">
 											{
