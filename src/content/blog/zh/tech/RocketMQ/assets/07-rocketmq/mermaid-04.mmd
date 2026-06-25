@@ -1,0 +1,21 @@
+flowchart TD
+    A[Broker 启动] --> B{abort 文件存在?}
+    B -->|否| N[正常恢复]
+    B -->|是| X[异常恢复]
+    N --> C[加载并恢复 ConsumeQueue/Index]
+    X --> C
+    C --> D[计算各派生存储最小 dispatchFromPhyOffset]
+    D --> E{恢复模式}
+    E -->|正常| F[CommitLog#recoverNormally〔R5.5〕]
+    E -->|异常| G[CommitLog#recoverAbnormally〔R5.5〕]
+    F --> H[逐条校验 TotalSize/Magic/长度/可选 CRC]
+    G --> H
+    H --> I{完整合法记录?}
+    I -->|是| J[推进 processOffset<br/>必要时重建 CQ/Index]
+    J --> H
+    I -->|BLANK| K[切到下一文件]
+    I -->|半条/非法/CRC错| L[停止扫描]
+    K --> H
+    L --> M[截断 CommitLog 脏尾]
+    M --> O[截断超前 CQ/Index<br/>设置 wrote/commit/flush 水位]
+    O --> P[恢复 topicQueueTable 并启动分发]

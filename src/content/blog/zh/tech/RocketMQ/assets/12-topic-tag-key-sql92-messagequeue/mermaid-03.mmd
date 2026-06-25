@@ -1,0 +1,9 @@
+flowchart LR
+    K[MessageKey] --> H[计算 Hash]
+    H --> S[定位 Hash Slot]
+    S --> C[遍历同 Slot 索引链]
+    C --> O[得到候选 CommitLog Offset]
+    O --> R[读取消息]
+    R --> V{核对 Topic、Key、时间}
+    V -- 匹配 --> M[返回结果]
+    V -- 冲突或过期 --> X[丢弃候选]

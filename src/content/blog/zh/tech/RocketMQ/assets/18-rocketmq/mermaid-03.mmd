@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant G as 5.x gRPC Client
+    participant A as GrpcMessagingApplication
+    participant D as DefaultGrpcMessagingActivity
+    participant S as SendMessageActivity
+    participant M as MessagingProcessor
+    participant B as Broker SendMessageProcessor
+
+    G->>A: SendMessage RPC
+    A->>D: sendMessage()
+    D->>S: sendMessage()
+    S->>S: 校验并转换 Message
+    S->>M: sendMessage(...)
+    M->>B: 本地调用或 Remoting 转发
+    B-->>G: SendMessageResponse

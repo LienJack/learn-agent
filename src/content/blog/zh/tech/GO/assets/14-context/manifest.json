@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/14.Context-取消传播与生命周期管理.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/14-context",
-  "updatedAt": "2026-06-19T14:44:00.453Z",
+  "updatedAt": "2026-06-21T13:41:36.531Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -22,6 +22,28 @@
       "compression": {
         "beforeBytes": 34316,
         "afterBytes": 34316,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-context-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 14 章：Context、取消传播与生命周期管理",
+      "anchor": "第-14-章context取消传播与生命周期管理",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/14-context/go-context-summary.webp",
+      "markdownRef": "./assets/14-context/go-context-summary.webp",
+      "alt": "Go Context 取消传播与生命周期管理开头总结图",
+      "contentType": "image/webp",
+      "bytes": 183936,
+      "sha256": "97ff92410b75d5aae2d7b61b8af8d4fbb7764f273d1113d6ab5793e9d8dc83ee",
+      "importedFrom": "deterministic svg summary generator",
+      "importedAt": "2026-06-21T13:41:36.531Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T13:41:36.531Z",
+      "compression": {
+        "beforeBytes": 183936,
+        "afterBytes": 183936,
         "savedBytes": 0
       }
     }

@@ -1,0 +1,11 @@
+flowchart LR
+    O[订单服务] --> T1[订单普通 Topic]
+    P[支付服务] --> T2[支付事务 Topic]
+    F[履约服务] --> T3[履约 FIFO Topic]
+    S[超时调度] --> T4[订单延迟 Topic]
+
+    T1 -->|Tag: ORDER_CREATED| G1[库存 Group]
+    T1 -->|Tag: ORDER_CREATED 或 CANCELLED| G2[分析 Group]
+    T2 --> G3[交易结果 Group]
+    T3 --> G4[物流状态 Group]
+    T4 --> G5[关单 Group]

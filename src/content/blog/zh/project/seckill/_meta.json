@@ -1,0 +1,7 @@
+{
+	"title": "高并发秒杀订单系统",
+	"alias": "Seckill Order System",
+	"description": "围绕高并发秒杀订单系统，从业务不变量、容量规划、Redis 预占、RocketMQ 削峰、PostgreSQL 最终事实源、幂等补偿与可观测性展开生产级架构实战。",
+	"cover": "/blog-covers/project-seckill.svg",
+	"order": 2
+}

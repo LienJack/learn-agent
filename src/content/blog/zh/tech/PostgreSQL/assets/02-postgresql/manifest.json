@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/02.PostgreSQL 生产级数据模型、数据类型、约束与主键设计.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/02-postgresql",
+  "updatedAt": "2026-06-24T02:49:38.088Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/02-postgresql/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/02-postgresql/mermaid-01.png",
+      "markdownRef": "./assets/02-postgresql/mermaid-01.png",
+      "alt": "PostgreSQL 生产级数据模型、数据类型、约束与主键设计 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 35969,
+      "sha256": "dbb1f9cb63b5ed6cf8a1319099e76e9d33edc1e8a2b94a129495fd0ea4a5419b",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:06.468Z",
+      "compression": {
+        "beforeBytes": 35969,
+        "afterBytes": 35969,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

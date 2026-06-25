@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant C as Consumer C1
+    participant B as Broker
+    participant M as ConsumerManager
+    participant R as RebalanceService
+
+    C->>B: 启动并发送 HeartbeatData
+    B->>M: 注册 Group、ClientId、Channel、Subscription
+    M-->>B: 成员或订阅发生变化
+    B-->>C: 通知消费者 ID 列表变化
+    R->>B: 查询同组存活 ConsumerId
+    R->>R: 排序队列与成员，执行分配算法
+    R->>C: 增加新队列、撤销旧队列
+    loop 周期心跳
+        C->>B: heartbeat
+        B->>M: 刷新最后活跃时间
+    end
+    alt 进程崩溃或网络断开
+        B->>M: Channel 关闭或超时清理
+        M-->>B: 成员离开，触发重新分配
+    end

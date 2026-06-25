@@ -1,0 +1,25 @@
+flowchart TD
+    A[SQL 访问逻辑父表 event_log] --> B{操作类型}
+
+    B -->|INSERT| C[计算 Partition Key]
+    C --> D[沿 Partition Bound 路由]
+    D --> E{命中叶分区?}
+    E -->|是| F[写 Heap + 本地索引 + WAL]
+    E -->|否且有 Default| G[写 Default Partition]
+    E -->|否且无 Default| H[失败: no partition found]
+
+    B -->|SELECT/UPDATE/DELETE| I[Parse / Rewrite / Plan]
+    I --> J[规划期 Partition Pruning]
+    J --> K[生成 Append/MergeAppend/ModifyTable 子计划]
+    K --> L[初始化期或动态执行期 Pruning]
+    L --> M[只执行剩余叶分区计划]
+
+    B -->|维护| N{ATTACH / DETACH / DROP}
+    N --> O[获取父表与叶表锁]
+    O --> P[验证边界/更新系统目录]
+    P --> Q[失效 Relcache 与缓存计划]
+    Q --> R[复制 WAL 并在 Standby 重放]
+
+    F --> S[Autovacuum 逐叶处理]
+    M --> T[父级与叶级统计影响估算]
+    R --> U[备份/PITR/Failover 必须保持完整分区树]

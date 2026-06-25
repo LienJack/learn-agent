@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/20.RocketMQ资深面试题库、追问链与模拟面试.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/20-rocketmq",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/20-rocketmq/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/20-rocketmq/mermaid-01.png",
+      "markdownRef": "./assets/20-rocketmq/mermaid-01.png",
+      "alt": "RocketMQ 第 20 章：资深面试题库、追问链与模拟面试 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 276345,
+      "sha256": "6780db36c9196af7bc71a5685b4c65d67155552b3cb8c474d8fb12c7738a0cbd",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:49.288Z",
+      "compression": {
+        "beforeBytes": 276345,
+        "afterBytes": 276345,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

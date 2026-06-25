@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/11.Goroutine与Go调度器.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/11-goroutine-go",
-  "updatedAt": "2026-06-19T14:44:00.257Z",
+  "updatedAt": "2026-06-21T09:48:36.884Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -23,6 +23,28 @@
         "beforeBytes": 28485,
         "afterBytes": 28485,
         "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-gmp-model-overview",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "十二、自测题",
+      "anchor": "十二自测题",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/11-goroutine-go/gmp-model-overview.webp",
+      "markdownRef": "./assets/11-goroutine-go/gmp-model-overview.webp",
+      "alt": "Go GMP 模型速览",
+      "contentType": "image/webp",
+      "bytes": 188986,
+      "sha256": "4de2a0438f0a447f346de75f885c4c8768f65d9bfe733221f851471aa9507cc5",
+      "importedFrom": "../../../Downloads/ChatGPT Image 2026年6月21日 17_46_40.png",
+      "importedAt": "2026-06-21T09:48:36.884Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T09:48:36.884Z",
+      "compression": {
+        "beforeBytes": 1673191,
+        "afterBytes": 188986,
+        "savedBytes": 1484210
       }
     }
   ],

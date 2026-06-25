@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/SystemDesign/03.从用户旅程看系统边界.md",
+  "workspace": "src/content/blog/zh/project/SystemDesign/assets/03",
+  "updatedAt": "2026-06-07T05:09:34.576Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/03/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/03/mermaid-01.png",
+      "markdownRef": "./assets/03/mermaid-01.png",
+      "alt": "从用户旅程看系统边界：先画链路，再画组件 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 30988,
+      "sha256": "48b5cfcb32db5062e44a526cdc0b73ec0dcdf26544db259524589643cd5ae25e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:34.576Z",
+      "compression": {
+        "beforeBytes": 30988,
+        "afterBytes": 30988,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

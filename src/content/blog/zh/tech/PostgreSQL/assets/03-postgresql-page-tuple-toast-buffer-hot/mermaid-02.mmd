@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant A as 事务 A：旧快照
+    participant B as 事务 B：UPDATE
+    participant H as Heap Page
+
+    A->>H: 读取 T0
+    B->>H: 标记 T0 被 X2 替换
+    B->>H: 创建 T1，xmin=X2
+    B->>B: COMMIT
+    A->>H: 仍按旧快照读取 T0
+    Note over H: T0 直到不再被任何相关快照需要，才可回收

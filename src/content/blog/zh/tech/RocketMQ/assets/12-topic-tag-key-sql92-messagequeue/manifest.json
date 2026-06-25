@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/12.Topic、Tag、Key、SQL92、MessageQueue与资源治理.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-01.png",
+      "markdownRef": "./assets/12-topic-tag-key-sql92-messagequeue/mermaid-01.png",
+      "alt": "RocketMQ 第 12 章：Topic、Tag、Key、SQL92、MessageQueue 与资源治理 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 87122,
+      "sha256": "7b1340d18eb1f50e5a097f498b577a3024b67e39541c5ac3c7b3952b9e3dadf4",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:57.738Z",
+      "compression": {
+        "beforeBytes": 87122,
+        "afterBytes": 87122,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-02.png",
+      "markdownRef": "./assets/12-topic-tag-key-sql92-messagequeue/mermaid-02.png",
+      "alt": "RocketMQ 第 12 章：Topic、Tag、Key、SQL92、MessageQueue 与资源治理 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 174353,
+      "sha256": "a7b868bf8d741f6ffa12ed850de7aa9134a55c94069fb889db2eaae0a5b8333c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:00.010Z",
+      "compression": {
+        "beforeBytes": 174353,
+        "afterBytes": 174353,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-03.png",
+      "markdownRef": "./assets/12-topic-tag-key-sql92-messagequeue/mermaid-03.png",
+      "alt": "RocketMQ 第 12 章：Topic、Tag、Key、SQL92、MessageQueue 与资源治理 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 27741,
+      "sha256": "2da7c8d920d936c3f95f2fa07ecaa880d30ab1762c174b6a9477479d7aeb25c4",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:02.023Z",
+      "compression": {
+        "beforeBytes": 27741,
+        "afterBytes": 27741,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-04.png",
+      "markdownRef": "./assets/12-topic-tag-key-sql92-messagequeue/mermaid-04.png",
+      "alt": "RocketMQ 第 12 章：Topic、Tag、Key、SQL92、MessageQueue 与资源治理 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 16891,
+      "sha256": "a0c60b578df50f6d42cf439c18f8a9a47accae387812bf66510dec7d2720d1af",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:03.856Z",
+      "compression": {
+        "beforeBytes": 16891,
+        "afterBytes": 16891,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

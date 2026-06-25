@@ -1,0 +1,19 @@
+flowchart LR
+    C[应用客户端] --> B[Primary Backend]
+    B --> SB[shared_buffers]
+    B --> WB[WAL Buffers]
+    WB --> PW[Primary pg_wal / WAL Flush]
+
+    PW --> WS[WAL Sender]
+    WS -->|WAL Stream| WR[Standby WAL Receiver]
+    WR --> SW[Standby pg_wal]
+    SW --> SP[Startup Process]
+    SP --> RBUF[Standby shared_buffers / Data Files]
+    RBUF --> Q[Hot Standby Read Query]
+
+    WR -->|write / flush / replay feedback| WS
+    WS -.同步提交确认.-> B
+
+    SLOT[Physical Replication Slot] -.保护 restart_lsn 之后的 WAL.-> PW
+    VAC[Primary VACUUM / DDL] --> PW
+    SP -.Recovery Conflict.-> Q

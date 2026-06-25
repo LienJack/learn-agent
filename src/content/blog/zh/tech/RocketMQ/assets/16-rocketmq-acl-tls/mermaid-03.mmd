@@ -1,0 +1,9 @@
+flowchart TB
+    Cluster[独立 RocketMQ 集群<br/>最强物理与故障隔离]
+    Namespace[Namespace<br/>逻辑命名与权限边界]
+    Topic[Topic<br/>消息流与权限边界]
+    Group[ConsumerGroup<br/>消费进度与订阅边界]
+
+    Cluster --> Namespace
+    Namespace --> Topic
+    Topic --> Group

@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant P1 as Producer 实例 A
+    participant B as Broker
+    participant P2 as Producer 实例 B
+    participant DB as 业务数据库
+
+    P1->>B: 发送 Half Message
+    B-->>P1: ACK
+    P1->>DB: 执行本地事务
+    P1--xB: 实例宕机，未发送二阶段结果
+
+    B->>P2: 第一次事务回查
+    P2-xDB: 数据库连接超时
+    P2-->>B: UNKNOWN
+
+    Note over B: 保持待决，等待下一轮回查
+
+    B->>P2: 后续事务回查
+    P2->>DB: 查询 event_id
+    DB-->>P2: COMMITTED
+    P2-->>B: COMMIT

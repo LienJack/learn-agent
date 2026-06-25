@@ -1,0 +1,9 @@
+flowchart LR
+    A[业务需求与SLO] --> B[识别事实/命令]
+    B --> C[确定一致性与顺序边界]
+    C --> D[选择消息类型]
+    D --> E[设计Topic/Tag/Key/MessageGroup]
+    E --> F[设计消费组与幂等]
+    F --> G[设计重试/DLQ/补偿]
+    G --> H[容量/高可用/监控]
+    H --> I[压测与故障演练]

@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/22.PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution",
+  "updatedAt": "2026-06-24T02:49:38.091Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-01.png",
+      "markdownRef": "./assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-01.png",
+      "alt": "PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 67908,
+      "sha256": "187a70c88dacd546fcfa6c4a8dcf7e4f63833a38308b89f59dd745755bacde0f",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:13.859Z",
+      "compression": {
+        "beforeBytes": 67908,
+        "afterBytes": 67908,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-02.png",
+      "markdownRef": "./assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-02.png",
+      "alt": "PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 100978,
+      "sha256": "b37755c96af3fa442b276ba172e5178f37da25d48ede701d492ac295ba3e9c2f",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:14.015Z",
+      "compression": {
+        "beforeBytes": 100978,
+        "afterBytes": 100978,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-03.png",
+      "markdownRef": "./assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-03.png",
+      "alt": "PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 129197,
+      "sha256": "aa19be44650fd61405a215103b0089904582445450fbb6eeda621e5ce541b582",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:14.176Z",
+      "compression": {
+        "beforeBytes": 129197,
+        "afterBytes": 129197,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-04.png",
+      "markdownRef": "./assets/22-postgresql-logical-replication-cdc-schema-evolution/mermaid-04.png",
+      "alt": "PostgreSQL Logical Replication、CDC、Schema Evolution 与在线大版本升级 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 71248,
+      "sha256": "a4a770dc96ad7e7ed93fb9705e222ed5cb23dbd443c96dc717cda482ef9ecef4",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:14.274Z",
+      "compression": {
+        "beforeBytes": 71248,
+        "afterBytes": 71248,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

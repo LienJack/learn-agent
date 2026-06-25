@@ -1,0 +1,35 @@
+flowchart LR
+    subgraph P[Publisher]
+        TX[业务事务] --> WAL[WAL Records]
+        WAL --> LD[Logical Decoding<br/>ReorderBuffer]
+        PUB[Publication<br/>表/操作/行/列过滤] --> OUT[pgoutput]
+        LD --> OUT
+        SLOT[(Logical Slot<br/>restart_lsn<br/>confirmed_flush_lsn)] --> LD
+        OUT --> WS[WAL Sender]
+    end
+
+    WS -->|Logical Replication Protocol| NET[(网络)]
+
+    subgraph S[Subscriber]
+        NET --> AW[Apply Worker]
+        AW --> MAP[Relation 映射<br/>Replica Identity 查找]
+        MAP --> TGT[(Subscriber Tables)]
+        AW --> ORIGIN[(Replication Origin<br/>remote_lsn/local_lsn)]
+        TS[Table Sync Worker] -->|Snapshot + COPY| TGT
+        TS -->|专用临时 Sync Slot| P
+        TGT --> SWAL[Subscriber WAL]
+    end
+
+    subgraph C[自定义 CDC Consumer]
+        NET2[Replication Connection] --> DEC[pglogrepl 解码]
+        DEC --> Q[有界队列/Backpressure]
+        Q --> SINK[(幂等 Sink)]
+        SINK --> CKPT[(Durable LSN Checkpoint)]
+        CKPT -->|Standby Status Update| NET2
+    end
+
+    WS -.同一 pgoutput 数据源.-> NET2
+
+    DDL[DDL / Sequence / 权限 / 扩展] -.不会自动复制.-> MANUAL[人工 Schema Evolution]
+    FAIL[消费者停机/冲突/网络故障] --> SLOT
+    SLOT -->|保留 WAL，可能写满磁盘| WAL

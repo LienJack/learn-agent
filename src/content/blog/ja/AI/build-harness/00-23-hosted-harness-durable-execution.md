@@ -13,6 +13,12 @@ tags:
   - Sandbox
   - Automation
   - Deployment
+qiita_tags:
+  - Agent
+  - Harness
+  - HostedHarness
+  - DurableExecution
+  - Sandbox
 aliases:
   - Hosted Harness
   - リモートホスト型 Agent Harness

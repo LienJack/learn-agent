@@ -1,0 +1,16 @@
+stateDiagram-v2
+    [*] --> LocalLookup
+    LocalLookup --> AlreadyHeld: 本 Backend 已持有兼容/更强模式
+    LocalLookup --> FastPath: 弱 relation lock 且满足条件
+    LocalLookup --> MainTable: 需主锁表
+    FastPath --> Granted
+    MainTable --> Granted: 与 granted 集合及队列兼容
+    MainTable --> Waiting: 存在硬/软冲突
+    Waiting --> Granted: blocker 释放且轮到本请求
+    Waiting --> Aborted: deadlock victim
+    Waiting --> Cancelled: lock/statement timeout 或客户端取消
+    Granted --> Released: 事务/会话/ResourceOwner 结束
+    AlreadyHeld --> Released
+    Aborted --> [*]
+    Cancelled --> [*]
+    Released --> [*]

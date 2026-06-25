@@ -1,0 +1,48 @@
+flowchart LR
+    subgraph Clients["客户端"]
+        P4["4.x Producer<br/>Remoting SDK"]
+        C4["4.x Consumer<br/>Remoting SDK"]
+        P5["5.x Producer<br/>gRPC SDK"]
+        C5["5.x Consumer<br/>gRPC SDK"]
+    end
+
+    subgraph Access["接入层"]
+        PX1["Proxy 1"]
+        PX2["Proxy 2"]
+    end
+
+    subgraph Metadata["路由与控制平面"]
+        NS1["NameServer 1"]
+        NS2["NameServer 2"]
+        CTL["Controller 集群<br/>Raft 多副本"]
+    end
+
+    subgraph Brokers["Broker 集群"]
+        M1["Broker-a Master"]
+        S1["Broker-a Slave"]
+        M2["Broker-b Master"]
+        S2["Broker-b Slave"]
+    end
+
+    P4 -. "查询路由" .-> NS1
+    C4 -. "查询路由" .-> NS2
+    P4 -->|"Remoting 发送"| M1
+    C4 -->|"Remoting 拉取/消费"| M1
+
+    P5 -->|"gRPC"| PX1
+    C5 -->|"gRPC"| PX2
+    PX1 -->|"转发消息请求"| M1
+    PX2 -->|"转发消费请求"| M2
+
+    M1 -. "注册路由/心跳" .-> NS1
+    M1 -. "注册路由/心跳" .-> NS2
+    M2 -. "注册路由/心跳" .-> NS1
+    M2 -. "注册路由/心跳" .-> NS2
+
+    M1 -->|"复制"| S1
+    M2 -->|"复制"| S2
+
+    M1 -. "副本状态/选主" .-> CTL
+    S1 -. "副本状态/选主" .-> CTL
+    M2 -. "副本状态/选主" .-> CTL
+    S2 -. "副本状态/选主" .-> CTL

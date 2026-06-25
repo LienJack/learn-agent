@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/12.PostgreSQL VACUUM、Autovacuum、Freeze、Wraparound 与 Bloat.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat",
+  "updatedAt": "2026-06-24T02:49:38.090Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat/mermaid-01.png",
+      "markdownRef": "./assets/12-postgresql-vacuum-autovacuum-freeze-wraparound-bloat/mermaid-01.png",
+      "alt": "PostgreSQL VACUUM、Autovacuum、Freeze、Wraparound 与 Bloat flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 48363,
+      "sha256": "abec7e5bce5793d1cabaad6415c5277245b2d12c6865d85bc71fd04f5979c1b0",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:11.411Z",
+      "compression": {
+        "beforeBytes": 48363,
+        "afterBytes": 48363,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

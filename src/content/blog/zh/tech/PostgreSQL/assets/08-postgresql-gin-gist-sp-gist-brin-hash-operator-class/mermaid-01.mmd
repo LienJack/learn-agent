@@ -1,0 +1,30 @@
+flowchart TD
+    B[业务问题] --> Q[SQL 表达式、操作符、类型、Collation]
+    Q --> O{Opclass/Opfamily 是否支持?}
+    O -- 否 --> N[该索引不能生成 Scan Key]
+    O -- 是 --> U{索引按什么单位组织数据?}
+
+    U --> V[完整值<br/>B-tree / Hash]
+    U --> K[组成元素<br/>GIN]
+    U --> D[领域空间<br/>GiST / SP-GiST]
+    U --> R[物理块范围<br/>BRIN]
+
+    V --> C[候选 TID]
+    K --> C
+    D --> C
+    R --> P[候选 Heap Block]
+
+    C --> BM[Index Scan 或 Bitmap]
+    P --> BM
+    BM --> H[访问 Heap / TOAST]
+    H --> M[MVCC 可见性检查]
+    M --> X{索引结果是否精确?}
+    X -- 否 --> RC[执行原始谓词 Recheck]
+    X -- 是 --> OUT[返回结果]
+    RC --> OUT
+
+    Q --> W[INSERT / UPDATE / DELETE]
+    W --> S[索引状态变化]
+    S --> L[Pending 合并 / Page Split / Summary / Bucket Split]
+    L --> WAL[WAL、Checkpoint、Vacuum]
+    WAL --> REP[复制、备份、恢复、Failover]

@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant P as PullMessageService
+    participant C as DefaultMQPushConsumerImpl
+    participant W as PullAPIWrapper
+    participant A as MQClientAPIImpl
+    participant B as PullMessageProcessor
+    participant S as DefaultMessageStore
+    participant Q as ConsumeQueue
+    participant L as CommitLog
+    participant E as ConsumeMessageService
+
+    P->>C: pullMessage(PullRequest)
+    C->>W: pullKernelImpl()
+    W->>A: pullMessage()
+    A->>B: PULL_MESSAGE
+    B->>S: getMessage(topic, queueId, offset)
+    S->>Q: 根据逻辑 Offset 定位物理位置
+    S->>L: 读取消息本体
+    L-->>B: GetMessageResult
+    B-->>W: PullResult
+    W->>C: processPullResult()
+    C->>C: ProcessQueue.putMessage()
+    C->>E: submitConsumeRequest()

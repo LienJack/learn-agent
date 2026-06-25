@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">RocketMQ cover</title>
+	<desc id="desc">Producers, topic lanes, replicated broker logs, consumers, retries, and delayed messages.</desc>
+	<style>
+		.message {
+			animation: message-flow 1.9s ease-in-out infinite;
+		}
+
+		.retry {
+			animation: retry-spin 4.2s linear infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		@keyframes message-flow {
+			0%,
+			100% {
+				transform: translateX(0);
+			}
+
+			50% {
+				transform: translateX(24px);
+			}
+		}
+
+		@keyframes retry-spin {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.message,
+			.retry {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-12%" y="-12%" width="124%" height="124%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.023" numOctaves="2" seed="79" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.52" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#26313a" flood-opacity="0.13" />
+		</filter>
+		<linearGradient id="rocketFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ff9e3a" />
+			<stop offset="100%" stop-color="#ef4f43" />
+		</linearGradient>
+		<linearGradient id="brokerFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#f8fbff" />
+			<stop offset="100%" stop-color="#dce6f1" />
+		</linearGradient>
+		<pattern id="queueGrid" width="38" height="38" patternUnits="userSpaceOnUse">
+			<path d="M38 0H0v38" fill="none" stroke="#d9e1e3" stroke-width="1" opacity="0.38" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="#fffdf8" />
+	<rect width="900" height="520" fill="url(#queueGrid)" opacity="0.48" />
+	<path d="M101 116c70-48 198-64 310-32 83 24 116 73 204 74 76 1 139-26 184 24 41 46 37 123-23 176-98 86-329 94-489 55C130 375 57 292 74 213c8-37 13-68 27-97z" fill="#fff6ee" opacity="0.62" />
+	<ellipse cx="451" cy="407" rx="326" ry="23" fill="#1f2d35" opacity="0.07" />
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)">
+			<g fill="#fffdf8" stroke="#30445f" stroke-width="6">
+				<rect x="83" y="155" width="106" height="70" rx="16" />
+				<rect x="83" y="264" width="106" height="70" rx="16" />
+			</g>
+			<path d="M110 181h52M110 207h35M110 290h52M110 316h35" stroke="#5b6e7e" stroke-width="9" stroke-linecap="round" />
+
+			<g class="message">
+				<rect x="222" y="166" width="52" height="34" rx="8" fill="#ff9e3a" stroke="#30445f" stroke-width="5" />
+				<rect x="222" y="276" width="52" height="34" rx="8" fill="#ef4f43" stroke="#30445f" stroke-width="5" />
+				<rect x="295" y="221" width="52" height="34" rx="8" fill="#f3c55b" stroke="#30445f" stroke-width="5" />
+			</g>
+			<g fill="none" stroke="#405767" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M189 190h119" stroke-dasharray="12 15" />
+				<path d="M189 300h119" stroke-dasharray="12 15" />
+				<path d="M340 238h82" stroke-dasharray="12 15" />
+			</g>
+
+			<g>
+				<ellipse cx="490" cy="135" rx="78" ry="28" fill="#f8fbff" stroke="#30445f" stroke-width="7" />
+				<path d="M412 135v156c0 16 35 29 78 29s78-13 78-29V135" fill="url(#brokerFill)" stroke="#30445f" stroke-width="7" />
+				<path d="M412 184c0 16 35 29 78 29s78-13 78-29M412 237c0 16 35 29 78 29s78-13 78-29" fill="none" stroke="#4d5f6c" stroke-width="6" />
+				<path d="M448 166h84M448 219h84M448 271h84" stroke="#2d84c9" stroke-width="8" stroke-linecap="round" />
+			</g>
+
+			<g fill="none" stroke="#405767" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M568 190h119" stroke-dasharray="12 15" />
+				<path d="M568 300h119" stroke-dasharray="12 15" />
+				<path d="M676 169l30 21-30 21" />
+				<path d="M676 279l30 21-30 21" />
+			</g>
+
+			<g fill="#fffdf8" stroke="#30445f" stroke-width="6">
+				<rect x="706" y="155" width="112" height="70" rx="16" />
+				<rect x="706" y="264" width="112" height="70" rx="16" />
+			</g>
+			<circle cx="737" cy="190" r="14" fill="#2da88a" />
+			<circle cx="782" cy="190" r="14" fill="#2da88a" />
+			<circle cx="737" cy="300" r="14" fill="#5b7ee4" />
+			<circle cx="782" cy="300" r="14" fill="#5b7ee4" />
+
+			<g class="retry">
+				<circle cx="617" cy="382" r="35" fill="#fffdf8" stroke="#30445f" stroke-width="6" />
+				<path d="M617 358v25l18 11" stroke="#ef4f43" stroke-width="7" stroke-linecap="round" />
+				<path d="M586 382c4-21 19-35 39-35" fill="none" stroke="#ef4f43" stroke-width="7" stroke-linecap="round" />
+				<path d="M620 333l21 18-27 10" fill="none" stroke="#ef4f43" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+			</g>
+
+			<g>
+				<path d="M300 381c18-48 55-77 111-86-28 35-41 72-36 111-25-14-50-22-75-25z" fill="url(#rocketFill)" stroke="#30445f" stroke-width="6" />
+				<circle cx="377" cy="331" r="12" fill="#fffdf8" stroke="#30445f" stroke-width="5" />
+				<path d="M302 383l-38 29 52-7M342 406l-7 49 28-38" fill="#f3c55b" stroke="#30445f" stroke-width="5" stroke-linejoin="round" />
+			</g>
+		</g>
+	</g>
+</svg>

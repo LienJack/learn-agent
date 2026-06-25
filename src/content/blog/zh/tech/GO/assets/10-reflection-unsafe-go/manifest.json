@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/10.Reflection-unsafe与Go内存布局.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/10-reflection-unsafe-go",
-  "updatedAt": "2026-06-19T14:44:00.193Z",
+  "updatedAt": "2026-06-21T13:41:36.531Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -22,6 +22,28 @@
       "compression": {
         "beforeBytes": 34486,
         "afterBytes": 34486,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-reflection-unsafe-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 10 章：Reflection、unsafe 与 Go 内存布局",
+      "anchor": "第-10-章reflectionunsafe-与-go-内存布局",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/10-reflection-unsafe-go/go-reflection-unsafe-summary.webp",
+      "markdownRef": "./assets/10-reflection-unsafe-go/go-reflection-unsafe-summary.webp",
+      "alt": "Go Reflection、unsafe 与内存布局开头总结图",
+      "contentType": "image/webp",
+      "bytes": 183498,
+      "sha256": "23c55457f3f7dc2660e4bf1f6aa8fdcb47262eb81d8f52cf2e8fb45cc2a46125",
+      "importedFrom": "deterministic svg summary generator",
+      "importedAt": "2026-06-21T13:41:36.531Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T13:41:36.531Z",
+      "compression": {
+        "beforeBytes": 183498,
+        "afterBytes": 183498,
         "savedBytes": 0
       }
     }

@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant P1 as Producer 实例 A
+    participant B as Broker
+    participant DB as 业务数据库
+    participant P2 as Producer 实例 B
+    participant C as Consumer
+
+    P1->>B: 发送 Half Message
+    B-->>P1: ACK
+
+    P1->>DB: 创建订单并提交
+    DB-->>P1: COMMITTED
+
+    P1-xB: Commit 请求丢失
+    Note over B: Half Message 仍处于待决状态
+
+    B->>P2: 回查事务状态
+    P2->>DB: 按 event_id 查询
+    DB-->>P2: COMMITTED
+    P2-->>B: COMMIT
+
+    B->>C: 投递最终消息

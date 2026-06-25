@@ -1,0 +1,1374 @@
+{
+  "dryRun": false,
+  "stage": "mermaid",
+  "articles": [
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/01.消息队列基础、业务价值与RocketMQ技术定位.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-01.png",
+          "markdownRef": "./assets/01-rocketmq/mermaid-01.png",
+          "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-02.png",
+          "markdownRef": "./assets/01-rocketmq/mermaid-02.png",
+          "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-03.png",
+          "markdownRef": "./assets/01-rocketmq/mermaid-03.png",
+          "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-04.png",
+          "markdownRef": "./assets/01-rocketmq/mermaid-04.png",
+          "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq/mermaid-05.png",
+          "markdownRef": "./assets/01-rocketmq/mermaid-05.png",
+          "alt": "RocketMQ 第 1 章：消息队列基础、业务价值与技术定位 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/02.RocketMQ整体架构、核心组件与领域模型.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-01.png",
+          "markdownRef": "./assets/02-rocketmq/mermaid-01.png",
+          "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-02.png",
+          "markdownRef": "./assets/02-rocketmq/mermaid-02.png",
+          "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-03.png",
+          "markdownRef": "./assets/02-rocketmq/mermaid-03.png",
+          "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-04.png",
+          "markdownRef": "./assets/02-rocketmq/mermaid-04.png",
+          "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-05.png",
+          "markdownRef": "./assets/02-rocketmq/mermaid-05.png",
+          "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "block": 6,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-06.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-06.png",
+          "markdownRef": "./assets/02-rocketmq/mermaid-06.png",
+          "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 6",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "block": 7,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-07.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq/mermaid-07.png",
+          "markdownRef": "./assets/02-rocketmq/mermaid-07.png",
+          "alt": "RocketMQ 第 2 章：整体架构、核心组件与领域模型 flow 7",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/03.RocketMQ环境搭建、管理工具与Go客户端实战.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-01.png",
+          "markdownRef": "./assets/03-rocketmq-go/mermaid-01.png",
+          "alt": "RocketMQ 第 3 章：环境搭建、管理工具与 Go 客户端实战 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-02.png",
+          "markdownRef": "./assets/03-rocketmq-go/mermaid-02.png",
+          "alt": "RocketMQ 第 3 章：环境搭建、管理工具与 Go 客户端实战 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-03.png",
+          "markdownRef": "./assets/03-rocketmq-go/mermaid-03.png",
+          "alt": "RocketMQ 第 3 章：环境搭建、管理工具与 Go 客户端实战 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/04.Producer发送模型、路由选择、重试机制与底层发送链路.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/04-producer",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/04-producer/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/04-producer/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/04-producer/mermaid-01.png",
+          "markdownRef": "./assets/04-producer/mermaid-01.png",
+          "alt": "RocketMQ 第 4 章：Producer 发送模型、路由选择、重试机制与底层发送链路 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/04-producer/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/04-producer/mermaid-02.png",
+          "markdownRef": "./assets/04-producer/mermaid-02.png",
+          "alt": "RocketMQ 第 4 章：Producer 发送模型、路由选择、重试机制与底层发送链路 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/04-producer/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/04-producer/mermaid-03.png",
+          "markdownRef": "./assets/04-producer/mermaid-03.png",
+          "alt": "RocketMQ 第 4 章：Producer 发送模型、路由选择、重试机制与底层发送链路 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/04-producer/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/04-producer/mermaid-04.png",
+          "markdownRef": "./assets/04-producer/mermaid-04.png",
+          "alt": "RocketMQ 第 4 章：Producer 发送模型、路由选择、重试机制与底层发送链路 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/05.Consumer类型、长轮询、POP、ACK与完整消费链路.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-01.png",
+          "markdownRef": "./assets/05-consumer-pop-ack/mermaid-01.png",
+          "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-02.png",
+          "markdownRef": "./assets/05-consumer-pop-ack/mermaid-02.png",
+          "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-03.png",
+          "markdownRef": "./assets/05-consumer-pop-ack/mermaid-03.png",
+          "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-04.png",
+          "markdownRef": "./assets/05-consumer-pop-ack/mermaid-04.png",
+          "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack/mermaid-05.png",
+          "markdownRef": "./assets/05-consumer-pop-ack/mermaid-05.png",
+          "alt": "RocketMQ 第 5 章：Consumer 类型、长轮询、POP、ACK 与完整消费链路 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/06.Rebalance、消费位点、负载均衡与消息积压.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-01.png",
+          "markdownRef": "./assets/06-rebalance/mermaid-01.png",
+          "alt": "RocketMQ 第 6 章：Rebalance、消费位点、负载均衡与消息积压 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-02.png",
+          "markdownRef": "./assets/06-rebalance/mermaid-02.png",
+          "alt": "RocketMQ 第 6 章：Rebalance、消费位点、负载均衡与消息积压 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-03.png",
+          "markdownRef": "./assets/06-rebalance/mermaid-03.png",
+          "alt": "RocketMQ 第 6 章：Rebalance、消费位点、负载均衡与消息积压 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-04.png",
+          "markdownRef": "./assets/06-rebalance/mermaid-04.png",
+          "alt": "RocketMQ 第 6 章：Rebalance、消费位点、负载均衡与消息积压 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/07.RocketMQ存储引擎.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-01.png",
+          "markdownRef": "./assets/07-rocketmq/mermaid-01.png",
+          "alt": "RocketMQ 第 7 章：存储引擎：CommitLog、ConsumeQueue、IndexFile 与文件恢复 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-02.png",
+          "markdownRef": "./assets/07-rocketmq/mermaid-02.png",
+          "alt": "RocketMQ 第 7 章：存储引擎：CommitLog、ConsumeQueue、IndexFile 与文件恢复 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-03.png",
+          "markdownRef": "./assets/07-rocketmq/mermaid-03.png",
+          "alt": "RocketMQ 第 7 章：存储引擎：CommitLog、ConsumeQueue、IndexFile 与文件恢复 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-04.png",
+          "markdownRef": "./assets/07-rocketmq/mermaid-04.png",
+          "alt": "RocketMQ 第 7 章：存储引擎：CommitLog、ConsumeQueue、IndexFile 与文件恢复 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/08.端到端消息可靠性、重试、死信队列与消费幂等.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/08",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/08/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-01.png",
+          "markdownRef": "./assets/08/mermaid-01.png",
+          "alt": "RocketMQ 第 8 章：端到端消息可靠性、重试、死信队列与消费幂等 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-02.png",
+          "markdownRef": "./assets/08/mermaid-02.png",
+          "alt": "RocketMQ 第 8 章：端到端消息可靠性、重试、死信队列与消费幂等 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-03.png",
+          "markdownRef": "./assets/08/mermaid-03.png",
+          "alt": "RocketMQ 第 8 章：端到端消息可靠性、重试、死信队列与消费幂等 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/08/mermaid-04.png",
+          "markdownRef": "./assets/08/mermaid-04.png",
+          "alt": "RocketMQ 第 8 章：端到端消息可靠性、重试、死信队列与消费幂等 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/09.FIFO顺序消息.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-01.png",
+          "markdownRef": "./assets/09-fifo/mermaid-01.png",
+          "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-02.png",
+          "markdownRef": "./assets/09-fifo/mermaid-02.png",
+          "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-03.png",
+          "markdownRef": "./assets/09-fifo/mermaid-03.png",
+          "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-04.png",
+          "markdownRef": "./assets/09-fifo/mermaid-04.png",
+          "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo/mermaid-05.png",
+          "markdownRef": "./assets/09-fifo/mermaid-05.png",
+          "alt": "RocketMQ 第 9 章：FIFO 顺序消息：发送有序、存储有序、消费有序与并发权衡 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/10.延迟消息、定时消息与分布式任务调度.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/10",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/10/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-01.png",
+          "markdownRef": "./assets/10/mermaid-01.png",
+          "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-02.png",
+          "markdownRef": "./assets/10/mermaid-02.png",
+          "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-03.png",
+          "markdownRef": "./assets/10/mermaid-03.png",
+          "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-04.png",
+          "markdownRef": "./assets/10/mermaid-04.png",
+          "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/10/mermaid-05.png",
+          "markdownRef": "./assets/10/mermaid-05.png",
+          "alt": "RocketMQ 第 10 章：延迟消息、定时消息与分布式任务调度 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/11.事务消息、HalfMessage、事务回查与最终一致性.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-01.png",
+          "markdownRef": "./assets/11-halfmessage/mermaid-01.png",
+          "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-02.png",
+          "markdownRef": "./assets/11-halfmessage/mermaid-02.png",
+          "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-03.png",
+          "markdownRef": "./assets/11-halfmessage/mermaid-03.png",
+          "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-04.png",
+          "markdownRef": "./assets/11-halfmessage/mermaid-04.png",
+          "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage/mermaid-05.png",
+          "markdownRef": "./assets/11-halfmessage/mermaid-05.png",
+          "alt": "RocketMQ 第 11 章：事务消息、Half Message、事务回查与最终一致性 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/12.Topic、Tag、Key、SQL92、MessageQueue与资源治理.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-01.png",
+          "markdownRef": "./assets/12-topic-tag-key-sql92-messagequeue/mermaid-01.png",
+          "alt": "RocketMQ 第 12 章：Topic、Tag、Key、SQL92、MessageQueue 与资源治理 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-02.png",
+          "markdownRef": "./assets/12-topic-tag-key-sql92-messagequeue/mermaid-02.png",
+          "alt": "RocketMQ 第 12 章：Topic、Tag、Key、SQL92、MessageQueue 与资源治理 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-03.png",
+          "markdownRef": "./assets/12-topic-tag-key-sql92-messagequeue/mermaid-03.png",
+          "alt": "RocketMQ 第 12 章：Topic、Tag、Key、SQL92、MessageQueue 与资源治理 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue/mermaid-04.png",
+          "markdownRef": "./assets/12-topic-tag-key-sql92-messagequeue/mermaid-04.png",
+          "alt": "RocketMQ 第 12 章：Topic、Tag、Key、SQL92、MessageQueue 与资源治理 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/13.RocketMQ高可用.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-01.png",
+          "markdownRef": "./assets/13-rocketmq/mermaid-01.png",
+          "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-02.png",
+          "markdownRef": "./assets/13-rocketmq/mermaid-02.png",
+          "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-03.png",
+          "markdownRef": "./assets/13-rocketmq/mermaid-03.png",
+          "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-04.png",
+          "markdownRef": "./assets/13-rocketmq/mermaid-04.png",
+          "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-05.png",
+          "markdownRef": "./assets/13-rocketmq/mermaid-05.png",
+          "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "block": 6,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-06.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-06.png",
+          "markdownRef": "./assets/13-rocketmq/mermaid-06.png",
+          "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 6",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "block": 7,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-07.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq/mermaid-07.png",
+          "markdownRef": "./assets/13-rocketmq/mermaid-07.png",
+          "alt": "RocketMQ 第 13 章：高可用：主从复制、刷盘策略、Controller 与自动故障切换 flow 7",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/14.RocketMQ性能优化、流控、压测与容量规划.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-01.png",
+          "markdownRef": "./assets/14-rocketmq/mermaid-01.png",
+          "alt": "RocketMQ 第 14 章：性能优化、流控、压测与容量规划 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-02.png",
+          "markdownRef": "./assets/14-rocketmq/mermaid-02.png",
+          "alt": "RocketMQ 第 14 章：性能优化、流控、压测与容量规划 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-03.png",
+          "markdownRef": "./assets/14-rocketmq/mermaid-03.png",
+          "alt": "RocketMQ 第 14 章：性能优化、流控、压测与容量规划 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-04.png",
+          "markdownRef": "./assets/14-rocketmq/mermaid-04.png",
+          "alt": "RocketMQ 第 14 章：性能优化、流控、压测与容量规划 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/15.RocketMQ可观测性、故障诊断、应急处理与生产Runbook.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-01.png",
+          "markdownRef": "./assets/15-rocketmq-runbook/mermaid-01.png",
+          "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-02.png",
+          "markdownRef": "./assets/15-rocketmq-runbook/mermaid-02.png",
+          "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-03.png",
+          "markdownRef": "./assets/15-rocketmq-runbook/mermaid-03.png",
+          "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-04.png",
+          "markdownRef": "./assets/15-rocketmq-runbook/mermaid-04.png",
+          "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-05.png",
+          "markdownRef": "./assets/15-rocketmq-runbook/mermaid-05.png",
+          "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "block": 6,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-06.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook/mermaid-06.png",
+          "markdownRef": "./assets/15-rocketmq-runbook/mermaid-06.png",
+          "alt": "RocketMQ 第 15 章：可观测性、故障诊断、应急处理与生产 Runbook flow 6",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/16.RocketMQ安全、ACL、TLS、多租户隔离与跨集群灾备.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-01.png",
+          "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-01.png",
+          "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-02.png",
+          "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-02.png",
+          "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-03.png",
+          "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-03.png",
+          "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-04.png",
+          "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-04.png",
+          "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-05.png",
+          "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-05.png",
+          "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "block": 6,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-06.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-06.png",
+          "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-06.png",
+          "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 6",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/17.从RocketMQ4.x到5.x：Proxy、gRPC、POP、Controller与架构演进.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-01.png",
+          "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-01.png",
+          "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-02.png",
+          "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-02.png",
+          "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-03.png",
+          "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-03.png",
+          "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-04.png",
+          "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-04.png",
+          "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-05.png",
+          "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-05.png",
+          "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "block": 6,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-06.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-06.png",
+          "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-06.png",
+          "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 6",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "block": 7,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-07.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-07.png",
+          "markdownRef": "./assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller/mermaid-07.png",
+          "alt": "RocketMQ 第 17 章：从 4.x 到 5.x：Proxy、gRPC、POP、Controller 与架构演进 flow 7",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/18.RocketMQ源码阅读：发送、存储、消费、事务与高可用调用链.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-01.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-01.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-02.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-02.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-03.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-03.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-04.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-04.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-05.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-05.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "block": 6,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-06.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-06.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-06.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 6",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "block": 7,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-07.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-07.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-07.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 7",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-08",
+          "kind": "mermaid",
+          "block": 8,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-08.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-08.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-08.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 8",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-09",
+          "kind": "mermaid",
+          "block": 9,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-09.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-09.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-09.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 9",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-10",
+          "kind": "mermaid",
+          "block": 10,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-10.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-10.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-10.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 10",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-11",
+          "kind": "mermaid",
+          "block": 11,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-11.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-11.png",
+          "markdownRef": "./assets/18-rocketmq/mermaid-11.png",
+          "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 11",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/19.RocketMQ业务架构设计、技术选型与复杂场景落地.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-01.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-01.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "block": 2,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-02.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-02.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-02.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 2",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "block": 3,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-03.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-03.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-03.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 3",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "block": 4,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-04.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-04.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-04.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 4",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "block": 5,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-05.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-05.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-05.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 5",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "block": 6,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-06.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-06.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-06.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 6",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "block": 7,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-07.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-07.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-07.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 7",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-08",
+          "kind": "mermaid",
+          "block": 8,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-08.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-08.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-08.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 8",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-09",
+          "kind": "mermaid",
+          "block": 9,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-09.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-09.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-09.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 9",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-10",
+          "kind": "mermaid",
+          "block": 10,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-10.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-10.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-10.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 10",
+          "renderer": "@mermaid-js/mermaid-cli"
+        },
+        {
+          "id": "mermaid-11",
+          "kind": "mermaid",
+          "block": 11,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-11.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq/mermaid-11.png",
+          "markdownRef": "./assets/19-rocketmq/mermaid-11.png",
+          "alt": "RocketMQ 第 19 章：业务架构设计、技术选型与复杂场景落地 flow 11",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "article": "src/content/blog/zh/tech/RocketMQ/20.RocketMQ资深面试题库、追问链与模拟面试.md",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/20-rocketmq",
+      "manifest": "src/content/blog/zh/tech/RocketMQ/assets/20-rocketmq/manifest.json",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "block": 1,
+          "status": "planned",
+          "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/20-rocketmq/mermaid-01.mmd",
+          "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/20-rocketmq/mermaid-01.png",
+          "markdownRef": "./assets/20-rocketmq/mermaid-01.png",
+          "alt": "RocketMQ 第 20 章：资深面试题库、追问链与模拟面试 flow 1",
+          "renderer": "@mermaid-js/mermaid-cli"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+flowchart TD
+    D["DML / Pending 合并 / Page Split / Summary"] --> W["WAL 生成"]
+    W --> F["Primary Flush"]
+    F --> S["WAL Sender / Archive"]
+    S --> R["Standby Receive"]
+    R --> P["Replay 索引页变化"]
+    P --> Q["副本查询与缓存"]
+    Q --> X["Promotion / Failover"]
+    X --> V["索引有效性、计划、P99 验证"]

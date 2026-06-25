@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/01.PostgreSQL 架构与请求生命周期.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql",
+  "updatedAt": "2026-06-24T02:49:38.087Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-01.png",
+      "markdownRef": "./assets/01-postgresql/mermaid-01.png",
+      "alt": "PostgreSQL 架构与请求生命周期 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 77842,
+      "sha256": "89e5ffd4dec4c7da7e690f5df78dc073573b20c1704dc09742b58eef8cfc2850",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:05.917Z",
+      "compression": {
+        "beforeBytes": 77842,
+        "afterBytes": 77842,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-02.png",
+      "markdownRef": "./assets/01-postgresql/mermaid-02.png",
+      "alt": "PostgreSQL 架构与请求生命周期 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 95790,
+      "sha256": "ee4d357c65fb63a0c1397cef9c3b17aa8b1cc1d2112f235bb26d9b6154113eb4",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:06.098Z",
+      "compression": {
+        "beforeBytes": 95790,
+        "afterBytes": 95790,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-03.png",
+      "markdownRef": "./assets/01-postgresql/mermaid-03.png",
+      "alt": "PostgreSQL 架构与请求生命周期 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 178720,
+      "sha256": "d26d2f7d5d2c85766f252e4c23545f9102d552993ffdffac74e7ac3b811602fc",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:06.357Z",
+      "compression": {
+        "beforeBytes": 178720,
+        "afterBytes": 178720,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/mermaid-04.png",
+      "markdownRef": "./assets/01-postgresql/mermaid-04.png",
+      "alt": "PostgreSQL 架构与请求生命周期 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 34925,
+      "sha256": "6f7713c4bf7cbc6b8e2e5fa287583f306d96039d09eb4c0fda1209be7a0d227d",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:06.407Z",
+      "compression": {
+        "beforeBytes": 34925,
+        "afterBytes": 34925,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "postgresql-architecture-lifecycle-overview",
+      "kind": "photo",
+      "status": "imported",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/01-postgresql/postgresql-architecture-lifecycle-overview.png",
+      "markdownRef": "./assets/01-postgresql/postgresql-architecture-lifecycle-overview.png",
+      "alt": "PostgreSQL 架构与一次 SQL 请求生命周期总览图",
+      "bytes": 1592030,
+      "sha256": "2696a9108ab81d4a3967aec9af336205f0c2061b95c95f7238ca3ce516fbec9e",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-24T03:07:00.000Z",
+      "compression": {
+        "beforeBytes": 1919370,
+        "afterBytes": 1592030,
+        "savedBytes": 327340
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

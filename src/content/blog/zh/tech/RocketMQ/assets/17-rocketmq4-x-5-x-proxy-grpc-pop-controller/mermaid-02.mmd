@@ -1,0 +1,29 @@
+flowchart LR
+    subgraph Clients[客户端]
+        GP[gRPC Producer]
+        GS[SimpleConsumer]
+        GPC[gRPC PushConsumer]
+        RC[经典 Remoting Client]
+    end
+
+    GP --> EP[Endpoint / VIP / LoadBalancer]
+    GS --> EP
+    GPC --> EP
+
+    EP --> PX1[Proxy 1]
+    EP --> PX2[Proxy 2]
+
+    PX1 --> NS[NameServer]
+    PX2 --> NS
+    PX1 --> B1[Broker]
+    PX2 --> B2[Broker]
+
+    RC --> NS
+    RC --> B1
+    RC --> B2
+
+    B1 <-->|复制| B1S[Broker Replica]
+    B2 <-->|复制| B2S[Broker Replica]
+
+    CT[Controller Raft Group] -.选主与副本元数据.-> B1
+    CT -.选主与副本元数据.-> B2

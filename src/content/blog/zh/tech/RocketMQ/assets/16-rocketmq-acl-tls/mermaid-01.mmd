@@ -1,0 +1,30 @@
+flowchart LR
+    Internet[互联网/不受信任网络]
+    Corp[办公网/VPN]
+    App[应用运行区]
+    Bastion[运维堡垒机]
+    Gateway[认证网关/反向代理]
+
+    subgraph MQVPC[RocketMQ 专用 VPC]
+        Proxy[Proxy]
+        NS[NameServer]
+        Broker[Broker 集群]
+        Controller[Controller 集群]
+        Dashboard[Dashboard]
+        Metrics[监控与日志组件]
+    end
+
+    Internet -- 默认拒绝 --> MQVPC
+    Corp --> Bastion
+    Bastion --> Gateway
+    Gateway --> Dashboard
+    Gateway --> Metrics
+
+    App -- TLS + ACL --> Proxy
+    App -- 经典客户端: TLS + ACL --> NS
+    App -- 经典客户端: TLS + ACL --> Broker
+
+    Proxy --> NS
+    Proxy --> Broker
+    Broker --> Controller
+    NS --> Broker

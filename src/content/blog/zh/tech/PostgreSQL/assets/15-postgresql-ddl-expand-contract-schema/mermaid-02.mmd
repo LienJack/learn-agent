@@ -1,0 +1,13 @@
+stateDiagram-v2
+    [*] --> CatalogInvalid: 事务 1：创建目录项
+    CatalogInvalid --> WaitWriters1: indisvalid=false
+    WaitWriters1 --> BuildScan: 等待可能写表的旧事务
+    BuildScan --> ReadyForWrites: 第一次 Heap 扫描并构建
+    ReadyForWrites --> WaitWriters2: 新写入开始维护索引
+    WaitWriters2 --> ValidateScan: 第二次 Heap 扫描验证遗漏 Tuple
+    ValidateScan --> WaitOldSnapshots: 等待早于第二次扫描的 Snapshot
+    WaitOldSnapshots --> Valid: indisvalid=true
+    Valid --> [*]
+    CatalogInvalid --> FailedInvalid: 错误/取消
+    BuildScan --> FailedInvalid
+    ValidateScan --> FailedInvalid

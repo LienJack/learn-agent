@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">System design cover</title>
+	<desc id="desc">A distributed system topology with gateway, services, storage, cache, and observability nodes.</desc>
+	<style>
+		.flow {
+			animation: dash-flow 1.8s linear infinite;
+			stroke-dasharray: 12 15;
+		}
+
+		.pulse {
+			animation: pulse-node 2.4s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		@keyframes dash-flow {
+			to {
+				stroke-dashoffset: -54;
+			}
+		}
+
+		@keyframes pulse-node {
+			0%,
+			100% {
+				opacity: 0.78;
+				transform: scale(1);
+			}
+
+			50% {
+				opacity: 1;
+				transform: scale(1.035);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.flow,
+			.pulse {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-12%" y="-12%" width="124%" height="124%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.021" numOctaves="2" seed="41" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.55" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#26313a" flood-opacity="0.13" />
+		</filter>
+		<linearGradient id="gatewayFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#65c3d8" />
+			<stop offset="100%" stop-color="#2d84c9" />
+		</linearGradient>
+		<linearGradient id="serviceFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#fff7db" />
+			<stop offset="100%" stop-color="#f3c55b" />
+		</linearGradient>
+		<pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+			<path d="M34 0H0v34" fill="none" stroke="#d9e1e3" stroke-width="1" opacity="0.42" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="#fffdf8" />
+	<rect width="900" height="520" fill="url(#grid)" opacity="0.44" />
+	<path d="M106 101c82-46 215-54 314-20 76 26 106 69 184 76 70 7 123-18 186 19 48 29 62 83 43 129-32 76-135 90-260 116-151 31-330 25-435-30-92-49-114-136-73-209 10-18 23-49 41-81z" fill="#f4f8f8" opacity="0.68" />
+	<ellipse cx="450" cy="408" rx="318" ry="23" fill="#1f2d35" opacity="0.07" />
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			<path class="flow" d="M150 250h118" stroke="#405767" stroke-width="7" />
+			<path d="M257 229l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="flow" d="M352 211c49-54 133-57 196-11" stroke="#405767" stroke-width="6" />
+			<path class="flow" d="M350 291c52 55 143 57 202 12" stroke="#405767" stroke-width="6" />
+			<path class="flow" d="M576 207h126" stroke="#405767" stroke-width="7" />
+			<path d="M691 186l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="flow" d="M575 298h94" stroke="#405767" stroke-width="7" />
+			<path d="M660 277l30 21-30 21" stroke="#405767" stroke-width="7" />
+			<path class="flow" d="M454 338v62" stroke="#7b8791" stroke-width="5" />
+		</g>
+
+		<g filter="url(#roughInk)">
+			<rect x="75" y="170" width="130" height="158" rx="18" fill="#fffdf8" stroke="#30445f" stroke-width="7" />
+			<rect x="98" y="197" width="84" height="19" rx="5" fill="#2d84c9" />
+			<rect x="98" y="236" width="84" height="13" rx="5" fill="#b9c9d1" />
+			<rect x="98" y="263" width="58" height="13" rx="5" fill="#b9c9d1" />
+			<path d="M98 291h70" stroke="#f39a3a" stroke-width="9" stroke-linecap="round" />
+
+			<path class="pulse" d="M308 176l63 37v74l-63 37-63-37v-74z" fill="url(#gatewayFill)" stroke="#30445f" stroke-width="7" />
+			<circle cx="308" cy="250" r="24" fill="#fffdf8" opacity="0.92" />
+			<path d="M292 250h32M308 234v32" stroke="#30445f" stroke-width="7" stroke-linecap="round" />
+
+			<g fill="url(#serviceFill)" stroke="#30445f" stroke-width="6">
+				<rect x="431" y="134" width="92" height="76" rx="17" />
+				<rect x="431" y="290" width="92" height="76" rx="17" />
+				<rect x="528" y="212" width="92" height="76" rx="17" />
+			</g>
+			<g stroke="#30445f" stroke-width="7" stroke-linecap="round">
+				<path d="M456 162h41M456 184h28" />
+				<path d="M456 318h41M456 340h28" />
+				<path d="M553 240h41M553 262h28" />
+			</g>
+
+			<g>
+				<ellipse cx="747" cy="160" rx="58" ry="23" fill="#dfe6eb" stroke="#4d5f6c" stroke-width="6" />
+				<path d="M689 160v87c0 13 26 23 58 23s58-10 58-23v-87" fill="#dfe6eb" stroke="#4d5f6c" stroke-width="6" />
+				<path d="M689 202c0 13 26 23 58 23s58-10 58-23" fill="none" stroke="#4d5f6c" stroke-width="6" />
+			</g>
+
+			<rect x="713" y="290" width="112" height="85" rx="16" fill="#f1fbf8" stroke="#3f766f" stroke-width="6" />
+			<path d="M735 347c15-36 32-25 45-48 10 34 26 18 30 49" fill="none" stroke="#2da88a" stroke-width="8" stroke-linecap="round" />
+			<circle cx="734" cy="312" r="8" fill="#f06154" />
+			<circle cx="760" cy="312" r="8" fill="#f3c55b" />
+			<circle cx="786" cy="312" r="8" fill="#2da88a" />
+
+			<circle cx="454" cy="412" r="34" fill="#f06154" />
+			<path d="M438 412h32M454 396v32" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" />
+		</g>
+	</g>
+</svg>

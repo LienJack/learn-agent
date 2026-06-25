@@ -1,0 +1,22 @@
+flowchart LR
+    S0[共同入口\nParse→Analyze→Rewrite→Plan] --> S1
+    S0 --> U1
+
+    subgraph SELECT_PATH[SELECT 路径]
+        S1[建立快照与必要的关系锁] --> S2[Executor 扫描]
+        S2 --> S3[Buffer Manager]
+        S3 --> S4[shared_buffers / OS Page Cache / Storage]
+        S4 --> S5[过滤、连接、聚合、排序]
+        S5 --> S6[DataRow 返回客户端]
+    end
+
+    subgraph UPDATE_PATH[UPDATE 路径]
+        U1[建立快照与关系锁] --> U2[定位目标行]
+        U2 --> U3[并发更新检查/必要等待]
+        U3 --> U4[创建新行版本并维护必要索引]
+        U4 --> U5[数据/索引 Buffer 标脏]
+        U5 --> U6[生成 WAL 到 WAL Buffers]
+        U6 --> U7[COMMIT WAL 写入/刷盘\n可能等待同步副本]
+        U7 --> U8[返回 CommandComplete]
+        U8 -.稍后.-> U9[脏数据页由 Backend/BgWriter/Checkpointer 写出]
+    end

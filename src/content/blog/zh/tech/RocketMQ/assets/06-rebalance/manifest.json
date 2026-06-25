@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/06.Rebalance、消费位点、负载均衡与消息积压.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-01.png",
+      "markdownRef": "./assets/06-rebalance/mermaid-01.png",
+      "alt": "RocketMQ 第 6 章：Rebalance、消费位点、负载均衡与消息积压 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 129967,
+      "sha256": "20f9904a1d46defe331cb12b52de4937a9537e78fc30d1ad1a4d1d5b31bd2d2c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:52.374Z",
+      "compression": {
+        "beforeBytes": 129967,
+        "afterBytes": 129967,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-02.png",
+      "markdownRef": "./assets/06-rebalance/mermaid-02.png",
+      "alt": "RocketMQ 第 6 章：Rebalance、消费位点、负载均衡与消息积压 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 33988,
+      "sha256": "b92dd2c713ac7fe2d698830b6b02854fb8f8343b0502218bc26f110f0bf3defa",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:54.466Z",
+      "compression": {
+        "beforeBytes": 33988,
+        "afterBytes": 33988,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-03.png",
+      "markdownRef": "./assets/06-rebalance/mermaid-03.png",
+      "alt": "RocketMQ 第 6 章：Rebalance、消费位点、负载均衡与消息积压 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 121539,
+      "sha256": "53ed6a2f73c4c7a8b59932bf2f3e9f694dcc8055b1416eed1c97ca14d895e055",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:56.511Z",
+      "compression": {
+        "beforeBytes": 121539,
+        "afterBytes": 121539,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance/mermaid-04.png",
+      "markdownRef": "./assets/06-rebalance/mermaid-04.png",
+      "alt": "RocketMQ 第 6 章：Rebalance、消费位点、负载均衡与消息积压 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 15291,
+      "sha256": "1aff24d9fb0f97be9ce19ad57c0b7753104583b6b5506a85cae014f9520643da",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:58.321Z",
+      "compression": {
+        "beforeBytes": 15291,
+        "afterBytes": 15291,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

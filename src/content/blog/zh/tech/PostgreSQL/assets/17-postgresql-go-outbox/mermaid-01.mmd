@@ -1,0 +1,27 @@
+flowchart LR
+    C[客户端<br/>Idempotency-Key + Request Hash]
+    API[Go API<br/>有界并发 / pgxpool]
+    TX[(本地 PostgreSQL 事务)]
+    B[(业务表)]
+    I[(idempotency_requests)]
+    O[(outbox_events)]
+    N[LISTEN/NOTIFY<br/>仅唤醒提示]
+    R[Outbox Relay<br/>Lease + SKIP LOCKED]
+    MQ[(消息系统)]
+    IC[(consumer_inbox)]
+    D[(下游业务表)]
+    DLQ[(Dead Letter)]
+
+    C --> API
+    API -->|BEGIN| TX
+    TX --> B
+    TX --> I
+    TX --> O
+    TX -.同事务 NOTIFY.-> N
+    TX -->|COMMIT| API
+    N -.降低轮询延迟.-> R
+    O -->|领取、发布、标记| R
+    R -->|可能重复| MQ
+    R -->|超过最大尝试| DLQ
+    MQ -->|At-Least-Once| IC
+    IC -->|同一本地事务| D

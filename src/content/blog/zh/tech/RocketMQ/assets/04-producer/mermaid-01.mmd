@@ -1,0 +1,13 @@
+flowchart LR
+    A[读取配置] --> B[NewProducer]
+    B --> C[设置 Topics、最大尝试次数和请求超时]
+    C --> D[Start]
+    D --> E[预取 Topic 路由并同步客户端设置]
+    E --> F[Send / SendAsync]
+    F --> G[读取或刷新路由缓存]
+    G --> H[选择 MessageQueue 与 Endpoint]
+    H --> I[发送 RPC并在边界内重试]
+    I --> J[SendReceipt 或 error]
+    J --> K[停止接收新请求]
+    K --> L[等待 in-flight 发送结束]
+    L --> M[GracefulStop]

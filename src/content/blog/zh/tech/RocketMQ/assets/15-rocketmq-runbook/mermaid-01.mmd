@@ -1,0 +1,10 @@
+flowchart LR
+    A[业务请求] --> B[Producer]
+    B --> C[NameServer/Proxy]
+    C --> D[Broker 存储]
+    D --> E[主从复制]
+    D --> F[Consumer 拉取]
+    F --> G[本地缓存]
+    G --> H[消费线程]
+    H --> I[数据库/缓存/外部服务]
+    I --> J[业务结果]

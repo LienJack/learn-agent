@@ -1,0 +1,12 @@
+flowchart LR
+    G1[负载机 A<br/>开放环调度] --> PX1[Proxy A]
+    G2[负载机 B<br/>校验压测端余量] --> PX2[Proxy B]
+    PX1 --> RMQ[RocketMQ 集群]
+    PX2 --> RMQ
+    RMQ --> CG1[真实消费组<br/>业务处理]
+    RMQ --> CG2[回放消费组<br/>限速冷读]
+    CG1 --> DS[下游依赖/仿真器]
+    M[独立监控与采样] -.-> G1
+    M -.-> PX1
+    M -.-> RMQ
+    M -.-> CG1

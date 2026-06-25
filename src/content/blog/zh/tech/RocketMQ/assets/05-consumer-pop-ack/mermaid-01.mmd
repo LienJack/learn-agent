@@ -1,0 +1,9 @@
+flowchart LR
+    P[Producer 写入消息] --> S[Broker 存储]
+    S --> R[Consumer 获取消息]
+    R --> I[消息进入处理中状态]
+    I --> B[执行业务逻辑]
+    B -->|成功| C[ACK 或提交消费位点]
+    B -->|失败/超时/宕机| T[重试或重新投递]
+    C --> D[消费完成]
+    T --> R

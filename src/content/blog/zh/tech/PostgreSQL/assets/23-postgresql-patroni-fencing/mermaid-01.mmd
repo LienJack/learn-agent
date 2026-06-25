@@ -1,0 +1,56 @@
+flowchart TB
+    U[客户端/上游服务] --> APP[Go 应用集群\n有界并发/幂等/熔断]
+    APP -->|rw-db.service:6432| PB1[PgBouncer A]
+    APP -->|rw-db.service:6432| PB2[PgBouncer B]
+    PB1 --> VIP[HAProxy 双实例/VIP 或云 LB]
+    PB2 --> VIP
+
+    subgraph AZA[AZ-A]
+      PGA[pg-a\nPatroni + PostgreSQL\n当前 Primary]
+      E1[etcd-1]
+    end
+    subgraph AZB[AZ-B]
+      PGB[pg-b\nPatroni + PostgreSQL\n当前 Sync Replica]
+      E2[etcd-2]
+    end
+    subgraph AZC[AZ-C]
+      PGC[pg-c\nPatroni + PostgreSQL\n当前 Async/候选 Replica]
+      E3[etcd-3]
+    end
+
+    VIP -->|/primary 健康检查后转发 SQL| PGA
+    VIP -.候选.-> PGB
+    VIP -.候选.-> PGC
+
+    PGA ==>|WAL streaming + sync ack| PGB
+    PGA -->|WAL streaming| PGC
+
+    PGA <-->|Leader Lock/成员/同步状态| E1
+    PGA <-->|DCS quorum| E2
+    PGA <-->|DCS quorum| E3
+    PGB <-->|DCS| E1
+    PGB <-->|DCS| E2
+    PGB <-->|DCS| E3
+    PGC <-->|DCS| E1
+    PGC <-->|DCS| E2
+    PGC <-->|DCS| E3
+
+    PGA -->|WAL archive| REPO[异区域 pgBackRest Repository\n不可变存储/保留策略]
+    PGB -.restore/backup.-> REPO
+    PGC -.restore/backup.-> REPO
+
+    MON[Prometheus/Grafana/日志/告警] --> PGA
+    MON --> PGB
+    MON --> PGC
+    MON --> E1
+    MON --> E2
+    MON --> E3
+    MON --> PB1
+    MON --> VIP
+
+    ADM[受控管理入口\nMFA + 审批 + 审计] --> CTL[patronictl/etcdctl/pgBackRest]
+    CTL --> PGA
+    CTL --> E1
+    CTL --> REPO
+
+    PGA -.异步 WAL/归档.-> DR[跨区域 Standby Cluster\n独立 DCS/独立入口]

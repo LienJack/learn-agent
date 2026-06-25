@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant U as 用户
+    participant O as 订单服务
+    participant I as 库存服务
+    participant P as 支付服务
+    participant L as 物流服务
+    participant N as 通知服务
+
+    U->>O: 提交订单
+    O->>I: 锁定库存
+    I-->>O: 成功
+    O->>P: 创建支付单
+    P-->>O: 成功
+    O->>L: 预创建物流单
+    L-->>O: 成功
+    O->>N: 发送通知
+    N-->>O: 成功
+    O-->>U: 下单成功

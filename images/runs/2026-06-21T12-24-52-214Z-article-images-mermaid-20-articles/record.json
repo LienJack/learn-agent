@@ -1,0 +1,743 @@
+{
+  "id": "2026-06-21T12-24-52-214Z-article-images-mermaid-20-articles",
+  "command": "article-images",
+  "stage": "mermaid",
+  "status": "planned",
+  "startedAt": "2026-06-21T12:24:52.215Z",
+  "inputs": [
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/01.消息队列基础、业务价值与RocketMQ技术定位.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/01-rocketmq",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/02.RocketMQ整体架构、核心组件与领域模型.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/02-rocketmq",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/03.RocketMQ环境搭建、管理工具与Go客户端实战.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/04.Producer发送模型、路由选择、重试机制与底层发送链路.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/04-producer",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/05.Consumer类型、长轮询、POP、ACK与完整消费链路.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/05-consumer-pop-ack",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/06.Rebalance、消费位点、负载均衡与消息积压.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/06-rebalance",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/07.RocketMQ存储引擎.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/08.端到端消息可靠性、重试、死信队列与消费幂等.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/08",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/09.FIFO顺序消息.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/09-fifo",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/10.延迟消息、定时消息与分布式任务调度.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/10",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/11.事务消息、HalfMessage、事务回查与最终一致性.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/11-halfmessage",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/12.Topic、Tag、Key、SQL92、MessageQueue与资源治理.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/12-topic-tag-key-sql92-messagequeue",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/13.RocketMQ高可用.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/13-rocketmq",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/14.RocketMQ性能优化、流控、压测与容量规划.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/15.RocketMQ可观测性、故障诊断、应急处理与生产Runbook.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/15-rocketmq-runbook",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/16.RocketMQ安全、ACL、TLS、多租户隔离与跨集群灾备.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/17.从RocketMQ4.x到5.x：Proxy、gRPC、POP、Controller与架构演进.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/17-rocketmq4-x-5-x-proxy-grpc-pop-controller",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/18.RocketMQ源码阅读：发送、存储、消费、事务与高可用调用链.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-08",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-09",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-10",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-11",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/19.RocketMQ业务架构设计、技术选型与复杂场景落地.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/19-rocketmq",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-02",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-03",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-04",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-05",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-06",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-07",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-08",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-09",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-10",
+          "kind": "mermaid",
+          "status": "planned"
+        },
+        {
+          "id": "mermaid-11",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "source": "src/content/blog/zh/tech/RocketMQ/20.RocketMQ资深面试题库、追问链与模拟面试.md",
+      "status": "planned",
+      "workspace": "src/content/blog/zh/tech/RocketMQ/assets/20-rocketmq",
+      "assets": [
+        {
+          "id": "mermaid-01",
+          "kind": "mermaid",
+          "status": "planned"
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    }
+  ],
+  "artifactDir": "images/artifacts/2026-06-21T12-24-52-214Z-article-images-mermaid-20-articles",
+  "blockers": [],
+  "warnings": [],
+  "checks": [],
+  "artifacts": [
+    "images/artifacts/2026-06-21T12-24-52-214Z-article-images-mermaid-20-articles/article-images-plan.json"
+  ],
+  "confirmation": {
+    "required": true,
+    "action": "Generate article image workspace assets for 20 article(s)",
+    "confirmed": false
+  },
+  "notes": [],
+  "finishedAt": "2026-06-21T12:24:52.219Z"
+}

@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant G as Go gRPC SDK
+    participant P as Proxy :8081
+    participant N as NameServer :9876
+    participant B as Broker :10911
+
+    G->>P: QueryRoute / Telemetry
+    P->>N: 查询 Topic 路由
+    N-->>P: Broker 与队列信息
+    P-->>G: 返回 gRPC 路由结果
+    G->>P: SendMessage
+    P->>B: 写入消息
+    B-->>P: SendResult
+    P-->>G: SendReceipt

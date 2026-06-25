@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant C as SimpleConsumer
+    participant P as Proxy
+    participant B as Broker
+    participant S as 业务服务
+
+    C->>P: Receive(max=16, invisible=30s)
+    P->>B: POP/拉取消息
+    B-->>P: Message + ReceiptHandle
+    P-->>C: MessageView
+    C->>S: 执行业务逻辑
+
+    alt 业务成功
+        S-->>C: 成功
+        C->>P: Ack
+        P->>B: 确认消费
+    else 业务失败或进程退出
+        S-->>C: 失败
+        Note over C,B: 不 Ack；不可见时间结束后重新投递
+    end

@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/07.PostgreSQL 统计信息、基数估算、Extended Statistics 与计划稳定性.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/07-postgresql-extended-statistics",
+  "updatedAt": "2026-06-24T09:25:21.887Z",
+  "assets": [],
+  "warnings": [],
+  "blockers": []
+}

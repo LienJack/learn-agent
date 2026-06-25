@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Acquired: Acquire
+    Acquired --> Busy: Query / Tx
+    Busy --> Idle: Rows关闭 / Commit / Rollback / Release
+    Busy --> Broken: 网络断开或Backend终止
+    Acquired --> Broken: Failover后旧连接
+    Broken --> Destroyed: pgxpool检测
+    Destroyed --> Constructing: 新请求或MinIdleConns
+    Constructing --> Idle: 建连成功
+    Constructing --> Failed: DNS/TLS/认证/数据库不可用
+    Failed --> Constructing: 有界退避重试

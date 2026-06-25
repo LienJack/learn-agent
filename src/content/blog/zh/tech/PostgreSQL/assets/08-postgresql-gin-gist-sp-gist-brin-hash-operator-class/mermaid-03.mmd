@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant App as 写入服务
+    participant PG as PostgreSQL
+    participant G as GIN Pending
+    participant M as 主 GIN
+    participant R as 只读副本
+
+    App->>PG: 多次 INSERT/UPDATE
+    PG->>G: 追加 Pending 条目
+    PG-->>App: 多数请求较快返回
+    G-->>PG: 达到阈值或 Vacuum 触发
+    PG->>M: 排序并批量合并
+    PG->>R: 发送集中产生的 WAL
+    Note over PG,M: CPU / I/O / WAL 峰值
+    Note over R: Replay Lag 可能上升

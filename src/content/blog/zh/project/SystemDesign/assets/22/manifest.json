@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/SystemDesign/22.可观测性：从日志到因果诊断.md",
+  "workspace": "src/content/blog/zh/project/SystemDesign/assets/22",
+  "updatedAt": "2026-06-07T05:10:08.388Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/22/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/22/mermaid-01.png",
+      "markdownRef": "./assets/22/mermaid-01.png",
+      "alt": "可观测性：从日志到因果诊断 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 36890,
+      "sha256": "64238677b15a12e456be01cadf72356be7d52125c6188ea96cf737d31c3e5c1a",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:10:08.388Z",
+      "compression": {
+        "beforeBytes": 36890,
+        "afterBytes": 36890,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

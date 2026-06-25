@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant M as Broker Master
+    participant S as Broker Replica
+    participant C as Controller Raft Group
+    participant N as NameServer
+    participant CL as Client/Proxy
+
+    M->>C: 心跳与副本状态
+    S->>C: 心跳与复制进度
+    M--xC: Master 故障
+    C->>C: 判断多数派与候选副本
+    C->>S: 选举为新 Master
+    S->>N: 注册新的 Master 路由
+    CL->>N: 刷新路由
+    CL->>S: 恢复发送和消费

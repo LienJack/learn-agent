@@ -1,0 +1,29 @@
+flowchart LR
+    App[应用 goroutine] --> Pool[pgxpool]
+    Pool --> BE[PostgreSQL Backend]
+
+    BE --> SQLLock[表锁/行锁/咨询锁]
+    SQLLock --> HLM[Heavyweight Lock Manager]
+    HLM --> LT[LOCKTAG + mode]
+    HLM --> G[Granted]
+    HLM --> Q[Wait Queue]
+    Q --> D[Deadlock Detector]
+
+    BE --> Heap[Heap Tuple Header]
+    Heap --> XMAX[xmax/infomask]
+    XMAX --> XID[Transaction ID]
+    XMAX --> MX[MultiXact]
+    XID --> HLM
+    MX --> SLRU[MultiXact SLRU]
+
+    BE --> Buf[shared_buffers]
+    Buf --> Pin[Buffer Pin]
+    Buf --> LW[LWLock]
+    LW --> Spin[Spinlock/原子状态]
+
+    Q --> Wait[pg_stat_activity wait_event]
+    HLM --> Locks[pg_locks]
+    Wait --> Block[pg_blocking_pids]
+
+    BE --> WAL[WAL]
+    WAL --> Replica[Physical Replica]

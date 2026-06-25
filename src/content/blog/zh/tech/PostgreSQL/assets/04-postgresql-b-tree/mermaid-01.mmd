@@ -1,0 +1,28 @@
+flowchart TD
+    A[业务接口<br/>WHERE + ORDER BY + LIMIT + 返回列] --> B[索引契约<br/>tenant_id, status, created_at DESC, id DESC]
+    B --> C[Planner 比较候选路径]
+
+    C -->|少量行/可早停| D[Index / Backward Index Scan]
+    C -->|列齐全且 VM 可见| E[Index Only Scan]
+    C -->|中等比例、TID 分散| F[Bitmap Index + Bitmap Heap Scan]
+    C -->|大范围| G[Seq Scan]
+
+    D --> H[Meta → Root → Internal → Leaf]
+    E --> H
+    F --> H
+    H --> I[Index Tuple / Posting List → Heap TID]
+    I -->|普通扫描| J[Heap Fetch + Snapshot 可见性]
+    I -->|VM all-visible| K[直接返回索引列]
+
+    L[INSERT / 非 HOT UPDATE / DELETE 清理] --> M[修改 Leaf]
+    M -->|空间足够| N[写入索引项]
+    M -->|空间不足| O[删除可回收项 / Dedup / Page Split]
+    O --> P[父页 Downlink；必要时 Root Split]
+    N --> Q[WAL + Dirty Buffer]
+    P --> Q
+
+    Q --> R[Primary 提交与 Checkpoint]
+    Q --> S[物理副本重放]
+    S --> T[Failover 后新 Primary]
+    T --> U[冷 shared_buffers / OS Page Cache]
+    U --> C

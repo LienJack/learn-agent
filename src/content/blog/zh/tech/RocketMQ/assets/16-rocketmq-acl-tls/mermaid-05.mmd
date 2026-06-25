@@ -1,0 +1,31 @@
+flowchart LR
+    App[业务服务]
+    Route[全局路由/配置中心]
+
+    subgraph RegionA[地域 A：主集群]
+        PA[Proxy A]
+        BA[Broker 集群 A]
+        CA[Consumer A]
+    end
+
+    subgraph RegionB[地域 B：灾备集群]
+        PB[Proxy B]
+        BB[Broker 集群 B]
+        CB[Consumer B<br/>常态暂停或只校验]
+    end
+
+    Outbox[业务 Outbox/复制服务]
+    Audit[事件对账与归档]
+
+    App --> Route
+    Route -- 正常写入 --> PA
+    PA --> BA
+    BA --> CA
+
+    BA -- 异步复制 --> Outbox
+    Outbox --> BB
+    BB --> Audit
+
+    Route -. 灾备切换 .-> PB
+    PB --> BB
+    BB -. 启动 .-> CB

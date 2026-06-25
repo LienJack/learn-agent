@@ -1,0 +1,13 @@
+flowchart LR
+    A[资产盘点] --> B[兼容性实验室]
+    B --> C[服务端滚动升级到 5.x]
+    C --> D[验证旧 Remoting 客户端]
+    D --> E[部署 Proxy]
+    E --> F[gRPC SDK 小流量灰度]
+    F --> G[逐应用扩大流量]
+    G --> H[稳定运行与旧客户端下线]
+    H --> I[独立评估 Controller]
+    I --> J[独立评估新存储与生态能力]
+
+    F -.异常.-> R[切回 Remoting 客户端]
+    E -.异常.-> D

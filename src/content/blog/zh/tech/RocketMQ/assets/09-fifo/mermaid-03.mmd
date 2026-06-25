@@ -1,0 +1,9 @@
+flowchart TB
+    E[订单事件 order_id=1001] --> K[WithShardingKey: 1001]
+    K --> S[HashQueueSelector]
+    S -->|hash % queueCount| Q1[MessageQueue 1]
+    E2[同订单下一事件] --> K2[相同 ShardingKey]
+    K2 --> S
+    S --> Q1
+    Q1 --> L[Orderly Consumer 队列锁]
+    L --> P[单队列串行处理]

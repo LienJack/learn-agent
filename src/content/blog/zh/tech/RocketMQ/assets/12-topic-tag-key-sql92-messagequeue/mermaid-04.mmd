@@ -1,0 +1,9 @@
+flowchart LR
+    A[业务提交申请] --> B[命名与 MessageType 校验]
+    B --> C[容量和 Queue 评审]
+    C --> D[Schema、安全与合规评审]
+    D --> E[创建 Topic/Group 与 ACL]
+    E --> F[测试环境联调和压测]
+    F --> G[生产小流量验证]
+    G --> H[监控、告警与 Runbook 验收]
+    H --> I[周期复审、扩缩容或回收]

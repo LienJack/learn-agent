@@ -1,0 +1,23 @@
+flowchart LR
+    C[客户端/上游] -->|到达率 λ| A[Admission Controller\n限流·并发闸门·截止时间]
+    A -->|有界队列| G[Go handler / worker]
+    G --> P[pgxpool\nAcquire 队列]
+    P --> B[PgBouncer\nclient→server pool]
+    B --> PG[PostgreSQL backend]
+    PG --> L[Lock / LWLock / IPC wait]
+    PG --> SB[shared_buffers]
+    SB <--> PC[OS page cache]
+    PC <--> IO[PG18 AIO / storage]
+    PG --> W[WAL buffer → WAL flush]
+    W --> R[同步/异步副本]
+
+    O[可观测性] -.-> A
+    O -.-> P
+    O -.-> B
+    O -.-> PG
+    O -.-> IO
+    O -.-> R
+
+    F[超时·拒绝·断线·故障转移] -.-> A
+    F -.-> B
+    F -.-> PG

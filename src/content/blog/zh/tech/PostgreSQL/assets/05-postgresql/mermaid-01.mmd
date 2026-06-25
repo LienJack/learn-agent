@@ -1,0 +1,14 @@
+flowchart LR
+    A[定义查询契约与 SLO] --> B[收集参数分布和写入特征]
+    B --> C[从过滤、排序、LIMIT 推导候选索引]
+    C --> D[决定键列、INCLUDE 和特殊索引形态]
+    D --> E[用 EXPLAIN 与负载测试验证]
+    E --> F[盘点重复、冗余和无效索引]
+    F --> G[CREATE INDEX CONCURRENTLY 在线扩展]
+    G --> H[真实流量观察与 HA 门禁]
+    H --> I[DROP/REINDEX CONCURRENTLY 收缩]
+    I --> A
+
+    P[高性能：扫描、排序、缓存、写放大] --- C
+    Q[高并发：锁、连接池、长事务、热点页] --- G
+    R[高可用：WAL、副本延迟、RPO/RTO] --- H

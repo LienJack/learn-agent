@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/16.RocketMQ安全、ACL、TLS、多租户隔离与跨集群灾备.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-01.png",
+      "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-01.png",
+      "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 74611,
+      "sha256": "a6fc078ebfdaf75edb533ca46e39ecec19976d0a9d41be8cf858885f135a0532",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:40.449Z",
+      "compression": {
+        "beforeBytes": 74611,
+        "afterBytes": 74611,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-02.png",
+      "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-02.png",
+      "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 50718,
+      "sha256": "52e9f17bfe7b6b6f4214f43f7495760944f0584d91890353858f207de81ea75e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:42.400Z",
+      "compression": {
+        "beforeBytes": 50718,
+        "afterBytes": 50718,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-03.png",
+      "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-03.png",
+      "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 48568,
+      "sha256": "6ef65f41c1633e549dde281a57456ff9b09e5783f495864529cbce6cc176ab1e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:44.706Z",
+      "compression": {
+        "beforeBytes": 48568,
+        "afterBytes": 48568,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-04.png",
+      "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-04.png",
+      "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 56252,
+      "sha256": "42df49f017a119df2a76470c017fed51ffc7c1e28175affc84c8331fce89bf5d",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:46.693Z",
+      "compression": {
+        "beforeBytes": 56252,
+        "afterBytes": 56252,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-05.png",
+      "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-05.png",
+      "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 50266,
+      "sha256": "dab6621061a49c6c8bac9faa8c3cb0ac46867e5e4d89cb82e0a8a5630c44efaa",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:48.539Z",
+      "compression": {
+        "beforeBytes": 50266,
+        "afterBytes": 50266,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-06.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/16-rocketmq-acl-tls/mermaid-06.png",
+      "markdownRef": "./assets/16-rocketmq-acl-tls/mermaid-06.png",
+      "alt": "RocketMQ 第 16 章：安全、ACL、TLS、多租户隔离与跨集群灾备 flow 6",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 75183,
+      "sha256": "c906e71f5779f2a9414e975f3f3ac890e2bb4cdcade375147203398d7da9c05c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:50.355Z",
+      "compression": {
+        "beforeBytes": 75183,
+        "afterBytes": 75183,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

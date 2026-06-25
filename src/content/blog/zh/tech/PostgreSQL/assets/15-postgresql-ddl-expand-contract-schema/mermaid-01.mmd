@@ -1,0 +1,20 @@
+flowchart LR
+    A[应用 N<br/>只认旧 Schema] --> B[Expand<br/>添加 Nullable 新列/新索引]
+    B --> C[应用 N+1 兼容模式<br/>旧读 + 双写]
+    C --> D[分批 Backfill<br/>Checkpoint + Backpressure]
+    D --> E[NOT VALID 约束]
+    E --> F[VALIDATE<br/>证明历史数据]
+    F --> G[Feature Flag 切新读]
+    G --> H[停止旧写<br/>确认无 N 实例]
+    H --> I[Contract<br/>Drop 旧列/旧索引/Trigger]
+
+    J[Advisory Lock] -.控制.-> B
+    J -.控制.-> D
+    K[Schema Version] -.状态.-> C
+    K -.状态.-> G
+    L[Replica Lag/WAL/P99] -.背压.-> D
+
+    B -- lock_timeout --> X[本阶段失败<br/>未进入下一状态]
+    D -- 进程退出/切主 --> Y[幂等恢复<br/>WHERE 新列 IS NULL]
+    F -- 发现脏数据 --> Z[暂停切流<br/>修复后重验]
+    I -- 超过回滚边界 --> R[只能反向迁移或恢复]

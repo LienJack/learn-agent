@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant P as Producer
+    participant B as Broker进程
+    participant C as OS Page Cache
+    participant D as 磁盘
+
+    P->>B: Send(E1002)
+    B->>C: 写入页缓存
+    B-->>P: 返回成功
+    Note over P: Producer认为发送完成
+    B--xD: 刷盘前整机掉电
+    Note over C: 页缓存丢失
+    B->>D: 重启并恢复CommitLog
+    Note over B,D: E1002可能不存在

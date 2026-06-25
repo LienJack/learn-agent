@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant C as Consumer
+    participant P as PullMessageProcessor〔R5.5〕
+    participant D as DefaultMessageStore〔R5.5〕
+    participant Q as ConsumeQueueInterface〔R5.5〕
+    participant L as CommitLog〔R5.5〕
+    participant T as ManyMessageTransfer〔R5.5〕
+
+    C->>P: topic, queueId, queueOffset
+    P->>D: getMessage
+    D->>Q: iterateFrom(queueOffset)
+    Q-->>D: CqUnit(phyOffset,size,tagsCode)
+    D->>D: ConsumeQueue 级过滤
+    D->>L: getMessage(phyOffset,size)
+    L-->>D: MappedByteBuffer slice
+    D->>D: CommitLog 级过滤并组装结果
+    D-->>P: GetMessageResult
+    P->>T: Header + message buffers
+    T-->>C: 写入网络通道

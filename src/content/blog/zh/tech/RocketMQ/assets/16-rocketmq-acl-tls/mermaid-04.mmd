@@ -1,0 +1,27 @@
+flowchart TB
+    subgraph AZ1[可用区 A]
+        B1M[Broker A-1]
+        C1[Controller 1]
+        N1[NameServer 1]
+    end
+
+    subgraph AZ2[可用区 B]
+        B1S[Broker A-2]
+        C2[Controller 2]
+        N2[NameServer 2]
+    end
+
+    subgraph AZ3[可用区 C]
+        B1S2[Broker A-3]
+        C3[Controller 3]
+        N3[NameServer 3]
+    end
+
+    B1M <--> B1S
+    B1M <--> B1S2
+    B1M --> C1
+    B1S --> C2
+    B1S2 --> C3
+    C1 <--> C2
+    C2 <--> C3
+    C3 <--> C1

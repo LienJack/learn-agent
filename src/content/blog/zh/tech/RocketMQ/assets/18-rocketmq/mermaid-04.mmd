@@ -1,0 +1,14 @@
+flowchart TD
+    A[SendMessageProcessor.processRequest] --> B[sendMessage]
+    B --> C{事务预备消息?}
+    C -- 是 --> D[TransactionalMessageService.asyncPrepareMessage]
+    C -- 否 --> E[MessageStore.asyncPutMessage]
+    E --> F[DefaultMessageStore.asyncPutMessage]
+    F --> G[CommitLog.asyncPutMessage]
+    G --> H[编码消息]
+    H --> I[获取 TopicQueueLock / PutMessageLock]
+    I --> J[MappedFileQueue.getLastMappedFile]
+    J --> K[MappedFile.appendMessage]
+    K --> L[AppendMessageCallback]
+    L --> M[handleDiskFlushAndHA]
+    M --> N[返回 PutMessageResult]

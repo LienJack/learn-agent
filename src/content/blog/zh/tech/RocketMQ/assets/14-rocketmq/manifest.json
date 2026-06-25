@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/14.RocketMQ性能优化、流控、压测与容量规划.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-01.png",
+      "markdownRef": "./assets/14-rocketmq/mermaid-01.png",
+      "alt": "RocketMQ 第 14 章：性能优化、流控、压测与容量规划 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 62511,
+      "sha256": "51944a2e35fe24a5938b476160d82a4f2d9e2135de3913e48a9f5067990cfd1c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:20.165Z",
+      "compression": {
+        "beforeBytes": 62511,
+        "afterBytes": 62511,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-02.png",
+      "markdownRef": "./assets/14-rocketmq/mermaid-02.png",
+      "alt": "RocketMQ 第 14 章：性能优化、流控、压测与容量规划 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 130094,
+      "sha256": "7b7e2985763d62d77b5c28447c4c4e6f35e18ea82e6019b5ada8a8581db4e39e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:22.339Z",
+      "compression": {
+        "beforeBytes": 130094,
+        "afterBytes": 130094,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-03.png",
+      "markdownRef": "./assets/14-rocketmq/mermaid-03.png",
+      "alt": "RocketMQ 第 14 章：性能优化、流控、压测与容量规划 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 120844,
+      "sha256": "8163331850022e24398312b443a57c8a38d15372b16e1aab8334fdc939e1ba5c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:24.388Z",
+      "compression": {
+        "beforeBytes": 120844,
+        "afterBytes": 120844,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/14-rocketmq/mermaid-04.png",
+      "markdownRef": "./assets/14-rocketmq/mermaid-04.png",
+      "alt": "RocketMQ 第 14 章：性能优化、流控、压测与容量规划 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 65683,
+      "sha256": "a7fbedf455e9bb3efa78ff5d0682c5736b0f2238facfc52d6882c7c66fde275c",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:34:26.142Z",
+      "compression": {
+        "beforeBytes": 65683,
+        "afterBytes": 65683,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

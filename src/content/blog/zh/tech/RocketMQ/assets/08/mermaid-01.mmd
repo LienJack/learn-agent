@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant P as Producer
+    participant B as Broker
+    participant D as Disk/Replica
+
+    P->>B: Send(event_id=E1001)
+    B->>D: Append并达到约定持久化条件
+    D-->>B: 持久化成功
+    B--xP: ACK在网络中丢失
+    Note over P: 超时，只能判定“结果未知”
+    P->>B: 重试同一event_id=E1001
+    B->>D: 再写入一条物理消息
+    B-->>P: ACK成功
+    Note over P,D: 业务事件只有一个，物理消息可能有两条

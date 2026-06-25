@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/13.并发同步-MemoryModel-锁-Atomic-Race.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/13--memorymodel---atomic-race",
-  "updatedAt": "2026-06-19T14:44:00.388Z",
+  "updatedAt": "2026-06-21T14:04:53.000Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -23,6 +23,28 @@
         "beforeBytes": 34019,
         "afterBytes": 34019,
         "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-concurrency-sync-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 13 章：Go 并发同步、Memory Model、锁、Atomic、Race、死锁与并发设计",
+      "anchor": "第-13-章go-并发同步memory-model锁atomicrace死锁与并发设计",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/13--memorymodel---atomic-race/go-concurrency-sync-summary.webp",
+      "markdownRef": "./assets/13--memorymodel---atomic-race/go-concurrency-sync-summary.webp",
+      "alt": "Go 并发同步速览总结图",
+      "contentType": "image/webp",
+      "bytes": 403408,
+      "sha256": "19c825b4a1bceaf7f9b522970530dd9dd66e1e499e79a4c79d6ecc7cdccf3016",
+      "importedFrom": "/Users/lienli/Downloads/ChatGPT Image 2026年6月21日 22_01_25.png",
+      "importedAt": "2026-06-21T14:04:53.000Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T14:04:53.000Z",
+      "compression": {
+        "beforeBytes": 1827363,
+        "afterBytes": 403408,
+        "savedBytes": 1423955
       }
     }
   ],

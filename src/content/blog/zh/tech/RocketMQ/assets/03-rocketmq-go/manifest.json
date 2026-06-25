@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/03.RocketMQ环境搭建、管理工具与Go客户端实战.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-01.png",
+      "markdownRef": "./assets/03-rocketmq-go/mermaid-01.png",
+      "alt": "RocketMQ 第 3 章：环境搭建、管理工具与 Go 客户端实战 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 88058,
+      "sha256": "2f22b7996c2caa4eae0631584bda9d891e6da5ffd19ec984ea18f0678ac648fa",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:25.362Z",
+      "compression": {
+        "beforeBytes": 88058,
+        "afterBytes": 88058,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-02.png",
+      "markdownRef": "./assets/03-rocketmq-go/mermaid-02.png",
+      "alt": "RocketMQ 第 3 章：环境搭建、管理工具与 Go 客户端实战 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 120633,
+      "sha256": "40380e14d509b04ba80a45c4d0078380bc34d82b3055faded588c777e34b4f02",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:27.285Z",
+      "compression": {
+        "beforeBytes": 120633,
+        "afterBytes": 120633,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/03-rocketmq-go/mermaid-03.png",
+      "markdownRef": "./assets/03-rocketmq-go/mermaid-03.png",
+      "alt": "RocketMQ 第 3 章：环境搭建、管理工具与 Go 客户端实战 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 62289,
+      "sha256": "1f705634cd56a8889b433da44ad45b768ed2aa1c65abc54f61815ad57dc7be97",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:32:31.501Z",
+      "compression": {
+        "beforeBytes": 62289,
+        "afterBytes": 62289,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

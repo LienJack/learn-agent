@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/21.PostgreSQL Streaming Replication、读副本与同步复制.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/21-postgresql-streaming-replication",
+  "updatedAt": "2026-06-24T02:49:38.091Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/21-postgresql-streaming-replication/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/21-postgresql-streaming-replication/mermaid-01.png",
+      "markdownRef": "./assets/21-postgresql-streaming-replication/mermaid-01.png",
+      "alt": "PostgreSQL Streaming Replication、读副本与同步复制 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 41120,
+      "sha256": "41c8654aa0cd4463467fe14f50a4a29415d336dc4aacff27f2d17b9fb32ed203",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:13.771Z",
+      "compression": {
+        "beforeBytes": 41120,
+        "afterBytes": 41120,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant P as Producer
+    participant B as Broker
+    participant DB as 业务数据库
+
+    P->>B: 发送 Half Message
+    B-->>P: ACK
+
+    P->>DB: 执行订单本地事务
+    DB-->>P: 事务失败并回滚
+
+    P-xB: RollBack 请求丢失
+    Note over B: Broker 暂不确定结果
+
+    B->>P: 回查事务状态
+    P->>DB: 查询事务状态表
+    DB-->>P: ROLLED_BACK
+    P-->>B: ROLLBACK
+
+    B->>B: 终止 Half Message

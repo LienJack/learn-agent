@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">Audio and video engineering cover</title>
+	<desc id="desc">Waveforms, frame strips, codec blocks, and a media playback pipeline.</desc>
+	<style>
+		.wave {
+			animation: wave-drift 2.8s ease-in-out infinite;
+		}
+
+		.frame {
+			animation: frame-pop 3s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		@keyframes wave-drift {
+			0%,
+			100% {
+				transform: translateX(0);
+			}
+
+			50% {
+				transform: translateX(10px);
+			}
+		}
+
+		@keyframes frame-pop {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-5px);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.wave,
+			.frame {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-12%" y="-12%" width="124%" height="124%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.023" numOctaves="2" seed="52" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.5" />
+		</filter>
+		<filter id="softShadow" x="-24%" y="-24%" width="148%" height="148%">
+			<feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#26313a" flood-opacity="0.12" />
+		</filter>
+		<linearGradient id="videoFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#62c8ec" />
+			<stop offset="100%" stop-color="#6d8ce9" />
+		</linearGradient>
+		<linearGradient id="waveFill" x1="0%" x2="100%" y1="0%" y2="0%">
+			<stop offset="0%" stop-color="#28a9c7" />
+			<stop offset="52%" stop-color="#d057b8" />
+			<stop offset="100%" stop-color="#f0a33a" />
+		</linearGradient>
+		<pattern id="timingGrid" width="42" height="42" patternUnits="userSpaceOnUse">
+			<path d="M42 0H0v42" fill="none" stroke="#d9e1e3" stroke-width="1" opacity="0.38" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="#fffdf8" />
+	<rect width="900" height="520" fill="url(#timingGrid)" opacity="0.5" />
+	<path d="M110 119c81-52 208-64 308-27 70 27 115 72 192 74 73 2 136-32 179 25 38 50 17 135-59 179-106 61-331 71-477 36C104 371 47 296 63 223c8-38 20-76 47-104z" fill="#f7f9fb" opacity="0.72" />
+	<ellipse cx="453" cy="405" rx="334" ry="24" fill="#1f2d35" opacity="0.07" />
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)">
+			<g class="frame">
+				<rect x="118" y="118" width="170" height="118" rx="18" fill="#fffdf8" stroke="#30445f" stroke-width="7" />
+				<rect x="138" y="139" width="54" height="36" rx="7" fill="#2d84c9" />
+				<rect x="205" y="139" width="54" height="36" rx="7" fill="#6d8ce9" />
+				<rect x="138" y="187" width="54" height="28" rx="7" fill="#f3c55b" />
+				<rect x="205" y="187" width="54" height="28" rx="7" fill="#d057b8" opacity="0.78" />
+			</g>
+
+			<rect x="336" y="96" width="228" height="158" rx="22" fill="url(#videoFill)" stroke="#30445f" stroke-width="7" />
+			<path d="M428 146l72 39-72 39z" fill="#fffdf8" stroke="#30445f" stroke-width="7" stroke-linejoin="round" />
+			<path d="M361 229h178" stroke="#fffdf8" stroke-width="9" stroke-linecap="round" opacity="0.8" />
+			<circle cx="382" cy="229" r="11" fill="#f3c55b" stroke="#30445f" stroke-width="5" />
+
+			<g>
+				<rect x="616" y="124" width="160" height="114" rx="18" fill="#fffdf8" stroke="#30445f" stroke-width="7" />
+				<path d="M642 154h107M642 181h76M642 208h104" stroke="#4d5f6c" stroke-width="10" stroke-linecap="round" />
+				<circle cx="750" cy="181" r="18" fill="#f06154" />
+			</g>
+
+			<g class="wave" fill="none" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M111 325c16-51 31-51 47 0s31 51 47 0 31-51 47 0 31 51 47 0 31-51 47 0 31 51 47 0 31-51 47 0 31 51 47 0 31-51 47 0 31 51 47 0 31-51 47 0 31 51 47 0 31-51 47 0" stroke="url(#waveFill)" stroke-width="12" />
+				<path d="M122 365h640" stroke="#30445f" stroke-width="5" stroke-dasharray="3 20" opacity="0.45" />
+			</g>
+
+			<g>
+				<rect x="167" y="392" width="566" height="48" rx="16" fill="#fffdf8" stroke="#30445f" stroke-width="6" />
+				<rect x="190" y="407" width="142" height="18" rx="8" fill="#28a9c7" />
+				<rect x="355" y="407" width="92" height="18" rx="8" fill="#d057b8" />
+				<rect x="470" y="407" width="174" height="18" rx="8" fill="#f3c55b" />
+				<circle cx="681" cy="416" r="13" fill="#2da88a" />
+			</g>
+		</g>
+	</g>
+</svg>

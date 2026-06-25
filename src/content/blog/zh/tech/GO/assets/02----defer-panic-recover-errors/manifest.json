@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/02.函数-闭包-defer-panic-recover-errors.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/02----defer-panic-recover-errors",
-  "updatedAt": "2026-06-19T14:43:59.664Z",
+  "updatedAt": "2026-06-21T13:41:36.531Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -22,6 +22,28 @@
       "compression": {
         "beforeBytes": 30233,
         "afterBytes": 30233,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-function-error-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 2 章：函数、闭包、defer、panic/recover 与 errors",
+      "anchor": "第-2-章函数闭包deferpanicrecover-与-errors",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/02----defer-panic-recover-errors/go-function-error-summary.webp",
+      "markdownRef": "./assets/02----defer-panic-recover-errors/go-function-error-summary.webp",
+      "alt": "Go 函数、闭包、defer、panic/recover 与 errors 开头总结图",
+      "contentType": "image/webp",
+      "bytes": 198136,
+      "sha256": "580d47b5c1b0e00caeeab640a90edec804da40df717e3379fd571e34e2b0438a",
+      "importedFrom": "deterministic svg summary generator",
+      "importedAt": "2026-06-21T13:41:36.531Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T13:41:36.531Z",
+      "compression": {
+        "beforeBytes": 198136,
+        "afterBytes": 198136,
         "savedBytes": 0
       }
     }

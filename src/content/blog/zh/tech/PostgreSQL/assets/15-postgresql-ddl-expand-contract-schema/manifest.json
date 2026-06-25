@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/15.PostgreSQL 在线 DDL、Expand-Contract 与零停机 Schema 迁移.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema",
+  "updatedAt": "2026-06-24T02:49:38.090Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema/mermaid-01.png",
+      "markdownRef": "./assets/15-postgresql-ddl-expand-contract-schema/mermaid-01.png",
+      "alt": "PostgreSQL 在线 DDL、Expand-Contract 与零停机 Schema 迁移 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 55748,
+      "sha256": "680020413b378ef0597e788df9ea7aa46d2a5b2aa6683bc87394d6dd06211fdb",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:12.077Z",
+      "compression": {
+        "beforeBytes": 55748,
+        "afterBytes": 55748,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/15-postgresql-ddl-expand-contract-schema/mermaid-02.png",
+      "markdownRef": "./assets/15-postgresql-ddl-expand-contract-schema/mermaid-02.png",
+      "alt": "PostgreSQL 在线 DDL、Expand-Contract 与零停机 Schema 迁移 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 158280,
+      "sha256": "b00c9023b365feb4e4a249569c3d296c433d45ed11707dbb0c7906c08fc8edd1",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:12.295Z",
+      "compression": {
+        "beforeBytes": 158280,
+        "afterBytes": 158280,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

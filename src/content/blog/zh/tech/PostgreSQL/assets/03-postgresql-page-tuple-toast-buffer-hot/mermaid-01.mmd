@@ -1,0 +1,20 @@
+flowchart TD
+    A[UPDATE account_profile] --> B[解析 relation 身份]
+    B --> C[索引或扫描得到 heap TID]
+    C --> D[Buffer Manager 按 BufferTag 查找 page]
+    D --> E{shared_buffers 命中?}
+    E -->|否| F[经 OS Page Cache / 存储读入]
+    E -->|是| G[pin page 并取得 content lock]
+    F --> G
+    G --> H[Line Pointer 定位旧 Heap Tuple]
+    H --> I[依据 xmin/xmax/infomask 判断可见性与更新状态]
+    I --> J[构造新 Tuple，必要时 TOAST]
+    J --> K{同页有空间且无需更新普通索引?}
+    K -->|是| L[HOT：索引仍指向链根]
+    K -->|否| M[非 HOT：写新 heap 版本和新索引项]
+    L --> N[写 WAL，page 标记 dirty]
+    M --> N
+    N --> O[COMMIT 先满足 WAL 持久化策略]
+    O --> P[旧版本等待快照地平线推进]
+    P --> Q[Page Pruning / VACUUM 回收]
+    Q --> R[FSM 更新可用空间，VM 恢复可见性位]

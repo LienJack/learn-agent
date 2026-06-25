@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/SystemDesign/04.从单体到模块化单体.md",
+  "workspace": "src/content/blog/zh/project/SystemDesign/assets/04",
+  "updatedAt": "2026-06-07T05:09:36.798Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/04/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/04/mermaid-01.png",
+      "markdownRef": "./assets/04/mermaid-01.png",
+      "alt": "从单体到模块化单体：边界清晰比服务拆分更重要 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 32114,
+      "sha256": "a9048aae9eeae4e7a6d81cb78ce4b8f0c8cf7b8575444a21a35033eb8e47bb46",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-07T05:09:36.797Z",
+      "compression": {
+        "beforeBytes": 32114,
+        "afterBytes": 32114,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

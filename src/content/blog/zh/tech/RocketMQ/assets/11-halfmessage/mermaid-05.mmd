@@ -1,0 +1,7 @@
+stateDiagram-v2
+    [*] --> PENDING: 创建事务上下文
+    PENDING --> COMMITTED: 订单事务提交
+    PENDING --> ROLLED_BACK: 本地事务失败
+    PENDING --> PENDING: 回查返回 UNKNOWN
+    COMMITTED --> COMMITTED: 重复回查
+    ROLLED_BACK --> ROLLED_BACK: 重复回查

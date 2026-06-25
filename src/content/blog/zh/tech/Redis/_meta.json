@@ -1,6 +1,7 @@
 {
+	"title": "Redis",
 	"alias": "Redis",
-	"description": "缓存、数据结构和高频工程场景都会逐步收进这个系列。",
+	"description": "围绕 Redis 的定位、数据结构、缓存架构、高可用、持久化、消息语义和生产治理做系统化整理。",
 	"cover": "/blog-covers/redis-stack.svg",
 	"order": 3
 }

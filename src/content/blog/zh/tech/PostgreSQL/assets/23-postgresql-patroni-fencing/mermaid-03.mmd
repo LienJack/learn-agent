@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant O as Old Primary
+    participant D as DCS quorum
+    participant R as Best Replica
+    participant H as HAProxy
+    participant G as Go App
+
+    O-xD: 无法续约 Leader Lock
+    O-xG: 旧连接超时/Reset/57P01
+    D->>D: TTL 到期，Leader Key 可竞争
+    R->>D: 读取成员、Timeline、LSN、同步资格
+    R->>D: CAS 获取 Leader Lock
+    R->>R: pre_promote 调用 Fencing
+    R->>O: STONITH/撤销网络或存储访问
+    R->>R: pg_promote，生成新 Timeline
+    H->>R: /primary 返回 200
+    H-xO: 标记 down，关闭旧会话
+    G->>G: 有界退避 + Jitter，重建连接
+    G->>R: 新事务；未知 Commit 先按幂等键对账

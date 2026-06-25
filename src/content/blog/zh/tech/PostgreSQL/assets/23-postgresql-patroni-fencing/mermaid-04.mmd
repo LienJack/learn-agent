@@ -1,0 +1,14 @@
+flowchart LR
+    C[支付客户端] --> API[Go Payment API\nIdempotency/Admission]
+    API --> PB[PgBouncer双实例]
+    PB --> H[HAProxy双实例\n/primary]
+    H --> P[PG Primary AZ-A]
+    P ==>|quorum sync| S1[Replica AZ-B]
+    P --> S2[Replica AZ-C]
+    P --> O[Outbox]
+    O --> W[网关调用Worker]
+    P --> B[pgBackRest异地库]
+    P -.async WAL.-> DR[异地域Standby Cluster]
+    DCS[3节点etcd跨AZ] <--> P
+    DCS <--> S1
+    DCS <--> S2

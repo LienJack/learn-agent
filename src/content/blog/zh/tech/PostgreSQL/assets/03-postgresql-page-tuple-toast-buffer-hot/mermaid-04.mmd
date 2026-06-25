@@ -1,0 +1,7 @@
+flowchart TD
+    A[UPDATE 产生新 Tuple] --> B{非摘要索引依赖值实际变化?}
+    B -->|是| C[非 HOT：需要新索引项]
+    B -->|否| D{新 Tuple 能放在旧 Page?}
+    D -->|否| E[非 HOT：跨页更新]
+    D -->|是| F[HOT：索引继续指向链根]
+    F --> G[未来 pruning 收短链]

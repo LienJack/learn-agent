@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/11.PostgreSQL 锁、死锁、热点竞争与高并发任务队列.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql",
+  "updatedAt": "2026-06-24T02:49:38.090Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-01.png",
+      "markdownRef": "./assets/11-postgresql/mermaid-01.png",
+      "alt": "PostgreSQL 锁、死锁、热点竞争与高并发任务队列 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 51118,
+      "sha256": "6376fc51d98af4e86f68c429eb02c8490b3f8f37c4bb4de7c5acb63da39b2ced",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:10.985Z",
+      "compression": {
+        "beforeBytes": 51118,
+        "afterBytes": 51118,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-02.png",
+      "markdownRef": "./assets/11-postgresql/mermaid-02.png",
+      "alt": "PostgreSQL 锁、死锁、热点竞争与高并发任务队列 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 20113,
+      "sha256": "3cff55a1c892389bdcbb0bc622325aba36962add09df070ab653df16472017c7",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:11.057Z",
+      "compression": {
+        "beforeBytes": 20113,
+        "afterBytes": 20113,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/11-postgresql/mermaid-03.png",
+      "markdownRef": "./assets/11-postgresql/mermaid-03.png",
+      "alt": "PostgreSQL 锁、死锁、热点竞争与高并发任务队列 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 166018,
+      "sha256": "39592ce3332c9e1ece2b4c779eb7a259c8d4d2aec46169342f6763e88955704e",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T02:49:11.333Z",
+      "compression": {
+        "beforeBytes": 166018,
+        "afterBytes": 166018,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

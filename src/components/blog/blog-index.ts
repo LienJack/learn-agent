@@ -207,9 +207,6 @@ async function discoverBlogGroupCards(
 			}
 
 			const seriesSlugs = await listChildDirectories(groupDir);
-			if (seriesSlugs.length === 0) {
-				return null;
-			}
 
 			const groupPosts = localizedPosts.filter((post) => getGroupSlug(post) === groupSlug);
 			const seriesResults = await Promise.all(

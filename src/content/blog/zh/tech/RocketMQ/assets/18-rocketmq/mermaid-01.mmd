@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant B as BrokerController
+    participant O as BrokerOuterAPI
+    participant N as NameServer
+    participant D as DefaultRequestProcessor
+    participant R as RouteInfoManager
+    participant C as MQClientInstance
+
+    B->>O: registerBrokerAll()
+    O->>N: REGISTER_BROKER
+    N->>D: processRequest()
+    D->>R: registerBroker(...)
+    R-->>D: RegisterBrokerResult
+    D-->>B: masterAddr / haServerAddr
+
+    C->>N: GET_ROUTEINFO_BY_TOPIC
+    N->>N: ClientRequestProcessor
+    N->>R: pickupTopicRouteData(topic)
+    R-->>C: TopicRouteData

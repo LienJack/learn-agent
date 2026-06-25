@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/09.PostgreSQL 事务、MVCC、Snapshot 与 Tuple 可见性.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/09-postgresql-mvcc-snapshot-tuple",
+  "updatedAt": "2026-06-24T09:41:36.419Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/09-postgresql-mvcc-snapshot-tuple/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/09-postgresql-mvcc-snapshot-tuple/mermaid-01.png",
+      "markdownRef": "./assets/09-postgresql-mvcc-snapshot-tuple/mermaid-01.png",
+      "alt": "PostgreSQL 事务、MVCC、Snapshot 与 Tuple 可见性 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 34526,
+      "sha256": "5e649a0c1c0441f308cf471fb7b85df47fc68a10d9f48c3d4a7db1a668ab1934",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T09:41:36.418Z",
+      "compression": {
+        "beforeBytes": 34526,
+        "afterBytes": 34526,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

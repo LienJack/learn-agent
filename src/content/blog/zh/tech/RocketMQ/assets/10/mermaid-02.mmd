@@ -1,0 +1,12 @@
+flowchart LR
+    A[Producer 设置 DelayLevel] --> B[Broker 接收消息]
+    B --> C[保存 REAL_TOPIC 与 REAL_QID]
+    C --> D[写入 SCHEDULE_TOPIC_XXXX]
+    D --> E[按 DelayLevel 进入对应内部队列]
+    E --> F[ScheduleMessageService 扫描]
+    F --> G{是否到期}
+    G -- 否 --> H[按剩余时间再次调度]
+    H --> F
+    G -- 是 --> I[messageTimeUp 恢复真实 Topic/Queue]
+    I --> J[重新写入 CommitLog]
+    J --> K[业务 Consumer 可见]

@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant G as goroutine
+    participant P as pgxpool
+    participant C as pgx.Conn
+    participant PG as PostgreSQL Backend
+
+    G->>P: Query(ctx, sql, args...)
+    P->>P: 查找空闲连接
+    alt 有空闲连接
+        P->>C: 分配连接
+    else 可创建新连接
+        P->>PG: TCP/TLS/认证/Backend 创建
+        PG-->>P: 新会话
+        P->>C: 分配连接
+    else 池已满
+        G->>P: 等待或 ctx 超时
+    end
+
+    P->>C: PrepareConn / ShouldPing
+    C->>PG: Parse/Bind/Execute/Sync
+    PG-->>C: RowDescription/DataRow/CommandComplete
+    C-->>G: Rows
+
+    loop rows.Next
+        G->>C: 读取结果
+    end
+
+    G->>C: rows.Close()
+    C->>P: 归还连接

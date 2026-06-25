@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+	<title id="title">Go runtime cover</title>
+	<desc id="desc">Scheduler lanes, channel pipes, memory blocks, and garbage collection arcs for a Go runtime series.</desc>
+	<style>
+		.task {
+			animation: task-run 2s ease-in-out infinite;
+		}
+
+		.sweep {
+			animation: sweep-arc 2.9s ease-in-out infinite;
+			transform-box: fill-box;
+			transform-origin: center;
+		}
+
+		@keyframes task-run {
+			0%,
+			100% {
+				transform: translateX(0);
+			}
+
+			50% {
+				transform: translateX(18px);
+			}
+		}
+
+		@keyframes sweep-arc {
+			0%,
+			100% {
+				transform: rotate(-3deg);
+			}
+
+			50% {
+				transform: rotate(7deg);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.task,
+			.sweep {
+				animation: none;
+			}
+		}
+	</style>
+	<defs>
+		<filter id="roughInk" x="-12%" y="-12%" width="124%" height="124%">
+			<feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="68" result="noise" />
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.52" />
+		</filter>
+		<filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#26313a" flood-opacity="0.12" />
+		</filter>
+		<linearGradient id="laneFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#ecfffb" />
+			<stop offset="100%" stop-color="#cceee6" />
+		</linearGradient>
+		<linearGradient id="chipFill" x1="0%" x2="100%" y1="0%" y2="100%">
+			<stop offset="0%" stop-color="#5bd0de" />
+			<stop offset="100%" stop-color="#2da88a" />
+		</linearGradient>
+		<pattern id="codeGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+			<path d="M36 0H0v36" fill="none" stroke="#d9e1e3" stroke-width="1" opacity="0.38" />
+		</pattern>
+	</defs>
+
+	<rect width="900" height="520" fill="#fffdf8" />
+	<rect width="900" height="520" fill="url(#codeGrid)" opacity="0.46" />
+	<path d="M104 105c74-45 218-57 304-18 67 31 80 74 169 74 84 0 152-39 205 11 47 45 47 124-9 176-91 84-323 99-484 62C132 373 53 281 72 203c9-39 16-69 32-98z" fill="#f3fbfa" opacity="0.74" />
+	<ellipse cx="453" cy="408" rx="315" ry="24" fill="#1f2d35" opacity="0.07" />
+
+	<g filter="url(#softShadow)">
+		<g filter="url(#roughInk)">
+			<rect x="95" y="111" width="274" height="282" rx="26" fill="#fffdf8" stroke="#30445f" stroke-width="7" />
+			<g fill="url(#laneFill)" stroke="#30445f" stroke-width="5">
+				<rect x="124" y="146" width="216" height="50" rx="18" />
+				<rect x="124" y="226" width="216" height="50" rx="18" />
+				<rect x="124" y="306" width="216" height="50" rx="18" />
+			</g>
+			<g class="task">
+				<circle cx="168" cy="171" r="16" fill="#2d84c9" />
+				<circle cx="219" cy="251" r="16" fill="#f3c55b" />
+				<circle cx="184" cy="331" r="16" fill="#2da88a" />
+			</g>
+			<path d="M260 171h50M260 251h50M260 331h50" stroke="#4d5f6c" stroke-width="8" stroke-linecap="round" />
+
+			<g>
+				<rect x="430" y="104" width="160" height="126" rx="20" fill="url(#chipFill)" stroke="#30445f" stroke-width="7" />
+				<path d="M458 138h104M458 167h72M458 196h94" stroke="#fffdf8" stroke-width="9" stroke-linecap="round" />
+				<path d="M410 140h-34M410 194h-34M590 140h34M590 194h34" stroke="#30445f" stroke-width="7" stroke-linecap="round" />
+			</g>
+
+			<g fill="none" stroke="#405767" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M371 247h93" />
+				<path d="M452 226l30 21-30 21" />
+				<path d="M540 247h92" />
+				<path d="M620 226l30 21-30 21" />
+			</g>
+
+			<g>
+				<rect x="677" y="112" width="122" height="276" rx="21" fill="#fffdf8" stroke="#30445f" stroke-width="7" />
+				<rect x="704" y="145" width="68" height="44" rx="10" fill="#dfe6eb" />
+				<rect x="704" y="207" width="68" height="44" rx="10" fill="#cceee6" />
+				<rect x="704" y="269" width="68" height="44" rx="10" fill="#fff3c8" />
+				<path d="M707 342h62" stroke="#f06154" stroke-width="10" stroke-linecap="round" />
+			</g>
+
+			<g class="sweep">
+				<path d="M470 343c35-58 129-60 167-6" fill="none" stroke="#2da88a" stroke-width="11" stroke-linecap="round" />
+				<path d="M622 311l21 36-41-1" fill="none" stroke="#2da88a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+				<circle cx="553" cy="344" r="30" fill="#f3c55b" stroke="#30445f" stroke-width="6" />
+				<path d="M537 344h32" stroke="#fffdf8" stroke-width="8" stroke-linecap="round" />
+			</g>
+		</g>
+	</g>
+</svg>

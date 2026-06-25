@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant B as Broker
+    participant C as Consumer
+    participant DB as 数据库
+
+    B->>C: M1 支付成功事件
+    C->>DB: 更新订单为 PAID
+    DB-->>C: 失败/超时
+    C-->>B: 失败或未 ACK
+    Note over B: M2、M3 保持等待
+    B->>C: 重投 M1
+    C->>DB: 再次执行（必须幂等）
+    DB-->>C: 成功
+    C-->>B: ACK M1
+    B->>C: M2 出库
+    C-->>B: ACK M2
+    B->>C: M3 发货

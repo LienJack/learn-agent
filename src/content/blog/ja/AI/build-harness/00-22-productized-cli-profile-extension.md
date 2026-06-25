@@ -13,6 +13,12 @@ tags:
   - Extension
   - Multi Provider
   - 技術チュートリアル
+qiita_tags:
+  - Agent
+  - Harness
+  - ProductizedCLI
+  - Profile
+  - MultiProvider
 aliases:
   - 製品化 CLI
   - Agent Profile

@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant O as 订单服务
+    participant M as 延迟Topic
+    participant C as 关闭订单消费者
+    participant D as 订单数据库
+    O->>D: 创建PENDING_PAYMENT订单
+    O->>M: 发送30分钟后投递的消息
+    M-->>C: 到期投递
+    C->>D: 查询当前状态与版本
+    alt 仍未支付
+        C->>D: CAS关闭订单
+        C->>M: ACK
+    else 已支付/已关闭
+        C->>M: ACK，幂等结束
+    end

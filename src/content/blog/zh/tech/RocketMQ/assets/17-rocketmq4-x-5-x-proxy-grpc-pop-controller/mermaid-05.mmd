@@ -1,0 +1,10 @@
+flowchart TB
+    Q[Broker 中的多个 MessageQueue] --> POP[POP / 消息级分发]
+
+    POP -->|消息 A<br/>ReceiptHandle A| C1[Consumer 1]
+    POP -->|消息 B<br/>ReceiptHandle B| C2[Consumer 2]
+    POP -->|消息 C<br/>ReceiptHandle C| C3[Consumer 3]
+
+    C1 -->|ACK| POP
+    C2 -->|处理超时| V[可见时间到期]
+    V -->|重新投递| C3

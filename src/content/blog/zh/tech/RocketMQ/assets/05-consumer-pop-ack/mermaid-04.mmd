@@ -1,0 +1,10 @@
+stateDiagram-v2
+    [*] --> Ready: 消息可投递
+    Ready --> Inflight: Receive/POP
+    Inflight --> Committed: 业务成功且 ACK 成功
+    Inflight --> WaitingRetry: 返回失败/未 ACK/处理超时
+    Inflight --> WaitingRetry: 客户端宕机且不可见期到期
+    WaitingRetry --> Ready: 到达重试时间
+    WaitingRetry --> DLQ: 超过最大尝试次数
+    Committed --> [*]
+    DLQ --> [*]

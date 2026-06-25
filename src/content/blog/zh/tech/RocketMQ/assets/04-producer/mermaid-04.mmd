@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant G as Go Producer
+    participant P as RocketMQ Proxy
+    participant S as SendMessageProcessor
+    participant D as DefaultMessageStore
+    participant C as CommitLog/MappedFile
+    participant H as Flush/HA
+
+    G->>P: gRPC SendMessage
+    P->>S: Remoting SEND_MESSAGE
+    S->>S: 校验Topic、权限、大小、属性和队列
+    S->>D: asyncPutMessage(msgInner)
+    D->>C: asyncPutMessage
+    C->>C: 编码并追加到MappedFile
+    C->>H: 提交刷盘与复制请求
+    H-->>C: PUT_OK或超时状态
+    C-->>D: PutMessageResult
+    D-->>S: PutMessageResult
+    S-->>P: 响应码、MessageID、QueueOffset
+    P-->>G: SendReceipt或RPC错误

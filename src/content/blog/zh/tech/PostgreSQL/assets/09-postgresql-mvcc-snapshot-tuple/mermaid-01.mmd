@@ -1,0 +1,35 @@
+flowchart LR
+    A[BEGIN] --> B[先拥有 VXID]
+    B --> C{是否首次写入或显式请求 XID}
+    C -- 否 --> D[可能始终无真实 XID]
+    C -- 是 --> E[分配 XID]
+
+    E --> F[INSERT: 新版本 xmin=XID]
+    E --> G[UPDATE: 旧版本 xmax=XID\n新版本 xmin=XID]
+    E --> H[DELETE: 当前版本 xmax=XID]
+
+    I[语句/事务取得 Snapshot] --> J[Snapshot xmin/xmax/xip/curcid]
+    F --> K[可见性判断]
+    G --> K
+    H --> K
+    J --> K
+    L[pg_xact + Hint Bits] --> K
+    M[当前事务 CID] --> K
+
+    K --> N{创建已生效且结束未生效?}
+    N -- 是 --> O[返回该版本]
+    N -- 否 --> P[跳过或寻找链上其他版本]
+
+    Q[COMMIT/ROLLBACK] --> L
+    Q --> R[旧版本进入等待清理阶段]
+    S[所有 backend/slot/standby 的 xmin] --> T[全局清理地平线]
+    R --> U{版本是否早于安全地平线}
+    T --> U
+    U -- 否 --> V[仍需保留]
+    U -- 是 --> W[VACUUM 可移除/复用]
+
+    X[WAL 传到 Standby] --> Y[恢复 Snapshot]
+    W --> Z[清理 WAL 回放]
+    Y --> AA{旧查询仍需要该版本?}
+    Z --> AA
+    AA -- 是 --> AB[等待、取消查询或反馈 xmin]

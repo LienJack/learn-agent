@@ -1,0 +1,13 @@
+flowchart LR
+    U[用户] -->|同步请求| O[订单服务]
+    O -->|创建订单并返回订单号| U
+    O -->|OrderCreated| MQ[(消息中间件)]
+
+    MQ --> IG[库存消费者组]
+    MQ --> RG[风控消费者组]
+    MQ --> AG[分析消费者组]
+
+    P[支付服务] -->|PaymentSucceeded| MQ2[(消息中间件)]
+    MQ2 --> OG[订单状态消费者组]
+    MQ2 --> LG[物流消费者组]
+    MQ2 --> NG[通知消费者组]

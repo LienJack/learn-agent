@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant App as Go 应用
+    participant P as Producer
+    participant AP as Proxy接入点
+    participant Cache as 路由缓存
+    participant B1 as Broker/Proxy A
+    participant B2 as Broker/Proxy B
+
+    App->>P: Send(message)
+    P->>Cache: 查询 Topic 路由
+    alt 缓存未命中
+        P->>AP: QueryRoute(topic)
+        AP-->>P: MessageQueue 列表
+        P->>Cache: 缓存路由
+    end
+    P->>P: 选择候选队列/Endpoint
+    P->>B1: SendMessage
+    alt 成功
+        B1-->>P: SendReceipt
+    else 超时或错误且未达最大尝试次数
+        P->>P: 隔离失败 Endpoint
+        P->>B2: 重试同一业务消息
+        B2-->>P: SendReceipt 或 error
+    end
+    P-->>App: receipt 或最终错误

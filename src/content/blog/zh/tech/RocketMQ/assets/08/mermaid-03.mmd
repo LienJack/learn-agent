@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant B as Broker
+    participant C as Consumer
+    participant DB as 业务数据库
+
+    B->>C: Deliver(event_id=E1003)
+    C->>DB: BEGIN
+    C->>DB: INSERT Inbox(E1003) + 更新订单
+    C->>DB: COMMIT
+    DB-->>C: 提交成功
+    C--xB: ACK丢失或Consumer立即崩溃
+    B->>C: 再次投递E1003
+    C->>DB: INSERT Inbox(E1003)
+    DB-->>C: 唯一约束冲突，识别为重复
+    C-->>B: ACK成功

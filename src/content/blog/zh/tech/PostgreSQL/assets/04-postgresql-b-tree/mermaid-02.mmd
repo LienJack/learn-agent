@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant A as Writer A
+    participant B as Reader B
+    participant L as Old Leaf
+    participant R as New Right Leaf
+    participant P as Parent
+
+    A->>L: 定位并短时锁住页面
+    A->>L: 删除可回收项 / 尝试 Dedup
+    alt 仍放不下
+        A->>R: 分配新页面并移动部分索引项
+        A->>L: 设置新的 High Key 与 Right Link
+        A->>P: 插入指向 R 的 Downlink
+    end
+    B->>L: 通过稍旧的父 Downlink 到达 L
+    B->>L: 发现目标键超过 High Key
+    B->>R: 沿 Right Link 继续

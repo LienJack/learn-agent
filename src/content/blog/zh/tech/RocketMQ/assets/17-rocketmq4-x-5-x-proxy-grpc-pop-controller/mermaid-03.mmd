@@ -1,0 +1,9 @@
+flowchart LR
+    APP[业务应用] --> LB[四层或七层负载均衡]
+    LB --> P1[Proxy]
+    LB --> P2[Proxy]
+    LB --> P3[Proxy]
+
+    P1 --> BC[Broker Cluster]
+    P2 --> BC
+    P3 --> BC

@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/07.RocketMQ存储引擎.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq",
+  "updatedAt": "2026-06-22T09:29:30.000Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-01.png",
+      "markdownRef": "./assets/07-rocketmq/mermaid-01.png",
+      "alt": "RocketMQ 第 7 章：存储引擎：CommitLog、ConsumeQueue、IndexFile 与文件恢复 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 141231,
+      "sha256": "5ff5e0608d49bbe21d7b7eaba09e7087a1d92e046237789ee1c7c907a2d123e2",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:00.922Z",
+      "compression": {
+        "beforeBytes": 141231,
+        "afterBytes": 141231,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-02.png",
+      "markdownRef": "./assets/07-rocketmq/mermaid-02.png",
+      "alt": "RocketMQ 第 7 章：存储引擎：CommitLog、ConsumeQueue、IndexFile 与文件恢复 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 69004,
+      "sha256": "950bbe64d40ce4886b0aee1e2ec081df0e82ab8e3988b1801145b81dde75d442",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:03.210Z",
+      "compression": {
+        "beforeBytes": 69004,
+        "afterBytes": 69004,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-03.png",
+      "markdownRef": "./assets/07-rocketmq/mermaid-03.png",
+      "alt": "RocketMQ 第 7 章：存储引擎：CommitLog、ConsumeQueue、IndexFile 与文件恢复 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 85007,
+      "sha256": "87129224353289af9300fc5b3e328de23a2d756a1769ba449472a41cdbccb771",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:05.100Z",
+      "compression": {
+        "beforeBytes": 85007,
+        "afterBytes": 85007,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/mermaid-04.png",
+      "markdownRef": "./assets/07-rocketmq/mermaid-04.png",
+      "alt": "RocketMQ 第 7 章：存储引擎：CommitLog、ConsumeQueue、IndexFile 与文件恢复 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 248542,
+      "sha256": "f270df1358161e8fc651d256945e353e9cdf19727617997b7966d23142f48077",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:33:07.484Z",
+      "compression": {
+        "beforeBytes": 248542,
+        "afterBytes": 248542,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "photo-01-rocketmq-commitlog-architecture",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "7.3 CommitLog：为什么选择全局追加写",
+      "anchor": "73-commitlog为什么选择全局追加写",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/rocketmq-commitlog-architecture.webp",
+      "markdownRef": "./assets/07-rocketmq/rocketmq-commitlog-architecture.webp",
+      "alt": "RocketMQ CommitLog 架构与消息格式图",
+      "contentType": "image/webp",
+      "bytes": 262222,
+      "sha256": "ff9c9e6145ee945cfa18d26adee58d330de7e8ff31d5078f7b7887962f061279",
+      "importedFrom": "/Users/lienli/Downloads/ChatGPT Image 2026年6月22日 17_22_24.png",
+      "importedAt": "2026-06-22T09:24:36.000Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-22T09:24:36.000Z",
+      "compression": {
+        "beforeBytes": 1474164,
+        "afterBytes": 262222,
+        "savedBytes": 1211942
+      }
+    },
+    {
+      "id": "photo-02-rocketmq-consumequeue-architecture",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "7.4 ConsumeQueue：从队列位点到物理消息",
+      "anchor": "74-consumequeue从队列位点到物理消息",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/07-rocketmq/rocketmq-consumequeue-architecture.webp",
+      "markdownRef": "./assets/07-rocketmq/rocketmq-consumequeue-architecture.webp",
+      "alt": "RocketMQ ConsumeQueue 架构与存储格式图",
+      "contentType": "image/webp",
+      "bytes": 244954,
+      "sha256": "f54f5ac3eb1bcce21400d66cc25837951f72e6d9f2f364e0968ac0306b13e986",
+      "importedFrom": "/Users/lienli/Downloads/ChatGPT Image 2026年6月22日 17_28_23.png",
+      "importedAt": "2026-06-22T09:29:30.000Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-22T09:29:30.000Z",
+      "compression": {
+        "beforeBytes": 1437877,
+        "afterBytes": 244954,
+        "savedBytes": 1192923
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

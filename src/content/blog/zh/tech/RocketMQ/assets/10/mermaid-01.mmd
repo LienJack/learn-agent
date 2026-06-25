@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant U as 用户
+    participant O as 订单服务
+    participant DB as 订单数据库
+    participant MQ as RocketMQ
+    participant C as 超时检查消费者
+    participant P as 支付服务
+
+    U->>O: 创建订单
+    O->>DB: 写入 WAIT_PAY、expire_at、version
+    O->>MQ: 发送投递时间为 expire_at 的延迟消息
+    MQ-->>O: 返回发送回执
+
+    alt 用户及时支付
+        U->>P: 发起支付
+        P->>DB: 条件更新 WAIT_PAY → PAID
+    end
+
+    MQ->>C: 到期后消息进入 Ready 并被消费
+    C->>DB: 查询当前状态、过期时间、版本
+    alt 仍未支付且确已过期
+        C->>DB: 条件更新 WAIT_PAY → CLOSED
+    else 已支付、已关闭或尚未过期
+        C-->>C: 幂等忽略或重新安排检查
+    end

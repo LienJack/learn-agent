@@ -1,0 +1,3 @@
+flowchart LR
+    A[T1 持有 row 1] -->|等待 row 2 / T2| B[T2 持有 row 2]
+    B -->|等待 row 1 / T1| A

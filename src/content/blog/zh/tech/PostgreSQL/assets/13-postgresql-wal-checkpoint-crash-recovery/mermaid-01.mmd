@@ -1,0 +1,36 @@
+flowchart LR
+    C[客户端事务] --> B[Backend]
+
+    B --> T[修改 Shared Buffers 中的 Tuple / Index Page]
+    T --> D[Buffer 标记为 Dirty]
+
+    B --> R[构造 WAL Record]
+    R --> WBUF[写入 WAL Buffers]
+    R --> PLSN[更新数据页 Page LSN]
+
+    B --> CR[生成 Commit Record]
+    CR --> XF[XLogFlush 到 Commit LSN]
+
+    XF --> GW{是否可加入 Group Commit}
+    GW --> WW[写入 WAL 文件]
+    WW --> FS[fsync / fdatasync 等持久化操作]
+    FS --> ACK[COMMIT 返回]
+
+    D --> BG[Background Writer 提前写脏页]
+    D --> CP[Checkpointer 分批写脏页]
+    D --> BE[Backend 为复用 Buffer 被迫写页]
+
+    BG --> DF[数据文件]
+    CP --> DF
+    BE --> DF
+
+    DF --> RULE[写数据页前必须保证 Page LSN 对应 WAL 已持久化]
+
+    CR --> PHY[物理复制]
+    CR --> LOG[逻辑解码]
+    CR --> ARC[归档与 PITR]
+
+    X[进程或主机崩溃] --> START[Startup Process]
+    START --> CTRL[读取 pg_control 和 Checkpoint]
+    CTRL --> REDO[从 Redo Point 重放 WAL]
+    REDO --> CONSISTENT[恢复到一致状态]

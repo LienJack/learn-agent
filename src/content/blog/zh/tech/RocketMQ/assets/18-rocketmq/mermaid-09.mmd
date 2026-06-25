@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant P as TransactionMQProducer
+    participant B as SendMessageProcessor
+    participant T as TransactionalMessageService
+    participant E as EndTransactionProcessor
+    participant C as TransactionalMessageCheckService
+    participant L as Producer TransactionListener
+
+    P->>B: 发送 Transaction Prepared 消息
+    B->>T: asyncPrepareMessage
+    T-->>P: Half Message 写入成功
+
+    P->>L: executeLocalTransaction
+    alt Commit
+        P->>E: END_TRANSACTION(COMMIT)
+        E->>T: commitMessage
+        E->>E: 恢复真实 Topic 并写最终消息
+        E->>T: deletePrepareMessage
+    else Rollback
+        P->>E: END_TRANSACTION(ROLLBACK)
+        E->>T: rollbackMessage
+        E->>T: deletePrepareMessage
+    else Unknown或无响应
+        C->>T: check(timeout, max)
+        T->>L: Broker 回查 Producer
+        L->>E: 返回 Commit / Rollback / Unknown
+    end

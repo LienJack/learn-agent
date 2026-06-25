@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/GO/12.Channel.md",
   "workspace": "src/content/blog/zh/tech/GO/assets/12-channel",
-  "updatedAt": "2026-06-19T14:44:00.329Z",
+  "updatedAt": "2026-06-21T10:50:16.805Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -23,6 +23,72 @@
         "beforeBytes": 30806,
         "afterBytes": 30806,
         "savedBytes": 0
+      }
+    },
+    {
+      "id": "photo-01-go-channel-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "第 12 章：Channel",
+      "anchor": "第-12-章channel",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/12-channel/go-channel-summary.webp",
+      "markdownRef": "./assets/12-channel/go-channel-summary.webp",
+      "alt": "Go Channel 开头总结图",
+      "contentType": "image/webp",
+      "bytes": 288526,
+      "sha256": "35c9c0cee49d6768b46ac13729a7cb6b1131ca57830ae0772d84382d6053a43d",
+      "importedFrom": "../../../../../var/folders/pr/9d5650jj78bfwgs8ptl34h9c0000gn/T/codex-clipboard-1bfdfb69-8aa5-4f89-9d65-f8f088e6cd32.png",
+      "importedAt": "2026-06-21T09:56:56.402Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T09:56:56.402Z",
+      "compression": {
+        "beforeBytes": 670040,
+        "afterBytes": 288526,
+        "savedBytes": 381514
+      }
+    },
+    {
+      "id": "photo-02-go-channel-functional-flow",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "二、功能介绍",
+      "anchor": "二功能介绍",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/12-channel/go-channel-functional-flow.webp",
+      "markdownRef": "./assets/12-channel/go-channel-functional-flow.webp",
+      "alt": "Go Channel 使用时的功能机制图",
+      "contentType": "image/webp",
+      "bytes": 207844,
+      "sha256": "f1ef56865e97f9253ad61ed302109403049a077ae6898e29803ee056b54b6e46",
+      "importedFrom": "../../../Downloads/ChatGPT Image 2026年6月21日 18_48_11 (2).png",
+      "importedAt": "2026-06-21T10:50:16.805Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T10:50:16.805Z",
+      "compression": {
+        "beforeBytes": 1649209,
+        "afterBytes": 207844,
+        "savedBytes": 1441365
+      }
+    },
+    {
+      "id": "photo-03-go-channel-runtime-structure",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "3.2 hchan 的核心结构",
+      "anchor": "32-hchan-的核心结构",
+      "targetPath": "src/content/blog/zh/tech/GO/assets/12-channel/go-channel-runtime-structure.webp",
+      "markdownRef": "./assets/12-channel/go-channel-runtime-structure.webp",
+      "alt": "Go Channel 运行时结构图",
+      "contentType": "image/webp",
+      "bytes": 147740,
+      "sha256": "0525539163e1fad505881b54e93b131e34c1e0382153668cde5da6802d562d9f",
+      "importedFrom": "../../../Downloads/ChatGPT Image 2026年6月21日 18_48_10 (1).png",
+      "importedAt": "2026-06-21T10:50:16.805Z",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-21T10:50:16.805Z",
+      "compression": {
+        "beforeBytes": 1531322,
+        "afterBytes": 147740,
+        "savedBytes": 1383582
       }
     }
   ],

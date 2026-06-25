@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant A as Go/pgx
+    participant P as Primary
+    participant S as Sync Replica
+    participant D as DCS
+
+    A->>P: BEGIN/UPDATE/COMMIT
+    P->>P: 修改 Buffer，生成 WAL
+    P->>P: WAL flush 到本地持久介质
+    P->>S: WAL streaming
+    S->>S: write/flush（取决于 synchronous_commit）
+    S-->>P: 同步确认
+    P-->>A: COMMIT 成功
+    P->>D: Patroni 周期性续约 Leader Lock/发布状态

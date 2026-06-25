@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant P as 支付服务
+    participant B as RocketMQ Broker
+    participant D as 支付数据库
+    participant C as 下游消费组
+    P->>B: 发送Half Message
+    B-->>P: Half ACK
+    P->>D: 提交支付本地事务
+    P->>B: Commit/Rollback
+    alt 二次确认丢失
+        B->>P: 事务状态回查
+        P->>D: 查询payment_id状态
+        P-->>B: Commit或Rollback
+    end
+    B->>C: 投递PaymentSucceeded

@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/PostgreSQL/08.PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class.md",
+  "workspace": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class",
+  "updatedAt": "2026-06-24T09:37:14.579Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-01.png",
+      "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-01.png",
+      "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 83457,
+      "sha256": "e0bbebde7c64e8952783c26849172a91133456de788f854590f909edc219a63b",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T09:37:14.359Z",
+      "compression": {
+        "beforeBytes": 83457,
+        "afterBytes": 83457,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-02.png",
+      "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-02.png",
+      "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 62743,
+      "sha256": "7b6f091f53c7e61b8d59c96b2e5f67b28a96fc3683d0280587bc80e00355894b",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T09:37:14.456Z",
+      "compression": {
+        "beforeBytes": 62743,
+        "afterBytes": 62743,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-03.png",
+      "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-03.png",
+      "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 34238,
+      "sha256": "9424ebf8ebf106c581d24a619244279cdf7c9ba8bcd424521cf753445db8bb2d",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T09:37:14.516Z",
+      "compression": {
+        "beforeBytes": 34238,
+        "afterBytes": 34238,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/PostgreSQL/assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-04.png",
+      "markdownRef": "./assets/08-postgresql-gin-gist-sp-gist-brin-hash-operator-class/mermaid-04.png",
+      "alt": "PostgreSQL GIN、GiST、SP-GiST、BRIN、Hash 与 Operator Class flow 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 33084,
+      "sha256": "c641be94ba8dcbcd10019a5fe1373df1848611b3913c8ac8e98fc33faa4cdb79",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-24T09:37:14.573Z",
+      "compression": {
+        "beforeBytes": 33084,
+        "afterBytes": 33084,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

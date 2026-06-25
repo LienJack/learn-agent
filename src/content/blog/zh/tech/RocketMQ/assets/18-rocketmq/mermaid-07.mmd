@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant C as gRPC Consumer
+    participant G as GrpcMessagingApplication
+    participant R as ReceiveMessageActivity
+    participant M as MessagingProcessor
+    participant P as PopMessageProcessor
+    participant S as MessageStore
+
+    C->>G: ReceiveMessage
+    G->>R: receiveMessage()
+    R->>R: 校验 Group、Topic、过滤器、不可见时间
+    R->>M: popMessage / popLiteMessage
+    M->>P: POP_MESSAGE
+    P->>S: 查询可投递消息
+    P-->>R: PopResult + ReceiptHandle
+    R-->>C: 流式 ReceiveMessageResponse

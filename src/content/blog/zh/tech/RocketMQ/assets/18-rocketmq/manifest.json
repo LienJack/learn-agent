@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/tech/RocketMQ/18.RocketMQ源码阅读：发送、存储、消费、事务与高可用调用链.md",
+  "workspace": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq",
+  "updatedAt": "2026-06-22T07:31:57.267Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-01.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-01.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 83373,
+      "sha256": "96043349ecaffc9323496bf03c6f00002afe4d33333411d7ec4b1eac7b01f008",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:05.116Z",
+      "compression": {
+        "beforeBytes": 83373,
+        "afterBytes": 83373,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-02.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-02.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 66406,
+      "sha256": "9ab29daa125f5e665af6456991935d214fd2140ae027f74bea9f06191638b131",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:06.988Z",
+      "compression": {
+        "beforeBytes": 66406,
+        "afterBytes": 66406,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-03.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-03.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 69263,
+      "sha256": "4915baf79dfaeebba4d64abfeae3772c3f1624c1c1b8816f5f70d0893d4ced7d",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:08.780Z",
+      "compression": {
+        "beforeBytes": 69263,
+        "afterBytes": 69263,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-04.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-04.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 159730,
+      "sha256": "2781e38087ffe5b03504ab69f4d43fcda8fa6e8b15cecb2adaef5d6304839ef6",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:10.879Z",
+      "compression": {
+        "beforeBytes": 159730,
+        "afterBytes": 159730,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-05.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-05.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 73741,
+      "sha256": "27eb8fd2feffc71f2f3e109bb9842e5e4740c37c87fd74cc798259bb2cf3468a",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:12.668Z",
+      "compression": {
+        "beforeBytes": 73741,
+        "afterBytes": 73741,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-06.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-06.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-06.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 6",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 63735,
+      "sha256": "3aed2dcb70aa75d624bb05a6483bd856e818cce4daef07d6dcf8d4a7be8e39c6",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:14.433Z",
+      "compression": {
+        "beforeBytes": 63735,
+        "afterBytes": 63735,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-07",
+      "kind": "mermaid",
+      "block": 7,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-07.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-07.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-07.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 7",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 74994,
+      "sha256": "1e6eb7f2a992294911cef8919ccf90992a450f65f81426d91998fc809ee8a766",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:16.752Z",
+      "compression": {
+        "beforeBytes": 74994,
+        "afterBytes": 74994,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-08",
+      "kind": "mermaid",
+      "block": 8,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-08.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-08.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-08.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 8",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 83951,
+      "sha256": "6db090037657695e07d598d23d071eedb679dcf8a6f9dd4fce9c2738e5e1db15",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:19.440Z",
+      "compression": {
+        "beforeBytes": 83951,
+        "afterBytes": 83951,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-09",
+      "kind": "mermaid",
+      "block": 9,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-09.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-09.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-09.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 9",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 109678,
+      "sha256": "b24ca86c14756f42b21c446bc0d17ff1634d4f12d5b9654589b40657160bb8a4",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:21.686Z",
+      "compression": {
+        "beforeBytes": 109678,
+        "afterBytes": 109678,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-10",
+      "kind": "mermaid",
+      "block": 10,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-10.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-10.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-10.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 10",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 64683,
+      "sha256": "70375b1db07c3a7001829269d6aec54dd811704ab3214755774ec2b0a292fb56",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:23.757Z",
+      "compression": {
+        "beforeBytes": 64683,
+        "afterBytes": 64683,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    },
+    {
+      "id": "mermaid-11",
+      "kind": "mermaid",
+      "block": 11,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-11.mmd",
+      "targetPath": "src/content/blog/zh/tech/RocketMQ/assets/18-rocketmq/mermaid-11.png",
+      "markdownRef": "./assets/18-rocketmq/mermaid-11.png",
+      "alt": "RocketMQ 第 18 章：源码阅读：发送、存储、消费、事务与高可用调用链 flow 11",
+      "renderer": "@mermaid-js/mermaid-cli scale=2",
+      "renderStatus": "generated",
+      "bytes": 84381,
+      "sha256": "caedbdd5e2c38126ab12c32dd48164fa25738260b1f61758e7ce0f5721907868",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-06-22T07:35:25.765Z",
+      "compression": {
+        "beforeBytes": 84381,
+        "afterBytes": 84381,
+        "savedBytes": 0
+      },
+      "renderScale": 2
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

@@ -1,0 +1,10 @@
+stateDiagram-v2
+    [*] --> inactive: Slot 创建
+    inactive --> active: 消费者连接
+    active --> active: 解码 + ACK
+    active --> inactive: 正常断开
+    inactive --> extended: WAL 超过普通保留但仍被 Slot 保留
+    inactive --> lost: 所需 WAL 被移除/Slot 失效
+    active --> invalid: Catalog Xmin/WAL/参数等导致失效
+    lost --> [*]: Drop + Resnapshot
+    invalid --> [*]: Drop + Resnapshot
