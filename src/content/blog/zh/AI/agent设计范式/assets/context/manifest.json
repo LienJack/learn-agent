@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/AI/agent设计范式/context草稿.md",
+  "workspace": "src/content/blog/zh/AI/agent设计范式/assets/context",
+  "updatedAt": "2026-06-29T15:10:00.000Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/context/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/context/mermaid-01.jpg",
+      "markdownRef": "./assets/context/mermaid-01.jpg",
+      "alt": "Context 工程实战：让 LLM 更会干活，也更省钱 - Context 编译与证据回路",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "renderScale": 4,
+      "contentType": "image/jpeg",
+      "bytes": 790686,
+      "sha256": "8d1e6ee4e608834d1c26938b81e8bf6072c29b39bdfa3a15ad2b806ca18bf773",
+      "compressionStatus": "converted-high-quality-jpeg",
+      "compression": {
+        "quality": 94,
+        "samplingFactor": "4:4:4",
+        "background": "white"
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/context/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/context/mermaid-02.jpg",
+      "markdownRef": "./assets/context/mermaid-02.jpg",
+      "alt": "Context 工程实战：让 LLM 更会干活，也更省钱 - L0 到 L3 四层记忆模型",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "renderScale": 4,
+      "contentType": "image/jpeg",
+      "bytes": 564497,
+      "sha256": "60a9aea51e6743fb7df07c27525daf580c28c698b9d1f38203c9babfa2820310",
+      "compressionStatus": "converted-high-quality-jpeg",
+      "compression": {
+        "quality": 94,
+        "samplingFactor": "4:4:4",
+        "background": "white"
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/context/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/context/mermaid-03.jpg",
+      "markdownRef": "./assets/context/mermaid-03.jpg",
+      "alt": "Context 工程实战：让 LLM 更会干活，也更省钱 - 大工具结果治理流程",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "renderScale": 4,
+      "contentType": "image/jpeg",
+      "bytes": 988596,
+      "sha256": "0e259ae138e9979cd8525d55ae45bda06d7b8c8c92b6eebafb975b4812847547",
+      "compressionStatus": "converted-high-quality-jpeg",
+      "compression": {
+        "quality": 94,
+        "samplingFactor": "4:4:4",
+        "background": "white"
+      }
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/agent设计范式/assets/context/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/AI/agent设计范式/assets/context/mermaid-04.jpg",
+      "markdownRef": "./assets/context/mermaid-04.jpg",
+      "alt": "Context 工程实战：让 LLM 更会干活，也更省钱 - 三种大输出治理方案对比",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "renderScale": 4,
+      "contentType": "image/jpeg",
+      "bytes": 489712,
+      "sha256": "1b89156098c5a97799f7c5ac272dca52c213e7b63683d6f38a7cc503e8f77832",
+      "compressionStatus": "converted-high-quality-jpeg",
+      "compression": {
+        "quality": 94,
+        "samplingFactor": "4:4:4",
+        "background": "white"
+      }
+    }
+  ],
+  "warnings": [
+    "Mermaid diagrams were rendered at scale 4 and converted to high-quality JPEG because this article explicitly requested JPEG output."
+  ],
+  "blockers": []
+}

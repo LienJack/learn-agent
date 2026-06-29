@@ -1,0 +1,24 @@
+flowchart TB
+  L0["L0 Provider / KV Cache 可见层<br/>合法 payload、稳定 prefix、工具因果链"]
+  L1["L1 本轮热工作集<br/>目标、约束、必要文件片段、日志摘要"]
+  L2["L2 Runtime 语义状态<br/>finding、假设、待办、预算、cache 统计"]
+  L3["L3 事实账本<br/>完整日志、大文件、artifact、trace、会话事件"]
+
+  L3 -->|"抽取证据 / 回读范围"| L2
+  L2 -->|"选择当前要看的材料"| L1
+  L1 -->|"provider adapter 编译"| L0
+  L0 -->|"模型决策产生新工具调用"| L3
+
+  side1["不进 L0<br/>完整 20,000 行日志<br/>完整 5MB 文件<br/>粗略 grep 大列表"] -. "外置到 L3" .-> L3
+  side2["进入 L0<br/>失败测试<br/>关键栈<br/>相关文件行号<br/>raw_ref"] -. "最小充分现场" .-> L0
+
+  classDef l0 fill:#e8f0ff,stroke:#3451b2,color:#14265f,stroke-width:2px;
+  classDef l1 fill:#fff4d6,stroke:#b7791f,color:#3f2a00,stroke-width:2px;
+  classDef l2 fill:#e8fff4,stroke:#2f855a,color:#17351f,stroke-width:2px;
+  classDef l3 fill:#fff0f0,stroke:#c53030,color:#4a1212,stroke-width:2px;
+  classDef note fill:#f7fafc,stroke:#718096,color:#1a202c,stroke-width:1.5px;
+  class L0 l0;
+  class L1 l1;
+  class L2 l2;
+  class L3 l3;
+  class side1,side2 note;

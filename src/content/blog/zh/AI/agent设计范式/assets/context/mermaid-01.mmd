@@ -1,0 +1,24 @@
+flowchart TB
+  U["用户目标<br/>修复 npm test 失败"] --> S["稳定前缀<br/>规则 / 工具 schema / 项目约束"]
+  S --> W["L1 热工作集<br/>当前目标 / 关键约束 / 最近结论"]
+  W --> A["Provider Adapter<br/>编译成 OpenAI 或 Claude 合法 payload"]
+  A --> M["L0 Provider Payload<br/>模型本轮真正看到的输入"]
+  M --> T["工具调用<br/>bash / read_file / grep"]
+  T --> R["原始工具结果<br/>长日志 / 大文件 / 大列表"]
+
+  R --> L3["L3 事实账本<br/>完整证据落盘，可回读"]
+  R --> C["压缩与筛选<br/>提取失败测试、关键栈、相关文件"]
+  C --> L2["L2 语义状态<br/>finding / hypothesis / next action"]
+
+  L2 --> N["下一轮决策<br/>只把必要材料提升到 L1"]
+  N --> W
+  L3 -. "需要精确原文时<br/>按范围回读" .-> N
+
+  classDef stable fill:#eef7f1,stroke:#2f855a,color:#17351f,stroke-width:2px;
+  classDef working fill:#fff6df,stroke:#b7791f,color:#3d2a05,stroke-width:2px;
+  classDef provider fill:#eef2ff,stroke:#4c51bf,color:#1f245f,stroke-width:2px;
+  classDef evidence fill:#fef2f2,stroke:#c53030,color:#4a1212,stroke-width:2px;
+  class U,S stable;
+  class W,L2 working;
+  class A,M provider;
+  class T,R,L3,C evidence;

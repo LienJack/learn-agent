@@ -1,0 +1,31 @@
+flowchart LR
+  subgraph PI["pi / opencode"]
+    A1["执行 bash / read_file"] --> A2{"超过 2000 行<br/>或 50KB?"}
+    A2 -- "否" --> A3["完整输出进上下文"]
+    A2 -- "是" --> A4["完整输出写临时文件"]
+    A4 --> A5["上下文放<br/>截断片段 + fullOutputPath"]
+  end
+
+  subgraph CC["Claude Code"]
+    C1["工具执行完成"] --> C2{"tool_result 太大<br/>或 message 总量过大?"}
+    C2 -- "否" --> C3["原 tool_result 进入消息"]
+    C2 -- "是" --> C4["完整结果写入<br/>session/tool-results"]
+    C4 --> C5["上下文放<br/>persisted-output + 路径 + 2KB preview"]
+  end
+
+  subgraph GPT["ChatGPT / Responses"]
+    B1["执行 bash / read_file"] --> B2["保存 raw artifact"]
+    B2 --> B3["compressor LLM<br/>抽取 observation"]
+    B3 --> B4["function_call_output<br/>放结构化 summary"]
+  end
+
+  A5 --> S["共同目标<br/>原文可回读<br/>主线高密度<br/>payload 合法稳定"]
+  C5 --> S
+  B4 --> S
+
+  classDef engine fill:#eef2ff,stroke:#4c51bf,color:#1f245f,stroke-width:2px;
+  classDef gate fill:#fff7ed,stroke:#c05621,color:#4a2308,stroke-width:2px;
+  classDef output fill:#ecfdf5,stroke:#2f855a,color:#17351f,stroke-width:2px;
+  class A1,A3,A4,A5,C1,C3,C4,C5,B1,B2,B3,B4 engine;
+  class A2,C2 gate;
+  class S output;
