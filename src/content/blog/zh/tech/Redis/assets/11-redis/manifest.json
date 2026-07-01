@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/tech/Redis/11.Redis 核心对象与底层数据结构.md",
   "workspace": "src/content/blog/zh/tech/Redis/assets/11-redis",
-  "updatedAt": "2026-06-22T14:16:11.237Z",
+  "updatedAt": "2026-06-26T03:18:27.000Z",
   "assets": [
     {
       "id": "photo-01-sds",
@@ -35,6 +35,21 @@
       "compressedAt": "2026-06-22T14:16:11.237Z"
     },
     {
+      "id": "photo-02-dict-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "6.3 dict：哈希表与渐进式 rehash",
+      "targetPath": "src/content/blog/zh/tech/Redis/assets/11-redis/redis-dict-summary.webp",
+      "markdownRef": "./assets/11-redis/redis-dict-summary.webp",
+      "alt": "dict 哈希表冲突处理与渐进式 rehash 总结图",
+      "contentType": "image/webp",
+      "bytes": 221492,
+      "sha256": "29c0b9ac046ccec0f773a099890f67877834943e468789c52f24bd77c7418894",
+      "generatedWith": "user-provided ChatGPT PNG from Downloads + WebP compression",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-26T03:09:03.000Z"
+    },
+    {
       "id": "photo-03-listpack",
       "kind": "photo",
       "status": "generated",
@@ -48,6 +63,21 @@
       "generatedWith": "codex deterministic SVG diagram matching reference lecture style + WebP compression",
       "compressionStatus": "compressed",
       "compressedAt": "2026-06-22T14:16:11.237Z"
+    },
+    {
+      "id": "photo-03-listpack-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "6.4 listpack：小集合的连续紧凑表示",
+      "targetPath": "src/content/blog/zh/tech/Redis/assets/11-redis/redis-listpack-summary.webp",
+      "markdownRef": "./assets/11-redis/redis-listpack-summary.webp",
+      "alt": "ListPack 小集合连续内存编码总结图",
+      "contentType": "image/webp",
+      "bytes": 200558,
+      "sha256": "04ef76eb689627522daae48237c626788625e7d8e0e5a6c1ebbf1b8d999d498d",
+      "generatedWith": "user-provided ChatGPT PNG from Downloads + WebP compression",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-26T03:00:33.000Z"
     },
     {
       "id": "photo-04-quicklist",
@@ -65,6 +95,21 @@
       "compressedAt": "2026-06-22T14:16:11.237Z"
     },
     {
+      "id": "photo-04-quicklist-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "6.5 quicklist：链表与 listpack 的折中",
+      "targetPath": "src/content/blog/zh/tech/Redis/assets/11-redis/redis-quicklist-summary.webp",
+      "markdownRef": "./assets/11-redis/redis-quicklist-summary.webp",
+      "alt": "QuickList 链表与 listpack 折中设计总结图",
+      "contentType": "image/webp",
+      "bytes": 247814,
+      "sha256": "8117e0ec913f6ebd2aba71917ba928c1a285200ca32506cdbb66c31e82126a48",
+      "generatedWith": "user-provided ChatGPT PNG from Downloads + WebP compression",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-26T03:03:45.000Z"
+    },
+    {
       "id": "photo-05-intset",
       "kind": "photo",
       "status": "generated",
@@ -80,6 +125,21 @@
       "compressedAt": "2026-06-22T14:16:11.237Z"
     },
     {
+      "id": "photo-05-intset-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "6.6 intset：小型纯整数 Set",
+      "targetPath": "src/content/blog/zh/tech/Redis/assets/11-redis/redis-intset-summary.webp",
+      "markdownRef": "./assets/11-redis/redis-intset-summary.webp",
+      "alt": "intset 小型纯整数 Set 升级机制总结图",
+      "contentType": "image/webp",
+      "bytes": 217900,
+      "sha256": "48d41dc33824d2ba8f56c0ecd5f176bb1add33cf8c007773123e696a4176cfbe",
+      "generatedWith": "user-provided ChatGPT PNG from Downloads + WebP compression",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-26T03:06:20.000Z"
+    },
+    {
       "id": "photo-06-skiplist",
       "kind": "photo",
       "status": "generated",
@@ -93,6 +153,36 @@
       "generatedWith": "codex deterministic SVG diagram matching reference lecture style + WebP compression",
       "compressionStatus": "compressed",
       "compressedAt": "2026-06-22T14:16:11.237Z"
+    },
+    {
+      "id": "photo-06-skiplist-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "6.7 skiplist：Sorted Set 的有序索引",
+      "targetPath": "src/content/blog/zh/tech/Redis/assets/11-redis/redis-skiplist-summary.webp",
+      "markdownRef": "./assets/11-redis/redis-skiplist-summary.webp",
+      "alt": "SkipList 多层有序索引与 ZSet 范围查询总结图",
+      "contentType": "image/webp",
+      "bytes": 245932,
+      "sha256": "668dde71076a49c8d29dc3723cbd479df7a68e1abec03102ade16433ba0ffcfd",
+      "generatedWith": "user-provided ChatGPT PNG from Downloads + WebP compression",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-26T03:11:44.000Z"
+    },
+    {
+      "id": "photo-07-rax-streams-summary",
+      "kind": "photo",
+      "status": "imported",
+      "sectionHeading": "6.8 rax 与 Streams",
+      "targetPath": "src/content/blog/zh/tech/Redis/assets/11-redis/redis-rax-streams-summary.webp",
+      "markdownRef": "./assets/11-redis/redis-rax-streams-summary.webp",
+      "alt": "Rax 与 Streams 压缩前缀树和 listpack 组合总结图",
+      "contentType": "image/webp",
+      "bytes": 281226,
+      "sha256": "7900b8fc45108d731ed7e60ba1812c3ddeeb88171cd18cb3fef021b17bcf1a2c",
+      "generatedWith": "user-provided ChatGPT PNG from Downloads + WebP compression",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-26T03:18:27.000Z"
     }
   ],
   "warnings": [],
