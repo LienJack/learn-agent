@@ -1,0 +1,14 @@
+flowchart TD
+    A[收到生成请求] --> B{任务是否已有执行快照}
+    B -->|是| C[读取 execution_snapshot]
+    B -->|否| D[读取当前灰度计划]
+
+    D --> E[根据 tenant_id + project_id 计算哈希]
+    E --> F{命中新版本范围}
+    F -->|是| G[选择候选 Release Bundle]
+    F -->|否| H[选择稳定 Release Bundle]
+
+    G --> I[写入不可变执行快照]
+    H --> I
+    C --> J[按照快照执行]
+    I --> J

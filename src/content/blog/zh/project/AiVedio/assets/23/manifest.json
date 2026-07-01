@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/AiVedio/23.生产级交付发布门禁灰度回滚与项目复盘.md",
+  "workspace": "src/content/blog/zh/project/AiVedio/assets/23",
+  "updatedAt": "2026-06-26T06:08:43.754Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/AiVedio/assets/23/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/AiVedio/assets/23/mermaid-01.webp",
+      "markdownRef": "./assets/23/mermaid-01.webp",
+      "alt": "AiVedio：生产级交付：发布门禁、灰度、回滚与项目复盘 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 13386,
+      "sha256": "0f0bff384b7ed1bca3689c113bea8df784ff460314020c8bda2ae4b8f0e5b65f",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-26T06:11:49.498Z",
+      "compression": {
+        "beforeBytes": 13742,
+        "afterBytes": 13386,
+        "savedBytes": 356
+      },
+      "renderScale": 2,
+      "width": 1568,
+      "height": 176,
+      "rerenderedAt": "2026-06-26T06:08:43.754Z",
+      "clarityMode": "scale-2-lossless-webp",
+      "previousBytes": 7580
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/AiVedio/assets/23/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/project/AiVedio/assets/23/mermaid-02.webp",
+      "markdownRef": "./assets/23/mermaid-02.webp",
+      "alt": "AiVedio：生产级交付：发布门禁、灰度、回滚与项目复盘 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 39510,
+      "sha256": "97abe3cbbe15701e9fcb8882a8ed5d80fcdc0ea7e1545c5c1ddc1c67c2f878ba",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-26T06:11:52.781Z",
+      "compression": {
+        "beforeBytes": 39840,
+        "afterBytes": 39510,
+        "savedBytes": 330
+      },
+      "renderScale": 2,
+      "width": 804,
+      "height": 1788,
+      "rerenderedAt": "2026-06-26T06:08:43.754Z",
+      "clarityMode": "scale-2-lossless-webp",
+      "previousBytes": 27344
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/AiVedio/assets/23/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/project/AiVedio/assets/23/mermaid-03.webp",
+      "markdownRef": "./assets/23/mermaid-03.webp",
+      "alt": "AiVedio：生产级交付：发布门禁、灰度、回滚与项目复盘 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 39934,
+      "sha256": "b8e18a6ce29b8fe621b2a563e68d152f235b1ad5f1250ea38a37becf2158835b",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-06-26T06:11:56.777Z",
+      "compression": {
+        "beforeBytes": 40234,
+        "afterBytes": 39934,
+        "savedBytes": 300
+      },
+      "renderScale": 2,
+      "width": 1506,
+      "height": 2332,
+      "rerenderedAt": "2026-06-26T06:08:43.754Z",
+      "clarityMode": "scale-2-lossless-webp",
+      "previousBytes": 28702
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

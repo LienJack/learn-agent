@@ -1,0 +1,16 @@
+stateDiagram-v2
+    [*] --> Draft
+    Draft --> Verifying: 提交验证
+    Verifying --> Ready: 全部门禁通过
+    Verifying --> Rejected: 任一硬门禁失败
+
+    Ready --> Canary: 启动灰度
+    Canary --> Partial: 扩大流量
+    Canary --> RolledBack: 指标异常
+
+    Partial --> Full: 全量发布
+    Partial --> RolledBack: 指标异常
+
+    Full --> RolledBack: 生产异常
+    RolledBack --> Archived
+    Rejected --> Draft: 修复后重新提交
