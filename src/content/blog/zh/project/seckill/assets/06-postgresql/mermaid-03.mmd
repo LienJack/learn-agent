@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant MQ as RocketMQ
+    participant C as Order Consumer
+    participant PG as PostgreSQL
+    participant OP as Outbox Publisher
+
+    MQ->>C: OrderCreate(message_id, reservation_id)
+    C->>PG: BEGIN
+    C->>PG: INSERT consumer_inbox
+    C->>PG: INSERT/LOCK inventory_reservation
+    C->>PG: INSERT orders ON CONFLICT DO NOTHING
+    C->>PG: UPDATE sku_inventory WHERE available_stock >= 1
+    C->>PG: INSERT order_items
+    C->>PG: INSERT inventory_ledger
+    C->>PG: UPDATE reservation PENDING_DB -> ORDERED
+    C->>PG: INSERT event_outbox
+    C->>PG: COMMIT
+    PG-->>C: success
+    C-->>MQ: ACK
+    OP->>PG: claim outbox
+    OP->>MQ: publish OrderCreated
+    OP->>PG: mark SENT

@@ -3,5 +3,251 @@
 	"alias": "Seckill Order System",
 	"description": "围绕高并发秒杀订单系统，从业务不变量、容量规划、Redis 预占、RocketMQ 削峰、PostgreSQL 最终事实源、幂等补偿与可观测性展开生产级架构实战。",
 	"cover": "/blog-covers/project-seckill.svg",
-	"order": 2
+	"order": 2,
+	"topicSections": [
+		{
+			"title": "统一架构与术语",
+			"description": "把每章开头反复出现的主链路、成功语义、事实权威和术语先集中到一处。",
+			"links": [
+				{
+					"label": "全书统一架构约定",
+					"href": "/blog/project/seckill/01.业务模型、系统不变量与容量规划#全书统一架构约定",
+					"note": "第 1 章"
+				},
+				{
+					"label": "四种成功的业务边界",
+					"href": "/blog/project/seckill/01.业务模型、系统不变量与容量规划#22-四种成功必须严格区分",
+					"note": "第 1 章 / 2.2"
+				},
+				{
+					"label": "统一术语与标识定义",
+					"href": "/blog/project/seckill/01.业务模型、系统不变量与容量规划#3-统一术语与标识定义",
+					"note": "第 1 章 / 3"
+				},
+				{
+					"label": "各组件的事实权威等级",
+					"href": "/blog/project/seckill/08.分布式一致性、幂等、补偿与对账#22-各组件的事实权威等级",
+					"note": "第 8 章 / 2.2"
+				}
+			]
+		},
+		{
+			"title": "架构选型与主流程",
+			"description": "从基线方案、推荐架构、同步热路径、异步落库和故障边界看完整链路。",
+			"links": [
+				{
+					"label": "推荐架构与技术选型",
+					"href": "/blog/project/seckill/02.秒杀订单整体架构设计与技术选型#6-推荐架构与技术选型",
+					"note": "第 2 章 / 6"
+				},
+				{
+					"label": "推荐总体架构与核心流程",
+					"href": "/blog/project/seckill/02.秒杀订单整体架构设计与技术选型#7-推荐总体架构与核心流程",
+					"note": "第 2 章 / 7"
+				},
+				{
+					"label": "事务与故障边界",
+					"href": "/blog/project/seckill/02.秒杀订单整体架构设计与技术选型#75-事务与故障边界",
+					"note": "第 2 章 / 7.5"
+				},
+				{
+					"label": "一致性方案职责矩阵",
+					"href": "/blog/project/seckill/08.分布式一致性、幂等、补偿与对账#63-方案职责矩阵",
+					"note": "第 8 章 / 6.3"
+				}
+			]
+		},
+		{
+			"title": "流量治理与准入",
+			"description": "把容量规划、入口漏斗、限流算法和本地/全局准入放在同一条阅读线上。",
+			"links": [
+				{
+					"label": "容量规划里的多级流量漏斗",
+					"href": "/blog/project/seckill/01.业务模型、系统不变量与容量规划#122-多级流量漏斗",
+					"note": "第 1 章 / 12.2"
+				},
+				{
+					"label": "接入层多级流量漏斗",
+					"href": "/blog/project/seckill/03.接入层流量治理与系统保护#62-多级流量漏斗",
+					"note": "第 3 章 / 6.2"
+				},
+				{
+					"label": "限流算法原理对比",
+					"href": "/blog/project/seckill/03.接入层流量治理与系统保护#68-限流算法原理对比",
+					"note": "第 3 章 / 6.8"
+				},
+				{
+					"label": "本地限流与全局限流",
+					"href": "/blog/project/seckill/03.接入层流量治理与系统保护#69-本地限流与全局限流",
+					"note": "第 3 章 / 6.9"
+				}
+			]
+		},
+		{
+			"title": "Redis 预占与库存保护",
+			"description": "集中定位 Redis 原子预占、reservation 状态机、热点 Key 和故障策略。",
+			"links": [
+				{
+					"label": "Redis 推荐架构",
+					"href": "/blog/project/seckill/04.Redis库存预占、高并发优化与高可用#6-推荐架构",
+					"note": "第 4 章 / 6"
+				},
+				{
+					"label": "原子库存预占 Lua",
+					"href": "/blog/project/seckill/04.Redis库存预占、高并发优化与高可用#92-原子库存预占-lua",
+					"note": "第 4 章 / 9.2"
+				},
+				{
+					"label": "reservation 状态机",
+					"href": "/blog/project/seckill/04.Redis库存预占、高并发优化与高可用#84-reservation-状态机",
+					"note": "第 4 章 / 8.4"
+				},
+				{
+					"label": "为什么通常 Fail Closed",
+					"href": "/blog/project/seckill/04.Redis库存预占、高并发优化与高可用#132-为什么通常-fail-closed",
+					"note": "第 4 章 / 13.2"
+				}
+			]
+		},
+		{
+			"title": "RocketMQ 削峰与可靠消息",
+			"description": "从 Topic/Queue、消息标识、扫描补发、Inbox/Outbox 到积压治理合并阅读。",
+			"links": [
+				{
+					"label": "Topic、Queue 与 Consumer Group",
+					"href": "/blog/project/seckill/05.RocketMQ削峰、可靠消息与积压治理#7-topicqueue-与-consumer-group-设计",
+					"note": "第 5 章 / 7"
+				},
+				{
+					"label": "消息标识设计",
+					"href": "/blog/project/seckill/05.RocketMQ削峰、可靠消息与积压治理#8-消息标识设计",
+					"note": "第 5 章 / 8"
+				},
+				{
+					"label": "Reservation 扫描补发",
+					"href": "/blog/project/seckill/05.RocketMQ削峰、可靠消息与积压治理#13-reservation-扫描补发",
+					"note": "第 5 章 / 13"
+				},
+				{
+					"label": "MQ 积压治理",
+					"href": "/blog/project/seckill/05.RocketMQ削峰、可靠消息与积压治理#20-mq-积压治理",
+					"note": "第 5 章 / 20"
+				}
+			]
+		},
+		{
+			"title": "PostgreSQL 最终事实源",
+			"description": "合并订单数据模型、事务幂等、库存令牌、Inbox、Outbox 与连接池背压。",
+			"links": [
+				{
+					"label": "PostgreSQL 推荐事务模型",
+					"href": "/blog/project/seckill/06.PostgreSQL数据模型、事务、性能优化与高可用#6-推荐架构",
+					"note": "第 6 章 / 6"
+				},
+				{
+					"label": "接近完整的 DDL",
+					"href": "/blog/project/seckill/06.PostgreSQL数据模型、事务、性能优化与高可用#82-接近完整的-ddl",
+					"note": "第 6 章 / 8.2"
+				},
+				{
+					"label": "Inbox 幂等 SQL",
+					"href": "/blog/project/seckill/06.PostgreSQL数据模型、事务、性能优化与高可用#91-inbox-幂等-sql",
+					"note": "第 6 章 / 9.1"
+				},
+				{
+					"label": "创建订单本地事务",
+					"href": "/blog/project/seckill/08.分布式一致性、幂等、补偿与对账#93-创建订单本地事务",
+					"note": "第 8 章 / 9.3"
+				}
+			]
+		},
+		{
+			"title": "一致性、补偿与对账",
+			"description": "把跨 Redis、RocketMQ、PostgreSQL 的缺口、补偿决策和人工修复入口收拢。",
+			"links": [
+				{
+					"label": "一致性设计的五条决策规则",
+					"href": "/blog/project/seckill/08.分布式一致性、幂等、补偿与对账#23-一致性设计的五条决策规则",
+					"note": "第 8 章 / 2.3"
+				},
+				{
+					"label": "Redis 条件补偿 Lua",
+					"href": "/blog/project/seckill/08.分布式一致性、幂等、补偿与对账#96-redis-条件补偿-lua",
+					"note": "第 8 章 / 9.6"
+				},
+				{
+					"label": "基于水位的对账",
+					"href": "/blog/project/seckill/08.分布式一致性、幂等、补偿与对账#106-基于水位的对账",
+					"note": "第 8 章 / 10.6"
+				},
+				{
+					"label": "人工修复 Runbook",
+					"href": "/blog/project/seckill/08.分布式一致性、幂等、补偿与对账#116-人工修复-runbook",
+					"note": "第 8 章 / 11.6"
+				}
+			]
+		},
+		{
+			"title": "工程实现、故障与验证",
+			"description": "定位 Go 并发边界、高可用策略、混沌注入、验收门禁和正确性断言。",
+			"links": [
+				{
+					"label": "Worker Pool 与背压",
+					"href": "/blog/project/seckill/07.Go高并发服务工程实践#103-worker-pool-与背压",
+					"note": "第 7 章 / 10.3"
+				},
+				{
+					"label": "Fail Open 与 Fail Closed",
+					"href": "/blog/project/seckill/09.系统高可用、容灾、降级与可观测性#68-fail-open-与-fail-closed",
+					"note": "第 9 章 / 6.8"
+				},
+				{
+					"label": "组件故障决策矩阵",
+					"href": "/blog/project/seckill/09.系统高可用、容灾、降级与可观测性#111-组件故障决策矩阵",
+					"note": "第 9 章 / 11.1"
+				},
+				{
+					"label": "验收门禁",
+					"href": "/blog/project/seckill/10.压测、混沌工程、容量验证与面试表达#612-验收门禁",
+					"note": "第 10 章 / 6.12"
+				},
+				{
+					"label": "正确性断言清单",
+					"href": "/blog/project/seckill/10.压测、混沌工程、容量验证与面试表达#136-正确性断言清单",
+					"note": "第 10 章 / 13.6"
+				}
+			]
+		},
+		{
+			"title": "面试回答定位",
+			"description": "把前面章节反复出现的追问归并到最终问答入口，便于复习时直接跳转。",
+			"links": [
+				{
+					"label": "面试开场类问题",
+					"href": "/blog/project/seckill/11.秒杀订单系统面试高频问题与参考答案#一面试开场类问题",
+					"note": "第 11 章 / 一"
+				},
+				{
+					"label": "Redis 高频问题",
+					"href": "/blog/project/seckill/11.秒杀订单系统面试高频问题与参考答案#三redis-高频问题",
+					"note": "第 11 章 / 三"
+				},
+				{
+					"label": "RocketMQ 高频问题",
+					"href": "/blog/project/seckill/11.秒杀订单系统面试高频问题与参考答案#四rocketmq-高频问题",
+					"note": "第 11 章 / 四"
+				},
+				{
+					"label": "PostgreSQL 高频问题",
+					"href": "/blog/project/seckill/11.秒杀订单系统面试高频问题与参考答案#五postgresql-高频问题",
+					"note": "第 11 章 / 五"
+				},
+				{
+					"label": "连续追问 10 题",
+					"href": "/blog/project/seckill/11.秒杀订单系统面试高频问题与参考答案#十二最容易被面试官连续追问的-10-个问题",
+					"note": "第 11 章 / 十二"
+				}
+			]
+		}
+	]
 }

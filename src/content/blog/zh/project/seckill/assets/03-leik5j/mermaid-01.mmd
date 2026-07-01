@@ -1,0 +1,7 @@
+flowchart LR
+    C[客户端] --> G[API Gateway]
+    G --> S[Go 秒杀接入服务]
+    S --> R[Redis 库存预占]
+    R --> M[RocketMQ]
+    M --> O[订单消费者]
+    O --> P[PostgreSQL]

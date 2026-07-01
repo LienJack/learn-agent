@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/seckill",
+  "workspace": "src/content/blog/zh/project/seckill/assets/summary-infographics",
+  "updatedAt": "2026-06-27T04:05:00.000Z",
+  "assets": [
+    {
+      "id": "chapter-01-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-01-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-01-summary.webp",
+      "alt": "第 1 章全文重点总结图：业务模型、不变量与容量规划",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-02-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-02-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-02-summary.webp",
+      "alt": "第 2 章全文重点总结图：整体架构与技术选型",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-03-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-03-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-03-summary.webp",
+      "alt": "第 3 章全文重点总结图：接入层流量治理与系统保护",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-04-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-04-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-04-summary.webp",
+      "alt": "第 4 章全文重点总结图：Redis 原子预占、幂等与高可用",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-05-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-05-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-05-summary.webp",
+      "alt": "第 5 章全文重点总结图：RocketMQ 削峰、可靠消息与积压治理",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-06-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-06-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-06-summary.webp",
+      "alt": "第 6 章全文重点总结图：PostgreSQL 最终事实源、事务与高可用",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-07-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-07-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-07-summary.webp",
+      "alt": "第 7 章全文重点总结图：Go 有界并发、背压与优雅停机",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-08-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-08-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-08-summary.webp",
+      "alt": "第 8 章全文重点总结图：分布式一致性、幂等、补偿与对账",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-09-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-09-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-09-summary.webp",
+      "alt": "第 9 章全文重点总结图：高可用、容灾、降级与可观测性",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-10-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-10-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-10-summary.webp",
+      "alt": "第 10 章全文重点总结图：压测、混沌工程与容量验证",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    },
+    {
+      "id": "chapter-11-summary",
+      "kind": "photo",
+      "status": "generated",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/summary-infographics/chapter-11-summary.webp",
+      "markdownRef": "./assets/summary-infographics/chapter-11-summary.webp",
+      "alt": "第 11 章全文重点总结图：秒杀订单系统面试题答题地图",
+      "generator": "imagegen built-in",
+      "compressionStatus": "compressed"
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

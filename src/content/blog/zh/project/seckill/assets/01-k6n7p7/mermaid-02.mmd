@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant C as 客户端
+    participant G as Go 服务
+    participant P as PostgreSQL
+
+    C->>G: 提交秒杀请求
+    G->>P: SELECT available_stock
+    P-->>G: available_stock = 1
+    G->>P: UPDATE available_stock = 0
+    G->>P: INSERT orders
+    P-->>G: 提交成功
+    G-->>C: 下单成功

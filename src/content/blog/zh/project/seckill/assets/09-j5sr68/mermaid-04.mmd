@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant Monitor as 监控与控制面
+    participant LB as 负载均衡
+    participant AZA as AZ-A实例
+    participant AZB as AZ-B实例
+    participant AZC as AZ-C实例
+    participant State as Redis/MQ/PG HA控制器
+
+    Monitor->>Monitor: 检测AZ-A大面积失联
+    LB->>AZA: 健康检查失败
+    LB-->>AZA: 摘除流量
+    LB->>AZB: 增加流量
+    LB->>AZC: 增加流量
+
+    State->>State: 选举Redis/MQ/PG替代节点
+    State->>State: fencing旧主或旧Broker
+    Monitor->>Monitor: 检查容量与复制状态
+
+    alt 剩余容量充足且状态组件安全
+        Monitor->>AZB: 保持NORMAL或SHED_LOAD
+        Monitor->>AZC: 保持NORMAL或SHED_LOAD
+    else 容量或同步副本不足
+        Monitor->>AZB: SUBMIT_CLOSED
+        Monitor->>AZC: SUBMIT_CLOSED
+    end

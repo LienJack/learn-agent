@@ -1,0 +1,18 @@
+stateDiagram-v2
+    [*] --> RESERVED: Redis Lua 成功
+
+    RESERVED --> MQ_SENT: MQ Send 确认
+    RESERVED --> MQ_PENDING: Send 失败或结果未知
+
+    MQ_PENDING --> MQ_SENT: 使用原 message_id 补发
+
+    MQ_SENT --> ORDER_CREATED: PostgreSQL 提交成功
+    MQ_SENT --> RELEASE_PENDING: PostgreSQL 永久拒绝
+
+    RELEASE_PENDING --> RELEASED: Redis 条件补偿成功
+
+    RESERVED --> RELEASE_PENDING: 发送恢复超时
+    MQ_PENDING --> RELEASE_PENDING: 超过恢复窗口
+
+    ORDER_CREATED --> [*]
+    RELEASED --> [*]

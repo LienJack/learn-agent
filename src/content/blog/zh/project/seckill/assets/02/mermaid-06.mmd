@@ -1,0 +1,13 @@
+erDiagram
+    SECKILL_SKU ||--|| SKU_INVENTORY : owns
+    SKU_INVENTORY ||--o{ INVENTORY_TOKEN : contains
+
+    INVENTORY_TOKEN ||--o| ORDERS : allocated_to
+    ORDERS ||--|{ ORDER_ITEMS : contains
+    ORDERS ||--o{ PAYMENT_RECORD : has
+
+    INVENTORY_RESERVATION ||--o| ORDERS : creates
+    INVENTORY_RESERVATION ||--o{ INVENTORY_LEDGER : records
+
+    CONSUMER_INBOX }o--|| INVENTORY_RESERVATION : processes
+    ORDERS ||--o{ EVENT_OUTBOX : emits

@@ -1,0 +1,46 @@
+erDiagram
+    seckill_activity ||--o{ seckill_sku : contains
+    seckill_sku ||--o{ sku_inventory : splits
+    inventory_reservation ||--o| orders : creates
+    orders ||--|{ order_items : contains
+    orders ||--o{ payment_record : receives
+    orders ||--o{ inventory_ledger : explains
+    consumer_inbox }o--o| orders : result
+    orders ||--o{ event_outbox : emits
+    inventory_reservation ||--o{ compensation_task : repairs
+
+    seckill_activity {
+        bigint activity_id PK
+        smallint status
+        timestamptz start_at
+        timestamptz end_at
+    }
+
+    sku_inventory {
+        bigint activity_id PK
+        bigint sku_id PK
+        smallint bucket_no PK
+        integer available_stock
+        integer allocated_stock
+    }
+
+    orders {
+        bigint order_id PK
+        uuid request_id UK
+        uuid reservation_id UK
+        bigint activity_id
+        bigint sku_id
+        bigint user_id
+        smallint status
+    }
+
+    consumer_inbox {
+        varchar consumer_group PK
+        uuid message_id PK
+    }
+
+    event_outbox {
+        uuid event_id PK
+        varchar dedup_key UK
+        smallint status
+    }

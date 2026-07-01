@@ -1,0 +1,41 @@
+sequenceDiagram
+    participant U as 用户
+    participant G as Gateway
+    participant A as Go 接入服务
+    participant R as Redis
+    participant M as RocketMQ
+    participant C as 订单消费者
+    participant P as PostgreSQL
+
+    U->>G: POST /seckill<br/>request_id
+    G->>G: 鉴权、资格、限流、防重放
+    G->>A: 转发请求
+    A->>R: EVAL 预占 Lua
+    R->>R: 检查 request_id
+    R->>R: 检查一人一单
+    R->>R: 领取库存令牌
+    R->>R: 写 reservation
+    R-->>A: RESERVED + reservation_id
+
+    A->>M: CreateOrderMessage
+    alt 发送已确认
+        M-->>A: ACK
+        A->>R: RESERVED -> PUBLISHED
+    else 发送超时或结果未知
+        A->>R: 保持 RESERVED/标记 RECONCILING
+    end
+
+    A-->>U: QUEUED
+
+    M->>C: 投递消息
+    C->>P: 开启本地事务
+    C->>P: 插入 Inbox
+    C->>P: 领取库存令牌
+    C->>P: 创建订单
+    C->>P: 写库存流水和 Outbox
+    C->>P: COMMIT
+    C-->>M: ACK
+
+    C->>R: 更新 ORDERED，或由 Outbox 异步更新
+    U->>R: 查询最终状态
+    R-->>U: ORDER_CREATED

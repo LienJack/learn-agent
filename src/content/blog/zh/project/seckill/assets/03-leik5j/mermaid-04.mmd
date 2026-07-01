@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant C as 客户端
+    participant G as API Gateway
+    participant RL as 限流 Redis
+    participant S as Go 接入服务
+    participant IR as 库存 Redis
+
+    C->>G: token + request_id=R1
+    G->>RL: claim(nonce, R1)
+    RL-->>G: FIRST_USE
+    G->>S: 新请求
+    S->>IR: 预占
+    IR-->>S: reservation_id=RS1
+    S-->>C: QUEUED
+
+    C->>G: token + request_id=R1
+    G->>RL: claim(nonce, R1)
+    RL-->>G: SAME_REQUEST_RETRY
+    G->>S: 查询 R1 原始结果
+    S->>IR: 查询 request_id=R1
+    IR-->>S: QUEUED / RS1
+    S-->>C: 返回第一次请求结果

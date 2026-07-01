@@ -1,0 +1,14 @@
+stateDiagram-v2
+    [*] --> NORMAL
+
+    NORMAL --> SHED_LOAD: P99升高或局部容量不足
+    SHED_LOAD --> SUBMIT_CLOSED: Redis/MQ不可写或MQ缓冲预算不足
+    SUBMIT_CLOSED --> QUERY_ONLY: 写链路持续故障
+    QUERY_ONLY --> RECOVERING: 依赖恢复且完成一致性检查
+    RECOVERING --> NORMAL: 灰度流量、指标正常、守恒成立
+
+    RECOVERING --> SUBMIT_CLOSED: 错误率或偏差再次升高
+    SHED_LOAD --> NORMAL: 容量恢复
+    SUBMIT_CLOSED --> RECOVERING: 故障解除
+
+    NORMAL --> QUERY_ONLY: 多组件同时故障

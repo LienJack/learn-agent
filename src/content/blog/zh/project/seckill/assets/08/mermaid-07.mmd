@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant O as 订单消费者
+    participant P as PostgreSQL
+    participant X as Outbox Relay
+    participant M as RocketMQ
+    participant C as 补偿消费者
+    participant R as Redis
+
+    O->>P: 订单失败事务
+    Note over P: reservation=ORDER_REJECTED
+    Note over P: 插入compensation_task和Outbox
+    P-->>O: COMMIT
+
+    X->>M: RESERVATION_COMPENSATE_REQUIRED
+    M->>C: 投递补偿消息
+
+    C->>P: CAS ORDER_REJECTED→COMPENSATING
+    P-->>C: 成功
+    C->>R: Lua条件恢复库存
+    R-->>C: APPLIED或ALREADY_APPLIED
+    C->>P: COMPENSATING→COMPENSATED
+    C-->>M: ACK

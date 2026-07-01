@@ -1,0 +1,14 @@
+stateDiagram-v2
+    [*] --> PENDING_MESSAGE: Redis 预占成功
+    PENDING_MESSAGE --> MESSAGE_SENT: MQ ACK
+    PENDING_MESSAGE --> MESSAGE_SENT: 扫描补发成功
+
+    MESSAGE_SENT --> ORDER_CREATED: PostgreSQL 订单事务成功
+    MESSAGE_SENT --> RELEASE_PENDING: 最终拒绝或订单失败
+    PENDING_MESSAGE --> RELEASE_PENDING: 确认无法继续发送
+
+    RELEASE_PENDING --> RELEASED: Redis 补偿成功
+    RELEASE_PENDING --> MANUAL_REVIEW: 多次补偿失败
+
+    MESSAGE_SENT --> MANUAL_REVIEW: 长期状态未知
+    PENDING_MESSAGE --> MANUAL_REVIEW: 超过恢复窗口

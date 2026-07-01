@@ -1,0 +1,89 @@
+flowchart TB
+    C[客户端] --> GSLB[全局 DNS / GSLB]
+    GSLB --> EDGE[CDN / WAF / API Gateway]
+
+    subgraph R1[主地域 Region-1]
+        direction TB
+        EDGE --> LB[区域负载均衡]
+
+        subgraph AZA[可用区 A]
+            GA[Gateway A]
+            SA[秒杀接入服务 A]
+            QA[查询服务 A]
+            CA[订单消费者 A]
+            RMA[(Redis Master-1)]
+            RRC[(Redis Replica-3)]
+            NSA[NameServer / Controller A]
+            BRA[(Broker Replica Group A)]
+            PGA[(PostgreSQL Primary)]
+            OTA[OTel Collector A]
+        end
+
+        subgraph AZB[可用区 B]
+            GB[Gateway B]
+            SB[秒杀接入服务 B]
+            QB[查询服务 B]
+            CB[订单消费者 B]
+            RMB[(Redis Master-2)]
+            RRA[(Redis Replica-1)]
+            NSB[NameServer / Controller B]
+            BRB[(Broker Replica Group B)]
+            PGB[(PostgreSQL Sync Standby B)]
+            OTB[OTel Collector B]
+        end
+
+        subgraph AZC[可用区 C]
+            GC[Gateway C]
+            SC[秒杀接入服务 C]
+            QC[查询服务 C]
+            CC[订单消费者 C]
+            RMC[(Redis Master-3)]
+            RRB[(Redis Replica-2)]
+            NSC[NameServer / Controller C]
+            BRC[(Broker Replica Group C)]
+            PGC[(PostgreSQL Sync Candidate C)]
+            OTC[OTel Collector C]
+        end
+
+        LB --> GA
+        LB --> GB
+        LB --> GC
+        GA --> SA
+        GB --> SB
+        GC --> SC
+
+        SA --> RMA
+        SB --> RMB
+        SC --> RMC
+
+        SA --> BRA
+        SB --> BRB
+        SC --> BRC
+
+        BRA --> CA
+        BRB --> CB
+        BRC --> CC
+
+        CA --> PGA
+        CB --> PGA
+        CC --> PGA
+
+        PGA -.同步 WAL，ANY 1.-> PGB
+        PGA -.同步 WAL，ANY 1.-> PGC
+
+        SA -.Telemetry.-> OTA
+        SB -.Telemetry.-> OTB
+        SC -.Telemetry.-> OTC
+    end
+
+    subgraph R2[灾备地域 Region-2]
+        PGDR[(PostgreSQL 异步灾备)]
+        BK[(跨地域不可变备份)]
+        DRAPP[预部署或冷启动应用集群]
+    end
+
+    PGA -.异步 WAL.-> PGDR
+    PGA --> BK
+    RMA --> BK
+    RMB --> BK
+    RMC --> BK

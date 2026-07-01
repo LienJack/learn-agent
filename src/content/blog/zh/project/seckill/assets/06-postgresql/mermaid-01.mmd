@@ -1,0 +1,20 @@
+flowchart LR
+    MQ[RocketMQ 消息] --> C[Go 订单消费者]
+
+    subgraph TX[PostgreSQL 本地事务]
+        I[插入 consumer_inbox]
+        R[锁定或创建 reservation]
+        O[创建 orders]
+        S[条件扣减 sku_inventory]
+        D[写 order_items]
+        L[写 inventory_ledger]
+        U[迁移 reservation 状态]
+        B[写 event_outbox]
+        I --> R --> O --> S --> D --> L --> U --> B
+    end
+
+    C --> TX
+    TX --> COMMIT[COMMIT]
+    COMMIT --> ACK[ACK RocketMQ]
+    COMMIT --> P[Outbox 发布器]
+    P --> RMQ[RocketMQ / Redis 状态更新]

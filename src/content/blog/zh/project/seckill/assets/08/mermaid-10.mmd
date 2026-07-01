@@ -1,0 +1,23 @@
+flowchart TD
+    A[发现异常] --> B{是否早于安全水位}
+    B -- 否 --> W[等待下一轮]
+    B -- 是 --> C{PG是否存在有效订单}
+
+    C -- 是 --> D{Redis是否ORDER_CREATED}
+    D -- 否 --> E[重建Redis终态投影]
+    D -- 是 --> Z[完成]
+
+    C -- 否 --> F{PG reservation是否允许补偿}
+    F -- ORDER_REJECTED --> G[创建/唤醒补偿任务]
+    F -- COMPENSATED --> H[校验Redis补偿标记]
+    F -- RESERVED/未知 --> I{MQ是否仍有在途证据}
+
+    I -- 是 --> W
+    I -- 否 --> J{是否满足硬截止与安全窗口}
+    J -- 是 --> K[PG CAS为ORDER_REJECTED]
+    K --> G
+    J -- 否 --> M[转MANUAL_REVIEW]
+
+    E --> Z
+    G --> Z
+    H --> Z

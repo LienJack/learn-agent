@@ -1,0 +1,20 @@
+flowchart LR
+    C[客户端] --> E[CDN / WAF]
+    E --> G[API Gateway]
+    G --> A[Go 秒杀接入服务]
+    A --> R[Redis Lua 库存预占]
+    R --> M[RocketMQ]
+    M --> O[Go 订单消费者]
+    O --> P[(PostgreSQL)]
+    P --> X[Outbox 发布器]
+    X --> M2[状态/补偿事件]
+    M2 --> R2[Redis 查询状态更新]
+    C --> Q[状态查询服务]
+    Q --> R2
+    Q -.必要时回源.-> P
+
+    S[Reservation 扫描补发器] --> R
+    S --> M
+    J[对账与补偿任务] --> R
+    J --> P
+    J --> M

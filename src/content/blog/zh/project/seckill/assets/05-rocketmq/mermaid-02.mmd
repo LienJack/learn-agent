@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant A as Go 接入服务
+    participant R as Redis
+    participant M as RocketMQ
+    participant S as Reservation Scanner
+    participant C as 订单消费者
+    participant P as PostgreSQL
+
+    A->>R: Lua 预占，保存 message_id
+    R-->>A: reservation 成功
+    A->>M: Send(message_id=M1)
+    M->>M: 消息持久化
+    M--xA: 成功响应丢失/超时
+
+    A->>R: 保持 MQ_PENDING
+    A-->>A: 返回 QUEUING
+
+    S->>R: 扫描 MQ_PENDING
+    S->>M: 再次发送 message_id=M1
+    M-->>S: 成功
+
+    M->>C: 第一次或第二次投递 M1
+    C->>P: Inbox + 订单事务
+    P-->>C: Commit
+    C->>M: ACK
+
+    M->>C: 可能再次投递 M1
+    C->>P: Inbox 冲突，识别重复
+    C->>M: ACK

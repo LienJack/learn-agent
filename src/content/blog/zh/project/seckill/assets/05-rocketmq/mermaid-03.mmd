@@ -1,0 +1,9 @@
+stateDiagram-v2
+    [*] --> MQ_PENDING
+    MQ_PENDING --> MQ_SENDING: 扫描器领取租约
+    MQ_SENDING --> MQ_SENT: 收到明确成功
+    MQ_SENDING --> MQ_PENDING: 发送失败或超时
+    MQ_SENDING --> MQ_PENDING: 租约过期
+    MQ_PENDING --> SEND_FAILED: 确定性永久错误
+    MQ_PENDING --> EXPIRED: 超过业务有效期
+    MQ_SENT --> [*]

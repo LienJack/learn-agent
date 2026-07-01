@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant Pay as 支付回调
+    participant Cancel as 超时取消消费者
+    participant DB as PostgreSQL
+
+    par 并发执行
+        Pay->>DB: UPDATE status=PAID<br/>WHERE status=CREATED
+        Cancel->>DB: UPDATE status=CANCELING<br/>WHERE status=CREATED
+    end
+
+    alt 支付先取得行锁并提交
+        DB-->>Pay: affected_rows=1
+        DB-->>Cancel: affected_rows=0
+        Note over Cancel: 查询发现已 PAID，幂等结束
+    else 取消先取得行锁并提交
+        DB-->>Cancel: affected_rows=1
+        DB-->>Pay: affected_rows=0
+        Note over Pay: 记录晚到支付并触发退款
+    end

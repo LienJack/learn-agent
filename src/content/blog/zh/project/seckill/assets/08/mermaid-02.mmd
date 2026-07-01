@@ -1,0 +1,36 @@
+flowchart LR
+    C[客户端] --> G[API Gateway]
+    G --> A[Go 秒杀接入服务]
+
+    A -->|Lua预占| R[(Redis)]
+    R --> RS[reservation Hash]
+    R --> DZ[待发送ZSET]
+
+    A -->|即时发送| M[(RocketMQ)]
+    S[Reservation补发扫描器] --> DZ
+    S -->|同一message_id重发| M
+
+    M --> OC[订单消费者]
+    OC -->|本地事务| P[(PostgreSQL)]
+
+    P --> I[consumer_inbox]
+    P --> INV[sku_inventory]
+    P --> O[orders]
+    P --> IR[inventory_reservation]
+    P --> L[inventory_ledger]
+    P --> OB[event_outbox]
+
+    OR[Outbox Relay] --> OB
+    OR -->|至少一次发送| M2[(RocketMQ事件Topic)]
+
+    M2 --> RP[Redis状态投影消费者]
+    RP --> R
+
+    M2 --> CW[补偿消费者]
+    CW --> CT[compensation_task]
+    CW -->|Lua条件补偿| R
+
+    RC[对账服务] --> R
+    RC --> P
+    RC --> M
+    RC --> RT[repair_task / 人工工单]

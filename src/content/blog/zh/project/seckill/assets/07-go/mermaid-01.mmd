@@ -1,0 +1,56 @@
+flowchart LR
+    Client[客户端] --> Gateway[API Gateway]
+
+    subgraph API["seckill-api"]
+        Handler[HTTP Handler<br/>参数校验/请求超时]
+        Admission[Semaphore<br/>本地准入]
+        Service[Submit Service]
+        RedisRepo[Redis Repository<br/>Lua 封装]
+        Publisher[RocketMQ Producer<br/>进程级复用]
+    end
+
+    Gateway --> Handler
+    Handler --> Admission
+    Admission --> Service
+    Service --> RedisRepo
+    Service --> Publisher
+
+    RedisRepo --> RedisPool[go-redis 连接池]
+    RedisPool --> Redis[(Redis Cluster)]
+    Publisher --> MQ[(RocketMQ)]
+
+    subgraph Worker["order-worker"]
+        Puller[SimpleConsumer Puller]
+        Slots[Inflight Semaphore]
+        Queue[有界 jobs Channel]
+        Workers[固定 Worker Pool]
+        Processor[Order Processor]
+        PGRepo[pgx Repository]
+    end
+
+    MQ --> Puller
+    Puller --> Slots
+    Slots --> Queue
+    Queue --> Workers
+    Workers --> Processor
+    Processor --> PGRepo
+    PGRepo --> PGPool[pgxpool]
+    PGPool --> PG[(PostgreSQL Primary)]
+    Workers -->|提交成功后 ACK| MQ
+
+    subgraph Query["query-api"]
+        QueryHandler[Query Handler]
+        QueryLimiter[独立 Semaphore]
+        ResultRepo[Result Repository]
+    end
+
+    Client --> QueryHandler
+    QueryHandler --> QueryLimiter
+    QueryLimiter --> ResultRepo
+    ResultRepo --> Redis
+    ResultRepo -.最终状态回源.-> PG
+
+    Metrics[Metrics / Logs / Trace] --- API
+    Metrics --- Worker
+    Admin[独立管理端口<br/>pprof/health/readiness] --- API
+    Admin --- Worker
