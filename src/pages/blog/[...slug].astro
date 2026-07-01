@@ -6,6 +6,7 @@ import {
 	getBlogGroupPageData,
 	getBlogSeriesPageData,
 	getStructuredBlogStaticPaths,
+	type BlogSeriesTopicSection,
 } from '../../components/blog/blog-index';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { DEFAULT_LOCALE } from '../../i18n/config';
@@ -65,6 +66,7 @@ let backHref = '/blog';
 let seo = undefined;
 let group = null;
 let series = null;
+let topicSections: BlogSeriesTopicSection[] = [];
 
 if (props.kind === 'post') {
 	template = 'post';
@@ -72,6 +74,10 @@ if (props.kind === 'post') {
 	const postSegments = getPostFilePathSegments(renderedPost);
 	const groupSlug = postSegments[1];
 	const seriesSlug = postSegments[2];
+	if (groupSlug && seriesSlug) {
+		const postSeries = await getBlogSeriesPageData(allPosts, locale, groupSlug, seriesSlug);
+		topicSections = postSeries?.topicSections ?? [];
+	}
 	backHref =
 		groupSlug && seriesSlug
 			? `/blog/${groupSlug}/${seriesSlug}`
@@ -114,6 +120,7 @@ if (props.kind === 'post') {
 			nextPost={nextPost}
 			headings={headings}
 			backHref={backHref}
+			topicSections={topicSections}
 			seo={seo}
 		>
 			<Content />

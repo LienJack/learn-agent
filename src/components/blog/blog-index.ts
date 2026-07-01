@@ -18,6 +18,18 @@ import type { Locale } from '../../i18n/config';
 
 export type BlogCover = ImageMetadata | string;
 
+export type BlogSeriesTopicLink = {
+	label: string;
+	href: string;
+	note?: string;
+};
+
+export type BlogSeriesTopicSection = {
+	title: string;
+	description?: string;
+	links: BlogSeriesTopicLink[];
+};
+
 type DirectoryMeta = {
 	title?: string;
 	alias?: string;
@@ -25,6 +37,7 @@ type DirectoryMeta = {
 	cover?: string;
 	order?: number;
 	hidden?: boolean;
+	topicSections?: BlogSeriesTopicSection[];
 };
 
 export type BlogSeriesCard = {
@@ -37,6 +50,7 @@ export type BlogSeriesCard = {
 	postCount: number;
 	featuredPost?: BlogEntry;
 	order: number;
+	topicSections: BlogSeriesTopicSection[];
 };
 
 export type BlogGroupCard = {
@@ -236,6 +250,7 @@ async function discoverBlogGroupCards(
 						postCount: seriesPosts.length,
 						featuredPost: guidePost,
 						order: seriesMeta.order ?? getDefaultOrder(seriesSlug),
+						topicSections: seriesMeta.topicSections ?? [],
 					};
 				}),
 			);

@@ -9,6 +9,7 @@ import { getHtmlLang, getMessages } from '../i18n/messages';
 import { getPostSlug } from '../content/blog/utils';
 import { localizePath } from '../i18n/utils';
 import type { AlternateLink, JsonLdObject } from '../seo/metadata';
+import type { BlogSeriesTopicSection } from '../components/blog/blog-index';
 
 type HeadingLink = {
 	depth: number;
@@ -31,6 +32,7 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	nextPost?: CollectionEntry<'blog'> | null;
 	headings?: HeadingLink[];
 	backHref?: string;
+	topicSections?: BlogSeriesTopicSection[];
 	seo?: {
 		canonicalPath: string;
 		alternates: AlternateLink[];
@@ -49,9 +51,27 @@ const {
 	nextPost = null,
 	headings = [],
 	backHref = '/blog',
+	topicSections = [],
 	seo,
 } = Astro.props;
 const messages = getMessages(locale);
+const topicIndexCopy = {
+	zh: {
+		label: '主题索引',
+		title: '重复内容合并导航',
+		summary: '本系列跨章节反复出现的概念已收束到下面的主题入口，点击可直接跳到对应章节的小节。',
+	},
+	en: {
+		label: 'Topic index',
+		title: 'Merged repeated concepts',
+		summary: 'Repeated ideas in this series are grouped below and linked to the exact section.',
+	},
+	ja: {
+		label: 'トピック索引',
+		title: '重複内容の統合ナビ',
+		summary: 'このシリーズで繰り返される概念をまとめ、該当セクションへ直接移動できます。',
+	},
+} satisfies Record<Locale, { label: string; title: string; summary: string }>;
 const mediaViewer = {
 	openLabel:
 		locale === 'zh' ? '查看大图' : locale === 'ja' ? '画像を拡大' : 'Open full image',
@@ -82,6 +102,8 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 
 	return sections;
 }, []);
+const resolveTopicHref = (href: string) =>
+	href.startsWith('/blog/') ? localizePath(locale, href) : href;
 ---
 
 <html lang={getHtmlLang(locale)}>
@@ -156,6 +178,43 @@ const tocSections = headings.reduce<TocSection[]>((sections, heading) => {
 							<h1>{title}</h1>
 							{description && <p class="article-description">{description}</p>}
 						</header>
+						{
+							topicSections.length > 0 && (
+								<section class="article-topic-index" aria-labelledby="article-topic-index-title">
+									<div class="article-topic-index-heading">
+										<p class="article-topic-index-label">{topicIndexCopy[locale].label}</p>
+										<div class="article-topic-index-copy">
+											<h2 id="article-topic-index-title">{topicIndexCopy[locale].title}</h2>
+											<p>{topicIndexCopy[locale].summary}</p>
+										</div>
+									</div>
+									<div class="article-topic-grid">
+										{
+											topicSections.map((topic) => (
+												<article class="article-topic-card">
+													<div class="article-topic-card-copy">
+														<h3>{topic.title}</h3>
+														{topic.description && <p>{topic.description}</p>}
+													</div>
+													<ul class="article-topic-link-list">
+														{
+															topic.links.map((link) => (
+																<li>
+																	<a class="article-topic-link" href={resolveTopicHref(link.href)}>
+																		<span class="article-topic-link-label">{link.label}</span>
+																		{link.note && <span class="article-topic-link-note">{link.note}</span>}
+																	</a>
+																</li>
+															))
+														}
+													</ul>
+												</article>
+											))
+										}
+									</div>
+								</section>
+							)
+						}
 						<slot />
 						{
 							(prevPost || nextPost) && (
