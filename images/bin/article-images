@@ -132,7 +132,7 @@ function buildArticlePlan(article, workspace, options) {
 		warnings.push(...coverPlan.warnings);
 	}
 	if (options.stage === 'all' || options.stage === 'mermaid') {
-		assets.push(...planMermaidAssets(article, workspace));
+		assets.push(...planMermaidAssets(article, workspace, options));
 	}
 	if (options.stage === 'all' || options.stage === 'svg-mermaid') {
 		const svgPlan = planSvgMermaidAssets(article, workspace, options);
@@ -206,7 +206,7 @@ async function executePlans(articles, workspaces, articlePlans, options) {
 function rebuildAssets(article, workspace, assets, options = {}) {
 	const planned = [
 		...planCoverPrompt(article, workspace).items,
-		...planMermaidAssets(article, workspace),
+		...planMermaidAssets(article, workspace, options),
 		...planSvgMermaidAssets(article, workspace, options).items,
 		...planPhotoPrompts(article, workspace).items,
 	];
@@ -272,6 +272,8 @@ function usage() {
 Behavior:
   - Dry-run writes a batch plan under images/artifacts/ and a run record under images/runs/.
   - Real runs create article-local assets/<article-slug>/ workspaces, .mmd files, prompt requests and manifests.
+  - Mermaid output defaults to PNG; pass --output-format webp to write WebP diagram assets.
+  - Mermaid render scale defaults to 2 for clearer text; pass --mermaid-scale <number> to override.
   - Mermaid SVG refs can be regenerated from the matching Obsidian source via --stage svg-mermaid.
   - Generated/imported images are compressed by default; pass --no-compress to skip.
   - Built-in imagegen remains a skill-layer action; this CLI imports selected generated files into the workspace.`);

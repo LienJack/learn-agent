@@ -48,6 +48,7 @@ export function parseArgs(argv) {
 		json: false,
 		obsidianRoot: process.env.ARTICLE_IMAGES_OBSIDIAN_ROOT || '/Users/lienli/Library/Mobile Documents/iCloud~md~obsidian/Documents/tech/techBlog/blog',
 		noCompress: false,
+		mermaidScale: process.env.MERMAID_RENDER_SCALE || '2',
 	};
 	const files = [];
 
@@ -110,6 +111,11 @@ export function parseArgs(argv) {
 			index += 1;
 		} else if (arg.startsWith('--output-format=')) {
 			options.outputFormat = arg.slice('--output-format='.length);
+		} else if (arg === '--mermaid-scale') {
+			options.mermaidScale = requireOptionValue(argv, index, arg);
+			index += 1;
+		} else if (arg.startsWith('--mermaid-scale=')) {
+			options.mermaidScale = arg.slice('--mermaid-scale='.length);
 		} else if (arg === '--background') {
 			options.background = requireOptionValue(argv, index, arg);
 			index += 1;

@@ -4,7 +4,7 @@ import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { repoRoot } from '../../images/lib/common.mjs';
 import { readArticle } from '../../images/lib/articles.mjs';
-import { extractMermaidBlocks, planMermaidAssets, planSvgMermaidAssets, writeMermaidSources } from '../../images/lib/mermaid.mjs';
+import { extractMermaidBlocks, mermaidRenderScale, planMermaidAssets, planSvgMermaidAssets, writeMermaidSources } from '../../images/lib/mermaid.mjs';
 import { replaceMermaidBlocks } from '../../images/lib/markdown-updates.mjs';
 import { planArticleWorkspaces } from '../../images/lib/workspace.mjs';
 
@@ -45,6 +45,26 @@ test('plans Mermaid .mmd and PNG targets in article workspace', () => {
 	assert.equal(assets.length, 2);
 	assert.equal(assets[0].sourcePath.endsWith('assets/mermaid-article/mermaid-01.mmd'), true);
 	assert.equal(assets[0].targetPath.endsWith('assets/mermaid-article/mermaid-01.png'), true);
+	assert.equal(assets[0].renderScale, 2);
+});
+
+test('plans Mermaid WebP targets when requested', () => {
+	const article = readArticle(writeMermaidArticle());
+	const [workspace] = planArticleWorkspaces([article]);
+	const assets = planMermaidAssets(article, workspace, { outputFormat: 'webp' });
+
+	assert.equal(assets.length, 2);
+	assert.equal(assets[0].targetPath.endsWith('assets/mermaid-article/mermaid-01.webp'), true);
+	assert.match(assets[0].markdownRef, /mermaid-01\.webp$/);
+});
+
+test('plans Mermaid assets with an explicit render scale', () => {
+	const article = readArticle(writeMermaidArticle());
+	const [workspace] = planArticleWorkspaces([article]);
+	const assets = planMermaidAssets(article, workspace, { mermaidScale: '3' });
+
+	assert.equal(assets[0].renderScale, 3);
+	assert.equal(mermaidRenderScale({ mermaidScale: '2.5' }), 2.5);
 });
 
 test('writes Mermaid sources and replaces blocks idempotently', () => {
@@ -96,6 +116,27 @@ sequenceDiagram
 	assert.equal(plan.items[0].kind, 'svg-mermaid');
 	assert.equal(plan.items[0].source, 'sequenceDiagram\n  User->>LLM: prompt');
 	assert.match(plan.items[0].targetPath, /01-llm-.*mermaid-02\.png$/i);
+});
+
+test('plans WebP replacements for SVG refs from matching Obsidian source', () => {
+	const obsidianRoot = path.join(fixtureDir, 'obsidian');
+	mkdirSync(obsidianRoot, { recursive: true });
+	writeFileSync(path.join(obsidianRoot, '1 LLM的原理.md'), `# LLM 的原理
+
+\`\`\`mermaid
+flowchart TB
+  Token --> Model
+\`\`\`
+`);
+	const articlePath = path.join(fixtureDir, '01.LLM的原理.md');
+	writeFileSync(articlePath, `---\ntitle: LLM 的原理\ndescription: Desc\n---\n\n![LLM 图 1](./assets/01.LLM的原理-mermaid-01.svg)\n`);
+	const article = readArticle(articlePath);
+	const [workspace] = planArticleWorkspaces([article]);
+	const plan = planSvgMermaidAssets(article, workspace, { obsidianRoot, outputFormat: 'webp' });
+
+	assert.equal(plan.blockers.length, 0);
+	assert.equal(plan.items.length, 1);
+	assert.match(plan.items[0].targetPath, /01-llm-.*mermaid-01\.webp$/i);
 });
 
 function writeMermaidArticle() {

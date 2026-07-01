@@ -5,8 +5,8 @@
 1. 接收一篇或多篇文章路径。
 2. 运行 `images/bin/article-images --dry-run` 生成批量计划。
 3. 为每篇文章规划 `assets/<article-slug>/` 工作区。
-4. Mermaid 阶段提取 `.mmd`、规划 PNG、替换正文引用。
-5. SVG Mermaid 阶段识别正文里的 `*.svg` Mermaid 引用，到 Obsidian 原文目录找回对应 Mermaid block，保存 `.mmd`，用 Mermaid CLI 生成 PNG，再替换正文引用。
+4. Mermaid 阶段提取 `.mmd`、规划 PNG 或 WebP、替换正文引用。
+5. SVG Mermaid 阶段识别正文里的 `*.svg` Mermaid 引用，到 Obsidian 原文目录找回对应 Mermaid block，保存 `.mmd`，生成 PNG 或 WebP，再替换正文引用。
 6. Photos 阶段选择章节、生成 prompt request、等待 `blog-to-photo` 和 `imagegen`；真实图片生成必须一张一张运行。
 7. 将选定的生成图片通过 `--import` 导入工作区。
 8. 所有最终 PNG/JPG/WebP 通过 ImageMagick 压缩，只有压缩后更小时才覆盖原图。

@@ -28,7 +28,7 @@ export async function compressAsset(asset, { force = false } = {}) {
 	const ext = path.extname(targetPath).toLowerCase();
 	const tempPath = `${targetPath}.compressed${ext}`;
 	const command = imageMagickCommand();
-	const args = compressionArgs({ ext, input: targetPath, output: tempPath });
+	const args = compressionArgs({ ext, input: targetPath, output: tempPath, asset });
 	if (!args) return { ...asset, compressionStatus: 'skipped' };
 	try {
 		execFileSync(command, args, { stdio: ['ignore', 'pipe', 'pipe'] });
@@ -69,7 +69,7 @@ function imageMagickCommand() {
 	return process.env.IMAGEMAGICK_BIN || 'magick';
 }
 
-function compressionArgs({ ext, input, output }) {
+function compressionArgs({ ext, input, output, asset }) {
 	if (ext === '.png') {
 		return [
 			input,
@@ -98,6 +98,17 @@ function compressionArgs({ ext, input, output }) {
 		];
 	}
 	if (ext === '.webp') {
+		if (asset?.kind === 'mermaid' || asset?.kind === 'svg-mermaid') {
+			return [
+				input,
+				'-strip',
+				'-define',
+				'webp:lossless=true',
+				'-define',
+				'webp:method=6',
+				output,
+			];
+		}
 		return [input, '-strip', '-quality', '84', output];
 	}
 	return null;

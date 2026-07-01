@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from 'node:fs';
+import path from 'node:path';
 import { loadDotEnv, parseArgs, printSummary, requireExistingFiles, resolveRepoPath } from '../lib/common.mjs';
 import { findMarkdownImageRefs, isLocalRef, readArticle, resolveLocalRef } from '../lib/articles.mjs';
 import { planArticleWorkspaces } from '../lib/workspace.mjs';
@@ -13,7 +14,9 @@ try {
 		process.exit(0);
 	}
 	const articlePaths = requireExistingFiles(files);
-	const reports = articlePaths.map((sourcePath) => inspectArticle(readArticle(sourcePath)));
+	const articles = articlePaths.map((sourcePath) => readArticle(sourcePath));
+	const workspaces = planArticleWorkspaces(articles);
+	const reports = articles.map((article, index) => inspectArticle(article, workspaces[index]));
 	if (options.json) {
 		console.log(JSON.stringify(reports, null, 2));
 	} else {
@@ -30,25 +33,25 @@ try {
 	process.exit(1);
 }
 
-export function inspectArticle(article) {
-	const [workspace] = planArticleWorkspaces([article]);
+export function inspectArticle(article, workspace = planArticleWorkspaces([article])[0]) {
 	const blockers = [];
 	const warnings = [];
 	const refs = findMarkdownImageRefs(article.raw);
-	for (const ref of refs) {
-		if (!isLocalRef(ref.url)) continue;
+	const localRefs = refs.filter((ref) => isLocalRef(ref.url));
+	for (const ref of localRefs) {
 		const localPath = resolveLocalRef(article, ref.url);
 		if (!existsSync(localPath)) blockers.push(`${article.sourceRelPath}: image not found: ${ref.url}`);
 	}
-	if (existsSync(workspace.manifestPath)) {
-		const manifest = JSON.parse(readText(workspace.manifestPath));
+	const manifestPath = resolveManifestPath(article, workspace, localRefs);
+	if (manifestPath) {
+		const manifest = JSON.parse(readText(manifestPath));
 		for (const asset of manifest.assets || []) {
 			if (asset.kind === 'mermaid' || asset.kind === 'svg-mermaid') {
 				if (!asset.sourcePath || !existsSync(resolveRepoPath(asset.sourcePath))) {
 					blockers.push(`${article.sourceRelPath}: ${asset.id} missing Mermaid .mmd source.`);
 				}
 				if (!asset.targetPath || !existsSync(resolveRepoPath(asset.targetPath))) {
-					blockers.push(`${article.sourceRelPath}: ${asset.id} missing Mermaid PNG.`);
+					blockers.push(`${article.sourceRelPath}: ${asset.id} missing Mermaid image.`);
 				}
 			}
 			if (asset.kind === 'photo') {
@@ -71,7 +74,7 @@ export function inspectArticle(article) {
 				}
 			}
 		}
-	} else {
+	} else if (localRefs.length) {
 		warnings.push(`${article.sourceRelPath}: image workspace manifest not found at ${workspace.manifestRelPath}.`);
 	}
 	return {
@@ -81,6 +84,15 @@ export function inspectArticle(article) {
 		blockers,
 		warnings,
 	};
+}
+
+function resolveManifestPath(article, workspace, localRefs) {
+	if (existsSync(workspace.manifestPath)) return workspace.manifestPath;
+	for (const ref of localRefs) {
+		const manifestPath = path.join(path.dirname(resolveLocalRef(article, ref.url)), 'manifest.json');
+		if (existsSync(manifestPath)) return manifestPath;
+	}
+	return '';
 }
 
 function readText(filePath) {
