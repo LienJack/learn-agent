@@ -1,0 +1,35 @@
+sequenceDiagram
+    participant C as 客户端
+    participant A as Go 接入服务
+    participant R as Redis
+    participant M as RocketMQ
+    participant S as 补发扫描器
+
+    C->>A: 请求(request_id)
+    A->>A: 计算 bucket、reservation_id、message_id
+    A->>R: EVAL reserve.lua
+
+    alt request_id 已存在
+        R-->>A: 返回第一次业务结果
+        A-->>C: 原结果
+    else 用户已有 reservation
+        R-->>A: USER_ALREADY_RESERVED
+        A-->>C: 已参与/返回原 reservation_id
+    else 库存不足
+        R-->>A: SOLD_OUT
+        A-->>C: 已售罄
+    else 预占成功
+        R-->>A: ACCEPTED + reservation_id
+        A->>M: 同步发送固定 message_id
+
+        alt Broker 明确确认
+            M-->>A: ACK
+            A->>R: RESERVED → ENQUEUED
+        else 发送超时或结果未知
+            A->>R: RESERVED → SEND_UNKNOWN
+            S->>R: 读取 send_pending
+            S->>M: 使用同一 message_id 补发
+        end
+
+        A-->>C: QUEUED
+    end

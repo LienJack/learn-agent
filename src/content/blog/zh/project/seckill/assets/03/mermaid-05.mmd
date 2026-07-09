@@ -1,0 +1,10 @@
+stateDiagram-v2
+    [*] --> NORMAL
+
+    NORMAL --> DEGRADED: 延迟或错误率持续升高
+    DEGRADED --> QUEUE_ONLY: Redis/MQ/Go 接近安全上限
+    QUEUE_ONLY --> CLOSED: 关键依赖不可用或数据风险不可接受
+
+    DEGRADED --> NORMAL: 连续多个健康周期
+    QUEUE_ONLY --> DEGRADED: 依赖恢复并完成预热
+    CLOSED --> QUEUE_ONLY: 关键依赖恢复

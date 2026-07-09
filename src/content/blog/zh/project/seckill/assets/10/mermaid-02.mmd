@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant TC as 测试控制器
+    participant DS as 数据准备器
+    participant LG as 负载发生器
+    participant GW as API Gateway
+    participant APP as Go 接入服务
+    participant R as Redis
+    participant MQ as RocketMQ
+    participant C as 订单消费者
+    participant PG as PostgreSQL
+    participant VA as 正确性验证器
+
+    TC->>DS: 创建 run_id、activity_id、SKU 和初始库存
+    DS->>PG: 写入活动和库存
+    DS->>R: 预热活动和库存
+    TC->>LG: 下发流量模型
+    LG->>GW: 开环发送秒杀请求
+    GW->>APP: 通过限流和鉴权
+    APP->>R: 执行预占 Lua
+    R-->>APP: reservation_id / SOLD_OUT / DUPLICATE
+    APP->>MQ: 发送订单创建消息
+    APP-->>LG: QUEUED
+    MQ->>C: 投递消息
+    C->>PG: Inbox + 扣库存 + 订单 + 流水 + Outbox
+    PG-->>C: 提交成功
+    C->>R: 更新 reservation 查询状态
+    TC->>VA: 进入收敛检查
+    VA->>PG: 执行业务不变量 SQL
+    VA->>R: 检查 reservation 终态
+    VA-->>TC: PASS / FAIL

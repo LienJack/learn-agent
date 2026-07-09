@@ -1,0 +1,26 @@
+flowchart TD
+    U[客户端<br/>100 万用户<br/>峰值 30 万 QPS]
+
+    U --> CDN[CDN<br/>静态页面、JS、图片、排队页]
+    CDN --> WAF[WAF / DDoS / 机器人治理<br/>协议、行为、挑战、风险评分]
+
+    WAF --> Q{是否持有有效资格票}
+    Q -- 否 --> WAIT[边缘排队页或资格挑战]
+    Q -- 是 --> GW[API Gateway]
+
+    GW --> L1[网关本地限流<br/>连接、IP、路由、实例]
+    L1 --> TOKEN[资格票验签与防重放]
+    TOKEN --> L2[全局准入预算<br/>用户、设备、活动、SKU]
+
+    L2 --> S[Go 秒杀接入服务]
+    S --> L3[本地用户限流<br/>有界在途并发]
+    L3 --> SO{本地售罄标记}
+    SO -- 已售罄 --> REJECT[快速返回售罄]
+    SO -- 未售罄 --> RR[库存 Redis Lua<br/>幂等、用户防重、库存预占]
+
+    RR -- 预占失败 --> FAIL[明确业务失败]
+    RR -- 预占成功 --> MQ[RocketMQ<br/>异步创建订单]
+
+    CTRL[准入控制面<br/>Redis/MQ/PG/Go 健康指标] -.动态调整.-> Q
+    CTRL -.动态调整.-> L1
+    CTRL -.动态调整.-> L2

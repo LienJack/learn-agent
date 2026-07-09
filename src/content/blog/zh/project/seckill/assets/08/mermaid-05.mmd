@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant M as RocketMQ
+    participant C1 as 消费者1
+    participant C2 as 消费者2
+    participant P as PostgreSQL
+
+    M->>C1: message_id=M1
+    M->>C2: message_id=M1
+
+    C1->>P: INSERT inbox(M1)
+    C2->>P: INSERT inbox(M1)
+
+    Note over P: 唯一键使两个事务串行判定
+
+    P-->>C1: 插入成功
+    C1->>P: 创建订单并提交
+    P-->>C2: ON CONFLICT，未插入
+
+    C1-->>M: ACK
+    C2-->>M: ACK，返回既有结果

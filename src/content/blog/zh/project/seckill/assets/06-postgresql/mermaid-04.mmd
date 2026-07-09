@@ -1,0 +1,33 @@
+flowchart TB
+    APP1[Go 服务 AZ-A]
+    APP2[Go 服务 AZ-B]
+    APP3[Go 服务 AZ-C]
+
+    POOL[连接代理 / 主库路由]
+
+    subgraph PG[PostgreSQL 集群]
+        P[(Primary AZ-A)]
+        S1[(Synchronous Standby AZ-B)]
+        S2[(Candidate Standby AZ-C)]
+    end
+
+    DCS[HA 控制器 / 仲裁 / Fencing]
+    WAL[(WAL Archive<br/>对象存储)]
+    BAK[(Base Backup)]
+    RO[历史和报表只读查询]
+
+    APP1 --> POOL
+    APP2 --> POOL
+    APP3 --> POOL
+    POOL --> P
+
+    P -->|Streaming WAL| S1
+    P -->|Streaming WAL| S2
+
+    DCS --> P
+    DCS --> S1
+    DCS --> S2
+
+    P --> WAL
+    BAK --> WAL
+    S2 --> RO

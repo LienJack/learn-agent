@@ -1,0 +1,28 @@
+flowchart LR
+    C[客户端] --> G[API Gateway]
+    G --> A[Go 秒杀接入服务]
+
+    A -->|Lua 原子预占| R[(Redis)]
+    A -->|同步有界发送| MQ[(RocketMQ)]
+
+    R --> RS[Reservation 补发扫描器]
+    RS -->|相同 message_id 补发| MQ
+
+    MQ --> OC[订单消费者]
+    OC -->|本地事务| PG[(PostgreSQL)]
+
+    PG --> IB[consumer_inbox]
+    PG --> ORD[orders / inventory]
+    PG --> OB[event_outbox]
+
+    OC -->|事务提交后 ACK| MQ
+    OC -->|最佳努力更新| R
+
+    OB --> OP[Outbox Publisher]
+    OP --> DMQ[延迟取消 Topic]
+    DMQ --> CC[超时取消消费者]
+    CC --> PG
+
+    MQ --> DLQ[Dead Letter Queue]
+    DLQ --> DP[DLQ 处置与回放平台]
+    DP --> MQ

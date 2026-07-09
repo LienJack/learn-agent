@@ -1,0 +1,26 @@
+flowchart LR
+    C[客户端] --> CDN[CDN / WAF]
+    CDN --> GW[API Gateway]
+
+    GW -->|鉴权、资格校验、限流| API[Go 秒杀接入服务]
+
+    API -->|Lua 原子预占| R[(Redis Cluster)]
+    API -->|短超时同步发送| MQ[(RocketMQ)]
+    API -->|HTTP 202 排队中| C
+
+    SCAN[Reservation 恢复扫描器] -->|扫描 PENDING_MESSAGE| R
+    SCAN -->|使用相同 message_id 补发| MQ
+
+    MQ --> CONSUMER[Go 订单消费者]
+    CONSUMER -->|PostgreSQL 本地事务| PG[(PostgreSQL Primary)]
+
+    PG --> OUTBOX[Outbox 发布器]
+    OUTBOX -->|订单结果/补偿事件| MQ
+    OUTBOX -->|更新短期查询状态| R
+
+    C --> QUERY[订单状态查询服务]
+    QUERY -->|优先查询| R
+    QUERY -->|缓存未命中或最终确认| PG
+
+    MQ --> DLQ[DLQ]
+    DLQ --> REPAIR[自动修复 / 人工 Runbook]

@@ -1,0 +1,24 @@
+sequenceDiagram
+    participant M as RocketMQ
+    participant C as 超时取消消费者
+    participant P as PostgreSQL
+    participant Pay as 支付消费者
+
+    M->>C: CANCEL_ORDER_IF_UNPAID
+    C->>P: BEGIN
+    C->>P: INSERT Inbox
+    C->>P: 条件 UPDATE orders
+
+    alt 订单仍为 CREATED/PAYING 且已过期
+        P-->>C: affected rows=1
+        C->>P: 写取消流水与库存释放 Outbox
+        C->>P: COMMIT
+        C->>M: ACK
+    else 订单已经 PAID
+        P-->>C: affected rows=0
+        C->>P: 记录幂等无操作
+        C->>P: COMMIT
+        C->>M: ACK
+    end
+
+    Pay->>P: 支付状态也通过条件 UPDATE 竞争

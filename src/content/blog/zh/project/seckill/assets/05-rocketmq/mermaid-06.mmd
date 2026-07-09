@@ -1,0 +1,23 @@
+flowchart TD
+    A[收到消息] --> B{消息是否合法}
+    B -- 否 --> Q[写隔离记录与告警]
+    Q --> ACK1[ACK]
+
+    B -- 是 --> C[执行 PostgreSQL 事务]
+    C --> D{处理结果}
+
+    D -- 成功 --> ACK2[Commit 后 ACK]
+    D -- 幂等成功 --> ACK3[ACK]
+    D -- 业务终态拒绝 --> E[写拒绝状态与补偿任务]
+    E --> ACK4[Commit 后 ACK]
+
+    D -- 暂时性错误 --> NACK[不 ACK]
+    NACK --> R{达到最大重试次数?}
+    R -- 否 --> W[等待重试间隔]
+    W --> A
+    R -- 是 --> DLQ[进入 DLQ]
+
+    DLQ --> ALERT[告警与工单]
+    ALERT --> FIX[修复代码/数据/依赖]
+    FIX --> REPLAY[保留原 message_id 回放]
+    REPLAY --> A

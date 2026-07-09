@@ -1,0 +1,54 @@
+flowchart LR
+    TC[测试控制器<br/>Test Controller]
+    DS[数据准备器<br/>Data Seeder]
+    LG1[负载发生器 AZ-A]
+    LG2[负载发生器 AZ-B]
+    LG3[负载发生器 AZ-C]
+    FI[故障注入器<br/>Fault Injector]
+    GW[API Gateway]
+    APP[Go 秒杀接入服务]
+    R[(Redis Cluster)]
+    MQ[(RocketMQ)]
+    CON[Go 订单消费者]
+    PG[(PostgreSQL Primary)]
+    OBS[Metrics / Logs / Trace]
+    VA[正确性验证器<br/>Invariant Validator]
+    RS[(测试结果库)]
+
+    TC --> DS
+    TC --> LG1
+    TC --> LG2
+    TC --> LG3
+    TC --> FI
+
+    LG1 --> GW
+    LG2 --> GW
+    LG3 --> GW
+
+    GW --> APP
+    APP --> R
+    APP --> MQ
+    MQ --> CON
+    CON --> PG
+    CON --> R
+
+    FI -.故障注入.-> APP
+    FI -.故障注入.-> R
+    FI -.故障注入.-> MQ
+    FI -.故障注入.-> PG
+
+    GW --> OBS
+    APP --> OBS
+    R --> OBS
+    MQ --> OBS
+    CON --> OBS
+    PG --> OBS
+    LG1 --> OBS
+    LG2 --> OBS
+    LG3 --> OBS
+
+    VA --> R
+    VA --> PG
+    VA --> OBS
+    VA --> RS
+    TC --> RS

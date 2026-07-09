@@ -1,0 +1,22 @@
+stateDiagram-v2
+    [*] --> RESERVED: Redis Lua 预占成功
+
+    RESERVED --> PUBLISHED: MQ 发送已确认
+    RESERVED --> RECONCILING: 发送超时/进程宕机/扫描发现超龄
+
+    PUBLISHED --> PROCESSING: 消费开始
+    PROCESSING --> ORDERED: PostgreSQL 事务提交
+
+    PUBLISHED --> RECONCILING: 消息长期无结果
+    PROCESSING --> RECONCILING: 数据库提交结果未知
+
+    RECONCILING --> PUBLISHED: 确认消息存在或补发成功
+    RECONCILING --> ORDERED: 查到有效订单
+    RECONCILING --> RELEASE_PENDING: 确认无订单且不会再创建
+
+    RESERVED --> RELEASE_PENDING: 明确发送失败且安全释放
+    PROCESSING --> RELEASE_PENDING: PostgreSQL 确定性业务失败
+
+    RELEASE_PENDING --> RELEASED: 补偿 CAS 成功
+
+    RECONCILING --> MANUAL_REVIEW: 超出自动修复预算

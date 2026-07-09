@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant A as Go 接入服务
+    participant M as Redis Master
+    participant R as Redis Replica
+    participant C as Redis Cluster
+    participant P as PostgreSQL/对账器
+
+    A->>M: EVAL 预占
+    M-->>A: ACCEPTED
+    Note over M,R: 写入尚未复制
+    M-xM: 主节点宕机
+    C->>R: 提升为新 Master
+    A->>R: 使用相同 request_id 查询
+    R-->>A: reservation 不存在
+    Note over A,R: Redis 已确认写入丢失
+    A->>R: 可能再次预占
+    P->>P: 唯一约束和最终库存校验
+    P-->>A: 拒绝重复或进行对账修复

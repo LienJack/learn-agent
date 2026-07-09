@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant M as RocketMQ
+    participant C1 as Consumer-1
+    participant P as PostgreSQL
+    participant C2 as Consumer-2
+
+    M->>C1: 投递 message_id=M1
+    C1->>P: BEGIN
+    C1->>P: Inbox + 库存 + 订单 + 流水
+    C1->>P: COMMIT
+    P-->>C1: 成功
+
+    C1--xM: ACK 前宕机
+
+    M->>C2: 重投 message_id=M1
+    C2->>P: INSERT Inbox ON CONFLICT
+    P-->>C2: affected rows=0
+    C2->>M: ACK

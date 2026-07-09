@@ -1,0 +1,16 @@
+stateDiagram-v2
+    [*] --> CREATED
+    CREATED --> PAYING
+    CREATED --> CANCEL_PENDING
+    PAYING --> CANCEL_PENDING
+
+    CREATED --> PAID
+    PAYING --> PAID
+    CANCEL_PENDING --> PAID
+
+    CANCEL_PENDING --> CANCELLED
+    PAID --> REFUNDING
+    REFUNDING --> REFUNDED
+
+    CANCELLED --> [*]
+    PAID --> [*]

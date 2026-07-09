@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant Client as 客户端
+    participant Gateway as API Gateway
+    participant API as Go秒杀接入服务
+    participant Redis as Redis Cluster
+    participant MQ as RocketMQ
+    participant Consumer as 订单消费者
+    participant PG as PostgreSQL
+    participant Query as 查询服务
+
+    Client->>Gateway: POST /seckill<br/>request_id
+    Gateway->>API: 已鉴权请求
+    API->>Redis: Lua预占库存
+    Redis-->>API: RESERVED + reservation_id
+
+    API->>MQ: 发送OrderCreate<br/>message_id
+    MQ-->>API: Broker ACK
+    API-->>Client: QUEUING
+
+    MQ->>Consumer: 投递消息
+    Consumer->>PG: 本地事务<br/>Inbox + 最终库存 + Order + Outbox
+    PG-->>Consumer: COMMIT成功
+    Consumer-->>MQ: ACK
+    Consumer->>Redis: 更新reservation查询结果
+
+    Client->>Query: GET /seckill/result?request_id=...
+    Query->>Redis: 查询短期结果
+    Redis-->>Query: ORDER_CREATED
+    Query-->>Client: order_id
