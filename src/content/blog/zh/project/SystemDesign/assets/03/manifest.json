@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/03.从用户旅程看系统边界.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/03",
-  "updatedAt": "2026-06-07T05:09:34.576Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/03/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/03/mermaid-01.png",
-      "markdownRef": "./assets/03/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/03/mermaid-01.webp",
+      "markdownRef": "./assets/03/mermaid-01.webp",
       "alt": "从用户旅程看系统边界：先画链路，再画组件 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 30988,
-      "sha256": "48b5cfcb32db5062e44a526cdc0b73ec0dcdf26544db259524589643cd5ae25e",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:34.576Z",
+      "bytes": 35868,
+      "sha256": "e9cc9949f0c6b065c7e65661f17a933dc4d1e3747c75aa0de4e8337dd94decc7",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 30988,
-        "afterBytes": 30988,
+        "afterBytes": 35868,
         "savedBytes": 0
-      }
+      },
+      "renderScale": 3,
+      "width": 2352,
+      "height": 966,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 30988
     }
   ],
   "warnings": [],

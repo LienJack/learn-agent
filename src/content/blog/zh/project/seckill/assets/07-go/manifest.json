@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/seckill/07.Go高并发服务工程实践.md",
+  "workspace": "src/content/blog/zh/project/seckill/assets/07-go",
+  "updatedAt": "2026-07-09T04:20:29.919Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/07-go/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/07-go/mermaid-01.webp",
+      "markdownRef": "./assets/07-go/mermaid-01.webp",
+      "alt": "高并发秒杀订单系统：Go 高并发服务工程实践 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 35172,
+      "sha256": "efd91e9b1116109142f4f255c9ba15402de7551f563d3a8fb8ff52568ba3d5b5",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:20:29.919Z",
+      "compression": {
+        "beforeBytes": 22384,
+        "afterBytes": 35172,
+        "savedBytes": 0
+      },
+      "renderScale": 3,
+      "width": 2352,
+      "height": 432,
+      "rerenderedAt": "2026-07-09T04:20:29.919Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 22384
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/07-go/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/07-go/mermaid-02.webp",
+      "markdownRef": "./assets/07-go/mermaid-02.webp",
+      "alt": "高并发秒杀订单系统：Go 高并发服务工程实践 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 61844,
+      "sha256": "bcb0dec9112367a03b0520fefd390a4a1adc62ef098beb3c843aee922c4dc986",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:20:29.919Z",
+      "compression": {
+        "beforeBytes": 38796,
+        "afterBytes": 61844,
+        "savedBytes": 0
+      },
+      "renderScale": 3,
+      "width": 2352,
+      "height": 1782,
+      "rerenderedAt": "2026-07-09T04:20:29.919Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 38796
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/07-go/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/07-go/mermaid-03.webp",
+      "markdownRef": "./assets/07-go/mermaid-03.webp",
+      "alt": "高并发秒杀订单系统：Go 高并发服务工程实践 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 68944,
+      "sha256": "21c6f8ae8ee68899db725a9f16f6ac1026e762aab9df8bd8b47f5d8de4b7f006",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:20:29.919Z",
+      "compression": {
+        "beforeBytes": 45674,
+        "afterBytes": 68944,
+        "savedBytes": 0
+      },
+      "renderScale": 3,
+      "width": 1353,
+      "height": 1992,
+      "rerenderedAt": "2026-07-09T04:20:29.919Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 45674
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

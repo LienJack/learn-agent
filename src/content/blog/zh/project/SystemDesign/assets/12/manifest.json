@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/12.异步通信、消息队列与事件驱动.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/12",
-  "updatedAt": "2026-06-07T05:09:50.694Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/12/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/12/mermaid-01.png",
-      "markdownRef": "./assets/12/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/12/mermaid-01.webp",
+      "markdownRef": "./assets/12/mermaid-01.webp",
       "alt": "异步通信、消息队列与事件驱动：把失败变成可治理的最终一致性 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 29494,
-      "sha256": "8ad24f8c4e11f17b774fdad02b90727ffc4b96b2f3bbd57911ddcef6e91d5ed1",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:50.693Z",
+      "bytes": 27520,
+      "sha256": "c76a442735c984b45fa290e1f5a6905a951ea03964d8e17a3417fbb54951c964",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 29494,
-        "afterBytes": 29494,
-        "savedBytes": 0
-      }
+        "afterBytes": 27520,
+        "savedBytes": 1974
+      },
+      "renderScale": 3,
+      "width": 1383,
+      "height": 2082,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 29494
     }
   ],
   "warnings": [],

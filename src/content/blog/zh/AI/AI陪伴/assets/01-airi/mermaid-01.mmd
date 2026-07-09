@@ -1,0 +1,18 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif","fontSize":"22px","primaryColor":"#EFF6FF","primaryTextColor":"#0F172A","primaryBorderColor":"#2563EB","lineColor":"#334155","edgeLabelBackground":"#FFFFFF","tertiaryColor":"#F8FAFC"}}}%%
+flowchart TD
+    A["外部世界<br/>用户、语音、视觉、游戏、插件、提醒"] --> B["事件入口层<br/>统一事件协议、来源、目标、优先级"]
+    B --> C["上下文层<br/>按来源分桶、替换、追加、过期、快照"]
+    C --> D["主动性层<br/>判断是否现在回应、延后或丢弃"]
+    D --> E["对话编排层<br/>会话、上下文、记忆、工具、流式生成"]
+    E --> F["人格策略层<br/>角色卡、语气、情绪、边界、能力白名单"]
+    F --> G["输出舞台层<br/>文本、TTS、字幕、表情、动作、Avatar"]
+    G --> H["用户感知到的陪伴行为<br/>能听、能看、能停顿、能被打断"]
+
+    classDef input fill:#ECFEFF,stroke:#0891B2,color:#0F172A;
+    classDef state fill:#EEF2FF,stroke:#4F46E5,color:#0F172A;
+    classDef policy fill:#FFF7ED,stroke:#EA580C,color:#0F172A;
+    classDef output fill:#F0FDF4,stroke:#16A34A,color:#0F172A;
+    class A,B input;
+    class C,D,E state;
+    class F policy;
+    class G,H output;

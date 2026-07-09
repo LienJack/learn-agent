@@ -1,0 +1,28 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif","fontSize":"22px","primaryColor":"#EFF6FF","primaryTextColor":"#0F172A","primaryBorderColor":"#2563EB","lineColor":"#334155","edgeLabelBackground":"#FFFFFF","tertiaryColor":"#F8FAFC"}}}%%
+flowchart TD
+    A["用户输入或打断<br/>文字、语音、热键"] --> B{"规则优先级<br/>lane / score / TTL"}
+    B -->|P0/P1| C["input:interrupt<br/>控制快车道"]
+    B -->|P2| D["input:user<br/>新一轮回答"]
+    B -->|P4/P5| E["context:update<br/>状态更新"]
+    C --> F["事件总线立即广播<br/>不等待 LLM"]
+    F --> G["输出层立刻停止<br/>TTS、字幕、动作、Avatar"]
+    F --> H["对话编排取消旧轮<br/>mark generation canceled"]
+    D --> I["创建新 generation<br/>读取新上下文快照"]
+    E --> J["上下文层合并<br/>replace / append / drop"]
+    H --> I
+    I --> K["LLM 流式生成<br/>语义响应可以慢一点"]
+    K --> L["输出舞台<br/>文本、TTS、字幕、Avatar"]
+    G --> M["感知反馈<br/>切到 listening / idle"]
+    L --> N["用户感知<br/>先停旧话，再听新问题"]
+    M --> N
+
+    classDef input fill:#ECFEFF,stroke:#0891B2,color:#0F172A;
+    classDef fast fill:#FEE2E2,stroke:#DC2626,color:#0F172A;
+    classDef bus fill:#EEF2FF,stroke:#4F46E5,color:#0F172A;
+    classDef runtime fill:#FFF7ED,stroke:#EA580C,color:#0F172A;
+    classDef output fill:#F0FDF4,stroke:#16A34A,color:#0F172A;
+    class A,B,D,E input;
+    class C,G,H fast;
+    class F bus;
+    class I,J,K runtime;
+    class L,M,N output;

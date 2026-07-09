@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/11.同步通信与可靠调用.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/11",
-  "updatedAt": "2026-06-07T05:09:48.699Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/11/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/11/mermaid-01.png",
-      "markdownRef": "./assets/11/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/11/mermaid-01.webp",
+      "markdownRef": "./assets/11/mermaid-01.webp",
       "alt": "同步通信与可靠调用：超时、重试、熔断和降级如何一起工作 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 34950,
-      "sha256": "d2889d6a27e45c412e4e7d31971f9c49585fa7e86e3088f8a794a66d8b4e609d",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:48.698Z",
+      "bytes": 32622,
+      "sha256": "641f9fc562af91f33a00e7915b30414ab14c85eb6dbbd5a8162830ebe5885c24",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 34950,
-        "afterBytes": 34950,
-        "savedBytes": 0
-      }
+        "afterBytes": 32622,
+        "savedBytes": 2328
+      },
+      "renderScale": 3,
+      "width": 1395,
+      "height": 2394,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 34950
     }
   ],
   "warnings": [],

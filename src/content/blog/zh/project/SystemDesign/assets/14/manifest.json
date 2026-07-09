@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/14.缓存、索引与读路径优化.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/14",
-  "updatedAt": "2026-06-07T05:09:54.052Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/14/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/14/mermaid-01.png",
-      "markdownRef": "./assets/14/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/14/mermaid-01.webp",
+      "markdownRef": "./assets/14/mermaid-01.webp",
       "alt": "缓存、索引与读路径优化：性能优化首先是读路径设计 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 37716,
-      "sha256": "f32561afdb4ba245ec7cb7e3d296e41a427ced9f747069143543015e0590f3e5",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:54.051Z",
+      "bytes": 37956,
+      "sha256": "4430017128773f3c4f0a4f8858120f3fbf39734b009d75ae843fb2f37eb32308",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 37716,
-        "afterBytes": 37716,
+        "afterBytes": 37956,
         "savedBytes": 0
-      }
+      },
+      "renderScale": 3,
+      "width": 1446,
+      "height": 2154,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 37716
     }
   ],
   "warnings": [],

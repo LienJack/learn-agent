@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/04.从单体到模块化单体.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/04",
-  "updatedAt": "2026-06-07T05:09:36.798Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/04/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/04/mermaid-01.png",
-      "markdownRef": "./assets/04/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/04/mermaid-01.webp",
+      "markdownRef": "./assets/04/mermaid-01.webp",
       "alt": "从单体到模块化单体：边界清晰比服务拆分更重要 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 32114,
-      "sha256": "a9048aae9eeae4e7a6d81cb78ce4b8f0c8cf7b8575444a21a35033eb8e47bb46",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:36.797Z",
+      "bytes": 34018,
+      "sha256": "703c27267bd8e5c371c1ca0807741b3325387d1f0880cb2d813a1aa4bc55b870",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 32114,
-        "afterBytes": 32114,
+        "afterBytes": 34018,
         "savedBytes": 0
-      }
+      },
+      "renderScale": 3,
+      "width": 1986,
+      "height": 1458,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 32114
     }
   ],
   "warnings": [],

@@ -1,0 +1,14 @@
+{
+  "dryRun": false,
+  "stage": "compress",
+  "articles": [
+    {
+      "article": "tmp/images-tests/cli/compress.md",
+      "workspace": "tmp/images-tests/cli/assets/compress",
+      "manifest": "tmp/images-tests/cli/assets/compress/manifest.json",
+      "assets": [],
+      "blockers": [],
+      "warnings": []
+    }
+  ]
+}

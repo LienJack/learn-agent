@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/02.需求、约束与架构决策.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/02",
-  "updatedAt": "2026-06-07T05:09:32.926Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/02/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/02/mermaid-01.png",
-      "markdownRef": "./assets/02/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/02/mermaid-01.webp",
+      "markdownRef": "./assets/02/mermaid-01.webp",
       "alt": "需求、约束与架构决策：系统设计从问题定义开始 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 29482,
-      "sha256": "02f1974fe6d28bc13a16a4de2f2ff018555ba50f20974b21e1f79e355a2bed38",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:32.926Z",
+      "bytes": 26506,
+      "sha256": "05f00fe1a8c5c72123720d006c61358110bac1183ff0ce3644ce5733df4662f0",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 29482,
-        "afterBytes": 29482,
-        "savedBytes": 0
-      }
+        "afterBytes": 26506,
+        "savedBytes": 2976
+      },
+      "renderScale": 3,
+      "width": 828,
+      "height": 2226,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 29482
     }
   ],
   "warnings": [],

@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/05.SOA、微服务与服务边界.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/05-soa",
-  "updatedAt": "2026-06-07T05:09:38.532Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/05-soa/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/05-soa/mermaid-01.png",
-      "markdownRef": "./assets/05-soa/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/05-soa/mermaid-01.webp",
+      "markdownRef": "./assets/05-soa/mermaid-01.webp",
       "alt": "SOA、微服务与服务边界：什么时候该拆，什么时候不该拆 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 35446,
-      "sha256": "0cbfd977c58c50b67b75eecf4a46c86727ec18cacead00f01f85fe0af871d33d",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:38.532Z",
+      "bytes": 37988,
+      "sha256": "f03a1d66d337422cae39e8cad9347ccb822b18bcfc5ea66be3d43a0e96c938b2",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 35446,
-        "afterBytes": 35446,
+        "afterBytes": 37988,
         "savedBytes": 0
-      }
+      },
+      "renderScale": 3,
+      "width": 2352,
+      "height": 1521,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 35446
     }
   ],
   "warnings": [],

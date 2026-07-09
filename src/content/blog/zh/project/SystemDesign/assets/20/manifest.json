@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/20.发布系统、灰度与实验平台.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/20",
-  "updatedAt": "2026-06-07T05:10:04.510Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/20/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/20/mermaid-01.png",
-      "markdownRef": "./assets/20/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/20/mermaid-01.webp",
+      "markdownRef": "./assets/20/mermaid-01.webp",
       "alt": "发布系统、灰度与实验平台：变化如何安全进入生产 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 40520,
-      "sha256": "ef10fbb431b451a1d08fe70fb0634542c047b5c6b509dd09d730c4497152e74a",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:10:04.509Z",
+      "bytes": 39064,
+      "sha256": "e134cc32251c6b60d947b5588e89bf9e9c6bd6b140f0759a5bd5a30e11639315",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 40520,
-        "afterBytes": 40520,
-        "savedBytes": 0
-      }
+        "afterBytes": 39064,
+        "savedBytes": 1456
+      },
+      "renderScale": 3,
+      "width": 2325,
+      "height": 2082,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 40520
     }
   ],
   "warnings": [],

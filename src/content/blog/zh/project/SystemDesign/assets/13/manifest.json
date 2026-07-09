@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/13.数据建模与存储系统.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/13",
-  "updatedAt": "2026-06-07T05:09:52.335Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/13/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/13/mermaid-01.png",
-      "markdownRef": "./assets/13/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/13/mermaid-01.webp",
+      "markdownRef": "./assets/13/mermaid-01.webp",
       "alt": "数据建模与存储系统：数据模型是系统的长期骨架 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 30870,
-      "sha256": "2c6cc54f063295420b39d89c9ca5fc6ce54053186a0a690bca421142becfe815",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:52.335Z",
+      "bytes": 28126,
+      "sha256": "3463c72d873982e9eea1306817105b352aa55eac72fbd263c6f2e6694433317a",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 30870,
-        "afterBytes": 30870,
-        "savedBytes": 0
-      }
+        "afterBytes": 28126,
+        "savedBytes": 2744
+      },
+      "renderScale": 3,
+      "width": 828,
+      "height": 2298,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 30870
     }
   ],
   "warnings": [],

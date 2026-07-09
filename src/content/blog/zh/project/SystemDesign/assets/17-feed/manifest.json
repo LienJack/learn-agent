@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/17.搜索、推荐、Feed 与实时数据.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/17-feed",
-  "updatedAt": "2026-06-07T05:09:59.134Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/17-feed/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/17-feed/mermaid-01.png",
-      "markdownRef": "./assets/17-feed/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/17-feed/mermaid-01.webp",
+      "markdownRef": "./assets/17-feed/mermaid-01.webp",
       "alt": "搜索、推荐、Feed 与实时数据：派生读模型如何支撑业务反馈 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 37172,
-      "sha256": "668b25bf0e083da93650dff1940ff20cd822bedb5cf7c9a65d85190a394200ad",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:59.134Z",
+      "bytes": 39716,
+      "sha256": "f3f4a21aaf4ecc121b4558ef84483e3ff58469468205cf3a0a20d5f5128d2276",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 37172,
-        "afterBytes": 37172,
+        "afterBytes": 39716,
         "savedBytes": 0
-      }
+      },
+      "renderScale": 3,
+      "width": 2202,
+      "height": 1458,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 37172
     }
   ],
   "warnings": [],

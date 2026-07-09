@@ -1,0 +1,36 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif","fontSize":"22px","primaryColor":"#F8FAFC","primaryTextColor":"#111827","primaryBorderColor":"#475569","lineColor":"#475569","edgeLabelBackground":"#FFFFFF","tertiaryColor":"#F8FAFC"}}}%%
+flowchart TD
+    A["completed generation<br/>用户输入、AI 最终回复、工具结果"] --> B{"写入资格检查"}
+    B -->|别记 / 敏感 / interrupted| C["只保留或丢弃<br/>不进入长期事实"]
+    B -->|明确记住 / 高价值| D["保存 Episode<br/>原始证据、validAt、source"]
+    D --> E["抽取记忆候选<br/>事实、偏好、边界、目标"]
+    E --> F{"治理与置信度"}
+    F -->|低置信| G["pending<br/>等待更多证据"]
+    F -->|通过| H["Memory Resolver<br/>实体对齐、去重、冲突检测"]
+    H --> I["时间事实写入<br/>validAt / invalidAt / evidence"]
+    I --> J["Relationship State 汇总<br/>当前相处方式"]
+
+    K["新一轮用户输入"] --> L["识别本轮意图<br/>事实回忆、偏好适配、情绪支持"]
+    L --> M["分桶检索<br/>人格契约、当前事实、偏好、共同经历、证据"]
+    I --> M
+    J --> M
+    M --> N["排序与过滤<br/>相关性、时间、置信度、稳定性"]
+    N --> O["Memory Pack<br/>带标签、带不确定性、受 token 预算约束"]
+    O --> P["Prompt 注入<br/>PersonaSpec 优先，记忆按需使用"]
+    P --> Q["稳定人格下的回应"]
+    Q --> A
+    R["用户记忆面板<br/>查看、修改、删除、禁止"] --> H
+    R --> I
+
+    classDef write fill:#ECFEFF,stroke:#0891B2,color:#111827;
+    classDef gate fill:#FEF2F2,stroke:#DC2626,color:#111827;
+    classDef memory fill:#F0FDF4,stroke:#16A34A,color:#111827;
+    classDef read fill:#EEF2FF,stroke:#4F46E5,color:#111827;
+    classDef persona fill:#FDF2F8,stroke:#DB2777,color:#111827;
+    classDef governance fill:#FEFCE8,stroke:#CA8A04,color:#111827;
+    class A,D,E write;
+    class B,C,F gate;
+    class G,H,I,J memory;
+    class K,L,M,N,O read;
+    class P,Q persona;
+    class R governance;

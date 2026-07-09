@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/10.API 设计：REST、GraphQL、gRPC 与契约治理.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/10-api-rest-graphql-grpc",
-  "updatedAt": "2026-06-07T05:09:47.006Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/10-api-rest-graphql-grpc/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/10-api-rest-graphql-grpc/mermaid-01.png",
-      "markdownRef": "./assets/10-api-rest-graphql-grpc/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/10-api-rest-graphql-grpc/mermaid-01.webp",
+      "markdownRef": "./assets/10-api-rest-graphql-grpc/mermaid-01.webp",
       "alt": "API 设计：REST、GraphQL、gRPC 与契约治理 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 39414,
-      "sha256": "49285067c0d04a8ef01ad4ea7657cc4378431db2ff6a9053d4a4401327c5fffd",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:47.005Z",
+      "bytes": 38396,
+      "sha256": "48b81216ce0ef67ccf248f4f572a2d086329d9d7619a7d6692f011e26f4ddfab",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 39414,
-        "afterBytes": 39414,
-        "savedBytes": 0
-      }
+        "afterBytes": 38396,
+        "savedBytes": 1018
+      },
+      "renderScale": 3,
+      "width": 2352,
+      "height": 1806,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 39414
     }
   ],
   "warnings": [],

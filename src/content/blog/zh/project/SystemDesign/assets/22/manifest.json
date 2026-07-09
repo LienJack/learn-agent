@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/22.可观测性：从日志到因果诊断.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/22",
-  "updatedAt": "2026-06-07T05:10:08.388Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/22/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/22/mermaid-01.png",
-      "markdownRef": "./assets/22/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/22/mermaid-01.webp",
+      "markdownRef": "./assets/22/mermaid-01.webp",
       "alt": "可观测性：从日志到因果诊断 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 36890,
-      "sha256": "64238677b15a12e456be01cadf72356be7d52125c6188ea96cf737d31c3e5c1a",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:10:08.388Z",
+      "bytes": 38392,
+      "sha256": "f8354ff7395c887209d3bfab2d3a4d1d7a47a3b11c999bff38865ff2707ef9b8",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 36890,
-        "afterBytes": 36890,
+        "afterBytes": 38392,
         "savedBytes": 0
-      }
+      },
+      "renderScale": 3,
+      "width": 2112,
+      "height": 1842,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 36890
     }
   ],
   "warnings": [],

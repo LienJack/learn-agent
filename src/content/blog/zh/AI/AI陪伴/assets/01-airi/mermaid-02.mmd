@@ -1,0 +1,25 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif","fontSize":"22px","primaryColor":"#FFF7ED","primaryTextColor":"#111827","primaryBorderColor":"#EA580C","lineColor":"#475569","edgeLabelBackground":"#FFFFFF","tertiaryColor":"#F8FAFC"}}}%%
+flowchart TD
+    A["触发事件<br/>用户输入、提醒、插件、游戏事件"] --> B{"是否需要现在回应"}
+    B -->|不相关或过期| C["丢弃或只更新上下文"]
+    B -->|可延后| D["进入主动性队列<br/>等待空闲或重试"]
+    B -->|需要回应| E["创建一轮 generation<br/>绑定会话和目标角色"]
+    E --> F["读取会话历史<br/>知道刚才聊了什么"]
+    F --> G["读取上下文快照<br/>知道当前世界是什么状态"]
+    G --> H["检索少量相关记忆<br/>只注入本轮有用的信息"]
+    H --> I["组装 prompt 与工具边界<br/>角色、任务、上下文、能力"]
+    I --> J["调用 LLM 流式生成<br/>文本、工具调用、动作标记"]
+    J --> K["解析输出流<br/>区分普通文本和控制指令"]
+    K --> L["推送到输出舞台<br/>文本、TTS、字幕、动作"]
+    L --> M["写回会话历史<br/>完成或取消这一轮"]
+
+    classDef event fill:#ECFEFF,stroke:#0891B2,color:#111827;
+    classDef queue fill:#FEF3C7,stroke:#D97706,color:#111827;
+    classDef runtime fill:#FFF7ED,stroke:#EA580C,color:#111827;
+    classDef llm fill:#EEF2FF,stroke:#4F46E5,color:#111827;
+    classDef output fill:#F0FDF4,stroke:#16A34A,color:#111827;
+    class A,B,C event;
+    class D queue;
+    class E,F,G,H,I runtime;
+    class J,K llm;
+    class L,M output;

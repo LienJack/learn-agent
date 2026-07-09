@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/AI/AI陪伴/02.事件总线与对话编排层设计.md",
+  "workspace": "src/content/blog/zh/AI/AI陪伴/assets/02-event-bus-orchestrator",
+  "updatedAt": "2026-07-06T05:40:00.000Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/AI陪伴/assets/02-event-bus-orchestrator/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/AI/AI陪伴/assets/02-event-bus-orchestrator/mermaid-01.webp",
+      "markdownRef": "./assets/02-event-bus-orchestrator/mermaid-01.webp",
+      "alt": "AI 陪伴系统快速响应链路",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderScale": 3,
+      "renderStatus": "generated",
+      "bytes": 142570,
+      "sha256": "cdef6e4d47bc1edb0ee27b1ea2094505b75cc49228b58545a2c7549b491002bc",
+      "compressionStatus": "lossless-webp",
+      "width": 2352,
+      "height": 4242,
+      "clarityMode": "scale-3-lossless-webp-white-background"
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/AI/AI陪伴/assets/02-event-bus-orchestrator/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/AI/AI陪伴/assets/02-event-bus-orchestrator/mermaid-02.webp",
+      "markdownRef": "./assets/02-event-bus-orchestrator/mermaid-02.webp",
+      "alt": "AI 陪伴系统对话打断链路",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderScale": 3,
+      "renderStatus": "generated",
+      "bytes": 84140,
+      "sha256": "9f6fea2f6f596b17ac86167f10dc73261338057756c0c7faf08fb01a0ae699e9",
+      "compressionStatus": "lossless-webp",
+      "width": 2352,
+      "height": 2181,
+      "clarityMode": "scale-3-lossless-webp-white-background"
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}
