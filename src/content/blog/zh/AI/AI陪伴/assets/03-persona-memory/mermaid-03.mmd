@@ -1,0 +1,29 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif","fontSize":"22px","primaryColor":"#F8FAFC","primaryTextColor":"#0F172A","primaryBorderColor":"#475569","lineColor":"#475569","edgeLabelBackground":"#FFFFFF","tertiaryColor":"#F8FAFC"}}}%%
+flowchart TD
+    U["User<br/>用户"] --> R1["Preference / Boundary<br/>偏好与边界实体"]
+    C["Companion<br/>AI 角色"] --> P["PersonaSpec<br/>人格契约版本"]
+    S["Saga<br/>连续经历 / 项目线 / 关系线"] -->|HAS_EPISODE| E1["Episode 1<br/>用户输入"]
+    S -->|HAS_EPISODE| E2["Episode 2<br/>AI 完成回复"]
+    S -->|HAS_EPISODE| E3["Episode 3<br/>用户纠正"]
+    E1 -->|NEXT_EPISODE| E2
+    E2 -->|NEXT_EPISODE| E3
+    E1 -->|MENTIONS| U
+    E1 -->|MENTIONS| R1
+    E2 -->|MENTIONS| C
+    E3 -->|MENTIONS| R1
+    U -->|PREFERS / validAt / evidence| R1
+    U -->|WORKING_ON| G["Goal / Project<br/>目标或项目"]
+    E1 -->|MENTIONS| G
+    F1["旧事实边<br/>可被 invalidAt 失效"] -. INVALIDATES .-> F2["新事实边<br/>用户修正后生效"]
+    E3 -->|SUPPORTED_BY| F2
+
+    classDef entity fill:#ECFEFF,stroke:#0891B2,color:#0F172A;
+    classDef episode fill:#EEF2FF,stroke:#4F46E5,color:#0F172A;
+    classDef saga fill:#FEFCE8,stroke:#CA8A04,color:#0F172A;
+    classDef fact fill:#F0FDF4,stroke:#16A34A,color:#0F172A;
+    classDef persona fill:#FDF2F8,stroke:#DB2777,color:#0F172A;
+    class U,R1,G entity;
+    class E1,E2,E3 episode;
+    class S saga;
+    class F1,F2 fact;
+    class C,P persona;

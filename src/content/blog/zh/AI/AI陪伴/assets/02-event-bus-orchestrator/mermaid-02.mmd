@@ -1,0 +1,28 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif","fontSize":"22px","primaryColor":"#FFF7ED","primaryTextColor":"#111827","primaryBorderColor":"#EA580C","lineColor":"#475569","edgeLabelBackground":"#FFFFFF","tertiaryColor":"#F8FAFC"}}}%%
+flowchart TD
+    A["用户说：等一下"] --> B["事件总线收到<br/>input:interrupt"]
+    B --> P["规则判定<br/>control lane / P1 / score 1000"]
+    P --> C["广播到输出层<br/>stop old intents"]
+    P --> D["广播到编排层<br/>cancel old generation"]
+    C --> E["停止 TTS<br/>清空待播句子"]
+    C --> F["清空旧字幕<br/>停止旧动作"]
+    D --> G["Abort LLM stream<br/>或忽略旧 token"]
+    D --> H["隔离旧工具结果<br/>generation 不匹配则丢弃"]
+    D --> I["阻止旧回答正常写回<br/>completed 才完整 commit"]
+    E --> J["感知反馈<br/>Avatar 切到 listening"]
+    F --> J
+    G --> K["创建新 generation<br/>承接用户新意图"]
+    H --> K
+    I --> K
+    K --> L["重新读取上下文快照<br/>组装新 prompt"]
+    L --> M["新 LLM stream<br/>输出新回答"]
+    M --> N["新输出 intent<br/>文本、TTS、字幕、动作"]
+
+    classDef trigger fill:#ECFEFF,stroke:#0891B2,color:#111827;
+    classDef fast fill:#FEE2E2,stroke:#DC2626,color:#111827;
+    classDef runtime fill:#FFF7ED,stroke:#EA580C,color:#111827;
+    classDef output fill:#F0FDF4,stroke:#16A34A,color:#111827;
+    class A,B trigger;
+    class P,C,D,E,F,G,H,I fast;
+    class K,L,M runtime;
+    class J,N output;

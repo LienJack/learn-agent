@@ -1,0 +1,34 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif","fontSize":"22px","primaryColor":"#F8FAFC","primaryTextColor":"#0F172A","primaryBorderColor":"#334155","lineColor":"#475569","edgeLabelBackground":"#FFFFFF","tertiaryColor":"#F8FAFC"}}}%%
+flowchart TD
+    A["用户输入 / 语音 / 视觉 / 工具事件"] --> B["事件总线<br/>sessionId / generationId / source"]
+    B --> C["对话编排层<br/>创建本轮 generation"]
+    C --> D["上下文快照<br/>当前场景、任务、输出状态"]
+    C --> E["记忆运行时<br/>按意图选择检索桶"]
+    E --> F["Temporal Fact Graph<br/>用户、角色、偏好、目标、边界"]
+    F --> G["Episode Store<br/>原始事件与证据回链"]
+    F --> H["Relationship State<br/>当前相处方式投影"]
+    E --> I["Retrieval Assembler<br/>相关性、时间、置信度、稳定性"]
+    J["Persona Kernel<br/>PersonaSpec、风格、边界、动作语言"] --> K["Prompt Assembler<br/>人格层优先，记忆层按需注入"]
+    D --> K
+    H --> J
+    I --> K
+    K --> L["LLM 生成<br/>稳定人格内的个性化回应"]
+    L --> M["输出舞台<br/>文本、TTS、字幕、表情、动作"]
+    M --> N["完成后写入 Episode<br/>completed 才进入记忆候选"]
+    N --> O["Memory Ingestor / Resolver<br/>抽取、去重、冲突、失效"]
+    O --> F
+    P["Memory Governance<br/>查看、修改、删除、禁止记忆"] --> F
+    P --> G
+
+    classDef input fill:#ECFEFF,stroke:#0891B2,color:#0F172A;
+    classDef runtime fill:#EEF2FF,stroke:#4F46E5,color:#0F172A;
+    classDef persona fill:#FDF2F8,stroke:#DB2777,color:#0F172A;
+    classDef memory fill:#F0FDF4,stroke:#16A34A,color:#0F172A;
+    classDef output fill:#FFF7ED,stroke:#EA580C,color:#0F172A;
+    classDef governance fill:#FEFCE8,stroke:#CA8A04,color:#0F172A;
+    class A,B input;
+    class C,D,E,I,K,L runtime;
+    class J,H persona;
+    class F,G,N,O memory;
+    class M output;
+    class P governance;

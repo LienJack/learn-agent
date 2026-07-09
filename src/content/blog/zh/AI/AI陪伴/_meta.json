@@ -1,0 +1,6 @@
+{
+  "alias": "AI 陪伴",
+  "description": "从架构设计视角理解 AI 陪伴系统的事件入口、上下文、人格、对话编排和多模态输出。",
+  "cover": "/blog-covers/ai-waving-robot.svg",
+  "order": 6
+}

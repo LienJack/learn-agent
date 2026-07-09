@@ -1,0 +1,22 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif","fontSize":"22px","primaryColor":"#F0FDF4","primaryTextColor":"#111827","primaryBorderColor":"#16A34A","lineColor":"#475569","edgeLabelBackground":"#FFFFFF","tertiaryColor":"#F8FAFC"}}}%%
+flowchart TD
+    A["LLM 流式输出"] --> B{"输出内容分类"}
+    B --> C["普通文本<br/>展示并切句"]
+    B --> D["情绪和动作标记<br/>只允许白名单动作"]
+    B --> E["工具或游戏意图<br/>走受控执行通道"]
+    C --> F["TTS 意图队列<br/>queue、replace、interrupt、drop"]
+    F --> G["语音合成与播放<br/>支持取消和打断"]
+    G --> H["字幕同步<br/>展示当前正在说的话"]
+    H --> I["Avatar 同步<br/>口型、表情、动作、朝向"]
+    D --> I
+    E --> J["插件或游戏执行<br/>权限、关联 ID、结果回写"]
+    J --> K["回写上下文<br/>让下一轮知道外部结果"]
+    I --> L["用户感知<br/>角色正在表达，而不只是输出 token"]
+
+    classDef llm fill:#EEF2FF,stroke:#4F46E5,color:#111827;
+    classDef speech fill:#F0FDF4,stroke:#16A34A,color:#111827;
+    classDef control fill:#FEF3C7,stroke:#D97706,color:#111827;
+    classDef external fill:#ECFEFF,stroke:#0891B2,color:#111827;
+    class A,B,C,D,E llm;
+    class F,G,H,I,L speech;
+    class J,K external;
