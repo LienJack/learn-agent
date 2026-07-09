@@ -1,0 +1,31 @@
+sequenceDiagram
+    autonumber
+    participant C as 客户端
+    participant E as CDN/WAF/排队层
+    participant G as API Gateway
+    participant RL as 限流 Redis
+    participant S as Go 秒杀接入服务
+    participant IR as 库存 Redis
+    participant MQ as RocketMQ
+
+    C->>E: 进入活动页
+    E-->>C: 静态页或排队页
+
+    C->>E: 获取短期资格票
+    E-->>C: seckill_token + path_id
+
+    C->>G: POST 秒杀请求<br/>request_id + token
+    G->>G: 本地连接/IP/路由限流
+    G->>G: 验签、版本、用户、设备校验
+    G->>RL: nonce 防重放与全局准入
+    RL-->>G: ALLOWED
+
+    G->>S: 转发已认证请求
+    S->>S: 本地用户限流、在途并发、售罄标记
+    S->>IR: 库存预占 Lua
+    IR-->>S: RESERVED + reservation_id
+
+    S->>MQ: 发送订单创建消息
+    MQ-->>S: 发送成功
+    S-->>G: QUEUED
+    G-->>C: HTTP 202 + reservation_id

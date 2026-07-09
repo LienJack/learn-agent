@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant D as 延迟取消消费者
+    participant P as PostgreSQL
+    participant PSP as 支付渠道
+    participant CB as 支付回调
+
+    D->>P: CREATED/PAYING → CANCEL_PENDING
+    P-->>D: 条件更新结果
+
+    par 支付回调
+        CB->>P: 插入payment_record
+        CB->>P: CREATED/PAYING/CANCEL_PENDING → PAID
+    and 关单流程
+        D->>PSP: 幂等关闭支付单/查询支付结果
+        PSP-->>D: PAID或CLOSED_UNPAID
+        D->>P: CANCEL_PENDING → CANCELLED
+    end
+
+    Note over P: 所有状态更新都带前置状态条件

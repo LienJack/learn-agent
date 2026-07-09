@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant C as 客户端
+    participant A as 接入服务
+    participant R as Redis
+    participant M as RocketMQ
+    participant O as 订单消费者
+    participant P as PostgreSQL
+    participant X as Outbox Relay
+
+    C->>A: request_id秒杀请求
+    A->>A: 生成reservation_id和固定message_id
+    A->>R: Lua预占并写reservation、待发送ZSET
+    R-->>A: RESERVED
+
+    A->>M: ORDER_CREATE_REQUESTED
+    M-->>A: Send ACK
+    A->>R: mq_state=PUBLISHED
+    A-->>C: QUEUED
+
+    M->>O: 投递消息
+    O->>P: BEGIN
+    O->>P: INSERT consumer_inbox
+    O->>P: 锁定/创建inventory_reservation
+    O->>P: 条件扣减最终库存
+    O->>P: INSERT orders
+    O->>P: INSERT inventory_ledger
+    O->>P: INSERT event_outbox
+    O->>P: COMMIT
+    O-->>M: Consume ACK
+
+    X->>P: 领取ORDER_CREATED Outbox
+    X->>M: 发送订单创建事件
+    M->>R: 更新Redis查询投影

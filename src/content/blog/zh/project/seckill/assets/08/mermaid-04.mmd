@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant C as 客户端
+    participant A as 接入实例A
+    participant R as Redis
+    participant S as 补发扫描器
+    participant M as RocketMQ
+
+    C->>A: 秒杀请求
+    A->>R: Lua预占+写待发送索引
+    R-->>A: 成功
+    A--xA: 发送MQ前宕机
+
+    S->>R: 查询到期reservation
+    S->>R: 获取发送租约
+    S->>M: 使用原message_id补发
+    M-->>S: ACK
+    S->>R: 标记PUBLISHED并移出待发送索引

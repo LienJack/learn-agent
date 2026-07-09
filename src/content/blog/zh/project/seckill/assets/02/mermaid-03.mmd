@@ -1,0 +1,24 @@
+sequenceDiagram
+    autonumber
+
+    participant A as Go 接入服务
+    participant R as Redis
+    participant M as RocketMQ
+    participant S as Reservation 扫描器
+    participant O as 订单消费者
+    participant P as PostgreSQL
+
+    A->>R: Lua 预占成功
+    R-->>A: PENDING_MESSAGE
+    Note over A: 进程在发送 MQ 前宕机
+
+    S->>R: 获取到期的 PENDING_MESSAGE
+    R-->>S: reservation + 固定 message_id
+
+    S->>M: 补发同一 message_id
+    M-->>S: ACK
+
+    M->>O: 投递消息
+    O->>P: Inbox + Token + Order + Outbox
+    P-->>O: COMMIT
+    O-->>M: ACK

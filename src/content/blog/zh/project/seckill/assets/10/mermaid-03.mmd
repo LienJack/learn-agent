@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant LG as 负载发生器
+    participant APP as Go 接入服务
+    participant R as Redis
+
+    loop 重复 10 次
+        LG->>APP: 相同 request_id
+        APP->>R: Lua 预占
+        alt 第一次请求
+            R-->>APP: 创建 reservation_id
+            APP-->>LG: QUEUED + reservation_id
+        else 后续重复请求
+            R-->>APP: 返回第一次的结果
+            APP-->>LG: 相同 reservation_id 和业务状态
+        end
+    end

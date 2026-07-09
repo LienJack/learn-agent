@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant APP as Go 接入服务
+    participant R as Redis
+    participant MQ as RocketMQ
+    participant SC as Reservation 扫描器
+    participant C as 订单消费者
+    participant PG as PostgreSQL
+
+    APP->>R: 预占成功
+    R-->>APP: reservation_id
+    Note over APP: 发送 MQ 前进程宕机
+    SC->>R: 扫描超时的 RESERVED reservation
+    SC->>MQ: 使用同一 message_id 补发
+    MQ->>C: 投递订单创建消息
+    C->>PG: Inbox 幂等事务
+    PG-->>C: 订单创建成功
+    C->>R: reservation → ORDER_CREATED

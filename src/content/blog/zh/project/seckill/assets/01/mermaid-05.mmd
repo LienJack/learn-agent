@@ -1,0 +1,10 @@
+stateDiagram-v2
+    [*] --> CREATED: PostgreSQL 订单事务提交
+
+    CREATED --> PAID: 支付回调 CAS 成功
+    CREATED --> CANCELING: 超时取消 CAS 成功
+
+    CANCELING --> CANCELED: 库存释放事务提交
+
+    PAID --> [*]
+    CANCELED --> [*]

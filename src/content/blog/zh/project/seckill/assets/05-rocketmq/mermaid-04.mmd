@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant M as RocketMQ
+    participant C as Go 订单消费者
+    participant P as PostgreSQL
+    participant R as Redis
+
+    M->>C: 投递 ORDER_CREATE_REQUESTED
+    C->>C: 校验 schema 与必要字段
+    C->>P: BEGIN
+
+    C->>P: INSERT consumer_inbox(message_id)
+    C->>P: 校验 reservation/order 幂等
+    C->>P: PostgreSQL 条件扣减最终库存
+    C->>P: 创建订单
+    C->>P: 写 inventory_ledger
+    C->>P: 写 inventory_reservation
+    C->>P: 写 event_outbox
+    C->>P: 更新 inbox=SUCCEEDED
+    C->>P: COMMIT
+
+    C->>M: ACK
+    C-->>R: 最佳努力更新查询状态

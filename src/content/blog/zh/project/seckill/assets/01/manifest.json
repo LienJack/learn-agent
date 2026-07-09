@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/seckill/01.业务模型、系统不变量与容量规划.md",
+  "workspace": "src/content/blog/zh/project/seckill/assets/01",
+  "updatedAt": "2026-07-09T04:42:11.355Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/01/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/01/mermaid-01.png",
+      "markdownRef": "./assets/01/mermaid-01.png",
+      "alt": "高并发秒杀订单系统：业务模型、系统不变量与容量规划 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 19405,
+      "sha256": "893d79328af11fe1960527cbe0394ecae11457c1c67e2068cd72073c86305909",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:42:10.761Z",
+      "compression": {
+        "beforeBytes": 19405,
+        "afterBytes": 19405,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/01/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/01/mermaid-02.png",
+      "markdownRef": "./assets/01/mermaid-02.png",
+      "alt": "高并发秒杀订单系统：业务模型、系统不变量与容量规划 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 35351,
+      "sha256": "656a6e2e670eea99e09f76c192540c53014fc6b696fa5f2fed8c7811bde67571",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:42:10.838Z",
+      "compression": {
+        "beforeBytes": 35351,
+        "afterBytes": 35351,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/01/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/01/mermaid-03.png",
+      "markdownRef": "./assets/01/mermaid-03.png",
+      "alt": "高并发秒杀订单系统：业务模型、系统不变量与容量规划 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 55082,
+      "sha256": "637cafd993cedc6d4fcdfcd105e4370b960442a76945db507bc504f01ba6ef38",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:42:10.933Z",
+      "compression": {
+        "beforeBytes": 55082,
+        "afterBytes": 55082,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/01/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/01/mermaid-04.png",
+      "markdownRef": "./assets/01/mermaid-04.png",
+      "alt": "高并发秒杀订单系统：业务模型、系统不变量与容量规划 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 60013,
+      "sha256": "f45a2e81552fe83f57b0fd38d1a5b92a110dd0e90d1d5c3dcacb19bb20f43940",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:42:11.035Z",
+      "compression": {
+        "beforeBytes": 60013,
+        "afterBytes": 60013,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/01/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/01/mermaid-05.png",
+      "markdownRef": "./assets/01/mermaid-05.png",
+      "alt": "高并发秒杀订单系统：业务模型、系统不变量与容量规划 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 29542,
+      "sha256": "c1e5a910b3e02ede9a1e3bb97849aa18cd1dfe318767bd60e62db14b16ab6734",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:42:11.089Z",
+      "compression": {
+        "beforeBytes": 29542,
+        "afterBytes": 29542,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-06",
+      "kind": "mermaid",
+      "block": 6,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/01/mermaid-06.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/01/mermaid-06.png",
+      "markdownRef": "./assets/01/mermaid-06.png",
+      "alt": "高并发秒杀订单系统：业务模型、系统不变量与容量规划 flow 6",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 83386,
+      "sha256": "d0e7a5f1d77db78661bc25bbd431ddaf92c8ed289be80ed09d4aa3ee8086f459",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:42:11.196Z",
+      "compression": {
+        "beforeBytes": 83386,
+        "afterBytes": 83386,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-07",
+      "kind": "mermaid",
+      "block": 7,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/01/mermaid-07.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/01/mermaid-07.png",
+      "markdownRef": "./assets/01/mermaid-07.png",
+      "alt": "高并发秒杀订单系统：业务模型、系统不变量与容量规划 flow 7",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 86219,
+      "sha256": "1761ab80c130d1c172e31e1aeb47d97ab16f4aac700651299687c9f385bd0dbd",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:42:11.347Z",
+      "compression": {
+        "beforeBytes": 86219,
+        "afterBytes": 86219,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

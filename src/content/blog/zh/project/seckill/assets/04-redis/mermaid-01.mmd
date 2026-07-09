@@ -1,0 +1,38 @@
+flowchart LR
+    C[客户端] --> G[Go 秒杀接入服务]
+    G --> K[计算版本、bucket、Hash Tag]
+    K --> L[Redis Lua 预占]
+
+    subgraph SLOT["同一 Redis Hash Slot"]
+        M[meta]
+        S[stock]
+        Q[request result shards]
+        U[user marker]
+        R[reservation]
+        P[send_pending ZSet]
+        E[reservation_expiry ZSet]
+        O[soldout marker]
+    end
+
+    L --> M
+    L --> S
+    L --> Q
+    L --> U
+    L --> R
+    L --> P
+    L --> E
+    L --> O
+
+    L -->|ACCEPTED| MQ[RocketMQ]
+    MQ --> OC[订单消费者]
+    OC --> PG[(PostgreSQL)]
+    PG --> T[Redis 条件状态迁移]
+
+    RS[补发扫描器] --> P
+    RS --> MQ
+
+    RC[对账与补偿器] --> PG
+    RC --> R
+    RC --> CP[补偿 Lua]
+    CP --> S
+    CP --> U

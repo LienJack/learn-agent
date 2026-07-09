@@ -1,0 +1,45 @@
+sequenceDiagram
+    autonumber
+
+    participant C as 客户端
+    participant G as API Gateway
+    participant A as Go 接入服务
+    participant R as Redis
+    participant M as RocketMQ
+    participant O as 订单消费者
+    participant P as PostgreSQL
+    participant Q as 查询服务
+
+    C->>G: POST /seckill(request_id)
+    G->>G: 鉴权、资格、限流、防重放
+    G->>A: 转发请求
+
+    A->>A: 生成 reservation_id、message_id
+    A->>R: Lua 原子预占
+    R-->>A: RESERVED
+
+    A->>M: 发送 OrderCreateRequested
+    M-->>A: Broker ACK
+
+    A->>R: best effort 标记 MESSAGE_SENT
+    A-->>C: HTTP 202 / QUEUED
+
+    M->>O: 投递消息
+    O->>P: BEGIN
+
+    O->>P: INSERT consumer_inbox
+    O->>P: 领取 inventory_token
+    O->>P: INSERT orders
+    O->>P: INSERT inventory_reservation
+    O->>P: INSERT inventory_ledger
+    O->>P: INSERT event_outbox
+
+    O->>P: COMMIT
+    O-->>M: ACK
+
+    O->>R: 更新 ORDER_CREATED 查询状态
+
+    C->>Q: GET /seckill/result
+    Q->>R: 查询 request_id / reservation_id
+    R-->>Q: ORDER_CREATED + order_id
+    Q-->>C: 返回订单结果

@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant M as RocketMQ
+    participant C1 as 消费者实例A
+    participant P as PostgreSQL
+    participant C2 as 消费者实例B
+
+    M->>C1: message_id=M1
+    C1->>P: Inbox+库存+订单+Outbox
+    P-->>C1: COMMIT成功
+    C1--xM: ACK前宕机
+
+    M->>C2: 重投M1
+    C2->>P: INSERT Inbox(M1) ON CONFLICT
+    P-->>C2: 已存在，读取原结果
+    C2-->>M: ACK

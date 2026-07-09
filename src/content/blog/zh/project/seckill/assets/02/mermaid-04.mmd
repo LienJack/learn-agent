@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant C as 客户端
+    participant A as 接入服务
+    participant R as Redis
+
+    C->>A: request_id=R1
+    A->>R: Reserve(R1)
+    R-->>A: reservation_id=V1, QUEUED
+    A-->>C: QUEUED
+
+    C->>A: 再次提交 request_id=R1
+    A->>R: Reserve(R1)
+    R-->>A: 已存在，返回 V1 和原结果
+    A-->>C: 同一业务结果

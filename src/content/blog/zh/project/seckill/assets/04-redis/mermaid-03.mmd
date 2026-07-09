@@ -1,0 +1,19 @@
+stateDiagram-v2
+    [*] --> RESERVED
+
+    RESERVED --> ENQUEUED: MQ 明确确认
+    RESERVED --> SEND_UNKNOWN: 发送超时/结果未知
+    RESERVED --> RELEASE_PENDING: 明确未发送且允许释放
+
+    SEND_UNKNOWN --> ENQUEUED: 使用同一 message_id 补发成功
+    SEND_UNKNOWN --> RELEASE_PENDING: 完成 MQ/DB 核查并建立围栏
+
+    ENQUEUED --> ORDER_CREATED: PostgreSQL 订单事务成功
+    ENQUEUED --> REJECTED: PostgreSQL 最终校验拒绝
+    ENQUEUED --> RELEASE_PENDING: 对账确认不存在订单且消息已失效
+
+    REJECTED --> RELEASE_PENDING
+    RELEASE_PENDING --> RELEASED: 补偿 Lua 成功
+
+    ORDER_CREATED --> [*]
+    RELEASED --> [*]

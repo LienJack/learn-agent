@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "article": "src/content/blog/zh/project/seckill/03.接入层流量治理与系统保护.md",
+  "workspace": "src/content/blog/zh/project/seckill/assets/03",
+  "updatedAt": "2026-07-09T04:45:30.045Z",
+  "assets": [
+    {
+      "id": "mermaid-01",
+      "kind": "mermaid",
+      "block": 1,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/03/mermaid-01.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/03/mermaid-01.png",
+      "markdownRef": "./assets/03/mermaid-01.png",
+      "alt": "高并发秒杀订单系统：接入层流量治理与系统保护 flow 1",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 8073,
+      "sha256": "3edc4af10f9e215ea9afbd36b07d5558abfb02fffbf85bd2c7b0161584f60350",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:45:29.573Z",
+      "compression": {
+        "beforeBytes": 8073,
+        "afterBytes": 8073,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-02",
+      "kind": "mermaid",
+      "block": 2,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/03/mermaid-02.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/03/mermaid-02.png",
+      "markdownRef": "./assets/03/mermaid-02.png",
+      "alt": "高并发秒杀订单系统：接入层流量治理与系统保护 flow 2",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 128845,
+      "sha256": "5f12533f9b6bb6aaf0fef5cd3c9136c84310260f92ff7168f9545092b36a4dea",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:45:29.787Z",
+      "compression": {
+        "beforeBytes": 128845,
+        "afterBytes": 128845,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-03",
+      "kind": "mermaid",
+      "block": 3,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/03/mermaid-03.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/03/mermaid-03.png",
+      "markdownRef": "./assets/03/mermaid-03.png",
+      "alt": "高并发秒杀订单系统：接入层流量治理与系统保护 flow 3",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 52395,
+      "sha256": "81f1062cdf48b0de29e33c219aa150e960e651746f3ecc88681a184e93b48a8f",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:45:29.881Z",
+      "compression": {
+        "beforeBytes": 52395,
+        "afterBytes": 52395,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-04",
+      "kind": "mermaid",
+      "block": 4,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/03/mermaid-04.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/03/mermaid-04.png",
+      "markdownRef": "./assets/03/mermaid-04.png",
+      "alt": "高并发秒杀订单系统：接入层流量治理与系统保护 flow 4",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 46123,
+      "sha256": "6051b59cedf17ba10cd274cf73ff747dbd1b17bec0ef0229f9dfed03f4e1c612",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:45:29.973Z",
+      "compression": {
+        "beforeBytes": 46123,
+        "afterBytes": 46123,
+        "savedBytes": 0
+      }
+    },
+    {
+      "id": "mermaid-05",
+      "kind": "mermaid",
+      "block": 5,
+      "status": "generated",
+      "sourcePath": "src/content/blog/zh/project/seckill/assets/03/mermaid-05.mmd",
+      "targetPath": "src/content/blog/zh/project/seckill/assets/03/mermaid-05.png",
+      "markdownRef": "./assets/03/mermaid-05.png",
+      "alt": "高并发秒杀订单系统：接入层流量治理与系统保护 flow 5",
+      "renderer": "@mermaid-js/mermaid-cli",
+      "renderStatus": "generated",
+      "bytes": 41988,
+      "sha256": "274c0e5291b09cbc89d0cfb827ab7341fdb0b21d04e82082a16a974206d329ef",
+      "compressionStatus": "unchanged",
+      "compressedAt": "2026-07-09T04:45:30.044Z",
+      "compression": {
+        "beforeBytes": 41988,
+        "afterBytes": 41988,
+        "savedBytes": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

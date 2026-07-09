@@ -1,0 +1,38 @@
+sequenceDiagram
+    autonumber
+    participant C as 客户端
+    participant H as HTTP Handler
+    participant R as Redis Lua
+    participant P as MQ Producer
+    participant M as RocketMQ
+    participant W as Worker
+    participant D as PostgreSQL
+
+    C->>H: POST /seckill<br/>Idempotency-Key=request_id
+    H->>H: 获取 Semaphore<br/>建立请求 Deadline
+    H->>R: Reserve(request_id, reservation_id)
+    R-->>H: RESERVED
+    H->>P: Send(message_id)
+    P->>M: ORDER_CREATE_REQUESTED
+    M-->>P: SendReceipt
+    P-->>H: 发送确认
+    H-->>C: 202 QUEUED
+
+    M-->>W: Receive Message
+    W->>D: BEGIN
+    W->>D: INSERT consumer_inbox
+    W->>D: 条件扣减 PostgreSQL 库存
+    W->>D: INSERT orders
+    W->>D: 标记 Inbox COMPLETED
+    W->>D: COMMIT
+    D-->>W: COMMIT OK
+
+    alt ACK 成功
+        W->>M: ACK
+        M-->>W: OK
+    else ACK 超时或进程宕机
+        M-->>W: 稍后重复投递
+        W->>D: INSERT Inbox ON CONFLICT
+        D-->>W: 已处理
+        W->>M: ACK
+    end

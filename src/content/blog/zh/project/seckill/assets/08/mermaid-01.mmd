@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant C as 客户端
+    participant A as Go接入服务
+    participant R as Redis
+    participant M as RocketMQ
+    participant O as 订单消费者
+    participant P as PostgreSQL
+
+    C->>A: 秒杀请求
+    A->>R: DECR库存
+    R-->>A: 成功
+    A->>M: 发送创建订单消息
+    A-->>C: 下单成功
+    M->>O: 投递消息
+    O->>P: INSERT订单
+    O-->>M: ACK
