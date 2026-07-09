@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/06.云原生、Serverless 与后微服务时代.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/06-serverless",
-  "updatedAt": "2026-06-07T05:09:40.238Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/06-serverless/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/06-serverless/mermaid-01.png",
-      "markdownRef": "./assets/06-serverless/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/06-serverless/mermaid-01.webp",
+      "markdownRef": "./assets/06-serverless/mermaid-01.webp",
       "alt": "云原生、Serverless 与后微服务时代：托管能力也是架构选择 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 40108,
-      "sha256": "e2cc14f841a12c6b8d7d9491c107a8920452406f8bed17d754765785564503fc",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:40.237Z",
+      "bytes": 38852,
+      "sha256": "885665b023ad484ecc62abfa22530f0f904af5366b6f3006c94e4e18cdc91570",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 40108,
-        "afterBytes": 40108,
-        "savedBytes": 0
-      }
+        "afterBytes": 38852,
+        "savedBytes": 1256
+      },
+      "renderScale": 3,
+      "width": 1887,
+      "height": 1914,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 40108
     }
   ],
   "warnings": [],

@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/21.平台工程与内部开发者平台.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/21",
-  "updatedAt": "2026-06-07T05:10:06.496Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/21/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/21/mermaid-01.png",
-      "markdownRef": "./assets/21/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/21/mermaid-01.webp",
+      "markdownRef": "./assets/21/mermaid-01.webp",
       "alt": "平台工程与内部开发者平台：把工程复杂度做成 Golden Path flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 35366,
-      "sha256": "349ab223173bfc819808842f5b3fab31de42f42fa5db3583289386f446dd3eea",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:10:06.495Z",
+      "bytes": 37416,
+      "sha256": "31ad65b41ac5965de4abf7f502317bfaf293dd6bad6b70bb9e304e25dc0bcbbc",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 35366,
-        "afterBytes": 35366,
+        "afterBytes": 37416,
         "savedBytes": 0
-      }
+      },
+      "renderScale": 3,
+      "width": 2352,
+      "height": 1335,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 35366
     }
   ],
   "warnings": [],

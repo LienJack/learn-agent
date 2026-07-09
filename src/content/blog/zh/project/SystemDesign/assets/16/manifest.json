@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/16.分库分表、复制与扩展.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/16",
-  "updatedAt": "2026-06-07T05:09:57.425Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/16/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/16/mermaid-01.png",
-      "markdownRef": "./assets/16/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/16/mermaid-01.webp",
+      "markdownRef": "./assets/16/mermaid-01.webp",
       "alt": "分库分表、复制与扩展：分片键是长期架构决策 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 32462,
-      "sha256": "7ba44ff8787c26ea5324581056227ff04c9a9ee13c5fa9bf2ad2af116cebae52",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:57.424Z",
+      "bytes": 28224,
+      "sha256": "ff65e8ee5960c71ad33ca9d20244c14e99c29e11713c1d7655eb6b69e1a9c5bc",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 32462,
-        "afterBytes": 32462,
-        "savedBytes": 0
-      }
+        "afterBytes": 28224,
+        "savedBytes": 4238
+      },
+      "renderScale": 3,
+      "width": 828,
+      "height": 2610,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 32462
     }
   ],
   "warnings": [],

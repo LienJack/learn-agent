@@ -2,7 +2,7 @@
   "version": 1,
   "article": "src/content/blog/zh/project/SystemDesign/09.入口层：DNS、CDN、WAF、API Gateway.md",
   "workspace": "src/content/blog/zh/project/SystemDesign/assets/09-dns-cdn-waf-api-gateway",
-  "updatedAt": "2026-06-07T05:09:45.312Z",
+  "updatedAt": "2026-07-09T04:14:13.626Z",
   "assets": [
     {
       "id": "mermaid-01",
@@ -10,20 +10,26 @@
       "block": 1,
       "status": "generated",
       "sourcePath": "src/content/blog/zh/project/SystemDesign/assets/09-dns-cdn-waf-api-gateway/mermaid-01.mmd",
-      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/09-dns-cdn-waf-api-gateway/mermaid-01.png",
-      "markdownRef": "./assets/09-dns-cdn-waf-api-gateway/mermaid-01.png",
+      "targetPath": "src/content/blog/zh/project/SystemDesign/assets/09-dns-cdn-waf-api-gateway/mermaid-01.webp",
+      "markdownRef": "./assets/09-dns-cdn-waf-api-gateway/mermaid-01.webp",
       "alt": "入口层：DNS、CDN、WAF、API Gateway 如何成为第一道系统边界 flow 1",
       "renderer": "@mermaid-js/mermaid-cli",
       "renderStatus": "generated",
-      "bytes": 30286,
-      "sha256": "ebc09b082c9de2675c86bc5c3bd926013097525139ebca23fecc40ea79d020fb",
-      "compressionStatus": "unchanged",
-      "compressedAt": "2026-06-07T05:09:45.312Z",
+      "bytes": 29110,
+      "sha256": "12a80b496d3996a80e898bfe0734c9f932950c05ac78057391e538fa8b4debec",
+      "compressionStatus": "compressed",
+      "compressedAt": "2026-07-09T04:14:13.626Z",
       "compression": {
         "beforeBytes": 30286,
-        "afterBytes": 30286,
-        "savedBytes": 0
-      }
+        "afterBytes": 29110,
+        "savedBytes": 1176
+      },
+      "renderScale": 3,
+      "width": 1479,
+      "height": 2154,
+      "rerenderedAt": "2026-07-09T04:14:13.626Z",
+      "clarityMode": "scale-3-lossless-webp",
+      "previousBytes": 30286
     }
   ],
   "warnings": [],
