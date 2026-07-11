@@ -7,6 +7,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 import rehypeArticleMedia from './src/content/blog/plugins/rehype-article-media.ts';
 
 const BUILD_LASTMOD = new Date().toISOString();
+const LEGACY_IDENTITY_PATHS = new Set(['/about', '/en/about', '/ja/about']);
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,6 +28,9 @@ export default defineConfig({
 				if (url.pathname !== '/') {
 					url.pathname = url.pathname.replace(/\/$/, '');
 					item.url = url.href;
+				}
+				if (LEGACY_IDENTITY_PATHS.has(url.pathname)) {
+					return undefined;
 				}
 				item.priority =
 					url.pathname === '/blog' ||

@@ -24,6 +24,8 @@ interface Props {
 	pageType?: SeoPageType;
 	canonicalPath?: string;
 	alternates?: AlternateLink[];
+	profileUsername?: string;
+	identityUrls?: string[];
 	structuredData?: JsonLdObject | JsonLdObject[];
 }
 
@@ -36,6 +38,8 @@ const {
 	pageType = 'website',
 	canonicalPath = Astro.url.pathname,
 	alternates,
+	profileUsername,
+	identityUrls = [],
 	structuredData,
 } = Astro.props;
 const messages = getMessages(locale);
@@ -46,7 +50,7 @@ const canonicalURL = buildCanonicalUrl(canonicalPath, Astro.site);
 const socialImageURL = resolveImageUrl(image, Astro.site);
 const socialImageAlt = imageAlt || DEFAULT_SHARE_IMAGE_ALT;
 const alternateLinks = alternates ?? buildDefaultAlternates(locale, canonicalPath, Astro.site);
-const ogType = pageType === 'article' ? 'article' : 'website';
+const ogType = pageType === 'article' ? 'article' : pageType === 'profile' ? 'profile' : 'website';
 const jsonLdBlocks = structuredData
 	? Array.isArray(structuredData)
 		? structuredData
@@ -67,6 +71,7 @@ const jsonLdBlocks = structuredData
 
 <link rel="canonical" href={canonicalURL} />
 {alternateLinks.map((item) => <link rel="alternate" hreflang={item.hreflang} href={item.href} />)}
+{identityUrls.map((href) => <link rel="me" href={href} />)}
 
 <title>{pageTitle}</title>
 <meta name="title" content={pageTitle} />
@@ -80,6 +85,9 @@ const jsonLdBlocks = structuredData
 <meta property="og:description" content={pageDescription} />
 <meta property="og:image" content={socialImageURL} />
 <meta property="og:image:alt" content={socialImageAlt} />
+{pageType === 'profile' && profileUsername && (
+	<meta property="profile:username" content={profileUsername} />
+)}
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />

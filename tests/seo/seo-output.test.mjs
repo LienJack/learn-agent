@@ -57,19 +57,26 @@ test('built home and about pages expose personal identity and social sharing met
 	assertMeta(home, /<meta name="description" content="Lien Jack 的 AI Agent/, 'home description includes Lien Jack');
 	assertMeta(home, /href="\/lien-jack">\s*Lien Jack\s*<\/a>/, 'home header links to identity page');
 	assertMeta(home, /"@id":"https:\/\/blog\.lienjack\.com\/lien-jack#lien-jack"/, 'home Person id');
-	assertMeta(about, /"@type":"Person"/, 'about Person JSON-LD');
+	assertMeta(about, /"@type":"ProfilePage"/, 'about ProfilePage JSON-LD');
 	assertMeta(about, /"@id":"https:\/\/blog\.lienjack\.com\/lien-jack#lien-jack"/, 'person id');
-	assertMeta(about, /"mainEntityOfPage":\{"@type":"WebPage","@id":"https:\/\/blog\.lienjack\.com\/about"\}/, 'about entity page');
+	assertMeta(about, /<link rel="canonical" href="https:\/\/blog\.lienjack\.com\/lien-jack">/, 'about canonical consolidation');
 	assertMeta(identity, /<link rel="canonical" href="https:\/\/blog\.lienjack\.com\/lien-jack">/, 'identity canonical');
 	assertMeta(identity, /<title>Lien Jack - Agent Builder \/ 全栈与产品工程师 · Learn- Agent<\/title>/, 'identity title');
+	assertMeta(identity, /<meta property="og:type" content="profile">/, 'identity profile og:type');
+	assertMeta(identity, /<meta property="profile:username" content="LienJack">/, 'identity profile username');
+	assertMeta(identity, /<link rel="me" href="https:\/\/github\.com\/LienJack">/, 'identity rel=me');
+	assertMeta(identity, /"@type":"ProfilePage"/, 'identity ProfilePage JSON-LD');
+	assertMeta(identity, /"mainEntity":\{"@type":"Person","@id":"https:\/\/blog\.lienjack\.com\/lien-jack#lien-jack"/, 'identity ProfilePage mainEntity');
 	assertMeta(about, /"name":"Lien Jack"/, 'person name');
 	assertMeta(about, /"alternateName":\["LienJack"\]/, 'person alias');
 	assertMeta(about, /"sameAs":\["https:\/\/github\.com\/LienJack"\]/, 'GitHub sameAs');
 	assertMeta(about, /"subjectOf":\[/, 'representative content');
-	assertMeta(enAbout, /"mainEntityOfPage":\{"@type":"WebPage","@id":"https:\/\/blog\.lienjack\.com\/en\/about"\}/, 'English about entity page');
+	assertMeta(enAbout, /<link rel="canonical" href="https:\/\/blog\.lienjack\.com\/en\/lien-jack">/, 'English about canonical consolidation');
 	assertMeta(enIdentity, /<link rel="canonical" href="https:\/\/blog\.lienjack\.com\/en\/lien-jack">/, 'English identity canonical');
-	assertMeta(jaAbout, /"mainEntityOfPage":\{"@type":"WebPage","@id":"https:\/\/blog\.lienjack\.com\/ja\/about"\}/, 'Japanese about entity page');
+	assertMeta(enIdentity, /"@type":"ProfilePage"/, 'English ProfilePage JSON-LD');
+	assertMeta(jaAbout, /<link rel="canonical" href="https:\/\/blog\.lienjack\.com\/ja\/lien-jack">/, 'Japanese about canonical consolidation');
 	assertMeta(jaIdentity, /<link rel="canonical" href="https:\/\/blog\.lienjack\.com\/ja\/lien-jack">/, 'Japanese identity canonical');
+	assertMeta(jaIdentity, /"@type":"ProfilePage"/, 'Japanese ProfilePage JSON-LD');
 	assert.doesNotMatch(combined, /undefined|\/Users|Photos Library|photoslibrary|file:\/\//i);
 });
 
@@ -98,6 +105,7 @@ test('robots, sitemap, and RSS expose canonical discovery URLs', async () => {
 	assert.match(robots, /Sitemap: https:\/\/blog\.lienjack\.com\/sitemap-index\.xml/);
 	assert.match(sitemapIndex, /https:\/\/blog\.lienjack\.com\/sitemap-0\.xml/);
 	assert.match(sitemap, /https:\/\/blog\.lienjack\.com\/lien-jack/);
+	assert.doesNotMatch(sitemap, /<loc>https:\/\/blog\.lienjack\.com\/(?:en\/|ja\/)?about<\/loc>/);
 	assert.match(sitemap, /https:\/\/blog\.lienjack\.com\/blog\/AI\/2\.Rag/);
 	assert.match(sitemap, /https:\/\/blog\.lienjack\.com\/blog\/AI\/3\.ClaudeCode/);
 	assert.match(sitemap, /https:\/\/blog\.lienjack\.com\/blog\/AI\/build-harness/);
@@ -113,6 +121,8 @@ test('llms.txt and default sharing image are published without local source path
 	assert.match(llms, /# Learn Agent/);
 	assert.match(llms, /Public name: Lien Jack/);
 	assert.match(llms, /Technical\/account alias: LienJack/);
+	assert.match(llms, /Preferred citation name: Lien Jack/);
+	assert.match(llms, /Lien Jack and LienJack refer to the same person/);
 	assert.match(llms, /Official profile: https:\/\/blog\.lienjack\.com\/lien-jack/);
 	assert.match(llms, /GitHub identity anchor: https:\/\/github\.com\/LienJack/);
 	assert.match(llms, /Claude Code source analysis/);

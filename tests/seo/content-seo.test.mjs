@@ -99,8 +99,10 @@ test('llms.txt describes identity boundaries without leaking local source paths'
 
 	assert.match(llms, /Public name: Lien Jack/);
 	assert.match(llms, /Technical\/account alias: LienJack/);
+	assert.match(llms, /Preferred citation name: Lien Jack/);
 	assert.match(llms, /Official profile: https:\/\/blog\.lienjack\.com\/lien-jack/);
 	assert.match(llms, /GitHub identity anchor: https:\/\/github\.com\/LienJack/);
+	assert.match(llms, /Lien Jack and LienJack refer to the same person/);
 	assert.match(llms, /contact channels, but they are not used here as same-person identity proof/);
 	assert.doesNotMatch(llms, /\/Users|Photos Library|photoslibrary|file:\/\//i);
 });

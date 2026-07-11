@@ -5,12 +5,13 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import VercelAnalytics from '../../components/VercelAnalytics.astro';
 import { getHtmlLang, getMessages } from '../../i18n/messages';
-import { PERSONAL_IDENTITY } from '../../seo/identity';
-import { buildPersonJsonLd } from '../../seo/metadata';
+import { getIdentityPath, PERSONAL_IDENTITY } from '../../seo/identity';
+import { buildProfilePageJsonLd } from '../../seo/metadata';
 
 const locale = 'ja';
 const messages = getMessages(locale);
-const personJsonLd = buildPersonJsonLd({ locale, path: '/ja/about' }, Astro.site);
+const identityPath = getIdentityPath(locale);
+const profilePageJsonLd = buildProfilePageJsonLd({ locale, path: identityPath }, Astro.site);
 ---
 
 <!doctype html>
@@ -22,7 +23,11 @@ const personJsonLd = buildPersonJsonLd({ locale, path: '/ja/about' }, Astro.site
 			image={PERSONAL_IDENTITY.shareImagePath}
 			imageAlt={PERSONAL_IDENTITY.shareImageAlt}
 			locale={locale}
-			structuredData={personJsonLd}
+			pageType="profile"
+			canonicalPath={identityPath}
+			profileUsername={PERSONAL_IDENTITY.alternateNames[0]}
+			identityUrls={[PERSONAL_IDENTITY.githubUrl]}
+			structuredData={profilePageJsonLd}
 		/>
 	</head>
 	<body class="locale-ja">

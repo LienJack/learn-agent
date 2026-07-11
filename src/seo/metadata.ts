@@ -7,8 +7,10 @@ import {
 } from '../i18n/config.ts';
 import {
 	getCanonicalAuthorName,
+	getIdentityDisambiguatingDescription,
 	getIdentityDescription,
 	getIdentityJobTitle,
+	getIdentityLocation,
 	getIdentityPath,
 	isPersonalIdentityAlias,
 	PERSONAL_IDENTITY,
@@ -18,7 +20,7 @@ export const SITE_URL = 'https://blog.lienjack.com';
 export const DEFAULT_SHARE_IMAGE = PERSONAL_IDENTITY.shareImagePath;
 export const DEFAULT_SHARE_IMAGE_ALT = PERSONAL_IDENTITY.shareImageAlt;
 
-export type SeoPageType = 'website' | 'article' | 'collection';
+export type SeoPageType = 'website' | 'article' | 'collection' | 'profile';
 
 export type SeoImage = ImageMetadata | string | undefined;
 
@@ -65,6 +67,8 @@ export type PersonJsonLdInput = {
 	locale: Locale;
 	path?: string;
 };
+
+export type ProfilePageJsonLdInput = PersonJsonLdInput;
 
 function getSiteUrl(site: string | URL | undefined = SITE_URL): string {
 	return site instanceof URL ? site.href : site;
@@ -212,18 +216,15 @@ export function buildPersonReferenceJsonLd(site?: string | URL): JsonLdObject {
 	};
 }
 
-export function buildPersonJsonLd(input: PersonJsonLdInput, site?: string | URL): JsonLdObject {
-	const canonicalUrl = buildCanonicalUrl(input.path ?? getIdentityPath(input.locale), site);
-
+function buildPersonDetailsJsonLd(input: PersonJsonLdInput, site?: string | URL): JsonLdObject {
 	return {
-		'@context': 'https://schema.org',
 		...buildPersonReferenceJsonLd(site),
-		image: resolveImageUrl(PERSONAL_IDENTITY.shareImagePath, site),
 		jobTitle: getIdentityJobTitle(input.locale),
 		description: getIdentityDescription(input.locale),
-		mainEntityOfPage: {
-			'@type': 'WebPage',
-			'@id': canonicalUrl,
+		disambiguatingDescription: getIdentityDisambiguatingDescription(input.locale),
+		workLocation: {
+			'@type': 'Place',
+			name: getIdentityLocation(input.locale),
 		},
 		knowsAbout: [...PERSONAL_IDENTITY.knowsAbout],
 		subjectOf: PERSONAL_IDENTITY.representativeContent.map((item) => ({
@@ -232,6 +233,43 @@ export function buildPersonJsonLd(input: PersonJsonLdInput, site?: string | URL)
 			url: buildAbsoluteUrl(item.path, site),
 			description: item.description[input.locale],
 		})),
+	};
+}
+
+export function buildPersonJsonLd(input: PersonJsonLdInput, site?: string | URL): JsonLdObject {
+	const canonicalUrl = buildCanonicalUrl(input.path ?? getIdentityPath(input.locale), site);
+
+	return {
+		'@context': 'https://schema.org',
+		...buildPersonDetailsJsonLd(input, site),
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': canonicalUrl,
+		},
+	};
+}
+
+export function buildProfilePageJsonLd(
+	input: ProfilePageJsonLdInput,
+	site?: string | URL,
+): JsonLdObject {
+	const canonicalUrl = buildCanonicalUrl(input.path ?? getIdentityPath(input.locale), site);
+	const profilePageId = `${canonicalUrl}#profile-page`;
+
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'ProfilePage',
+		'@id': profilePageId,
+		url: canonicalUrl,
+		name: PERSONAL_IDENTITY.name,
+		description: getIdentityDescription(input.locale),
+		inLanguage: LOCALE_TO_HTML_LANG[input.locale],
+		mainEntity: {
+			...buildPersonDetailsJsonLd(input, site),
+			mainEntityOfPage: {
+				'@id': profilePageId,
+			},
+		},
 	};
 }
 

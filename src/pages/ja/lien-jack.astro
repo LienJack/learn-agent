@@ -11,12 +11,12 @@ import {
 	getIdentityPath,
 	PERSONAL_IDENTITY,
 } from '../../seo/identity';
-import { buildPersonJsonLd } from '../../seo/metadata';
+import { buildProfilePageJsonLd } from '../../seo/metadata';
 
 const locale = 'ja';
 const messages = getMessages(locale);
 const identityPath = getIdentityPath(locale);
-const personJsonLd = buildPersonJsonLd({ locale, path: identityPath }, Astro.site);
+const profilePageJsonLd = buildProfilePageJsonLd({ locale, path: identityPath }, Astro.site);
 ---
 
 <!doctype html>
@@ -28,8 +28,11 @@ const personJsonLd = buildPersonJsonLd({ locale, path: identityPath }, Astro.sit
 			image={PERSONAL_IDENTITY.shareImagePath}
 			imageAlt={PERSONAL_IDENTITY.shareImageAlt}
 			locale={locale}
+			pageType="profile"
 			canonicalPath={identityPath}
-			structuredData={personJsonLd}
+			profileUsername={PERSONAL_IDENTITY.alternateNames[0]}
+			identityUrls={[PERSONAL_IDENTITY.githubUrl]}
+			structuredData={profilePageJsonLd}
 		/>
 	</head>
 	<body class="locale-ja">

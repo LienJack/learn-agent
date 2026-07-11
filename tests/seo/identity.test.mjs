@@ -2,8 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
 	getCanonicalAuthorName,
+	getIdentityDisambiguatingDescription,
 	getIdentityDescription,
 	getIdentityJobTitle,
+	getIdentityLocation,
 	getIdentityPath,
 	isPersonalIdentityAlias,
 	PERSONAL_IDENTITY,
@@ -36,6 +38,8 @@ test('localized identity facts align across dedicated Lien Jack pages', () => {
 	assert.match(getIdentityDescription('zh'), /LLM/);
 	assert.match(getIdentityDescription('en'), /AI-native/);
 	assert.match(getIdentityDescription('ja'), /Agent/);
+	assert.match(getIdentityDisambiguatingDescription('zh'), /GitHub 账号为 LienJack/);
+	assert.equal(getIdentityLocation('en'), 'Tokyo');
 	assert.ok(PERSONAL_IDENTITY.representativeContent.length >= 3);
 	assert.ok(PERSONAL_IDENTITY.knowsAbout.includes('Full-stack engineering'));
 });

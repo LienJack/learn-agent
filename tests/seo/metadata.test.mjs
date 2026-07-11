@@ -11,6 +11,7 @@ import {
 	buildLocalizedShellAlternates,
 	buildPersonId,
 	buildPersonJsonLd,
+	buildProfilePageJsonLd,
 	buildSelfAlternate,
 	resolveImageUrl,
 	serializeJsonLd,
@@ -55,12 +56,31 @@ test('builds Person JSON-LD from the centralized personal identity facts', () =>
 	assert.deepEqual(person.alternateName, ['LienJack']);
 	assert.deepEqual(person.sameAs, ['https://github.com/LienJack']);
 	assert.equal(person.url, 'https://blog.lienjack.com/lien-jack');
-	assert.equal(person.image, 'https://blog.lienjack.com/social/lien-jack-share.jpg');
+	assert.equal('image' in person, false);
 	assert.match(person.description, /Agent Builder/);
 	assert.match(person.description, /全栈/);
+	assert.match(person.disambiguatingDescription, /GitHub 账号为 LienJack/);
+	assert.equal(person.workLocation.name, '东京');
 	assert.ok(person.knowsAbout.includes('Agent Harness'));
 	assert.ok(person.subjectOf.some((item) => item.url === 'https://blog.lienjack.com/blog/AI/build-harness'));
 	assert.doesNotMatch(serializeJsonLd(person), /undefined|\/Users|Photos Library|photoslibrary/i);
+});
+
+test('builds a Google-compatible ProfilePage around the stable Lien Jack Person entity', () => {
+	const profile = buildProfilePageJsonLd({ locale: 'en', path: '/en/lien-jack' });
+
+	assert.equal(profile['@type'], 'ProfilePage');
+	assert.equal(profile['@id'], 'https://blog.lienjack.com/en/lien-jack#profile-page');
+	assert.equal(profile.url, 'https://blog.lienjack.com/en/lien-jack');
+	assert.equal(profile.inLanguage, 'en');
+	assert.equal(profile.mainEntity['@type'], 'Person');
+	assert.equal(profile.mainEntity['@id'], 'https://blog.lienjack.com/lien-jack#lien-jack');
+	assert.equal(profile.mainEntity.name, 'Lien Jack');
+	assert.deepEqual(profile.mainEntity.alternateName, ['LienJack']);
+	assert.deepEqual(profile.mainEntity.sameAs, ['https://github.com/LienJack']);
+	assert.equal(profile.mainEntity.mainEntityOfPage['@id'], profile['@id']);
+	assert.equal('image' in profile.mainEntity, false);
+	assert.doesNotMatch(serializeJsonLd(profile), /undefined|\/Users|Photos Library|photoslibrary/i);
 });
 
 test('builds self-referencing and shell alternates without mixing canonical and hreflang', () => {

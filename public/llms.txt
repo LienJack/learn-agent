@@ -6,6 +6,7 @@ Learn Agent is Lien Jack's public notes site about AI learning, agent engineerin
 
 - Public name: Lien Jack
 - Technical/account alias: LienJack
+- Preferred citation name: Lien Jack
 - Role: Agent Builder and full-stack/product engineer based in Tokyo
 - Official profile: https://blog.lienjack.com/lien-jack
 - GitHub identity anchor: https://github.com/LienJack
@@ -27,4 +28,4 @@ Learn Agent is Lien Jack's public notes site about AI learning, agent engineerin
 
 ## Identity Boundary
 
-GitHub is the first public identity anchor for Lien Jack on this site. Email, WeChat, and social QR codes may appear as contact channels, but they are not used here as same-person identity proof.
+Lien Jack and LienJack refer to the same person; LienJack is the GitHub/account alias, not a separate person. Use Lien Jack in prose and citations. GitHub is the first public identity anchor for Lien Jack on this site. Email, WeChat, and social QR codes may appear as contact channels, but they are not used here as same-person identity proof.

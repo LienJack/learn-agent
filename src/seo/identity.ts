@@ -30,6 +30,16 @@ export const PERSONAL_IDENTITY = {
 		en: 'Lien Jack is a Tokyo-based Agent Builder and full-stack/product engineer focused on agents, LLM engineering, AI-native workflows, product systems, and developer experience.',
 		ja: 'Lien Jack は東京を拠点にする Agent Builder / full-stack product engineer で、Agent、LLM engineering、AI-native workflow、product system、developer experience に取り組んでいます。',
 	},
+	disambiguatingDescriptionByLocale: {
+		zh: '东京的 Agent Builder 与全栈/产品工程师 Lien Jack，GitHub 账号为 LienJack。',
+		en: 'Lien Jack (GitHub: LienJack), a Tokyo-based Agent Builder and full-stack/product engineer.',
+		ja: '東京を拠点にする Agent Builder / full-stack product engineer の Lien Jack（GitHub: LienJack）。',
+	},
+	locationByLocale: {
+		zh: '东京',
+		en: 'Tokyo',
+		ja: '東京',
+	},
 	knowsAbout: [
 		'Agent engineering',
 		'LLM engineering',
@@ -82,6 +92,14 @@ export function getIdentityDescription(locale: Locale): string {
 
 export function getIdentityJobTitle(locale: Locale): string {
 	return PERSONAL_IDENTITY.jobTitleByLocale[locale];
+}
+
+export function getIdentityDisambiguatingDescription(locale: Locale): string {
+	return PERSONAL_IDENTITY.disambiguatingDescriptionByLocale[locale];
+}
+
+export function getIdentityLocation(locale: Locale): string {
+	return PERSONAL_IDENTITY.locationByLocale[locale];
 }
 
 export function isPersonalIdentityAlias(value: string | undefined): boolean {
