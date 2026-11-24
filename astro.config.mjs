@@ -4,6 +4,8 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 import rehypeArticleMedia from './src/content/blog/plugins/rehype-article-media.ts';
 
 const BUILD_LASTMOD = new Date().toISOString();
@@ -50,7 +52,8 @@ export default defineConfig({
 				conf: 'ini',
 			},
 		},
-		rehypePlugins: [rehypeArticleMedia],
+		remarkPlugins: [[remarkMath, { singleDollarTextMath: false }]],
+		rehypePlugins: [rehypeKatex, rehypeArticleMedia],
 	},
 	fonts: [
 		{
