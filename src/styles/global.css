@@ -3842,6 +3842,12 @@ main.page-shell-wide:has(.about-shell) {
 	display: none;
 }
 
+.article-prose .katex-display {
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding-block: 0.25em;
+}
+
 .article-back-link {
 	display: inline-flex;
 	align-items: center;

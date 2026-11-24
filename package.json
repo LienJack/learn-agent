@@ -35,8 +35,11 @@
     "@vercel/speed-insights": "^2.0.0",
     "astro": "^6.2.1",
     "framer-motion": "^12.40.0",
+    "katex": "^0.16.47",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "sharp": "^0.34.3",
     "three": "^0.184.0",
     "unist-util-visit-parents": "^6.0.2"
